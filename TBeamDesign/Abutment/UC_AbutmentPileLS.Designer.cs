@@ -42,6 +42,16 @@
             this.label110 = new System.Windows.Forms.Label();
             this.lbl_Title = new System.Windows.Forms.Label();
             this.tc_content = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.rbtn_value_worksheet = new System.Windows.Forms.RadioButton();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.rbtn_value_analysis = new System.Windows.Forms.RadioButton();
+            this.label145 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label148 = new System.Windows.Forms.Label();
+            this.label146 = new System.Windows.Forms.Label();
+            this.label147 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pnl_1 = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -285,19 +295,11 @@
             this.label121 = new System.Windows.Forms.Label();
             this.label122 = new System.Windows.Forms.Label();
             this.label123 = new System.Windows.Forms.Label();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label145 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label146 = new System.Windows.Forms.Label();
-            this.label147 = new System.Windows.Forms.Label();
-            this.label148 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.rbtn_value_worksheet = new System.Windows.Forms.RadioButton();
-            this.rbtn_value_analysis = new System.Windows.Forms.RadioButton();
             this.pnl_content.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tc_content.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.pnl_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -327,8 +329,6 @@
             this.pnl_7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.groupBox7.SuspendLayout();
-            this.tabPage8.SuspendLayout();
-            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnl_content
@@ -345,7 +345,7 @@
             this.pnl_content.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnl_content.Location = new System.Drawing.Point(0, 401);
             this.pnl_content.Name = "pnl_content";
-            this.pnl_content.Size = new System.Drawing.Size(777, 28);
+            this.pnl_content.Size = new System.Drawing.Size(843, 28);
             this.pnl_content.TabIndex = 0;
             this.pnl_content.Visible = false;
             // 
@@ -355,7 +355,7 @@
             this.lbl_7.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_7.Location = new System.Drawing.Point(0, 108);
             this.lbl_7.Name = "lbl_7";
-            this.lbl_7.Size = new System.Drawing.Size(758, 18);
+            this.lbl_7.Size = new System.Drawing.Size(824, 18);
             this.lbl_7.TabIndex = 20;
             this.lbl_7.Text = "RETURN WALL DETAILS";
             this.lbl_7.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -366,7 +366,7 @@
             this.lbl_6.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_6.Location = new System.Drawing.Point(0, 90);
             this.lbl_6.Name = "lbl_6";
-            this.lbl_6.Size = new System.Drawing.Size(758, 18);
+            this.lbl_6.Size = new System.Drawing.Size(824, 18);
             this.lbl_6.TabIndex = 18;
             this.lbl_6.Text = "MATERIAL USED  && THERE PROPERTIES :";
             this.lbl_6.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -377,7 +377,7 @@
             this.lbl_5.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_5.Location = new System.Drawing.Point(0, 72);
             this.lbl_5.Name = "lbl_5";
-            this.lbl_5.Size = new System.Drawing.Size(758, 18);
+            this.lbl_5.Size = new System.Drawing.Size(824, 18);
             this.lbl_5.TabIndex = 19;
             this.lbl_5.Text = "ABUTMENT COMPONENT :";
             this.lbl_5.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -388,7 +388,7 @@
             this.lbl_4.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_4.Location = new System.Drawing.Point(0, 54);
             this.lbl_4.Name = "lbl_4";
-            this.lbl_4.Size = new System.Drawing.Size(758, 18);
+            this.lbl_4.Size = new System.Drawing.Size(824, 18);
             this.lbl_4.TabIndex = 17;
             this.lbl_4.Text = "GIRDER CROSS SECTION";
             this.lbl_4.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -399,7 +399,7 @@
             this.lbl_3.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_3.Location = new System.Drawing.Point(0, 36);
             this.lbl_3.Name = "lbl_3";
-            this.lbl_3.Size = new System.Drawing.Size(758, 18);
+            this.lbl_3.Size = new System.Drawing.Size(824, 18);
             this.lbl_3.TabIndex = 16;
             this.lbl_3.Text = "SUPER STRUCTURE DETAILS";
             this.lbl_3.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -410,7 +410,7 @@
             this.lbl_2.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_2.Location = new System.Drawing.Point(0, 18);
             this.lbl_2.Name = "lbl_2";
-            this.lbl_2.Size = new System.Drawing.Size(758, 18);
+            this.lbl_2.Size = new System.Drawing.Size(824, 18);
             this.lbl_2.TabIndex = 15;
             this.lbl_2.Text = "STRUCTURAL DETAILS :";
             this.lbl_2.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -421,7 +421,7 @@
             this.lbl_1.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_1.Location = new System.Drawing.Point(0, 0);
             this.lbl_1.Name = "lbl_1";
-            this.lbl_1.Size = new System.Drawing.Size(758, 18);
+            this.lbl_1.Size = new System.Drawing.Size(824, 18);
             this.lbl_1.TabIndex = 14;
             this.lbl_1.Text = "LEVEL DETAILS :";
             this.lbl_1.DoubleClick += new System.EventHandler(this.lbl_1_DoubleClick);
@@ -434,13 +434,13 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 429);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(777, 52);
+            this.panel2.Size = new System.Drawing.Size(843, 52);
             this.panel2.TabIndex = 0;
             // 
             // btn_report
             // 
             this.btn_report.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_report.Location = new System.Drawing.Point(390, 5);
+            this.btn_report.Location = new System.Drawing.Point(423, 5);
             this.btn_report.Name = "btn_report";
             this.btn_report.Size = new System.Drawing.Size(139, 33);
             this.btn_report.TabIndex = 1;
@@ -451,7 +451,7 @@
             // btn_proceed
             // 
             this.btn_proceed.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_proceed.Location = new System.Drawing.Point(245, 5);
+            this.btn_proceed.Location = new System.Drawing.Point(278, 5);
             this.btn_proceed.Name = "btn_proceed";
             this.btn_proceed.Size = new System.Drawing.Size(139, 33);
             this.btn_proceed.TabIndex = 2;
@@ -466,7 +466,7 @@
             this.label110.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label110.Location = new System.Drawing.Point(0, 0);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(777, 27);
+            this.label110.Size = new System.Drawing.Size(843, 27);
             this.label110.TabIndex = 8;
             this.label110.Text = "DESIGN OF RCC ABUTMENT WITH PILE FOUNDATION IN LIMIT STATE METHOD";
             this.label110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -479,7 +479,7 @@
             this.lbl_Title.ForeColor = System.Drawing.Color.Red;
             this.lbl_Title.Location = new System.Drawing.Point(0, 27);
             this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(777, 27);
+            this.lbl_Title.Size = new System.Drawing.Size(843, 27);
             this.lbl_Title.TabIndex = 9;
             this.lbl_Title.Text = "Note : Use side scroll bar to view full data.";
             this.lbl_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -498,8 +498,112 @@
             this.tc_content.Location = new System.Drawing.Point(0, 54);
             this.tc_content.Name = "tc_content";
             this.tc_content.SelectedIndex = 0;
-            this.tc_content.Size = new System.Drawing.Size(777, 347);
+            this.tc_content.Size = new System.Drawing.Size(843, 347);
             this.tc_content.TabIndex = 10;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.groupBox8);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(835, 321);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "DESIGN DATA 1";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.rbtn_value_worksheet);
+            this.groupBox8.Controls.Add(this.textBox4);
+            this.groupBox8.Controls.Add(this.rbtn_value_analysis);
+            this.groupBox8.Controls.Add(this.label145);
+            this.groupBox8.Controls.Add(this.textBox5);
+            this.groupBox8.Controls.Add(this.label148);
+            this.groupBox8.Controls.Add(this.label146);
+            this.groupBox8.Controls.Add(this.label147);
+            this.groupBox8.Location = new System.Drawing.Point(111, 56);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(411, 126);
+            this.groupBox8.TabIndex = 8;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "LOADS FROM SUPERSTRUCTURES";
+            // 
+            // rbtn_value_worksheet
+            // 
+            this.rbtn_value_worksheet.AutoSize = true;
+            this.rbtn_value_worksheet.Location = new System.Drawing.Point(208, 30);
+            this.rbtn_value_worksheet.Name = "rbtn_value_worksheet";
+            this.rbtn_value_worksheet.Size = new System.Drawing.Size(193, 17);
+            this.rbtn_value_worksheet.TabIndex = 36;
+            this.rbtn_value_worksheet.Text = "Values taken from Worksheet";
+            this.rbtn_value_worksheet.UseVisualStyleBackColor = true;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(217, 86);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(68, 21);
+            this.textBox4.TabIndex = 6;
+            this.textBox4.Text = "80.0";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // rbtn_value_analysis
+            // 
+            this.rbtn_value_analysis.AutoSize = true;
+            this.rbtn_value_analysis.Checked = true;
+            this.rbtn_value_analysis.Location = new System.Drawing.Point(16, 30);
+            this.rbtn_value_analysis.Name = "rbtn_value_analysis";
+            this.rbtn_value_analysis.Size = new System.Drawing.Size(180, 17);
+            this.rbtn_value_analysis.TabIndex = 37;
+            this.rbtn_value_analysis.TabStop = true;
+            this.rbtn_value_analysis.Text = "Values taken from Analysis";
+            this.rbtn_value_analysis.UseVisualStyleBackColor = true;
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Location = new System.Drawing.Point(291, 89);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(27, 13);
+            this.label145.TabIndex = 2;
+            this.label145.Text = "Ton";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(217, 59);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(68, 21);
+            this.textBox5.TabIndex = 7;
+            this.textBox5.Text = "433.0";
+            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Location = new System.Drawing.Point(34, 62);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(131, 13);
+            this.label148.TabIndex = 5;
+            this.label148.Text = "Max Vertical capacity \t";
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Location = new System.Drawing.Point(291, 62);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(27, 13);
+            this.label146.TabIndex = 3;
+            this.label146.Text = "Ton";
+            // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Location = new System.Drawing.Point(34, 89);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(146, 13);
+            this.label147.TabIndex = 4;
+            this.label147.Text = "Max. Horizontal capacity";
             // 
             // tabPage1
             // 
@@ -508,9 +612,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(769, 321);
+            this.tabPage1.Size = new System.Drawing.Size(835, 321);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "LEVEL DETAILS ";
+            this.tabPage1.Text = "DESIGN DATA 2";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // pnl_1
@@ -521,7 +625,7 @@
             this.pnl_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_1.Location = new System.Drawing.Point(3, 3);
             this.pnl_1.Name = "pnl_1";
-            this.pnl_1.Size = new System.Drawing.Size(763, 315);
+            this.pnl_1.Size = new System.Drawing.Size(829, 315);
             this.pnl_1.TabIndex = 14;
             // 
             // pictureBox4
@@ -570,6 +674,7 @@
             this.groupBox1.Size = new System.Drawing.Size(659, 157);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "LEVEL DETAILS ";
             // 
             // txt_xls_inp_E11
             // 
@@ -848,9 +953,9 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(769, 321);
+            this.tabPage2.Size = new System.Drawing.Size(835, 321);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "STRUCTURAL DETAILS";
+            this.tabPage2.Text = "DESIGN DATA 3";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // pnl_2
@@ -860,7 +965,7 @@
             this.pnl_2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_2.Location = new System.Drawing.Point(3, 3);
             this.pnl_2.Name = "pnl_2";
-            this.pnl_2.Size = new System.Drawing.Size(746, 837);
+            this.pnl_2.Size = new System.Drawing.Size(812, 837);
             this.pnl_2.TabIndex = 8;
             // 
             // pictureBox5
@@ -915,6 +1020,7 @@
             this.groupBox2.Size = new System.Drawing.Size(655, 192);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "STRUCTURAL DETAILS";
             // 
             // txt_xls_inp_D138
             // 
@@ -1247,9 +1353,9 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(769, 321);
+            this.tabPage3.Size = new System.Drawing.Size(835, 321);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "SUPER STRUCTURE DETAILS";
+            this.tabPage3.Text = "DESIGN DATA 4";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // pnl_3
@@ -1260,7 +1366,7 @@
             this.pnl_3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_3.Location = new System.Drawing.Point(3, 3);
             this.pnl_3.Name = "pnl_3";
-            this.pnl_3.Size = new System.Drawing.Size(763, 315);
+            this.pnl_3.Size = new System.Drawing.Size(829, 315);
             this.pnl_3.TabIndex = 13;
             // 
             // pictureBox6
@@ -1300,6 +1406,7 @@
             this.groupBox3.Size = new System.Drawing.Size(740, 163);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SUPER STRUCTURE DETAILS";
             // 
             // txt_xls_inp_E34
             // 
@@ -1499,9 +1606,9 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(769, 321);
+            this.tabPage4.Size = new System.Drawing.Size(835, 321);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "GIRDER CROSS SECTION";
+            this.tabPage4.Text = "DESIGN DATA 5";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // pnl_4
@@ -1512,7 +1619,7 @@
             this.pnl_4.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_4.Location = new System.Drawing.Point(3, 3);
             this.pnl_4.Name = "pnl_4";
-            this.pnl_4.Size = new System.Drawing.Size(746, 1051);
+            this.pnl_4.Size = new System.Drawing.Size(812, 1051);
             this.pnl_4.TabIndex = 9;
             // 
             // pictureBox1
@@ -1910,9 +2017,9 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(769, 321);
+            this.tabPage5.Size = new System.Drawing.Size(835, 321);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "ABUTMENT COMPONENT ";
+            this.tabPage5.Text = "DESIGN DATA 6";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // pnl_5
@@ -1922,7 +2029,7 @@
             this.pnl_5.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_5.Location = new System.Drawing.Point(3, 3);
             this.pnl_5.Name = "pnl_5";
-            this.pnl_5.Size = new System.Drawing.Size(746, 739);
+            this.pnl_5.Size = new System.Drawing.Size(812, 739);
             this.pnl_5.TabIndex = 11;
             // 
             // groupBox6
@@ -1984,9 +2091,10 @@
             this.groupBox6.Controls.Add(this.label107);
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(145, 629);
+            this.groupBox6.Size = new System.Drawing.Size(164, 629);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "ABUTMENT COMPONENT";
             // 
             // textBox3
             // 
@@ -2490,7 +2598,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::BridgeAnalysisDesign.Properties.Resources.AbutmentPileDiagram;
-            this.pictureBox3.Location = new System.Drawing.Point(149, 3);
+            this.pictureBox3.Location = new System.Drawing.Point(170, 0);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(600, 639);
             this.pictureBox3.TabIndex = 4;
@@ -2503,9 +2611,9 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(769, 321);
+            this.tabPage6.Size = new System.Drawing.Size(835, 321);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "MATERIAL USED  && THERE PROPERTIES";
+            this.tabPage6.Text = "DESIGN DATA 7";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // pnl_6
@@ -2516,15 +2624,15 @@
             this.pnl_6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_6.Location = new System.Drawing.Point(3, 3);
             this.pnl_6.Name = "pnl_6";
-            this.pnl_6.Size = new System.Drawing.Size(763, 315);
+            this.pnl_6.Size = new System.Drawing.Size(829, 315);
             this.pnl_6.TabIndex = 10;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::BridgeAnalysisDesign.Properties.Resources.AbutmentPileDiagram;
-            this.pictureBox7.Location = new System.Drawing.Point(16, 130);
+            this.pictureBox7.Location = new System.Drawing.Point(19, 152);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(600, 639);
+            this.pictureBox7.Size = new System.Drawing.Size(600, 680);
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             // 
@@ -2553,13 +2661,14 @@
             this.groupBox5.Controls.Add(this.label81);
             this.groupBox5.Location = new System.Drawing.Point(16, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(672, 121);
+            this.groupBox5.Size = new System.Drawing.Size(672, 143);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "MATERIAL USED  && THERE PROPERTIES";
             // 
             // txt_xls_inp_H96
             // 
-            this.txt_xls_inp_H96.Location = new System.Drawing.Point(545, 67);
+            this.txt_xls_inp_H96.Location = new System.Drawing.Point(541, 86);
             this.txt_xls_inp_H96.Name = "txt_xls_inp_H96";
             this.txt_xls_inp_H96.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H96.TabIndex = 1;
@@ -2569,7 +2678,7 @@
             // label83
             // 
             this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(609, 70);
+            this.label83.Location = new System.Drawing.Point(605, 89);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(27, 13);
             this.label83.TabIndex = 0;
@@ -2577,7 +2686,7 @@
             // 
             // txt_xls_inp_H95
             // 
-            this.txt_xls_inp_H95.Location = new System.Drawing.Point(545, 40);
+            this.txt_xls_inp_H95.Location = new System.Drawing.Point(541, 59);
             this.txt_xls_inp_H95.Name = "txt_xls_inp_H95";
             this.txt_xls_inp_H95.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H95.TabIndex = 1;
@@ -2587,7 +2696,7 @@
             // label70
             // 
             this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(609, 43);
+            this.label70.Location = new System.Drawing.Point(605, 62);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(44, 13);
             this.label70.TabIndex = 0;
@@ -2595,7 +2704,7 @@
             // 
             // txt_xls_inp_H94
             // 
-            this.txt_xls_inp_H94.Location = new System.Drawing.Point(545, 13);
+            this.txt_xls_inp_H94.Location = new System.Drawing.Point(541, 32);
             this.txt_xls_inp_H94.Name = "txt_xls_inp_H94";
             this.txt_xls_inp_H94.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H94.TabIndex = 1;
@@ -2606,7 +2715,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(609, 16);
+            this.label71.Location = new System.Drawing.Point(605, 35);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(44, 13);
             this.label71.TabIndex = 0;
@@ -2614,7 +2723,7 @@
             // 
             // txt_xls_inp_H93
             // 
-            this.txt_xls_inp_H93.Location = new System.Drawing.Point(203, 93);
+            this.txt_xls_inp_H93.Location = new System.Drawing.Point(199, 112);
             this.txt_xls_inp_H93.Name = "txt_xls_inp_H93";
             this.txt_xls_inp_H93.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H93.TabIndex = 1;
@@ -2624,7 +2733,7 @@
             // label72
             // 
             this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(267, 96);
+            this.label72.Location = new System.Drawing.Point(263, 115);
             this.label72.Name = "label72";
             this.label72.Size = new System.Drawing.Size(27, 13);
             this.label72.TabIndex = 0;
@@ -2633,7 +2742,7 @@
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(352, 70);
+            this.label82.Location = new System.Drawing.Point(348, 89);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(45, 13);
             this.label82.TabIndex = 0;
@@ -2641,7 +2750,7 @@
             // 
             // txt_xls_inp_H92
             // 
-            this.txt_xls_inp_H92.Location = new System.Drawing.Point(203, 66);
+            this.txt_xls_inp_H92.Location = new System.Drawing.Point(199, 85);
             this.txt_xls_inp_H92.Name = "txt_xls_inp_H92";
             this.txt_xls_inp_H92.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H92.TabIndex = 1;
@@ -2652,7 +2761,7 @@
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(352, 43);
+            this.label73.Location = new System.Drawing.Point(348, 62);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(118, 13);
             this.label73.TabIndex = 0;
@@ -2661,7 +2770,7 @@
             // label74
             // 
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(267, 69);
+            this.label74.Location = new System.Drawing.Point(263, 88);
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(44, 13);
             this.label74.TabIndex = 0;
@@ -2670,7 +2779,7 @@
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(352, 16);
+            this.label75.Location = new System.Drawing.Point(348, 35);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(81, 13);
             this.label75.TabIndex = 0;
@@ -2678,7 +2787,7 @@
             // 
             // txt_xls_inp_H90
             // 
-            this.txt_xls_inp_H90.Location = new System.Drawing.Point(203, 40);
+            this.txt_xls_inp_H90.Location = new System.Drawing.Point(199, 59);
             this.txt_xls_inp_H90.Name = "txt_xls_inp_H90";
             this.txt_xls_inp_H90.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H90.TabIndex = 1;
@@ -2688,7 +2797,7 @@
             // label76
             // 
             this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(10, 96);
+            this.label76.Location = new System.Drawing.Point(6, 115);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(125, 13);
             this.label76.TabIndex = 0;
@@ -2697,7 +2806,7 @@
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(267, 43);
+            this.label77.Location = new System.Drawing.Point(263, 62);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(30, 13);
             this.label77.TabIndex = 0;
@@ -2706,7 +2815,7 @@
             // label78
             // 
             this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(10, 69);
+            this.label78.Location = new System.Drawing.Point(6, 88);
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(80, 13);
             this.label78.TabIndex = 0;
@@ -2714,7 +2823,7 @@
             // 
             // txt_xls_inp_H88
             // 
-            this.txt_xls_inp_H88.Location = new System.Drawing.Point(203, 13);
+            this.txt_xls_inp_H88.Location = new System.Drawing.Point(199, 32);
             this.txt_xls_inp_H88.Name = "txt_xls_inp_H88";
             this.txt_xls_inp_H88.Size = new System.Drawing.Size(58, 21);
             this.txt_xls_inp_H88.TabIndex = 1;
@@ -2724,7 +2833,7 @@
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(10, 43);
+            this.label79.Location = new System.Drawing.Point(6, 62);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(176, 13);
             this.label79.TabIndex = 0;
@@ -2733,7 +2842,7 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(267, 16);
+            this.label80.Location = new System.Drawing.Point(263, 35);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(30, 13);
             this.label80.TabIndex = 0;
@@ -2742,7 +2851,7 @@
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(10, 16);
+            this.label81.Location = new System.Drawing.Point(6, 35);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(144, 13);
             this.label81.TabIndex = 0;
@@ -2755,9 +2864,9 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(769, 321);
+            this.tabPage7.Size = new System.Drawing.Size(835, 321);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "RETURN WALL DETAILS";
+            this.tabPage7.Text = "DESIGN DATA 8";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // pnl_7
@@ -2768,7 +2877,7 @@
             this.pnl_7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_7.Location = new System.Drawing.Point(3, 3);
             this.pnl_7.Name = "pnl_7";
-            this.pnl_7.Size = new System.Drawing.Size(763, 315);
+            this.pnl_7.Size = new System.Drawing.Size(829, 315);
             this.pnl_7.TabIndex = 12;
             // 
             // pictureBox8
@@ -2802,11 +2911,12 @@
             this.groupBox7.Size = new System.Drawing.Size(635, 99);
             this.groupBox7.TabIndex = 6;
             this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "RETURN WALL DETAILS";
             // 
             // label119
             // 
             this.label119.AutoSize = true;
-            this.label119.Location = new System.Drawing.Point(288, 41);
+            this.label119.Location = new System.Drawing.Point(288, 48);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(18, 13);
             this.label119.TabIndex = 2;
@@ -2815,7 +2925,7 @@
             // 
             // txt_xls_inp_I142
             // 
-            this.txt_xls_inp_I142.Location = new System.Drawing.Point(528, 65);
+            this.txt_xls_inp_I142.Location = new System.Drawing.Point(528, 72);
             this.txt_xls_inp_I142.Name = "txt_xls_inp_I142";
             this.txt_xls_inp_I142.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_I142.TabIndex = 1;
@@ -2826,7 +2936,7 @@
             // label112
             // 
             this.label112.AutoSize = true;
-            this.label112.Location = new System.Drawing.Point(597, 68);
+            this.label112.Location = new System.Drawing.Point(597, 75);
             this.label112.Name = "label112";
             this.label112.Size = new System.Drawing.Size(18, 13);
             this.label112.TabIndex = 0;
@@ -2834,7 +2944,7 @@
             // 
             // txt_xls_inp_I141
             // 
-            this.txt_xls_inp_I141.Location = new System.Drawing.Point(528, 38);
+            this.txt_xls_inp_I141.Location = new System.Drawing.Point(528, 45);
             this.txt_xls_inp_I141.Name = "txt_xls_inp_I141";
             this.txt_xls_inp_I141.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_I141.TabIndex = 1;
@@ -2844,7 +2954,7 @@
             // label113
             // 
             this.label113.AutoSize = true;
-            this.label113.Location = new System.Drawing.Point(597, 41);
+            this.label113.Location = new System.Drawing.Point(597, 48);
             this.label113.Name = "label113";
             this.label113.Size = new System.Drawing.Size(18, 13);
             this.label113.TabIndex = 0;
@@ -2852,7 +2962,7 @@
             // 
             // txt_xls_inp_I140
             // 
-            this.txt_xls_inp_I140.Location = new System.Drawing.Point(219, 64);
+            this.txt_xls_inp_I140.Location = new System.Drawing.Point(528, 18);
             this.txt_xls_inp_I140.Name = "txt_xls_inp_I140";
             this.txt_xls_inp_I140.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_I140.TabIndex = 1;
@@ -2863,7 +2973,7 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(288, 67);
+            this.label116.Location = new System.Drawing.Point(597, 21);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(18, 13);
             this.label116.TabIndex = 0;
@@ -2872,7 +2982,7 @@
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.Location = new System.Drawing.Point(319, 68);
+            this.label117.Location = new System.Drawing.Point(319, 75);
             this.label117.Name = "label117";
             this.label117.Size = new System.Drawing.Size(191, 13);
             this.label117.TabIndex = 0;
@@ -2880,7 +2990,7 @@
             // 
             // txt_xls_inp_C142
             // 
-            this.txt_xls_inp_C142.Location = new System.Drawing.Point(219, 38);
+            this.txt_xls_inp_C142.Location = new System.Drawing.Point(219, 45);
             this.txt_xls_inp_C142.Name = "txt_xls_inp_C142";
             this.txt_xls_inp_C142.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_C142.TabIndex = 1;
@@ -2890,7 +3000,7 @@
             // label118
             // 
             this.label118.AutoSize = true;
-            this.label118.Location = new System.Drawing.Point(319, 41);
+            this.label118.Location = new System.Drawing.Point(319, 48);
             this.label118.Name = "label118";
             this.label118.Size = new System.Drawing.Size(189, 13);
             this.label118.TabIndex = 0;
@@ -2899,7 +3009,7 @@
             // label120
             // 
             this.label120.AutoSize = true;
-            this.label120.Location = new System.Drawing.Point(10, 67);
+            this.label120.Location = new System.Drawing.Point(319, 21);
             this.label120.Name = "label120";
             this.label120.Size = new System.Drawing.Size(161, 13);
             this.label120.TabIndex = 0;
@@ -2907,7 +3017,7 @@
             // 
             // txt_xls_inp_C141
             // 
-            this.txt_xls_inp_C141.Location = new System.Drawing.Point(219, 11);
+            this.txt_xls_inp_C141.Location = new System.Drawing.Point(219, 18);
             this.txt_xls_inp_C141.Name = "txt_xls_inp_C141";
             this.txt_xls_inp_C141.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_C141.TabIndex = 1;
@@ -2917,7 +3027,7 @@
             // label121
             // 
             this.label121.AutoSize = true;
-            this.label121.Location = new System.Drawing.Point(10, 41);
+            this.label121.Location = new System.Drawing.Point(10, 48);
             this.label121.Name = "label121";
             this.label121.Size = new System.Drawing.Size(192, 13);
             this.label121.TabIndex = 0;
@@ -2926,7 +3036,7 @@
             // label122
             // 
             this.label122.AutoSize = true;
-            this.label122.Location = new System.Drawing.Point(288, 14);
+            this.label122.Location = new System.Drawing.Point(288, 21);
             this.label122.Name = "label122";
             this.label122.Size = new System.Drawing.Size(18, 13);
             this.label122.TabIndex = 0;
@@ -2936,114 +3046,11 @@
             // label123
             // 
             this.label123.AutoSize = true;
-            this.label123.Location = new System.Drawing.Point(7, 17);
+            this.label123.Location = new System.Drawing.Point(7, 24);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(171, 13);
             this.label123.TabIndex = 0;
             this.label123.Text = "Return wall Thickness At Top";
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Controls.Add(this.groupBox8);
-            this.tabPage8.Location = new System.Drawing.Point(4, 22);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(769, 321);
-            this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "GENERAL DATA";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(207, 76);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(68, 21);
-            this.textBox4.TabIndex = 6;
-            this.textBox4.Text = "80.0";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label145
-            // 
-            this.label145.AutoSize = true;
-            this.label145.Location = new System.Drawing.Point(281, 79);
-            this.label145.Name = "label145";
-            this.label145.Size = new System.Drawing.Size(27, 13);
-            this.label145.TabIndex = 2;
-            this.label145.Text = "Ton";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(207, 49);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(68, 21);
-            this.textBox5.TabIndex = 7;
-            this.textBox5.Text = "433.0";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label146
-            // 
-            this.label146.AutoSize = true;
-            this.label146.Location = new System.Drawing.Point(281, 52);
-            this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(27, 13);
-            this.label146.TabIndex = 3;
-            this.label146.Text = "Ton";
-            // 
-            // label147
-            // 
-            this.label147.AutoSize = true;
-            this.label147.Location = new System.Drawing.Point(24, 79);
-            this.label147.Name = "label147";
-            this.label147.Size = new System.Drawing.Size(146, 13);
-            this.label147.TabIndex = 4;
-            this.label147.Text = "Max. Horizontal capacity";
-            // 
-            // label148
-            // 
-            this.label148.AutoSize = true;
-            this.label148.Location = new System.Drawing.Point(24, 52);
-            this.label148.Name = "label148";
-            this.label148.Size = new System.Drawing.Size(131, 13);
-            this.label148.TabIndex = 5;
-            this.label148.Text = "Max Vertical capacity \t";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.rbtn_value_worksheet);
-            this.groupBox8.Controls.Add(this.textBox4);
-            this.groupBox8.Controls.Add(this.rbtn_value_analysis);
-            this.groupBox8.Controls.Add(this.label145);
-            this.groupBox8.Controls.Add(this.textBox5);
-            this.groupBox8.Controls.Add(this.label148);
-            this.groupBox8.Controls.Add(this.label146);
-            this.groupBox8.Controls.Add(this.label147);
-            this.groupBox8.Location = new System.Drawing.Point(84, 39);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(393, 108);
-            this.groupBox8.TabIndex = 8;
-            this.groupBox8.TabStop = false;
-            // 
-            // rbtn_value_worksheet
-            // 
-            this.rbtn_value_worksheet.AutoSize = true;
-            this.rbtn_value_worksheet.Location = new System.Drawing.Point(198, 20);
-            this.rbtn_value_worksheet.Name = "rbtn_value_worksheet";
-            this.rbtn_value_worksheet.Size = new System.Drawing.Size(193, 17);
-            this.rbtn_value_worksheet.TabIndex = 36;
-            this.rbtn_value_worksheet.Text = "Values taken from Worksheet";
-            this.rbtn_value_worksheet.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_value_analysis
-            // 
-            this.rbtn_value_analysis.AutoSize = true;
-            this.rbtn_value_analysis.Checked = true;
-            this.rbtn_value_analysis.Location = new System.Drawing.Point(6, 20);
-            this.rbtn_value_analysis.Name = "rbtn_value_analysis";
-            this.rbtn_value_analysis.Size = new System.Drawing.Size(180, 17);
-            this.rbtn_value_analysis.TabIndex = 37;
-            this.rbtn_value_analysis.TabStop = true;
-            this.rbtn_value_analysis.Text = "Values taken from Analysis";
-            this.rbtn_value_analysis.UseVisualStyleBackColor = true;
             // 
             // UC_AbutmentPileLS
             // 
@@ -3056,10 +3063,13 @@
             this.Controls.Add(this.label110);
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_AbutmentPileLS";
-            this.Size = new System.Drawing.Size(777, 481);
+            this.Size = new System.Drawing.Size(843, 481);
             this.pnl_content.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tc_content.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.pnl_1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -3096,9 +3106,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.tabPage8.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
 
         }

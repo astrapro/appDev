@@ -137,7 +137,8 @@ namespace BridgeAnalysisDesign.Abutment
             }
             else
             {
-                Pier_Process_Design_BS();
+                Process_Design_IS();
+                //Pier_Process_Design_BS();
             }
             if (OnProcess != null) OnProcess(sender, e);
         }
@@ -251,7 +252,7 @@ namespace BridgeAnalysisDesign.Abutment
             }
 
 
-            iApp.Excel_Open_Message();
+            //iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
             Excel.Workbooks myExcelWorkbooks;

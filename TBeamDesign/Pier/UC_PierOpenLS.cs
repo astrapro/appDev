@@ -150,8 +150,6 @@ namespace BridgeAnalysisDesign.Pier
             RailingWidth_Right = RailingWidth_Left;
             CrashBarierHeight_Right = CrashBarierHeight_Left;
 
-
-
             WearingCoatThickness_Right = WearingCoatThickness_Left;
 
             GirderDepth_Right = GirderDepth_Left;
@@ -218,7 +216,7 @@ namespace BridgeAnalysisDesign.Pier
             else if (lbl == lbl_4) pnl = pnl_4;
             else if (lbl == lbl_5) pnl = pnl_5;
             else if (lbl == lbl_6) pnl = pnl_6;
-            else if (lbl == lbl_7) pnl = pnl_7;
+            //else if (lbl == lbl_7) pnl = pnl_7;
             //else if (lbl == lbl_8) pnl = pnl_8;
 
             pnl.Visible = !pnl.Visible;
@@ -240,7 +238,8 @@ namespace BridgeAnalysisDesign.Pier
             }
             else
             {
-                Pier_Process_Design_BS();
+                Pier_Process_Design_IS();
+                //Pier_Process_Design_BS();
             }
             if (OnProcess != null) OnProcess(sender, e);
         }

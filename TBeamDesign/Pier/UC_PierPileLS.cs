@@ -210,7 +210,7 @@ namespace BridgeAnalysisDesign.Pier
             else if (lbl == lbl_4) pnl = pnl_4;
             else if (lbl == lbl_5) pnl = pnl_5;
             else if (lbl == lbl_6) pnl = pnl_6;
-            else if (lbl == lbl_7) pnl = pnl_7;
+            //else if (lbl == lbl_7) pnl = pnl_7;
             //else if (lbl == lbl_8) pnl = pnl_8;
 
             pnl.Visible = !pnl.Visible;
@@ -270,7 +270,7 @@ namespace BridgeAnalysisDesign.Pier
             }
 
 
-            iApp.Excel_Open_Message();
+            //iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
             Excel.Workbooks myExcelWorkbooks;

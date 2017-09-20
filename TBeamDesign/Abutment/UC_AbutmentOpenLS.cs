@@ -126,7 +126,8 @@ namespace BridgeAnalysisDesign.Abutment
             }
             else
             {
-                Process_Design_BS();
+                Process_Design_IS();
+                //Process_Design_BS();
             }
             if (OnProcess != null) OnProcess(sender, e);
         }
@@ -144,14 +145,15 @@ namespace BridgeAnalysisDesign.Abutment
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsm");
+            //file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsm");
+            file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsb");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Open Foundation.xlsm");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Open Foundation.xlsb");
 
             if (File.Exists(file_path))
             {
@@ -164,7 +166,7 @@ namespace BridgeAnalysisDesign.Abutment
             }
 
 
-            iApp.Excel_Open_Message();
+            //iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
             Excel.Workbooks myExcelWorkbooks;

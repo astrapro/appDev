@@ -417,7 +417,7 @@
             // 
             // btn_report
             // 
-            this.btn_report.Location = new System.Drawing.Point(363, 5);
+            this.btn_report.Location = new System.Drawing.Point(390, 9);
             this.btn_report.Name = "btn_report";
             this.btn_report.Size = new System.Drawing.Size(139, 33);
             this.btn_report.TabIndex = 1;
@@ -427,7 +427,7 @@
             // 
             // btn_proceed
             // 
-            this.btn_proceed.Location = new System.Drawing.Point(218, 5);
+            this.btn_proceed.Location = new System.Drawing.Point(245, 9);
             this.btn_proceed.Name = "btn_proceed";
             this.btn_proceed.Size = new System.Drawing.Size(139, 33);
             this.btn_proceed.TabIndex = 2;
@@ -485,7 +485,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(769, 336);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "LEVEL DETAILS";
+            this.tabPage1.Text = "DESIGN DATA 1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // pnl_1
@@ -704,7 +704,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(769, 336);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "STRUCTURAL DETAILS";
+            this.tabPage2.Text = "DESIGN DATA 2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // pnl_2
@@ -985,7 +985,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(769, 336);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "SUPER STRUCTURE DETAILS";
+            this.tabPage3.Text = "DESIGN DATA 3";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // pnl_3
@@ -1296,7 +1296,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(769, 336);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "GIRDER CROSS SECTION";
+            this.tabPage4.Text = "DESIGN DATA 4";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // pnl_4
@@ -1705,7 +1705,7 @@
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage5.Size = new System.Drawing.Size(769, 336);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "MATERIAL USED  && THERE PROPERTIES ";
+            this.tabPage5.Text = "DESIGN DATA 5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // pnl_5
@@ -1756,6 +1756,7 @@
             this.groupBox5.Size = new System.Drawing.Size(603, 133);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "MATERIAL USED  && THERE PROPERTIES ";
             // 
             // txt_xls_inp_H96
             // 
@@ -1957,7 +1958,7 @@
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(769, 336);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "ABUTMENT COMPONENT";
+            this.tabPage6.Text = "DESIGN DATA 6";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // pnl_6
@@ -2032,6 +2033,7 @@
             this.groupBox6.Size = new System.Drawing.Size(161, 523);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "ABUTMENT COMPONENT";
             // 
             // txt_xls_inp_H106
             // 
@@ -2547,7 +2549,7 @@
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(769, 336);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "RETURN WALL DETAILS";
+            this.tabPage7.Text = "DESIGN DATA 7";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // pictureBox8
@@ -2581,6 +2583,7 @@
             this.groupBox7.Size = new System.Drawing.Size(660, 111);
             this.groupBox7.TabIndex = 7;
             this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "RETURN WALL DETAILS";
             // 
             // label119
             // 
