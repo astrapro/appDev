@@ -1,0 +1,1070 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4C3C4F99-7279-4351-BC2B-191894E186ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AstraFunctionOne</RootNamespace>
+    <AssemblyName>AstraFunctionOne</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>techsoft.pfx</AssemblyOriginatorKeyFile>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnalysisType\frmEIGENValues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalysisType\frmEIGENValues.Designer.cs">
+      <DependentUpon>frmEIGENValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalysisType\frmResponseSpectrum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalysisType\frmResponseSpectrum.Designer.cs">
+      <DependentUpon>frmResponseSpectrum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AnalysisType\frmTimeHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnalysisType\frmTimeHistory.Designer.cs">
+      <DependentUpon>frmTimeHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeamDesign\frmGridTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeamDesign\frmGridTable.Designer.cs">
+      <DependentUpon>frmGridTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeamDesign\frmRectangularBeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeamDesign\frmRectangularBeam.Designer.cs">
+      <DependentUpon>frmRectangularBeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeamDesign\frmSimplySupportedSingleSpanBeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeamDesign\frmSimplySupportedSingleSpanBeam.Designer.cs">
+      <DependentUpon>frmSimplySupportedSingleSpanBeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BeamDesign\frmSupportRectBeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BeamDesign\frmSupportRectBeam.Designer.cs">
+      <DependentUpon>frmSupportRectBeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Abutment\frmAbutmentWorkSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Abutment\frmAbutmentWorkSheet.Designer.cs">
+      <DependentUpon>frmAbutmentWorkSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Abutment\frmCounterfortRetainingWall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Abutment\frmCounterfortRetainingWall.Designer.cs">
+      <DependentUpon>frmCounterfortRetainingWall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmHydraulicCalculations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmHydraulicCalculations.Designer.cs">
+      <DependentUpon>frmHydraulicCalculations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmPileFoundation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmPileFoundation.Designer.cs">
+      <DependentUpon>frmPileFoundation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmPile_Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmPile_Graph.Designer.cs">
+      <DependentUpon>frmPile_Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmRccWellFoundation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmRccWellFoundation.Designer.cs">
+      <DependentUpon>frmRccWellFoundation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmWellFoundationWorkSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Foundation\frmWellFoundationWorkSheet.Designer.cs">
+      <DependentUpon>frmWellFoundationWorkSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\frmCompositWorksheetDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\frmCompositWorksheetDesign.Designer.cs">
+      <DependentUpon>frmCompositWorksheetDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\frm_PSC_DesignSequence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\frm_PSC_DesignSequence.Designer.cs">
+      <DependentUpon>frm_PSC_DesignSequence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\LongGirder\frm_RccTBeam_Bottom_Flange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\LongGirder\frm_RccTBeam_Bottom_Flange.Designer.cs">
+      <DependentUpon>frm_RccTBeam_Bottom_Flange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmPierWorkSheet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmPierWorkSheet.Designer.cs">
+      <DependentUpon>frmPierWorkSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmRccPier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmRccPier.Designer.cs">
+      <DependentUpon>frmRccPier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmUserInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmUserInput.Designer.cs">
+      <DependentUpon>frmUserInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Prestressed\frmPreStressedBridgePostTension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Prestressed\frmPreStressedBridgePostTension.Designer.cs">
+      <DependentUpon>frmPreStressedBridgePostTension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Prestressed\frmRccDeckSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Prestressed\frmRccDeckSlab.Designer.cs">
+      <DependentUpon>frmRccDeckSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\LongGirder\frmDesignLongitudinalGirder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\LongGirder\frmDesignLongitudinalGirder.Designer.cs">
+      <DependentUpon>frmDesignLongitudinalGirder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\CrossGirder\frmDesignCrossGirder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\CrossGirder\frmDesignCrossGirder.Designer.cs">
+      <DependentUpon>frmDesignCrossGirder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Abutment\frmCantileverRetainingWall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Abutment\frmCantileverRetainingWall.Designer.cs">
+      <DependentUpon>frmCantileverRetainingWall.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmDesignBridgeStoneMasonryPiers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\Piers\frmDesignBridgeStoneMasonryPiers.Designer.cs">
+      <DependentUpon>frmDesignBridgeStoneMasonryPiers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\CantileverSlab\frmDesignCantileverSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\CantileverSlab\frmDesignCantileverSlab.Designer.cs">
+      <DependentUpon>frmDesignCantileverSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\frmCompositeBridge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\frmCompositeBridge.Designer.cs">
+      <DependentUpon>frmCompositeBridge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\frmCurve.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\frmCurve.Designer.cs">
+      <DependentUpon>frmCurve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\frmDesignDeckSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\frmDesignDeckSlab.Designer.cs">
+      <DependentUpon>frmDesignDeckSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\RailBridge\frmSteel_Plate_Girder_Railway_Bridge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\RailBridge\frmSteel_Plate_Girder_Railway_Bridge.Designer.cs">
+      <DependentUpon>frmSteel_Plate_Girder_Railway_Bridge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\CreateSteelTrussData.cs" />
+    <Compile Include="BridgeDesign\SteelTruss\frmCompleteDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frmCompleteDesign.Designer.cs">
+      <DependentUpon>frmCompleteDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frmSteelTrussDeckSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frmSteelTrussDeckSlab.Designer.cs">
+      <DependentUpon>frmSteelTrussDeckSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frmStreelTrussMemberDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frmStreelTrussMemberDesign.Designer.cs">
+      <DependentUpon>frmStreelTrussMemberDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frm_Partial_CompleteDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\frm_Partial_CompleteDesign.Designer.cs">
+      <DependentUpon>frm_Partial_CompleteDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeDesign\SteelTruss\ICompleteDesign.cs" />
+    <Compile Include="BridgeDesign\SteelTruss\IWarren_1_TrussData.cs" />
+    <Compile Include="CAstraFunctionFactory.cs" />
+    <Compile Include="ColumnDesign\frmBiAxialBendingColumn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColumnDesign\frmBiAxialBendingColumn.Designer.cs">
+      <DependentUpon>frmBiAxialBendingColumn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnDesign\frmRccColumnDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColumnDesign\frmRccColumnDesign.Designer.cs">
+      <DependentUpon>frmRccColumnDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CulvertDesign\BoxCulvert\frmBoxCulvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CulvertDesign\BoxCulvert\frmBoxCulvert.Designer.cs">
+      <DependentUpon>frmBoxCulvert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CulvertDesign\PipeCulvert\frmPipeCulvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CulvertDesign\PipeCulvert\frmPipeCulvert.Designer.cs">
+      <DependentUpon>frmPipeCulvert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CulvertDesign\SlabCulvert\frmSlabCulvert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CulvertDesign\SlabCulvert\frmSlabCulvert.Designer.cs">
+      <DependentUpon>frmSlabCulvert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomCtrls\TextBoxDouble.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\TextBoxInteger.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Footing\Combined\frmCombinedFooting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Footing\Combined\frmCombinedFooting.Designer.cs">
+      <DependentUpon>frmCombinedFooting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Footing\frmInputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Footing\frmInputBox.Designer.cs">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Footing\Isolated\frmIsolatedFooting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Footing\Isolated\frmIsolatedFooting.Designer.cs">
+      <DependentUpon>frmIsolatedFooting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAreaLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAreaLoad.Designer.cs">
+      <DependentUpon>frmAreaLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDummy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDummy.Designer.cs">
+      <DependentUpon>frmDummy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMovingLoadData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovingLoadData.Designer.cs">
+      <DependentUpon>frmMovingLoadData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpen_Bridge_Design.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpen_Bridge_Design.Designer.cs">
+      <DependentUpon>frmOpen_Bridge_Design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPlateAndShell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPlateAndShell.Designer.cs">
+      <DependentUpon>frmPlateAndShell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStageAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStageAnalysis.Designer.cs">
+      <DependentUpon>frmStageAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewFile.Designer.cs">
+      <DependentUpon>frmViewFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewResult.Designer.cs">
+      <DependentUpon>frmViewResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Drawing_Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Drawing_Options.Designer.cs">
+      <DependentUpon>frm_Drawing_Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Examples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Examples.Designer.cs">
+      <DependentUpon>frm_Examples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_findcs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_findcs.Designer.cs">
+      <DependentUpon>frm_findcs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessList\frm_Process_List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcessList\frm_Process_List.Designer.cs">
+      <DependentUpon>frm_Process_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SlabDesign\frmSLAB01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlabDesign\frmSLAB01.Designer.cs">
+      <DependentUpon>frmSLAB01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlabDesign\frmOneWaySlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlabDesign\frmOneWaySlab.Designer.cs">
+      <DependentUpon>frmOneWaySlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlabDesign\frmOneWayContinuousSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlabDesign\frmOneWayContinuousSlab.Designer.cs">
+      <DependentUpon>frmOneWayContinuousSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SlabDesign\frmTwoWayRCCSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlabDesign\frmTwoWayRCCSlab.Designer.cs">
+      <DependentUpon>frmTwoWayRCCSlab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SpecialFunctions.cs" />
+    <Compile Include="frm3DBeamMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm3DBeamMembers.Designer.cs">
+      <DependentUpon>frm3DBeamMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnalysisType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnalysisType.Designer.cs">
+      <DependentUpon>frmAnalysisType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNodalData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNodalData.Designer.cs">
+      <DependentUpon>frmNodalData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNodalLoadData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNodalLoadData.Designer.cs">
+      <DependentUpon>frmNodalLoadData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelfWeight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelfWeight.Designer.cs">
+      <DependentUpon>frmSelfWeight.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupport.Designer.cs">
+      <DependentUpon>frmSupport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBasicInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBasicInfo.Designer.cs">
+      <DependentUpon>frmBasicInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnderPass\frmRccAbutment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnderPass\frmRccAbutment.Designer.cs">
+      <DependentUpon>frmRccAbutment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnderPass\frmRccBoxStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnderPass\frmRccBoxStructure.Designer.cs">
+      <DependentUpon>frmRccBoxStructure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnderPass\frmTopRCCSlab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnderPass\frmTopRCCSlab.Designer.cs">
+      <DependentUpon>frmTopRCCSlab.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AnalysisType\frmEIGENValues.resx">
+      <DependentUpon>frmEIGENValues.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisType\frmResponseSpectrum.resx">
+      <DependentUpon>frmResponseSpectrum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AnalysisType\frmTimeHistory.resx">
+      <DependentUpon>frmTimeHistory.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeamDesign\frmGridTable.resx">
+      <DependentUpon>frmGridTable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeamDesign\frmRectangularBeam.resx">
+      <DependentUpon>frmRectangularBeam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BeamDesign\frmSimplySupportedSingleSpanBeam.resx">
+      <DependentUpon>frmSimplySupportedSingleSpanBeam.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Abutment\frmAbutmentWorkSheet.resx">
+      <DependentUpon>frmAbutmentWorkSheet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Abutment\frmCounterfortRetainingWall.resx">
+      <DependentUpon>frmCounterfortRetainingWall.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Foundation\frmHydraulicCalculations.resx">
+      <DependentUpon>frmHydraulicCalculations.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Foundation\frmPileFoundation.resx">
+      <DependentUpon>frmPileFoundation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Foundation\frmPile_Graph.resx">
+      <DependentUpon>frmPile_Graph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Foundation\frmRccWellFoundation.resx">
+      <DependentUpon>frmRccWellFoundation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Foundation\frmWellFoundationWorkSheet.resx">
+      <DependentUpon>frmWellFoundationWorkSheet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\frmCompositWorksheetDesign.resx">
+      <DependentUpon>frmCompositWorksheetDesign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\frm_PSC_DesignSequence.resx">
+      <DependentUpon>frm_PSC_DesignSequence.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\LongGirder\frm_RccTBeam_Bottom_Flange.resx">
+      <DependentUpon>frm_RccTBeam_Bottom_Flange.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Piers\frmPierWorkSheet.resx">
+      <DependentUpon>frmPierWorkSheet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Piers\frmRccPier.resx">
+      <DependentUpon>frmRccPier.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Piers\frmUserInput.resx">
+      <DependentUpon>frmUserInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Prestressed\frmPreStressedBridgePostTension.resx">
+      <DependentUpon>frmPreStressedBridgePostTension.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Prestressed\frmRccDeckSlab.resx">
+      <DependentUpon>frmRccDeckSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\LongGirder\frmDesignLongitudinalGirder.resx">
+      <DependentUpon>frmDesignLongitudinalGirder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\CrossGirder\frmDesignCrossGirder.resx">
+      <DependentUpon>frmDesignCrossGirder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Abutment\frmCantileverRetainingWall.resx">
+      <DependentUpon>frmCantileverRetainingWall.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\Piers\frmDesignBridgeStoneMasonryPiers.resx">
+      <DependentUpon>frmDesignBridgeStoneMasonryPiers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\CantileverSlab\frmDesignCantileverSlab.resx">
+      <DependentUpon>frmDesignCantileverSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\frmCompositeBridge.resx">
+      <DependentUpon>frmCompositeBridge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\frmCurve.resx">
+      <DependentUpon>frmCurve.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\frmDesignDeckSlab.resx">
+      <DependentUpon>frmDesignDeckSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\RailBridge\frmSteel_Plate_Girder_Railway_Bridge.resx">
+      <DependentUpon>frmSteel_Plate_Girder_Railway_Bridge.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\SteelTruss\frmCompleteDesign.resx">
+      <DependentUpon>frmCompleteDesign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\SteelTruss\frmSteelTrussDeckSlab.resx">
+      <DependentUpon>frmSteelTrussDeckSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeDesign\SteelTruss\frmStreelTrussMemberDesign.resx">
+      <DependentUpon>frmStreelTrussMemberDesign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColumnDesign\frmBiAxialBendingColumn.resx">
+      <DependentUpon>frmBiAxialBendingColumn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColumnDesign\frmRccColumnDesign.resx">
+      <DependentUpon>frmRccColumnDesign.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CulvertDesign\BoxCulvert\frmBoxCulvert.resx">
+      <DependentUpon>frmBoxCulvert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CulvertDesign\PipeCulvert\frmPipeCulvert.resx">
+      <DependentUpon>frmPipeCulvert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CulvertDesign\SlabCulvert\frmSlabCulvert.resx">
+      <DependentUpon>frmSlabCulvert.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Footing\Combined\frmCombinedFooting.resx">
+      <DependentUpon>frmCombinedFooting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Footing\frmInputBox.resx">
+      <DependentUpon>frmInputBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Footing\Isolated\frmIsolatedFooting.resx">
+      <DependentUpon>frmIsolatedFooting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm3DBeamMembers.resx">
+      <DependentUpon>frm3DBeamMembers.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnalysisType.resx">
+      <DependentUpon>frmAnalysisType.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAreaLoad.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAreaLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDummy.resx">
+      <DependentUpon>frmDummy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovingLoadData.resx">
+      <DependentUpon>frmMovingLoadData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNodalData.resx">
+      <DependentUpon>frmNodalData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNodalLoadData.resx">
+      <DependentUpon>frmNodalLoadData.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpen_Bridge_Design.resx">
+      <DependentUpon>frmOpen_Bridge_Design.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPlateAndShell.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPlateAndShell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelfWeight.resx">
+      <DependentUpon>frmSelfWeight.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStageAnalysis.resx">
+      <DependentUpon>frmStageAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupport.resx">
+      <DependentUpon>frmSupport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBasicInfo.resx">
+      <DependentUpon>frmBasicInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewFile.resx">
+      <DependentUpon>frmViewFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewResult.resx">
+      <DependentUpon>frmViewResult.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Drawing_Options.resx">
+      <DependentUpon>frm_Drawing_Options.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Examples.resx">
+      <DependentUpon>frm_Examples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_findcs.resx">
+      <DependentUpon>frm_findcs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcessList\frm_Process_List.resx">
+      <DependentUpon>frm_Process_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlabDesign\frmSLAB01.resx">
+      <DependentUpon>frmSLAB01.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlabDesign\frmOneWaySlab.resx">
+      <DependentUpon>frmOneWaySlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlabDesign\frmOneWayContinuousSlab.resx">
+      <DependentUpon>frmOneWayContinuousSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlabDesign\frmTwoWayRCCSlab.resx">
+      <DependentUpon>frmTwoWayRCCSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnderPass\frmRccAbutment.resx">
+      <DependentUpon>frmRccAbutment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnderPass\frmRccBoxStructure.resx">
+      <DependentUpon>frmRccBoxStructure.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnderPass\frmTopRCCSlab.resx">
+      <DependentUpon>frmTopRCCSlab.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AstraInterface\AstraInterface.csproj">
+      <Project>{39488388-529F-43F1-AAA5-03E17909B872}</Project>
+      <Name>AstraInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fully_Loaded.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_1.0.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_0.4.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_0.5.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_0.6.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_0.7.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_0.8.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K_0.9.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Abutment.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cantilever Slab.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PIER.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T_Beam_Slab_Long_Cross_Girders.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Box_Culvert.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PIPE Culvert.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SLAB Culvert.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PIPE Culvert_1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PIPE Culvert_2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DCP_3935.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RCC T-Beam Bridge.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pre Stressed Bridge.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CompoBridge.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Prestressed Girder Dialog Box.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rcc_Well_Foundation.GIF" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rcc_Well_Foundation.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rail BridgeImage2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Composite Bridge Image01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prestressed bridge image01.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pile_fond_graph.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dialog Box Pile Foundation Image01.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fig_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fig_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fig_3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fig_4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fig_5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fig_6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\01 General.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\02 Top Chord U2U3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\03 Inclined Member U2L3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\04 Vertical Member U3L3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\05 Bottom Chord L2L3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\06 Stringer Beams.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\07 Cross Girders.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\08 Cross Girder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section3.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section4.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section1.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section2.BMP" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cross Girder.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stringer Beam.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Top Chord Bracing.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bottom Chord Bracing.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Steel_Truss_Bridge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section9.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section10.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section11.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section12.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warren1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Warren2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section13.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\section14.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\section15.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\T Beam Secion for Dimensions.bmp" />
+    <None Include="techsoft.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pile Layout Image.bmp" />
+    <None Include="Resources\Steel_Truss_Warre3.jpg" />
+    <None Include="Resources\Steel_Truss_K_Type_Invert.jpg" />
+    <None Include="Resources\Steel_Truss_K_Type_2.jpg" />
+    <None Include="Resources\K_truss_2.jpg" />
+    <None Include="Resources\Outdent.bmp" />
+    <None Include="Resources\NewWindow.bmp" />
+    <None Include="Resources\ml_7.jpg" />
+    <None Include="Resources\ml_6.jpg" />
+    <None Include="Resources\ml_5.jpg" />
+    <None Include="Resources\ml_4.jpg" />
+    <None Include="Resources\ml_3.jpg" />
+    <None Include="Resources\ml_2.jpg" />
+    <None Include="Resources\ml_1.jpg" />
+    <None Include="Resources\MovingLoads.jpg" />
+    <None Include="Resources\HighlightHH.bmp" />
+    <None Include="Resources\EditInformation.bmp" />
+    <None Include="Resources\HdViewerApp.ico" />
+    <None Include="Resources\OpenFolder.bmp" />
+    <None Include="Resources\FormRun.bmp" />
+    <None Include="Resources\SaveAllHS.bmp" />
+    <None Include="Resources\ClosePreviewHS.bmp" />
+    <None Include="Resources\ClosePreviewHH.bmp" />
+    <None Include="Resources\Save.bmp" />
+    <None Include="Resources\Open.bmp" />
+    <None Include="Resources\suspension_section_17.jpg" />
+    <None Include="Resources\suspension_section_16.jpg" />
+    <None Include="Resources\GoToPreviousMessage.bmp" />
+    <None Include="Resources\Revert.png" />
+    <None Include="Resources\DataContainer_MovePreviousHS1.png" />
+    <None Include="Resources\DataContainer_MovePreviousHS.png" />
+    <None Include="Resources\DataContainer_MoveNextHS.png" />
+    <None Include="Resources\PreviousPageHL.bmp" />
+    <None Include="Resources\GoToPrevious.bmp" />
+    <None Include="Resources\BOX_1.jpg" />
+    <None Include="Resources\Cable_section_15.jpg" />
+    <None Include="Resources\AlignTableCellMiddleCenter.bmp" />
+    <None Include="Resources\ActualSizeHS.bmp" />
+    <None Include="Resources\AddTableHH.bmp" />
+    <None Include="Resources\AlignTableCellMiddleLeftJust.bmp" />
+    <None Include="Resources\AppWindow.bmp" />
+    <None Include="Resources\BS_MovingLoads.jpg" />
+    <Content Include="Resources\Cable_Stayed_Bridge.jpg" />
+    <None Include="Resources\Pier_Box_drawing1.bmp" />
+    <None Include="Resources\Pier_Box_drawing.bmp" />
+    <None Include="Resources\SectionDiagram.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

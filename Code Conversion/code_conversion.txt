@@ -1,0 +1,25 @@
+
+[ Cl. 7.6.1.2 IRC 112 ]
+[ Section 5.3.2.1 BS Eurocode 2 ]
+
+[Clause 10.3.2]
+Section 6.2.2 BS Eurocode 2
+ 
+ 
+Clause 10.3.3.2
+Section 6.2.3 (3) BS Eurocode 2
+
+
+[Clause 10.3.2]
+Section 6.2.2 Eurocode 2
+  
+Clause	10.3.3.2
+Section 6.2.3 (3) BS Eurocode 2
+
+Clause 10.3.4
+Section 6.2.5 BS Eurocode 2
+
+Refer to relevant clause
+Refer to BS Eurocode 2 relevant clause 
+
+relevant clause (Eurocode 2)

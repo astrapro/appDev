@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48E09BF3-15CB-41E2-9D29-205B963207D9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CadInteractives</RootNamespace>
+    <AssemblyName>CadInteractives</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenVDF, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="vdCommandLine, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdDXF, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdFramedControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VDgridLib, Version=6.6026.0.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VdProControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdPropertyGrid, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VDrawBaseControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VDrawI5, Version=6.6026.0.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VDrawLib5, Version=6.6026.0.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VdrawPro5, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdScrollableControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdxFcnv, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Actions, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.ExDialogs, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Generics, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Geometry, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Professional, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Render, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Serialize, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmPierInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPierInput.Designer.cs">
+      <DependentUpon>frmPierInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmPierInput.resx">
+      <DependentUpon>frmPierInput.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

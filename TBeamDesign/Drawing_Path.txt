@@ -1,0 +1,66 @@
+<Drawing>
+<Interactive>
+Abutment_Counterfort =Bridges\Abutment\Abutment Counterfort\Abutment_Counterfort_Interactive_Drawing1.vdml
+Abutment_Cantilever =Bridges\Abutment\Abutment Cantilever\Abutment_Cantilever_Interactive_Drawing.vdml
+Abutment_Reinforcements =Bridges\Abutment\Abutment Reinforcements\Abutment_Reinforcements_Interactive_Drawing.vdml
+Composite_Bridge  =Bridges\Composite\Composite_Bridge_Interactive_Drawing.vdml
+Pier  =Bridges\Pier\Pier_Interactive_Drawing.vdml
+PreStressed_Main_Girder  =Bridges\Pre Stressed\Post Tension Main Girder\PreStressed_Interactive_Drawing.vdml
+PreStressed_Deck_Slab  =Bridges\Pre Stressed\Deck Slab\Rcc_Deck_Slab_Interactive_Drawing.vdml
+Rail_Bridge  =Bridges\Railway\Rail_Bridge_Interactive_Drawing.vdml
+TBEAM_Cantilever  =Bridges\RCC TBeam\Cantilever Slab\Cantilever_Slab_Interactive_Drawing.vdml
+TBEAM_Cross_Girder  =Bridges\RCC TBeam\Cross Girder\Reinforcement_Details_Cross_Girders_Interactive_Drawing.vdml
+TBEAM_Deck_Slab  =Bridges\RCC TBeam\Deck Slab\Reinforcement_Details_Deck_Slab_Interactive_Drawing.vdml
+TBEAM_Long_Girder   =Bridges\RCC TBeam\Long Girder\Reinforcement_Details_Long_Girders_Interactive_Drawing.vdml
+Box_Culvert  =Bridges\Culvert\Box culvert\Box_Culvert_Interactive_Drawing.vdml
+Slab_Culvert_Interactive  =Bridges\Culvert\Slab culvert\Slab_Culvert_Interactive_Drawing.vdml
+Pile_Foundation  =Bridges\Foundation\Pile Foundation\Pile_Foundation_Interactive_Drawing.vdml
+Well_Foundation  =Bridges\Foundation\Well Foundation\Well_Foundation_Interactive_Drawing.vdml
+<EndInteractive>
+
+<DefaultDrawing>
+RCC_Pier_Default_Drawings =Bridges\Pier\RCC Pier Interactive Design
+
+Composite_Bridge =Bridges\Composite 
+Composite_Bridge_Steel_Plate =Bridges\Composite\Steel Plate Girder 
+Composite_Bridge_Steel_Box =Bridges\Composite\Steel Box Girder 
+Composite_Worksheet_Design =Bridges\Composite\Composite Worksheet Design Drawings
+
+Abutment_Counterfort_Drawing =Bridges\Abutment\Abutment Counterfort
+
+T_Girder_Span_11m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 11m
+T_Girder_Span_12m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 12m
+T_Girder_Span_13m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 13m
+T_Girder_Span_14_16m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 14_16m
+T_Girder_Span_17m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 17m
+T_Girder_Span_18_19m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 18_19m
+T_Girder_Span_20_26m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 20_26m
+T_Girder_Span_27m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 27m
+T_Girder_Span_28m =Bridges\T_Girder Bridge\Drawings T_Girder Bridge Span 28m
+
+TBEAM_DeckSlab1 =Bridges\RCC TBeam\T Beam Worksheet Design 1 Drawings
+TBEAM_DeckSlab_Plan =Bridges\RCC TBeam\Deck Slab\Deck Slab Plan Drawings
+TBEAM_Worksheet_Design1 =Bridges\RCC TBeam\T Beam Worksheet Design 1 Drawings
+TBEAM_Worksheet_Design2 =Bridges\RCC TBeam\T Beam Worksheet Design 2 Drawings
+
+PSC_Box_Girder_Worksheet_Design =Bridges\PSC Box Girder\PSC Worksheet Design Drawings
+Abutment_Sample =Bridges\Abutment\Abutment Sample Drawing
+Abutment_with_Foundation  =Bridges\Abutment\Abutment_with_Foundation
+RCC_TBeam  =Bridges\RCC TBeam
+SteelTruss_Warren1 =Bridges\Steel Truss\Steel Truss Warren 1 Drawings
+SteelTruss_Warren2 =Bridges\Steel Truss\Steel Truss Warren 2 Drawings
+Abutment_Worksheet_Design_1 =Bridges\Abutment\Abutment Worksheet Design 1 Drawings
+Abutment_Worksheet_Design_2 =Bridges\Abutment\Abutment Worksheet Design 2 Drawings
+RCC_Pier_Worksheet_Design_1 =Bridges\Pier\Pier Worksheet Design 1 Drawings
+RCC_Pier_Worksheet_Design_2 =Bridges\Pier\Pier Worksheet Design 2 Drawings
+Well_Foundation =Bridges\Foundation\Well Foundation
+Pipe_Culvert =Bridges\Culvert\Pipe culvert
+Pedestrian_Underpass =Bridges\Underpass\Pedestrian
+Vehicular_Underpass =Bridges\Underpass\Vehicular
+Box_Culvert_Single_Cell =Bridges\Culvert\RCC Box Culvert\Single Cell Box Culvert
+Box_Culvert_Double_Cell =Bridges\Culvert\RCC Box Culvert\Double Cell Box Culvert
+Box_Culvert_Tripple_Cell =Bridges\Culvert\RCC Box Culvert\Tripple Cell Box Culvert
+Slab_Culvert  =Bridges\Culvert\Slab Culvert\Slab Minor Bridge
+Cable_Stayed_Bridge =Bridges\Cable Stayed Bridge
+<EndDefaultDrawing>
+<EndDrawing>

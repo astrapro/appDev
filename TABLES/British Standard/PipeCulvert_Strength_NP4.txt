@@ -1,0 +1,33 @@
+Design and Strength Test Requirements of Concrete Pipes of Class NP4 - Reinforced			
+                 Concrete, Medium Duty, Non-pressure Pipes			
+	                      
+Internal Diameter   Longitudinal Reinforcements    Spirals Reinforcements     Ultimate 
+    of Pipes      Mild Steel or Hard Drawn Steel     Hard Drawn Steel           Load   
+      (mm)               (Kg/linear meter)          (Kg/linear meter)     (Kg/linear meter)
+           
+                               
+80                             0.59                      0.24                   33.15
+100                            0.59                      0.36                   33.15
+150                            0.59                      0.74                   34.95
+200                            0.59                      1.30                   36.90
+225                            0.59                      1.64                   37.80
+250                            0.59                      1.98                   38.25
+300                            0.78                      2.71                   39.60
+350                            0.78                      3.14                   44.70
+400                            0.78                      3.52                   50.90
+450                            0.78                      3.88                   55.30
+500                            0.78                      5.96                   61.20
+600                            2.34                      9.63                   69.40
+700                            3.44                      14.33                  78.30
+800                            3.44                      21.20                  89.10
+900                            3.44                      27.13                  99.40
+1000                           6.04                      35.48                 108.90
+1100                           6.04                      43.76                 120.60
+1200                           6.04                      53.07                 132.40
+1400                           9.36                      77.62                 156.40
+1600                           9.36                     108.97                 179.50
+1800                          14.88                     150.22                 203.00
+2000                          14.88                     151.79                 203.00
+2200                          14.88                     160.90                 213.30
+2400                          14.88                     216.96                 232.50
+2600                          14.88                     258.93                 250.00

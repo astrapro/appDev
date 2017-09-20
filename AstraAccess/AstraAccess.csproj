@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7318B47-75A3-4ACA-AD1A-F2DD3298A747}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AstraAccess</RootNamespace>
+    <AssemblyName>AstraAccess</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HEADSNeed">
+      <HintPath>..\..\ASTRA Viewer Code\HeadsViewer\bin\x86\Debug\HEADSNeed.dll</HintPath>
+    </Reference>
+    <Reference Include="RenderFormats, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tunnel_Lining">
+      <HintPath>..\..\Tunnel_Lining\Tunnel_Lining\bin\Debug\Tunnel_Lining.dll</HintPath>
+    </Reference>
+    <Reference Include="vdCommandLine, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdDXF, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdFramedControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VDgridLib, Version=6.6026.0.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VdProControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdPropertyGrid, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VDrawBaseControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VDrawI5, Version=6.6026.0.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VDrawLib5, Version=6.6026.0.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="VdrawPro5, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdScrollableControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdxFcnv, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Actions, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+    <Reference Include="VectorDraw.ExDialogs, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Generics, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+    <Reference Include="VectorDraw.Geometry, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Professional, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Render, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+    <Reference Include="VectorDraw.Serialize, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="WinMsgMannager, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADOC\UC_CAD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADOC\UC_CAD.Designer.cs">
+      <DependentUpon>UC_CAD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DrawingWorkspace\frmDrawingsEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DrawingWorkspace\frmDrawingsEditor.Designer.cs">
+      <DependentUpon>frmDrawingsEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmDynamicAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmDynamicAnalysis.Designer.cs">
+      <DependentUpon>frmDynamicAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmEigenValueAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmEigenValueAnalysis.Designer.cs">
+      <DependentUpon>frmEigenValueAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmResponseSpectrumAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmResponseSpectrumAnalysis.Designer.cs">
+      <DependentUpon>frmResponseSpectrumAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmTimeHostoryAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DynamicAnalysis\frmTimeHostoryAnalysis.Designer.cs">
+      <DependentUpon>frmTimeHostoryAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Footing\frm_ColumnSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Footing\frm_ColumnSelection.Designer.cs">
+      <DependentUpon>frm_ColumnSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Footing\frm_RaftFoundation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Footing\frm_RaftFoundation.Designer.cs">
+      <DependentUpon>frm_RaftFoundation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Doc.cs" />
+    <Compile Include="SAP_Forms\frm_Beam_Elements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Beam_Elements.Designer.cs">
+      <DependentUpon>frm_Beam_Elements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Beam_Mat_Props.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Beam_Mat_Props.Designer.cs">
+      <DependentUpon>frm_Beam_Mat_Props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Beam_Sect_Props.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Beam_Sect_Props.Designer.cs">
+      <DependentUpon>frm_Beam_Sect_Props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Boundary_Elements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Boundary_Elements.Designer.cs">
+      <DependentUpon>frm_Boundary_Elements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Joint_Loads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Joint_Loads.Designer.cs">
+      <DependentUpon>frm_Joint_Loads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Member_Release.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Member_Release.Designer.cs">
+      <DependentUpon>frm_Member_Release.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Plate_Elements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Plate_Elements.Designer.cs">
+      <DependentUpon>frm_Plate_Elements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Plate_Mat_Props.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Plate_Mat_Props.Designer.cs">
+      <DependentUpon>frm_Plate_Mat_Props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_SAP_Joints.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_SAP_Joints.Designer.cs">
+      <DependentUpon>frm_SAP_Joints.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Elements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Elements.Designer.cs">
+      <DependentUpon>frm_Solid_Elements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Loads.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Loads.Designer.cs">
+      <DependentUpon>frm_Solid_Loads.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Mat_Props.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Mat_Props.Designer.cs">
+      <DependentUpon>frm_Solid_Mat_Props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Note.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Solid_Note.Designer.cs">
+      <DependentUpon>frm_Solid_Note.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Supports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Supports.Designer.cs">
+      <DependentUpon>frm_Supports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Time_Member_Stress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Time_Member_Stress.Designer.cs">
+      <DependentUpon>frm_Time_Member_Stress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Time_Nodal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Time_Nodal.Designer.cs">
+      <DependentUpon>frm_Time_Nodal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Truss_Element.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Truss_Element.Designer.cs">
+      <DependentUpon>frm_Truss_Element.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Truss_Mat_Props.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SAP_Forms\frm_Truss_Mat_Props.Designer.cs">
+      <DependentUpon>frm_Truss_Mat_Props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StageAnalysis\frm_ProcessStageAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StageAnalysis\frm_ProcessStageAnalysis.Designer.cs">
+      <DependentUpon>frm_ProcessStageAnalysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StructureAnalysisDesign\frm_StructureDesign1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StructureAnalysisDesign\frm_StructureDesign1.Designer.cs">
+      <DependentUpon>frm_StructureDesign1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StructureAnalysisDesign\frm_Tunnel_Design.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StructureAnalysisDesign\frm_Tunnel_Design.Designer.cs">
+      <DependentUpon>frm_Tunnel_Design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewerFunctions.cs" />
+    <Compile Include="frmSAP_Editor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSAP_Editor.Designer.cs">
+      <DependentUpon>frmSAP_Editor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ADOC\UC_CAD.resx">
+      <DependentUpon>UC_CAD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DrawingWorkspace\frmDrawingsEditor.resx">
+      <DependentUpon>frmDrawingsEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DynamicAnalysis\frmResponseSpectrumAnalysis.resx">
+      <DependentUpon>frmResponseSpectrumAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Footing\frm_ColumnSelection.resx">
+      <DependentUpon>frm_ColumnSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Footing\frm_RaftFoundation.resx">
+      <DependentUpon>frm_RaftFoundation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSAP_Editor.resx">
+      <DependentUpon>frmSAP_Editor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Beam_Elements.resx">
+      <DependentUpon>frm_Beam_Elements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Beam_Mat_Props.resx">
+      <DependentUpon>frm_Beam_Mat_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Beam_Sect_Props.resx">
+      <DependentUpon>frm_Beam_Sect_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Boundary_Elements.resx">
+      <DependentUpon>frm_Boundary_Elements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Joint_Loads.resx">
+      <DependentUpon>frm_Joint_Loads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Member_Release.resx">
+      <DependentUpon>frm_Member_Release.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Plate_Elements.resx">
+      <DependentUpon>frm_Plate_Elements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Plate_Mat_Props.resx">
+      <DependentUpon>frm_Plate_Mat_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_SAP_Joints.resx">
+      <DependentUpon>frm_SAP_Joints.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Solid_Elements.resx">
+      <DependentUpon>frm_Solid_Elements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Solid_Loads.resx">
+      <DependentUpon>frm_Solid_Loads.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Solid_Mat_Props.resx">
+      <DependentUpon>frm_Solid_Mat_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Solid_Note.resx">
+      <DependentUpon>frm_Solid_Note.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Supports.resx">
+      <DependentUpon>frm_Supports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Time_Member_Stress.resx">
+      <DependentUpon>frm_Time_Member_Stress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Time_Nodal.resx">
+      <DependentUpon>frm_Time_Nodal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Truss_Element.resx">
+      <DependentUpon>frm_Truss_Element.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SAP_Forms\frm_Truss_Mat_Props.resx">
+      <DependentUpon>frm_Truss_Mat_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StageAnalysis\frm_ProcessStageAnalysis.resx">
+      <DependentUpon>frm_ProcessStageAnalysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StructureAnalysisDesign\frm_StructureDesign1.resx">
+      <DependentUpon>frm_StructureDesign1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StructureAnalysisDesign\frm_Tunnel_Design.resx">
+      <DependentUpon>frm_Tunnel_Design.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AstraInterface\AstraInterface.csproj">
+      <Project>{39488388-529f-43f1-aaa5-03e17909b872}</Project>
+      <Name>AstraInterface</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewDocument.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HdViewerApp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EXPLODE.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layers.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Line.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Arc.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Circle.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dist.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Erase.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Polyline.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rotate.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapCancel.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapCen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapEnd.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapMid.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Text.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Undo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Rect.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Redo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copyent.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Move.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mirror.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Scale.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\break.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trim.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\extend.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InsertBlock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\regen.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\raftFigure.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapInt.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapNear.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SnapPer.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,712 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="FullSignature">
+  <Class Name="AstraFunctionOne.AnalysisType.frmEIGENValues" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABEAAACCAMACAAAAAEAAACABAAAAgAQ=</HashCode>
+      <FileName>AnalysisType\frmEIGENValues.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.AnalysisType.frmResponseSpectrum" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>MAKATIBAICAAABmADACAAEACAAAATAAAFCABFgAAhAQ=</HashCode>
+      <FileName>AnalysisType\frmResponseSpectrum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.AnalysisType.frmTimeHistory" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0AQQEcRCACIAQBGBGACCAMAGARAEREEBBChBRKgAgBQ=</HashCode>
+      <FileName>AnalysisType\frmTimeHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BeamDesign.frmGridTable" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAYgCAAALAIABKBAQCEACKCADgAAAGAAiIAQABAAAQ=</HashCode>
+      <FileName>BeamDesign\frmGridTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BeamDesign.frmRectangularBeam" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/8D2+LUlG2jM1jug6fe5x//XcPv9fjNreutHD/93fTo=</HashCode>
+      <FileName>BeamDesign\frmRectangularBeam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BeamDesign.frmSimplySupportedSingleSpanBeam" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>/wHQACAMAiBAAJAAoECAAAAaAEgJRCFoOalBhQAAELA=</HashCode>
+      <FileName>BeamDesign\frmSimplySupportedSingleSpanBeam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Abutment.frmAbutmentWorkSheet" Collapsed="true">
+    <Position X="4" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAkACAASQAAQAAAASBAAASAACQAAAAAgABBAAAAAA=</HashCode>
+      <FileName>BridgeDesign\Abutment\frmAbutmentWorkSheet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Abutment.frmCantileverRetainingWall" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="1.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>/wXAgigFAiBCQBEAqEKiCPjeDwgVVGk4aO1DmUXAsnA=</HashCode>
+      <FileName>BridgeDesign\Abutment\frmCantileverRetainingWall.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Abutment.frmCounterfortRetainingWall" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>/wTYojoFAqDAQJEAoECAQBASQygZRGXMr61BAQFNlHE=</HashCode>
+      <FileName>BridgeDesign\Abutment\frmCounterfortRetainingWall.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Design6.frmDesignCantileverSlab" Collapsed="true">
+    <Position X="11" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>/wUAUCgEAqBABFEAoECgAIxeGAxFXiEoKq1BiQDgVHA=</HashCode>
+      <FileName>BridgeDesign\CantileverSlab\frmDesignCantileverSlab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Design3.frmDesignCrossGirder" Collapsed="true">
+    <Position X="12.75" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wJEHigNDnJAEZAQsmDMiEiSFsAFBKEKKK3DAElAEHI=</HashCode>
+      <FileName>BridgeDesign\CrossGirder\frmDesignCrossGirder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.frmHydraulicCalculations" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4" Y="3.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>fwQCCCAkAiDigREsoEiAEAA2ACAxRiEKWKlRIQTAMDA=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmHydraulicCalculations.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.HR_Table" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACIAAABEBAIEAgAAAAgAAABCAAAAAAAgAAAAAAE=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmHydraulicCalculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.HR_Table_Collection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AGIAAkAAAAAAABAUCAAABAQAAAAAAAAACAAAIABQoAA=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmHydraulicCalculations.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.frmPile_Graph" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACACAFAAgAGAAKACAkCAAEAAAAAABABAAAA=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmPile_Graph.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.frmPileFoundation" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wKAICgNAyBASHUGtFK6AEwWByBdVHEoOqtbHZDBtnE=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmPileFoundation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.PileFoundationTable" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>QAAgIAEAQGAlAAAGBAIAAAACAIAAEFCMAABQBEAAAAA=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmPileFoundation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.PileFoundationTableCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="7.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AGIAAkAAAAAAABAQCCAABAQACAAAAAAACAAAAABQIAA=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmPileFoundation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.frmRccWellFoundation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wAAgCgMEiBCAT0koECiAAATAAABVCEICKlBC4RAEjI=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmRccWellFoundation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Foundation.frmWellFoundationWorkSheet" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAEACAASQAAAAAAACBAAAyAACAAAAAAgABBAAAAAA=</HashCode>
+      <FileName>BridgeDesign\Foundation\frmWellFoundationWorkSheet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.frmCompositeBridge" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wSk0DoNAqBiBXEFsFCqCMBegABNVCEIq/tzBY3xVX4=</HashCode>
+      <FileName>BridgeDesign\frmCompositeBridge.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.frmCompositWorksheetDesign" Collapsed="true">
+    <Position X="4" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAGACAASQAAAAAAACBAAASAACAIAAAAgABBAAAAAA=</HashCode>
+      <FileName>BridgeDesign\frmCompositWorksheetDesign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.frmCurve" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAIABAAAEDABIBKACgwAMAAgDAQAAAAAEA=</HashCode>
+      <FileName>BridgeDesign\frmCurve.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.frmDesignDeckSlab" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wQEEGgNBqBWBVEE4UDCAOleCSFBJKMoKulBAY1gUHA=</HashCode>
+      <FileName>BridgeDesign\frmDesignDeckSlab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.frmRccDeckSlab" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wCEmDgMAqBCBfEE8FCiAIBeAAJNXCEoK+lRAU33dHA=</HashCode>
+      <FileName>BridgeDesign\Prestressed\frmRccDeckSlab.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Design2.frmDesignLongitudinalGirder" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>/wCABSgMCmZSCBMApECBAGDejyRzFCEKKCthhATEGHE=</HashCode>
+      <FileName>BridgeDesign\LongGirder\frmDesignLongitudinalGirder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Design5.frmDesignBridgePiers" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wCAAGgEAiBAADEEoECAEAASAChhxCEKbKVhMgBQsjA=</HashCode>
+      <FileName>BridgeDesign\Piers\frmDesignBridgeStoneMasonryPiers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Piers.frmPierWorkSheet" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEACAASQAAAAAAACBAAASAACAAAAAAgABJAAAAAA=</HashCode>
+      <FileName>BridgeDesign\Piers\frmPierWorkSheet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Piers.frmRccPier" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/4DMD2gMAiLAgBEAoEKowIAzAwAB9LMJyK9AAdhBFDA=</HashCode>
+      <FileName>BridgeDesign\Piers\frmRccPier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Piers.frmUserInput" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEEAAACAAAhAAAACAAAACAAAAAAAAEAAAAEBAABA=</HashCode>
+      <FileName>BridgeDesign\Piers\frmUserInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.Prestressed.frmPreStressedBridgePostTension" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.25" Y="4.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>/wDFgjgEAqVCAXEEsECqCKgSDwpjVCEsC7lXKS1kcnI=</HashCode>
+      <FileName>BridgeDesign\Prestressed\frmPreStressedBridgePostTension.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.RailBridge.frmSteel_Plate_Girder_Railway_Bridge" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>/wAEAngdAyBiEVEEskKRCAwSghEBTiMIab1FSY1FMTQ=</HashCode>
+      <FileName>BridgeDesign\RailBridge\frmSteel_Plate_Girder_Railway_Bridge.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.CreateSteel_Warren_1_TrussData" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgBEAAIAACAAAAAABAEAAAAAAAgAAQAAAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\CreateSteelTrussData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.CreateSteel_Warren_2_TrussData" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAgBEAAIAACAAAAAABAEAAAAAAAgAAQAAAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\CreateSteelTrussData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.frmCompleteDesign" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>//9/5fmf9/v62//h9W+T986/6uM1/eOu3+tV0fb71vc=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\frmCompleteDesign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.LoadData" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAEAAAAAAAAAAAAAAIAgAABAAAAAAAAAAAAAAAAAYAE=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\frmCompleteDesign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.frmSteelTrussDeckSlab" Collapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/4AEEGgNBqFShVEU4UCAAMhfDQBBDCMoKqlBAY0gUHA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\frmSteelTrussDeckSlab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.frmStreelTrussMemberDesign" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>/7S/75jMV6orI3eH/ELG2gp79mG9/fov3LlVOv65tj8=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\frmStreelTrussMemberDesign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.Lacing" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\Lacing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.SteelTrussMemberAnalysis" Collapsed="true">
+    <Position X="12.75" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEgAQBAQAQABAAAAQIAAAAAACI0IAAAAhgAAIGA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.TrussDesignResult" Collapsed="true">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAEAAAAAAAAAAAAAAAAAAQAAgAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.AstraMember" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.AstraTrussMember" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgIAAAAAAAAAAAAAAAAAAAAAAAABCAAAAAAAAIAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.AstraBeamMember" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAECBAAACAAAAAAAAAGAAAAQAAAAAAg=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.BeamForce" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAIAAAAACCAAAAACAAAQAAAIEAAAAQAAAAAAw=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.AnalysisData" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAABQAAgAAIAGAAAAQAAAAAIA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.CompleteDesign" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAGAAgQgAAAAACAgAEAAINAAAAAAEAAABAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.MembersDesign" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gGIAAkAAAAAAARAQCAIABAQAACAAIAAACAAAAABQIAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.CMember" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAkAAAAAAgAABIAAQAiRAACABIAIAAAQSAAIIIAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.SectionData" Collapsed="true">
+    <Position X="9.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAQAAEAKAAEAAAAABAAKAAAEAAAAAAAAAAACAQ=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.Plate" Collapsed="true">
+    <Position X="16.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAABAAAEAAAAAGBAACAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.DeadLoad" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAgAAAAAARAACAAAAAgAAIAAAABAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.TotalDeadLoad" Collapsed="true">
+    <Position X="5.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gYAAEAAAQAAAAQAAAAIQAAAABCAQIABAmAAgAAAAAAQ=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.RailLoad" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAACBAAAAAAAAAAAAAIAAAAAAAQACAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTruss.MemberString" Collapsed="true">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAEAABAAAQAgAAgAEKgAAAAgIEAgABCAAAAAAABAo=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTrussTables.TableRolledSteelBeams" Collapsed="true">
+    <Position X="16.25" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAgAAAAAAAAAAAAAAAAAAAAAAAAQACAgAAABAEAI=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTrussTables.RolledSteelBeamsRow" Collapsed="true">
+    <Position X="5.75" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAhIAABISAACQAAAAgAAgAACCAAABAgAAAAAQAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTrussTables.TableRolledSteelChannels" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAgAAAEAAAAAAAAAAAAAAAAAAAAQACAgAAABAFAI=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTrussTables.RolledSteelChannelsRow" Collapsed="true">
+    <Position X="7.5" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAhIAABISAACQAAAAgAAgAACCAAADAgAAAAAQAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTrussTables.TableRolledSteelAngles" Collapsed="true">
+    <Position X="14.5" Y="8.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABAAAgAAAAAAAAAAABAIAAAAAAAABAQAAAAAAABAEAI=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.BridgeDesign.SteelTrussTables.RolledSteelAnglesRow" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AACiIAAAAgABSRAAAAQAAAAACCAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussTables.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CAstraFunctionFactory" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIBAAAAAAiBACAAAAAAAAAAAAQAAAAIAQAAEAAAAAAA=</HashCode>
+      <FileName>CAstraFunctionFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frm3DBeamMembers" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/+233/N/9fPv5X9599S/y99r2aP3/3//ai37///c7r8=</HashCode>
+      <FileName>frm3DBeamMembers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.LoadComb" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>frm3DBeamMembers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmAnalysisType" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAIAoACCAAAsAAACAAEICEAAIBAQAACIBABAAAAA=</HashCode>
+      <FileName>frmAnalysisType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmAreaLoad" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wQAAAIIQQCIACBEABQCAAgADAAAAQEBAQCQBASIAKAA=</HashCode>
+      <FileName>frmAreaLoad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmBasicInfo" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIACA4AACIACJEAgACAEIACgABAAEBAQCQAAAAAABA=</HashCode>
+      <FileName>frmBasicInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmNodalData" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MgDAxkoGAKuwiFEIAASACNADUFAAAAIhICEAVwECA0Q=</HashCode>
+      <FileName>frmNodalData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmNodalLoadData" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9wQQAMAAACIEDVMAAUSAjGgCACAABCcASCIRgCAAAEQ=</HashCode>
+      <FileName>frmNodalLoadData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmPlateAndShell" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/8ELQEIAEqJKKTGBDADiYPFCAkEUoEgAySEAIKMAxTA=</HashCode>
+      <FileName>frmPlateAndShell.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmSelfWeight" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DgBAAIBAACAAAgEAACCBAEASAAAABAAAAAIBAAAAADA=</HashCode>
+      <FileName>frmSelfWeight.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmSupport" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACBBghAAiCwCBEgAASAAMBCAiAAhgAAJCABgBAIYUQ=</HashCode>
+      <FileName>frmSupport.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.frmViewResult" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAAgAAAAACAAAACAAAAAAAABAgIAAAAAAA=</HashCode>
+      <FileName>frmViewResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.SpFuncs" Collapsed="true">
+    <Position X="11" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>SpecialFunctions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.ColumnDesign.frmBiAxialBendingColumn" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>/wBCACIMQiDACiEAoEOAGMwSCEIC1GMYCKlhR1OHdTQ=</HashCode>
+      <FileName>ColumnDesign\frmBiAxialBendingColumn.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.ColumnDesign.frmRccColumnDesign" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>9wBCACIEAiBAABEAoEGgGMwSCEACxGMYCalhR1uH9AA=</HashCode>
+      <FileName>ColumnDesign\frmRccColumnDesign.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CulvertDesign.BoxCulvert.frmBoxCulvert" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wCAACAEAqBAQFECsGagiCASAQhJ/KEf6a1xmUDQcTI=</HashCode>
+      <FileName>CulvertDesign\BoxCulvert\frmBoxCulvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CulvertDesign.PipeCulvert.frmPipeCulvert" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9AAAACAEAiBAABEAoEaAIAEaAAAhxCEICflDASF4UAA=</HashCode>
+      <FileName>CulvertDesign\PipeCulvert\frmPipeCulvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CulvertDesign.PipeCulvert.PIPE_Table" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CulvertDesign\PipeCulvert\frmPipeCulvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CulvertDesign.SlabCulvert.frmSlabCulvert" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wDIADAcAqBAAFEAoESAgLjeD4JB5CEoK6lhpQRgcHA=</HashCode>
+      <FileName>CulvertDesign\SlabCulvert\frmSlabCulvert.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CustomCtrls.TextBoxDouble" Collapsed="true">
+    <Position X="2.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAAAAAAAEAAEAAAAAAQBFAAAAAAAAwAAAAAAg=</HashCode>
+      <FileName>CustomCtrls\TextBoxDouble.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.CustomCtrls.TextBoxInteger" Collapsed="true">
+    <Position X="4" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IABAAAAAAAAAAAEAAEAAAAABQBkAAAAAAAAiAAAAAAA=</HashCode>
+      <FileName>CustomCtrls\TextBoxInteger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.Footing.frmCombinedFooting" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wQAADQEAiBAADEEoEKgAAQSAABARCMDCqlRs1GAMAI=</HashCode>
+      <FileName>Footing\Combined\frmCombinedFooting.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.Footing.frmInputBox" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACQAABAAAACAAKACAAABAkAQAAIAABAAAAQ=</HashCode>
+      <FileName>Footing\frmInputBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.Footing.frmIsolatedFooting" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/xQmADAMAiBAADEEoEKCCBA2AHgRzDMCCK1TnVLSMDA=</HashCode>
+      <FileName>Footing\Isolated\frmIsolatedFooting.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.PDeltaAnalysis.frmPDelAna" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAEAAACCAIRAFAIiAQAACIAKIAaUAASCBCABAAQA=</HashCode>
+      <FileName>PDeltaAnalysis\frmPDelAna.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.PDeltaAnalysis.LoadDeflection" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FAAGEAhAACAIgRikAAEQAAAAAAABSBQAAAAAAggIAAA=</HashCode>
+      <FileName>PDeltaAnalysis\frmPDelAna.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.Properties.Resources" Collapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ACAFId1oiECgAAjAUqCBEEQWJUYDIBAAABAQEhzAQJA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.SlabDesign.frmOneWayContinuousSlab" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="3.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>/yKAQKAsAixEFFlI7Em0QERaB7QB5PeICLnRAAARsDE=</HashCode>
+      <FileName>SlabDesign\frmOneWayContinuousSlab.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AstraFunctionOne.SlabDesign.frmOneWaySlab" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/ycCAOAEAihAQNFArEWwBAGSARQB1HEIDafRCE0HkjA=</HashCode>
+      <FileName>SlabDesign\frmOneWaySlab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.SlabDesign.frmSLAB01" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wKAAKgAACgAABFABAChAEADgBBBJBUIECHDQAIAgDA=</HashCode>
+      <FileName>SlabDesign\frmSLAB01.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.SlabDesign.frmTwoWayRCCSlab" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/0KAAKgNAyhAAJBAoEiAAEASQjCrBXVoTb3BBAgIsDQ=</HashCode>
+      <FileName>SlabDesign\frmTwoWayRCCSlab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.UnderPass.frmRccAbutment" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wXAgCgFAiBCQBUAqEKiAPjeDwgVVGk4aO1DmUXAsnA=</HashCode>
+      <FileName>UnderPass\frmRccAbutment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.UnderPass.frmRccBoxStructure" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>/wCAACAEAqBAQFECsGagiCASAQhJ/KEf6a1xmUDQMTI=</HashCode>
+      <FileName>UnderPass\frmRccBoxStructure.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AstraFunctionOne.UnderPass.frmTopRCCSlab" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/wDIADAcAqBAAFEAoGSAgLjeD4JBZCEoK6lhpQRgcHA=</HashCode>
+      <FileName>UnderPass\frmTopRCCSlab.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="AstraFunctionOne.BridgeDesign.LoadType" Collapsed="true">
+    <Position X="5.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>BridgeDesign\frmCurve.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AstraFunctionOne.BridgeDesign.SteelTruss.eAstraMemberType" Collapsed="true">
+    <Position X="0.5" Y="10.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAEAAA=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussAnalysis.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AstraFunctionOne.BridgeDesign.SteelTruss.eMemberType" Collapsed="true">
+    <Position X="4" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAgAAAAAAAAAgQAAAACAAAAAgMAAAABAAEAAAAAAAg=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="AstraFunctionOne.BridgeDesign.SteelTruss.eDefineSection" Collapsed="true">
+    <Position X="2.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAABAAAQAAQAAAAIgAAAAAAEAAAACAAAAAAABAI=</HashCode>
+      <FileName>BridgeDesign\SteelTruss\SteelTrussClasses.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

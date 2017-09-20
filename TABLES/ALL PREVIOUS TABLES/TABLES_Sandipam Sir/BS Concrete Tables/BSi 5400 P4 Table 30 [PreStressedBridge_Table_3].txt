@@ -1,0 +1,15 @@
+﻿TABLE 3 : DESIGN BURSTING TENSILE FORCE IN END BLOCKS (IRC: 18 - 1985)
+_____________________
+(Ypo/Yo)    (Fbst/Pk)
+---------------------
+  0.3         0.23
+  0.4         0.20
+  0.5         0.17
+  0.6         0.14
+  0.7         0.11
+---------------------
+
+  Fbst  = Bursting Tensile Force
+  Pk = Tendon Force
+  2Ypo = Side of Loaded Area
+  2Yo = Side of end Block

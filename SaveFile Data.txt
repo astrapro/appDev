@@ -1,0 +1,386 @@
+Thickness of Deck Slab [Ds]
+
+
+Unit weight of Concrete [Y_c]
+
+
+Skew Angle [Ang]
+
+
+
+Total number of main long girders [NMG]
+ (must be >= 3)
+
+
+
+Depth of main long girders [DMG]
+
+
+Web thickness of main long girders [BMG]
+
+
+
+Total number of Cross girders [NCG]
+(must be >= 3)
+
+
+Depth of cross girders  [DCG]
+
+
+
+Web thickness of cross girders [BCG]
+
+
+
+Thickness of Wearing Course  [Dw]
+
+
+Unit weight of Wearing Course [Y_w]
+
+
+Thickness of Parapet Wall [Wp]
+
+
+Height of Parapet Wall  [Hp]
+
+
+
+Side walk width [Bs]
+
+
+Side walk height [Hs]
+
+Side walk Parapet Wall width [Wps]
+
+
+
+Side walk Parapet Wall height [Hps]
+
+Load Factor [swf]
+
+
+
+Moving Load
+
+LoadType     X        Y           Z        XINCR
+
+
+Load Generation
+
+
+
+
+
+
+
+
+LONG GIRDER USER INPUT
+----------------------
+
+Thickness of Deck Slab [Ds]
+
+
+Depth of Longitudinal Girder [D]
+
+
+Web Thickness of Longitudinal Girders [Bw]
+
+
+
+Span of Girders
+
+
+Spacing of main Girders
+
+
+Spacing of Cross Girders
+
+
+Width of Bottom Flange [Bb]
+
+
+Thickness of Bottom Flange [Db]
+
+
+
+Concrete Grade [fck]
+
+Allowable Flexural Stress in Concrete [s_c] 
+
+Steel Grade [fy]
+
+
+Permissible Stress in Steel [s_sv]
+
+Modular Ratio 
+
+
+Total Bars 
+
+L/2
+
+L/4
+
+
+Deff.
+
+
+
+Bar Dia
+
+
+L/2
+
+L/4
+
+
+Deff.
+
+
+Total Layers of Bars [nl]
+
+
+Cover
+
+
+
+
+CROSS GIRDER USER INPUT
+-----------------------
+
+Total Hogging Moment
+
+
+
+Total Shear
+
+Spacing of Longitudinal Girders
+
+
+Number of Longitudinal Girders
+
+Spacing of Cross Girders
+
+Number of Cross Girders
+
+Depth of Cross Girders
+
+
+Web thickness of Cross Girders
+
+Clear Cover
+
+Concrete Grade [fck]
+
+Allowable Flexural Stress in Concrete [s_c] 
+
+
+Steel Grade [fy]
+
+Permissible Stress in Steel [s_st]
+
+
+Modular Ratio [m]
+
+
+
+
+
+
+DECK SLAB USER INPUT
+--------------------
+
+Width of Carrage way
+
+Effective Span of Tee Beam
+
+Spacing of Cross Girders [L]
+
+
+Nos. Of Main Girders
+
+Spacing of main Girders [B]
+
+Thickness of concrete Deck Slab [Ds]
+
+Thickness of Asphalt Wearing Cource [Dwc]
+
+
+Unit Weight of Concrete Deck Slab [?_c]
+
+
+
+Unit weight of Asphalt Wearing Cource[?_wc]
+
+
+
+
+
+Width of Cross Girders
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

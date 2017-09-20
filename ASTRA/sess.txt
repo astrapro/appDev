@@ -1,0 +1,2114 @@
+        private void makeASTFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+ 	//char tmpFileName[512];
+	//strcpy(tmpFileName,path);
+	//strcat(tmpFileName, "scroll.tmp");
+	//if((tmpFile=fopen(tmpFileName, "w")) != NULL)
+	//{
+	//		fclose(tmpFile);
+	//}
+	//else
+	//{
+	//		sprintf(msgstr, "Failed to write display file");
+	//		error_msg();
+	//}
+
+	//success_msg();
+
+    //AfxMessageBox("THIS PROCESS MAY TAKE A FEW MINUTES TIME...click 'Ok' to continue...");
+
+
+	
+	// Sandipan 05/12/2008 Kolkata
+	// Sandipan 05/12/2008 Kolkata Restructured
+
+	FILE *fp1; // 
+	FILE *fp2; // 
+	FILE *fp3; // 
+	FILE *fp4; // 
+
+	fpos_t loc1, loc2, loc3, loc4;
+
+	char path[MAXPATH], pathfile[MAXPATH], filestr[MAXPATH];
+	char drive[MAXPATH], dir[MAXPATH], file[MAXPATH], ext[MAXPATH];
+	char msgstr[255];
+		
+	int rec, newline, ok, cnt, structuretype;
+		
+	int node[100], n, i, j, k, ll, ii, jj, dof[6], dofb[12];
+	int NUMNP, NELTYPE, ELTYPE, LL, NF, NDYN, totbeam, totsec, totmat;
+	int ival1, ival2, ival3, ival4, ival5, ival6;
+	int mp_flag1, mp_flag2, range, index, total, jcnt, in, rn, closeflag, inc1, inc2;
+	int memcnt, rm, rn1, rn2, N1, N2, loadcase, load_axis, node1, node2, elnum, match;
+	int nl[1000], eltype, element[1000], n1[1000], n2[1000], trussnum[1000], tottruss;
+	
+	double x[1000], y[1000], z[1000], dx, wfact, lfact, WFACT, LFACT, val1, val2, val3;
+	double x1, y1, z1, x2, y2, z2, yd, zd, area, ix, iy, iz, B, D, Do, Di;
+	double udlx, udly, udlz, px, py, pz, d1, d2, d3;
+	double fx, fy, fz, mx, my, mz, dy, dz, rx, ry, rz;
+	double emod, pr, mden, wden, alpha, beta;
+
+	char ch, uline[255], title[255], elcode[20], str1[20], str2[20], str3[20], wunit[20], lunit[20];
+
+
+	/**/
+	CString env;
+	env="SURVEY=";
+	env += "c:\\test\\INP.TXT";
+	_putenv( env );
+	/**/
+
+	strcpy(filestr, getenv("SURVEY"));
+	//get_path();
+	_splitpath(filestr, drive, dir, file, ext);
+	strcpy(path, drive);
+	strcat(path, dir);
+
+	if((fp1=fopen(filestr, "r")) == NULL)
+	{
+		sprintf(msgstr, "User Input Data File  %s  not available...", filestr);
+		//error_msg();
+		AfxMessageBox(msgstr);
+		exit(1);
+	}
+
+	strcpy(pathfile, path);
+	strcat(pathfile, file);
+	strcat(pathfile, ".tmp");
+
+
+	fp2=fopen(pathfile, "w");
+
+	ok=0;
+	rec=0;
+
+	while(! feof(fp1))
+	{
+		fgetpos(fp1,&loc1);
+		fgets(uline,255,fp1);
+
+		//*if(! strncmpi(uline,"ASTRA",5))
+		if(! strnicmp(uline,"ASTRA",5))
+		{
+			loc2=loc1;
+			ok=1;
+		}
+
+		if(! strnicmp(uline,"PER",3) || ! strnicmp(uline,"ANA",3))
+		{
+			loc3=loc1;
+			break;
+		}
+
+	}
+
+
+
+	if(ok==0)
+	{
+		//*clrscr();
+		//*gotoxy(20,12);
+
+		/*buffer.Format("tInput Data not Found in File");
+		m_ModelCtrlArray = (char**)malloc(sizeof(char));
+		*m_ModelCtrlArray = (char*)malloc(sizeof(buffer));
+		*/
+		AfxMessageBox("Input Data not Found in File");
+		//*printf("\a\t\tInput Data not Found in File");
+
+		exit(0); /* OFFSET ABSENT */
+   }
+
+	cnt=0;
+	newline = 0;
+	fsetpos(fp1,&loc2);
+
+	while(! feof(fp1))
+    {
+		fgetpos(fp1,&loc4);
+		ch=getc(fp1);
+		
+		if(ch == ';')
+		{
+			//putc(' ',fp2);
+			putc('\n', fp2);
+			cnt=0;
+		}
+		else if(ch == ',')
+		{
+			//putc(' ',fp2);
+			putc('\n', fp2);
+			cnt=0;
+		}
+		else if(ch == '\n')
+	    {
+			//putc(' ',fp2);
+			putc('\n', fp2);
+			cnt=0;
+		}
+		else if(ch == ' ')
+		{
+			if(cnt==0)
+			{
+				continue;
+			}
+			else
+			{
+				putc(ch, fp2);
+				cnt++;
+			}
+		}
+		else
+		{
+			putc(ch, fp2);
+			cnt++;
+		}
+
+		if(loc4 == loc3)
+		{
+			fsetpos(fp1,&loc3);
+			fgets(uline,255,fp1);
+			fputs(uline, fp2);
+			break;
+		}
+		
+	}
+
+	fclose(fp1);
+	fclose(fp2);
+
+
+
+	/////////////////Opening Files
+
+	
+		
+	strcpy(pathfile, path);
+	strcat(pathfile, file);
+	strcat(pathfile, ".tmp");
+
+	if((fp1=fopen(pathfile,"r"))==NULL)
+	{
+		sprintf(msgstr, "Failed to read %s...quiting...!!!", filestr);
+		AfxMessageBox(msgstr);
+		exit(1);
+	}
+
+	strcpy(pathfile, path);
+	//strcat(pathfile, "Astra.FIL");
+
+	strcat(pathfile, file);
+	strcat(pathfile, ".AST");
+		
+	if((fp2=fopen(pathfile, "w")) == NULL)
+	{
+		sprintf(uline, "Failed to write N001.FIL...quiting...!!!");
+		AfxMessageBox(uline);
+		exit(1);
+	}
+
+
+	// //////////////Getting Important Info
+
+
+
+
+
+	//NUMNP=0; NELTYPE=0; ELTYPE=0; LL=0; NF=0; NDYN=0; MODEX=0; NAD=0; KEQ=0;
+	//totsec=0; totmat=0; totfel=0;
+	//tottruss=0; totbeam=0; totplate=0;
+	//loadcase=0;
+
+	
+
+
+
+	while(! feof(fp1))
+	{
+		strcpy(str1, "");
+		fgetpos(fp1, &loc1);
+		fgets(uline, 255, fp1);
+		sscanf(uline, "%s %s", str1, str2);
+		tottruss=0;
+
+		if(!strnicmp(str1, "MEM", 3) && !strnicmp(str2, "TRU", 3))
+		{
+			ELTYPE=1;	// Beam Element
+			NELTYPE++;
+			
+			//fprintf(fp2, "N008 ELTYPE=1, TRUSS#, NODE1#, x[NODE1]*lfact, y[NODE1]*lfact, z[NODE1]*lfact, NODE2#, x[NODE2]*lfact, y[NODE2]*lfact, z[NODE2]*lfact\n");
+
+
+			i=0;
+			j=0;
+			k=0;
+			n=0;
+			mp_flag1=0;
+			range=0;
+			index=0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+
+				n=atoi(str1);
+				if(n > 0)
+				{
+					element[i]=n;
+					i++;
+					index=1;
+				}
+				else
+				{
+					if(! strnicmp(str1, "TO", 2))
+					{
+						range=1;
+					}
+					else if(! strnicmp(str1, ";", 1))
+					{
+						if(range==1)
+						{
+							j=(element[i-1] - element[0]) + 1;
+							for(ii=0; ii<j; ii++)
+							{
+								//fprintf(fp2, "N008 %5d%5d\n", ELTYPE, element[0]+ii);
+								trussnum[k] = element[0]+ii;
+								tottruss++;
+								k++;
+
+							}
+						}
+						else
+						{
+							for(j=0; j<i; j++)
+							{
+								//fprintf(fp2, "N008 %5d%5d\n", ELTYPE, element[0]+j);
+								trussnum[k] = element[0]+j;
+								tottruss++;
+								k++;
+							}
+						}
+						
+						i=0;
+						k=0;
+						n=0;
+						mp_flag1=0;
+						range=0;
+						index=0;
+					}
+					else
+					{
+						if(index==1)
+						{
+							if(range==1)
+							{
+								j=(element[i-1] - element[0]) + 1;
+								for(ii=0; ii<j; ii++)
+								{
+									//fprintf(fp2, "N008 %5d%5d\n", ELTYPE, element[0]+ii);
+									trussnum[k] = element[0]+ii;
+									tottruss++;
+									k++;
+								}
+							}
+							else
+							{
+								for(j=0; j<i; j++)
+								{
+									//fprintf(fp2, "N008 %5d%5d\n", ELTYPE, element[0]+j);
+									trussnum[k] = element[0]+ii;
+									tottruss++;
+									k++;
+								}
+							}
+							
+							i=0;
+							k=0;
+							n=0;
+							mp_flag1=0;
+							range=0;
+						}
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+					}
+						
+				}		
+					
+			}
+		}
+		
+	}
+	rewind(fp1);
+
+	
+	////////////////////////// Executive Loop to write AST File
+
+
+	while(! feof(fp1))		
+	{
+		strcpy(str1, "");
+		fgetpos(fp1, &loc1);
+		fgets(uline, 255, fp1);
+		sscanf(uline, "%s %s", str1, str2);
+				
+		if(!strnicmp(str1, "AST", 3))
+		{
+			structuretype=0;
+
+			if(! strnicmp(str2, "SP", 2))
+			{
+				structuretype=1;
+			}
+			else if(! strnicmp(str2, "FL", 2))
+			{
+				structuretype=2;
+			}
+			else if(! strnicmp(str2, "PL", 2))
+			{
+				structuretype=3;
+			}
+			else
+			{
+				AfxMessageBox("Title must be either ASTRA SPACE,or ASTRA FLOOR or ASTRA PLANE...quiting...");
+				exit(1);
+			}
+
+			
+			fsetpos(fp1, &loc1);
+			fgets(uline, 255, fp1);
+			strcpy(title, uline);
+			ll=strlen(title);
+			title[ll-1]='\0';
+			fprintf(fp2, "%s\n", title);
+
+			fprintf(fp2, "STRUCTURE %2d\n", structuretype);
+		}
+		else if(!strnicmp(str1, "UNI", 3))
+		{
+			lfact=1.0; wfact=1.0;
+			fsetpos(fp1, &loc1);
+			fgets(uline, 255, fp1);
+			sscanf(uline, "%s %s %s", str1, str2, str3);
+			if(! strnicmp(str2, "TON", 3) || ! strnicmp(str3, "TON", 3))
+			{
+				wfact=1000.0;
+				strcpy(wunit, "TON");
+			}
+			else if(! strnicmp(str2, "KN", 2) || ! strnicmp(str3, "KN", 2))
+			{
+				wfact=100.0;
+				strcpy(wunit, "KN");
+			}
+			else if(! strnicmp(str2, "KG", 2) || ! strnicmp(str3, "KG", 2))
+			{
+				wfact=1.0;
+				strcpy(wunit, "KG");
+			}
+			else if(! strnicmp(str2, "NEW", 3) || ! strnicmp(str3, "NEW", 3))
+			{
+				wfact=0.10;
+				strcpy(wunit, "NEW");
+			}
+			else if(! strnicmp(str2, "KIP", 3) || ! strnicmp(str3, "KIP", 3))
+			{
+				wfact=452.4;
+				strcpy(wunit, "KIP");
+			}
+
+			if(! strnicmp(str2, "MM", 3) || ! strnicmp(str3, "MM", 3))
+			{
+				lfact=0.10;
+				strcpy(lunit, "MM");
+			}
+			else if(! strnicmp(str2, "CM", 2) || ! strnicmp(str3, "CM", 2))
+			{
+				lfact=1.0;
+				strcpy(lunit, "CM");
+			}
+			else if(! strnicmp(str2, "FT", 2) || ! strnicmp(str3, "FT", 2))
+			{
+				lfact=30.48;
+				strcpy(lunit, "FT");
+			}
+			else if(! strnicmp(str2, "IN", 2) || ! strnicmp(str3, "IN", 2))
+			{
+				lfact=2.54;
+				strcpy(lunit, "IN");
+			}
+			else if(! strnicmp(str2, "ME", 2) || ! strnicmp(str3, "ME", 2))
+			{
+				lfact=100;
+				strcpy(lunit, "ME");
+			}
+
+			//fprintf(fp2, "UNIT	%s	%s\n", wunit, lunit);
+			WFACT=wfact;
+			LFACT=lfact;
+			wfact=1.0;
+			lfact=1.0;
+
+			 
+		}
+		else if(!strnicmp(str1, "JOI", 3) && !strnicmp(str2, "COO", 3))
+		{
+			fprintf(fp2, "N001 UNIT %.3f %.3f NODE, x[NODE]*lfact, y[NODE]*lfact, z[NODE]*lfact, TX, TY, TZ, RX, RY, RZ\n", WFACT, LFACT);
+
+			i=0;
+			jcnt=0;
+			NUMNP=0;
+			closeflag=0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+								
+				fgets(uline, 255, fp1);
+				strcpy(str1, "");
+				sscanf(uline, "%s", str1);
+				n=atoi(str1);
+				if(n > 0)
+				{
+					x[n]=0.0; y[n]=0.0; z[n]=0.0;
+					ival2=0; val1=val2=val3=0.0;
+					
+					node[NUMNP]=n; 
+					sscanf(uline, "%i %lf %lf %lf %i %lf %lf %lf", &ival1, &x[n], &y[n], &z[n], &ival2, &val1, &val2, &val3);
+
+					if(structuretype==1)
+					{
+					fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    0    0    1    1    1    0\n", node[NUMNP], x[n]*lfact, y[n]*lfact, z[n]*lfact);
+					}
+					else if(structuretype==2)
+					{
+					fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    1    0    1    0    1    0\n", node[NUMNP], x[n]*lfact, y[n]*lfact, z[n]*lfact);
+					}
+					else if(structuretype==3)
+					{
+					fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    0    0    1    1    1    1\n", node[NUMNP], x[n]*lfact, y[n]*lfact, z[n]*lfact);
+					}
+
+					NUMNP++;
+					
+					
+					
+					if(ival2 > 0)	// incremented coordinates
+					{
+						in = ival2-ival1;
+						NUMNP = NUMNP + in;
+						dx=(val1 - x[n])/in;
+						dy=(val2 - y[n])/in;
+						dz=(val3 - z[n])/in;
+
+						for(j=1; j<in+1; j++)
+						{
+							ival1=node[0]+j;
+							x[ival1]=(x[n]+j*dx)*lfact;
+							y[ival1]=(y[n]+j*dy)*lfact;
+							z[ival1]=(z[n]+j*dz)*lfact;
+
+							//fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f\n", ival1, x[ival1], y[ival1], z[ival1]);
+							if(structuretype==1)
+							{
+							fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    0    0    1    1    1    0\n", ival1, x[ival1]*lfact, y[ival1]*lfact, z[ival1]*lfact);
+							}
+							else if(structuretype==2)
+							{
+							fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    1    0    1    0    1    0\n", ival1, x[ival1]*lfact, y[ival1]*lfact, z[ival1]*lfact);
+							}
+							else if(structuretype==3)
+							{
+							fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    0    0    0    0    0    0\n", ival1, x[ival1]*lfact, y[ival1]*lfact, z[ival1]*lfact);
+							}
+
+						}
+					}
+				}
+				else
+				{
+					ll=strlen(str1);
+					if(!strnicmp(str1, "R", 1)) // repeated incremented coordinates
+					{
+						sscanf(uline, "%s %i %lf %lf %lf", str1, &rn, &rx, &ry, &rz);
+						NUMNP = NUMNP + rn*(in+1);
+						for(k=0; k<rn; k++)
+						{
+							for(j=0; j<in+1; j++)
+							{
+								ival1=(node[0] + in)*(k+1) + (j+1);
+								ival2=node[0];
+								x[ival1]=(x[ival2] + j*dx + (k+1)*rx)*lfact;
+								y[ival1]=(y[ival2] + j*dy + (k+1)*ry)*lfact;
+								z[ival1]=(z[ival2] + j*dz + (k+1)*rz)*lfact;
+
+								//fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f\n", ival1, x[ival1], y[ival1], z[ival1]);
+								if(structuretype==1)
+								{
+								fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    0    0    1    1    1    0\n", ival1, x[ival1]*lfact, y[ival1]*lfact, z[ival1]*lfact);
+								}
+								else if(structuretype==2)
+								{
+								fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    1    0    1    0    1    0\n", ival1, x[ival1]*lfact, y[ival1]*lfact, z[ival1]*lfact);
+								}
+								else if(structuretype==3)
+								{
+								fprintf(fp2, "N001 %5d%10.3f%10.3f%10.3f    0    0    0    0    0    0\n", ival1, x[ival1]*lfact, y[ival1]*lfact, z[ival1]*lfact);
+								}
+							}
+						}
+						
+					}
+					else if(ll > 1)
+					{
+						fsetpos(fp1, &loc1);
+						//fclose(fp2);
+						closeflag=1;
+						break;
+					}
+					
+				}
+				
+			}
+			
+		}
+		else if(!strnicmp(str1, "MEM", 3) && !strnicmp(str2, "INC", 3))
+		{
+			ELTYPE=2;	// Beam Element
+			NELTYPE++;
+
+			fprintf(fp2, "N002 UNIT %.3f %.3f ELTYPE=2, Beam#, NODE1#, x[NODE1]*lfact, y[NODE1]*lfact, z[NODE1]*lfact, NODE2#, x[NODE2]*lfact, y[NODE2]*lfact, z[NODE2]*lfact\n", WFACT, LFACT);
+
+			
+			memcnt=0;
+			closeflag=0;
+			totbeam=0;
+			strcpy(elcode, "N002");
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fgets(uline, 255, fp1);
+				strcpy(str1, "");
+				sscanf(uline, "%s", str1);
+				n=atoi(str1);
+
+				if(n > 0)
+				{
+					ival4=ival5=ival6=0;
+					sscanf(uline, "%i %i %i %i %i %i", &element[memcnt], &n1[memcnt], &n2[memcnt], &ival4, &ival5, &ival6);
+					ival1=element[memcnt]; ival2=n1[memcnt]; ival3=n2[memcnt];
+
+					strcpy(elcode, "N002");
+					ELTYPE=2;
+
+					element[memcnt]=ival1;
+					memcnt++;
+
+					for(j=0; j<tottruss; j++)
+					{
+						if(ival1==trussnum[j])
+						{
+							ELTYPE=1;
+							break;
+						}
+					}
+					
+					if(ELTYPE==2)
+					{
+						totbeam++;
+					}
+					fprintf(fp2, "%s %5d%5d%5d%10.3f%10.3f%10.3f%5d%10.3f%10.3f%10.3f\n", elcode, ELTYPE, ival1, ival2, x[ival2]*lfact, y[ival2]*lfact, z[ival2]*lfact, ival3, x[ival3]*lfact, y[ival3]*lfact, z[ival3]*lfact);
+				
+					
+					if(ival4 > 0 && ival5 == 0)		// Incremented member connectivity
+					{
+						// Incremented up to member (ival4), node1 by (dx=1) and node2 by (dy=1)  
+					
+						in=ival4 - ival1;
+						totbeam+=in;
+						inc1=1;
+						inc2=1;
+						
+						for(j=1; j<in+1; j++)
+						{
+							ival1=element[0]+j*inc1;
+							ival2=n1[0]+j*inc2;
+							ival3=n2[0]+j*inc2;
+
+							strcpy(elcode, "N002");
+							ELTYPE=2;
+
+							for(k=0; k<tottruss; k++)
+							{
+								if(ival1==trussnum[k])
+								{
+									//strcpy(elcode, "N001");
+									ELTYPE=1;
+									break;
+								}
+							}
+
+							element[memcnt]=ival1;
+							memcnt++;
+							//fprintf(fp2, "%5d%5d%5d\n", ival1, ival2, ival3);
+							fprintf(fp2, "%s %5d%5d%5d%10.3f%10.3f%10.3f%5d%10.3f%10.3f%10.3f\n", elcode, ELTYPE, ival1, ival2, x[ival2]*lfact, y[ival2]*lfact, z[ival2]*lfact, ival3, x[ival3]*lfact, y[ival3]*lfact, z[ival3]*lfact);
+						}
+					}
+					if(ival4 > 0 && ival5 > 0)		// Incremented member connectivity
+					{
+						// Incremented up to member (ival4), node1 by (dx=1) and node2 by (dy=1)  
+					
+						in=ival4 - ival1;
+						totbeam+=in;
+						inc1=ival5;
+						inc2=ival6;
+
+						for(j=0; j<in; j++)
+						{
+							ival1=element[0]+(j+1)*inc1;
+							ival2=n1[0]+(j+1)*inc2;
+							ival3=n2[0]+(j+1)*inc2;
+
+							strcpy(elcode, "N002");
+							ELTYPE=2;
+
+							for(k=0; k<tottruss; k++)
+							{
+								if(ival1==trussnum[k])
+								{
+									//strcpy(elcode, "N001");
+									ELTYPE=1;
+									break;
+								}
+							}
+
+							element[memcnt]=ival1;
+							memcnt++;
+							//fprintf(fp2, "%5d%5d%5d\n", ival1, ival2, ival3);
+							fprintf(fp2, "%s %5d%5d%5d%10.3f%10.3f%10.3f%5d%10.3f%10.3f%10.3f\n", elcode, ELTYPE, ival1, ival2, x[ival2]*lfact, y[ival2]*lfact, z[ival2]*lfact, ival3, x[ival3]*lfact, y[ival3]*lfact, z[ival3]*lfact);
+						}
+					}
+				}
+				else
+				{
+					ll=strlen(str1);
+
+					if(!strnicmp(str1, "R", 1))				// Repeated incremented member, node1 and node2
+					{
+						sscanf(uline, "%s %s %i %i %i", str1, str2, &rm, &rn1, &rn2);			// A for All
+						// rm = no of time of repeat, rn1 = member increment, rn2 = nodes increment
+
+						totbeam += (rm*in);
+						for(i=0; i<rm; i++)
+						{
+							for(j=0; j<in+1; j++)
+							{
+								ival1=element[0] + j*inc1 + (i+1)*rn1;
+								ival2=n1[0] + j*inc2 + (i+1)*rn2;
+								ival3=n2[0] + j*inc2 + (i+1)*rn2;
+
+								strcpy(elcode, "N002");
+								ELTYPE=2;
+
+								for(k=0; k<tottruss; k++)
+								{
+									if(ival1==trussnum[k])
+									{
+										//strcpy(elcode, "N001");// Not N001
+										ELTYPE=1;
+										break;
+									}
+								}
+
+								element[memcnt]=ival1;
+								memcnt++;
+								//fprintf(fp2, "%5d%5d%5d\n", ival1, ival2, ival3);
+								fprintf(fp2, "%s %5d%5d%5d%10.3f%10.3f%10.3f%5d%10.3f%10.3f%10.3f\n", elcode, ELTYPE, ival1, ival2, x[ival2]*lfact, y[ival2]*lfact, z[ival2]*lfact, ival3, x[ival3]*lfact, y[ival3]*lfact, z[ival3]*lfact);
+
+							}
+						}
+						i=0;
+						memcnt=0;
+					}
+					else if(ll > 1)
+					{
+						fsetpos(fp1, &loc1);
+						//fclose(fp2);
+						closeflag=1;
+						break;
+					}					
+				}
+			}
+
+			
+		
+		}
+
+		
+		else if(!strnicmp(str1, "MEM", 3) && !strnicmp(str2, "PRO", 3))
+		{
+			fprintf(fp2, "N003 UNIT %.3f %.3f  element#, section_ID#, area*lfact*lfact, ix*lfact*lfact*lfact*lfact, iy*lfact*lfact*lfact*lfact, iz*lfact*lfact*lfact*lfact\n", WFACT, LFACT);
+
+			i=0;
+			n=0;
+			mp_flag1=0;
+			mp_flag2=0;
+			range=0;
+			index=0;
+			totsec=0;
+			area=ix=iy=iz=0.0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+				n=atoi(str1);
+
+				if(n > 0)
+				{
+					if(index > 0)
+					{
+						if(index==1)
+						{
+							area=yd*zd;
+							iz=(yd*zd*zd*zd)/12;
+							iy=(zd*yd*yd*yd)/12;
+							ix=iy+iz;
+						}
+
+						totsec++;
+						for(j=0; j<i; j++)
+						{	B=D=Do=Di=0.0;
+							//fprintf(fp2, "%5d %5d %5d %10.5f %10.3f %10.3f %10.3f\n", ELTYPE, element[0]+ii, totsec, area*lfact*lfact, ix*lfact*lfact*lfact*lfact, iy*lfact*lfact*lfact*lfact, iz*lfact*lfact*lfact*lfact);
+							fprintf(fp2, "N003 %5d %5d     %f %f %f %f %f %f %f %f\n", nl[j], totsec, B, D, Do, Di, area*lfact*lfact, ix*lfact*lfact*lfact*lfact, iy*lfact*lfact*lfact*lfact, iz*lfact*lfact*lfact*lfact);
+						}
+						
+						i=0;
+						index=0;
+						area=ix=iy=iz=0.0;
+					}
+				
+					nl[i]=n;
+					i++;
+				}
+				else
+				{
+					if(! strnicmp(str1, "YD", 2))
+					{
+						fscanf(fp1, "%lf", &yd);
+						index=1;
+					}
+					else if(! strnicmp(str1, "ZD", 2))
+					{
+						fscanf(fp1, "%lf", &zd);
+						index=1;
+					}
+					else if(! strnicmp(str1, "A", 1))
+					{
+						fscanf(fp1, "%lf", &area);
+						index=2;
+					}
+					else if(! strnicmp(str1, "IX", 2))
+					{
+						fscanf(fp1, "%lf", &ix);
+						index=2;
+					}
+					else if(! strnicmp(str1, "IY", 2))
+					{
+						fscanf(fp1, "%lf", &iy);
+						index=2;
+					}
+					else if(! strnicmp(str1, "IZ", 1))
+					{
+						fscanf(fp1, "%lf", &iz);
+						index=2;
+					}
+					else if(! strnicmp(str1, "PR", 2))
+					{
+						
+					}
+					else if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+					}
+					else
+					{
+						if(index > 0)
+						{
+							if(index==1)
+							{
+								area=yd*zd;
+								iz=(yd*zd*zd*zd)/12;
+								iy=(zd*yd*yd*yd)/12;
+								ix=iy+iz;
+							}
+
+							totsec++;
+							for(j=0; j<i; j++)
+							{
+								B=D=Do=Di=0.0;
+								//fprintf(fp2, "%5d %5d %5d %10.5f %10.3f %10.3f %10.3f\n", ELTYPE, element[0]+ii, totsec, area*lfact*lfact, ix*lfact*lfact*lfact*lfact, iy*lfact*lfact*lfact*lfact, iz*lfact*lfact*lfact*lfact);
+								fprintf(fp2, "N003 %5d %5d     %f %f %f %f %f %f %f %f\n", nl[j], totsec,  B, D, Do, Di, area*lfact*lfact, ix*lfact*lfact*lfact*lfact, iy*lfact*lfact*lfact*lfact, iz*lfact*lfact*lfact*lfact);
+							}
+							
+							i=0;
+							index=0;
+							area=ix=iy=iz=0.0;
+						}
+
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+					}
+
+				}// else	
+			} // while
+		} // else MEM PRO
+
+				
+		//else if((!strnicmp(str1, "MAT", 3) && !strnicmp(str2, "PRO", 3)) || !strnicmp(str1, "CON", 3))
+		else if((!strnicmp(str1, "MAT", 3) && !strnicmp(str2, "PRO", 3)))
+		{
+			fprintf(fp2, "N004  UNIT %.3f %.3f element#, mat_ID#, emod*wfact/(lfact*lfact), pr, mden*wfact/(lfact*lfact*lfact), wden*wfact/(lfact*lfact*lfact), alpha, beta\n", WFACT, LFACT);
+
+			i=0;
+			n=0;
+			emod=0.0; pr=0.0; mden=0.0; wden=0.0; alpha=0.0; beta=0.0;
+			mp_flag1=0;
+			range=0;
+			index=0;
+			totmat=0;
+
+			while(! feof(fp1))
+			{
+
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+				n=atoi(str1);
+
+				if(n > 0)
+				{
+					if(index==1)
+					{
+						for(j=0; j<i; j++)
+						{
+							//fprintf(fp2, "%5d %5d %5d %10.3f %10.3f %10.3f %10.3f\n", ELTYPE, element[0]+ii, totmat, emod*wfact/(lfact*lfact), pr, mden*wfact/(lfact*lfact*lfact), wden*wfact/(lfact*lfact*lfact));
+							fprintf(fp2, "N004 %5d %5d %10.3f %10.3f %10.3f %10.3f %f %f\n", nl[j], totmat, emod*wfact/(lfact*lfact), pr, mden*wfact/(lfact*lfact*lfact), wden*wfact/(lfact*lfact*lfact), alpha, beta);
+						}
+						index=0;
+						totmat++;
+					}
+
+					nl[i]=n;
+					i++;
+				}
+				else
+				{
+					if(! strnicmp(str1, "E", 1))
+					{
+						fscanf(fp1, "%lf", &emod);
+						index=1;
+					}
+					else if(! strnicmp(str1, "PR", 2) || ! strnicmp(str1, "PO", 2))
+					{
+						fscanf(fp1, "%lf", &pr);
+						index=1;
+					}
+					else if(! strnicmp(str1, "DEN", 3))
+					{
+						fscanf(fp1, "%lf", &wden);
+						index=1;
+					}
+					else if(! strnicmp(str1, "MAS", 3))
+					{
+						fscanf(fp1, "%lf", &mden);
+						index=1;
+					}
+					else if(! strnicmp(str1, "ALP", 3))
+					{
+						fscanf(fp1, "%lf", &alpha);
+						index=1;
+					}
+					else if(! strnicmp(str1, "BET", 3))
+					{
+						fscanf(fp1, "%lf", &beta);
+						index=1;
+					}
+					else if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+					}
+					else
+					{
+						if(index==1)
+						{
+							for(j=0; j<i; j++)
+							{
+								//fprintf(fp2, "%5d %5d %5d %10.3f %10.3f %10.3f %10.3f\n", ELTYPE, element[0]+ii, totmat, emod*wfact/(lfact*lfact), pr, mden*wfact/(lfact*lfact*lfact), wden*wfact/(lfact*lfact*lfact));
+								fprintf(fp2, "N004 %5d %5d %10.3f %10.3f %10.3f %10.3f %f %f\n", nl[j], totmat, emod*wfact/(lfact*lfact), pr, mden*wfact/(lfact*lfact*lfact), wden*wfact/(lfact*lfact*lfact), alpha, beta);
+							}
+							index=0;
+							totmat++;
+						}
+
+						nl[i]=n;
+						i++;
+
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+					}
+
+					
+
+				}// else
+				
+			}// while
+			
+		}// else
+
+		else if(!strnicmp(str1, "CONS", 4))
+		{
+			fprintf(fp2, "N004  UNIT %.3f %.3f element#, mat_ID#, emod*wfact/(lfact*lfact), pr, mden*wfact/(lfact*lfact*lfact), wden*wfact/(lfact*lfact*lfact), alpha, beta\n", WFACT, LFACT);
+			emod=200000.0;
+			pr=0.15;
+			mden=0.0025;
+			wden=0.0025;
+			alpha=0.000012;
+			beta=0.000012;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fgets(uline, 255, fp1);
+				sscanf(uline, "%s %s %s", str1, str2, str3);
+				
+				if(! strnicmp(str1, "E", 1))
+				{ 
+					emod=atof(str2);
+					emod=emod*wfact/(lfact*lfact);
+					if(emod==0)
+					{
+						if(! strnicmp(str2, "CON", 3))
+						{
+							emod=200000.0;
+						}
+						if(! strnicmp(str2, "STE", 3))
+						{
+							emod=2000000.0;
+						}
+					}
+				}
+							  
+				else if(! strnicmp(str1, "DENS", 4))
+				{
+					mden=atof(str2);
+					mden=mden*wfact/(lfact*lfact*lfact);
+					wden=mden;
+					if(mden==0)
+					{
+						if(! strnicmp(str2, "CON", 3))
+						{
+							mden=0.0025;
+							wden=0.0025;
+						}
+						if(! strnicmp(str2, "STE", 3))
+						{
+							mden=0.0079;
+							wden=0.0079;
+						}
+					}
+				}
+									  
+				else if(! strnicmp(str1, "POIS", 4))
+				{   pr=atof(str2);
+							  
+					if(pr==0)
+					{
+						if(! strnicmp(str2, "CON", 3))
+						{
+							pr=0.15;
+						}
+						if(! strnicmp(str2, "STE", 3))
+						{
+							pr=0.12;
+						}
+					}
+				}
+									 
+				else if(! strnicmp(str1, "ALPH", 4))
+				{
+					alpha=atof(str2);
+							  
+					if(alpha==0)
+					{
+						if(! strnicmp(str2, "CON", 3))
+						{
+							alpha=0.000012;
+						}
+						if(! strnicmp(str2, "STE", 3))
+						{
+							alpha=0.000018;
+						}
+					}
+				}
+							
+				else if(! strnicmp(str1, "BETA", 4))
+				{
+					beta=atof(str2);
+							  
+					if(beta==0)
+					{
+						if(! strnicmp(str2, "CON", 3))
+						{
+							beta=0.000012;
+						}
+						if(! strnicmp(str2, "STE", 3))
+						{
+							beta=0.000018;
+						}
+					}
+				}
+									 
+
+				else if(! strnicmp(str1, "CONC", 4))
+				{
+					emod=200000.0;
+					pr=0.15;
+					mden=0.0025;
+					wden=0.0025;
+					alpha=0.000012;
+					beta=0.000012;
+				}
+
+				else if(! strnicmp(str1, "STEE", 4))
+				{
+					emod=2000000.0;
+					pr=0.12;
+					mden=0.0079;
+					wden=0.0079;
+					alpha=0.000018;
+					beta=0.000018;
+				}
+				else
+				{
+					fsetpos(fp1, &loc1);
+					break;
+				}
+
+				
+			}
+
+			totmat=0;
+			for(i=0; i<memcnt; i++)
+			{
+				totmat=i+1;
+				fprintf(fp2, "N004 %5d %5d %10.3f %10.3f %10.3f %10.3f %f %f\n", element[i], totmat, emod*wfact/lfact/lfact, pr, mden*wfact/lfact/lfact/lfact, wden*wfact/lfact/lfact/lfact, alpha, beta);
+			}
+
+		
+
+		}
+
+
+		else if(!strnicmp(str1, "SUP", 3))
+		{
+			fprintf(fp2, "N005 element#, dof[0], dof[1], dof[2], dof[3], dof[4], dof[5]\n");
+
+			i=0;
+			n=0;
+			mp_flag1=0;
+			range=0;
+			index=0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+				n=atoi(str1);
+				if(n > 0)
+				{
+					nl[i]=n;
+					i++;
+				}		
+				else
+				{
+					if(! strnicmp(str1, "FIX", 3))
+					{
+						for(j=0; j<6; j++)
+						{
+							dof[j]=1;
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "PIN", 3))
+					{
+						for(j=0; j<6; j++)
+						{
+							if(j<3)
+							{
+								dof[j]=1;
+							}
+							else
+							{
+								dof[j]=0;
+							}
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "ROL", 3))
+					{
+						for(j=0; j<6; j++)
+						{
+							if(j<2)
+							{
+								dof[j]=1;
+							}
+							else
+							{
+								dof[j]=0;
+							}
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+					}
+					else
+					{
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+					}
+
+					if(index==1)
+					{
+						for(j=0; j<i; j++)
+						{
+							fprintf(fp2, "N005 ");	
+							fprintf(fp2, "%5d", nl[j]);
+							for(jj=0; jj<6; jj++)
+							{
+								fprintf(fp2, " %5d", dof[jj]);
+							}
+							fprintf(fp2, "\n");	
+						}
+						index=0;
+						i=0;
+					}
+					
+				} //else
+			} // while
+		} // else SUPP
+
+		else if(!strnicmp(str1, "LOA", 3) && strnicmp(str2, "GEN", 3))
+		{
+			fgetpos(fp1, &loc1);
+			n=atoi(str2);
+
+			if(n > 0)
+			{
+				loadcase=n;
+				LL++;
+			}
+			else
+			{	
+				if(! strnicmp(str2, "COM", 3))
+				{
+					loadcase++;
+					LL++;
+				}
+
+			}
+		}
+		
+		else if(!strnicmp(str1, "MEM", 3) && !strnicmp(str2, "LOA", 3))
+		{
+			fprintf(fp2, "N006  UNIT %.3f %.3f loadcase, total, eltype, nl[0]+ii, udlx*wfact/lfact, udly*wfact/lfact, udlz*wfact/lfact, px*wfact, d1*lfact, py*wfact, d2*lfact, pz*wfact, d3*lfact\n", WFACT, LFACT);
+
+			i=0;
+			n=0;
+			total=0;
+			eltype=2;
+			fx=0.0; fy=0.0; fz=0.0; mx=0.0; my=0.0; mz=0.0;
+			mp_flag1=0;
+			range=0;
+			index=1;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+				n=atoi(str1);
+				if(n > 0)
+				{
+					nl[i]=n;
+					i++;
+					index=1;
+				}
+				else
+				{	
+					if(! strnicmp(str1, "UNI", 3))
+					{
+						// UNI Y -12.3
+						fscanf(fp1, "%s %lf", str2, &val1); //Uniformly Distributed Load
+						mp_flag1++;
+
+						udlx=0.0; udly=0.0; udlz=0.0; 
+						px=0.0; py=0.0; pz=0.0;
+						d1=d2=d3=0.0;
+						load_axis=0;
+
+						// UDL
+
+						if(! strnicmp(str2, "X", 1))
+						{
+							udlx=val1;
+							load_axis=1;
+						}
+						else if(! strnicmp(str2, "Y", 1))
+						{
+							udly=val1;
+							load_axis=1;
+						}
+						else if(! strnicmp(str2, "Z", 1))
+						{
+							udlz=val1;
+							load_axis=1;
+						}
+						else if(! strnicmp(str2, "GX", 2))
+						{
+							udlx=val1;
+							load_axis=2;
+						}
+						else if(! strnicmp(str2, "GY", 2))
+						{
+							udly=val1;
+							load_axis=2;
+						}
+						else if(! strnicmp(str2, "GZ", 2))
+						{
+							udlz=val1;
+							load_axis=2;
+						}
+
+						for(j=0; j<i; j++)
+						{
+							total++;
+							if(load_axis==1)
+							{
+							fprintf(fp2, "N006 %5d LCS %5d %5d %5d %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n", loadcase, total, eltype, nl[j], udlx*wfact/lfact, udly*wfact/lfact, udlz*wfact/lfact, px*wfact, d1*lfact, py*wfact, d2*lfact, pz*wfact, d3*lfact);
+							}
+							else if(load_axis==2)
+							{
+							fprintf(fp2, "N006 %5d GCS %5d %5d %5d %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n", loadcase, total, eltype, nl[j], udlx*wfact/lfact, udly*wfact/lfact, udlz*wfact/lfact, px*wfact, d1*lfact, py*wfact, d2*lfact, pz*wfact, d3*lfact);
+							}
+						}
+					
+												
+						i=0;
+						n=0;
+						index=0;
+					}
+					else if(! strnicmp(str1, "CON", 3))
+					{	
+						// CONC Y -12.3 DX 2.0
+						fscanf(fp1, "%s %lf", str2, &val1);	//Concentrated Load
+						fscanf(fp1, "%s %lf", str3, &val2);	//Distnace from Start node
+						mp_flag1++;
+						
+						udlx=0.0; udly=0.0; udlz=0.0; 
+						px=0.0; py=0.0; pz=0.0;
+						d1=d2=d3=0.0;
+						load_axis=0;
+
+						// Conc Load and Distance
+
+						if(! strnicmp(str2, "X", 1) && ! strnicmp(str3, "D", 1))
+						{
+							px=val1; 
+							d1=val2;
+							load_axis=1;
+						}
+						else if(! strnicmp(str2, "Y", 1) && ! strnicmp(str3, "D", 1))
+						{
+							py=val1; 
+							d2=val2;
+							load_axis=1;
+						}
+						else if(! strnicmp(str2, "Z", 1) && ! strnicmp(str3, "D", 1))
+						{
+							pz=val1;
+							d3=val2;
+							load_axis=1;
+						}
+						else if(! strnicmp(str2, "GX", 2) && ! strnicmp(str3, "D", 1))
+						{
+							px=val1; 
+							d1=val2;
+							load_axis=2;
+						}
+						else if(! strnicmp(str2, "GY", 2) && ! strnicmp(str3, "D", 1))
+						{
+							py=val1; 
+							d2=val2;
+							load_axis=2;
+						}
+						else if(! strnicmp(str2, "GZ", 2) && ! strnicmp(str3, "D", 1))
+						{
+							pz=val1;
+							d3=val2;
+							load_axis=2;
+						}
+
+						for(j=0; j<i; j++)
+						{
+							total++;
+							if(load_axis==1)
+							{
+							fprintf(fp2, "N006 %5d LCS %5d %5d %5d %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n", loadcase, total, eltype, nl[j], udlx*wfact/lfact, udly*wfact/lfact, udlz*wfact/lfact, px*wfact, d1*lfact, py*wfact, d2*lfact, pz*wfact, d3*lfact);
+							}
+							else if(load_axis==2)
+							{
+							fprintf(fp2, "N006 %5d GCS %5d %5d %5d %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n", loadcase, total, eltype, nl[j], udlx*wfact/lfact, udly*wfact/lfact, udlz*wfact/lfact, px*wfact, d1*lfact, py*wfact, d2*lfact, pz*wfact, d3*lfact);
+							}
+						}
+					
+												
+						i=0;
+						n=0;
+						index=0;
+					
+					}
+					else if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+
+					}
+					
+					else
+					{
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+					}
+
+										
+				}
+			}
+		}
+
+		else if(!strnicmp(str1, "JOI", 3) && !strnicmp(str2, "LOA", 3))
+		{
+			fprintf(fp2, "N007  UNIT %.3f %.3f loadcase#, NODE#, fx*wfact, fy*wfact, fz*wfact, mx*wfact*lfact, my*wfact*lfact, mz*wfact*lfact\n", WFACT, LFACT);
+
+			i=0;
+			n=0;
+			fx=0.0; fy=0.0; fz=0.0; mx=0.0; my=0.0; mz=0.0;
+			mp_flag1=0;
+			range=0;
+			index=0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+				n=atoi(str1);
+				if(n > 0)
+				{
+					nl[i]=n;
+					i++;
+				}
+				else
+				{	
+					if(! strnicmp(str1, "FX", 2))
+					{
+						fscanf(fp1, "%lf", &fx);
+						index=1;
+					}
+					else if(! strnicmp(str1, "FY", 2))
+					{
+						fscanf(fp1, "%lf", &fy);
+						index=1;
+					}
+					else if(! strnicmp(str1, "FZ", 2))
+					{
+						fscanf(fp1, "%lf", &fz);
+						index=1;
+					}
+					else if(! strnicmp(str1, "MX", 3))
+					{
+						fscanf(fp1, "%lf", &mx);
+						index=1;
+					}
+					else if(! strnicmp(str1, "MY", 3))
+					{
+						fscanf(fp1, "%lf", &my);
+						index=1;
+					}
+					else if(! strnicmp(str1, "MZ", 3))
+					{
+						fscanf(fp1, "%lf", &mz);
+						index=1;
+					}
+					else if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+					}
+					else
+					{
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+						
+					}
+
+					if(index==1)
+					{
+						for(j=0; j<i; j++)
+						{
+							fprintf(fp2, "N007 %5d %5d %10.3f %10.3f %10.3f %10.3f %10.3f %10.3f\n", loadcase, nl[j], fx*wfact, fy*wfact, fz*wfact, mx*wfact*lfact, my*wfact*lfact, mz*wfact*lfact);
+						}
+						i=0;
+						index=0;
+					}
+				}
+
+			}
+		}
+
+
+		else if(!strnicmp(str1, "SELF", 4))
+		{
+			fprintf(fp2, "N010 loadcase#, SELFWEIGHTX SELFWEIGHTY SELFWEIGHTZ\n");
+
+			val1=val2=val3=0.0;
+
+			sscanf(uline, "%s %s %s", str1, str2, str3);
+
+			if(! strnicmp(str2, "X", 3))
+			{
+				val1=atof(str3);
+			}
+			else if(! strnicmp(str2, "Y", 3))
+			{
+				val2=atof(str3);
+			}
+			else if(! strnicmp(str2, "Z", 2))
+			{
+				val3=atof(str3);
+			}
+			
+			fprintf(fp2, "N010 %5d %.3f %.3f %.3f\n", loadcase, val1, val2, val3);
+		}
+
+		else if(!strnicmp(str1, "MEM", 3) && !strnicmp(str2, "REL", 3))
+		{
+			fprintf(fp2, "N009 element#, N1# FX FY FZ MX MY MZ N2# FX FY FZ MX MY MZ\n");
+
+			i=0;
+			n=0;
+			mp_flag1=0;
+			range=0;
+			index=0;
+			for(j=0; j<12; j++)
+			{
+				dofb[j]=1;
+			}
+			N1=0;
+			N2=0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+				n=atoi(str1);
+				if(n > 0)
+				{
+					if(index==1)
+					{
+						for(j=0; j<i; j++)
+						{
+							fprintf(fp2, "N009 ");	
+							fprintf(fp2, "%5d", nl[j]);
+							fprintf(fp2, " N1");
+
+							for(jj=0; jj<6; jj++)
+							{
+								fprintf(fp2, " %5d", dofb[jj]);
+							}
+
+							fprintf(fp2, " N2");
+
+							for(jj=6; jj<12; jj++)
+							{
+								fprintf(fp2, " %5d", dofb[jj]);
+							}
+							fprintf(fp2, "\n");
+						}
+						
+						for(j=0; j<12; j++)
+						{
+							dofb[j]=1;
+						}
+
+						index=0;
+						i=0;
+						N1=0;
+						N2=0;
+					}
+
+					nl[i]=n;
+					i++;
+				}
+				else
+				{
+					if(! strnicmp(str1, "STA", 3))
+					{
+						N1=1;
+						N2=0;
+					}
+					else if(! strnicmp(str1, "END", 3))
+					{
+						N1=0;
+						N2=1;
+					}
+					else if(! strnicmp(str1, "FX", 2))
+					{
+						
+						if(N1==1)
+						{
+							dofb[0]=0;
+						}
+						else if(N2==1)
+						{
+							dofb[6]=0;
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "FY", 2))
+					{
+						
+						if(N1==1)
+						{
+							dofb[1]=0;
+						}
+						else if(N2==1)
+						{
+							dofb[7]=0;
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "FZ", 2))
+					{
+						
+						if(N1==1)
+						{
+							dofb[2]=0;
+						}
+						else if(N2==1)
+						{
+							dofb[8]=0;
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "MX", 2))
+					{
+						
+						if(N1==1)
+						{
+							dofb[3]=0;
+						}
+						else if(N2==1)
+						{
+							dofb[9]=0;
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "MY", 2))
+					{
+						
+						if(N1==1)
+						{
+							dofb[4]=0;
+						}
+						else if(N2==1)
+						{
+							dofb[10]=0;
+						}
+						index=1;
+					}
+					else if(! strnicmp(str1, "MZ", 2))
+					{
+						
+						if(N1==1)
+						{
+							dofb[5]=0;
+						}
+						else if(N2==1)
+						{
+							dofb[11]=0;
+						}
+						index=1;
+					}
+					
+					else if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+					}
+					else
+					{
+						if(index==1)
+						{
+							for(j=0; j<i; j++)
+							{
+								fprintf(fp2, "N009 ");	
+								fprintf(fp2, "%5d", nl[j]);
+								fprintf(fp2, " N1");
+
+								for(jj=0; jj<6; jj++)
+								{
+									fprintf(fp2, " %5d", dofb[jj]);
+								}
+
+								fprintf(fp2, " N2");
+
+								for(jj=6; jj<12; jj++)
+								{
+									fprintf(fp2, " %5d", dofb[jj]);
+								}
+								fprintf(fp2, "\n");
+							}
+						
+							for(j=0; j<12; j++)
+							{
+								dofb[j]=1;
+							}
+
+							index=0;
+							i=0;
+							N1=0;
+							N2=0;
+						}
+
+						fsetpos(fp1, &loc1);
+						break;
+					}
+
+						
+				} // else
+			} // while
+		} // else
+
+
+		else if(!strnicmp(str1, "MEM", 3) && !strnicmp(str2, "TRU", 3))
+		{
+			ELTYPE=1;	// Beam Element
+			NELTYPE++;
+			
+			fprintf(fp2, "N008 ELTYPE=1, TRUSS_MEMB #\n");
+
+			i=0;
+			j=0;
+			range=0;
+			index=0;
+			tottruss=0;
+
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fscanf(fp1, "%s", str1);
+
+				n=atoi(str1);
+				if(n > 0)
+				{
+					nl[i]=n;
+					i++;
+					index=1;
+				}
+				else
+				{
+					if(! strnicmp(str1, "TO", 2))
+					{
+						ival1=nl[i-1];
+						fscanf(fp1, "%i", &ival2);
+						range=ival2-ival1;
+						for(j=0; j<range; j++)
+						{
+							nl[i] = ival1+(j+1);
+							i++;
+						}
+						range=0;
+					}
+					
+					else
+					{
+						if(index==1)
+						{
+							k=0;
+							for(j=0; j<i; j++)
+							{
+								fprintf(fp2, "N008 %5d%5d\n", ELTYPE, nl[j]);
+								trussnum[k] = nl[j];
+								tottruss++;
+								k++;
+							}
+						
+							i=0;
+							k=0;
+							n=0;
+							mp_flag1=0;
+							range=0;
+						}
+						//fclose(fp2);
+						fsetpos(fp1, &loc1);
+						break;
+					}
+						
+				} // else			
+			} // while
+		} // else
+
+		else if(!strnicmp(str1, "DEF", 3) && !strnicmp(str2, "MOV", 3))
+		{
+			fprintf(fp2, "N011 DEFINE MOVING LOAD\n");
+			ll=strlen(uline);
+			if(uline[ll-1] == '\n')
+			{
+				uline[ll-1]='\0';
+			}
+			fprintf(fp2, "N011 %s\n", uline);
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fgets(uline, 255, fp1);
+				sscanf(uline, "%s %s", str1, str2);
+				if(! strnicmp(str1, "DEF", 3) || ! strnicmp(str1, "TYP", 3))
+				{
+					ll=strlen(uline);
+					if(uline[ll-1] == '\n')
+					{
+						uline[ll-1]='\0';
+					}
+					fprintf(fp2, "N011 %s\n", uline);
+				}
+				else 
+				{
+					fsetpos(fp1, &loc1);
+					break;
+				}
+			}
+		}
+
+			
+		else if(! strnicmp(str1, "LOA", 3) && ! strnicmp(str2, "GEN", 3))
+		{
+			fprintf(fp2, "N012 LOAD GENERATION\n");
+			ll=strlen(uline);
+			if(uline[ll-1] == '\n')
+			{
+				uline[ll-1]='\0';
+			}
+			fprintf(fp2, "N012 %s\n", uline);
+			while(! feof(fp1))
+			{
+				fgetpos(fp1, &loc1);
+				fgets(uline, 255, fp1);
+				sscanf(uline, "%s %s", str1, str2);
+				if(! strnicmp(str1, "LOA", 3) || ! strnicmp(str1, "TYP", 3))
+				{
+					ll=strlen(uline);
+					if(uline[ll-1] == '\n')
+					{
+						uline[ll-1]='\0';
+					}
+					fprintf(fp2, "N012 %s\n", uline);
+				}
+				else 
+				{
+					fsetpos(fp1, &loc1);
+					break;
+				}
+			}
+			
+		}
+
+
+
+		else if(! strnicmp(str1, "ANA", 3) || ! strnicmp(str1, "AAN", 3) || ! strnicmp(str2, "ANA", 3))
+		{
+			
+			fprintf(fp2, "N099 NDYN   <NDYN_ID#>   NF   <NF_value>\n");
+
+			NF=3; 
+
+			if(! strnicmp(str2, "STA", 3))
+			{
+				NDYN=0; NF=0;
+			}
+			else if(! strnicmp(str2, "EIG", 3))
+			{
+				NDYN=1;
+			}
+			else if(! strnicmp(str2, "FOR", 3))
+			{
+				NDYN=2;
+			}
+			else if(! strnicmp(str2, "RES", 3))
+			{
+				NDYN=3;
+			}
+			else if(! strnicmp(str2, "DIR", 3))
+			{
+				NDYN=4;
+			}
+
+			fprintf(fp2, "N099 NDYN %5d NF %5d\n", NDYN, NF);
+
+			//fclose(fp2);
+			break;
+
+			
+			//11 - 15	LL		Number of structure load cases
+			//		 	1		Static Analysis
+			//		=	0		Dynamic Analysis
+			//16 - 20	NF		Number of frequencies to be found in the eigenvalue solution 
+			//			= 	0	Static Analysis 
+			//		 		1	Dynamic Analysis 
+			//21 - 25	NDYN	Analysis type code 
+			//			= 	0	Static Analysis
+			//			= 	1	Eigenvalue/vector solution
+			//			=	2	Forced Dynamic response by Mode Superposition
+			//			=	3	Response Spectrum Analysis 
+			//			=	4	Direct Step-by-Step integration 
+			//26 - 30	MODEX	Program execution mode:
+			//			=	0	Problem Solution
+			//			=	1	Data Check only 
+			//31 - 35	NAD		Total number of vectors to be used in a SUBSPACE ITERATION solution for
+			//					eigenvalues / vectors:
+			//			=	0	Default set to : MIN {2*NF, NF+8} 
+			//36 - 40	KEQ		Number of degrees of freedom (equations) per block of storage:
+			//			=	0	Calculated automatically by the program
+			//41 - 45	N10SV	Save Flag
+			//			=	0	No Save
+			//			=	1	Restart if data found. Save at end of Run
+			//				a.	If the EIGEN solution is desired for more VECTOR
+			//					than calculated previously, the program starts of
+			//					where the previous run finished, obviating the need t
+			//					recalculate.
+			//				b.	If TIME HISTORY or RESPONSE SPECTRUM i
+			//					to be calculated with new TIME functions, the program 
+			//					can SKIP the EIGEN Solution phase completely by reading 
+			//					the data from saved files.
+			//46 - 55	RAM		Reserved RAM in Megabytes. 
+			//					If this is zero then the program uses the compile time default.
+
+		}
+		else if(! strnicmp(str1, "PER", 3) && ! strnicmp(str2, "ANA", 3))
+		{
+			fprintf(fp2, "N099 NDYN   <NDYN_ID#>   NF   <NF_value>\n");
+			
+			NDYN=0; NF=0;
+			fprintf(fp2, "N099 NDYN %5d NF %5d\n", NDYN, NF);
+			break;
+		}
+		else if(!strnicmp(str1, "FIN", 3))
+		{
+			break;
+		}
+		
+
+	}
+
+	fclose(fp1);
+	fclose(fp2);
+
+
+
+
+	strcpy(pathfile, path);
+	strcat(pathfile, file);
+	strcat(pathfile, ".AST");
+	
+	//strcpy(pathfile, path);
+	//strcat(pathfile, "Astra.FIL");
+
+	if((fp1=fopen(pathfile,"r"))==NULL)
+	{
+		sprintf(msgstr, "Failed to open file %s...quiting...!!!", pathfile);
+		AfxMessageBox(msgstr);
+		exit(1);
+	}
+
+
+	// Write Node data file N001.tmp
+	strcpy(pathfile, path);
+	strcat(pathfile, "N001.FIL");
+	if((fp3=fopen(pathfile,"w"))==NULL)
+	{
+		sprintf(msgstr, "Failed to write %s...quiting...!!!", pathfile);
+		AfxMessageBox(msgstr);
+		exit(1);
+	}
+
+	NUMNP=0;
+	while(! feof(fp1))
+	{
+		fgets(uline, 255, fp1);
+		sscanf(uline, "%s %s %lf %lf %s", str1, str2, &wfact, &lfact, str3);
+		if(! strcmpi(str1, "N001"))
+		{
+			break;
+		}
+	}
+
+	while(! feof(fp1))
+	{
+		fgets(uline, 255, fp1);
+		sscanf(uline, "%s %i %lf %lf %lf", str1, &ival1, &val1, &val2, &val3);
+				
+		if(strnicmp(str1, "N001", 4))
+		{
+			break;
+		}
+
+		//fprintf(fp3, "%d %.3f %.3f %.3f\n", ival1, val1*lfact, val2*lfact, val3*lfact);
+		fprintf(fp3, "%d %.3f %.3f %.3f\n", ival1, val1, val2, val3);
+		NUMNP++;
+	}
+
+	rewind(fp1);
+	fclose(fp3);
+
+
+	// Write Beam Element data file N002.FIL
+
+	
+
+	while(! feof(fp1))
+	{
+		fgets(uline, 255, fp1);
+		sscanf(uline, "%s %s %lf %lf", str1, str2, &wfact, &lfact);
+		if(! strcmpi(str1, "N002"))
+		{
+			break;
+		}
+	}
+
+
+	strcpy(pathfile, path);
+	strcat(pathfile, "N002.FIL");
+	if((fp3=fopen(pathfile,"w"))==NULL)
+	{
+		sprintf(msgstr, "Failed to write %s...quiting...!!!", pathfile);
+		AfxMessageBox(msgstr);
+		exit(1);
+	}
+
+
+	index=0;
+	totbeam=0;
+
+	while(! feof(fp1))
+	{
+		fgets(uline, 255, fp1);
+		strcpy(str1, "");
+		sscanf(uline, "%s %s", str1, str2);
+		ival1=atoi(str2);
+
+		if(ival1 <= 0)
+		{
+			continue;
+		}
+		
+
+		if(! strcmpi(str1, "N002"))
+		{
+			sscanf(uline, "%s %i %i %i %lf %lf %lf %i %lf %lf %lf", str1, &eltype, &elnum, &node1, &x1, &y1, &z1, &node2, &x2, &y2, &z2);
+
+			//x1=x1*lfact;
+			//y1=y1*lfact;
+			//z1=z1*lfact;
+
+			//x2=x2*lfact;
+			//y2=y2*lfact;
+			//z2=z2*lfact;
+
+			fprintf(fp3, "%d %d %d %.3f %.3f %.3f %d %.3f %.3f %.3f\n", eltype, elnum, node1, x1, y1, z1, node2, x2, y2, z2);
+			index=1;
+
+			match=0;
+			for(i=0; i<tottruss; i++)
+			{
+				if(elnum == trussnum[i])
+				{
+					match=1;
+					break;
+				}
+			}
+			if(match==0)
+			{
+				totbeam++;
+			}
+		}
+		if(strcmpi(str1, "N002") && index==1)
+		{
+			break;
+		}
+	}
+
+	fclose(fp1);
+	fclose(fp3);
+
+        }

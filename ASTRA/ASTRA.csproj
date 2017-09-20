@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FFC4447A-32DB-4FBD-A288-8138A415E5FA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AstraFunctionOne</RootNamespace>
+    <AssemblyName>ASTRA</AssemblyName>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ApplicationIcon>astra.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetZone>LocalIntranet</TargetZone>
+    <GenerateManifests>false</GenerateManifests>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>techsoft.pfx</AssemblyOriginatorKeyFile>
+    <PublishUrl>http://localhost/ASTRA/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SignManifests>false</SignManifests>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AKSHASP, Version=1.1.239.0, Culture=neutral, PublicKeyToken=05b7b959d7ced269">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\AKSHASP.dll</HintPath>
+    </Reference>
+    <Reference Include="HeadsProgram, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\HeadsProgram.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="RenderFormats, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechSOFTActivator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\TechSOFTActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="VDrawBaseControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdScrollableControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Actions, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Generics, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Geometry, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Professional, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Render, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Serialize, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="WinMsgMannager, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ASTRA_DataTypes.cs" />
+    <Compile Include="CDemoValidity.cs" />
+    <Compile Include="CRecentFiles.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAstraHelpAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAstraHelpAbout.Designer.cs">
+      <DependentUpon>frmAstraHelpAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDemoVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDemoVersion.Designer.cs">
+      <DependentUpon>frmDemoVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLockedVersion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLockedVersion.Designer.cs">
+      <DependentUpon>frmLockedVersion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpenViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpenViewer.Designer.cs">
+      <DependentUpon>frmOpenViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSpash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSpash.Designer.cs">
+      <DependentUpon>frmSpash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTimerScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTimerScreen.Designer.cs">
+      <DependentUpon>frmTimerScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVideos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVideos.Designer.cs">
+      <DependentUpon>frmVideos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Authorised_Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Authorised_Message.Designer.cs">
+      <DependentUpon>frm_Authorised_Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Demo_Design.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Demo_Design.Designer.cs">
+      <DependentUpon>frm_Demo_Design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Demo_Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Demo_Message.Designer.cs">
+      <DependentUpon>frm_Demo_Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Demo_Analysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Demo_Analysis.Designer.cs">
+      <DependentUpon>frm_Demo_Analysis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_DesignStandardOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_DesignStandardOption.Designer.cs">
+      <DependentUpon>frm_DesignStandardOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Excel_Message.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Excel_Message.Designer.cs">
+      <DependentUpon>frm_Excel_Message.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_OpenWorksheet_Design.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_OpenWorksheet_Design.Designer.cs">
+      <DependentUpon>frm_OpenWorksheet_Design.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_Open_Drawings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Open_Drawings.Designer.cs">
+      <DependentUpon>frm_Open_Drawings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ProgressBar.Designer.cs">
+      <DependentUpon>frm_ProgressBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_ProgressList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_ProgressList.Designer.cs">
+      <DependentUpon>frm_ProgressList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_work_folder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_work_folder.Designer.cs">
+      <DependentUpon>frm_work_folder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Progress\frm_Progress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Progress\frm_Progress.Designer.cs">
+      <DependentUpon>frm_Progress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAstraHelpAbout.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmAstraHelpAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDemoVersion.resx">
+      <DependentUpon>frmDemoVersion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLockedVersion.resx">
+      <DependentUpon>frmLockedVersion.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpenViewer.resx">
+      <DependentUpon>frmOpenViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSpash.resx">
+      <DependentUpon>frmSpash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTimerScreen.resx">
+      <DependentUpon>frmTimerScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVideos.resx">
+      <DependentUpon>frmVideos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Authorised_Message.resx">
+      <DependentUpon>frm_Authorised_Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Demo_Design.resx">
+      <DependentUpon>frm_Demo_Design.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Demo_Message.resx">
+      <DependentUpon>frm_Demo_Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Demo_Analysis.resx">
+      <DependentUpon>frm_Demo_Analysis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_DesignStandardOption.resx">
+      <DependentUpon>frm_DesignStandardOption.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Excel_Message.resx">
+      <DependentUpon>frm_Excel_Message.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_OpenWorksheet_Design.resx">
+      <DependentUpon>frm_OpenWorksheet_Design.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Open_Drawings.resx">
+      <DependentUpon>frm_Open_Drawings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ProgressBar.resx">
+      <DependentUpon>frm_ProgressBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_ProgressList.resx">
+      <DependentUpon>frm_ProgressList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_work_folder.resx">
+      <DependentUpon>frm_work_folder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Progress\frm_Progress.resx">
+      <DependentUpon>frm_Progress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="screen2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AstraAccess\AstraAccess.csproj">
+      <Project>{c7318b47-75a3-4aca-ad1a-f2dd3298a747}</Project>
+      <Name>AstraAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AstraFunctionOne\AstraFunctionOne.csproj">
+      <Project>{4C3C4F99-7279-4351-BC2B-191894E186ED}</Project>
+      <Name>AstraFunctionOne</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AstraInterface\AstraInterface.csproj">
+      <Project>{39488388-529F-43F1-AAA5-03E17909B872}</Project>
+      <Name>AstraInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRAStructures\ASTRAStructures.csproj">
+      <Project>{3f32a706-7c84-40bd-81f5-30a7497f3253}</Project>
+      <Name>ASTRAStructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CadInteractives\CadInteractives.csproj">
+      <Project>{48E09BF3-15CB-41E2-9D29-205B963207D9}</Project>
+      <Name>CadInteractives</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LimitStateMethod\LimitStateMethod.csproj">
+      <Project>{9A403342-DA0B-4DA4-9EE8-0D6C051EA5BA}</Project>
+      <Name>LimitStateMethod</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TBeamDesign\BridgeAnalysisDesign.csproj">
+      <Project>{EBBAB6BD-2680-47C5-9E76-087A0D0DC9F7}</Project>
+      <Name>BridgeAnalysisDesign</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="astra.ico" />
+    <Content Include="ASTRA_ICN.ico" />
+    <None Include="Resources\ASTRA_Unauthorized.jpg" />
+    <None Include="Resources\Transmission Tower3.jpg" />
+    <None Include="Resources\Transmission Tower2.jpg" />
+    <None Include="Resources\Transmission Tower1.jpg" />
+    <None Include="Resources\Microwave Tower3.jpg" />
+    <None Include="Resources\Microwave Tower2.jpg" />
+    <None Include="Resources\Microwave Tower1.jpg" />
+    <None Include="Resources\Cable Car Tower3.jpg" />
+    <None Include="Resources\Cable Car Tower2.jpg" />
+    <None Include="Resources\Cable Car Tower1.jpg" />
+    <None Include="Resources\jetty.jpg" />
+    <None Include="Resources\ExtradosedCableStayed.jpg" />
+    <None Include="Resources\Extra Dossed Bridge [Splash Image1].jpg" />
+    <None Include="Resources\Extradossed_PSC_Box_Girder_Bridge.jpg" />
+    <None Include="Resources\Suspension Bridge Photo.jpg" />
+    <None Include="Resources\ASTRA_Professional.jpg" />
+    <None Include="Resources\ASTRA_Enterprise.jpg" />
+    <None Include="Resources\ASTRA_Demo.jpg" />
+    <None Include="Resources\excel_msg.jpg" />
+    <None Include="Resources\img_techsoft.jpg" />
+    <None Include="Resources\Globe.ico" />
+    <None Include="Resources\Humber_Bay_Arch_Bridge.jpeg" />
+    <None Include="Resources\K_truss_2.jpg" />
+    <None Include="Resources\Banner.jpg" />
+    <None Include="Resources\TechSOFT_Logo.jpg" />
+    <None Include="Resources\Cont PSC Box Girder Bridge.JPG" />
+    <None Include="Resources\RE Wall Design.jpg" />
+    <None Include="ASTRA_Pro.jpg" />
+    <Content Include="Drawing_Path.txt" />
+    <Content Include="Logo_TechSoft.GIF" />
+    <None Include="Resources\ASTRA Pro 9.1.jpg" />
+    <None Include="Resources\ASTRA Pro 14.1.jpg" />
+    <Content Include="Resources\AstraPro.ico" />
+    <None Include="Resources\RCC_T_Girder_Bridge.jpg" />
+    <None Include="Resources\Cable_Stayed_Bridge.jpg" />
+    <None Include="Resources\TBeam_Main_Girder_Bottom_Flange.JPG" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\PSC_BOX_GIRDER_2.JPG" />
+    <None Include="Resources\PSC_BOX_GIRDER_1.JPG" />
+    <None Include="Resources\Rail_Plate_Girder.JPG" />
+    <None Include="Resources\Titled_RCC_T_Beam_Bridge.jpg" />
+    <None Include="Resources\Titled_Pre_Stressed_Bridge.jpg" />
+    <None Include="Resources\Titled_Composite_Bridge.jpg" />
+    <None Include="Resources\Steel_Truss_Bridge.jpg" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Resources\TechSOFT Logo2.bmp" />
+    <None Include="Resources\spashScr.bmp" />
+    <None Include="Resources\Astra.JPG" />
+    <None Include="Resources\Logo_TechSoft.GIF" />
+    <None Include="techsoft.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

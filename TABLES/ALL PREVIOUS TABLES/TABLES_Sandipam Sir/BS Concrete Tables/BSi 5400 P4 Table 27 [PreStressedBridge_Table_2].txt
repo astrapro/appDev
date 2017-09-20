@@ -1,0 +1,27 @@
+﻿IS : 1343 - 1980
+TABLE 11 : CONDITIONS AT THE ULTIMATE LIMIT STATE FOR RECTANGULAR 
+           BEAMS WITH PRE-TENSIONED TENDONS OR WITH POST-TENSIONED 
+           TENDONS HAVING EFFECTIVE BOND
+           
+--------------------------------------------------------------------------------------
+                   Stress in Tendon As              Ratio of the Depth of Nutral
+Ap*fp/(b*d*fck)    a Proportion of the              Axis to that of the Centroyed
+                     Design Strength                of the Tendon in the Tension Zone
+                     (fpu/(0.87*fp))                              (Xu/d)
+              ________________________________        ________________________________
+              Pre tensioning   Post-tensioning        Pre tensioning   Post-tensioning                       
+                               with effective                          with effective
+                                   bond                                    bond  
+              --------------------------------        -------------------------------- 
+--------------------------------------------------------------------------------------
+(1)               (2)               (3)                    (4)             (5)        
+--------------------------------------------------------------------------------------
+0.025             1.0               1.0                    0.054           0.054      
+0.05              1.0               1.0                    0.109           0.109      
+0.10              1.0               1.0                    0.217           0.217      
+0.15              1.0               1.0                    0.326           0.316      
+0.20              1.0               0.95                   0.435           0.414      
+0.25              1.0               0.90                   0.542           0.488      
+0.30              1.0               0.85                   0.655           0.558      
+0.40              0.9               0.75                   0.783           0.653      
+--------------------------------------------------------------------------------------

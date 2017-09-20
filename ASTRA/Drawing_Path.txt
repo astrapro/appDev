@@ -1,0 +1,41 @@
+<Drawing>
+<Interactive>
+Abutment_Counterfort =Bridges\Abutment\Abutment Counterfort\Abutment_Counterfort_Interactive_Drawing.vdml
+Abutment_Reinforcements =Bridges\Abutment\Abutment Reinforcements\Abutment_Reinforcements_Interactive_Drawing.vdml
+Composite_Bridge  =Bridges\Composite\Composite_Bridge_Interactive_Drawing.vdml
+Pier  =Bridges\Pier\Pier_Interactive_Drawing.vdml
+PreStressed_Main_Girder  =Bridges\Pre Stressed\Post Tension Main Girder\PreStressed_Interactive_Drawing.vdml
+PreStressed_Deck_Slab  =Bridges\Pre Stressed\Deck Slab\Rcc_Deck_Slab_Interactive_Drawing.vdml
+Rail_Bridge  =Bridges\Railway\Rail_Bridge_Interactive_Drawing.vdml
+TBEAM_Cantilever  =Bridges\RCC TBeam\Cantilever Slab\Cantilever_Slab_Interactive_Drawing.vdml
+TBEAM_Cross_Girder  =Bridges\RCC TBeam\Cross Girder\Reinforcement_Details_Cross_Girders_Interactive_Drawing.vdml
+TBEAM_Deck_Slab  =Bridges\RCC TBeam\Deck Slab\Reinforcement_Details_Deck_Slab_Interactive_Drawing.vdml
+TBEAM_Long_Girder   =Bridges\RCC TBeam\Long Girder\Reinforcement_Details_Long_Girders_Interactive_Drawing.vdml
+Box_Culvert  =Culvert\Box culvert\Box_Culvert_Interactive_Drawing.vdml
+Slab_Culvert  =Culvert\Slab culvert\Slab_Culvert_Interactive_Drawing.vdml
+Pile_Foundation  =Foundation\Pile Foundation\Pile_Foundation_Interactive_Drawing.vdml
+Well_Foundation  =Foundation\Well Foundation\Well_Foundation_Interactive_Drawing.vdml
+<EndInteractive>
+
+<DefaultDrawing>
+TBEAM_DeckSlab1 =Bridges\RCC TBeam\T Beam Worksheet Design 1 Drawings
+TBEAM_DeckSlab_Plan =Bridges\RCC TBeam\Deck Slab\Deck Slab Plan Drawings
+TBEAM_Worksheet_Design1 =Bridges\RCC TBeam\T Beam Worksheet Design 1 Drawings
+TBEAM_Worksheet_Design2 =Bridges\RCC TBeam\T Beam Worksheet Design 2 Drawings
+Composite_Worksheet_Design =Bridges\Composite\Composite Worksheet Design Drawings
+PSC_Box_Girder_Worksheet_Design =Bridges\PSC Box Girder\PSC Worksheet Design Drawings
+Abutment_Sample =Bridges\Abutment\Abutment Sample Drawing
+Abutment_with_Foundation  =Bridges\Abutment\Abutment_with_Foundation
+RCC_TBeam  =Bridges\RCC TBeam
+SteelTruss_Warren1 =Bridges\Steel Truss\Steel Truss Warren 1 Drawings
+SteelTruss_Warren2 =Bridges\Steel Truss\Steel Truss Warren 2 Drawings
+Abutment_Worksheet_Design_1 =Bridges\Abutment\Abutment Worksheet Design 1 Drawings
+Abutment_Worksheet_Design_2 =Bridges\Abutment\Abutment Worksheet Design 2 Drawings
+RCC_Pier_Worksheet_Design_1 =Bridges\Pier\Pier Worksheet Design 1 Drawings
+RCC_Pier_Worksheet_Design_2 =Bridges\Pier\Pier Worksheet Design 2 Drawings
+Well_Foundation =Foundation\Well Foundation\Well Foundation Drawings
+Pipe_Culvert =Culvert\Pipe culvert
+Pedestrian_Underpass =Underpass\Pedestrian
+Vehicular_Underpass =Underpass\Vehicular
+<EndDefaultDrawing>
+<EndDrawing>

@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="DataContainer_MovePreviousHS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataContainer_MovePreviousHS1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Image1.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="suspension_section_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\suspension_section_16.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AddTableHH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AddTableHH.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rail BridgeImage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rail BridgeImage2.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pile_fond_graph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pile_fond_graph.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_0.4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_0.4.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClosePreviewHH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClosePreviewHH.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section4.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SectionDiagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SectionDiagram.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section9.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TBeam_Main_Girder_Bottom_Flange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TBeam_Main_Girder_Bottom_Flange.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Abutment" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Abutment.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MovingLoads" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MovingLoads.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SLAB Culvert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SLAB Culvert.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Steel_Truss_Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Steel_Truss_Bridge.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Steel_Truss_K_Type_Invert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Steel_Truss_K_Type_Invert.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_5.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section10.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dialog Box Pile Foundation Image01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dialog Box Pile Foundation Image01.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SaveAllHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SaveAllHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HdViewerApp" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HdViewerApp.ico;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Outdent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Outdent.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AppWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AppWindow.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewWindow.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warren2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warren2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section12.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Warren1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warren1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section1.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Steel_Truss_K_Type_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Steel_Truss_K_Type_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="01 General" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\01 General.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section3.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ClosePreviewHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClosePreviewHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fig_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fig_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RCC T-Beam Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RCC T-Beam Bridge.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fig_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fig_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BS_MovingLoads" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BS_MovingLoads.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CompoBridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CompoBridge.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rcc_Well_Foundation1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rcc_Well_Foundation.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="06 Stringer Beams" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\06 Stringer Beams.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoToPrevious" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoToPrevious.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section14" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section14.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T Beam Secion for Dimensions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T Beam Secion for Dimensions.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PIPE Culvert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PIPE Culvert.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PIPE Culvert_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PIPE Culvert_1.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Top Chord Bracing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Top Chord Bracing.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cantilever Slab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cantilever Slab.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PIPE Culvert_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PIPE Culvert_2.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DCP_3935" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DCP_3935.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOX_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BOX_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ActualSizeHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ActualSizeHS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fig_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fig_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable_section_15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_section_15.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="07 Cross Girders" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\07 Cross Girders.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_0.7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_0.7.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section41" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section4.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="02 Top Chord U2U3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\02 Top Chord U2U3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="05 Bottom Chord L2L3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\05 Bottom Chord L2L3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HighlightHH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HighlightHH.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bottom Chord Bracing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bottom Chord Bracing.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Open" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Open.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="suspension_section_17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\suspension_section_17.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PIER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PIER.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Prestressed Girder Dialog Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prestressed Girder Dialog Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Composite Bridge Image01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Composite Bridge Image01.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataContainer_MovePreviousHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataContainer_MovePreviousHS.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rcc_Well_Foundation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rcc_Well_Foundation.GIF;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable_Stayed_Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_Stayed_Bridge.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Box_Culvert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Box_Culvert.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Revert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Revert.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_6.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fig_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fig_5.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pier_drawing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pier_drawing.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fig_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fig_6.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_0.8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_0.8.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Steel_Truss_Warre3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Steel_Truss_Warre3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_0.6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_0.6.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fig_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fig_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="03 Inclined Member U2L3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\03 Inclined Member U2L3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_truss_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_truss_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section13.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="08 Cross Girder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\08 Cross Girder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EditInformation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EditInformation.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stringer Beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stringer Beam.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoToPreviousMessage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GoToPreviousMessage.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DataContainer_MoveNextHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DataContainer_MoveNextHS.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OpenFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section2.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PreviousPageHL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PreviousPageHL.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_1.0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_1.0.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cross Girder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cross Girder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="04 Vertical Member U3L3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\04 Vertical Member U3L3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_7.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_0.9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_0.9.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Fully_Loaded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fully_Loaded.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlignTableCellMiddleCenter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlignTableCellMiddleCenter.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ml_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ml_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prestressed bridge image01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prestressed bridge image01.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pier_Box_drawing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pier_Box_drawing1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pre Stressed Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pre Stressed Bridge.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T_Beam_Slab_Long_Cross_Girders" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T_Beam_Slab_Long_Cross_Girders.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AlignTableCellMiddleLeftJust" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlignTableCellMiddleLeftJust.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section111" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section11.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section3.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FormRun" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FormRun.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="K_0.5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\K_0.5.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section15.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Pile Layout Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pile Layout Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

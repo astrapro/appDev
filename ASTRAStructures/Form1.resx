@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>_LEV1_MAINPOST 173 176 179 182 209 212 215 218 253 256 259 262 297 300 303 306 323 326 329 332 337 340 343 346 363 368 377 382 383 390 403 410 411 415 425 426 431 439 532 538
+_CRW_MAINPOST 997 1000 1001 1004 1005 1007 1010 1012 1013 1016 1017 1020 1021 1023 1026 1028 1029 1032 1033 1036 1037 1039 1042 1044 TO 1048
+_CRW_BRACINGS 998 999 1002 1003 1006 1008 1009 1011 1014 1015 1018 1019 1022 1024 1025 1027 1030 1031 1034 1035 1038 1040 1041 1043
+_LEV1_LOWER_CROSS_BRACINGS 171 172 174 175 177 178 180 181 184 187 190 193 196 199 202 205 220 223 226 229 232 235 238 241 263 TO 270 307 TO 322
+_LEV1_UPPER_CROSS_BRACINGS 324 325 327 328 330 331 333 334 348 349 352 354 355 357 360 361 365 366 370 372 373 375 379 380 386 387 395 TO 398 406 407 412 413 416 TO 418 420 422 424
+_LEV1_INTERNAL_LOWERBRACINGS 183 185 TO 189 191 192 194 195 197 198 200 201 203 TO 208 210 211 213 214 216 217 219 221 222 224 225 227 228 230 231 233 234 236 237 239 240 242 TO 252 254 255 257 258 260 261 271 TO 296 298 299 301 302 304 305
+_LEV1_UPPER 17 TO 24 63 64 77 78 91 TO 94
+_LEV1_WING_BRACINGS 428 429 432 433 436 437 488 TO 490 529 530 533 TO 536 557 TO 567 569 TO 572
+_LEV1_LEFT_WING_TOP 486 487 539 543 545 549 551 555 573 577 579 583 585 589
+_LEV1_LEFT_WING_BOTTOM 427 440 448 456 464 472 480 485 495 499 505 511 517 523
+_LEV1_LEFT_WING_SIDEBRACINGS 430 442 443 450 451 458 459 466 467 474 475 482 496 500 501 506 507 512 513 518 519 524 525 531
+_LEV1_LEFT_WING_TOPBRACINGS 79 81 83 85 87 89 542 548 554 576 582 588
+_LEV1_LEFTWINGBOTTOMBRACINGS 65 67 69 71 73 75 441 449 457 465 473 481
+_LEV1_RIGHTWINGTOP 493 494 540 544 546 550 552 556 574 578 580 584 586 590
+_LEV1_RIGHTWINGBOTTOM 434 444 452 460 468 476 483 492 497 502 508 514 520 526
+_LEV1_RIGHTWINGSIDEBRACINGS 438 446 447 454 455 462 463 470 471 478 479 484 498 503 504 509 510 515 516 521 522 527 528 537
+_LEV1_RIGHTWINGTOPBRACINGS 80 82 84 86 88 90 541 547 553 575 581 587
+_LEV1RIGHTWINGBOTTOMBRACINGS 66 68 70 72 74 76 435 445 453 461 469 477
+_LEV2_MAINPOST 592 595 598 602 610 611 621 626 628 633 640 646 652 653 659 662 664 671 774 779 805 810 819 824
+_LEV2_LOWERCROSSBRACINGS 591 593 594 596 597 599 TO 601 605 607 613 615 617 619 623 624 630 631 635 TO 638 642 643 648 650 654 655 657 658 660 661
+_LEV2_UPPERCROSSBRACINGS 665 666 670 672 773 775 777 778 807 808 812 814 815 817 821 822
+_LEV2_LOWERINTERNALBRACINGS 25 TO 32 95 TO 102 603 604 606 608 609 612 614 616 618 620 622 625 627 629 632 634 639 641 644 645 647 649 651 656
+_LEV2_UPPERINTERNALBRACINGS 35 TO 38 127 128 129 130 806 809 811 813 816 818 820 823
+_LEV2_LEFTWINGSIDEBRACINGS 667 676 677 684 685 692 693 700 701 708 709 716 717 724 734 738 739 744 745 750 751 756 757 762 763 768 769 776
+_LEV2_LEFTWINGTOPBRACINGS 119 121 123 125 131 133 135 784 790 796 802 828 834 840
+_LEV2_LEFTWINGBOTTOMBRACINGS 105 107 109 111 113 115 117 675 683 691 699 707 715 723
+_LEV2_RIGHTWINGSIDEBRACINGS 673 680 681 688 689 696 697 704 705 712 713 720 721 726 736 741 742 747 748 753 754 759 760 765 766 771 772 780
+_LEV2_WINGTOP 728 729 781 785 787 791 793 797 799 803 825 829 831 835 837 841
+_LEV2_LEFTWINGBOTTOM 663 674 682 690 698 706 714 722 727 733 737 743 749 755 761 767
+_LEV2_RIGHTWINGTOP 731 732 782 786 788 792 794 798 800 804 826 830 832 836 838 842
+_LEV2_RIGHTWINGBOTTOM 668 678 686 694 702 710 718 725 730 735 740 746 752 758 764 770
+_LEV2_RIGHTWINGTOPBRACINGS 120 122 124 126 132 134 136 783 789 795 801 827 833 839
+_LEV2RIGHTWINGBOTTOMBRACINGS 106 108 110 112 114 116 118 669 679 687 695 703 711 719
+_LEV3_MAINPOST 843 TO 846 851 857 947 952
+_LEV3_UPPER_BRACINGS 1 2 848 849 852 854 855 944 945 948 TO 950 971 TO 978
+_LEV3_BOX 43 TO 48 141 142 155 156 169 170
+_LEV3RIGHTWINGBOTTOMBRACINGS 144 146 148 150 152 154 863 871 879 887 895 902
+_LEV3_RIGHTWINGTOPBRACINGS 158 160 162 164 166 168 955 963 969 983 989 995
+_LEV3_RIGHTWINGSIDEBRACINGS 856 864 865 872 873 880 881 888 889 896 897 903 913 918 919 924 925 930 931 936 937 942 943 951
+_LEV3_RIGHTWINGTOP 908 909 954 958 960 964 966 970 980 984 986 990 992 996
+_LEV3_RIGHTWINGBOTTOM 853 862 870 878 886 894 901 907 912 917 923 929 935 941
+_LEV2_BOX 33 34 39 TO 42 103 104 137 TO 140</value>
+  </data>
+</root>

@@ -1,0 +1,69 @@
+
+aybtg6697a
+
+C/C Distance between Pires = L1 = 1800m.
+Carriageway width = w1 = 9750m.
+Overall width of Deck = w2 = 12500m.
+Width of Crash Barrier = w3 = 0.500m.
+Height of Crash Barrier = a1 = 1.050m.
+Number of Bearings = NB = 4
+Depth of Girder = d1 = 1.550m.
+Depth of Deck Slab = d2 = 0.250m.
+Size of Pedestals = B1 x B2 x H1 = 0.800m. x 0.620m. x 0.250m.
+Size of Bearings = B3 x B4 x H2 = 0.500m. x 0.320m. x 0.078m.
+Distance Between Girders = B5 = 2.650m.
+Length of Footing = B6 = 5.500m.
+
+
+R.L. at Pier Cap Top = RL1 = 529.377m.
+High Flood Level (HFL) = RL2 = 527.39m.
+Existing Ground Level = RL3 = 523.417m.
+R.L. at Footing Top = RL4 = 521.62m.
+R.L. at Footing Bottom = RL5 = 520.42m.
+Formation Level=RL1+d1+d2+H1+H2=531.505m.
+
+
+
+
+
+
+Width of Footing = B7 = 9.500m.
+Straight Depth of Footing = H3 = 0.600m.
+Varying Depth of Footing = H4 = 0.600m.
+P.C.C. Projection under Footing on either side = B8 = 0.150m.
+Grade of Concrete = M25
+Permissible Flexural Stress = 8.33 N/Sq.mm.
+Grade of Steel = Fe415
+Straight depth of Pier Cap = H5 = 0.600m.
+Varying Depth of Pier Cap = H6 = 0.600m.
+
+Longitudinal width of Pier at Base = B9 = 1.000m.
+Transverse width of Pier at Base = B10 = 6.000m.
+
+Longitudinal width of Pier at Top = B11 = 1.900m.
+Transverse width of Pier at Top = B12 = 6.000m.
+
+Pier Cap width in longitudinal direction = B13 = 1.750m.
+Pier Cap width in transverse direction = B14 = 10.000m.
+
+Overall Height of Substructure = H7 + H5 + H6 = 6.560+0.600+0.600 = 7.760m.
+
+Distance B15 = 1.025m.
+Distance B16 = 2.500m.
+
+
+Standard Minimum Reinforcement = p1 = 0.8%
+Design Trial Reinforcement = p2 = 1.5%
+Reinforcement Cover = d’ = 40 mm.
+Concrete grade = M30  fck=30 N/Sq.mm
+Steel grade=Fe415 fy=415 N/Sq.mm
+D=Width of Pier in Transverse direction = 6.0 m. = 6000 mm.
+b=Width of Pier in Longitudinal direction=1.0 m. = 1000 mm.
+
+From design Loads we have:
+
+Pu=5918 kN.
+Mux=5068.8 kN_m.
+Muy=5511.0 kN_m.
+
+

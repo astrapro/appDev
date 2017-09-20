@@ -1,0 +1,380 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Pier Image for RCC &amp; PSC Bridges1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pier Image for RCC &amp; PSC Bridges1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RE_Wall_Fig_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RE_Wall_Fig_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="End_Cable_Profile_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\End_Cable_Profile_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pile Foundation1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pile Foundation1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC_IMG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC_IMG2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC Girder End Span Composite Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC Girder End Span Composite Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pile Foundation2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pile Foundation2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC_IMG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC_IMG1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="section2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\section2.BMP;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOX_tab2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BOX_tab2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RE Wall Reinforcement Layout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RE Wall Reinforcement Layout.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbutmentPileFdn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbutmentPileFdn.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SectionDiagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SectionDiagram.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC_Canti" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC_Canti.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cont_PSC_Box_Girder_Section1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cont_PSC_Box_Girder_Section1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T_Girder_Outer_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T_Girder_Outer_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SLAB Culvert" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SLAB Culvert.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Circular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Circular.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable_Profile_CS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_Profile_CS1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC Girder Mid Span Composite Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC Girder Mid Span Composite Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Beam Section1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beam Section1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Excel_note" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excel_note.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable Profile.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Multicell_Box_Culvert_Pressure" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Multicell_Box_Culvert_Pressure.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Stringer Beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stringer Beam.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BPUIMG3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BPUIMG3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable_Profile_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_Profile_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOX_tab1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BOX_tab1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable_Profile_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_Profile_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T_Girder_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T_Girder_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Steel_Box_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Steel_Box_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pile Foundation3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pile Foundation3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSB2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSB2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reinforcement4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reinforcement4.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pylon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pylon.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TechSOFT Logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TechSOFT Logo2.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="T_Girder_Cross_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T_Girder_Cross_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ABUTMENT DESIGN GENERAL DATA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ABUTMENT DESIGN GENERAL DATA.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Multicell_Box_Culvert_Pressure_fig1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Multicell_Box_Culvert_Pressure_fig1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cont_PSC_Box_Girder_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cont_PSC_Box_Girder_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Builtup_Cross" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Builtup_Cross.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOX_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BOX_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbutmentPileFdn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbutmentPileFdn2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC Girder Cable Positions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC Girder Cable Positions.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BPUIMG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BPUIMG2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Limit_State_LongGirder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Limit_State_LongGirder.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Angle Section1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Angle Section1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BPUIMG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BPUIMG1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Abutment_counterfort" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Abutment_counterfort.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Angle Section2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Angle Section2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSB1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSB1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Steel_Plate_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Steel_Plate_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="General Arrangement Diagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\General Arrangement Diagram.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC_BOX_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC_BOX_1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Channel Section2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Channel Section2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Multicell_Box_Culvert_Pressure_fig2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Multicell_Box_Culvert_Pressure_fig2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PierPile Foundation" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PierPile Foundation.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC I Girder GAD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC I Girder GAD.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Prestressed Girder Dialog Box" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Prestressed Girder Dialog Box.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reinforcement3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reinforcement3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rectangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rectangle.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable_Stayed_Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_Stayed_Bridge.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="End_Cable_Profile_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\End_Cable_Profile_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RE_Wall_Fig_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RE_Wall_Fig_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Builtup_Long" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Builtup_Long.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RE_Wall_Fig_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RE_Wall_Fig_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AbutmentPileFdn3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbutmentPileFdn3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ABUTMENT DESIGN DIMENSION DATA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ABUTMENT DESIGN DIMENSION DATA.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC_IMG3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC_IMG3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cap Cable" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cap Cable.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bottom Chord Bracing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bottom Chord Bracing.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cable_force" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cable_force.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TechSoftLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TechSoftLogo.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pier Image for RCC &amp; PSC Bridges" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pier Image for RCC &amp; PSC Bridges.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CSB3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSB3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cross_Section_anc_block" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cross_Section_anc_block.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reinforcement2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reinforcement2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Reinforcement1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reinforcement1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Beam Section2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Beam Section2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="abut_box_girder_section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\abut_box_girder_section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pier_Box_drawing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pier_Box_drawing.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Channel Section1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Channel Section1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Limit_State_TBridge_LongGirder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Limit_State_TBridge_LongGirder.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pile Layout Image" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pile Layout Image.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PSC Girder End Span Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC Girder End Span Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AbutmentPileDiagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbutmentPileDiagram.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
