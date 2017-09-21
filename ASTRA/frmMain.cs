@@ -5492,6 +5492,85 @@ namespace AstraFunctionOne
             }
         }
 
+        //Chiranjit [2017 09 20] Added New Menu Item
+        private void tsmi_NewMenu_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+
+            if (!Is_select_Design_Standard) SelectDesignStandard();
+
+            if (tsmi == tsmi_RCC_TGirder_LSM)
+            {
+                Show_T_Girder_Bridge_Limit_State();
+            }
+            else if (tsmi == tsmi_RCC_TGirder_WSM)
+            {
+                Show_T_Girder_Bridge_Working_Stress();
+            }
+            else if (tsmi == tsmi_Composite_LSM)
+            {
+                Show_Composite_Bridge_Limit_State();
+            }
+            else if (tsmi == tsmi_Composite_WSM)
+            {
+                Show_Composite_Bridge_Working_Stress();
+
+            }
+            else if (tsmi == tsmi_PSC_IGirder_LSM)
+            {
+                Show_PSC_IGirder_Bridge_Limit_State();
+
+            }
+            else if (tsmi == tsmi_PSC_IGirder_WSM)
+            {
+                Show_PSC_IGirder_Bridge_Working_Stress();
+            }
+        }
+
+        private void Show_Composite_Bridge_Limit_State()
+        {
+
+            ShowTimerScreen(eASTRAImage.Composite_Bridge);
+            //LimitStateMethod.Composite.frm_Composite_LS frm = new LimitStateMethod.Composite.frm_Composite_LS(this);
+            LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+        private void Show_Composite_Bridge_Working_Stress()
+        {
+            ShowTimerScreen(eASTRAImage.Composite_Bridge);
+            BridgeAnalysisDesign.Composite.frm_Composite frm = new BridgeAnalysisDesign.Composite.frm_Composite(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+
+        private void Show_PSC_IGirder_Bridge_Limit_State()
+        {
+
+            ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
+            frm_PSC_I_Girder_LS frm = new frm_PSC_I_Girder_LS(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+        private void Show_PSC_IGirder_Bridge_Working_Stress()
+        {
+
+            //if (((ToolStripMenuItem)sender).Name == tsmi_PSC_I_Girder_LongSpan.Name)
+            //{
+            //    ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
+            //    BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS(this);
+            //    frm.Owner = this;
+            //    frm.Show();
+            //}
+            //else
+            //{
+            ShowTimerScreen(eASTRAImage.PSC_I_Girder_Short_Span);
+            BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_ShortSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_ShortSpan_WS(this);
+            frm.Owner = this;
+            frm.Show();
+
+            //}
+        }
 
     }
 

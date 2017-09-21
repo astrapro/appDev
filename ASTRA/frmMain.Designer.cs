@@ -120,12 +120,21 @@
             this.tsmi_selectDesignStandard = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Bridge_Design = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Working_Folder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_TGirder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_TGirder_LSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_TGirder_WSM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_RCC_TBeam_LS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_RCC_TBeam_WS = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmi_Composite = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Composite_LSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_Composite_WSM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Composit_Bridge_LS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Composit_Bridge = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmi_PSC_IGirder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_PSC_IGirder_LSM = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_PSC_IGirder_WSM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_PSC_I_Girder_Bridge_LS = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_PSC_I_GIRDER_Program = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Pre_Stressed_Bridge = new System.Windows.Forms.ToolStripMenuItem();
@@ -964,12 +973,15 @@
             // 
             this.tsmi_Bridge_Design.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_Working_Folder,
+            this.tsmi_RCC_TGirder,
             this.tsmi_RCC_TBeam_LS,
             this.tsmi_RCC_TBeam_WS,
             this.toolStripSeparator10,
+            this.tsmi_Composite,
             this.tsmi_Composit_Bridge_LS,
             this.tsmi_Composit_Bridge,
             this.toolStripSeparator11,
+            this.tsmi_PSC_IGirder,
             this.tsmi_PSC_I_Girder_Bridge_LS,
             this.tsmi_PSC_I_GIRDER_Program,
             this.tsmi_Pre_Stressed_Bridge,
@@ -1021,11 +1033,35 @@
             this.tsmi_Working_Folder.Visible = false;
             this.tsmi_Working_Folder.Click += new System.EventHandler(this.tsmi_Working_Folder_Click);
             // 
+            // tsmi_RCC_TGirder
+            // 
+            this.tsmi_RCC_TGirder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_RCC_TGirder_LSM,
+            this.tsmi_RCC_TGirder_WSM});
+            this.tsmi_RCC_TGirder.Name = "tsmi_RCC_TGirder";
+            this.tsmi_RCC_TGirder.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_RCC_TGirder.Text = "Reinforced Cement Concrete (RCC) T-Girder Bridge";
+            // 
+            // tsmi_RCC_TGirder_LSM
+            // 
+            this.tsmi_RCC_TGirder_LSM.Name = "tsmi_RCC_TGirder_LSM";
+            this.tsmi_RCC_TGirder_LSM.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_TGirder_LSM.Text = "Limit State Method";
+            this.tsmi_RCC_TGirder_LSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
+            // tsmi_RCC_TGirder_WSM
+            // 
+            this.tsmi_RCC_TGirder_WSM.Name = "tsmi_RCC_TGirder_WSM";
+            this.tsmi_RCC_TGirder_WSM.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_TGirder_WSM.Text = "Working Stress Method";
+            this.tsmi_RCC_TGirder_WSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
             // tsmi_RCC_TBeam_LS
             // 
             this.tsmi_RCC_TBeam_LS.Name = "tsmi_RCC_TBeam_LS";
             this.tsmi_RCC_TBeam_LS.Size = new System.Drawing.Size(479, 22);
             this.tsmi_RCC_TBeam_LS.Text = "Reinforced Cement Concrete (RCC) T-Girder Bridge (Limit State Method)";
+            this.tsmi_RCC_TBeam_LS.Visible = false;
             this.tsmi_RCC_TBeam_LS.Click += new System.EventHandler(this.tsmi_RCC_TBeam_LS_Click);
             // 
             // tsmi_RCC_TBeam_WS
@@ -1033,6 +1069,7 @@
             this.tsmi_RCC_TBeam_WS.Name = "tsmi_RCC_TBeam_WS";
             this.tsmi_RCC_TBeam_WS.Size = new System.Drawing.Size(479, 22);
             this.tsmi_RCC_TBeam_WS.Text = "Reinforced Cement Concrete (RCC) T-Girder Bridge (Working Stress Method)";
+            this.tsmi_RCC_TBeam_WS.Visible = false;
             this.tsmi_RCC_TBeam_WS.Click += new System.EventHandler(this.tsmi_RCC_TBeam_Click);
             // 
             // toolStripSeparator10
@@ -1040,11 +1077,35 @@
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(476, 6);
             // 
+            // tsmi_Composite
+            // 
+            this.tsmi_Composite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_Composite_LSM,
+            this.tsmi_Composite_WSM});
+            this.tsmi_Composite.Name = "tsmi_Composite";
+            this.tsmi_Composite.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Composite.Text = "Steel Plate/Box Girder & RCC Slab Composite Bridge";
+            // 
+            // tsmi_Composite_LSM
+            // 
+            this.tsmi_Composite_LSM.Name = "tsmi_Composite_LSM";
+            this.tsmi_Composite_LSM.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_Composite_LSM.Text = "Limit State Method";
+            this.tsmi_Composite_LSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
+            // tsmi_Composite_WSM
+            // 
+            this.tsmi_Composite_WSM.Name = "tsmi_Composite_WSM";
+            this.tsmi_Composite_WSM.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_Composite_WSM.Text = "Working Stress Method";
+            this.tsmi_Composite_WSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
             // tsmi_Composit_Bridge_LS
             // 
             this.tsmi_Composit_Bridge_LS.Name = "tsmi_Composit_Bridge_LS";
             this.tsmi_Composit_Bridge_LS.Size = new System.Drawing.Size(479, 22);
             this.tsmi_Composit_Bridge_LS.Text = "Steel Plate/Box Girder & RCC Slab Composite Bridge (Limit State Method)";
+            this.tsmi_Composit_Bridge_LS.Visible = false;
             this.tsmi_Composit_Bridge_LS.Click += new System.EventHandler(this.tsmi_Composit_Bridge_LS_Click);
             // 
             // tsmi_Composit_Bridge
@@ -1052,6 +1113,7 @@
             this.tsmi_Composit_Bridge.Name = "tsmi_Composit_Bridge";
             this.tsmi_Composit_Bridge.Size = new System.Drawing.Size(479, 22);
             this.tsmi_Composit_Bridge.Text = "Steel Plate/Box Girder & RCC Slab Composite Bridge (Working Stress Method)";
+            this.tsmi_Composit_Bridge.Visible = false;
             this.tsmi_Composit_Bridge.Click += new System.EventHandler(this.tsmi_Composit_Bridge_WS_Click);
             // 
             // toolStripSeparator11
@@ -1059,11 +1121,36 @@
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(476, 6);
             // 
+            // tsmi_PSC_IGirder
+            // 
+            this.tsmi_PSC_IGirder.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_PSC_IGirder_LSM,
+            this.tsmi_PSC_IGirder_WSM});
+            this.tsmi_PSC_IGirder.Name = "tsmi_PSC_IGirder";
+            this.tsmi_PSC_IGirder.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_PSC_IGirder.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge";
+            this.tsmi_PSC_IGirder.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
+            // tsmi_PSC_IGirder_LSM
+            // 
+            this.tsmi_PSC_IGirder_LSM.Name = "tsmi_PSC_IGirder_LSM";
+            this.tsmi_PSC_IGirder_LSM.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_PSC_IGirder_LSM.Text = "Limit State Method";
+            this.tsmi_PSC_IGirder_LSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
+            // tsmi_PSC_IGirder_WSM
+            // 
+            this.tsmi_PSC_IGirder_WSM.Name = "tsmi_PSC_IGirder_WSM";
+            this.tsmi_PSC_IGirder_WSM.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_PSC_IGirder_WSM.Text = "Working Stress Method";
+            this.tsmi_PSC_IGirder_WSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
             // tsmi_PSC_I_Girder_Bridge_LS
             // 
             this.tsmi_PSC_I_Girder_Bridge_LS.Name = "tsmi_PSC_I_Girder_Bridge_LS";
             this.tsmi_PSC_I_Girder_Bridge_LS.Size = new System.Drawing.Size(479, 22);
             this.tsmi_PSC_I_Girder_Bridge_LS.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge (Limit State Method)";
+            this.tsmi_PSC_I_Girder_Bridge_LS.Visible = false;
             this.tsmi_PSC_I_Girder_Bridge_LS.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_LS_Click);
             // 
             // tsmi_PSC_I_GIRDER_Program
@@ -1082,18 +1169,19 @@
             this.tsmi_Pre_Stressed_Bridge.Name = "tsmi_Pre_Stressed_Bridge";
             this.tsmi_Pre_Stressed_Bridge.Size = new System.Drawing.Size(479, 22);
             this.tsmi_Pre_Stressed_Bridge.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge (Working Stress Method)";
+            this.tsmi_Pre_Stressed_Bridge.Visible = false;
             // 
             // tsmi_PSC_I_Girder_LongSpan
             // 
             this.tsmi_PSC_I_Girder_LongSpan.Name = "tsmi_PSC_I_Girder_LongSpan";
-            this.tsmi_PSC_I_Girder_LongSpan.Size = new System.Drawing.Size(131, 22);
+            this.tsmi_PSC_I_Girder_LongSpan.Size = new System.Drawing.Size(152, 22);
             this.tsmi_PSC_I_Girder_LongSpan.Text = "Long Span";
             this.tsmi_PSC_I_Girder_LongSpan.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_Click);
             // 
             // tsmi_PSC_I_Girder_ShortSpan
             // 
             this.tsmi_PSC_I_Girder_ShortSpan.Name = "tsmi_PSC_I_Girder_ShortSpan";
-            this.tsmi_PSC_I_Girder_ShortSpan.Size = new System.Drawing.Size(131, 22);
+            this.tsmi_PSC_I_Girder_ShortSpan.Size = new System.Drawing.Size(152, 22);
             this.tsmi_PSC_I_Girder_ShortSpan.Text = "Short Span";
             this.tsmi_PSC_I_Girder_ShortSpan.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_Click);
             // 
@@ -2428,6 +2516,15 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_timeHistory;
         private System.Windows.Forms.ToolStripMenuItem tsmi_responseSpectrum;
         private System.Windows.Forms.ToolStripMenuItem tsmi_eigenValue;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_TGirder;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_TGirder_LSM;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_TGirder_WSM;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Composite;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Composite_LSM;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_Composite_WSM;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder_LSM;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder_WSM;
     }
 }
 
