@@ -11440,6 +11440,8 @@
             this.uC_AbutmentOpenLS1.Crash_Barrier = "0.5";
             this.uC_AbutmentOpenLS1.Crash_Barrier_weight = "0.8";
             this.uC_AbutmentOpenLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentOpenLS1.DL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.DL_MTT = "-2095.50";
             this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_AbutmentOpenLS1.Exp_Gap = "40";
             this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -11448,17 +11450,25 @@
             this.uC_AbutmentOpenLS1.Girder_Depth = "2.0";
             this.uC_AbutmentOpenLS1.Girder_Nos = "6";
             this.uC_AbutmentOpenLS1.Girder_Spacing = "2.6";
+            this.uC_AbutmentOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentOpenLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentOpenLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentOpenLS1.LL_MTT_Max = "-660.72";
+            this.uC_AbutmentOpenLS1.LL_MTT_Min = "-165.473";
             this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
             this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
             this.uC_AbutmentOpenLS1.Railing = "0.5";
             this.uC_AbutmentOpenLS1.Railing_weight = "0.6";
             this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
+            this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
             this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
             this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentOpenLS1.Span = "25.0";
             this.uC_AbutmentOpenLS1.TabIndex = 0;
             this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
             this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
+            this.uC_AbutmentOpenLS1.Worksheet_Force_CheckedChanged += new System.EventHandler(this.uC_AbutmentOpenLS1_Worksheet_Force_CheckedChanged);
             // 
             // tab_AbutmentPileLSM
             // 
@@ -11489,6 +11499,7 @@
             this.uC_AbutmentPileLS1.Girder_Depth = "1.08";
             this.uC_AbutmentPileLS1.Girder_Nos = "4";
             this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
+            this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
             this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(3, 3);
             this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
             this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
@@ -14393,6 +14404,7 @@
             this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
             this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
             this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
+            this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
             this.uC_PierOpenLS1.Location = new System.Drawing.Point(3, 3);
             this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
             this.uC_PierOpenLS1.RailingWidth_Left = "0.50";
@@ -14445,6 +14457,7 @@
             this.uC_PierPileLS1.FootPathWidth_Right = "0.0";
             this.uC_PierPileLS1.GirderDepth_Left = "1.08";
             this.uC_PierPileLS1.GirderDepth_Right = "2.00";
+            this.uC_PierPileLS1.Is_Force_From_Analysis = true;
             this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
             this.uC_PierPileLS1.Name = "uC_PierPileLS1";
             this.uC_PierPileLS1.RailingWidth_Left = "0.0";

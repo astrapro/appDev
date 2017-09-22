@@ -24,6 +24,18 @@ namespace BridgeAnalysisDesign.Abutment
         IApplication iApp = null;
         public event EventHandler OnProcess;
 
+        public bool Is_Force_From_Analysis
+        {
+            get
+            {
+                return rbtn_value_analysis.Checked;
+            }
+            set
+            {
+                rbtn_value_worksheet.Checked = !value;
+                rbtn_value_analysis.Checked = value;
+            }
+        }
         public void SetIApplocation(IApplication iApp)
         {
             this.iApp = iApp;
@@ -148,6 +160,15 @@ namespace BridgeAnalysisDesign.Abutment
             List<TextBox> list = new List<TextBox>();
             //list.Add(txt_des_G92);
 
+            for (int i = 0; i < this.Controls.Count; i++)
+            {
+                var c = this.Controls[i];
+                if (c is TextBox)
+                {
+                    list.Add(c as TextBox);
+                }
+            }
+            return list;
             list.Add(txt_xls_inp_A103);
             list.Add(txt_xls_inp_B38);
             list.Add(txt_xls_inp_B44);
@@ -232,7 +253,8 @@ namespace BridgeAnalysisDesign.Abutment
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xlsm");
+            //file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xlsm");
+            file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xls");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -270,10 +292,14 @@ namespace BridgeAnalysisDesign.Abutment
             myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
             //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["1.0 Input"];
+            Excel.Worksheet EXL_INP = (Excel.Worksheet)myExcelWorkbook.Sheets["1.0 Input"];
 
+            Excel.Worksheet EXL_DL = (Excel.Worksheet)myExcelWorkbook.Sheets["3.1 DL SuperStructure"];
+            Excel.Worksheet EXL_SIDL = (Excel.Worksheet)myExcelWorkbook.Sheets["3.2 SIDL"];
+            Excel.Worksheet EXL_LL = (Excel.Worksheet)myExcelWorkbook.Sheets["4.1 LiveLoad"];
 
-            List<TextBox> All_Data = Get_TextBoxes();
+            //List<TextBox> All_Data = Get_TextBoxes();
+            List<TextBox> All_Data = MyList.Get_TextBoxes(this);
 
 
             //Excel.Range formatRange;
@@ -287,10 +313,41 @@ namespace BridgeAnalysisDesign.Abutment
                 string kStr = "";
                 foreach (var item in All_Data)
                 {
-                    kStr = item.Name.Replace("txt_xls_inp_", "");
+                    if (item.Name.ToLower().StartsWith("txt_xls_inp_"))
+                    {
+                        kStr = item.Name.Replace("txt_xls_inp_", "");
 
-                    //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
-                    myExcelWorksheet.get_Range(kStr).Formula = item.Text;
+                        //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                        EXL_INP.get_Range(kStr).Formula = item.Text;
+                    }
+                    else
+                    {
+                        if (rbtn_value_analysis.Checked)
+                        {
+                            if (item.Name.ToLower().StartsWith("txt_xls_dl_"))
+                            {
+                                kStr = item.Name.ToLower().Replace("txt_xls_dl_", "");
+
+                                //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                                EXL_DL.get_Range(kStr).Formula = item.Text;
+                            }
+                            else if (item.Name.ToLower().StartsWith("txt_xls_sidl_"))
+                            {
+                                kStr = item.Name.ToLower().Replace("txt_xls_sidl_", "");
+
+                                //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                                EXL_SIDL.get_Range(kStr).Formula = item.Text;
+                            }
+                            else if (item.Name.ToLower().StartsWith("txt_xls_ll_"))
+                            {
+                                kStr = item.Name.ToLower().Replace("txt_xls_ll_", "");
+
+                                //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                                EXL_LL.get_Range(kStr).Formula = item.Text;
+                            }
+                        }
+                    }
+
                 }
 
                 #region Input 2
@@ -424,6 +481,20 @@ namespace BridgeAnalysisDesign.Abutment
         private void btn_open_Click(object sender, EventArgs e)
         {
             iApp.Open_ASTRA_Worksheet_Dialog();
+        }
+
+        public event EventHandler Worksheet_Force_CheckedChanged;
+        private void rbtn_value_worksheet_CheckedChanged(object sender, EventArgs e)
+        {
+
+            grb_max_cap.Enabled = rbtn_value_analysis.Checked;
+            grb_DL.Enabled = rbtn_value_analysis.Checked;
+            grb_SIDL.Enabled = rbtn_value_analysis.Checked;
+            grb_LL_Max.Enabled = rbtn_value_analysis.Checked;
+            grb_LL_Min.Enabled = rbtn_value_analysis.Checked;
+
+
+            if (Worksheet_Force_CheckedChanged != null) Worksheet_Force_CheckedChanged(sender, e);
         }
     }
 }

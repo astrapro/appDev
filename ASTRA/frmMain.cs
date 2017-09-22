@@ -2694,7 +2694,7 @@ namespace AstraFunctionOne
         private void tsmi_minor_Bridge_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
-            if (tsmi.Name == tsmi_minor_Bridge_ls.Name)
+            if (tsmi.Name == tsmi_minor_Bridge.Name)
             {
 
                 if (!Is_select_Design_Standard) SelectDesignStandard();
@@ -5525,6 +5525,15 @@ namespace AstraFunctionOne
             {
                 Show_PSC_IGirder_Bridge_Working_Stress();
             }
+            else if (tsmi == tsmi_minor_Bridge)
+            {
+                Show_Minor_Bridge_Limit_State();
+
+            }
+            else if (tsmi == tsmi_minor_Bridge_ws)
+            {
+                Show_Minor_Bridge_Working_Stress();
+            }
         }
 
         private void Show_Composite_Bridge_Limit_State()
@@ -5571,6 +5580,23 @@ namespace AstraFunctionOne
 
             //}
         }
+
+        private void Show_Minor_Bridge_Limit_State()
+        {
+            //if (!Is_select_Design_Standard) SelectDesignStandard();
+            LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS frm = new LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+        private void Show_Minor_Bridge_Working_Stress()
+        {
+            //if (!Is_select_Design_Standard) SelectDesignStandard(); 
+            
+            BridgeAnalysisDesign.MinorBridge.frm_MinorBridge frm = new BridgeAnalysisDesign.MinorBridge.frm_MinorBridge(this);
+            frm.Owner = this;
+            frm.Show();
+        }
+
 
     }
 

@@ -166,8 +166,7 @@
             this.tsmi_rail_box_pushed_underpass = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_GADs_Underpasses = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmi_minor_Bridge_ls = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_minor_Bridge_ws = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_minor_Bridge = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_RCC_Culverts = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
@@ -279,6 +278,8 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.btn_SendMail = new System.Windows.Forms.Button();
+            this.tsmi_minor_Bridge_ls = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_minor_Bridge_ws = new System.Windows.Forms.ToolStripMenuItem();
             this.mns_ASTRA_menues.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -1005,8 +1006,7 @@
             this.tsmi_Underpass,
             this.tsmi_GADs_Underpasses,
             this.toolStripSeparator20,
-            this.tsmi_minor_Bridge_ls,
-            this.tsmi_minor_Bridge_ws,
+            this.tsmi_minor_Bridge,
             this.toolStripSeparator19,
             this.tsmi_RCC_Culverts,
             this.toolStripSeparator16,
@@ -1129,7 +1129,6 @@
             this.tsmi_PSC_IGirder.Name = "tsmi_PSC_IGirder";
             this.tsmi_PSC_IGirder.Size = new System.Drawing.Size(479, 22);
             this.tsmi_PSC_IGirder.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge";
-            this.tsmi_PSC_IGirder.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
             // tsmi_PSC_IGirder_LSM
             // 
@@ -1174,14 +1173,14 @@
             // tsmi_PSC_I_Girder_LongSpan
             // 
             this.tsmi_PSC_I_Girder_LongSpan.Name = "tsmi_PSC_I_Girder_LongSpan";
-            this.tsmi_PSC_I_Girder_LongSpan.Size = new System.Drawing.Size(152, 22);
+            this.tsmi_PSC_I_Girder_LongSpan.Size = new System.Drawing.Size(131, 22);
             this.tsmi_PSC_I_Girder_LongSpan.Text = "Long Span";
             this.tsmi_PSC_I_Girder_LongSpan.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_Click);
             // 
             // tsmi_PSC_I_Girder_ShortSpan
             // 
             this.tsmi_PSC_I_Girder_ShortSpan.Name = "tsmi_PSC_I_Girder_ShortSpan";
-            this.tsmi_PSC_I_Girder_ShortSpan.Size = new System.Drawing.Size(152, 22);
+            this.tsmi_PSC_I_Girder_ShortSpan.Size = new System.Drawing.Size(131, 22);
             this.tsmi_PSC_I_Girder_ShortSpan.Text = "Short Span";
             this.tsmi_PSC_I_Girder_ShortSpan.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_Click);
             // 
@@ -1365,19 +1364,14 @@
             this.toolStripSeparator20.Name = "toolStripSeparator20";
             this.toolStripSeparator20.Size = new System.Drawing.Size(476, 6);
             // 
-            // tsmi_minor_Bridge_ls
+            // tsmi_minor_Bridge
             // 
-            this.tsmi_minor_Bridge_ls.Name = "tsmi_minor_Bridge_ls";
-            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_minor_Bridge_ls.Text = "Minor Bridge / RCC Slab Bridge (Limit State Method)";
-            this.tsmi_minor_Bridge_ls.Click += new System.EventHandler(this.tsmi_minor_Bridge_Click);
-            // 
-            // tsmi_minor_Bridge_ws
-            // 
-            this.tsmi_minor_Bridge_ws.Name = "tsmi_minor_Bridge_ws";
-            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_minor_Bridge_ws.Text = "Minor Bridge / RCC Slab Bridge (Working Stress Method)";
-            this.tsmi_minor_Bridge_ws.Click += new System.EventHandler(this.tsmi_minor_Bridge_Click);
+            this.tsmi_minor_Bridge.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_minor_Bridge_ls,
+            this.tsmi_minor_Bridge_ws});
+            this.tsmi_minor_Bridge.Name = "tsmi_minor_Bridge";
+            this.tsmi_minor_Bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_minor_Bridge.Text = "Minor Bridge / RCC Slab Bridge";
             // 
             // toolStripSeparator19
             // 
@@ -2244,6 +2238,20 @@
             this.btn_SendMail.UseVisualStyleBackColor = true;
             this.btn_SendMail.Click += new System.EventHandler(this.btn_SendMail_Click);
             // 
+            // tsmi_minor_Bridge_ls
+            // 
+            this.tsmi_minor_Bridge_ls.Name = "tsmi_minor_Bridge_ls";
+            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_minor_Bridge_ls.Text = "Limit State Method";
+            this.tsmi_minor_Bridge_ls.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
+            // tsmi_minor_Bridge_ws
+            // 
+            this.tsmi_minor_Bridge_ws.Name = "tsmi_minor_Bridge_ws";
+            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_minor_Bridge_ws.Text = "Working Stress Method";
+            this.tsmi_minor_Bridge_ws.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2377,7 +2385,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Bearing_Design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Material_Properties1;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Working_Folder;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ws;
         private System.Windows.Forms.ToolStripMenuItem openASTRAWorksheetDesignToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripMenuItem programsToolStripMenuItem;
@@ -2415,7 +2422,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Composit_Bridge_LS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ls;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Steel_Truss_Bridge_K_Type;
         private System.Windows.Forms.ToolStripMenuItem tsmi_arch_cable_bridge;
         private System.Windows.Forms.ToolStripMenuItem tsmi_arch_steel_bridge;
@@ -2525,6 +2532,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder;
         private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder_LSM;
         private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder_WSM;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ls;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ws;
     }
 }
 

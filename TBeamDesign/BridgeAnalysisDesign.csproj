@@ -410,6 +410,12 @@
       <DependentUpon>frm_RCC_Culvert.cs</DependentUpon>
     </Compile>
     <Compile Include="RCC_Culvert\Multi_Cell_Box_Culvert_Analysis.cs" />
+    <Compile Include="RCC_Culvert\UC_BoxCulvert.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RCC_Culvert\UC_BoxCulvert.Designer.cs">
+      <DependentUpon>UC_BoxCulvert.cs</DependentUpon>
+    </Compile>
     <Compile Include="RCC_T_Girder\frm_RCC_TBeam_LS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -689,6 +695,9 @@
     <EmbeddedResource Include="RCC_Culvert\frm_RCC_Culvert.resx">
       <DependentUpon>frm_RCC_Culvert.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RCC_Culvert\UC_BoxCulvert.resx">
+      <DependentUpon>UC_BoxCulvert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RCC_T_Girder\frm_RCC_TBeam_LS.resx">
       <DependentUpon>frm_RCC_TBeam_LS.cs</DependentUpon>

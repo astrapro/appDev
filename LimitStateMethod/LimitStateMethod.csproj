@@ -256,6 +256,12 @@
     </Compile>
     <Compile Include="PSC_I_Girder\PSC_I_Girder.cs" />
     <Compile Include="PSC_I_Girder\PSC_I_Girder_Excel_Update.cs" />
+    <Compile Include="RccCulvert\frm_BoxCulvert_LS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RccCulvert\frm_BoxCulvert_LS.Designer.cs">
+      <DependentUpon>frm_BoxCulvert_LS.cs</DependentUpon>
+    </Compile>
     <Compile Include="RCC_T_Girder\frm_RCC_T_Girder_LS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -483,6 +489,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PSC_I_Girder\frm_PSC_I_Girder_LS.resx">
       <DependentUpon>frm_PSC_I_Girder_LS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RccCulvert\frm_BoxCulvert_LS.resx">
+      <DependentUpon>frm_BoxCulvert_LS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RCC_T_Girder\frm_RCC_T_Girder_LS.resx">
       <DependentUpon>frm_RCC_T_Girder_LS.cs</DependentUpon>

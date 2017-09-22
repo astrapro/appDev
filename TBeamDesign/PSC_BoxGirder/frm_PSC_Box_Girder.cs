@@ -9807,7 +9807,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
                 list.Add("");
 
                 list.Add(string.Format("\t\t***********************************************"));
-                list.Add(string.Format("\t\t*            ASTRA Pro Release 20.0           *"));
+                list.Add(string.Format("\t\t*            ASTRA Pro Release 22             *"));
                 list.Add(string.Format("\t\t*        TechSOFT Engineering Services        *"));
                 list.Add(string.Format("\t\t*                                             *"));
                 list.Add(string.Format("\t\t*    DESIGN OF PRE STRESSED CONCRETE (PSC)    *"));

@@ -451,7 +451,7 @@ namespace BridgeAnalysisDesign.Underpass
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0           *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*           RCC BOX PUSHED UNDERPASS          *");

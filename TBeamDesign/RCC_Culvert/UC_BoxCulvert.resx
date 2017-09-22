@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,33 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>                                ASTRA Pro Release 22  
-
-User may follow the Design Sequence as mentioned below:
-
-Longitudinal Analysis &amp; Design
-                Summary of Live Loads
-                PSC Box
-                     Cable Friction
-     
-     
-
-Transverse Analysis &amp; Design
-        70R L
-        70R M
-        70R T
-        CLASSA 1L
-        CLASSa 2L
-        DESIGN (Calculation of Reinforcement)
-        INPUT DATA (Transverse Analysis of Box)
-        Temp Trans (Temperature Rise and Fall)
-
-
-Diaphragm_Anchorage_BlisterBlock_FuturePrestressing
-                Design of Cross Diaphragms
-                Design of End Anchorage
-                Design of Blister Blocks
-                Design of Anchorage for Future Prestressing Block</value>
-  </data>
 </root>

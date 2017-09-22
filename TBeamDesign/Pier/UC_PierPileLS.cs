@@ -28,6 +28,18 @@ namespace BridgeAnalysisDesign.Pier
             this.iApp = iApp;
         }
 
+        public bool Is_Force_From_Analysis
+        {
+            get
+            {
+                return rbtn_value_analysis.Checked;
+            }
+            set
+            {
+                rbtn_value_worksheet.Checked = !value;
+                rbtn_value_analysis.Checked = value;
+            }
+        }
         public string Title
         {
             get
@@ -288,11 +300,13 @@ namespace BridgeAnalysisDesign.Pier
             myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
             //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["1. Lvl & Dim."];
+            Excel.Worksheet EXL_INP = (Excel.Worksheet)myExcelWorkbook.Sheets["1. Lvl & Dim."];
+            Excel.Worksheet EXL_DES = (Excel.Worksheet)myExcelWorkbook.Sheets["2.Design Paramters"];
 
 
-            List<TextBox> All_Data = Get_TextBoxes();
+            //List<TextBox> All_Data = Get_TextBoxes();
 
+            List<TextBox> All_Data = MyList.Get_TextBoxes(this);
 
             //Excel.Range formatRange;
             //formatRange = myExcelWorksheet.get_Range("b" + (dgv.RowCount + after_indx), "L" + (dgv.RowCount + after_indx));
@@ -303,23 +317,28 @@ namespace BridgeAnalysisDesign.Pier
             try
             {
                 string kStr = "";
-                //foreach (var item in All_Data)
-                //{
-                //    kStr = item.Name.Replace("txt_des_", "");
+                foreach (var item in All_Data)
+                {
+                    if (item.Name.ToLower().StartsWith("txt_xls_inp_"))
+                    {
+                        kStr = item.Name.Replace("txt_xls_inp_", "");
 
-                //    //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
-                //    myExcelWorksheet.get_Range(kStr).Formula = item.Text;
-                //}
+                        //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                        EXL_INP.get_Range(kStr).Formula = item.Text;
+                    }
 
-                #region Input 2
+                    #region Input 2
 
-                myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["2.Design Paramters"];
+                    else if (item.Name.ToLower().StartsWith("txt_xls_des_"))
+                    {
+                        kStr = item.Name.Replace("txt_xls_des_", "");
+                        //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                        EXL_DES.get_Range(kStr).Formula = item.Text;
+                    }
 
+                    #endregion Input 2
+                }
 
-                //myExcelWorksheet.get_Range("K78").Formula = data[rindx++].ToString();
-                //myExcelWorksheet.get_Range("K81").Formula = data[rindx++].ToString();
-
-                #endregion Input 2
 
 
             }
@@ -545,13 +564,20 @@ namespace BridgeAnalysisDesign.Pier
 
         }
 
+        public event EventHandler Worksheet_Force_CheckedChanged;
+
         private void rbtn_value_analysis_CheckedChanged(object sender, EventArgs e)
         {
 
+            txt_xls_des_G19.Enabled = rbtn_value_analysis.Checked;
+            txt_xls_des_G21.Enabled = rbtn_value_analysis.Checked;
             txt_inp_DL.Enabled = rbtn_value_analysis.Checked;
             txt_inp_SIDL.Enabled = rbtn_value_analysis.Checked;
             txt_inp_Surfacing.Enabled = rbtn_value_analysis.Checked;
             txt_inp_FPLL.Enabled = rbtn_value_analysis.Checked;
+
+            if (Worksheet_Force_CheckedChanged != null) Worksheet_Force_CheckedChanged(sender, e);
+
         }
 
         private void txt_xls_inp_H7_TextChanged(object sender, EventArgs e)

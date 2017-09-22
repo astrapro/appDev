@@ -24283,6 +24283,11 @@ namespace LimitStateMethod.RCC_T_Girder
             //uC_PierDesignLSM1.Right_Span_Moment_Mz = txt_sidl_right_total_Mz.Text;
         }
 
+        private void uC_AbutmentOpenLS1_Worksheet_Force_CheckedChanged(object sender, EventArgs e)
+        {
+            //uC_AbutmentOpenLS1.DL_MLL = 
+        }
+
     }
 
     public class RCC_T_Girder_LS_Girder_Analysis

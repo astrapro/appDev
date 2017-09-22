@@ -110,7 +110,7 @@ namespace AstraFunctionOne
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 13);
             this.label1.TabIndex = 9;
-            this.label1.Text = "20  Version 2";
+            this.label1.Text = "22  Version 1";
             // 
             // frmAstraHelpAbout
             // 

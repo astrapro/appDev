@@ -2477,7 +2477,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 20.0           *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*       DESIGN OF MULTI CELL BOX CULVERT      *");

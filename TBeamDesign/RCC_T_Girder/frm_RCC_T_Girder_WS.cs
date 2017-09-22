@@ -7813,7 +7813,7 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
             //sw.WriteLine("----------------------------------------------------------------------------------------------");
             //sw.WriteLine("----------------------------------------------------------------------------------------------");
             sw.WriteLine("\t\t***********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 20.0           *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
             sw.WriteLine("\t\t*                                             *");
             sw.WriteLine("\t\t*       DESIGN OF LONGITUDINAL GIRDER         *");
@@ -8928,7 +8928,7 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
 
             #region TechSOFT Banner
             sw.WriteLine("\t\t***********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 20.0           *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
             sw.WriteLine("\t\t*                                             *");
             sw.WriteLine("\t\t*          DESIGN  OF  CROSS  GIRDER          *");
@@ -9687,7 +9687,7 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
             sw.WriteLine();
             sw.WriteLine();
             sw.WriteLine("\t\t**********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 20.0          *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
             sw.WriteLine("\t\t*                                            *");
             sw.WriteLine("\t\t*           DESIGN OF DECK SLAB              *");
@@ -10495,7 +10495,7 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
             //sw.WriteLine("----------------------------------------------------------------------------------------------");
             //sw.WriteLine("----------------------------------------------------------------------------------------------");
             sw.WriteLine("\t\t***********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 20.0           *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
             sw.WriteLine("\t\t*                                             *");
             sw.WriteLine("\t\t*          DESIGN OF CANTILEVER SLAB          *");

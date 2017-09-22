@@ -1541,7 +1541,7 @@ namespace AstraAccess.StageAnalysis
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add("\t\t***********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 20.0           *");
+            list.Add("\t\t*            ASTRA Pro Release 22             *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*       STAGE (P-DELTA) ANALYSIS REPORT       *");
