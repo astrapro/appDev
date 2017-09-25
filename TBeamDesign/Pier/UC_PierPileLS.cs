@@ -23,9 +23,14 @@ namespace BridgeAnalysisDesign.Pier
         public event EventHandler OnProcess;
         string user_path = "";
 
-        public void SetIApplocation(IApplication iApp)
+        public void SetIApplication(IApplication iApp)
         {
             this.iApp = iApp;
+
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                rbtn_value_worksheet.Checked = true;
+            }
         }
 
         public bool Is_Force_From_Analysis
@@ -262,14 +267,14 @@ namespace BridgeAnalysisDesign.Pier
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Pier with Pile Foundation.xlsm");
+            file_path = Path.Combine(file_path, "Pier with Pile Foundation IS.xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with Pile Foundation.xlsm");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with Pile Foundation IS.xlsm");
 
             if (File.Exists(file_path))
             {

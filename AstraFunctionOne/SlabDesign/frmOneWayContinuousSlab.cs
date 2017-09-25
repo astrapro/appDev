@@ -526,7 +526,7 @@ namespace AstraFunctionOne.SlabDesign
             {
                 #region Write Report
                 sw.WriteLine("\t\t*******************************************************");
-                sw.WriteLine("\t\t*                ASTRA Pro Release 22                 *");
+                sw.WriteLine("\t\t*                ASTRA Pro Release 21                 *");
                 sw.WriteLine("\t\t*       TechSOFT Engineering Services (I) Pvt. Ltd.   *");
                 sw.WriteLine("\t\t*                                                     *");
                 sw.WriteLine("\t\t*                  DESIGN OF SINGLE SPAN              *");

@@ -315,7 +315,7 @@ namespace BridgeAnalysisDesign.BearingDesign
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            list.Add("\t\t*            ASTRA Pro Release 21            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*        DESIGN OF STEFLOMET  POT/PTFE       *");
@@ -1255,7 +1255,7 @@ namespace BridgeAnalysisDesign.BearingDesign
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            list.Add("\t\t*            ASTRA Pro Release 21            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*        DESIGN OF STEFLOMET POT/PTFE        *");
@@ -2206,7 +2206,7 @@ namespace BridgeAnalysisDesign.BearingDesign
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            list.Add("\t\t*            ASTRA Pro Release 21            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*        DESIGN OF STEFLOMET  POT/PTFE       *");
@@ -3144,7 +3144,7 @@ namespace BridgeAnalysisDesign.BearingDesign
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            list.Add("\t\t*            ASTRA Pro Release 21            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*        DESIGN OF STEFLOMET  POT/PTFE       *");

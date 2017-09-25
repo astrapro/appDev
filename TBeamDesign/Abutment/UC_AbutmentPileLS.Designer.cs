@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_content = new System.Windows.Forms.Panel();
             this.lbl_7 = new System.Windows.Forms.Label();
             this.lbl_6 = new System.Windows.Forms.Label();
@@ -318,6 +322,36 @@
             this.label121 = new System.Windows.Forms.Label();
             this.label122 = new System.Windows.Forms.Label();
             this.label123 = new System.Windows.Forms.Label();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.dgv_bs_ll_2 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgv_bs_ll_1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label157 = new System.Windows.Forms.Label();
+            this.label158 = new System.Windows.Forms.Label();
+            this.label159 = new System.Windows.Forms.Label();
+            this.label160 = new System.Windows.Forms.Label();
+            this.label165 = new System.Windows.Forms.Label();
+            this.txt_bs_total_load2 = new System.Windows.Forms.TextBox();
+            this.txt_bs_load_dist2 = new System.Windows.Forms.TextBox();
+            this.txt_bs_load_dist1 = new System.Windows.Forms.TextBox();
+            this.txt_bs_total_load1 = new System.Windows.Forms.TextBox();
+            this.label166 = new System.Windows.Forms.Label();
+            this.label167 = new System.Windows.Forms.Label();
+            this.label168 = new System.Windows.Forms.Label();
+            this.label169 = new System.Windows.Forms.Label();
+            this.txt_bs_left_bl = new System.Windows.Forms.TextBox();
+            this.label170 = new System.Windows.Forms.Label();
+            this.label171 = new System.Windows.Forms.Label();
+            this.label172 = new System.Windows.Forms.Label();
+            this.cmb_bs_ll_2 = new System.Windows.Forms.ComboBox();
+            this.cmb_bs_ll_1 = new System.Windows.Forms.ComboBox();
             this.pnl_content.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tc_content.SuspendLayout();
@@ -357,6 +391,11 @@
             this.pnl_7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.groupBox7.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnl_content
@@ -522,6 +561,7 @@
             this.tc_content.Controls.Add(this.tabPage5);
             this.tc_content.Controls.Add(this.tabPage6);
             this.tc_content.Controls.Add(this.tabPage7);
+            this.tc_content.Controls.Add(this.tabPage9);
             this.tc_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_content.Location = new System.Drawing.Point(0, 54);
             this.tc_content.Name = "tc_content";
@@ -640,6 +680,7 @@
             this.grb_LL_Min.TabIndex = 38;
             this.grb_LL_Min.TabStop = false;
             this.grb_LL_Min.Text = "Minimum Forces due to LL about base slab toe :";
+            this.grb_LL_Min.Visible = false;
             // 
             // label161
             // 
@@ -710,6 +751,7 @@
             this.grb_LL_Max.TabIndex = 38;
             this.grb_LL_Max.TabStop = false;
             this.grb_LL_Max.Text = "Maximum Forces due to LL about base slab toe :";
+            this.grb_LL_Max.Visible = false;
             // 
             // label153
             // 
@@ -3319,6 +3361,330 @@
             this.label123.TabIndex = 0;
             this.label123.Text = "Return wall Thickness At Top";
             // 
+            // tabPage9
+            // 
+            this.tabPage9.AutoScroll = true;
+            this.tabPage9.Controls.Add(this.panel1);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(835, 328);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "DESIGN DATA 9";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.groupBox9);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(812, 372);
+            this.panel1.TabIndex = 73;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.dgv_bs_ll_2);
+            this.groupBox9.Controls.Add(this.dgv_bs_ll_1);
+            this.groupBox9.Controls.Add(this.label157);
+            this.groupBox9.Controls.Add(this.label158);
+            this.groupBox9.Controls.Add(this.label159);
+            this.groupBox9.Controls.Add(this.label160);
+            this.groupBox9.Controls.Add(this.label165);
+            this.groupBox9.Controls.Add(this.txt_bs_total_load2);
+            this.groupBox9.Controls.Add(this.txt_bs_load_dist2);
+            this.groupBox9.Controls.Add(this.txt_bs_load_dist1);
+            this.groupBox9.Controls.Add(this.txt_bs_total_load1);
+            this.groupBox9.Controls.Add(this.label166);
+            this.groupBox9.Controls.Add(this.label167);
+            this.groupBox9.Controls.Add(this.label168);
+            this.groupBox9.Controls.Add(this.label169);
+            this.groupBox9.Controls.Add(this.txt_bs_left_bl);
+            this.groupBox9.Controls.Add(this.label170);
+            this.groupBox9.Controls.Add(this.label171);
+            this.groupBox9.Controls.Add(this.label172);
+            this.groupBox9.Controls.Add(this.cmb_bs_ll_2);
+            this.groupBox9.Controls.Add(this.cmb_bs_ll_1);
+            this.groupBox9.Location = new System.Drawing.Point(7, 4);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(622, 349);
+            this.groupBox9.TabIndex = 5;
+            this.groupBox9.TabStop = false;
+            // 
+            // dgv_bs_ll_2
+            // 
+            this.dgv_bs_ll_2.AllowUserToAddRows = false;
+            this.dgv_bs_ll_2.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_bs_ll_2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_bs_ll_2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_bs_ll_2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_bs_ll_2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_bs_ll_2.Location = new System.Drawing.Point(362, 84);
+            this.dgv_bs_ll_2.Name = "dgv_bs_ll_2";
+            this.dgv_bs_ll_2.RowHeadersWidth = 27;
+            this.dgv_bs_ll_2.Size = new System.Drawing.Size(232, 200);
+            this.dgv_bs_ll_2.TabIndex = 9;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "N";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 27;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Loads (ton)";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn7.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Distances  (m)";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn8.Width = 81;
+            // 
+            // dgv_bs_ll_1
+            // 
+            this.dgv_bs_ll_1.AllowUserToAddRows = false;
+            this.dgv_bs_ll_1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_bs_ll_1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_bs_ll_1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_bs_ll_1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn4,
+            this.Column1,
+            this.dataGridViewTextBoxColumn5});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_bs_ll_1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_bs_ll_1.Location = new System.Drawing.Point(19, 84);
+            this.dgv_bs_ll_1.Name = "dgv_bs_ll_1";
+            this.dgv_bs_ll_1.RowHeadersWidth = 27;
+            this.dgv_bs_ll_1.Size = new System.Drawing.Size(233, 200);
+            this.dgv_bs_ll_1.TabIndex = 9;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "N";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 27;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Loads (ton)";
+            this.Column1.Name = "Column1";
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column1.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Distances  (m)";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn5.Width = 81;
+            // 
+            // label157
+            // 
+            this.label157.AutoSize = true;
+            this.label157.Location = new System.Drawing.Point(584, 317);
+            this.label157.Name = "label157";
+            this.label157.Size = new System.Drawing.Size(18, 13);
+            this.label157.TabIndex = 4;
+            this.label157.Text = "m";
+            // 
+            // label158
+            // 
+            this.label158.AutoSize = true;
+            this.label158.Location = new System.Drawing.Point(239, 317);
+            this.label158.Name = "label158";
+            this.label158.Size = new System.Drawing.Size(18, 13);
+            this.label158.TabIndex = 4;
+            this.label158.Text = "m";
+            // 
+            // label159
+            // 
+            this.label159.AutoSize = true;
+            this.label159.Location = new System.Drawing.Point(239, 293);
+            this.label159.Name = "label159";
+            this.label159.Size = new System.Drawing.Size(27, 13);
+            this.label159.TabIndex = 4;
+            this.label159.Text = "Ton";
+            // 
+            // label160
+            // 
+            this.label160.AutoSize = true;
+            this.label160.Location = new System.Drawing.Point(584, 293);
+            this.label160.Name = "label160";
+            this.label160.Size = new System.Drawing.Size(27, 13);
+            this.label160.TabIndex = 4;
+            this.label160.Text = "Ton";
+            // 
+            // label165
+            // 
+            this.label165.AutoSize = true;
+            this.label165.Location = new System.Drawing.Point(258, 21);
+            this.label165.Name = "label165";
+            this.label165.Size = new System.Drawing.Size(27, 13);
+            this.label165.TabIndex = 4;
+            this.label165.Text = "Ton";
+            // 
+            // txt_bs_total_load2
+            // 
+            this.txt_bs_total_load2.Location = new System.Drawing.Point(514, 290);
+            this.txt_bs_total_load2.Name = "txt_bs_total_load2";
+            this.txt_bs_total_load2.Size = new System.Drawing.Size(64, 21);
+            this.txt_bs_total_load2.TabIndex = 3;
+            this.txt_bs_total_load2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_bs_load_dist2
+            // 
+            this.txt_bs_load_dist2.Location = new System.Drawing.Point(514, 314);
+            this.txt_bs_load_dist2.Name = "txt_bs_load_dist2";
+            this.txt_bs_load_dist2.Size = new System.Drawing.Size(64, 21);
+            this.txt_bs_load_dist2.TabIndex = 3;
+            this.txt_bs_load_dist2.Text = "5.24";
+            this.txt_bs_load_dist2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_bs_load_dist1
+            // 
+            this.txt_bs_load_dist1.Location = new System.Drawing.Point(171, 314);
+            this.txt_bs_load_dist1.Name = "txt_bs_load_dist1";
+            this.txt_bs_load_dist1.Size = new System.Drawing.Size(64, 21);
+            this.txt_bs_load_dist1.TabIndex = 3;
+            this.txt_bs_load_dist1.Text = "5.124";
+            this.txt_bs_load_dist1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_bs_total_load1
+            // 
+            this.txt_bs_total_load1.Location = new System.Drawing.Point(171, 287);
+            this.txt_bs_total_load1.Name = "txt_bs_total_load1";
+            this.txt_bs_total_load1.Size = new System.Drawing.Size(64, 21);
+            this.txt_bs_total_load1.TabIndex = 3;
+            this.txt_bs_total_load1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label166
+            // 
+            this.label166.AutoSize = true;
+            this.label166.Location = new System.Drawing.Point(355, 317);
+            this.label166.Name = "label166";
+            this.label166.Size = new System.Drawing.Size(87, 13);
+            this.label166.TabIndex = 1;
+            this.label166.Text = "Load Distance";
+            // 
+            // label167
+            // 
+            this.label167.AutoSize = true;
+            this.label167.Location = new System.Drawing.Point(12, 317);
+            this.label167.Name = "label167";
+            this.label167.Size = new System.Drawing.Size(87, 13);
+            this.label167.TabIndex = 1;
+            this.label167.Text = "Load Distance";
+            // 
+            // label168
+            // 
+            this.label168.AutoSize = true;
+            this.label168.Location = new System.Drawing.Point(355, 293);
+            this.label168.Name = "label168";
+            this.label168.Size = new System.Drawing.Size(65, 13);
+            this.label168.TabIndex = 1;
+            this.label168.Text = "Total Load";
+            // 
+            // label169
+            // 
+            this.label169.AutoSize = true;
+            this.label169.Location = new System.Drawing.Point(12, 290);
+            this.label169.Name = "label169";
+            this.label169.Size = new System.Drawing.Size(65, 13);
+            this.label169.TabIndex = 1;
+            this.label169.Text = "Total Load";
+            // 
+            // txt_bs_left_bl
+            // 
+            this.txt_bs_left_bl.Location = new System.Drawing.Point(188, 18);
+            this.txt_bs_left_bl.Name = "txt_bs_left_bl";
+            this.txt_bs_left_bl.Size = new System.Drawing.Size(64, 21);
+            this.txt_bs_left_bl.TabIndex = 3;
+            this.txt_bs_left_bl.Text = "12";
+            this.txt_bs_left_bl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label170
+            // 
+            this.label170.AutoSize = true;
+            this.label170.Location = new System.Drawing.Point(16, 21);
+            this.label170.Name = "label170";
+            this.label170.Size = new System.Drawing.Size(168, 13);
+            this.label170.TabIndex = 1;
+            this.label170.Text = "HA KNIFE EDGE LOAD [KEL]";
+            // 
+            // label171
+            // 
+            this.label171.AutoSize = true;
+            this.label171.Location = new System.Drawing.Point(359, 44);
+            this.label171.Name = "label171";
+            this.label171.Size = new System.Drawing.Size(91, 13);
+            this.label171.TabIndex = 1;
+            this.label171.Text = "Applied Load 2";
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Location = new System.Drawing.Point(16, 44);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(91, 13);
+            this.label172.TabIndex = 1;
+            this.label172.Text = "Applied Load 1";
+            // 
+            // cmb_bs_ll_2
+            // 
+            this.cmb_bs_ll_2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_bs_ll_2.FormattingEnabled = true;
+            this.cmb_bs_ll_2.Location = new System.Drawing.Point(362, 59);
+            this.cmb_bs_ll_2.Name = "cmb_bs_ll_2";
+            this.cmb_bs_ll_2.Size = new System.Drawing.Size(232, 21);
+            this.cmb_bs_ll_2.TabIndex = 0;
+            this.cmb_bs_ll_2.SelectedIndexChanged += new System.EventHandler(this.cmb_bs_ll_1_SelectedIndexChanged);
+            // 
+            // cmb_bs_ll_1
+            // 
+            this.cmb_bs_ll_1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_bs_ll_1.FormattingEnabled = true;
+            this.cmb_bs_ll_1.Location = new System.Drawing.Point(19, 59);
+            this.cmb_bs_ll_1.Name = "cmb_bs_ll_1";
+            this.cmb_bs_ll_1.Size = new System.Drawing.Size(233, 21);
+            this.cmb_bs_ll_1.TabIndex = 0;
+            this.cmb_bs_ll_1.SelectedIndexChanged += new System.EventHandler(this.cmb_bs_ll_1_SelectedIndexChanged);
+            // 
             // UC_AbutmentPileLS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -3383,6 +3749,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3679,5 +4051,35 @@
         private System.Windows.Forms.Label label145;
         private System.Windows.Forms.TextBox txt_xls_DL_H127;
         private System.Windows.Forms.TextBox txt_xls_DL_H124;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.DataGridView dgv_bs_ll_2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridView dgv_bs_ll_1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Label label157;
+        private System.Windows.Forms.Label label158;
+        private System.Windows.Forms.Label label159;
+        private System.Windows.Forms.Label label160;
+        private System.Windows.Forms.Label label165;
+        private System.Windows.Forms.TextBox txt_bs_total_load2;
+        private System.Windows.Forms.TextBox txt_bs_load_dist2;
+        private System.Windows.Forms.TextBox txt_bs_load_dist1;
+        private System.Windows.Forms.TextBox txt_bs_total_load1;
+        private System.Windows.Forms.Label label166;
+        private System.Windows.Forms.Label label167;
+        private System.Windows.Forms.Label label168;
+        private System.Windows.Forms.Label label169;
+        private System.Windows.Forms.TextBox txt_bs_left_bl;
+        private System.Windows.Forms.Label label170;
+        private System.Windows.Forms.Label label171;
+        private System.Windows.Forms.Label label172;
+        private System.Windows.Forms.ComboBox cmb_bs_ll_2;
+        private System.Windows.Forms.ComboBox cmb_bs_ll_1;
     }
 }

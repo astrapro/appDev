@@ -872,7 +872,7 @@ namespace AstraFunctionOne.BridgeDesign.SteelTruss
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t**********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
                 sw.WriteLine("\t\t*                                            *");
                 sw.WriteLine("\t\t*        DESIGN OF STEEL TRUSS BRIDGE        *");
@@ -13766,7 +13766,7 @@ namespace AstraFunctionOne.BridgeDesign.SteelTruss
             sw.WriteLine();
             sw.WriteLine();
             sw.WriteLine("\t\t**********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
             sw.WriteLine("\t\t*                                            *");
             sw.WriteLine("\t\t*           DESIGN OF DECK SLAB              *");
@@ -14446,7 +14446,7 @@ namespace AstraFunctionOne.BridgeDesign.SteelTruss
             sw.WriteLine();
             sw.WriteLine();
             sw.WriteLine("\t\t***********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 21             *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
             sw.WriteLine("\t\t*                                             *");
             sw.WriteLine("\t\t*          DESIGN  OF  RCC ABUTMENT           *");
@@ -16722,7 +16722,7 @@ namespace AstraFunctionOne.BridgeDesign.SteelTruss
             #region TechSOFT Banner
             list.Add("\t\t***********************************************");
             list.Add("\t\t*                                             *");
-            list.Add("\t\t*            ASTRA Pro Release 22             *");
+            list.Add("\t\t*            ASTRA Pro Release 21             *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*           DESIGN  OF  RCC PIERS             *");
@@ -18139,7 +18139,7 @@ namespace AstraFunctionOne.BridgeDesign.SteelTruss
             #region TechSOFT Banner
             list.Add("\t\t***********************************************");
             list.Add("\t\t*                                             *");
-            list.Add("\t\t*            ASTRA Pro Release 22             *");
+            list.Add("\t\t*            ASTRA Pro Release 21             *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*           DESIGN  OF  RCC PIERS             *");
@@ -19660,7 +19660,7 @@ namespace AstraFunctionOne.BridgeDesign.SteelTruss
             #region TechSOFT Banner
             list.Add("\t\t***********************************************");
             list.Add("\t\t*                                             *");
-            list.Add("\t\t*            ASTRA Pro Release 22             *");
+            list.Add("\t\t*            ASTRA Pro Release 21             *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*           DESIGN  OF  RCC PIERS             *");

@@ -33,7 +33,7 @@ namespace AstraFunctionOne
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lnk_techsoft = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_release = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,17 +100,17 @@ namespace AstraFunctionOne
             this.lnk_techsoft.Text = "Click here go to www.techsoftglobal.com";
             this.lnk_techsoft.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnk_techsoft_LinkClicked);
             // 
-            // label1
+            // lbl_release
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(253, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "22  Version 1";
+            this.lbl_release.AutoSize = true;
+            this.lbl_release.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_release.Font = new System.Drawing.Font("Verdana", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_release.ForeColor = System.Drawing.Color.White;
+            this.lbl_release.Location = new System.Drawing.Point(253, 179);
+            this.lbl_release.Name = "lbl_release";
+            this.lbl_release.Size = new System.Drawing.Size(92, 13);
+            this.lbl_release.TabIndex = 9;
+            this.lbl_release.Text = "21  Version 1";
             // 
             // frmAstraHelpAbout
             // 
@@ -118,7 +118,7 @@ namespace AstraFunctionOne
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AstraFunctionOne.Properties.Resources.Cable_Stayed_Bridge;
             this.ClientSize = new System.Drawing.Size(417, 357);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_release);
             this.Controls.Add(this.lnk_techsoft);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
@@ -148,6 +148,6 @@ namespace AstraFunctionOne
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.LinkLabel lnk_techsoft;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl_release;
     }
 }

@@ -147,6 +147,19 @@ namespace BridgeAnalysisDesign.Pier
 
         #endregion Super Structure Details
 
+        #region Forces
+        
+//txt_inp_DL
+//txt_inp_SIDL
+//txt_inp_Surfacing
+//txt_inp_FPLL
+
+        public string DL_Force { get { return txt_inp_DL.Text; } set { txt_inp_DL.Text = value; } }
+        public string SIDL_Force { get { return txt_inp_SIDL.Text; } set { txt_inp_SIDL.Text = value; } }
+        public string Surface_Force { get { return txt_inp_Surfacing.Text; } set { txt_inp_Surfacing.Text = value; } }
+        public string FPLL_Force { get { return txt_inp_FPLL.Text; } set { txt_inp_FPLL.Text = value; } }
+
+        #endregion Forces
         public void Left_Equal_to_Right()
         {
             CC_Exp_Joint_Right_Skew = CC_Exp_Joint_Left_Skew;
@@ -210,9 +223,13 @@ namespace BridgeAnalysisDesign.Pier
 
         }
 
-        public void SetIApplocation(IApplication iApp)
+        public void SetIApplication(IApplication iApp)
         {
             this.iApp = iApp;
+            if(iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                rbtn_value_worksheet.Checked = true;
+            }
         }
 
 
@@ -271,14 +288,14 @@ namespace BridgeAnalysisDesign.Pier
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Pier with Open Foundation.xlsm");
+            file_path = Path.Combine(file_path, "Pier with Open Foundation IS.xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with Open Foundation.xlsm");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with Open Foundation IS.xlsm");
 
             if (File.Exists(file_path))
             {
@@ -467,14 +484,14 @@ namespace BridgeAnalysisDesign.Pier
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Pier with open foundation.xlsx");
+            file_path = Path.Combine(file_path, "Pier with Open Foundation BS.xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with open foundation BS.xlsx");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with Open Foundation BS.xlsm");
 
             if (File.Exists(file_path))
             {
@@ -505,10 +522,12 @@ namespace BridgeAnalysisDesign.Pier
             myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
             //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Design Data"];
+            Excel.Worksheet EXL_INP = (Excel.Worksheet)myExcelWorkbook.Sheets["1. Lvl & Dim."];
+            Excel.Worksheet EXL_DES = (Excel.Worksheet)myExcelWorkbook.Sheets["2.Design Paramters"];
 
 
-            List<TextBox> All_Data = Get_TextBoxes();
+            //List<TextBox> All_Data = Get_TextBoxes();
+            List<TextBox> All_Data = MyList.Get_TextBoxes(this);
 
 
             //Excel.Range formatRange;
@@ -522,11 +541,25 @@ namespace BridgeAnalysisDesign.Pier
                 string kStr = "";
                 foreach (var item in All_Data)
                 {
-                    kStr = item.Name.Replace("txt_des_", "");
+                    if (item.Name.ToLower().StartsWith("txt_xls_inp_"))
+                    {
+                        kStr = item.Name.Replace("txt_xls_inp_", "");
 
-                    //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
-                    myExcelWorksheet.get_Range(kStr).Formula = item.Text;
+                        //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                        EXL_INP.get_Range(kStr).Formula = item.Text;
+                    }
+                    else if (item.Name.ToLower().StartsWith("txt_des_"))
+                    {
+                        kStr = item.Name.Replace("txt_des_", "");
+                        //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                        EXL_DES.get_Range(kStr).Formula = item.Text;
+                    }
+
+
                 }
+
+                //txt_des_
+
 
                 #region Input 2
 

@@ -2846,7 +2846,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF BOX CULVERT            *");
@@ -7791,7 +7791,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22              *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF PIPE CULVERT           *");
@@ -8116,7 +8116,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 #region TechSOFT Banner
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22              *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF PIPE CULVERT           *");
@@ -8522,7 +8522,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                 //sw.WriteLine("----------------------------------------------------------------------------------------------");
                 //sw.WriteLine("----------------------------------------------------------------------------------------------");
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22              *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*            DESIGN OF SLAB CULVERT           *");

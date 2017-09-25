@@ -327,6 +327,18 @@
             this.label139 = new System.Windows.Forms.Label();
             this.label152 = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.txt_inp_LL1_max = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
+            this.label130 = new System.Windows.Forms.Label();
+            this.txt_inp_LL1_min = new System.Windows.Forms.TextBox();
+            this.label132 = new System.Windows.Forms.Label();
+            this.txt_inp_LL2_max = new System.Windows.Forms.TextBox();
+            this.label148 = new System.Windows.Forms.Label();
+            this.txt_inp_LL2_min = new System.Windows.Forms.TextBox();
             this.pnl_bot.SuspendLayout();
             this.pnl_content.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -562,21 +574,33 @@
             // 
             this.groupBox1.Controls.Add(this.rbtn_value_worksheet);
             this.groupBox1.Controls.Add(this.rbtn_value_analysis);
+            this.groupBox1.Controls.Add(this.txt_inp_LL2_min);
             this.groupBox1.Controls.Add(this.txt_inp_FPLL);
+            this.groupBox1.Controls.Add(this.label148);
             this.groupBox1.Controls.Add(this.label60);
+            this.groupBox1.Controls.Add(this.txt_inp_LL2_max);
             this.groupBox1.Controls.Add(this.txt_inp_Surfacing);
+            this.groupBox1.Controls.Add(this.label132);
             this.groupBox1.Controls.Add(this.label58);
+            this.groupBox1.Controls.Add(this.txt_inp_LL1_min);
             this.groupBox1.Controls.Add(this.txt_inp_SIDL);
+            this.groupBox1.Controls.Add(this.label130);
             this.groupBox1.Controls.Add(this.label59);
+            this.groupBox1.Controls.Add(this.label127);
             this.groupBox1.Controls.Add(this.label56);
+            this.groupBox1.Controls.Add(this.label84);
             this.groupBox1.Controls.Add(this.label57);
+            this.groupBox1.Controls.Add(this.txt_inp_LL1_max);
+            this.groupBox1.Controls.Add(this.label83);
             this.groupBox1.Controls.Add(this.txt_inp_DL);
+            this.groupBox1.Controls.Add(this.label73);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label72);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(129, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(438, 216);
+            this.groupBox1.Size = new System.Drawing.Size(605, 232);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LOADS FROM SUPERSTRUCTURES";
@@ -608,7 +632,7 @@
             // 
             // txt_inp_FPLL
             // 
-            this.txt_inp_FPLL.Location = new System.Drawing.Point(248, 180);
+            this.txt_inp_FPLL.Location = new System.Drawing.Point(154, 184);
             this.txt_inp_FPLL.Name = "txt_inp_FPLL";
             this.txt_inp_FPLL.Size = new System.Drawing.Size(70, 21);
             this.txt_inp_FPLL.TabIndex = 8;
@@ -618,7 +642,7 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(70, 183);
+            this.label60.Location = new System.Drawing.Point(34, 187);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(114, 13);
             this.label60.TabIndex = 28;
@@ -626,7 +650,7 @@
             // 
             // txt_inp_Surfacing
             // 
-            this.txt_inp_Surfacing.Location = new System.Drawing.Point(248, 153);
+            this.txt_inp_Surfacing.Location = new System.Drawing.Point(154, 157);
             this.txt_inp_Surfacing.Name = "txt_inp_Surfacing";
             this.txt_inp_Surfacing.Size = new System.Drawing.Size(70, 21);
             this.txt_inp_Surfacing.TabIndex = 8;
@@ -636,7 +660,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(70, 156);
+            this.label58.Location = new System.Drawing.Point(34, 160);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(92, 13);
             this.label58.TabIndex = 28;
@@ -644,7 +668,7 @@
             // 
             // txt_inp_SIDL
             // 
-            this.txt_inp_SIDL.Location = new System.Drawing.Point(248, 126);
+            this.txt_inp_SIDL.Location = new System.Drawing.Point(154, 130);
             this.txt_inp_SIDL.Name = "txt_inp_SIDL";
             this.txt_inp_SIDL.Size = new System.Drawing.Size(70, 21);
             this.txt_inp_SIDL.TabIndex = 8;
@@ -654,7 +678,7 @@
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(323, 183);
+            this.label59.Location = new System.Drawing.Point(229, 187);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(22, 13);
             this.label59.TabIndex = 34;
@@ -663,7 +687,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(70, 129);
+            this.label56.Location = new System.Drawing.Point(34, 133);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(35, 13);
             this.label56.TabIndex = 28;
@@ -672,7 +696,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(323, 156);
+            this.label57.Location = new System.Drawing.Point(229, 160);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(22, 13);
             this.label57.TabIndex = 34;
@@ -680,7 +704,7 @@
             // 
             // txt_inp_DL
             // 
-            this.txt_inp_DL.Location = new System.Drawing.Point(248, 99);
+            this.txt_inp_DL.Location = new System.Drawing.Point(154, 103);
             this.txt_inp_DL.Name = "txt_inp_DL";
             this.txt_inp_DL.Size = new System.Drawing.Size(70, 21);
             this.txt_inp_DL.TabIndex = 8;
@@ -690,7 +714,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(323, 129);
+            this.label3.Location = new System.Drawing.Point(229, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 13);
             this.label3.TabIndex = 34;
@@ -699,7 +723,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 102);
+            this.label1.Location = new System.Drawing.Point(34, 106);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(68, 13);
             this.label1.TabIndex = 28;
@@ -708,7 +732,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(323, 102);
+            this.label2.Location = new System.Drawing.Point(229, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 34;
@@ -3472,6 +3496,114 @@
             this.label136.Text = "CONCRETE";
             this.label136.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(534, 106);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(22, 13);
+            this.label72.TabIndex = 34;
+            this.label72.Text = "kN";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(313, 106);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(140, 13);
+            this.label73.TabIndex = 28;
+            this.label73.Text = "Live Load Type 1 (Max)";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(534, 133);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(22, 13);
+            this.label83.TabIndex = 34;
+            this.label83.Text = "kN";
+            // 
+            // txt_inp_LL1_max
+            // 
+            this.txt_inp_LL1_max.Location = new System.Drawing.Point(459, 103);
+            this.txt_inp_LL1_max.Name = "txt_inp_LL1_max";
+            this.txt_inp_LL1_max.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL1_max.TabIndex = 8;
+            this.txt_inp_LL1_max.Text = "806.25";
+            this.txt_inp_LL1_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(534, 160);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(22, 13);
+            this.label84.TabIndex = 34;
+            this.label84.Text = "kN";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(313, 133);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(136, 13);
+            this.label127.TabIndex = 28;
+            this.label127.Text = "Live Load Type 1 (Min)";
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(534, 187);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(22, 13);
+            this.label130.TabIndex = 34;
+            this.label130.Text = "kN";
+            // 
+            // txt_inp_LL1_min
+            // 
+            this.txt_inp_LL1_min.Location = new System.Drawing.Point(459, 130);
+            this.txt_inp_LL1_min.Name = "txt_inp_LL1_min";
+            this.txt_inp_LL1_min.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL1_min.TabIndex = 8;
+            this.txt_inp_LL1_min.Text = "193.75";
+            this.txt_inp_LL1_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(313, 160);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(140, 13);
+            this.label132.TabIndex = 28;
+            this.label132.Text = "Live Load Type 2 (Max)";
+            // 
+            // txt_inp_LL2_max
+            // 
+            this.txt_inp_LL2_max.Location = new System.Drawing.Point(459, 157);
+            this.txt_inp_LL2_max.Name = "txt_inp_LL2_max";
+            this.txt_inp_LL2_max.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL2_max.TabIndex = 8;
+            this.txt_inp_LL2_max.Text = "393.33";
+            this.txt_inp_LL2_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Location = new System.Drawing.Point(313, 187);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(136, 13);
+            this.label148.TabIndex = 28;
+            this.label148.Text = "Live Load Type 2 (Min)";
+            // 
+            // txt_inp_LL2_min
+            // 
+            this.txt_inp_LL2_min.Location = new System.Drawing.Point(459, 184);
+            this.txt_inp_LL2_min.Name = "txt_inp_LL2_min";
+            this.txt_inp_LL2_min.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL2_min.TabIndex = 8;
+            this.txt_inp_LL2_min.Text = "106.67";
+            this.txt_inp_LL2_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // UC_PierOpenLS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -3835,6 +3967,18 @@
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label133;
+        private System.Windows.Forms.TextBox txt_inp_LL2_min;
+        private System.Windows.Forms.Label label148;
+        private System.Windows.Forms.TextBox txt_inp_LL2_max;
+        private System.Windows.Forms.Label label132;
+        private System.Windows.Forms.TextBox txt_inp_LL1_min;
+        private System.Windows.Forms.Label label130;
+        private System.Windows.Forms.Label label127;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.TextBox txt_inp_LL1_max;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label72;
     }
 
 

@@ -342,11 +342,12 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
-            uC_AbutmentOpenLS1.SetIApplocation(iApp);
-            uC_AbutmentPileLS1.SetIApplocation(iApp);
+            uC_AbutmentOpenLS1.SetIApplication(iApp);
+            uC_AbutmentPileLS1.SetIApplication(iApp);
 
 
-            tc_abutment.TabPages.Remove(tab_AbutmentLSM);
+            //tc_abutment.TabPages.Remove(tab_AbutmentLSM);
+            tc_abutment.TabPages.Remove(tab_AbutmentOpenLSM);
             #endregion RCC Abutment
 
             #region RCC Pier
@@ -365,8 +366,8 @@ namespace LimitStateMethod.RCC_T_Girder
             uC_PierDesignLSM1.Show_Note = true;
             uC_PierDesignLSM1.Show_Title = true;
 
-            uC_PierOpenLS1.SetIApplocation(iApp);
-            uC_PierPileLS1.SetIApplocation(iApp);
+            uC_PierOpenLS1.SetIApplication(iApp);
+            uC_PierPileLS1.SetIApplication(iApp);
 
 
 
@@ -374,7 +375,8 @@ namespace LimitStateMethod.RCC_T_Girder
             tc_Pier.TabPages.Remove(tab_PierWSM_Text);
             tc_Pier.TabPages.Remove(tab_PierWSM_Excel);
 
-            tc_Pier.TabPages.Remove(tab_PierLSM);
+            //tc_Pier.TabPages.Remove(tab_PierLSM);
+            tc_Pier.TabPages.Remove(tab_PierPileLSM);
 
 
 
@@ -19915,6 +19917,29 @@ namespace LimitStateMethod.RCC_T_Girder
             uC_PierDesignLSM1.Right_Span_Moment_Mz = txt_sidl_right_total_Mz.Text;
 
 
+
+            #region New Design for Limit state Method
+
+            uC_AbutmentOpenLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentOpenLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentOpenLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentOpenLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+            uC_AbutmentPileLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentPileLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentPileLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentPileLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+
+            uC_PierOpenLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            uC_PierOpenLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+            //uC_PierOpenLS1.DL
+
+            #endregion New Design for Limit state Method
+
         }
         #endregion View Force
 
@@ -23015,7 +23040,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 }
                 else if (b.Name == btn_dwg_open_abutPile.Name)
                 {
-                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Abutment with Pile Founation Drawings"), "ABUTMENT_PILE_LSM");
+                    //iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Abutment with Pile Founation Drawings"), "ABUTMENT_PILE_LSM");
+                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Abutment with Pile Founation Drawings"), "BOX_ABUTMENT");
                 }
                 else if (b.Name == btn_dwg_open_pierOpen.Name)
                 {
@@ -23023,7 +23049,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 }
                 else if (b.Name == btn_dwg_open_pierPile.Name)
                 {
-                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier with Pile Founation Drawings"), "PIER_PILELSM");
+                    //iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier with Pile Founation Drawings"), "PIER_PILELSM");
+                    iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier with Pile Founation Drawings"), "TBeam_Pier");
                 }
                 #endregion Sample Drawings
             }
@@ -24286,6 +24313,8 @@ namespace LimitStateMethod.RCC_T_Girder
         private void uC_AbutmentOpenLS1_Worksheet_Force_CheckedChanged(object sender, EventArgs e)
         {
             //uC_AbutmentOpenLS1.DL_MLL = 
+
+
         }
 
     }

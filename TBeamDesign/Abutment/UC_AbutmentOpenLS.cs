@@ -120,9 +120,18 @@ namespace BridgeAnalysisDesign.Abutment
         public string LL_MLL_Min { get { return txt_xls_LL_J46.Text; } set { txt_xls_LL_J46.Text = value; } }
 
         #endregion Forces
-        public void SetIApplocation(IApplication iApp)
+        public void SetIApplication(IApplication iApp)
         {
             this.iApp = iApp;
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                tc_content.TabPages.Remove(tabPage9);
+                rbtn_value_worksheet.Checked = true;
+            }
+            else
+            {
+                Load_Live_Loads();
+            }
         }
 
 
@@ -161,6 +170,80 @@ namespace BridgeAnalysisDesign.Abutment
 
         }
 
+        public void Load_Live_Loads()
+        {
+            if (iApp == null) return;
+            //cmb_bs_ll_2
+            iApp.LiveLoads.Fill_Combo_Without_Type(ref cmb_bs_ll_1);
+            iApp.LiveLoads.Fill_Combo_Without_Type(ref cmb_bs_ll_2);
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                //cmb_bs_ll_1.SelectedIndex = cmb_bs_ll_1.Items.Count - 1;
+                //cmb_bs_ll_2.SelectedIndex = 12;
+
+                cmb_bs_ll_1.SelectedIndex = 8;
+                cmb_bs_ll_2.SelectedIndex = 13;
+            }
+            else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                cmb_bs_ll_1.SelectedIndex = cmb_bs_ll_1.Items.Count - 1;
+                cmb_bs_ll_2.SelectedIndex = 0;
+            }
+            else
+            {
+                cmb_bs_ll_1.SelectedIndex = 6;
+                cmb_bs_ll_2.SelectedIndex = 0;
+
+                lbl_6.Visible = false;
+                pnl_6.Visible = false;
+            }
+        }
+        private void cmb_bs_ll_1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ComboBox cmd = sender as ComboBox;
+            DataGridView dgv = dgv_bs_ll_1;
+            TextBox txtb = txt_bs_total_load1;
+            TextBox txtd = txt_bs_load_dist1;
+
+            if (cmd.Name == cmb_bs_ll_2.Name)
+            {
+                dgv = dgv_bs_ll_2;
+                txtb = txt_bs_total_load2;
+                txtd = txt_bs_load_dist2;
+            }
+
+            //string ss = cmd.Text;
+
+            //MyList mlst = new MyList(ss, ':');
+            string code = cmd.Text;
+
+            LoadData ld = iApp.LiveLoads.Get_LoadData(code);
+
+
+            dgv.Rows.Clear();
+            //for (int i = 0; i < ld.Loads_In_KN.StringList.Count; i++)
+            for (int i = 0; i < ld.Loads.StringList.Count; i++)
+            {
+                if (i == 0)
+                {
+                    dgv.Rows.Add((i + 1), ld.Loads.StringList[0], "");
+
+                    dgv[2, 0].ReadOnly = true;
+                    dgv[2, 0].Style.BackColor = Color.Gray;
+                }
+                else
+                {
+                    dgv.Rows.Add((i + 1), ld.Loads.StringList[i], ld.Distances.StringList[i - 1]);
+                }
+            }
+            //txtb.Text = (ld.Total_Loads * 10).ToString("f3");
+            txtb.Text = (ld.Total_Loads).ToString("f3");
+
+            txtd.Text = (ld.LoadWidth).ToString("f3");
+
+        }
+
         private void btn_proceed_Click(object sender, EventArgs e)
         {
 
@@ -192,14 +275,14 @@ namespace BridgeAnalysisDesign.Abutment
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
             //file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsm");
-            file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsb");
+            file_path = Path.Combine(file_path, "Abutment with Open Foundation IS.xls");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Open Foundation.xlsb");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Open Foundation IS.xls");
 
             if (File.Exists(file_path))
             {
@@ -304,6 +387,133 @@ namespace BridgeAnalysisDesign.Abutment
          
             //iApp.Excel_Open_Message();
         }
+        private void Process_Design_BS()
+        {
+
+            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            if (iApp.user_path != "")
+                file_path = Path.Combine(iApp.user_path, Title);
+
+            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+
+            //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+            //file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsm");
+            file_path = Path.Combine(file_path, "Abutment with Open Foundation BS.xls");
+
+            //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
+            //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
+
+            string copy_path = file_path;
+
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Open Foundation BS.xls");
+
+            if (File.Exists(file_path))
+            {
+                File.Copy(file_path, copy_path, true);
+            }
+            else
+            {
+                MessageBox.Show(file_path + " file not found.");
+                return;
+            }
+
+
+            //iApp.Excel_Open_Message();
+
+            Excel.Application myExcelApp;
+            Excel.Workbooks myExcelWorkbooks;
+            Excel.Workbook myExcelWorkbook;
+
+            object misValue = System.Reflection.Missing.Value;
+
+            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp.Visible = true;
+            //myExcelApp.Visible = false;
+            myExcelWorkbooks = myExcelApp.Workbooks;
+
+            //myExcelWorkbook = myExcelWorkbooks.Open(fileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
+
+            myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
+
+            //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
+            Excel.Worksheet EXL_INP = (Excel.Worksheet)myExcelWorkbook.Sheets["1.0 Input"];
+            Excel.Worksheet EXL_DL = (Excel.Worksheet)myExcelWorkbook.Sheets["1.3 SUP"];
+            Excel.Worksheet EXL_SIDL = (Excel.Worksheet)myExcelWorkbook.Sheets["1.4 SI"];
+            Excel.Worksheet EXL_LL = (Excel.Worksheet)myExcelWorkbook.Sheets["1.5 LL"];
+
+
+
+            List<TextBox> All_Data = MyList.Get_TextBoxes(this);
+
+
+            //Excel.Range formatRange;
+            //formatRange = myExcelWorksheet.get_Range("b" + (dgv.RowCount + after_indx), "L" + (dgv.RowCount + after_indx));
+            //formatRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
+
+
+            List<double> data = new List<double>();
+            try
+            {
+                string kStr = "";
+                foreach (var item in All_Data)
+                {
+                    if (item.Name.ToLower().StartsWith("txt_xls_inp_"))
+                    {
+                        kStr = item.Name.Replace("txt_xls_inp_", "");
+
+                        //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                        EXL_INP.get_Range(kStr).Formula = item.Text;
+                    }
+                    else
+                    {
+                        if (rbtn_value_analysis.Checked)
+                        {
+                            if (item.Name.ToLower().StartsWith("txt_xls_dl_"))
+                            {
+                                kStr = item.Name.ToLower().Replace("txt_xls_dl_", "");
+
+                                //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                                EXL_DL.get_Range(kStr).Formula = item.Text;
+                            }
+                            else if (item.Name.ToLower().StartsWith("txt_xls_sidl_"))
+                            {
+                                kStr = item.Name.ToLower().Replace("txt_xls_sidl_", "");
+
+                                //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                                EXL_SIDL.get_Range(kStr).Formula = item.Text;
+                            }
+                            else if (item.Name.ToLower().StartsWith("txt_xls_ll_"))
+                            {
+                                kStr = item.Name.ToLower().Replace("txt_xls_ll_", "");
+
+                                //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
+                                EXL_LL.get_Range(kStr).Formula = item.Text;
+                            }
+                        }
+                    }
+                }
+
+                #region Input 2
+
+                //myExcelWorksheet.get_Range("K78").Formula = data[rindx++].ToString();
+                //myExcelWorksheet.get_Range("K81").Formula = data[rindx++].ToString();
+
+                #endregion Input 2
+
+
+            }
+            catch (Exception exx) { }
+
+            myExcelWorkbook.Save();
+
+            releaseObject(myExcelWorkbook);
+
+            //iApp.Excel_Open_Message();
+        }
+
         public List<TextBox> Get_TextBoxes(Control ctrl)
         {
             List<TextBox> list = new List<TextBox>();
@@ -405,98 +615,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             return list;
         }
-        private void Process_Design_BS()
-        {
 
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
-
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
-
-            //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            //file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsx");
-            file_path = Path.Combine(file_path, "Abutment with Open Foundation.xls");
-
-            //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
-            //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
-
-            string copy_path = file_path;
-
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment with Open Foundation LS\Abutment with Open Foundation.xlsx");
-
-            if (File.Exists(file_path))
-            {
-                File.Copy(file_path, copy_path, true);
-            }
-            else
-            {
-                MessageBox.Show(file_path + " file not found.");
-                return;
-            }
-
-
-            iApp.Excel_Open_Message();
-
-            Excel.Application myExcelApp;
-            Excel.Workbooks myExcelWorkbooks;
-            Excel.Workbook myExcelWorkbook;
-
-            object misValue = System.Reflection.Missing.Value;
-
-            myExcelApp = new Excel.ApplicationClass();
-            myExcelApp.Visible = true;
-            //myExcelApp.Visible = false;
-            myExcelWorkbooks = myExcelApp.Workbooks;
-
-            //myExcelWorkbook = myExcelWorkbooks.Open(fileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
-
-            myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-
-            //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Design Data"];
-
-
-            List<TextBox> All_Data = Get_TextBoxes();
-
-
-            //Excel.Range formatRange;
-            //formatRange = myExcelWorksheet.get_Range("b" + (dgv.RowCount + after_indx), "L" + (dgv.RowCount + after_indx));
-            //formatRange.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGreen);
-
-
-            List<double> data = new List<double>();
-            try
-            {
-                string kStr = "";
-                foreach (var item in All_Data)
-                {
-                    kStr = item.Name.Replace("txt_des_", "");
-
-                    //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
-                    myExcelWorksheet.get_Range(kStr).Formula = item.Text;
-                }
-
-                #region Input 2
-
-                //myExcelWorksheet.get_Range("K78").Formula = data[rindx++].ToString();
-                //myExcelWorksheet.get_Range("K81").Formula = data[rindx++].ToString();
-
-                #endregion Input 2
-
-
-            }
-            catch (Exception exx) { }
-
-            myExcelWorkbook.Save();
-
-            releaseObject(myExcelWorkbook);
-
-            //iApp.Excel_Open_Message();
-        }
 
         private void releaseObject(object obj)
         {

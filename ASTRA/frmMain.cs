@@ -653,7 +653,8 @@ namespace AstraFunctionOne
                                 //    DesignStandard = eDesignStandard.BritishStandard;
                                 toolStripSeparator9.Visible = !chHasp.IsActivate;
 
-                                if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_ASTRA_Lock_18())
+                                //if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_ASTRA_Lock_18())
+                                if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_Previuos_Version())
                                 {
                                     //faum.ShowDialog();
 
@@ -4523,19 +4524,29 @@ namespace AstraFunctionOne
         }
 
 
-
-
+        Form fMsg ;
         public void Excel_Open_Message()
         {
+            try
+            {
+                fMsg = new frm_Excel_Message();
+                fMsg.Show();
+            }
+            catch (Exception exx) { }
+        }
+        //Chiranjit [2017 09 22]
+        public void Excel_Close_Message()
+        {
 
-            frm_Excel_Message f = new frm_Excel_Message();
-
-            f.Show();
+            try
+            {
+                fMsg.Close();
+            }
+            catch (Exception exx) { }
             //MessageBox.Show("The Design is done, the excel report file is created,\n\r" +
             //                "Click on the excel icon in the lower panel at the bottom\n\r" +
             //                "of the screen, to view the Design report.\n\r", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
 
         public void View_Input_File(string file_name)
         {

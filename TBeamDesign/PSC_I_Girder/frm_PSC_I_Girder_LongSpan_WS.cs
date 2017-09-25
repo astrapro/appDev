@@ -8049,7 +8049,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
             List<string> ll = new List<string>();
 
             ll.Add("\t\t***********************************************");
-            ll.Add("\t\t*            ASTRA Pro Release 22             *");
+            ll.Add("\t\t*            ASTRA Pro Release 21             *");
             ll.Add("\t\t*        TechSOFT Engineering Services        *");
             ll.Add("\t\t*                                             *");
             ll.Add("\t\t*          POST TENSIONED MAIN GIRDER         *");
@@ -11243,7 +11243,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21             *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*           DESIGN OF PRESTRESSED             *");
@@ -15995,7 +15995,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t************************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 22              *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
                 sw.WriteLine("\t\t*         TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                              *");
                 sw.WriteLine("\t\t*          DESIGN OF RCC DECK SLAB             *");

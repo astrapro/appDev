@@ -103,6 +103,9 @@ namespace AstraInterface.Interface
         void Show_LL_Dialog();
         void Excel_Open_Message();
 
+        //Close Excel Dialog
+        void Excel_Close_Message();
+
         //Chiranjit [2014 09 30] for British Standard
         Image Get_Image(string img_name);
 

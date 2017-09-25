@@ -1259,6 +1259,25 @@ namespace AstraInterface.DataStructure
             }
             return list;
         }
+
+        public static List<TextBox> Get_TextBoxes(Control ctrl, string startsWith)
+        {
+            List<TextBox> list = new List<TextBox>();
+            for (int i = 0; i < ctrl.Controls.Count; i++)
+            {
+                var c = ctrl.Controls[i];
+                if (c.Controls.Count > 0)
+                {
+                    list.AddRange(Get_TextBoxes(c));
+                }
+                if (c is TextBox)
+                {
+                    if (c.Name.StartsWith(startsWith))
+                        list.Add(c as TextBox);
+                }
+            }
+            return list;
+        }
         public static List<TextBox> Get_TextBoxes(Form frm)
         {
             List<TextBox> list = new List<TextBox>();
@@ -1270,6 +1289,16 @@ namespace AstraInterface.DataStructure
             return list;
         }
 
+        public static List<TextBox> Get_TextBoxes(Form frm, string startWith)
+        {
+            List<TextBox> list = new List<TextBox>();
+            for (int i = 0; i < frm.Controls.Count; i++)
+            {
+                var c = frm.Controls[i];
+                list.AddRange(Get_TextBoxes(c, startWith));
+            }
+            return list;
+        }
 
     }
 

@@ -1553,7 +1553,7 @@ namespace LimitStateMethod.DeckSlab
             #region TechSOFT Banner
             list.Add("\t\t***********************************************");
             list.Add("\t\t*                                             *");
-            list.Add("\t\t*            ASTRA Pro Release 22             *");
+            list.Add("\t\t*            ASTRA Pro Release 21             *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*  DESIGN OF DECK SLAB AS PER BS 5400 CODE    *");

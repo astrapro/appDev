@@ -282,11 +282,12 @@ namespace LimitStateMethod.PSC_I_Girder
 
 
 
-            uC_AbutmentOpenLS1.SetIApplocation(iApp);
-            uC_AbutmentPileLS1.SetIApplocation(iApp);
+            uC_AbutmentOpenLS1.SetIApplication(iApp);
+            uC_AbutmentPileLS1.SetIApplication(iApp);
 
 
-            tc_abutment.TabPages.Remove(tab_AbutmentLSM);
+            //tc_abutment.TabPages.Remove(tab_AbutmentLSM);
+            tc_abutment.TabPages.Remove(tab_AbutmentOpenLSM);
 
 
             #endregion RCC Abutment
@@ -313,10 +314,11 @@ namespace LimitStateMethod.PSC_I_Girder
 
             tc_pier.TabPages.Remove(tab_PierWSM_Text);
             tc_pier.TabPages.Remove(tab_PierWSM_Excel);
-            tc_pier.TabPages.Remove(tab_PierLSM);
 
-            uC_PierOpenLS1.SetIApplocation(iApp);
-            uC_PierPileLS1.SetIApplocation(iApp);
+            tc_pier.TabPages.Remove(tab_PierPileLSM);
+
+            uC_PierOpenLS1.SetIApplication(iApp);
+            uC_PierPileLS1.SetIApplication(iApp);
 
 
 
@@ -7583,6 +7585,39 @@ namespace LimitStateMethod.PSC_I_Girder
 
             uC_PierDesignLSM1.Left_Span_Moment_Mz = txt_sidl_left_total_Mz.Text;
             uC_PierDesignLSM1.Right_Span_Moment_Mz = txt_sidl_right_total_Mz.Text;
+
+
+
+            //uC_AbutmentPileLS1.
+
+
+
+            #region New Design for Limit state Method
+
+            uC_AbutmentOpenLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentOpenLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentOpenLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentOpenLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+            uC_AbutmentPileLS1.DL_MTT = txt_max_Mz.Text;
+            uC_AbutmentPileLS1.DL_MLL = txt_max_Mx.Text;
+            uC_AbutmentPileLS1.SIDL_MTT = txt_sidl_final_Mz.Text;
+            uC_AbutmentPileLS1.SIDL_MLL = txt_sidl_final_Mx.Text;
+
+
+
+            uC_PierOpenLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            uC_PierOpenLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+
+            //uC_PierPileLS1.DL_Force = txt_max_vert_reac_kN.Text;
+            //uC_PierPileLS1.SIDL_Force = txt_sidl_final_vert_rec_kN.Text;
+
+            //uC_PierOpenLS1.DL
+
+            #endregion New Design for Limit state Method
+
 
 
         }

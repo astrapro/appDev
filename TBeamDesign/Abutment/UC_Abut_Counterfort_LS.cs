@@ -448,8 +448,8 @@ namespace BridgeAnalysisDesign.Abutment
             myExcelWorkbook.Save();
 
             releaseObject(myExcelWorkbook);
+            iapp.Excel_Close_Message();
 
-            //iapp.Excel_Open_Message();
         }
 
         private void Design_IRC_Abutment_Bridges_Box_Type_BS()

@@ -144,7 +144,7 @@ namespace AstraFunctionOne.BridgeDesign.Abutment
             sw.WriteLine();
             sw.WriteLine();
             sw.WriteLine("\t\t***********************************************");
-            sw.WriteLine("\t\t*            ASTRA Pro Release 22              *");
+            sw.WriteLine("\t\t*            ASTRA Pro Release 21              *");
             sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
             sw.WriteLine("\t\t*                                             *");
             sw.WriteLine("\t\t*           DESIGN  OF RCC ABUTMENT           *");
