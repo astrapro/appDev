@@ -23,6 +23,7 @@ namespace BridgeAnalysisDesign.Abutment
 
         IApplication iApp = null;
         public event EventHandler OnProcess;
+        public event EventHandler OnButtonClick;
 
         public bool Is_Force_From_Analysis
         {
@@ -261,6 +262,15 @@ namespace BridgeAnalysisDesign.Abutment
 
         private void btn_proceed_Click(object sender, EventArgs e)
         {
+
+
+            if (OnButtonClick != null)
+            {
+                OnButtonClick(sender, e);
+            }
+
+            if (iApp == null) return;
+
             MessageBox.Show(this, "The Design in Excel Worksheet will take some time to complete. Please wait until the process is complete as shown at the bottom of the Excel Worksheet.", "ASTRA", MessageBoxButtons.OK);
 
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
@@ -373,14 +383,14 @@ namespace BridgeAnalysisDesign.Abutment
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
             //file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xlsm");
-            file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xls");
+            file_path = Path.Combine(file_path, "Abutment with Pile Foundation IS.xls");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Pile Foundation.xls");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Limit State\Abutment with Pile Foundation IS.xls");
 
             if (File.Exists(file_path))
             {
@@ -849,6 +859,12 @@ namespace BridgeAnalysisDesign.Abutment
 
 
             if (Worksheet_Force_CheckedChanged != null) Worksheet_Force_CheckedChanged(sender, e);
+        }
+
+        private void btn_Excel_Notes_Click(object sender, EventArgs e)
+        {
+            if (iApp != null) iApp.Open_Excel_Macro_Notes();
+
         }
     }
 }

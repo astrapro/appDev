@@ -167,6 +167,8 @@
             this.tsmi_GADs_Underpasses = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_minor_Bridge = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_minor_Bridge_ls = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_minor_Bridge_ws = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_RCC_Culverts = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
@@ -278,8 +280,8 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.btn_SendMail = new System.Windows.Forms.Button();
-            this.tsmi_minor_Bridge_ls = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_minor_Bridge_ws = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_Culverts_LS = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_Culverts_WS = new System.Windows.Forms.ToolStripMenuItem();
             this.mns_ASTRA_menues.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -1373,6 +1375,20 @@
             this.tsmi_minor_Bridge.Size = new System.Drawing.Size(479, 22);
             this.tsmi_minor_Bridge.Text = "Minor Bridge / RCC Slab Bridge";
             // 
+            // tsmi_minor_Bridge_ls
+            // 
+            this.tsmi_minor_Bridge_ls.Name = "tsmi_minor_Bridge_ls";
+            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_minor_Bridge_ls.Text = "Limit State Method";
+            this.tsmi_minor_Bridge_ls.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
+            // tsmi_minor_Bridge_ws
+            // 
+            this.tsmi_minor_Bridge_ws.Name = "tsmi_minor_Bridge_ws";
+            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_minor_Bridge_ws.Text = "Working Stress Method";
+            this.tsmi_minor_Bridge_ws.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            // 
             // toolStripSeparator19
             // 
             this.toolStripSeparator19.Name = "toolStripSeparator19";
@@ -1380,10 +1396,12 @@
             // 
             // tsmi_RCC_Culverts
             // 
+            this.tsmi_RCC_Culverts.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_RCC_Culverts_LS,
+            this.tsmi_RCC_Culverts_WS});
             this.tsmi_RCC_Culverts.Name = "tsmi_RCC_Culverts";
             this.tsmi_RCC_Culverts.Size = new System.Drawing.Size(479, 22);
             this.tsmi_RCC_Culverts.Text = "RCC Culverts Design";
-            this.tsmi_RCC_Culverts.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
             // toolStripSeparator16
             // 
@@ -2238,19 +2256,19 @@
             this.btn_SendMail.UseVisualStyleBackColor = true;
             this.btn_SendMail.Click += new System.EventHandler(this.btn_SendMail_Click);
             // 
-            // tsmi_minor_Bridge_ls
+            // tsmi_RCC_Culverts_LS
             // 
-            this.tsmi_minor_Bridge_ls.Name = "tsmi_minor_Bridge_ls";
-            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(197, 22);
-            this.tsmi_minor_Bridge_ls.Text = "Limit State Method";
-            this.tsmi_minor_Bridge_ls.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            this.tsmi_RCC_Culverts_LS.Name = "tsmi_RCC_Culverts_LS";
+            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method";
+            this.tsmi_RCC_Culverts_LS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
-            // tsmi_minor_Bridge_ws
+            // tsmi_RCC_Culverts_WS
             // 
-            this.tsmi_minor_Bridge_ws.Name = "tsmi_minor_Bridge_ws";
-            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(197, 22);
-            this.tsmi_minor_Bridge_ws.Text = "Working Stress Method";
-            this.tsmi_minor_Bridge_ws.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
+            this.tsmi_RCC_Culverts_WS.Name = "tsmi_RCC_Culverts_WS";
+            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_Culverts_WS.Text = "Working Stress Method";
+            this.tsmi_RCC_Culverts_WS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
             // frmMain
             // 
@@ -2534,6 +2552,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_IGirder_WSM;
         private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ls;
         private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ws;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_Culverts_LS;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_Culverts_WS;
     }
 }
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnl_bot = new System.Windows.Forms.Panel();
+            this.btn_Excel_Notes = new System.Windows.Forms.Button();
             this.btn_report = new System.Windows.Forms.Button();
             this.btn_proceed = new System.Windows.Forms.Button();
             this.pnl_content = new System.Windows.Forms.Panel();
@@ -46,16 +47,28 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtn_value_worksheet = new System.Windows.Forms.RadioButton();
             this.rbtn_value_analysis = new System.Windows.Forms.RadioButton();
+            this.txt_inp_LL2_min = new System.Windows.Forms.TextBox();
             this.txt_inp_FPLL = new System.Windows.Forms.TextBox();
+            this.label148 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
+            this.txt_inp_LL2_max = new System.Windows.Forms.TextBox();
             this.txt_inp_Surfacing = new System.Windows.Forms.TextBox();
+            this.label132 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
+            this.txt_inp_LL1_min = new System.Windows.Forms.TextBox();
             this.txt_inp_SIDL = new System.Windows.Forms.TextBox();
+            this.label130 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
+            this.txt_inp_LL1_max = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
             this.txt_inp_DL = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -327,18 +340,6 @@
             this.label139 = new System.Windows.Forms.Label();
             this.label152 = new System.Windows.Forms.Label();
             this.label136 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.txt_inp_LL1_max = new System.Windows.Forms.TextBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label127 = new System.Windows.Forms.Label();
-            this.label130 = new System.Windows.Forms.Label();
-            this.txt_inp_LL1_min = new System.Windows.Forms.TextBox();
-            this.label132 = new System.Windows.Forms.Label();
-            this.txt_inp_LL2_max = new System.Windows.Forms.TextBox();
-            this.label148 = new System.Windows.Forms.Label();
-            this.txt_inp_LL2_min = new System.Windows.Forms.TextBox();
             this.pnl_bot.SuspendLayout();
             this.pnl_content.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -383,6 +384,7 @@
             // 
             // pnl_bot
             // 
+            this.pnl_bot.Controls.Add(this.btn_Excel_Notes);
             this.pnl_bot.Controls.Add(this.btn_report);
             this.pnl_bot.Controls.Add(this.btn_proceed);
             this.pnl_bot.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -390,6 +392,17 @@
             this.pnl_bot.Name = "pnl_bot";
             this.pnl_bot.Size = new System.Drawing.Size(782, 46);
             this.pnl_bot.TabIndex = 0;
+            // 
+            // btn_Excel_Notes
+            // 
+            this.btn_Excel_Notes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Excel_Notes.Location = new System.Drawing.Point(4, 6);
+            this.btn_Excel_Notes.Name = "btn_Excel_Notes";
+            this.btn_Excel_Notes.Size = new System.Drawing.Size(172, 33);
+            this.btn_Excel_Notes.TabIndex = 8;
+            this.btn_Excel_Notes.Text = "Excel Macro Enable Notes";
+            this.btn_Excel_Notes.UseVisualStyleBackColor = true;
+            this.btn_Excel_Notes.Click += new System.EventHandler(this.btn_Excel_Notes_Click);
             // 
             // btn_report
             // 
@@ -598,9 +611,9 @@
             this.groupBox1.Controls.Add(this.label72);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(129, 21);
+            this.groupBox1.Location = new System.Drawing.Point(101, 35);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(605, 232);
+            this.groupBox1.Size = new System.Drawing.Size(573, 232);
             this.groupBox1.TabIndex = 35;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LOADS FROM SUPERSTRUCTURES";
@@ -630,6 +643,15 @@
             this.rbtn_value_analysis.UseVisualStyleBackColor = true;
             this.rbtn_value_analysis.CheckedChanged += new System.EventHandler(this.rbtn_value_worksheet_CheckedChanged);
             // 
+            // txt_inp_LL2_min
+            // 
+            this.txt_inp_LL2_min.Location = new System.Drawing.Point(459, 184);
+            this.txt_inp_LL2_min.Name = "txt_inp_LL2_min";
+            this.txt_inp_LL2_min.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL2_min.TabIndex = 8;
+            this.txt_inp_LL2_min.Text = "106.67";
+            this.txt_inp_LL2_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // txt_inp_FPLL
             // 
             this.txt_inp_FPLL.Location = new System.Drawing.Point(154, 184);
@@ -638,6 +660,15 @@
             this.txt_inp_FPLL.TabIndex = 8;
             this.txt_inp_FPLL.Text = "310.08";
             this.txt_inp_FPLL.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Location = new System.Drawing.Point(313, 187);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(136, 13);
+            this.label148.TabIndex = 28;
+            this.label148.Text = "Live Load Type 2 (Min)";
             // 
             // label60
             // 
@@ -648,6 +679,15 @@
             this.label60.TabIndex = 28;
             this.label60.Text = "Footpath Live Load";
             // 
+            // txt_inp_LL2_max
+            // 
+            this.txt_inp_LL2_max.Location = new System.Drawing.Point(459, 157);
+            this.txt_inp_LL2_max.Name = "txt_inp_LL2_max";
+            this.txt_inp_LL2_max.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL2_max.TabIndex = 8;
+            this.txt_inp_LL2_max.Text = "393.33";
+            this.txt_inp_LL2_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // txt_inp_Surfacing
             // 
             this.txt_inp_Surfacing.Location = new System.Drawing.Point(154, 157);
@@ -656,6 +696,15 @@
             this.txt_inp_Surfacing.TabIndex = 8;
             this.txt_inp_Surfacing.Text = "723.52";
             this.txt_inp_Surfacing.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(313, 160);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(140, 13);
+            this.label132.TabIndex = 28;
+            this.label132.Text = "Live Load Type 2 (Max)";
             // 
             // label58
             // 
@@ -666,6 +715,15 @@
             this.label58.TabIndex = 28;
             this.label58.Text = "Surfacing Load";
             // 
+            // txt_inp_LL1_min
+            // 
+            this.txt_inp_LL1_min.Location = new System.Drawing.Point(459, 130);
+            this.txt_inp_LL1_min.Name = "txt_inp_LL1_min";
+            this.txt_inp_LL1_min.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL1_min.TabIndex = 8;
+            this.txt_inp_LL1_min.Text = "193.75";
+            this.txt_inp_LL1_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // txt_inp_SIDL
             // 
             this.txt_inp_SIDL.Location = new System.Drawing.Point(154, 130);
@@ -674,6 +732,15 @@
             this.txt_inp_SIDL.TabIndex = 8;
             this.txt_inp_SIDL.Text = "723.52";
             this.txt_inp_SIDL.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(534, 187);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(22, 13);
+            this.label130.TabIndex = 34;
+            this.label130.Text = "kN";
             // 
             // label59
             // 
@@ -684,6 +751,15 @@
             this.label59.TabIndex = 34;
             this.label59.Text = "kN";
             // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(313, 133);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(136, 13);
+            this.label127.TabIndex = 28;
+            this.label127.Text = "Live Load Type 1 (Min)";
+            // 
             // label56
             // 
             this.label56.AutoSize = true;
@@ -692,6 +768,15 @@
             this.label56.Size = new System.Drawing.Size(35, 13);
             this.label56.TabIndex = 28;
             this.label56.Text = "SIDL";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(534, 160);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(22, 13);
+            this.label84.TabIndex = 34;
+            this.label84.Text = "kN";
             // 
             // label57
             // 
@@ -702,6 +787,24 @@
             this.label57.TabIndex = 34;
             this.label57.Text = "kN";
             // 
+            // txt_inp_LL1_max
+            // 
+            this.txt_inp_LL1_max.Location = new System.Drawing.Point(459, 103);
+            this.txt_inp_LL1_max.Name = "txt_inp_LL1_max";
+            this.txt_inp_LL1_max.Size = new System.Drawing.Size(70, 21);
+            this.txt_inp_LL1_max.TabIndex = 8;
+            this.txt_inp_LL1_max.Text = "806.25";
+            this.txt_inp_LL1_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(534, 133);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(22, 13);
+            this.label83.TabIndex = 34;
+            this.label83.Text = "kN";
+            // 
             // txt_inp_DL
             // 
             this.txt_inp_DL.Location = new System.Drawing.Point(154, 103);
@@ -711,6 +814,15 @@
             this.txt_inp_DL.Text = "3322.53";
             this.txt_inp_DL.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(313, 106);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(140, 13);
+            this.label73.TabIndex = 28;
+            this.label73.Text = "Live Load Type 1 (Max)";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -719,6 +831,15 @@
             this.label3.Size = new System.Drawing.Size(22, 13);
             this.label3.TabIndex = 34;
             this.label3.Text = "kN";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(534, 106);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(22, 13);
+            this.label72.TabIndex = 34;
+            this.label72.Text = "kN";
             // 
             // label1
             // 
@@ -3496,114 +3617,6 @@
             this.label136.Text = "CONCRETE";
             this.label136.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(534, 106);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(22, 13);
-            this.label72.TabIndex = 34;
-            this.label72.Text = "kN";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(313, 106);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(140, 13);
-            this.label73.TabIndex = 28;
-            this.label73.Text = "Live Load Type 1 (Max)";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(534, 133);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(22, 13);
-            this.label83.TabIndex = 34;
-            this.label83.Text = "kN";
-            // 
-            // txt_inp_LL1_max
-            // 
-            this.txt_inp_LL1_max.Location = new System.Drawing.Point(459, 103);
-            this.txt_inp_LL1_max.Name = "txt_inp_LL1_max";
-            this.txt_inp_LL1_max.Size = new System.Drawing.Size(70, 21);
-            this.txt_inp_LL1_max.TabIndex = 8;
-            this.txt_inp_LL1_max.Text = "806.25";
-            this.txt_inp_LL1_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(534, 160);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(22, 13);
-            this.label84.TabIndex = 34;
-            this.label84.Text = "kN";
-            // 
-            // label127
-            // 
-            this.label127.AutoSize = true;
-            this.label127.Location = new System.Drawing.Point(313, 133);
-            this.label127.Name = "label127";
-            this.label127.Size = new System.Drawing.Size(136, 13);
-            this.label127.TabIndex = 28;
-            this.label127.Text = "Live Load Type 1 (Min)";
-            // 
-            // label130
-            // 
-            this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(534, 187);
-            this.label130.Name = "label130";
-            this.label130.Size = new System.Drawing.Size(22, 13);
-            this.label130.TabIndex = 34;
-            this.label130.Text = "kN";
-            // 
-            // txt_inp_LL1_min
-            // 
-            this.txt_inp_LL1_min.Location = new System.Drawing.Point(459, 130);
-            this.txt_inp_LL1_min.Name = "txt_inp_LL1_min";
-            this.txt_inp_LL1_min.Size = new System.Drawing.Size(70, 21);
-            this.txt_inp_LL1_min.TabIndex = 8;
-            this.txt_inp_LL1_min.Text = "193.75";
-            this.txt_inp_LL1_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label132
-            // 
-            this.label132.AutoSize = true;
-            this.label132.Location = new System.Drawing.Point(313, 160);
-            this.label132.Name = "label132";
-            this.label132.Size = new System.Drawing.Size(140, 13);
-            this.label132.TabIndex = 28;
-            this.label132.Text = "Live Load Type 2 (Max)";
-            // 
-            // txt_inp_LL2_max
-            // 
-            this.txt_inp_LL2_max.Location = new System.Drawing.Point(459, 157);
-            this.txt_inp_LL2_max.Name = "txt_inp_LL2_max";
-            this.txt_inp_LL2_max.Size = new System.Drawing.Size(70, 21);
-            this.txt_inp_LL2_max.TabIndex = 8;
-            this.txt_inp_LL2_max.Text = "393.33";
-            this.txt_inp_LL2_max.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label148
-            // 
-            this.label148.AutoSize = true;
-            this.label148.Location = new System.Drawing.Point(313, 187);
-            this.label148.Name = "label148";
-            this.label148.Size = new System.Drawing.Size(136, 13);
-            this.label148.TabIndex = 28;
-            this.label148.Text = "Live Load Type 2 (Min)";
-            // 
-            // txt_inp_LL2_min
-            // 
-            this.txt_inp_LL2_min.Location = new System.Drawing.Point(459, 184);
-            this.txt_inp_LL2_min.Name = "txt_inp_LL2_min";
-            this.txt_inp_LL2_min.Size = new System.Drawing.Size(70, 21);
-            this.txt_inp_LL2_min.TabIndex = 8;
-            this.txt_inp_LL2_min.Text = "106.67";
-            this.txt_inp_LL2_min.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // UC_PierOpenLS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -3979,6 +3992,7 @@
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Button btn_Excel_Notes;
     }
 
 

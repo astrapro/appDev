@@ -1100,12 +1100,26 @@ namespace LimitStateMethod.PSC_I_Girder
             #endregion Show Results
         }
 
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         //Chiranjit [2012 09 21]
 
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!Check_Project_Folder()) return;
                 Write_All_Data(true);
                 //MessageBox.Show("1");
                 Analysis_Initialize_InputData(true);
@@ -1442,6 +1456,8 @@ namespace LimitStateMethod.PSC_I_Girder
         {
             try
             {
+                if (!Check_Project_Folder()) return;
+
                 #region Process
                 int i = 0;
                 Write_All_Data(true);
@@ -8640,6 +8656,8 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void btn_LS_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
+
             Button btn = sender as Button;
 
             string excel_file_name = "";
@@ -10064,6 +10082,9 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void btn_dwg_open_Click(object sender, EventArgs e)
         {
+
+            if (!Check_Project_Folder()) return;
+
             Button btn = sender as Button;
 
             string draw = Drawing_Folder;

@@ -342,6 +342,8 @@ namespace BridgeAnalysisDesign.Pier
         }
 
         public event EventHandler OnProcess;
+        public event EventHandler OnButtonClick;
+
         private void btn_process_Click(object sender, EventArgs e)
         {
 

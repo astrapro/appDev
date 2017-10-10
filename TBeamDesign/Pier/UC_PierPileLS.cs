@@ -237,6 +237,8 @@ namespace BridgeAnalysisDesign.Pier
 
         }
 
+        public event EventHandler OnButtonClick;
+
         private void btn_proceed_Click(object sender, EventArgs e)
         {
 
@@ -459,14 +461,14 @@ namespace BridgeAnalysisDesign.Pier
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Pier with open foundation.xlsx");
+            file_path = Path.Combine(file_path, "Pier with open foundation BS.xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with open foundation BS.xlsx");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Pier\Pier Design Limit State\Pier with open foundation BS.xlsm");
 
             if (File.Exists(file_path))
             {
@@ -589,6 +591,11 @@ namespace BridgeAnalysisDesign.Pier
         {
             Calculated_Values();
 
+        }
+
+        private void btn_Excel_Notes_Click(object sender, EventArgs e)
+        {
+            if (iApp != null) iApp.Open_Excel_Macro_Notes();
         }
     }
 }

@@ -313,6 +313,7 @@
             this.label138 = new System.Windows.Forms.Label();
             this.label146 = new System.Windows.Forms.Label();
             this.txt_xls_des_G14 = new System.Windows.Forms.TextBox();
+            this.btn_Excel_Notes = new System.Windows.Forms.Button();
             this.pnl_bot.SuspendLayout();
             this.pnl_content.SuspendLayout();
             this.tc_content.SuspendLayout();
@@ -346,6 +347,7 @@
             // 
             // pnl_bot
             // 
+            this.pnl_bot.Controls.Add(this.btn_Excel_Notes);
             this.pnl_bot.Controls.Add(this.btn_report);
             this.pnl_bot.Controls.Add(this.btn_proceed);
             this.pnl_bot.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -759,7 +761,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(774, 208);
+            this.tabPage1.Size = new System.Drawing.Size(774, 316);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "DESIGN DATA 2";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1173,7 +1175,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(774, 208);
+            this.tabPage2.Size = new System.Drawing.Size(774, 316);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DESIGN DATA 3";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -2025,7 +2027,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(774, 208);
+            this.tabPage3.Size = new System.Drawing.Size(774, 316);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "DESIGN DATA 4";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -2287,7 +2289,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(774, 208);
+            this.tabPage4.Size = new System.Drawing.Size(774, 316);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "DESIGN DATA 5";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -2796,7 +2798,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(774, 208);
+            this.tabPage6.Size = new System.Drawing.Size(774, 316);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "DESIGN DATA 6";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3300,6 +3302,17 @@
             this.txt_xls_des_G14.Text = "2.0";
             this.txt_xls_des_G14.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btn_Excel_Notes
+            // 
+            this.btn_Excel_Notes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Excel_Notes.Location = new System.Drawing.Point(6, 6);
+            this.btn_Excel_Notes.Name = "btn_Excel_Notes";
+            this.btn_Excel_Notes.Size = new System.Drawing.Size(172, 33);
+            this.btn_Excel_Notes.TabIndex = 9;
+            this.btn_Excel_Notes.Text = "Excel Macro Enable Notes";
+            this.btn_Excel_Notes.UseVisualStyleBackColor = true;
+            this.btn_Excel_Notes.Click += new System.EventHandler(this.btn_Excel_Notes_Click);
+            // 
             // UC_PierPileLS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -3638,6 +3651,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.Label label133;
+        private System.Windows.Forms.Button btn_Excel_Notes;
     }
 
 

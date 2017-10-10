@@ -205,8 +205,21 @@ namespace LimitStateMethod.Composite
 
         }
 
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
             Analysis_Initialize_InputData();
 
             //Chiranjit [2012 07 13]
@@ -488,6 +501,8 @@ namespace LimitStateMethod.Composite
         {
             try
             {
+                if (!Check_Project_Folder()) return;
+
                 #region Process
                 int i = 0;
                 //Chiranjit [2012 07 13]
@@ -2390,6 +2405,7 @@ namespace LimitStateMethod.Composite
         #region Deck Slab + Steel Girder Form Events
         private void btn_Deck_Process_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
 
             //Chiranjit [2012 07 13]
             Write_All_Data();
@@ -3342,6 +3358,7 @@ namespace LimitStateMethod.Composite
         {
             Button btn = sender as Button;
 
+            if (!Check_Project_Folder()) return;
 
             if (btn.Name == btn_dwg_construction.Name)
             {
@@ -13573,6 +13590,8 @@ namespace LimitStateMethod.Composite
 
         private void uC_PierDesignLSM1_OnProcess(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
+
             Write_All_Data(false);
         }
 

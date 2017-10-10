@@ -28,6 +28,7 @@ namespace LimitStateMethod.Extradossed
         public IApplication iApp = null;
 
        //public CABLE_STAYED_LS_Analysis CS_Analysis { get; set; }
+        public event EventHandler OnButtonClick;
 
        public CABLE_STAYED_Extradosed_LS_Analysis CS_Analysis { get; set; }
 

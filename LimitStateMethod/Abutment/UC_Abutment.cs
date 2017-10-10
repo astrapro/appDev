@@ -17,6 +17,8 @@ namespace LimitStateMethod.Abutment
     public partial class UC_Abutment : UserControl
     {
         public IApplication iapp;
+        public event EventHandler OnButtonClick;
+
         public UC_Abutment()
         {
             InitializeComponent();

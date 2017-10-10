@@ -2341,7 +2341,7 @@ namespace AstraFunctionOne
                     DesignStandard = fds.DesignStandard;
                     Write_Default_Moving_Loads();
                 }
-                //Is_select_Design_Standard = true;
+                Is_select_Design_Standard = true;
             }
             Set_Bridge_Design_Menu();
         }
@@ -2646,11 +2646,26 @@ namespace AstraFunctionOne
         private void tsmi_RCC_Culverts_Click(object sender, EventArgs e)
         {
 
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+
+
+
             if (!Is_select_Design_Standard) SelectDesignStandard();
-            //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
-            BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert frm = new BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert(this);
-            frm.Owner = this;
-            frm.Show();
+            
+            if(tsmi == tsmi_RCC_Culverts_LS)
+            {
+                //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
+                LimitStateMethod.RccCulvert.frm_BoxCulvert_LS frm = new LimitStateMethod.RccCulvert.frm_BoxCulvert_LS(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else if (tsmi == tsmi_RCC_Culverts_WS)
+            {
+                //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
+                BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert frm = new BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert(this);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
 
         private void tsmi_Underpass_Click(object sender, EventArgs e)
@@ -5609,6 +5624,19 @@ namespace AstraFunctionOne
         }
 
 
+
+        #region IApplication Members
+
+
+        public void Open_Excel_Macro_Notes()
+        {
+            string exl_help = Path.Combine(Application.StartupPath, @"ASTRAHelp\Excel Macro Enable Notes.pdf");
+       
+            if(File.Exists(exl_help))
+                System.Diagnostics.Process.Start(exl_help);
+        }
+
+        #endregion
     }
 
 }

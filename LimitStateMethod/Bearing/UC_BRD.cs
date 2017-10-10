@@ -37,6 +37,7 @@ namespace LimitStateMethod.Bearing
         }
 
 
+        public event EventHandler OnButtonClick;
 
         public IApplication iApp = null;
 
@@ -572,6 +573,10 @@ namespace LimitStateMethod.Bearing
 
         private void btn_process_Click(object sender, System.EventArgs e)
         {
+
+            if (OnButtonClick != null) OnButtonClick(sender, e);
+
+
             POT_PTFE_VERSO_BEARING_DESIGN vtmp = null;
 
             Button btn = sender as Button;

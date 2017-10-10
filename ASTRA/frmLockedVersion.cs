@@ -978,7 +978,6 @@ namespace AstraFunctionOne
 
         #endregion ASTRA_Pro R18.0
 
-
         #region ASTRA_Pro R19.0
 
         public static bool Write_ASTRA_Code_19()
@@ -1381,8 +1380,6 @@ namespace AstraFunctionOne
 
 
         #endregion ASTRA_Pro R19.0
-
-
 
         #region ASTRA_Pro R 20
 
@@ -1857,7 +1854,6 @@ namespace AstraFunctionOne
         }
         #endregion ASTRA_Pro R 20
 
-
         #region ASTRA_Pro R 21
 
         public static bool Write_ASTRA_Bridge_Code_21()
@@ -1887,13 +1883,13 @@ namespace AstraFunctionOne
 
         public static bool Write_ASTRA_Enterprise_Code_21()
         {
-            WriteToLock(16, 1);
+            WriteToLock(19, 1);
             return true;
         }
 
         public static bool Write_ASTRA_Professional_Code_21()
         {
-            WriteToLock(16, 0);
+            WriteToLock(19, 0);
             return true;
         }
 
@@ -2221,7 +2217,7 @@ namespace AstraFunctionOne
             Service = 3;
             SeedCode = 0;
 
-            p1 = 16; //ASTRA Pro R 21
+            p1 = 19; //ASTRA Pro R 21
             //p2 == 1
             int address = p1;
             int data = 0;
@@ -2320,8 +2316,6 @@ namespace AstraFunctionOne
 
 
         #endregion ASTRA_Pro R 21
-
-
 
         #region Common Functions
 
@@ -2432,7 +2426,6 @@ namespace AstraFunctionOne
         }
 
         #endregion  Common Functions
-
 
         #region General Functions
 

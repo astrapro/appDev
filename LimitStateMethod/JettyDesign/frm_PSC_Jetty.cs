@@ -969,12 +969,26 @@ namespace LimitStateMethod.JettyDesign
             #endregion Show Results
         }
 
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         //Chiranjit [2012 09 21]
 
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!Check_Project_Folder()) return;
                 double dd = Ana_L / MyList.StringToDouble(txt_Ana_spc_len.Text, 0.0);
 
                 dd = (dd - ((int)(dd)));

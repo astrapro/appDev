@@ -568,10 +568,14 @@ namespace LimitStateMethod.RCC_T_Girder
             //user_path = IsCreateData ? Path.Combine(iApp.LastDesignWorkingFolder, Title) : user_path;
 
             #region Chiranjit [2016 08 09]  Add Project Name
+
+            if (!Check_Project_Folder()) return;
+
+
+            
             if (IsCreateData)
             {
-                if (Path.GetFileName(user_path) != Project_Name)
-                    Create_Project();
+                Check_Project_Folder();
             }
 
 
@@ -797,6 +801,18 @@ namespace LimitStateMethod.RCC_T_Girder
                 //Long_Girder_Analysis.Input_File.Length
                 MessageBox.Show(ex.Message, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+                
         }
         private void btn_Ana_close_Click(object sender, EventArgs e)
         {
@@ -21433,6 +21449,8 @@ namespace LimitStateMethod.RCC_T_Girder
         #endregion Excel Files
         private void btn_LS_Click(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
+
             Button btn = sender as Button;
 
             string excel_file_name = "";
@@ -23996,6 +24014,9 @@ namespace LimitStateMethod.RCC_T_Girder
         private void uC_Deckslab_IS1_OnCreateData(object sender, EventArgs e)
         {
 
+            if (!Check_Project_Folder()) return;
+
+
             Write_All_Data(true);
 
             uC_Deckslab_IS1.iApp = iApp;
@@ -24034,6 +24055,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
         private void uC_Deckslab_BS1_OnCreateData(object sender, EventArgs e)
         {
+            if (!Check_Project_Folder()) return;
+
             uC_Deckslab_BS1.iApp = iApp;
             uC_Deckslab_BS1.user_path = user_path;
         }

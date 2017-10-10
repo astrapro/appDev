@@ -67,6 +67,8 @@ namespace BridgeAnalysisDesign.Foundation
             }
         }
 
+        public event EventHandler OnButtonClick;
+
         private void btn_Pile_Process_Click(object sender, EventArgs e)
         {
             //return;

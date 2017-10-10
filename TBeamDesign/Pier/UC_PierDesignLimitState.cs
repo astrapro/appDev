@@ -131,6 +131,8 @@ namespace BridgeAnalysisDesign.Pier
         }
 
         public event EventHandler OnProcess;
+        public event EventHandler OnButtonClick;
+
         private void btn_process_Click(object sender, EventArgs e)
         {
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
@@ -427,6 +429,11 @@ namespace BridgeAnalysisDesign.Pier
         private void btn_open_Click(object sender, EventArgs e)
         {
             iApp.Open_ASTRA_Worksheet_Dialog();
+        }
+
+        private void btn_Excel_Notes_Click(object sender, EventArgs e)
+        {
+            if (iApp != null) iApp.Open_Excel_Macro_Notes();
         }
     }
 

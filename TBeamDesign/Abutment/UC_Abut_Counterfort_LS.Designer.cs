@@ -82,6 +82,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_Excel_Notes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_input_data)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tc_design.SuspendLayout();
@@ -138,7 +139,7 @@
             // btn_open_design
             // 
             this.btn_open_design.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_open_design.Location = new System.Drawing.Point(285, 567);
+            this.btn_open_design.Location = new System.Drawing.Point(363, 567);
             this.btn_open_design.Name = "btn_open_design";
             this.btn_open_design.Size = new System.Drawing.Size(128, 29);
             this.btn_open_design.TabIndex = 5;
@@ -149,11 +150,11 @@
             // btn_new_design
             // 
             this.btn_new_design.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_new_design.Location = new System.Drawing.Point(131, 567);
+            this.btn_new_design.Location = new System.Drawing.Point(203, 567);
             this.btn_new_design.Name = "btn_new_design";
             this.btn_new_design.Size = new System.Drawing.Size(128, 29);
             this.btn_new_design.TabIndex = 4;
-            this.btn_new_design.Text = "New Design";
+            this.btn_new_design.Text = "Process Design";
             this.btn_new_design.UseVisualStyleBackColor = true;
             this.btn_new_design.Click += new System.EventHandler(this.btn_new_design_Click);
             // 
@@ -194,7 +195,7 @@
             this.tab_liveloads.Location = new System.Drawing.Point(4, 22);
             this.tab_liveloads.Name = "tab_liveloads";
             this.tab_liveloads.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_liveloads.Size = new System.Drawing.Size(542, 347);
+            this.tab_liveloads.Size = new System.Drawing.Size(542, 348);
             this.tab_liveloads.TabIndex = 1;
             this.tab_liveloads.Text = "Live Loads";
             this.tab_liveloads.UseVisualStyleBackColor = true;
@@ -222,7 +223,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(536, 341);
+            this.groupBox3.Size = new System.Drawing.Size(536, 342);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             // 
@@ -618,10 +619,21 @@
             this.label6.Text = "Reaction at end A = RA";
             this.label6.Visible = false;
             // 
+            // btn_Excel_Notes
+            // 
+            this.btn_Excel_Notes.Location = new System.Drawing.Point(16, 565);
+            this.btn_Excel_Notes.Name = "btn_Excel_Notes";
+            this.btn_Excel_Notes.Size = new System.Drawing.Size(172, 33);
+            this.btn_Excel_Notes.TabIndex = 10;
+            this.btn_Excel_Notes.Text = "Excel Macro Enable Notes";
+            this.btn_Excel_Notes.UseVisualStyleBackColor = true;
+            this.btn_Excel_Notes.Click += new System.EventHandler(this.btn_Excel_Notes_Click);
+            // 
             // UC_Abut_Counterfort_LS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btn_Excel_Notes);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -697,5 +709,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button btn_Excel_Notes;
     }
 }

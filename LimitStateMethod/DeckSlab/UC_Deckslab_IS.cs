@@ -158,6 +158,14 @@ namespace LimitStateMethod.DeckSlab
         {
             //Write_All_Data(true);
             //user_path = IsCreateData ? Path.Combine(iApp.LastDesignWorkingFolder, Title) : user_path;
+
+          
+
+
+            OnCreateData(sender, e);
+            OnButtonClick(sender, e);
+
+            if (user_path == null) return;
             if (!Directory.Exists(user_path))
             {
                 Directory.CreateDirectory(user_path);
@@ -368,7 +376,8 @@ namespace LimitStateMethod.DeckSlab
 
             OnCreateData(sender, e);
 
-
+            if (user_path == null) return;
+            if (user_path == "") return;
 
             #region Chiranjit [2015 01 07]
 

@@ -267,6 +267,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.lbl_1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btn_Excel_Notes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnl_8.SuspendLayout();
@@ -282,6 +283,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.btn_Excel_Notes);
             this.panel1.Controls.Add(this.btn_abutment_open);
             this.panel1.Controls.Add(this.btn_Pier_Process);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -293,9 +295,9 @@
             // btn_abutment_open
             // 
             this.btn_abutment_open.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_abutment_open.Location = new System.Drawing.Point(373, 14);
+            this.btn_abutment_open.Location = new System.Drawing.Point(397, 14);
             this.btn_abutment_open.Name = "btn_abutment_open";
-            this.btn_abutment_open.Size = new System.Drawing.Size(185, 34);
+            this.btn_abutment_open.Size = new System.Drawing.Size(145, 34);
             this.btn_abutment_open.TabIndex = 3;
             this.btn_abutment_open.Text = "Open Design";
             this.btn_abutment_open.UseVisualStyleBackColor = true;
@@ -304,9 +306,9 @@
             // btn_Pier_Process
             // 
             this.btn_Pier_Process.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Pier_Process.Location = new System.Drawing.Point(182, 14);
+            this.btn_Pier_Process.Location = new System.Drawing.Point(243, 14);
             this.btn_Pier_Process.Name = "btn_Pier_Process";
-            this.btn_Pier_Process.Size = new System.Drawing.Size(185, 34);
+            this.btn_Pier_Process.Size = new System.Drawing.Size(145, 34);
             this.btn_Pier_Process.TabIndex = 4;
             this.btn_Pier_Process.Text = "Process Design";
             this.btn_Pier_Process.UseVisualStyleBackColor = true;
@@ -2701,6 +2703,17 @@
             this.label1.Text = "DESIGN OF RCC PIER IN LIMIT STATE METHOD";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_Excel_Notes
+            // 
+            this.btn_Excel_Notes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Excel_Notes.Location = new System.Drawing.Point(19, 15);
+            this.btn_Excel_Notes.Name = "btn_Excel_Notes";
+            this.btn_Excel_Notes.Size = new System.Drawing.Size(172, 33);
+            this.btn_Excel_Notes.TabIndex = 10;
+            this.btn_Excel_Notes.Text = "Excel Macro Enable Notes";
+            this.btn_Excel_Notes.UseVisualStyleBackColor = true;
+            this.btn_Excel_Notes.Click += new System.EventHandler(this.btn_Excel_Notes_Click);
+            // 
             // UC_PierDesignLimitState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -2974,6 +2987,7 @@
         private System.Windows.Forms.Label lbl_1;
         private System.Windows.Forms.Label lbl_note;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_Excel_Notes;
     }
 
 

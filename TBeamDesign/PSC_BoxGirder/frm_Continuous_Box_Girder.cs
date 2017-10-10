@@ -2025,10 +2025,25 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             #endregion Design Option
 
         }
+
+
+        private bool Check_Project_Folder()
+        {
+
+            if (Path.GetFileName(user_path) != Project_Name)
+            {
+                MessageBox.Show(this, "New Project is not created. Please create New Project.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+            return true;
+
+        }
+
         private void btn_Ana_DL_create_data_Click(object sender, EventArgs e)
         {
             try
             {
+                if (!Check_Project_Folder()) return;
                 if (Path.GetFileName(user_path) != Project_Name)
                 {
                     Create_Project();

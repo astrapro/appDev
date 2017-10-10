@@ -1584,6 +1584,8 @@ namespace BridgeAnalysisDesign.Foundation
             return file_path;
         }
 
+        public event EventHandler OnButtonClick;
+
         private void btn_process_new_Click(object sender, EventArgs e)
         {
             if (OnProcees != null)

@@ -257,6 +257,8 @@ namespace BridgeAnalysisDesign.Pier
 
         }
 
+        public event EventHandler OnButtonClick;
+
         private void btn_proceed_Click(object sender, EventArgs e)
         {
 
@@ -269,7 +271,7 @@ namespace BridgeAnalysisDesign.Pier
             }
             else
             {
-                Pier_Process_Design_IS();
+                Pier_Process_Design_BS();
                 //Pier_Process_Design_BS();
             }
             if (OnProcess != null) OnProcess(sender, e);
@@ -375,6 +377,8 @@ namespace BridgeAnalysisDesign.Pier
 
             }
             catch (Exception exx) { }
+
+            iApp.Excel_Close_Message();
 
             myExcelWorkbook.Save();
 
@@ -554,8 +558,6 @@ namespace BridgeAnalysisDesign.Pier
                         //myExcelWorksheet.get_Range("E53").Formula = data[rindx++].ToString();
                         EXL_DES.get_Range(kStr).Formula = item.Text;
                     }
-
-
                 }
 
                 //txt_des_
@@ -571,6 +573,8 @@ namespace BridgeAnalysisDesign.Pier
 
             }
             catch (Exception exx) { }
+
+            iApp.Excel_Close_Message();
 
             myExcelWorkbook.Save();
 
@@ -616,6 +620,11 @@ namespace BridgeAnalysisDesign.Pier
             txt_inp_Surfacing.Enabled = rbtn_value_analysis.Checked;
             txt_inp_FPLL.Enabled = rbtn_value_analysis.Checked;
             if (Worksheet_Force_CheckedChanged != null) Worksheet_Force_CheckedChanged(sender, e);
+        }
+
+        private void btn_Excel_Notes_Click(object sender, EventArgs e)
+        {
+            if (iApp != null) iApp.Open_Excel_Macro_Notes();
         }
     }
 }

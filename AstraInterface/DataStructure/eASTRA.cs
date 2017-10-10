@@ -63,6 +63,10 @@
         Response_Spectrum_Analysis = 51,
         P_Delta_Analysis = 52,
         Stream_Hydrology = 53,
+
+
+        BOX_CULVERT_LSM = 54,
+
     }
 
     public enum eSLAB

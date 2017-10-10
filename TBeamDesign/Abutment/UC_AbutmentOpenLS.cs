@@ -20,6 +20,8 @@ namespace BridgeAnalysisDesign.Abutment
             InitializeComponent();
         }
 
+        public event EventHandler OnButtonClick;
+
         public bool Is_Force_From_Analysis
         {
             get
@@ -246,6 +248,14 @@ namespace BridgeAnalysisDesign.Abutment
 
         private void btn_proceed_Click(object sender, EventArgs e)
         {
+
+            if(OnButtonClick != null)
+            {
+                OnButtonClick(sender, e);
+            }
+
+            if (iApp == null) return;
+
 
             MessageBox.Show(this, "The Design in Excel Worksheet will take some time to complete. Please wait until the process is complete as shown at the bottom of the Excel Worksheet.", "ASTRA", MessageBoxButtons.OK);
 
@@ -649,6 +659,12 @@ namespace BridgeAnalysisDesign.Abutment
             grb_LL_Max.Enabled = rbtn_value_analysis.Checked;
             grb_LL_Min.Enabled = rbtn_value_analysis.Checked;
             if (Worksheet_Force_CheckedChanged != null) Worksheet_Force_CheckedChanged(sender, e);
+        }
+
+        private void btn_Excel_Notes_Click(object sender, EventArgs e)
+        {
+            if (iApp != null) iApp.Open_Excel_Macro_Notes();
+
         }
     }
 }

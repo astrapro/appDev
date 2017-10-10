@@ -727,8 +727,17 @@ namespace BridgeAnalysisDesign.Abutment
             }
         }
 
+        public event EventHandler OnButtonClick;
         private void btn_new_design_Click(object sender, EventArgs e)
         {
+
+
+            if (OnButtonClick != null)
+            {
+                OnButtonClick(sender, e);
+            }
+
+            if (iApp == null) return;
             if (iapp.DesignStandard == eDesignStandard.BritishStandard)
             {
                 Design_IRC_Abutment_Bridges_Box_Type_BS();
@@ -862,6 +871,11 @@ namespace BridgeAnalysisDesign.Abutment
             //txtd.Text = (ld.LoadWidth).ToString("f3");
             txtd.Text = (ld.Distances.SUM).ToString("f3");
 
+        }
+
+        private void btn_Excel_Notes_Click(object sender, EventArgs e)
+        {
+            if (iApp != null) iApp.Open_Excel_Macro_Notes();
         }
 
 
