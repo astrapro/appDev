@@ -17,6 +17,7 @@ using BridgeAnalysisDesign.RCC_T_Girder;
 using BridgeAnalysisDesign.PSC_I_Girder;
 using BridgeAnalysisDesign.Composite;
 using LimitStateMethod.RCC_T_Girder;
+using AstraAccess.SAP_Classes;
 //using LimitStateMethod.LS_Progress;
 
 
@@ -40,6 +41,13 @@ namespace LimitStateMethod.Composite
 
 
         Composite_LS_Analysis Bridge_Analysis = null;
+
+
+        Composite_LS_StraightAnalysis Curve_Analysis = null;
+
+
+
+
         IApplication iApp = null;
         Composite_Girder_LS Deck = null;
         LS_DeckSlab_Analysis Deck_Analysis = null;
@@ -141,6 +149,7 @@ namespace LimitStateMethod.Composite
         }
 
         #region Composite Analysis Form Events
+        #endregion
         private void Default_Input_Data(object sender, EventArgs e)
         {
             Bridge_Analysis.Joints = new JointNodeCollection();
@@ -253,10 +262,49 @@ namespace LimitStateMethod.Composite
                 Bridge_Analysis.Start_Support = Start_Support_Text;
                 Bridge_Analysis.End_Support = END_Support_Text;
                 if (iApp.DesignStandard == eDesignStandard.IndianStandard ||
-                    iApp.DesignStandard == eDesignStandard.LRFDStandard 
+                    iApp.DesignStandard == eDesignStandard.LRFDStandard
                     )
                 {
-                    Bridge_Analysis.CreateData_Indian();
+
+                    #region Write Straight Input File
+                    #endregion  Composite Analysis Form Events
+
+
+                    if (Curve_Radius > 0)
+                    {
+
+                        Bridge_Analysis.CreateData_Straight_Indian();
+
+                        #region Chiranjit [2014 09 08] Indian Standard
+
+
+                        Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                        Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                            Bridge_Analysis.Inner_Girders_as_String,
+                            Bridge_Analysis.joints_list_for_load);
+
+                        Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+
+
+                        Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
+
+
+                        #endregion
+
+                        Bridge_Analysis.CreateData_Indian();
+                    }
+                    else
+                    {
+                        Bridge_Analysis.CreateData_Straight_Indian();
+                    }
 
                     #region Chiranjit [2014 09 08] Indian Standard
 
@@ -280,6 +328,9 @@ namespace LimitStateMethod.Composite
                     Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File);
                     Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File);
                     Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
+
+
+
 
                     Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
                     Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
@@ -310,13 +361,72 @@ namespace LimitStateMethod.Composite
 
 
 
-                    Bridge_Analysis.CreateData_British();
+                    //Bridge_Analysis.CreateData_British();
+
+
+
+                    if (Curve_Radius > 0)
+                    {
+
+                        Bridge_Analysis.CreateData_StraightBritish();
+
+                        #region Chiranjit [2014 09 08] Indian Standard
+
+
+                        Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                        Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                            Bridge_Analysis.Inner_Girders_as_String,
+                            Bridge_Analysis.joints_list_for_load);
+
+                        Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+
+
+                        Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
+
+
+
+
+
+
+                        if (rbtn_HA.Checked)
+                        {
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 0);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 0);
+
+                        }
+                        else
+                        {
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 1);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 1);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 1);
+                        }
+
+
+                        for (int i = 0; i < all_loads.Count; i++)
+                        {
+                            Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                        }
+                        #endregion
+
+                        Bridge_Analysis.CreateData_British();
+                    }
+                    else
+                    {
+                        Bridge_Analysis.CreateData_StraightBritish();
+                    }
 
                     Bridge_Analysis.WriteData(inp_file);
                     //Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
-
-
-
                     Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, true, long_ll);
 
                     //Ana_Write_Load_Data();
@@ -497,6 +607,20 @@ namespace LimitStateMethod.Composite
                 iApp.OpenWork(Bridge_Analysis.TotalAnalysis_Input_File, false);
         }
 
+
+        string Get_Straight_File(int stage_no)
+        {
+
+            string strght_path = Path.Combine(user_path, "TempAnalysis");
+
+            if (Directory.Exists(strght_path)) Directory.CreateDirectory(strght_path);
+
+            strght_path = Path.Combine(strght_path, "Straight.txt");
+
+            return strght_path;
+
+
+        }
         private void btn_Ana_process_analysis_Click(object sender, EventArgs e)
         {
             try
@@ -516,35 +640,78 @@ namespace LimitStateMethod.Composite
                 string flPath = Bridge_Analysis.Input_File;
 
                 iApp.Progress_Works.Clear();
+
+
+                //flPath = Bridge_Analysis.Straight_DL_File;
+
+                //pd = new ProcessData();
+                //pd.Process_File_Name = flPath;
+                //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
+                //pcol.Add(pd);
+
+                //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
+
+
+                string straightPath = flPath;
+
                 do
                 {
+                    pd = new ProcessData();
+
+
                     if (i == 0)
+                    {
                         flPath = Bridge_Analysis.DeadLoadAnalysis_Input_File;
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Straight_DL_File;
+
+
+                    }
                     else if (i == 1)
                     {
                         flPath = Bridge_Analysis.TotalAnalysis_Input_File;
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Straight_TL_File;
+
                     }
                     else if (i == 2)
                     {
                         flPath = Bridge_Analysis.LiveLoadAnalysis_Input_File;
+
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Straight_LL_File;
+
                     }
                     else if (i > 2)
                     {
                         flPath = Bridge_Analysis.GetAnalysis_Input_File(i);
+
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i, true);
                     }
 
 
-                   
+                    if (Curve_Radius == 0)
+                    {
 
-                    pd = new ProcessData();
+                        pd.IS_Stage_File = false;
+                        pd.Stage_File_Name = "";
+
+                    }
+
+                    //pd = new ProcessData();
                     pd.Process_File_Name = flPath;
                     pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                     pcol.Add(pd);
-
-
                     iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
 
                     i++;
+
+
                 }
                 while (i < (3 + all_loads.Count));
 
@@ -587,7 +754,7 @@ namespace LimitStateMethod.Composite
 
 
 
-                     
+
 
 
 
@@ -787,16 +954,24 @@ namespace LimitStateMethod.Composite
                 {
                     if (!File.Exists(Bridge_Analysis.LiveLoad_File))
                     {
-                        MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + Path.GetDirectoryName(file_name));
+                        //MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + Path.GetDirectoryName(file_name));
                     }
 
                 }
             }
             else
             {
-                load_lst.Add("LOAD    1   " + s);
-                load_lst.Add("MEMBER LOAD");
-                load_lst.Add("1 TO 220 UNI GY -0.001");
+                if (Transverse_load.Count > 1 && Curve_Radius > 0)
+                {
+                    load_lst.AddRange(Transverse_load.ToArray());
+                }
+                else
+                {
+                    load_lst.Add("LOAD    1   " + s);
+                    load_lst.Add("MEMBER LOAD");
+                    load_lst.Add("1 TO 220 UNI GY -0.001");
+                }
+
             }
 
             //Bridge_Analysis.LoadReadFromGrid(dgv_live_load);
@@ -1102,7 +1277,6 @@ namespace LimitStateMethod.Composite
             grb_LL.Enabled = true;
             //grb_SIDL.Enabled = chk_Ana_active_SIDL.Checked;
         }
-        #endregion  Composite Analysis Form Events
         #region Composite Methods
         void Analysis_Initialize_InputData()
         {
@@ -1115,6 +1289,9 @@ namespace LimitStateMethod.Composite
             Bridge_Analysis.NMG = NMG;
             Bridge_Analysis.NCG = NCG;
             Bridge_Analysis.Ds = Ds;
+
+            Bridge_Analysis.Radius = MyList.StringToDouble(txt_curve_radius.Text, 0.0);
+
 
 
 
@@ -1181,242 +1358,240 @@ namespace LimitStateMethod.Composite
             #region Read all
 
             //forces from Dry concrete
-           MaxForce mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 1);
-           txt_SUMM_I13.Text = mfc.Force.ToString();
+            MaxForce mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 1);
+            txt_SUMM_I13.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 1);
-           txt_SUMM_J13.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 1);
+            txt_SUMM_J13.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 1);
-           txt_SUMM_K13.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 1);
+            txt_SUMM_K13.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 1);
-           txt_SUMM_L13.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 1);
-           txt_SUMM_M13.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 1);
-           txt_SUMM_N13.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 1);
+            txt_SUMM_L13.Text = mfc.Force.ToString();
 
 
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 1);
+            txt_SUMM_M13.Text = mfc.Force.ToString();
 
-           //forces from Green concrete
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 2);
-           txt_SUMM_I15.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 2);
-           txt_SUMM_J15.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 2);
-           txt_SUMM_K15.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 2);
-           txt_SUMM_L15.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 2);
-           txt_SUMM_M15.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 2);
-           txt_SUMM_N15.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 1);
+            txt_SUMM_N13.Text = mfc.Force.ToString();
 
 
 
+            //forces from Green concrete
 
-           //forces from SIDL
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 2);
+            txt_SUMM_I15.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 3);
-           txt_SUMM_I16.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 2);
+            txt_SUMM_J15.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 3);
-           txt_SUMM_J16.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 2);
+            txt_SUMM_K15.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 3);
-           txt_SUMM_K16.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 3);
-           txt_SUMM_L16.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 3);
-           txt_SUMM_M16.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 3);
-           txt_SUMM_N16.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 2);
+            txt_SUMM_L15.Text = mfc.Force.ToString();
 
 
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 2);
+            txt_SUMM_M15.Text = mfc.Force.ToString();
 
-           //forces from sufacing
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 4);
-           txt_SUMM_I17.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 4);
-           txt_SUMM_J17.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 4);
-           txt_SUMM_K17.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 4);
-           txt_SUMM_L17.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 4);
-           txt_SUMM_M17.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 4);
-           txt_SUMM_N17.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 2);
+            txt_SUMM_N15.Text = mfc.Force.ToString();
 
 
 
-           BridgeMemberAnalysis LL_Analysis = Bridge_Analysis.LL_Analysis;
 
-           //forces Live Load
+            //forces from SIDL
 
-           mfc = LL_Analysis.GetJoint_MomentForce(_deff_out_joints);
-           txt_SUMM_I21.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 3);
+            txt_SUMM_I16.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_MomentForce(_L6_out_joints);
-           txt_SUMM_J21.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 3);
+            txt_SUMM_J16.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_MomentForce(_L4_out_joints);
-           txt_SUMM_K21.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 3);
+            txt_SUMM_K16.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_MomentForce(_L3_out_joints);
-           txt_SUMM_L21.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 3);
+            txt_SUMM_L16.Text = mfc.Force.ToString();
 
 
-           mfc = LL_Analysis.GetJoint_MomentForce(_3L8_out_joints);
-           txt_SUMM_M21.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 3);
+            txt_SUMM_M16.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_MomentForce(_L2_out_joints);
-           txt_SUMM_N21.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 3);
+            txt_SUMM_N16.Text = mfc.Force.ToString();
+
+
+
+            //forces from sufacing
+
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, 4);
+            txt_SUMM_I17.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L6_out_joints, 4);
+            txt_SUMM_J17.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, 4);
+            txt_SUMM_K17.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L3_out_joints, 4);
+            txt_SUMM_L17.Text = mfc.Force.ToString();
+
+
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_3L8_out_joints, 4);
+            txt_SUMM_M17.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, 4);
+            txt_SUMM_N17.Text = mfc.Force.ToString();
+
+
+
+            BridgeMemberAnalysis LL_Analysis = Bridge_Analysis.LL_Analysis;
+
+            //forces Live Load
+
+            mfc = LL_Analysis.GetJoint_MomentForce(_deff_out_joints);
+            txt_SUMM_I21.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_MomentForce(_L6_out_joints);
+            txt_SUMM_J21.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_MomentForce(_L4_out_joints);
+            txt_SUMM_K21.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_MomentForce(_L3_out_joints);
+            txt_SUMM_L21.Text = mfc.Force.ToString();
+
+
+            mfc = LL_Analysis.GetJoint_MomentForce(_3L8_out_joints);
+            txt_SUMM_M21.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_MomentForce(_L2_out_joints);
+            txt_SUMM_N21.Text = mfc.Force.ToString();
 
             #endregion Read all
 
 
 
-           #region Shear
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 1);
-           txt_SUMM_I73.Text = mfc.Force.ToString();
+            #region Shear
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 1);
+            txt_SUMM_I73.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 1);
-           txt_SUMM_J73.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 1);
+            txt_SUMM_J73.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 1);
-           txt_SUMM_K73.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 1);
+            txt_SUMM_K73.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 1);
-           txt_SUMM_L73.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 1);
-           txt_SUMM_M73.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 1);
-           txt_SUMM_N73.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 1);
+            txt_SUMM_L73.Text = mfc.Force.ToString();
 
 
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 1);
+            txt_SUMM_M73.Text = mfc.Force.ToString();
 
-           //forces from Green concrete
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 2);
-           txt_SUMM_I75.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 2);
-           txt_SUMM_J75.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 2);
-           txt_SUMM_K75.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 2);
-           txt_SUMM_L75.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 2);
-           txt_SUMM_M75.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 2);
-           txt_SUMM_N75.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 1);
+            txt_SUMM_N73.Text = mfc.Force.ToString();
 
 
 
+            //forces from Green concrete
 
-           //forces from SIDL
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 2);
+            txt_SUMM_I75.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 3);
-           txt_SUMM_I76.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 2);
+            txt_SUMM_J75.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 3);
-           txt_SUMM_J76.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 2);
+            txt_SUMM_K75.Text = mfc.Force.ToString();
 
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 3);
-           txt_SUMM_K76.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 3);
-           txt_SUMM_L76.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 3);
-           txt_SUMM_M76.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 3);
-           txt_SUMM_N76.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 2);
+            txt_SUMM_L75.Text = mfc.Force.ToString();
 
 
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 2);
+            txt_SUMM_M75.Text = mfc.Force.ToString();
 
-           //forces from sufacing
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 4);
-           txt_SUMM_I77.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 4);
-           txt_SUMM_J77.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 4);
-           txt_SUMM_K77.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 4);
-           txt_SUMM_L77.Text = mfc.Force.ToString();
-
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 4);
-           txt_SUMM_M77.Text = mfc.Force.ToString();
-
-           mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 4);
-           txt_SUMM_N77.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 2);
+            txt_SUMM_N75.Text = mfc.Force.ToString();
 
 
 
-           //BridgeMemberAnalysis LL_Analysis = Bridge_Analysis.All_Analysis[1];
 
-           //forces Live Load
+            //forces from SIDL
 
-           mfc = LL_Analysis.GetJoint_ShearForce(_deff_out_joints);
-           txt_SUMM_I81.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 3);
+            txt_SUMM_I76.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_ShearForce(_L6_out_joints);
-           txt_SUMM_J81.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 3);
+            txt_SUMM_J76.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_ShearForce(_L4_out_joints);
-           txt_SUMM_K81.Text = mfc.Force.ToString();
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 3);
+            txt_SUMM_K76.Text = mfc.Force.ToString();
 
-           mfc = LL_Analysis.GetJoint_ShearForce(_L3_out_joints);
-           txt_SUMM_L81.Text = mfc.Force.ToString();
-
-
-           mfc = LL_Analysis.GetJoint_ShearForce(_3L8_out_joints);
-           txt_SUMM_M81.Text = mfc.Force.ToString();
-
-           mfc = LL_Analysis.GetJoint_ShearForce(_L2_out_joints);
-           txt_SUMM_N81.Text = mfc.Force.ToString();
-
-           #endregion
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 3);
+            txt_SUMM_L76.Text = mfc.Force.ToString();
 
 
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 3);
+            txt_SUMM_M76.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 3);
+            txt_SUMM_N76.Text = mfc.Force.ToString();
+
+
+
+            //forces from sufacing
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, 4);
+            txt_SUMM_I77.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L6_out_joints, 4);
+            txt_SUMM_J77.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, 4);
+            txt_SUMM_K77.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L3_out_joints, 4);
+            txt_SUMM_L77.Text = mfc.Force.ToString();
+
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_3L8_out_joints, 4);
+            txt_SUMM_M77.Text = mfc.Force.ToString();
+
+            mfc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, 4);
+            txt_SUMM_N77.Text = mfc.Force.ToString();
+
+
+
+            //BridgeMemberAnalysis LL_Analysis = Bridge_Analysis.All_Analysis[1];
+
+            //forces Live Load
+
+            mfc = LL_Analysis.GetJoint_ShearForce(_deff_out_joints);
+            txt_SUMM_I81.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_ShearForce(_L6_out_joints);
+            txt_SUMM_J81.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_ShearForce(_L4_out_joints);
+            txt_SUMM_K81.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_ShearForce(_L3_out_joints);
+            txt_SUMM_L81.Text = mfc.Force.ToString();
+
+
+            mfc = LL_Analysis.GetJoint_ShearForce(_3L8_out_joints);
+            txt_SUMM_M81.Text = mfc.Force.ToString();
+
+            mfc = LL_Analysis.GetJoint_ShearForce(_L2_out_joints);
+            txt_SUMM_N81.Text = mfc.Force.ToString();
+
+            #endregion
 
 
 
@@ -1426,7 +1601,9 @@ namespace LimitStateMethod.Composite
 
 
 
-           List<double> _X_joints = new List<double>();
+
+
+            List<double> _X_joints = new List<double>();
             List<double> _Z_joints = new List<double>();
 
             iApp.Progress_ON("Read Forces....");
@@ -1439,7 +1616,8 @@ namespace LimitStateMethod.Composite
             Results.Add("INNER GIRDER");
             Results.Add("------------");
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints);
             txt_Ana_inner_long_L2_shear.Text = mfrc.ToString();
             txt_Ana_inner_long_L2_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L2_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1450,7 +1628,8 @@ namespace LimitStateMethod.Composite
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints);
             txt_Ana_inner_long_L2_moment.Text = mfrc.ToString();
             txt_Ana_inner_long_L2_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L2_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1459,7 +1638,8 @@ namespace LimitStateMethod.Composite
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints);
             txt_Ana_inner_long_L4_shear.Text = mfrc.ToString();
             txt_Ana_inner_long_L4_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L4_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1467,7 +1647,8 @@ namespace LimitStateMethod.Composite
             Results.AddRange(mfrc.GetDetails("L/4 : MAX SHEAR FORCE ", _L4_inn_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints);
             txt_Ana_inner_long_L4_moment.Text = mfrc.ToString();
             txt_Ana_inner_long_L4_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L4_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1476,7 +1657,8 @@ namespace LimitStateMethod.Composite
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints);
             txt_Ana_inner_long_deff_shear.Text = mfrc.ToString();
             txt_Ana_inner_long_deff_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_deff_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1484,7 +1666,8 @@ namespace LimitStateMethod.Composite
             Results.AddRange(mfrc.GetDetails("Effective Depth : MAX SHEAR FORCE ", _deff_inn_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints);
             txt_Ana_inner_long_deff_moment.Text = mfrc.ToString();
             txt_Ana_inner_long_deff_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_inner_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1499,7 +1682,8 @@ namespace LimitStateMethod.Composite
             Results.Add("");
             Results.Add("OUTER GIRDER");
             Results.Add("------------");
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints);
             txt_Ana_outer_long_L2_shear.Text = mfrc.ToString();
             txt_Ana_outer_long_L2_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L2_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1507,7 +1691,8 @@ namespace LimitStateMethod.Composite
             Results.AddRange(mfrc.GetDetails("L/2 : MAX SHEAR FORCE", _L2_out_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints);
             txt_Ana_outer_long_L2_moment.Text = mfrc.ToString();
             txt_Ana_outer_long_L2_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L2_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1517,7 +1702,8 @@ namespace LimitStateMethod.Composite
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints);
             txt_Ana_outer_long_L4_shear.Text = mfrc.ToString();
             txt_Ana_outer_long_L4_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L4_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1525,7 +1711,8 @@ namespace LimitStateMethod.Composite
             Results.AddRange(mfrc.GetDetails("L/4 : MAX SHEAR FORCE", _L4_out_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints);
             txt_Ana_outer_long_L4_moment.Text = mfrc.ToString();
             txt_Ana_outer_long_L4_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L4_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1533,7 +1720,8 @@ namespace LimitStateMethod.Composite
             Results.AddRange(mfrc.GetDetails("L/4 : MAX BENDING MOMENT", _L4_out_joints, "Ton-m"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints);
             txt_Ana_outer_long_deff_shear.Text = mfrc.ToString();
             txt_Ana_outer_long_deff_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_deff_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -1541,7 +1729,8 @@ namespace LimitStateMethod.Composite
             Results.AddRange(mfrc.GetDetails("Effective Depth : MAX SHEAR FORCE", _deff_out_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints);
             txt_Ana_outer_long_deff_moment.Text = mfrc.ToString();
             txt_Ana_outer_long_deff_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
@@ -2000,9 +2189,9 @@ namespace LimitStateMethod.Composite
 
             }
             uC_Deckslab_IS1.user_path = user_path;
-            
+
             Deck_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
-          
+
 
 
 
@@ -2039,7 +2228,7 @@ namespace LimitStateMethod.Composite
 
                 //txt_Ana_CL.Text = Bridge_Analysis.Structure.Analysis.Width_Cantilever.ToString();
                 //txt_Ana_CR.Text = Bridge_Analysis.Structure.Analysis.Width_Cantilever.ToString();
-                
+
 
             }
 
@@ -2386,6 +2575,8 @@ namespace LimitStateMethod.Composite
                     //sw.WriteLine("TYPE 6 -60.0 0 1.00 XINC 0.5");
                     load_lst.Add(string.Format("{0} {1:f3} {2} {3:f3} XINC {4}", ld.TypeNo, ld.X, ld.Y, ld.Z, ld.XINC));
                 }
+
+
 
             }
             if (calc_width > Bridge_Analysis.WidthBridge)
@@ -3223,7 +3414,7 @@ namespace LimitStateMethod.Composite
             tabControl1.TabPages.Remove(tab_abutment);
             uC_RCC_Abut1.iApp = iApp;
             uC_RCC_Abut1.Load_Data();
-            
+
             #endregion IRC Abutment
 
 
@@ -3376,7 +3567,7 @@ namespace LimitStateMethod.Composite
             eOpenDrawingOption opt = iApp.Open_Drawing_Option();
 
             if (opt == eOpenDrawingOption.Cancel) return;
-            
+
 
 
             string draw = Drawing_Folder;
@@ -3439,7 +3630,7 @@ namespace LimitStateMethod.Composite
                     iApp.Form_Drawing_Editor(eBaseDrawings.RCC_T_GIRDER_LS_PIER, Title, draw, copy_path).ShowDialog();
                 }
                 #endregion Design Drawings
-            } 
+            }
             else if (opt == eOpenDrawingOption.Sample_Drawings)
             {
                 #region Design Drawings
@@ -4315,6 +4506,9 @@ namespace LimitStateMethod.Composite
         public double Y_S { get { return MyList.StringToDouble(txt_Ana_gamma_s.Text, 0.0); } set { txt_Ana_gamma_s.Text = value.ToString("f3"); } }
 
 
+        public double Curve_Radius { get { return MyList.StringToDouble(txt_curve_radius.Text, 0.0); } set { txt_curve_radius.Text = value.ToString("f3"); } }
+
+
         #endregion Chiranjit [2012 06 20]
         #region Chiranjit [2012 06 20]
         void Text_Changed()
@@ -4337,7 +4531,7 @@ namespace LimitStateMethod.Composite
 
             #endregion Chiranjit [2013 06 25]
 
- 
+
             //Chiranjit [2014 09 10]
             txt_deck_width.Text = txt_Ana_B.Text;
 
@@ -4698,6 +4892,39 @@ namespace LimitStateMethod.Composite
         }
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
+
+
+
+
+            #region // Calculate Curve Span
+
+            double R = MyList.StringToDouble(txt_curve_radius.Text, 0.0);
+
+
+
+            if (R != 0)
+            {
+                double theta = L * 180 / (R * Math.PI);
+
+                txt_curve_angle.Text = theta.ToString("f2");
+
+                double dvs = MyList.StringToDouble(txt_curve_divs.Text, 0.0);
+
+                txt_curve_ang_incr.Text = (theta / dvs).ToString("f2");
+
+
+                double V = MyList.StringToDouble(txt_curve_des_spd_kph.Text, 0.0);
+
+                txt_curve_des_spd_mps.Text = (V * 1000 / (60.0 * 60.0)).ToString("f3");
+
+            }
+            else
+            {
+                txt_curve_angle.Text = "0.0";
+                txt_curve_ang_incr.Text = "0.0";
+                txt_curve_des_spd_mps.Text = "0.0";
+            }
+            #endregion
             //if (L > 30)
             //    rbtn_sec_box.Checked = true;
             //else
@@ -4816,7 +5043,7 @@ namespace LimitStateMethod.Composite
             }
 
             Text_Changed();
-           
+
         }
         //Chiranjit [2012 06 20]
         private void chk_CheckedChanged_2014_02_25(object sender, EventArgs e)
@@ -4869,7 +5096,7 @@ namespace LimitStateMethod.Composite
                     txt_Ana_wr.Text = "1.000";
                 }
             }
-           
+
         }
         public double SMG
         {
@@ -5199,6 +5426,8 @@ namespace LimitStateMethod.Composite
 
         List<double> deck_member_load = new List<double>();
 
+        List<string> Transverse_load = new List<string>();
+
         public void Calculate_Load_Computation(string outer_girders, string inner_girders, List<string> joints_nos)
         {
             List<string> list = new List<string>();
@@ -5253,7 +5482,7 @@ namespace LimitStateMethod.Composite
 
 
             list.Add(string.Format("//Load from RCC Deck Slab (Green Concrete)"));
-           double wi1_green = SMG * SCG * (Ds * Y_c_Green + Dw * Y_w);
+            double wi1_green = SMG * SCG * (Ds * Y_c_Green + Dw * Y_w);
 
             list.Add(string.Format("wi1 = SMG*SCG*(Ds*Y_c + Dw*Y_w) "));
             list.Add(string.Format("   = {0:f3}*{1:f3}*({2:f3}*{3:f3}+{4:f3}*{5:f3}) ",
@@ -5357,6 +5586,9 @@ namespace LimitStateMethod.Composite
             outer_dl2 = (wi4_green * NIG / NIM) * swf / 10.0;
 
 
+
+
+
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add(string.Format("//In Analysis Input Data file UDL in all inner Girder members is to be mentioned as"));
@@ -5452,7 +5684,7 @@ namespace LimitStateMethod.Composite
             list.Add(string.Format("wo7 = wo6/SCG = {0:f3}/{1:f3} = {2:f3} kN/m.", wo6, SCG, wo7));
             list.Add(string.Format(""));
 
-            sidl = wo7/10;
+            sidl = wo7 / 10;
 
             list.Add(string.Format(""));
             list.Add(string.Format(""));
@@ -5467,7 +5699,7 @@ namespace LimitStateMethod.Composite
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add(string.Format("//UDL in inner members segments of main long girders in model "));
-           
+
             wou = wo7 * NOG / NOM;
             list.Add(string.Format("wou = wo7*NOG/NOM = {0:f3}*{1:f0}/{2} = {3:f3} kN/m. = {4:f3} Ton/m.",
                 wo7, NOG, NOM, wou, (wou = wou / 10.0)));
@@ -5587,7 +5819,7 @@ namespace LimitStateMethod.Composite
             member_load.Add(string.Format("MEMBER LOAD"));
             member_load.Add(string.Format("{0} UNI GY -{1:f4}", inner_girders, inner_dl1 * 0.4));
             member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, outer_dl1 * 0.4)); //Chiranjit [2013 06 07]
-           
+
 
             member_load.Add(string.Format("LOAD 2 DEADLOAD FROM GREEN CONCRETE "));
             member_load.Add(string.Format("MEMBER LOAD"));
@@ -5608,11 +5840,102 @@ namespace LimitStateMethod.Composite
             member_load.Add(string.Format("MEMBER LOAD"));
             member_load.Add(string.Format("{0} UNI GY -{1:f4}", inner_girders, sufacing * 0.5)); //Chiranjit [2013 06 07]
             member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, sufacing * 0.5)); //Chiranjit [2013 06 07]
-           
+
             list.Add(string.Format(""));
-            list.Add(string.Format("                ***********************************"));
-            list.Add(string.Format(""));
-            list.Add(string.Format(""));
+
+
+            if (true)
+            {
+                Transverse_load.Clear();
+                #region Transverse Load
+
+
+
+
+                //Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(Bridge_Analysis.Input_File), "ll.txt"));
+
+                if (Bridge_Analysis.Live_Load_List == null)
+                {
+                    Bridge_Analysis.Live_Load_List = new List<LoadData>(iApp.LiveLoads.ToArray());
+                }
+                Bridge_Analysis.LoadReadFromGrid(dgv_live_load);
+
+
+                double dd = 0.0;
+                foreach (var item in Bridge_Analysis.LoadList)
+                {
+                    foreach (var item2 in iApp.LiveLoads)
+                    {
+                        if (item2.TypeNo == item.TypeNo)
+                        {
+                            dd += item2.Total_Loads;
+                        }
+                    }
+                }
+
+
+                //foreach (LoadData ld in Bridge_Analysis.LoadList)
+
+
+
+
+                double _V = MyList.StringToDouble(txt_curve_des_spd_mps.Text, 0.0);
+
+
+                double _L = dd;
+
+                double _M = _L / 9.81;
+
+                double _R = MyList.StringToDouble(txt_curve_radius.Text, 0.0);
+                double theta = (L / _R);
+
+                Left_support = Bridge_Analysis.support_left_joints;
+                Right_support = Bridge_Analysis.support_right_joints;
+                if (_R != 0.0)
+                {
+                    double _F = _M * _V * _V / _R;
+
+                    double _FX = _F * Math.Cos(theta);
+                    double _FZ = _F * Math.Sin(theta);
+
+
+                    int tot_sup = MyList.Get_Array_Intiger(Left_support).Count * 2;
+
+
+                    if (Bridge_Analysis.Joints_Array == null) return;
+
+                    List<int> out_jont = new List<int>();
+                    for (int _i = 0; _i < Bridge_Analysis.Total_Columns; _i++)
+                    {
+                        out_jont.Add(Bridge_Analysis.Joints_Array[0, _i].NodeNo);
+                    }
+
+                    //Apply Load on Each Joints of Outer Girder
+
+                    //Transverse_load.Add(string.Format("LOAD 1 TRANSVERSE LOAD"));
+                    //Transverse_load.Add(string.Format("JOINT LOAD"));
+                    //Transverse_load.Add(string.Format("{0} FX -{1:f4}", MyList.Get_Array_Text(out_jont), Math.Min(_FX, _FZ)/ )); // 
+                    //Transverse_load.Add(string.Format("{0} FZ -{1:f4}", MyList.Get_Array_Text(out_jont), Math.Max(_FX, _FZ))); // 
+
+
+                    //Apply Load on Each Joints of both End Supports
+                    Transverse_load.Add(string.Format("LOAD 1 TRANSVERSE LOAD"));
+                    Transverse_load.Add(string.Format("JOINT LOAD"));
+                    Transverse_load.Add(string.Format("{0} {1} FX {2:f4}", Left_support, Right_support, Math.Min(_FX, _FZ) / tot_sup)); // 
+                    Transverse_load.Add(string.Format("{0} {1} FZ {2:f4}", Left_support, Right_support, Math.Max(_FX, _FZ) / tot_sup)); // 
+
+                    txt_brg_max_HRL_kN.Text = (Math.Min(_FX, _FZ) / tot_sup).ToString("f3");
+                    txt_brg_max_HRT_kN.Text = (Math.Max(_FX, _FZ) / tot_sup).ToString("f3");
+                }
+
+
+                list.Add(string.Format(""));
+                list.Add(string.Format("                ***********************************"));
+                list.Add(string.Format(""));
+
+                #endregion Transverse Load
+            }
+
             list.Add(string.Format(""));
             list.Add(string.Format("//END OF LOAD COMPUTATION"));
             list.Add(string.Format(""));
@@ -5625,8 +5948,8 @@ namespace LimitStateMethod.Composite
             #region Dead Load Value for DeckSlab analysis
 
             deck_member_load.Clear();
-            deck_member_load.Add(wo3/100);
-            deck_member_load.Add(wo2/100);
+            deck_member_load.Add(wo3 / 100);
+            deck_member_load.Add(wo2 / 100);
             deck_member_load.Add(wo11);
 
             #endregion Dead Load Value for DeckSlab analysis
@@ -5653,7 +5976,7 @@ namespace LimitStateMethod.Composite
         {
             iApp.RunExe(Cant.rep_file_name);
         }
-     
+
         #endregion Chiranjit [2012 06 10]
 
         private void cmb_deck_select_load_SelectedIndexChanged(object sender, EventArgs e)
@@ -5775,7 +6098,7 @@ namespace LimitStateMethod.Composite
 
 
             int _jnt_no = 0;
-            for (int i = 0; i < mlist.Count/2; i++)
+            for (int i = 0; i < mlist.Count / 2; i++)
             {
                 try
                 {
@@ -5911,7 +6234,72 @@ namespace LimitStateMethod.Composite
 
             //uC_PierOpenLS1.DL
 
+
+
+
+            #region Bearing Forces
+
+            if (chk_curve.Checked)
+            {
+
+                //txt_max_vert_reac
+                txt_brg_max_VR_kN.Text = txt_max_vert_reac.Text;
+
+
+                double VR = MyList.StringToDouble(txt_brg_max_VR_kN.Text, 0.0) * 10;
+                double HRT = MyList.StringToDouble(txt_brg_max_HRT_kN.Text, 0.0) * 10;
+                double HRL = MyList.StringToDouble(txt_brg_max_HRL_kN.Text, 0.0) * 10;
+
+
+                uC_BRD1.txt_1_Nnorm.Text = VR.ToString("f3");
+
+                //uC_BRD1.txt_1_Nmin
+
+                //Transverse Load
+                uC_BRD1.txt_1_Hlatn.Text = HRT.ToString("f3");
+                //Horizontal Load
+                //uC_BRD1.txt_1_Hingn.Text = txt_brg_max_HRL_kN.Text;
+
+                uC_BRD1.txt_VMABL_1_Nnorm.Text = VR.ToString("f3");
+
+                //uC_BRD1.txt_VMABL_1_Nmin
+
+                //uC_BRD1.txt_VMABL_1_Hlatn.Text = txt_brg_max_HRT_kN.Text;
+
+                uC_BRD1.txt_VMABL_1_Hingn.Text = HRL.ToString("f3");
+
+                uC_BRD1.txt_VBAB_1_Nnorm.Text = VR.ToString("f3");
+
+                //uC_BRD1.txt_VBAB_1_Nmin
+
+                uC_BRD1.txt_VBAB_1_Hlatn.Text = HRT.ToString("f3");
+
+                uC_BRD1.txt_VBAB_1_Hingn.Text = HRL.ToString("f3");
+
+                uC_BRD1.txt_VFB_1_Nnorm.Text = VR.ToString("f3");
+
+                //uC_BRD1.txt_VFB_1_Nmin
+
+                uC_BRD1.txt_VFB_1_Hlatn.Text = HRT.ToString("f3");
+                uC_BRD1.txt_VFB_1_Hingn.Text = HRL.ToString("f3");
+
+            }
+
+            #endregion SS
+
+
+
+
+
+
+
+
+
             #endregion New Design for Limit state Method
+
+
+
+
 
         }
         #endregion View Force
@@ -5999,7 +6387,7 @@ namespace LimitStateMethod.Composite
                 _mx = mx.Force;
                 _mz = mz.Force;
 
-              
+
 
                 //dgv_left_des_frc.Rows.Add(sr.JointNo, sr.Max_Reaction, sr.Max_Mx, sr.Max_Mz);
                 dgv_left_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
@@ -6042,7 +6430,7 @@ namespace LimitStateMethod.Composite
                 _mx = mx.Force;
                 _mz = mz.Force;
 
-              
+
                 dgv_right_des_frc.Rows.Add(_jnt_no, Math.Abs(_vert_load), _mx, _mz);
 
                 tot_right_vert_reac += Math.Abs(_vert_load);
@@ -7215,7 +7603,7 @@ namespace LimitStateMethod.Composite
             steel_section = steel_composite_sections.Section_Long_Girder_at_End_Span;
 
 
-           
+
             #endregion
 
 
@@ -7256,7 +7644,7 @@ namespace LimitStateMethod.Composite
 
             steel_section = steel_composite_sections.Section_Long_Girder_at_L4_Span;
 
-             
+
             #endregion
 
             #endregion L4_Span
@@ -11566,8 +11954,8 @@ namespace LimitStateMethod.Composite
 
                 Button_Enable_Disable();
 
-               MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.",
-                  "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.",
+                   "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 #endregion Create Data
 
@@ -11610,7 +11998,7 @@ namespace LimitStateMethod.Composite
             btn_LS_deck_ws.Enabled = File.Exists(File_DeckSlab_Results);
             btn_LS_deck_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Deckslab)));
 
-        
+
         }
 
         private void btn_restore_ll_data_Click(object sender, EventArgs e)
@@ -12342,7 +12730,7 @@ namespace LimitStateMethod.Composite
             list.Add(string.Format("AXLE WIDTH IN METRES, 1.676"));
             list.Add(string.Format("IMPACT FACTOR, {0}", txt_LL_impf.Text));
             list.Add(string.Format(""));
-            
+
 
             for (i = 0; i < dgv_live_load.ColumnCount; i++)
             {
@@ -13313,7 +13701,7 @@ namespace LimitStateMethod.Composite
 
 
                     uC_RCC_Abut1.Modified_Cells();
- 
+
                     if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     {
                         British_Interactive();
@@ -13593,6 +13981,16 @@ namespace LimitStateMethod.Composite
             if (!Check_Project_Folder()) return;
 
             Write_All_Data(false);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            grb.Enabled = chk_curve.Checked;
+
+            if (grb.Enabled)
+            {
+                if (Curve_Radius == 0) txt_curve_radius.Text = "50";
+            }
         }
 
     }

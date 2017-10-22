@@ -273,10 +273,9 @@ namespace AstraInterface.DataStructure
                                         mlist = new MyList(kStr, '$');
                                         dgv.Rows.Add(mlist.StringList.ToArray());
 
-
                                         //kStr = dgv[2, dgv.Rows.Count - 1].Value.ToString(); ;
-
                                     }
+                                    MyList.Modified_Cell(dgv);
                                 }
                                 else if (c.Name.StartsWith("txt") || c is TextBox)
                                 {

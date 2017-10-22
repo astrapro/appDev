@@ -369,6 +369,70 @@ namespace AstraInterface.DataStructure
             }
         }
 
+
+        public static void Modified_Cell(DataGridView dgv)
+        {
+            string s1, s2, s3, s4;
+            int sl_no = 1;
+
+
+
+
+            #region Format Input Data
+            //dgv = dgv_base_pressure;
+
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    
+                    if (dgv[0, i].Value == null) dgv[0, i].Value = "";
+                    if (dgv[1, i].Value == null) dgv[1, i].Value = "";
+                    if (dgv[2, i].Value == null) dgv[2, i].Value = "";
+
+                    if (dgv[0, i].Value == "") dgv[0, i].Value = "";
+                    if (dgv[1, i].Value == "") dgv[1, i].Value = "";
+                    if (dgv[2, i].Value == "") dgv[2, i].Value = "";
+
+                    //if (dgv_box_input_data[3, i].Value == "") dgv_box_input_data[3, i].Value = "";
+
+
+
+                    s1 = dgv[0, i].Value.ToString();
+                    s2 = dgv[1, i].Value.ToString();
+                    s3 = dgv[2, i].Value.ToString();
+                    //s4 = dgv_box_input_data[3, i].Value.ToString();
+                    if (s1 != "" && s2 == "")
+                    {
+                        dgv.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Yellow;
+                        dgv.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("Verdana", 9.0f, System.Drawing.FontStyle.Bold);
+                        sl_no = 1;
+
+                        dgv.Rows[i].ReadOnly = true;
+                    }
+                    else if (s1 == "" && s2 == "" && s3 == "")
+                    {
+                        dgv.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
+                        //dgv.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("Verdana", 9.0f, System.Drawing.FontStyle.Bold);
+                        sl_no = 1;
+
+                        dgv.Rows[i].ReadOnly = true;
+                    }
+
+                    //else
+                    //{
+                    //if (s2 != "") dgv[0, i].Value = sl_no++;
+                    //}
+                }
+                catch (Exception exx) { }
+            }
+
+            #endregion Format Input Data
+
+            //if (dgv[1, 0].Value == "") dgv[2, i].Value = "";
+
+        }
+
         public Match Ger_All_Matches()
         {
             Regex regex = new Regex(@"\d+");
@@ -1349,6 +1413,15 @@ namespace AstraInterface.DataStructure
         /// SQRT = "√";
         /// </summary>
         public const string SQRT = "√";
+
+        /// <summary>
+        /// SQAURE = "²";
+        /// </summary>
+        public const string SQAURE = "²";
+        /// <summary>
+        /// CUBE = "³";
+        /// </summary>
+        public const string CUBE = "³";
         /// <summary>
         /// DELTA = "δ";
         /// </summary>

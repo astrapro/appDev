@@ -70,6 +70,8 @@ namespace LimitStateMethod.RccCulvert
                         Write_All_Data();
                     }
                     #endregion Save As
+
+                    
                 }
             }
             else if (btn.Name == btn_TGirder_new_design.Name)
@@ -105,6 +107,11 @@ namespace LimitStateMethod.RccCulvert
                 //}
                 //}
             }
+
+            uC_BoxCulvert1.Enabled = (Directory.Exists(user_path));
+
+            uC_BoxCulvert1.Button_Enable_Disable();
+
         }
 
         #region Chiranjit [2016 09 07]
@@ -236,6 +243,11 @@ namespace LimitStateMethod.RccCulvert
         }
 
         #endregion Chiranjit [2016 09 07]
+
+        private void uC_BoxCulvert1_Load(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

@@ -3694,7 +3694,7 @@
             this.groupBox2.Controls.Add(this.dgv_deck_design_input);
             this.groupBox2.Location = new System.Drawing.Point(108, 41);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(618, 276);
+            this.groupBox2.Size = new System.Drawing.Size(618, 319);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Design Input Data";
@@ -3713,7 +3713,7 @@
             this.dataGridViewTextBoxColumn39});
             this.dgv_deck_design_input.Location = new System.Drawing.Point(6, 20);
             this.dgv_deck_design_input.Name = "dgv_deck_design_input";
-            this.dgv_deck_design_input.Size = new System.Drawing.Size(602, 246);
+            this.dgv_deck_design_input.Size = new System.Drawing.Size(602, 293);
             this.dgv_deck_design_input.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn37

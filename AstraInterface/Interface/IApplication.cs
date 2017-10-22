@@ -155,6 +155,8 @@ namespace AstraInterface.Interface
 
 
          void Open_Excel_Macro_Notes();
+
+         void Write_Data_to_File(string fname, string sap_path);
     }
 
 }

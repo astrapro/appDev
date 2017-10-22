@@ -54,7 +54,8 @@ namespace AstraFunctionOne.ProcessList
             try
             {
                 //dgv_process.Invoke(clr_data, dgv_process);
-                string flpath = @"C:\Users\tes\Desktop\Software Testing\ASTRA\[2013 10 16]\TEST 02\ANALYSIS OF RCC T-GIRDER BRIDGE (LIMIT STATE METHOD)\Long Girder Analysis\Live Load Analysis\LiveLoad_Analysis_Input_File.txt";
+                //string flpath = @"C:\Users\tes\Desktop\Software Testing\ASTRA\[2013 10 16]\TEST 02\ANALYSIS OF RCC T-GIRDER BRIDGE (LIMIT STATE METHOD)\Long Girder Analysis\Live Load Analysis\LiveLoad_Analysis_Input_File.txt";
+                string flpath = @"";
                 for (int i = 0; i < dgv_process.Rows.Count; i++)
                 {
                     dgv_process.Rows[i].DefaultCellStyle.BackColor = Color.White;
@@ -76,8 +77,24 @@ namespace AstraFunctionOne.ProcessList
                         dgv_process.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
                         dgv_process.FirstDisplayedScrollingRowIndex = i;
 
-                        if (File.Exists(flpath))
-                            Run_Exe(flpath);
+                        if (ProcessList[i].IS_Stage_File)
+                        {
+
+                            if (File.Exists(ProcessList[i].Stage_File_Name))
+                                Run_Exe(ProcessList[i].Stage_File_Name);
+
+                            iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
+
+                            if (File.Exists(flpath))
+                                Run_Data2(flpath);
+                            //Run_Exe(flpath);
+                        }
+                        else
+                        {
+                            if (File.Exists(flpath))
+                                Run_Exe(flpath);
+                        }
+
 
                         if (File.Exists(AstraInterface.DataStructure.MyList.Get_Analysis_Report_File(flpath)))
                         {
@@ -140,6 +157,46 @@ namespace AstraFunctionOne.ProcessList
             PRC.StartInfo.FileName = exe_file;
             PRC.Start();
             PRC.WaitForExit();
+        }
+
+
+
+
+        public bool Run_Data2(string flPath)
+        {
+            //if (Check_Demo(flPath)) return false;
+
+            //iApp.Delete_Temporary_Files(flPath);
+            try
+            {
+
+                File.WriteAllText(Path.Combine(Path.GetDirectoryName(flPath), "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
+                File.WriteAllText(Path.Combine(iapp.AppFolder, "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
+                //System.Environment.SetEnvironmentVariable("SURVEY", flPath);
+
+                System.Diagnostics.Process prs = new System.Diagnostics.Process();
+
+                System.Environment.SetEnvironmentVariable("SURVEY", flPath);
+                System.Environment.SetEnvironmentVariable("ASTRA", flPath);
+
+
+                prs.StartInfo.FileName = Path.Combine(Application.StartupPath, "ast004.exe");
+
+                //prs.StartInfo.FileName = Path.Combine(Application.StartupPath, "ast005.exe");
+                if (prs.Start())
+                    prs.WaitForExit();
+
+                //string ana_rep = Path.Combine(Path.GetDirectoryName(flPath), "ANALYSIS_REP.TXT");
+                //string sap_rep = Path.Combine(Path.GetDirectoryName(flPath), "RES001.tmp");
+
+                //if (File.Exists(sap_rep))
+                //{
+                //    File.Copy(sap_rep, ana_rep, true);
+                //    File.Delete(sap_rep);
+                //}
+            }
+            catch (Exception exx) { }
+            return File.Exists(MyList.Get_Analysis_Report_File(flPath));
         }
 
         public void Add_Text(DataGridView dgv)

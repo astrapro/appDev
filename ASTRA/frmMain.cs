@@ -10,6 +10,7 @@ using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 using HeadsProgram;
 
+using AstraAccess.SAP_Classes;
 
 using AstraInterface.Interface;
 using AstraInterface.DataStructure;
@@ -585,7 +586,13 @@ namespace AstraFunctionOne
 
 
 
-                tsmi_PSC_I_GIRDER_Program.Visible = false;
+                //tsmi_PSC_I_GIRDER_Program.Visible = false;
+                //tsmi_RCC_Culverts_LS.Visible = false;
+                //tsmi_RCC_Culverts_WS.Visible = false;
+
+
+
+
                 //tsmi_workingFolder.Visible = false;
                 tsmi_openAnalysisExampleTXTDataFile.Visible = true;
 
@@ -2527,14 +2534,14 @@ namespace AstraFunctionOne
         private void tsmi_Pre_Stressed_Bridge_Click(object sender, EventArgs e)
         {
             if (!Is_select_Design_Standard) SelectDesignStandard();
-            if (((ToolStripMenuItem)sender).Name == tsmi_PSC_I_Girder_LongSpan.Name)
-            {
-                ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
-                BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS(this);
-                frm.Owner = this;
-                frm.Show();
-            }
-            else
+            //if (((ToolStripMenuItem)sender).Name == tsmi_PSC_I_Girder_LongSpan.Name)
+            //{
+            //    ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
+            //    BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_LongSpan_WS(this);
+            //    frm.Owner = this;
+            //    frm.Show();
+            //}
+            //else
             {
                 ShowTimerScreen(eASTRAImage.PSC_I_Girder_Short_Span);
                 BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_ShortSpan_WS frm = new BridgeAnalysisDesign.PSC_I_Girder.frm_PSC_I_Girder_ShortSpan_WS(this);
@@ -2660,6 +2667,7 @@ namespace AstraFunctionOne
                 frm.Show();
             }
             else if (tsmi == tsmi_RCC_Culverts_WS)
+            //else
             {
                 //ShowTimerScreen(eASTRAImage.TGirder_Bottom_Flange);
                 BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert frm = new BridgeAnalysisDesign.RCC_Culvert.frm_RCC_Culvert(this);
@@ -4445,7 +4453,7 @@ namespace AstraFunctionOne
         private void tsmi_Pre_Stressed_Bridge_LS_Click(object sender, EventArgs e)
         {
             if (!Is_select_Design_Standard) SelectDesignStandard();
-            if (((ToolStripMenuItem)sender).Name == tsmi_PSC_I_Girder_Bridge_LS.Name)
+            //if (((ToolStripMenuItem)sender).Name == tsmi_PSC_I_Girder_Bridge_LS.Name)
             {
                 ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
                 frm_PSC_I_Girder_LS frm = new frm_PSC_I_Girder_LS(this);
@@ -4489,6 +4497,54 @@ namespace AstraFunctionOne
             }
         }
 
+        public void Write_Data_to_File(string fname, string sap_path)
+        {
+
+            if (Path.GetDirectoryName(fname).ToLower() == Path.GetDirectoryName(sap_path).ToLower()) return;
+
+
+            #region SAP Analysis
+            SAP_Document sap = new SAP_Document();
+
+            string sap_file = "", sap_file2 = "";
+
+            sap_file = Path.Combine(Path.GetDirectoryName(sap_path), "SAP_Input_Data.txt");
+
+
+            sap_file2 = Path.Combine(Path.GetDirectoryName(fname), "inp.tmp");
+            SAP_Document sap2 = new SAP_Document();
+
+            BridgeMemberAnalysis bma = new BridgeMemberAnalysis(this, fname);
+
+            //sap_file = Path.Combine(sap_path, "SAP_Input_Data.txt");
+
+            if (File.Exists(sap_file))
+            {
+                sap.Read_SAP_Data(sap_file);
+
+
+
+                if (sap.Joints.Count > 0)
+                {
+                    //if (dgv.RowCount > 0)
+                    {
+                        for (int i = 0; i < sap.Joints.Count; i++)
+                        {
+                            var item = sap.Joints[i];
+                            var item2 = bma.Analysis.Joints[i];
+                            item.X = item2.X;
+                            item.Y = item2.Y;
+                            item.Z = item2.Z;
+                        }
+                    }
+                }
+
+                sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp.tmp");
+                File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+            }
+            #endregion SAP Analysis
+        }
 
         public bool Show_and_Run_Process_List(ProcessCollection pcol)
         {

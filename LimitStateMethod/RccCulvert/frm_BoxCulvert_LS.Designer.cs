@@ -90,11 +90,14 @@
             // uC_BoxCulvert1
             // 
             this.uC_BoxCulvert1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BoxCulvert1.Enabled = false;
             this.uC_BoxCulvert1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BoxCulvert1.Is_Multi_Cell = false;
             this.uC_BoxCulvert1.Location = new System.Drawing.Point(0, 63);
             this.uC_BoxCulvert1.Name = "uC_BoxCulvert1";
             this.uC_BoxCulvert1.Size = new System.Drawing.Size(698, 534);
             this.uC_BoxCulvert1.TabIndex = 0;
+            this.uC_BoxCulvert1.Load += new System.EventHandler(this.uC_BoxCulvert1_Load);
             // 
             // frm_BoxCulvert_LS
             // 

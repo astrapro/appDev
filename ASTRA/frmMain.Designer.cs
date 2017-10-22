@@ -123,23 +123,14 @@
             this.tsmi_RCC_TGirder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_RCC_TGirder_LSM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_RCC_TGirder_WSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_RCC_TBeam_LS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_RCC_TBeam_WS = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_Composite = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Composite_LSM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Composite_WSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_Composit_Bridge_LS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_Composit_Bridge = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_PSC_IGirder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_PSC_IGirder_LSM = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_PSC_IGirder_WSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_PSC_I_Girder_Bridge_LS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_PSC_I_GIRDER_Program = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_Pre_Stressed_Bridge = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_PSC_I_Girder_LongSpan = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_PSC_I_Girder_ShortSpan = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_PSC_Box_Girder_Bridge = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_cont_PSC_Box_Girder_Bridge = new System.Windows.Forms.ToolStripMenuItem();
@@ -171,6 +162,8 @@
             this.tsmi_minor_Bridge_ws = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_RCC_Culverts = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_Culverts_LS = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_RCC_Culverts_WS = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_Bridge_Abutment_Design = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Bridge_Pier_Design = new System.Windows.Forms.ToolStripMenuItem();
@@ -280,8 +273,6 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.btn_SendMail = new System.Windows.Forms.Button();
-            this.tsmi_RCC_Culverts_LS = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_RCC_Culverts_WS = new System.Windows.Forms.ToolStripMenuItem();
             this.mns_ASTRA_menues.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -977,17 +968,10 @@
             this.tsmi_Bridge_Design.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_Working_Folder,
             this.tsmi_RCC_TGirder,
-            this.tsmi_RCC_TBeam_LS,
-            this.tsmi_RCC_TBeam_WS,
             this.toolStripSeparator10,
             this.tsmi_Composite,
-            this.tsmi_Composit_Bridge_LS,
-            this.tsmi_Composit_Bridge,
             this.toolStripSeparator11,
             this.tsmi_PSC_IGirder,
-            this.tsmi_PSC_I_Girder_Bridge_LS,
-            this.tsmi_PSC_I_GIRDER_Program,
-            this.tsmi_Pre_Stressed_Bridge,
             this.toolStripSeparator12,
             this.tsmi_PSC_Box_Girder_Bridge,
             this.tsmi_cont_PSC_Box_Girder_Bridge,
@@ -1030,7 +1014,7 @@
             // tsmi_Working_Folder
             // 
             this.tsmi_Working_Folder.Name = "tsmi_Working_Folder";
-            this.tsmi_Working_Folder.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Working_Folder.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Working_Folder.Text = "Select Working Folder";
             this.tsmi_Working_Folder.Visible = false;
             this.tsmi_Working_Folder.Click += new System.EventHandler(this.tsmi_Working_Folder_Click);
@@ -1041,7 +1025,7 @@
             this.tsmi_RCC_TGirder_LSM,
             this.tsmi_RCC_TGirder_WSM});
             this.tsmi_RCC_TGirder.Name = "tsmi_RCC_TGirder";
-            this.tsmi_RCC_TGirder.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_RCC_TGirder.Size = new System.Drawing.Size(385, 22);
             this.tsmi_RCC_TGirder.Text = "Reinforced Cement Concrete (RCC) T-Girder Bridge";
             // 
             // tsmi_RCC_TGirder_LSM
@@ -1058,26 +1042,10 @@
             this.tsmi_RCC_TGirder_WSM.Text = "Working Stress Method";
             this.tsmi_RCC_TGirder_WSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
-            // tsmi_RCC_TBeam_LS
-            // 
-            this.tsmi_RCC_TBeam_LS.Name = "tsmi_RCC_TBeam_LS";
-            this.tsmi_RCC_TBeam_LS.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_RCC_TBeam_LS.Text = "Reinforced Cement Concrete (RCC) T-Girder Bridge (Limit State Method)";
-            this.tsmi_RCC_TBeam_LS.Visible = false;
-            this.tsmi_RCC_TBeam_LS.Click += new System.EventHandler(this.tsmi_RCC_TBeam_LS_Click);
-            // 
-            // tsmi_RCC_TBeam_WS
-            // 
-            this.tsmi_RCC_TBeam_WS.Name = "tsmi_RCC_TBeam_WS";
-            this.tsmi_RCC_TBeam_WS.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_RCC_TBeam_WS.Text = "Reinforced Cement Concrete (RCC) T-Girder Bridge (Working Stress Method)";
-            this.tsmi_RCC_TBeam_WS.Visible = false;
-            this.tsmi_RCC_TBeam_WS.Click += new System.EventHandler(this.tsmi_RCC_TBeam_Click);
-            // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_Composite
             // 
@@ -1085,7 +1053,7 @@
             this.tsmi_Composite_LSM,
             this.tsmi_Composite_WSM});
             this.tsmi_Composite.Name = "tsmi_Composite";
-            this.tsmi_Composite.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Composite.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Composite.Text = "Steel Plate/Box Girder & RCC Slab Composite Bridge";
             // 
             // tsmi_Composite_LSM
@@ -1102,26 +1070,10 @@
             this.tsmi_Composite_WSM.Text = "Working Stress Method";
             this.tsmi_Composite_WSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
-            // tsmi_Composit_Bridge_LS
-            // 
-            this.tsmi_Composit_Bridge_LS.Name = "tsmi_Composit_Bridge_LS";
-            this.tsmi_Composit_Bridge_LS.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_Composit_Bridge_LS.Text = "Steel Plate/Box Girder & RCC Slab Composite Bridge (Limit State Method)";
-            this.tsmi_Composit_Bridge_LS.Visible = false;
-            this.tsmi_Composit_Bridge_LS.Click += new System.EventHandler(this.tsmi_Composit_Bridge_LS_Click);
-            // 
-            // tsmi_Composit_Bridge
-            // 
-            this.tsmi_Composit_Bridge.Name = "tsmi_Composit_Bridge";
-            this.tsmi_Composit_Bridge.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_Composit_Bridge.Text = "Steel Plate/Box Girder & RCC Slab Composite Bridge (Working Stress Method)";
-            this.tsmi_Composit_Bridge.Visible = false;
-            this.tsmi_Composit_Bridge.Click += new System.EventHandler(this.tsmi_Composit_Bridge_WS_Click);
-            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_PSC_IGirder
             // 
@@ -1129,7 +1081,7 @@
             this.tsmi_PSC_IGirder_LSM,
             this.tsmi_PSC_IGirder_WSM});
             this.tsmi_PSC_IGirder.Name = "tsmi_PSC_IGirder";
-            this.tsmi_PSC_IGirder.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_PSC_IGirder.Size = new System.Drawing.Size(385, 22);
             this.tsmi_PSC_IGirder.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge";
             // 
             // tsmi_PSC_IGirder_LSM
@@ -1146,69 +1098,29 @@
             this.tsmi_PSC_IGirder_WSM.Text = "Working Stress Method";
             this.tsmi_PSC_IGirder_WSM.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
-            // tsmi_PSC_I_Girder_Bridge_LS
-            // 
-            this.tsmi_PSC_I_Girder_Bridge_LS.Name = "tsmi_PSC_I_Girder_Bridge_LS";
-            this.tsmi_PSC_I_Girder_Bridge_LS.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_PSC_I_Girder_Bridge_LS.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge (Limit State Method)";
-            this.tsmi_PSC_I_Girder_Bridge_LS.Visible = false;
-            this.tsmi_PSC_I_Girder_Bridge_LS.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_LS_Click);
-            // 
-            // tsmi_PSC_I_GIRDER_Program
-            // 
-            this.tsmi_PSC_I_GIRDER_Program.Name = "tsmi_PSC_I_GIRDER_Program";
-            this.tsmi_PSC_I_GIRDER_Program.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_PSC_I_GIRDER_Program.Tag = "";
-            this.tsmi_PSC_I_GIRDER_Program.Text = "Pre Stressed Concrete I-Girder Bridge (Limit State Method) (Program)";
-            this.tsmi_PSC_I_GIRDER_Program.Click += new System.EventHandler(this.tsmi_PSC_I_GIRDER_Program_Click);
-            // 
-            // tsmi_Pre_Stressed_Bridge
-            // 
-            this.tsmi_Pre_Stressed_Bridge.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_PSC_I_Girder_LongSpan,
-            this.tsmi_PSC_I_Girder_ShortSpan});
-            this.tsmi_Pre_Stressed_Bridge.Name = "tsmi_Pre_Stressed_Bridge";
-            this.tsmi_Pre_Stressed_Bridge.Size = new System.Drawing.Size(479, 22);
-            this.tsmi_Pre_Stressed_Bridge.Text = "Pre Stressed Concrete (PSC) I-Girder Bridge (Working Stress Method)";
-            this.tsmi_Pre_Stressed_Bridge.Visible = false;
-            // 
-            // tsmi_PSC_I_Girder_LongSpan
-            // 
-            this.tsmi_PSC_I_Girder_LongSpan.Name = "tsmi_PSC_I_Girder_LongSpan";
-            this.tsmi_PSC_I_Girder_LongSpan.Size = new System.Drawing.Size(131, 22);
-            this.tsmi_PSC_I_Girder_LongSpan.Text = "Long Span";
-            this.tsmi_PSC_I_Girder_LongSpan.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_Click);
-            // 
-            // tsmi_PSC_I_Girder_ShortSpan
-            // 
-            this.tsmi_PSC_I_Girder_ShortSpan.Name = "tsmi_PSC_I_Girder_ShortSpan";
-            this.tsmi_PSC_I_Girder_ShortSpan.Size = new System.Drawing.Size(131, 22);
-            this.tsmi_PSC_I_Girder_ShortSpan.Text = "Short Span";
-            this.tsmi_PSC_I_Girder_ShortSpan.Click += new System.EventHandler(this.tsmi_Pre_Stressed_Bridge_Click);
-            // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_PSC_Box_Girder_Bridge
             // 
             this.tsmi_PSC_Box_Girder_Bridge.Name = "tsmi_PSC_Box_Girder_Bridge";
-            this.tsmi_PSC_Box_Girder_Bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_PSC_Box_Girder_Bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_PSC_Box_Girder_Bridge.Text = "Pre Stressed Concrete (PSC) BOX-Girder Bridge";
             this.tsmi_PSC_Box_Girder_Bridge.Click += new System.EventHandler(this.tsmi_PSC_Box_Girder_Bridge_Click);
             // 
             // tsmi_cont_PSC_Box_Girder_Bridge
             // 
             this.tsmi_cont_PSC_Box_Girder_Bridge.Name = "tsmi_cont_PSC_Box_Girder_Bridge";
-            this.tsmi_cont_PSC_Box_Girder_Bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_cont_PSC_Box_Girder_Bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_cont_PSC_Box_Girder_Bridge.Text = "Continuous Pre Stressed Concrete (PSC) BOX-Girder Bridge";
             this.tsmi_cont_PSC_Box_Girder_Bridge.Click += new System.EventHandler(this.tsmi_cont_PSC_Box_Girder_Bridge_Click);
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_Steel_Truss_Bridge_Warren_1
             // 
@@ -1216,7 +1128,7 @@
             this.completeDesignToolStripMenuItem,
             this.deckSlabDesignToolStripMenuItem});
             this.tsmi_Steel_Truss_Bridge_Warren_1.Name = "tsmi_Steel_Truss_Bridge_Warren_1";
-            this.tsmi_Steel_Truss_Bridge_Warren_1.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Steel_Truss_Bridge_Warren_1.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Steel_Truss_Bridge_Warren_1.Text = "Steel Truss Bridge Warren 1";
             this.tsmi_Steel_Truss_Bridge_Warren_1.Click += new System.EventHandler(this.tsmi_Steel_Truss_Bridge_Warren_Click);
             // 
@@ -1239,40 +1151,40 @@
             // tsmi_Steel_Truss_Bridge_Warren_2
             // 
             this.tsmi_Steel_Truss_Bridge_Warren_2.Name = "tsmi_Steel_Truss_Bridge_Warren_2";
-            this.tsmi_Steel_Truss_Bridge_Warren_2.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Steel_Truss_Bridge_Warren_2.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Steel_Truss_Bridge_Warren_2.Text = "Steel Truss Bridge Warren 2";
             this.tsmi_Steel_Truss_Bridge_Warren_2.Click += new System.EventHandler(this.tsmi_Steel_Truss_Bridge_Warren_Click);
             // 
             // tsmi_Steel_Truss_Bridge_Warren_3
             // 
             this.tsmi_Steel_Truss_Bridge_Warren_3.Name = "tsmi_Steel_Truss_Bridge_Warren_3";
-            this.tsmi_Steel_Truss_Bridge_Warren_3.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Steel_Truss_Bridge_Warren_3.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Steel_Truss_Bridge_Warren_3.Text = "Steel Truss Bridge Warren 3";
             this.tsmi_Steel_Truss_Bridge_Warren_3.Click += new System.EventHandler(this.tsmi_Steel_Truss_Bridge_Warren_Click);
             // 
             // tsmi_Steel_Truss_Bridge_K_Type
             // 
             this.tsmi_Steel_Truss_Bridge_K_Type.Name = "tsmi_Steel_Truss_Bridge_K_Type";
-            this.tsmi_Steel_Truss_Bridge_K_Type.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Steel_Truss_Bridge_K_Type.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Steel_Truss_Bridge_K_Type.Text = "Steel Truss Bridge K Type";
             this.tsmi_Steel_Truss_Bridge_K_Type.Click += new System.EventHandler(this.tsmi_Steel_Truss_Bridge_Warren_Click);
             // 
             // toolStripSeparator14
             // 
             this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator14.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_arch_cable_bridge
             // 
             this.tsmi_arch_cable_bridge.Name = "tsmi_arch_cable_bridge";
-            this.tsmi_arch_cable_bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_arch_cable_bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_arch_cable_bridge.Text = "Arch Cable Suspension Bridge ";
             this.tsmi_arch_cable_bridge.Click += new System.EventHandler(this.tsmi_arch_cable_bridge_Click);
             // 
             // tsmi_arch_steel_bridge
             // 
             this.tsmi_arch_steel_bridge.Name = "tsmi_arch_steel_bridge";
-            this.tsmi_arch_steel_bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_arch_steel_bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_arch_steel_bridge.Text = "Arch Steel Suspension Bridge";
             this.tsmi_arch_steel_bridge.Visible = false;
             this.tsmi_arch_steel_bridge.Click += new System.EventHandler(this.tsmi_arch_cable_bridge_Click);
@@ -1280,19 +1192,19 @@
             // tsmi_cable_suspension_bridge
             // 
             this.tsmi_cable_suspension_bridge.Name = "tsmi_cable_suspension_bridge";
-            this.tsmi_cable_suspension_bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_cable_suspension_bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_cable_suspension_bridge.Text = "Cable Suspension Bridge";
             this.tsmi_cable_suspension_bridge.Click += new System.EventHandler(this.tsmi_cable_suspension_bridge_Click);
             // 
             // toolStripSeparator21
             // 
             this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator21.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_cable_stayed_bridge
             // 
             this.tsmi_cable_stayed_bridge.Name = "tsmi_cable_stayed_bridge";
-            this.tsmi_cable_stayed_bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_cable_stayed_bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_cable_stayed_bridge.Text = "Cable Stayed Bridge";
             this.tsmi_cable_stayed_bridge.Click += new System.EventHandler(this.tsmi_cable_stayed_bridge_Click);
             // 
@@ -1302,7 +1214,7 @@
             this.tsmi_extradossed_side_towers,
             this.tsmi_extradossed_central_towers});
             this.tsmi_extradossed.Name = "tsmi_extradossed";
-            this.tsmi_extradossed.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_extradossed.Size = new System.Drawing.Size(385, 22);
             this.tsmi_extradossed.Text = "Extradossed Cable Stayed Bridge";
             // 
             // tsmi_extradossed_side_towers
@@ -1322,12 +1234,12 @@
             // toolStripSeparator15
             // 
             this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator15.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_Rail_Bridge
             // 
             this.tsmi_Rail_Bridge.Name = "tsmi_Rail_Bridge";
-            this.tsmi_Rail_Bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Rail_Bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Rail_Bridge.Text = "Railway Steel Plate Girder Bridge";
             this.tsmi_Rail_Bridge.Click += new System.EventHandler(this.tsmi_Rail_Bridge_Click);
             // 
@@ -1337,7 +1249,7 @@
             this.tsmi_road_box_pushed_underpass,
             this.tsmi_rail_box_pushed_underpass});
             this.tsmi_Underpass.Name = "tsmi_Underpass";
-            this.tsmi_Underpass.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Underpass.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Underpass.Text = "RCC Box Underpass";
             // 
             // tsmi_road_box_pushed_underpass
@@ -1357,14 +1269,14 @@
             // tsmi_GADs_Underpasses
             // 
             this.tsmi_GADs_Underpasses.Name = "tsmi_GADs_Underpasses";
-            this.tsmi_GADs_Underpasses.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_GADs_Underpasses.Size = new System.Drawing.Size(385, 22);
             this.tsmi_GADs_Underpasses.Text = "GADs for Other Underpasses";
             this.tsmi_GADs_Underpasses.Click += new System.EventHandler(this.tsmi_Underpass_Click);
             // 
             // toolStripSeparator20
             // 
             this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator20.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_minor_Bridge
             // 
@@ -1372,7 +1284,7 @@
             this.tsmi_minor_Bridge_ls,
             this.tsmi_minor_Bridge_ws});
             this.tsmi_minor_Bridge.Name = "tsmi_minor_Bridge";
-            this.tsmi_minor_Bridge.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_minor_Bridge.Size = new System.Drawing.Size(385, 22);
             this.tsmi_minor_Bridge.Text = "Minor Bridge / RCC Slab Bridge";
             // 
             // tsmi_minor_Bridge_ls
@@ -1392,7 +1304,7 @@
             // toolStripSeparator19
             // 
             this.toolStripSeparator19.Name = "toolStripSeparator19";
-            this.toolStripSeparator19.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator19.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_RCC_Culverts
             // 
@@ -1400,18 +1312,32 @@
             this.tsmi_RCC_Culverts_LS,
             this.tsmi_RCC_Culverts_WS});
             this.tsmi_RCC_Culverts.Name = "tsmi_RCC_Culverts";
-            this.tsmi_RCC_Culverts.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_RCC_Culverts.Size = new System.Drawing.Size(385, 22);
             this.tsmi_RCC_Culverts.Text = "RCC Culverts Design";
+            // 
+            // tsmi_RCC_Culverts_LS
+            // 
+            this.tsmi_RCC_Culverts_LS.Name = "tsmi_RCC_Culverts_LS";
+            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method";
+            this.tsmi_RCC_Culverts_LS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
+            // 
+            // tsmi_RCC_Culverts_WS
+            // 
+            this.tsmi_RCC_Culverts_WS.Name = "tsmi_RCC_Culverts_WS";
+            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_Culverts_WS.Text = "Working Stress Method";
+            this.tsmi_RCC_Culverts_WS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
             // toolStripSeparator16
             // 
             this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator16.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_Bridge_Abutment_Design
             // 
             this.tsmi_Bridge_Abutment_Design.Name = "tsmi_Bridge_Abutment_Design";
-            this.tsmi_Bridge_Abutment_Design.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Bridge_Abutment_Design.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Bridge_Abutment_Design.Text = "Bridge Abutment Design";
             this.tsmi_Bridge_Abutment_Design.Click += new System.EventHandler(this.tsmi_Bridge_Abutment_Design_Click);
             // 
@@ -1425,7 +1351,7 @@
             this.tsmi_pier_4,
             this.tsmi_pier_5});
             this.tsmi_Bridge_Pier_Design.Name = "tsmi_Bridge_Pier_Design";
-            this.tsmi_Bridge_Pier_Design.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Bridge_Pier_Design.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Bridge_Pier_Design.Text = "Bridge Pier Design";
             // 
             // tsmi_pier_1
@@ -1473,7 +1399,7 @@
             // tsmi_Bridge_Pier_Pile_Design
             // 
             this.tsmi_Bridge_Pier_Pile_Design.Name = "tsmi_Bridge_Pier_Pile_Design";
-            this.tsmi_Bridge_Pier_Pile_Design.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Bridge_Pier_Pile_Design.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Bridge_Pier_Pile_Design.Text = "Bridge Pier Design with Piles";
             this.tsmi_Bridge_Pier_Pile_Design.Visible = false;
             this.tsmi_Bridge_Pier_Pile_Design.Click += new System.EventHandler(this.tsmi_Bridge_Pier_Pile_Design_Click);
@@ -1481,12 +1407,12 @@
             // toolStripSeparator17
             // 
             this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator17.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_RE_Wall_Design
             // 
             this.tsmi_RE_Wall_Design.Name = "tsmi_RE_Wall_Design";
-            this.tsmi_RE_Wall_Design.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_RE_Wall_Design.Size = new System.Drawing.Size(385, 22);
             this.tsmi_RE_Wall_Design.Text = "RE (Reinforced Earth) Wall Design";
             this.tsmi_RE_Wall_Design.Visible = false;
             this.tsmi_RE_Wall_Design.Click += new System.EventHandler(this.tsmi_RE_Wall_Design_Click);
@@ -1494,33 +1420,33 @@
             // tsmi_Bridge_Bearing_Design
             // 
             this.tsmi_Bridge_Bearing_Design.Name = "tsmi_Bridge_Bearing_Design";
-            this.tsmi_Bridge_Bearing_Design.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Bridge_Bearing_Design.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Bridge_Bearing_Design.Text = "Bridge Bearing Design";
             this.tsmi_Bridge_Bearing_Design.Click += new System.EventHandler(this.bridgeBearingDesignToolStripMenuItem_Click);
             // 
             // tsmi_Bridge_Foundation
             // 
             this.tsmi_Bridge_Foundation.Name = "tsmi_Bridge_Foundation";
-            this.tsmi_Bridge_Foundation.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Bridge_Foundation.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Bridge_Foundation.Text = "Bridge Foundation Design";
             this.tsmi_Bridge_Foundation.Click += new System.EventHandler(this.tsmi_Bridge_Foundation_Click);
             // 
             // toolStripSeparator18
             // 
             this.toolStripSeparator18.Name = "toolStripSeparator18";
-            this.toolStripSeparator18.Size = new System.Drawing.Size(476, 6);
+            this.toolStripSeparator18.Size = new System.Drawing.Size(382, 6);
             // 
             // tsmi_Hydraulic_Calculations
             // 
             this.tsmi_Hydraulic_Calculations.Name = "tsmi_Hydraulic_Calculations";
-            this.tsmi_Hydraulic_Calculations.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Hydraulic_Calculations.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Hydraulic_Calculations.Text = "Hydraulic Calculations";
             this.tsmi_Hydraulic_Calculations.Click += new System.EventHandler(this.hYDRAULICCALCULATIONSToolStripMenuItem_Click);
             // 
             // tsmi_Material_Properties1
             // 
             this.tsmi_Material_Properties1.Name = "tsmi_Material_Properties1";
-            this.tsmi_Material_Properties1.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_Material_Properties1.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Material_Properties1.Text = "Material Properties";
             this.tsmi_Material_Properties1.Visible = false;
             this.tsmi_Material_Properties1.Click += new System.EventHandler(this.tsmi_Material_Properties_Click);
@@ -1528,7 +1454,7 @@
             // tsmi_CostEstimation
             // 
             this.tsmi_CostEstimation.Name = "tsmi_CostEstimation";
-            this.tsmi_CostEstimation.Size = new System.Drawing.Size(479, 22);
+            this.tsmi_CostEstimation.Size = new System.Drawing.Size(385, 22);
             this.tsmi_CostEstimation.Text = "Cost Estimation";
             this.tsmi_CostEstimation.Click += new System.EventHandler(this.tsmi_CostEstimation_Click);
             // 
@@ -2256,20 +2182,6 @@
             this.btn_SendMail.UseVisualStyleBackColor = true;
             this.btn_SendMail.Click += new System.EventHandler(this.btn_SendMail_Click);
             // 
-            // tsmi_RCC_Culverts_LS
-            // 
-            this.tsmi_RCC_Culverts_LS.Name = "tsmi_RCC_Culverts_LS";
-            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(197, 22);
-            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method";
-            this.tsmi_RCC_Culverts_LS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
-            // 
-            // tsmi_RCC_Culverts_WS
-            // 
-            this.tsmi_RCC_Culverts_WS.Name = "tsmi_RCC_Culverts_WS";
-            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(197, 22);
-            this.tsmi_RCC_Culverts_WS.Text = "Working Stress Method";
-            this.tsmi_RCC_Culverts_WS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2379,9 +2291,6 @@
         private System.Windows.Forms.ToolStripMenuItem axialLoadBiAxialMomentToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem isolatedFootingToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem combinedFootingToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_Pre_Stressed_Bridge;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_TBeam_WS;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_Composit_Bridge;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Rail_Bridge;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Abutment_Design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Foundation;
@@ -2420,16 +2329,12 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_Section_Properties;
         private System.Windows.Forms.Timer tmr;
         private System.Windows.Forms.ToolStripMenuItem tsmi_ll_data;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_I_Girder_LongSpan;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_I_Girder_ShortSpan;
         private System.Windows.Forms.ToolStripMenuItem tsmi_videos;
         private System.Windows.Forms.ToolStripMenuItem tsmi_open_work_folder;
         private System.Windows.Forms.ToolStripMenuItem tsmi_RE_Wall_Design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_cont_PSC_Box_Girder_Bridge;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_TBeam_LS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_I_Girder_Bridge_LS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
@@ -2438,7 +2343,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_Composit_Bridge_LS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
         private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Steel_Truss_Bridge_K_Type;
@@ -2452,7 +2356,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Pier_Pile_Design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_streamHydrology;
         private System.Windows.Forms.ToolStripMenuItem tsmi_viewInputData;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_PSC_I_GIRDER_Program;
         private System.Windows.Forms.ToolStripMenuItem tsmi_send_mail;
         private System.Windows.Forms.ToolStripMenuItem tsmi_viewAnalysisASTFile;
         private System.Windows.Forms.ToolStripMenuItem tsmi_processAnalysisASTFile;

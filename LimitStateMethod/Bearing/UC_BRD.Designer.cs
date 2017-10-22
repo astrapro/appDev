@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbc1 = new System.Windows.Forms.TabControl();
             this.tab_FRCS = new System.Windows.Forms.TabPage();
             this.label419 = new System.Windows.Forms.Label();
@@ -676,6 +676,9 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_reactions = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label392 = new System.Windows.Forms.Label();
             this.txt_Introduction_G23 = new System.Windows.Forms.TextBox();
@@ -728,9 +731,6 @@
             this.btn_VBAB_drawings = new System.Windows.Forms.Button();
             this.btn_VMABL_drawings = new System.Windows.Forms.Button();
             this.btn_VMABT_drawings = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbc1.SuspendLayout();
             this.tab_FRCS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_rotation)).BeginInit();
@@ -811,14 +811,14 @@
             // dgv_rotation
             // 
             this.dgv_rotation.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_rotation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_rotation.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgv_rotation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_rotation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -842,57 +842,57 @@
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn2.HeaderText = "TX";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn3.HeaderText = "TY";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn4.HeaderText = "TZ";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle31;
             this.dataGridViewTextBoxColumn5.HeaderText = "RX";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewTextBoxColumn6.HeaderText = "RY";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle33;
             this.dataGridViewTextBoxColumn7.HeaderText = "RZ";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // dgv_forces
             // 
             this.dgv_forces.AllowUserToAddRows = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dgv_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column10,
@@ -915,22 +915,22 @@
             // 
             // Column11
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column11.DefaultCellStyle = dataGridViewCellStyle35;
             this.Column11.HeaderText = "Vertical Load (Ton)";
             this.Column11.Name = "Column11";
             // 
             // Column12
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column12.DefaultCellStyle = dataGridViewCellStyle36;
             this.Column12.HeaderText = "Trans. Horizontal Force (Ton)";
             this.Column12.Name = "Column12";
             // 
             // Column13
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column13.DefaultCellStyle = dataGridViewCellStyle37;
             this.Column13.HeaderText = "Long Horizontal Force (Ton)";
             this.Column13.Name = "Column13";
             // 
@@ -7182,19 +7182,41 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_reactions.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_reactions.DefaultCellStyle = dataGridViewCellStyle39;
             this.dgv_reactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_reactions.Location = new System.Drawing.Point(3, 17);
             this.dgv_reactions.Name = "dgv_reactions";
             this.dgv_reactions.Size = new System.Drawing.Size(484, 389);
             this.dgv_reactions.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle38;
+            this.Column1.HeaderText = "Joint Nos.";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 270;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Joint 1";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 70;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Joint 2";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 70;
             // 
             // groupBox1
             // 
@@ -7727,28 +7749,6 @@
             this.btn_VMABT_drawings.UseVisualStyleBackColor = true;
             this.btn_VMABT_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
             // 
-            // Column1
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column1.HeaderText = "Joint Nos.";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 270;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Joint 1";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 70;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Joint 2";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 70;
-            // 
             // UC_BRD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -7826,11 +7826,9 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txt_1_Hings;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txt_1_Hingn;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_1_Hlts;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txt_1_Hlatn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_1_elong;
         private System.Windows.Forms.Label label8;
@@ -7840,8 +7838,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txt_1_theta_p;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_1_Nmin;
-        private System.Windows.Forms.TextBox txt_1_Nnorm;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_1_Nmax;
         private System.Windows.Forms.Label label3;
@@ -8074,11 +8070,9 @@
         private System.Windows.Forms.Label label185;
         private System.Windows.Forms.Label label186;
         private System.Windows.Forms.Label label187;
-        private System.Windows.Forms.TextBox txt_VFB_1_Nnorm;
         private System.Windows.Forms.Label label188;
         private System.Windows.Forms.Label label189;
         private System.Windows.Forms.TextBox txt_VFB_2_he;
-        private System.Windows.Forms.TextBox txt_VFB_1_Nmin;
         private System.Windows.Forms.TextBox txt_VFB_2_di;
         private System.Windows.Forms.Label label190;
         private System.Windows.Forms.Label label191;
@@ -8094,12 +8088,10 @@
         private System.Windows.Forms.TextBox txt_VFB_1_theta;
         private System.Windows.Forms.Label label197;
         private System.Windows.Forms.Label label198;
-        private System.Windows.Forms.TextBox txt_VFB_1_Hingn;
         private System.Windows.Forms.TextBox txt_VFB_1_elong;
         private System.Windows.Forms.Label label199;
         private System.Windows.Forms.Label label200;
         private System.Windows.Forms.TextBox txt_VFB_1_Hlts;
-        private System.Windows.Forms.TextBox txt_VFB_1_Hlatn;
         private System.Windows.Forms.Label label201;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btn_VFB_report;
@@ -8112,7 +8104,6 @@
         private System.Windows.Forms.TextBox txt_VBAB_3_fy;
         private System.Windows.Forms.Label label132;
         private System.Windows.Forms.Label label134;
-        private System.Windows.Forms.TextBox txt_VBAB_1_Hlatn;
         private System.Windows.Forms.TextBox txt_VBAB_3_fck;
         private System.Windows.Forms.TextBox txt_VBAB_1_Hlts;
         private System.Windows.Forms.Label label139;
@@ -8121,7 +8112,6 @@
         private System.Windows.Forms.Label label141;
         private System.Windows.Forms.Label label142;
         private System.Windows.Forms.TextBox txt_VBAB_1_elong;
-        private System.Windows.Forms.TextBox txt_VBAB_1_Hingn;
         private System.Windows.Forms.Label label144;
         private System.Windows.Forms.Label label166;
         private System.Windows.Forms.TextBox txt_VBAB_1_theta;
@@ -8146,7 +8136,6 @@
         private System.Windows.Forms.Label label223;
         private System.Windows.Forms.TextBox txt_VBAB_2_di;
         private System.Windows.Forms.Label label224;
-        private System.Windows.Forms.TextBox txt_VBAB_1_Nmin;
         private System.Windows.Forms.Label label225;
         private System.Windows.Forms.TextBox txt_VBAB_2_he;
         private System.Windows.Forms.TextBox txt_VBAB_2_bottom_L;
@@ -8154,7 +8143,6 @@
         private System.Windows.Forms.Label label227;
         private System.Windows.Forms.Label label228;
         private System.Windows.Forms.TextBox txt_VBAB_2_bottom_D;
-        private System.Windows.Forms.TextBox txt_VBAB_1_Nnorm;
         private System.Windows.Forms.Label label229;
         private System.Windows.Forms.Label label230;
         private System.Windows.Forms.TextBox txt_VBAB_2_top_bc;
@@ -8265,7 +8253,6 @@
         private System.Windows.Forms.TextBox txt_VMABL_3_fy;
         private System.Windows.Forms.Label label271;
         private System.Windows.Forms.Label label272;
-        private System.Windows.Forms.TextBox txt_VMABL_1_Hlatn;
         private System.Windows.Forms.TextBox txt_VMABL_3_fck;
         private System.Windows.Forms.TextBox txt_VMABL_1_Hlts;
         private System.Windows.Forms.Label label279;
@@ -8275,7 +8262,6 @@
         private System.Windows.Forms.Label label297;
         private System.Windows.Forms.TextBox txt_VMABL_1_elong;
         private System.Windows.Forms.TextBox txt_VMABL_3_8_bot_sigma_bq_perm;
-        private System.Windows.Forms.TextBox txt_VMABL_1_Hingn;
         private System.Windows.Forms.TextBox txt_VMABL_3_8_bot_mu;
         private System.Windows.Forms.Label label298;
         private System.Windows.Forms.Label label299;
@@ -8307,7 +8293,6 @@
         private System.Windows.Forms.Label label319;
         private System.Windows.Forms.TextBox txt_VMABL_2_di;
         private System.Windows.Forms.Label label320;
-        private System.Windows.Forms.TextBox txt_VMABL_1_Nmin;
         private System.Windows.Forms.Label label321;
         private System.Windows.Forms.TextBox txt_VMABL_2_he;
         private System.Windows.Forms.TextBox txt_VMABL_2_bottom_L;
@@ -8315,7 +8300,6 @@
         private System.Windows.Forms.Label label323;
         private System.Windows.Forms.Label label324;
         private System.Windows.Forms.TextBox txt_VMABL_2_bottom_D;
-        private System.Windows.Forms.TextBox txt_VMABL_1_Nnorm;
         private System.Windows.Forms.Label label325;
         private System.Windows.Forms.Label label326;
         private System.Windows.Forms.TextBox txt_VMABL_2_top_bc;
@@ -8483,5 +8467,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        public System.Windows.Forms.TextBox txt_1_Hingn;
+        public System.Windows.Forms.TextBox txt_1_Hlatn;
+        public System.Windows.Forms.TextBox txt_1_Nmin;
+        public System.Windows.Forms.TextBox txt_1_Nnorm;
+        public System.Windows.Forms.TextBox txt_VFB_1_Nnorm;
+        public System.Windows.Forms.TextBox txt_VFB_1_Nmin;
+        public System.Windows.Forms.TextBox txt_VFB_1_Hingn;
+        public System.Windows.Forms.TextBox txt_VBAB_1_Hlatn;
+        public System.Windows.Forms.TextBox txt_VBAB_1_Hingn;
+        public System.Windows.Forms.TextBox txt_VBAB_1_Nmin;
+        public System.Windows.Forms.TextBox txt_VBAB_1_Nnorm;
+        public System.Windows.Forms.TextBox txt_VMABL_1_Hlatn;
+        public System.Windows.Forms.TextBox txt_VMABL_1_Hingn;
+        public System.Windows.Forms.TextBox txt_VMABL_1_Nmin;
+        public System.Windows.Forms.TextBox txt_VMABL_1_Nnorm;
+        public System.Windows.Forms.TextBox txt_VFB_1_Hlatn;
     }
 }

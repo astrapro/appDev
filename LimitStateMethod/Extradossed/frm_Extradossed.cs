@@ -4800,6 +4800,9 @@ namespace LimitStateMethod.Extradossed
 
             uC_BoxGirder1.iApp = iApp;
 
+            uC_AbutmentPileLS1.SetIApplication(iApp);
+            uC_PierDesignLSM1.iApp = iApp;
+            uC_PierOpenLS1.SetIApplication(iApp);
 
             #region Add Limit State Method Live Loads
 
