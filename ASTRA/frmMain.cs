@@ -1052,7 +1052,19 @@ namespace AstraFunctionOne
                 }
                 run_file = exeFileName;
                 if (Path.GetExtension(exeFileName).ToLower() == ".exe")
-                    RunThread();
+                {
+                    if (Path.GetFileNameWithoutExtension(exeFileName).ToUpper() == "STREAMHYDROLOGY")
+                    {
+                        Environment.SetEnvironmentVariable("AP_WORK_DIR", LastDesignWorkingFolder);
+                        run_file = Path.Combine(Application.StartupPath, "Stream Hydrology\\HydrologyWorkspace.exe");
+                        System.Diagnostics.Process.Start(run_file);
+                    }
+                    else
+                    {
+                        RunThread();
+                    }
+
+                }
                 else
                 {
                     System.Diagnostics.Process.Start(exeFileName);
@@ -5104,6 +5116,10 @@ namespace AstraFunctionOne
         public Form Form_ASTRA_TEXT_Data(string file_name, bool IsDrawingFile)
         {
             return AstraAccess.ViewerFunctions.Form_ASTRA_TEXT_Input_Data(file_name, IsDrawingFile);
+        }
+        public Form Form_ASTRA_TEXT_Data(string file_name)
+        {
+            return AstraAccess.ViewerFunctions.Form_ASTRA_TEXT_Input_Data(this, file_name, false);
         }
 
         public Form Form_ASTRA_Input_Data(string file_name, bool IsDrawingFile)

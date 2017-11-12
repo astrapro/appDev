@@ -103,6 +103,12 @@
     <Compile Include="ADOC\UC_CAD.Designer.cs">
       <DependentUpon>UC_CAD.cs</DependentUpon>
     </Compile>
+    <Compile Include="ADOC\UC_Orthotropic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ADOC\UC_Orthotropic.Designer.cs">
+      <DependentUpon>UC_Orthotropic.cs</DependentUpon>
+    </Compile>
     <Compile Include="DrawingWorkspace\frmDrawingsEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +150,12 @@
     </Compile>
     <Compile Include="Footing\frm_RaftFoundation.Designer.cs">
       <DependentUpon>frm_RaftFoundation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOrthotropicEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrthotropicEditor.Designer.cs">
+      <DependentUpon>frmOrthotropicEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -293,6 +305,9 @@
     <EmbeddedResource Include="ADOC\UC_CAD.resx">
       <DependentUpon>UC_CAD.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ADOC\UC_Orthotropic.resx">
+      <DependentUpon>UC_Orthotropic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DrawingWorkspace\frmDrawingsEditor.resx">
       <DependentUpon>frmDrawingsEditor.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,6 +319,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Footing\frm_RaftFoundation.resx">
       <DependentUpon>frm_RaftFoundation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrthotropicEditor.resx">
+      <DependentUpon>frmOrthotropicEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSAP_Editor.resx">
       <DependentUpon>frmSAP_Editor.cs</DependentUpon>

@@ -103,6 +103,12 @@
     <Compile Include="CableStayed\frmCableStayed_LS.Designer.cs">
       <DependentUpon>frmCableStayed_LS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Composite\frmCompositeResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Composite\frmCompositeResults.Designer.cs">
+      <DependentUpon>frmCompositeResults.cs</DependentUpon>
+    </Compile>
     <Compile Include="Composite\frm_CompositeLSM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CableStayed\frmCableStayed_LS.resx">
       <DependentUpon>frmCableStayed_LS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Composite\frmCompositeResults.resx">
+      <DependentUpon>frmCompositeResults.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Composite\frm_CompositeLSM.resx">
       <DependentUpon>frm_CompositeLSM.cs</DependentUpon>

@@ -53,6 +53,12 @@ namespace AstraAccess
             frm_ASTRA_Inputs frm = new frm_ASTRA_Inputs(file_name, IsDrawingFile);
             return frm;
         }
+        public static Form Form_ASTRA_TEXT_Input_Data(IApplication app, string file_name, bool IsDrawingFile)
+        {
+            frm_ASTRA_Inputs frm = new frm_ASTRA_Inputs(file_name, IsDrawingFile);
+            frm.Set_SAP_Data(new frm_ASTRA_Inputs.dWrite_Data_to_File(app.Write_Data_to_File));
+            return frm;
+        }
         public static Form Form_ASTRA_Structure_Input_Data(string working_folder, bool IsDrawingFile)
         {
             frm_StructureDesign frm = new frm_StructureDesign();
@@ -134,6 +140,12 @@ namespace AstraAccess
         public static Form Form_EigenValueAnalysis(IApplication app)
         {
             AstraAccess.DynamicAnalysis.frmEigenValueAnalysis frm = new AstraAccess.DynamicAnalysis.frmEigenValueAnalysis(app);
+            //AstraAccess.DynamicAnalysis.frmDynamicAnalysis frm = new AstraAccess.DynamicAnalysis.frmDynamicAnalysis(app, projType);
+            return frm;
+        }
+        public static Form Form_OrthotropicEditor(IApplication app)
+        {
+            AstraAccess.frmOrthotropicEditor frm = new AstraAccess.frmOrthotropicEditor(app);
             //AstraAccess.DynamicAnalysis.frmDynamicAnalysis frm = new AstraAccess.DynamicAnalysis.frmDynamicAnalysis(app, projType);
             return frm;
         }

@@ -1860,12 +1860,12 @@ namespace BridgeAnalysisDesign.RE_Wall
 
 
             list.Add(string.Format("    = Dp * γ1_max * L * Fp"));
-            list.Add(string.Format("    = {0:f3} * {1:f3} * {2:f3} * {3:f3}", Dp, gama1_min, L, Fp));
+            list.Add(string.Format("    = {0:f3} * {1:f3} * {2:f3} * {3:f3}", Dp, gama1_max, L, Fp));
             list.Add(string.Format("    = {0:f3} kN/m", Wrc));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
 
-            double Wm_c = (Hm - H2) * gama1_max * L * Fp;
+            double Wm_c = (Hm - H2) * gama1_min * L * Fp;
 
 
             list.Add(string.Format("Wm (c) = Weight of  backfill mass retained by RE Wall"));
@@ -1876,7 +1876,8 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             Fp = 0.0;
-            list.Add(string.Format("Fp = 0.0 = Partial safety Factor for Loads"));
+            //list.Add(string.Format("Fp = 0.0 = Partial safety Factor for Loads"));
+            list.Add(string.Format("Fp = {0:f1} = Partial safety Factor for Loads", Fp));
             list.Add(string.Format(""));
 
             list.Add("");
@@ -1898,7 +1899,8 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             list.Add(string.Format(""));
             Fp = 1.0;
-            list.Add(string.Format("Fp = 1.0 = Partial safety Factor for Loads"));
+            //list.Add(string.Format("Fp = 1.0 = Partial safety Factor for Loads"));
+            list.Add(string.Format("Fp = {0:f1} = Partial safety Factor for Loads", Fp));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add(string.Format("Pv (c) = Vertical Component of Earth Pressure by backfill mass retained by RE Wall"));
@@ -1906,7 +1908,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             double Pv_c = K2 * 0.5 * gama2 * Hm * Hm * Math.Sin(_delta) * Fp;
             list.Add(string.Format("       = K2 * 0.5 * γ2 * Hm^2 * Sin δ * Fp"));
-            list.Add(string.Format("       = {0:f3} * 0.5 * {1:f3} * {2:f3}^2 * Sin {3:f3} * 1.5", K2, gama2, Hm, delta));
+            list.Add(string.Format("       = {0:f3} * 0.5 * {1:f3} * {2:f3}^2 * Sin {3:f3} * 1.0", K2, gama2, Hm, delta));
             list.Add(string.Format("       = {0:f3} kN/m", Pv_c));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
@@ -1915,7 +1917,8 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add("----------------------");
             list.Add("");
             Fp = 0.0;
-            list.Add(string.Format("Fp = 0.0 = Partial safety Factor for Loads"));
+            //list.Add(string.Format("Fp = 0.0 = Partial safety Factor for Loads"));
+            list.Add(string.Format("Fp = {0:f1} = Partial safety Factor for Loads", Fp));
             list.Add(string.Format(""));
             list.Add(string.Format("Pqh (C) = Horizontal Component of pressure by Surcharge on Backfill mass retained by RE Wall"));
             double Pq_h_c = (K2 * q) * Hm * Math.Cos(_delta) * Fp;
@@ -1928,7 +1931,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             Fp = 1.0;
-            list.Add(string.Format("Fp = 0.0 = Partial safety Factor for Loads"));
+            list.Add(string.Format("Fp = {0:f1} = Partial safety Factor for Loads", Fp));
             list.Add(string.Format(""));
             list.Add(string.Format("Ph (C) = Horizontal Component of Earth Pressure by backfill mass"));
             list.Add(string.Format(""));
@@ -4047,7 +4050,8 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             double val1, val2;
 
-            val1 = (1.2 - L / H1) * phi2;
+            val1 = (1.2 - L / Hm) * phi2;
+            //val1 = (1.2 - L / H1) * phi2;
             val2 = 0.8 * (1 - 0.7 * L / Hm) * phi1;
             double delta = val2;
 
@@ -4056,7 +4060,14 @@ namespace BridgeAnalysisDesign.RE_Wall
             strip_sec.delta = delta;
 
 
-            list.Add(string.Format(" δ = (1.2 - L/Hm) x φ2   OR 0.8 x (1- 0.7 x L/Hm) x φ1  (for B = {0}°) ", B));
+            list.Add(string.Format(" δ = (1.2 - L/Hm) x φ2   OR 0.8 x (1- 0.7 x L/Hm) x φ1  (for B = {0}°,  Hm = H1+H2 = {1}+{2}={3}) ", B, H1, H2, Hm));
+
+            list.Add(string.Format("   = (1.2 - {0}/{1}) x {2}", L, Hm, phi2));
+            list.Add(string.Format("   = {0:f3}", val1));
+            list.Add("");
+            list.Add(string.Format("      OR "));
+            list.Add("");
+
             list.Add(string.Format("   = 0.8 x (1- 0.7 x {0}/{1}) x {2}", L, Hm, phi1));
             list.Add(string.Format("   = 0.8 x (1- {0:f4}) x {1}", (0.7 * L / Hm), phi1));
             list.Add(string.Format("   = {0:f4} ", delta));

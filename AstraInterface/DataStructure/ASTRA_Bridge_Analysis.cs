@@ -963,6 +963,10 @@ namespace AstraInterface.DataStructure
         {
             return StringToDouble(txt.Text, defaultValue);
         }
+        public static double StringToDouble(TextBox txt)
+        {
+            return StringToDouble(txt.Text, 0.0);
+        }
 
         public static double StringToDouble(string s, double defaultValue)
         {

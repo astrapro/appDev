@@ -715,9 +715,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
         private void frm_RCC_Culvert_Load(object sender, EventArgs e)
         {
 
-            tc_box.TabPages.Remove(tab_single_cell);
-
-
+            //tc_box.TabPages.Remove(tab_single_cell);
 
             tc_multicell.TabPages.Remove(tab_box_design);
 
@@ -2756,6 +2754,13 @@ namespace BridgeAnalysisDesign.RCC_Culvert
         }
 
         #endregion Chiranjit [2016 09 07]
+
+        private void cmb_mcb_cell_nos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt_mcb_bar_intermediate.Enabled = cmb_mcb_cell_nos.SelectedIndex != 0;
+            txt_mcb_d4.Enabled = cmb_mcb_cell_nos.SelectedIndex != 0;
+
+        }
 
 
 

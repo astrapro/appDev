@@ -116,6 +116,7 @@ namespace AstraInterface.Interface
 
 
         Form Form_ASTRA_TEXT_Data(string file_name, bool IsDrawingFile);
+        Form Form_ASTRA_TEXT_Data(string file_name);
         Form Form_ASTRA_Input_Data(string file_name, bool IsDrawingFile);
 
         Form Form_ASTRA_Analysis_Process(string file_name, bool IsMoving_Load);

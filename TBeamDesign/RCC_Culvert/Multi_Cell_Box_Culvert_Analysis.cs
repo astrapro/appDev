@@ -2538,10 +2538,14 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                     "Thickness of Side Walls = d3",
                     d3,
                     "m");
-                sw.WriteLine("{0} = {1:f3} {2} ",
-                    "Thickness of Intermediate Walls = d4",
-                    d4,
-                    "m");
+
+                if (Cell_Nos > 1)
+                {
+                    sw.WriteLine("{0} = {1:f3} {2} ",
+                        "Thickness of Intermediate Walls = d4",
+                        d4,
+                        "m");
+                }
                 sw.WriteLine();
                 sw.WriteLine("{0} = {1:f3} {2}",
                     "Unit weight of Earth = γ_b",
@@ -2582,11 +2586,14 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                     "Side Bar Diameter  = bar_dia_side",
                     bar_dia_side,
                     "mm");
-                sw.WriteLine("{0} = {1} {2}",
-                    "Intermediate Bar Diameter  = bar_dia_intermediate",
-                    bar_dia_intermediate,
-                    "mm");
 
+                if (Cell_Nos > 1)
+                {
+                    sw.WriteLine("{0} = {1} {2}",
+                        "Intermediate Bar Diameter  = bar_dia_intermediate",
+                        bar_dia_intermediate,
+                        "mm");
+                }
 
                 sw.WriteLine();
                 sw.WriteLine("{0} = {1} {2}",

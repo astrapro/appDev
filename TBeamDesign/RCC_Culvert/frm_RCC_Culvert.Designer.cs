@@ -132,6 +132,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.pic_box = new System.Windows.Forms.PictureBox();
             this.txt_box_R = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txt_box_gamma_c = new System.Windows.Forms.TextBox();
@@ -154,6 +155,7 @@
             this.tc_multicell = new System.Windows.Forms.TabControl();
             this.tab_box_input = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_mc_box_new_design = new System.Windows.Forms.Button();
             this.btn_mc_box_browse = new System.Windows.Forms.Button();
             this.pnl_cs = new System.Windows.Forms.Panel();
@@ -379,6 +381,8 @@
             this.label224 = new System.Windows.Forms.Label();
             this.label176 = new System.Windows.Forms.Label();
             this.label168 = new System.Windows.Forms.Label();
+            this.pcb_mcb_1 = new System.Windows.Forms.PictureBox();
+            this.pcb_mcb_2 = new System.Windows.Forms.PictureBox();
             this.tab_box_analysis = new System.Windows.Forms.TabPage();
             this.pnl_cid = new System.Windows.Forms.Panel();
             this.btn_mcb_save_data = new System.Windows.Forms.Button();
@@ -525,6 +529,7 @@
             this.label87 = new System.Windows.Forms.Label();
             this.txt_D = new System.Windows.Forms.TextBox();
             this.label88 = new System.Windows.Forms.Label();
+            this.pic_slab = new System.Windows.Forms.PictureBox();
             this.tab_pipe_culvert = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_pipe_new_design = new System.Windows.Forms.Button();
@@ -579,6 +584,8 @@
             this.label39 = new System.Windows.Forms.Label();
             this.btn_pipe_Process = new System.Windows.Forms.Button();
             this.btn_pipe_Report = new System.Windows.Forms.Button();
+            this.pic_pipe1 = new System.Windows.Forms.PictureBox();
+            this.pic_pipe2 = new System.Windows.Forms.PictureBox();
             this.tab_drawing = new System.Windows.Forms.TabPage();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.rbtn_dwg_multi_without_earth_cusion = new System.Windows.Forms.RadioButton();
@@ -595,13 +602,6 @@
             this.btn_dwg_slab = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tmr_blink = new System.Windows.Forms.Timer(this.components);
-            this.pic_box = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pcb_mcb_1 = new System.Windows.Forms.PictureBox();
-            this.pcb_mcb_2 = new System.Windows.Forms.PictureBox();
-            this.pic_slab = new System.Windows.Forms.PictureBox();
-            this.pic_pipe1 = new System.Windows.Forms.PictureBox();
-            this.pic_pipe2 = new System.Windows.Forms.PictureBox();
             this.tc_main.SuspendLayout();
             this.tab_box_culvert.SuspendLayout();
             this.tc_box.SuspendLayout();
@@ -613,10 +613,12 @@
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_box)).BeginInit();
             this.tab_multi_cell.SuspendLayout();
             this.tc_multicell.SuspendLayout();
             this.tab_box_input.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnl_cs.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -632,6 +634,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dl_sidl)).BeginInit();
             this.tab_box_loadcases.SuspendLayout();
             this.grb_mca_ld_seismic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_2)).BeginInit();
             this.tab_box_analysis.SuspendLayout();
             this.pnl_cid.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -642,22 +646,18 @@
             this.panel5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox39.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_slab)).BeginInit();
             this.tab_pipe_culvert.SuspendLayout();
             this.panel6.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe2)).BeginInit();
             this.tab_drawing.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_box)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_slab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe2)).BeginInit();
             this.SuspendLayout();
             // 
             // tc_main
@@ -1537,6 +1537,16 @@
             this.label21.TabIndex = 41;
             this.label21.Text = "m";
             // 
+            // pic_box
+            // 
+            this.pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_box.Location = new System.Drawing.Point(431, 12);
+            this.pic_box.Name = "pic_box";
+            this.pic_box.Size = new System.Drawing.Size(435, 355);
+            this.pic_box.TabIndex = 30;
+            this.pic_box.TabStop = false;
+            // 
             // txt_box_R
             // 
             this.txt_box_R.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1717,7 +1727,7 @@
             this.tab_multi_cell.Padding = new System.Windows.Forms.Padding(3);
             this.tab_multi_cell.Size = new System.Drawing.Size(913, 644);
             this.tab_multi_cell.TabIndex = 1;
-            this.tab_multi_cell.Text = "Multi Cell Box Culvert";
+            this.tab_multi_cell.Text = "Single/ Multi Cell Box Culvert";
             this.tab_multi_cell.UseVisualStyleBackColor = true;
             // 
             // tc_multicell
@@ -1803,6 +1813,16 @@
             this.groupBox10.TabIndex = 3;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "USER DATA";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(466, 39);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(408, 303);
+            this.pictureBox1.TabIndex = 30;
+            this.pictureBox1.TabStop = false;
             // 
             // btn_mc_box_new_design
             // 
@@ -1920,6 +1940,7 @@
             this.cmb_mcb_cell_nos.Name = "cmb_mcb_cell_nos";
             this.cmb_mcb_cell_nos.Size = new System.Drawing.Size(72, 21);
             this.cmb_mcb_cell_nos.TabIndex = 180;
+            this.cmb_mcb_cell_nos.SelectedIndexChanged += new System.EventHandler(this.cmb_mcb_cell_nos_SelectedIndexChanged);
             // 
             // groupBox11
             // 
@@ -4253,6 +4274,26 @@
             this.label168.TabIndex = 43;
             this.label168.Text = "Height of Side Walls [H] \r\n";
             // 
+            // pcb_mcb_1
+            // 
+            this.pcb_mcb_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_mcb_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_mcb_1.Location = new System.Drawing.Point(400, 120);
+            this.pcb_mcb_1.Name = "pcb_mcb_1";
+            this.pcb_mcb_1.Size = new System.Drawing.Size(495, 209);
+            this.pcb_mcb_1.TabIndex = 45;
+            this.pcb_mcb_1.TabStop = false;
+            // 
+            // pcb_mcb_2
+            // 
+            this.pcb_mcb_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pcb_mcb_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pcb_mcb_2.Location = new System.Drawing.Point(400, 359);
+            this.pcb_mcb_2.Name = "pcb_mcb_2";
+            this.pcb_mcb_2.Size = new System.Drawing.Size(495, 209);
+            this.pcb_mcb_2.TabIndex = 45;
+            this.pcb_mcb_2.TabStop = false;
+            // 
             // tab_box_analysis
             // 
             this.tab_box_analysis.Controls.Add(this.pnl_cid);
@@ -5831,6 +5872,15 @@
             this.label88.TabIndex = 0;
             this.label88.Text = "Thickness of Slab [D]";
             // 
+            // pic_slab
+            // 
+            this.pic_slab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_slab.Location = new System.Drawing.Point(501, 6);
+            this.pic_slab.Name = "pic_slab";
+            this.pic_slab.Size = new System.Drawing.Size(418, 545);
+            this.pic_slab.TabIndex = 7;
+            this.pic_slab.TabStop = false;
+            // 
             // tab_pipe_culvert
             // 
             this.tab_pipe_culvert.Controls.Add(this.panel6);
@@ -6424,6 +6474,26 @@
             this.btn_pipe_Report.UseVisualStyleBackColor = true;
             this.btn_pipe_Report.Click += new System.EventHandler(this.btn_Pipe_Report_Click);
             // 
+            // pic_pipe1
+            // 
+            this.pic_pipe1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pic_pipe1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_pipe1.Location = new System.Drawing.Point(421, 10);
+            this.pic_pipe1.Name = "pic_pipe1";
+            this.pic_pipe1.Size = new System.Drawing.Size(463, 314);
+            this.pic_pipe1.TabIndex = 15;
+            this.pic_pipe1.TabStop = false;
+            // 
+            // pic_pipe2
+            // 
+            this.pic_pipe2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_pipe2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_pipe2.Location = new System.Drawing.Point(421, 330);
+            this.pic_pipe2.Name = "pic_pipe2";
+            this.pic_pipe2.Size = new System.Drawing.Size(463, 245);
+            this.pic_pipe2.TabIndex = 16;
+            this.pic_pipe2.TabStop = false;
+            // 
             // tab_drawing
             // 
             this.tab_drawing.Controls.Add(this.groupBox19);
@@ -6589,75 +6659,6 @@
             this.tmr_blink.Enabled = true;
             this.tmr_blink.Tick += new System.EventHandler(this.tmr_blink_Tick);
             // 
-            // pic_box
-            // 
-            this.pic_box.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_box.Location = new System.Drawing.Point(431, 12);
-            this.pic_box.Name = "pic_box";
-            this.pic_box.Size = new System.Drawing.Size(435, 355);
-            this.pic_box.TabIndex = 30;
-            this.pic_box.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(466, 39);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(408, 303);
-            this.pictureBox1.TabIndex = 30;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pcb_mcb_1
-            // 
-            this.pcb_mcb_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_mcb_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_mcb_1.Location = new System.Drawing.Point(400, 120);
-            this.pcb_mcb_1.Name = "pcb_mcb_1";
-            this.pcb_mcb_1.Size = new System.Drawing.Size(495, 209);
-            this.pcb_mcb_1.TabIndex = 45;
-            this.pcb_mcb_1.TabStop = false;
-            // 
-            // pcb_mcb_2
-            // 
-            this.pcb_mcb_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pcb_mcb_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_mcb_2.Location = new System.Drawing.Point(400, 359);
-            this.pcb_mcb_2.Name = "pcb_mcb_2";
-            this.pcb_mcb_2.Size = new System.Drawing.Size(495, 209);
-            this.pcb_mcb_2.TabIndex = 45;
-            this.pcb_mcb_2.TabStop = false;
-            // 
-            // pic_slab
-            // 
-            this.pic_slab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_slab.Location = new System.Drawing.Point(501, 6);
-            this.pic_slab.Name = "pic_slab";
-            this.pic_slab.Size = new System.Drawing.Size(418, 545);
-            this.pic_slab.TabIndex = 7;
-            this.pic_slab.TabStop = false;
-            // 
-            // pic_pipe1
-            // 
-            this.pic_pipe1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pic_pipe1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_pipe1.Location = new System.Drawing.Point(421, 10);
-            this.pic_pipe1.Name = "pic_pipe1";
-            this.pic_pipe1.Size = new System.Drawing.Size(463, 314);
-            this.pic_pipe1.TabIndex = 15;
-            this.pic_pipe1.TabStop = false;
-            // 
-            // pic_pipe2
-            // 
-            this.pic_pipe2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_pipe2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_pipe2.Location = new System.Drawing.Point(421, 330);
-            this.pic_pipe2.Name = "pic_pipe2";
-            this.pic_pipe2.Size = new System.Drawing.Size(463, 245);
-            this.pic_pipe2.TabIndex = 16;
-            this.pic_pipe2.TabStop = false;
-            // 
             // frm_RCC_Culvert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6688,11 +6689,13 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_box)).EndInit();
             this.tab_multi_cell.ResumeLayout(false);
             this.tc_multicell.ResumeLayout(false);
             this.tab_box_input.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnl_cs.ResumeLayout(false);
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
@@ -6714,6 +6717,8 @@
             this.tab_box_loadcases.PerformLayout();
             this.grb_mca_ld_seismic.ResumeLayout(false);
             this.grb_mca_ld_seismic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_2)).EndInit();
             this.tab_box_analysis.ResumeLayout(false);
             this.pnl_cid.ResumeLayout(false);
             this.groupBox13.ResumeLayout(false);
@@ -6729,6 +6734,7 @@
             this.groupBox6.PerformLayout();
             this.groupBox39.ResumeLayout(false);
             this.groupBox39.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_slab)).EndInit();
             this.tab_pipe_culvert.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -6740,18 +6746,13 @@
             this.groupBox5.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe2)).EndInit();
             this.tab_drawing.ResumeLayout(false);
             this.tab_drawing.PerformLayout();
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_box)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcb_mcb_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_slab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pipe2)).EndInit();
             this.ResumeLayout(false);
 
         }

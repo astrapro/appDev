@@ -229,6 +229,48 @@ namespace AstraFunctionOne
                 }
                 else if (txt_Auth_code_Building.Text == ASTRA_R21.NewCode_Professional_Structure)
                 {
+                    if (LockProgram.Get_Speacial_Code_ASTRA_R21())
+                    {
+                        MessageBox.Show("This Building Authorization Code is not valid. Please Contact TechSOFT, email at dataflow@mail.com", "ASTRA", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        if (LockProgram.Check_Previuos_Version())
+                        {
+                            MessageBox.Show("This Authorization Code is not valid.", "ASTRA", MessageBoxButtons.OK);
+                        }
+                        else
+                        {
+                            //LockProgram.Write_ASTRA_Code_19();
+                            //LockProgram.Write_ASTRA_AuthorisedCode_19();
+                            //LockProgram.Write_ASTRA_Structure_Code_19();
+                            //LockProgram.Write_ASTRA_Professional_Code_19();
+
+
+                            //LockProgram.Write_ASTRA_Code_20();
+                            //LockProgram.Write_ASTRA_AuthorisedCode_20();
+                            //LockProgram.Write_ASTRA_Structure_Code_20();
+                            //LockProgram.Write_ASTRA_Professional_Code_20();
+
+
+                            LockProgram.Write_ASTRA_Code_21();
+                            LockProgram.Write_ASTRA_AuthorisedCode_21();
+                            LockProgram.Write_ASTRA_Structure_Code_21();
+                            LockProgram.Write_ASTRA_Professional_Code_21();
+
+
+
+
+                            MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                }
+                else if (txt_Auth_code_Building.Text == ASTRA_R21.NewCode_Professional_Structure2)
+                {
+                    //if (LockProgram.Get_Speacial_Code_ASTRA_R21())
+                    //{
+                    //    MessageBox.Show("This Authorization Code is not valid. Please Contact TechSOFT, email at dataflow@mail.com", "ASTRA", MessageBoxButtons.OK);
+                    //}
                     if (LockProgram.Check_Previuos_Version())
                     {
                         MessageBox.Show("This Authorization Code is not valid.", "ASTRA", MessageBoxButtons.OK);
@@ -251,9 +293,6 @@ namespace AstraFunctionOne
                         LockProgram.Write_ASTRA_AuthorisedCode_21();
                         LockProgram.Write_ASTRA_Structure_Code_21();
                         LockProgram.Write_ASTRA_Professional_Code_21();
-
-
-
 
                         MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -1874,6 +1913,8 @@ namespace AstraFunctionOne
             return true;
         }
 
+
+
         public static bool Write_ASTRA_AuthorisedCode_21()
         {
             WriteToLock(10, 1);
@@ -2315,7 +2356,59 @@ namespace AstraFunctionOne
         }
 
 
+
+
+        public static bool Get_Speacial_Code_ASTRA_R21()
+        {
+            LptNum = 0;
+
+            /**/
+            // Memo Lock
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            //Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 21; // 21 for new Structure Code
+            //p2 == 1
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+
+            if (p2 == 1) return true;
+            return false;
+        }
+
         #endregion ASTRA_Pro R 21
+
+
+
+
 
         #region Common Functions
 
@@ -2566,11 +2659,6 @@ namespace AstraFunctionOne
 
         public static string UpgradeCode_Professional_Bridge = "854a9147c031b46d";
         public static string UpgradeCode_Professional_Structure = "345a5412c874b74s";
-
-
-
-
-
     }
 
 
@@ -2579,11 +2667,13 @@ namespace AstraFunctionOne
         public static string Authorization_Code = "983a1254c321542f";
 
         public static string NewCode_Enterprise_Bridge = "283s2021b265412g";
-
         public static string NewCode_Enterprise_Structure = "874s4854b01246f";
 
         public static string NewCode_Professional_Bridge = "843b7264b21516f";
         public static string NewCode_Professional_Structure = "124a4586b031011f";
+
+        //This new Structure Code is added for Mr. Dhananjay and Dhruva 
+        public static string NewCode_Professional_Structure2 = "594a3561b218151w"; 
 
         public static string UpgradeCode_Enterprise_Bridge = "597g5488r031011f";
         public static string UpgradeCode_Enterprise_Structure = "845s6984e012987t";

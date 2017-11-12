@@ -194,7 +194,10 @@ namespace BridgeAnalysisDesign.Composite
                 Bridge_Analysis.Start_Support = Start_Support_Text;
                 Bridge_Analysis.End_Support = END_Support_Text;
 
-                Bridge_Analysis.CreateData();
+                //Bridge_Analysis.CreateData();
+
+                //Bridge_Analysis.CreateData_Curve();
+                Bridge_Analysis.CreateData_Straight();
 
                 #region Chiranjit [2013 07 02]
 
@@ -213,35 +216,61 @@ namespace BridgeAnalysisDesign.Composite
 
                 #endregion Chiranjit [2013 07 02]
 
-
-
                 Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
-
 
                 //Ana_Write_Load_Data();
                 txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
 
-
-
-
-
-
-
                 Bridge_Analysis.Steel_Section = Comp_sections;
-
 
                 Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
                     Bridge_Analysis.Inner_Girders_as_String,
                     Bridge_Analysis.joints_list_for_load);
-
-
-
 
                 //Bridge_Analysis.Input_File = Path.Combine(user_path, "INPUT_DATA.TXT"); ;
                 //Bridge_Analysis.CreateData();
                 
                 
                 Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File);
+
+
+
+
+                //Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                //Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                //Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+
+                //Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
+                //Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, chk_ana_active_LL.Checked, true);
+                //Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+                //Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+
+
+
+
+
+
+                if (Curve_Radius > 0)
+                {
+
+
+                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                    Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+
+                    Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, chk_ana_active_LL.Checked, true);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                    Bridge_Analysis.CreateData_Curve();
+
+                }
+
+
 
                 Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File);
                 Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File);
@@ -345,7 +374,11 @@ namespace BridgeAnalysisDesign.Composite
         private void btn_Ana_view_structure_Click(object sender, EventArgs e)
         {
             if (File.Exists(Bridge_Analysis.TotalAnalysis_Input_File))
-                iApp.OpenWork(Bridge_Analysis.TotalAnalysis_Input_File, false);
+            {
+                iApp.Form_ASTRA_TEXT_Data(Bridge_Analysis.TotalAnalysis_Input_File, false).Show();
+
+                //iApp.OpenWork(Bridge_Analysis.TotalAnalysis_Input_File, false);
+            }
         }
 
         private void btn_Ana_process_analysis_Click(object sender, EventArgs e)
@@ -369,19 +402,43 @@ namespace BridgeAnalysisDesign.Composite
                 do
                 {
                     if (i == 0)
+                    {
                         flPath = Bridge_Analysis.TotalAnalysis_Input_File;
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Straight_TL_File;
+
+
+                    }
                     else if (i == 1)
                     {
                         //MessageBox.Show(this, "PROCESS ANALYSIS FOR LIVE LOAD.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         flPath = Bridge_Analysis.LiveLoadAnalysis_Input_File;
+
+
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Straight_LL_File;
                     }
                     else if (i == 2)
                     {
                         //MessageBox.Show(this, "PROCESS ANALYSIS FOR DEAD LOAD.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         flPath = Bridge_Analysis.DeadLoadAnalysis_Input_File;
+
+
+                        pd.IS_Stage_File = true;
+                        pd.Stage_File_Name = Bridge_Analysis.Straight_DL_File;
                     }
 
 
+
+                    if (Curve_Radius == 0)
+                    {
+
+                        pd.IS_Stage_File = false;
+                        pd.Stage_File_Name = "";
+
+                    }
 
                     pd = new ProcessData();
                     pd.Process_File_Name = flPath;
@@ -425,28 +482,32 @@ namespace BridgeAnalysisDesign.Composite
 
                     string s1 = "";
                     string s2 = "";
-                    for (i = 0; i < Bridge_Analysis.Structure.Supports.Count; i++)
-                    {
-                        if (i < Bridge_Analysis.Structure.Supports.Count / 2)
-                        {
-                            if (i == Bridge_Analysis.Structure.Supports.Count / 2 - 1)
-                            {
-                                s1 += Bridge_Analysis.Structure.Supports[i].NodeNo;
-                            }
-                            else
-                                s1 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
-                        }
-                        else
-                        {
-                            if (i == Bridge_Analysis.Structure.Supports.Count - 1)
-                            {
-                                s2 += Bridge_Analysis.Structure.Supports[i].NodeNo;
-                            }
-                            else
-                                s2 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
-                        }
-                    }
+                    //for (i = 0; i < Bridge_Analysis.Structure.Supports.Count; i++)
+                    //{
+                    //    if (i < Bridge_Analysis.Structure.Supports.Count / 2)
+                    //    {
+                    //        if (i == Bridge_Analysis.Structure.Supports.Count / 2 - 1)
+                    //        {
+                    //            s1 += Bridge_Analysis.Structure.Supports[i].NodeNo;
+                    //        }
+                    //        else
+                    //            s1 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
+                    //    }
+                    //    else
+                    //    {
+                    //        if (i == Bridge_Analysis.Structure.Supports.Count - 1)
+                    //        {
+                    //            s2 += Bridge_Analysis.Structure.Supports[i].NodeNo;
+                    //        }
+                    //        else
+                    //            s2 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
+                    //    }
+                    //}
                     //double BB = MyList.StringToDouble(txt_Abut_B.Text, 8.5);
+
+
+                    s1 = Left_support;
+                    s2 = Right_support;
                     double BB = B;
 
                     
@@ -932,7 +993,29 @@ namespace BridgeAnalysisDesign.Composite
         #region Composite Methods
         void Analysis_Initialize_InputData()
         {
-            Bridge_Analysis.Length = L;
+            Bridge_Analysis.Radius = Curve_Radius;
+
+            Bridge_Analysis.Spans.Clear();
+
+            if (rbtn_multiSpan.Checked)
+            {
+                try
+                {
+                    MyList spans = new MyList(MyList.RemoveAllSpaces(txt_multiSpan.Text.Replace(',', ' ')), ' ');
+                    for (int i = 0; i < spans.StringList.Count; i++)
+                    {
+                        Bridge_Analysis.Spans.Add(spans.GetDouble(i));
+                    }
+                }
+                catch (Exception exx) { }
+            }
+
+
+            Bridge_Analysis.Length = Bridge_Analysis.Total_Length;
+
+
+
+
             Bridge_Analysis.WidthBridge = B;
             Bridge_Analysis.Width_LeftCantilever = CL;
             Bridge_Analysis.Width_RightCantilever = CR;
@@ -980,56 +1063,62 @@ namespace BridgeAnalysisDesign.Composite
             Results.Add("INNER GIRDER");
             Results.Add("------------");
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints);
             txt_Ana_inner_long_L2_shear.Text = mfrc.ToString();
             txt_Ana_inner_long_L2_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L2_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_inner_long_L2_shear_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_inner_long_L2_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/2 : MAX SHEAR FORCE ", _L2_inn_joints, "Ton"));
 
 
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints);
             txt_Ana_inner_long_L2_moment.Text = mfrc.ToString();
             txt_Ana_inner_long_L2_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L2_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_inner_long_L2_moment_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_inner_long_L2_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/2 : MAX BENDING MOMENT ", _L2_inn_joints, "Ton-m"));
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints);
             txt_Ana_inner_long_L4_shear.Text = mfrc.ToString();
             txt_Ana_inner_long_L4_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L4_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_inner_long_L4_shear_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_inner_long_L4_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/4 : MAX SHEAR FORCE ", _L4_inn_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints);
             txt_Ana_inner_long_L4_moment.Text = mfrc.ToString();
             txt_Ana_inner_long_L4_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_L4_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_inner_long_L4_moment_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_inner_long_L4_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/4 : MAX BENDING MOMENT ", _L4_inn_joints, "Ton-m"));
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints);
             txt_Ana_inner_long_deff_shear.Text = mfrc.ToString();
             txt_Ana_inner_long_deff_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_inner_long_deff_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_inner_long_deff_shear_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_inner_long_deff_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("Effective Depth : MAX SHEAR FORCE ", _deff_inn_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints);
             txt_Ana_inner_long_deff_moment.Text = mfrc.ToString();
             txt_Ana_inner_long_deff_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_inner_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_inner_long_deff_moment_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_inner_long_deff_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("Effective Depth : MAX BENDING MOMENT ", _deff_inn_joints, "Ton-m"));
 
             iApp.SetProgressValue(70, 100);
@@ -1040,53 +1129,54 @@ namespace BridgeAnalysisDesign.Composite
             Results.Add("");
             Results.Add("OUTER GIRDER");
             Results.Add("------------");
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints);
             txt_Ana_outer_long_L2_shear.Text = mfrc.ToString();
             txt_Ana_outer_long_L2_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L2_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_L2_shear_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_outer_long_L2_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/2 : MAX SHEAR FORCE", _L2_out_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints);
             txt_Ana_outer_long_L2_moment.Text = mfrc.ToString();
             txt_Ana_outer_long_L2_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L2_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_L2_moment_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_outer_long_L2_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/2 : MAX BENDING MOMENT", _L2_out_joints, "Ton-m"));
 
 
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints);
             txt_Ana_outer_long_L4_shear.Text = mfrc.ToString();
             txt_Ana_outer_long_L4_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L4_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_L4_shear_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_outer_long_L4_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/4 : MAX SHEAR FORCE", _L4_out_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints);
             txt_Ana_outer_long_L4_moment.Text = mfrc.ToString();
             txt_Ana_outer_long_L4_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_L4_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_L4_moment_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_outer_long_L4_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("L/4 : MAX BENDING MOMENT", _L4_out_joints, "Ton-m"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints);
             txt_Ana_outer_long_deff_shear.Text = mfrc.ToString();
             txt_Ana_outer_long_deff_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
             txt_Ana_outer_long_deff_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_deff_shear_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_outer_long_deff_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
             Results.AddRange(mfrc.GetDetails("Effective Depth : MAX SHEAR FORCE", _deff_out_joints, "Ton"));
 
 
-            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, true);
+            mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints);
             txt_Ana_outer_long_deff_moment.Text = mfrc.ToString();
             txt_Ana_outer_long_deff_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
-            txt_Ana_outer_long_deff_moment_load_case.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            txt_Ana_outer_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); // Show Joint Nos
+            txt_Ana_outer_long_deff_moment_load_case.Text = mfrc.Loadcase.ToString(); //Show Load case No
             Results.AddRange(mfrc.GetDetails("Effective Depth : MAX BENDING MOMENT", _deff_out_joints, "Ton-m"));
             iApp.SetProgressValue(99, 100);
 
@@ -7750,6 +7840,71 @@ namespace BridgeAnalysisDesign.Composite
 
         #endregion Chiranjit [2016 09 07]
 
+        private void txt_multiSpan_TextChanged(object sender, EventArgs e)
+        {
+            if (rbtn_multiSpan.Checked)
+            {
+                MyList ml = new MyList(txt_multiSpan.Text.Replace(",", " "), ' ');
+                txt_Ana_L.Text = ml.SUM.ToString("f3");
+            }
+        }
+
+        private void rbtn_singleSpan_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (rbtn_singleSpan.Checked)
+            {
+                txt_multiSpan.Text = txt_Ana_L.Text;
+            }
+            else if (rbtn_multiSpan.Checked)
+            {
+                MyList ml = new MyList(txt_multiSpan.Text, ',');
+
+                txt_Ana_L.Text = ml.SUM.ToString("f3");
+            }
+        }
+        public double Curve_Radius { get { return MyList.StringToDouble(txt_curve_radius.Text, 0.0); } set { txt_curve_radius.Text = value.ToString("f3"); } }
+
+
+        private void chk_curve_CheckedChanged(object sender, EventArgs e)
+        {
+            grb.Enabled = chk_curve.Checked;
+            if (grb.Enabled)
+            {
+                if (Curve_Radius == 0) txt_curve_radius.Text = "50";
+            }
+        }
+
+        private void txt_curve_radius_TextChanged(object sender, EventArgs e)
+        {
+            #region // Calculate Curve Span
+
+            double R = MyList.StringToDouble(txt_curve_radius.Text, 0.0);
+
+            if (R != 0)
+            {
+                double theta = L * 180 / (R * Math.PI);
+
+                txt_curve_angle.Text = theta.ToString("f2");
+
+                double dvs = MyList.StringToDouble(txt_curve_divs.Text, 0.0);
+
+                txt_curve_ang_incr.Text = (theta / dvs).ToString("f2");
+
+                double V = MyList.StringToDouble(txt_curve_des_spd_kph.Text, 0.0);
+
+                txt_curve_des_spd_mps.Text = (V * 1000 / (60.0 * 60.0)).ToString("f3");
+
+            }
+            else
+            {
+                txt_curve_angle.Text = "0.0";
+                txt_curve_ang_incr.Text = "0.0";
+                txt_curve_des_spd_mps.Text = "0.0";
+            }
+            #endregion
+        }
+
 
     }
     public class CompositeAnalysis
@@ -7788,6 +7943,14 @@ namespace BridgeAnalysisDesign.Composite
         string list_envelop_inner = "";
 
         string input_file, working_folder, user_path;
+
+
+        List<double> _L2_xc = new List<double>();
+        List<double> _L4_xc = new List<double>();
+        List<double> _deff_xc = new List<double>();
+
+
+
         public CompositeAnalysis(IApplication thisApp)
         {
             iApp = thisApp;
@@ -7796,6 +7959,9 @@ namespace BridgeAnalysisDesign.Composite
             NMG = 7;
             Total_Columns = 11;
             Total_Rows = 11;
+
+
+            Spans = new List<double>();
         }
 
         #region Properties
@@ -8003,8 +8169,9 @@ namespace BridgeAnalysisDesign.Composite
         public List<string> joints_list_for_load = new List<string>();
 
         //Chiranjit [2013 05 06]
-        string support_left_joints = "";
-        string support_right_joints = "";
+        public string support_left_joints = "";
+        public string support_right_joints = "";
+       public string support_inner_joints = "";
 
         public string L2_Girders_as_String { get; set; }
         public string L4_Girders_as_String { get; set; }
@@ -8348,6 +8515,9 @@ namespace BridgeAnalysisDesign.Composite
         #endregion Chiranjit [2013 05 06]
 
 
+        public List<double> Spans { get; set; }
+
+        public double Radius { get; set; }
         public void CreateData()
         {
 
@@ -8634,6 +8804,1002 @@ namespace BridgeAnalysisDesign.Composite
 
 
             Set_L2_L4_Deff_Girders();
+
+        }
+
+
+        public string Straight_DL_File
+        {
+            get
+            {
+                if (Directory.Exists(user_path))
+                {
+                    string pd = Path.Combine(working_folder, "TempAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    pd = Path.Combine(pd, "DLAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+
+
+                    return Path.Combine(pd, "DLAnalysis.txt");
+                }
+                return "";
+            }
+        }
+
+        public string Straight_LL_File
+        {
+            get
+            {
+                if (Directory.Exists(user_path))
+                {
+                    string pd = Path.Combine(working_folder, "TempAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    pd = Path.Combine(pd, "LLAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+
+
+                    return Path.Combine(pd, "LLAnalysis.txt");
+                }
+                return "";
+            }
+        }
+
+        public string Straight_TL_File
+        {
+            get
+            {
+                if (Directory.Exists(user_path))
+                {
+                    string pd = Path.Combine(working_folder, "TempAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    pd = Path.Combine(pd, "TLAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+
+
+                    return Path.Combine(pd, "TLAnalysis.txt");
+                }
+                return "";
+            }
+        }
+        //Chiranjit [2012 05 27]
+        public void CreateData_Straight()
+        {
+
+            double x_incr, z_incr;
+
+            //x_incr = (Length / (Total_Columns - 1));
+            //z_incr = (WidthBridge / (Total_Rows - 1));
+            //NMG = 7;
+            x_incr = Spacing_Cross_Girder;
+            z_incr = Spacing_Long_Girder;
+
+            JointNode nd;
+            //Joints_Array = new JointNode[Total_Rows, Total_Columns];
+            //Long_Girder_Members_Array = new Member[Total_Rows, Total_Columns - 1];
+            //Cross_Girder_Members_Array = new Member[Total_Rows - 1, Total_Columns];
+
+
+            int iCols = 0;
+            int iRows = 0;
+
+            if (Joints == null)
+                Joints = new JointNodeCollection();
+            Joints.Clear();
+
+            double skew_length = Math.Tan((Skew_Angle * (Math.PI / 180.0)));
+
+            double val1 = 12.1;
+            double val2 = val1 * skew_length;
+
+
+
+            double last_x = 0.0;
+            double last_z = 0.0;
+
+            List<double> list_x = new List<double>();
+            List<double> list_z = new List<double>();
+            Hashtable z_table = new Hashtable();
+
+            //Store Joint Coordinates
+            double L_2, L_4, eff_d;
+            double x_max, x_min;
+
+            //int _Columns, _Rows;
+
+            //_Columns = Total_Columns;
+            //_Rows = Total_Rows;
+
+            last_x = 0.0;
+
+            int i = 0;
+            bool flag = true;
+
+
+
+
+            #region Chiranjit [2011 09 23] Correct Create Data
+
+            if (Spans.Count > 1)
+            {
+
+                List<double> x_tmp = new List<double>();
+                Hashtable x_tbl = new Hashtable();
+
+                double len = 0.0;
+
+
+                for (int l = 0; l < Spans.Count; l++)
+                {
+                    Length = Spans[l];
+                    list_x = new List<double>();
+                    x_tbl.Add(l, list_x);
+
+                    #region Collection
+                    list_x.Clear();
+                    list_x.Add(0.0);
+                    last_x = Effective_Depth;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    last_x = Length / 4.0;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    last_x = Length / 2.0;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+
+
+                    last_x = Length - (Length / 4.0);
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    last_x = Length - Effective_Depth;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+
+                    last_x = Length;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    if (NCG % 2 != 0)
+                        last_x = x_incr;
+                    else
+                        last_x = x_incr + Effective_Depth;
+
+                    i = 0;
+                    flag = true;
+
+
+
+                    do
+                    {
+                        flag = false;
+                        for (i = 0; i < list_x.Count; i++)
+                        {
+                            if (last_x.ToString("0.00") == list_x[i].ToString("0.00"))
+                            {
+                                flag = true; break;
+                            }
+                        }
+
+                        if (!flag && last_x > Effective_Depth && last_x < (Length - Effective_Depth))
+                            list_x.Add(last_x);
+                        last_x += x_incr;
+                        last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                        if (x_incr == 0.0) break;
+
+                    }
+                    while (last_x <= Length);
+                    #endregion Collection
+
+
+
+                    //_L2_out_joints = new List<int>();
+                    //_L4_out_joints = new List<int>();
+                    //_deff_out_joints = new List<int>();
+
+
+
+
+                    List<double> lsr = new List<double>();
+
+                    if (l > 0)
+                    {
+                        foreach (var item in list_x)
+                        {
+                            if (!x_tmp.Contains(len + item)) x_tmp.Add(len + item);
+
+                            if (item == Effective_Depth || item == Length - Effective_Depth)
+                            {
+                                _deff_xc.Add(len + item);
+
+                            }
+                            else if (item == Length / 2)
+                            {
+                                _L2_xc.Add(len + item);
+                                //_L2_inn_joints = new List<int>();
+                                //_L4_inn_joints = new List<int>();
+                                //_deff_inn_joints = new List<int>();
+
+                                //_L2_out_joints = new List<int>();
+                                //_L4_out_joints = new List<int>();
+                                //_deff_out_joints = new List<int>();
+                            }
+                            else if ((item == Length / 4) || (item == Length - Length / 4))
+                            {
+                                _L4_xc.Add(len + item);
+
+                            }
+                            else if ((item == Length / 8) || (item == Length - Length / 8))
+                            {
+
+                            }
+                            else if ((item == 3 * Length / 8) || (item == Length - (3 * Length / 8)))
+                            {
+
+                            }
+                        }
+                        len += Spans[l];
+                    }
+                    else
+                    {
+                        len = Spans[l];
+                        foreach (var item in list_x)
+                        {
+                            x_tmp.Add(item);
+
+                            if (item == Effective_Depth || item == Length - Effective_Depth)
+                            {
+                                if(!_deff_xc.Contains(len + item))
+                                _deff_xc.Add(item);
+                            }
+                            else if (item == Length / 2)
+                            {
+                                _L2_xc.Add(item);
+                                //_L2_inn_joints = new List<int>();
+                                //_L4_inn_joints = new List<int>();
+                                //_deff_inn_joints = new List<int>();
+
+                                //_L2_out_joints = new List<int>();
+                                //_L4_out_joints = new List<int>();
+                                //_deff_out_joints = new List<int>();
+                            }
+                            else if ((item == Length / 4) || (item == Length - Length / 4))
+                            {
+                                _L4_xc.Add(item);
+
+                            }
+                            else if ((item == Length / 8) || (item == Length - Length / 8))
+                            {
+                                //_deff_xc.Add(len + item);
+
+                            }
+                            //else if ((item == 3 * Length / 8) || (item == Length - (3 * Length / 8)))
+                            //{
+                            //    _3_xc.Add(len + item);
+
+                            //}
+                        }
+                    }
+                }
+
+                list_x.Clear();
+                list_x.AddRange(x_tmp.ToArray());
+
+                MyList.Array_Format_With(ref list_x, "f3");
+                list_x.Sort();
+
+
+            }
+            else
+            {
+
+                list_x.Clear();
+                list_x.Add(0.0);
+                last_x = Effective_Depth;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                last_x = Length / 4.0;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                last_x = Length / 2.0;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+
+
+                last_x = Length - (Length / 4.0);
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                last_x = Length - Effective_Depth;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+
+                last_x = Length;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                if (NCG % 2 != 0)
+                    last_x = x_incr;
+                else
+                    last_x = x_incr + Effective_Depth;
+
+                do
+                {
+                    flag = false;
+                    for (i = 0; i < list_x.Count; i++)
+                    {
+                        if (last_x.ToString("0.00") == list_x[i].ToString("0.00"))
+                        {
+                            flag = true; break;
+                        }
+                    }
+
+                    if (!flag && last_x > Effective_Depth && last_x < (Length - Effective_Depth))
+                        list_x.Add(last_x);
+                    last_x += x_incr;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    if (x_incr == 0.0) break;
+
+                }
+                while (last_x <= Length);
+                list_x.Sort();
+
+            }
+
+            list_z.Add(0);
+
+            if (Width_LeftCantilever != 0.0)
+            {
+                last_z = Width_LeftCantilever;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+            if (Width_RightCantilever != 0.0)
+            {
+                last_z = WidthBridge - Width_RightCantilever;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+
+            last_z = WidthBridge;
+            last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+            list_z.Add(last_z);
+
+            last_z = Width_LeftCantilever + z_incr;
+            do
+            {
+                flag = false;
+                for (i = 0; i < list_z.Count; i++)
+                {
+                    if (last_z.ToString("0.00") == list_z[i].ToString("0.00"))
+                    {
+                        flag = true; break;
+                    }
+                }
+
+                if (!flag && last_z > Width_LeftCantilever && last_z < (WidthBridge - Width_RightCantilever - 0.2))
+                    list_z.Add(last_z);
+                last_z += z_incr;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+
+                if (z_incr == 0.0) break;
+
+            } while (last_z <= WidthBridge);
+
+            list_z.Sort();
+            #endregion Chiranjit [2011 09 23] Correct Create Data
+
+
+            _Columns = list_x.Count;
+            _Rows = list_z.Count;
+            Total_Rows = _Rows;
+            Total_Columns = _Columns;
+
+            //int i = 0;
+
+            List<double> list = new List<double>();
+            double _r = 0.0;
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                list = new List<double>();
+                for (iCols = 0; iCols < _Columns; iCols++)
+                {
+                    list.Add(list_x[iCols] + list_z[iRows] * skew_length);
+                    //var ang_incr = list_x[iCols] / Radius;
+
+                    //_r = list_z[iRows] + Radius;
+
+                    //list.Add(list_z[iRows] + _r - _r * Math.Cos(ang_incr));
+
+                }
+                z_table.Add(list_z[iRows], list);
+            }
+
+            Joints_Array = new JointNode[_Rows, _Columns];
+            Long_Girder_Members_Array = new Member[_Rows, _Columns - 1];
+            Cross_Girder_Members_Array = new Member[_Rows - 1, _Columns];
+
+
+
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                //list_x = z_table[list_z[iRows]] as List<double>;
+                var li_z = z_table[list_z[iRows]] as List<double>;
+                for (iCols = 0; iCols < _Columns; iCols++)
+                {
+                    nd = new JointNode();
+                    nd.Y = 0;
+                    nd.Z = list_z[iRows];
+                    //nd.Z = li_z[iCols];
+
+                    //nd.X = list_x[iCols] + (skew_length * list_z[iRows]);
+                    nd.X = list_x[iCols];
+
+                    nd.NodeNo = Joints.JointNodes.Count + 1;
+                    Joints.Add(nd);
+
+                    Joints_Array[iRows, iCols] = nd;
+
+                    last_x = nd.X;
+                }
+            }
+            int nodeNo = 0;
+            Joints.Clear();
+
+            support_left_joints = "";
+            support_right_joints = "";
+            support_inner_joints = "";
+
+            joints_list_for_load.Clear();
+            List<int> list_nodes = new List<int>();
+
+
+            for (iCols = 0; iCols < _Columns; iCols++)
+            {
+                for (iRows = 0; iRows < _Rows; iRows++)
+                {
+                    nodeNo++;
+                    Joints_Array[iRows, iCols].NodeNo = nodeNo;
+                    Joints.Add(Joints_Array[iRows, iCols]);
+
+
+                    #region Chiranjit [2013 05 06]
+                    if (iCols == 1 && iRows >= 1 && iRows <= _Rows - 2)
+                        support_left_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                    else if (iCols == _Columns - 2 && iRows >= 1 && iRows <= _Rows - 2)
+                        support_right_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                    else
+                    {
+                        if(Spans.Count > 1)
+                        {
+                            //if (iRows > 0 && iRows < _Rows - 1)
+                            if (iRows > 0 && iRows < _Rows - 1)
+                            {
+                                double len = 0;
+
+                                for (int m = 0; m < Spans.Count - 1; m++)
+                                {
+                                    var sp = Spans[m];
+                                    len += sp;
+                                    if (Joints_Array[iRows, iCols].X == len)
+                                    {
+                                        support_inner_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                                        break;
+                                    }
+                                }
+                                list_nodes.Add(Joints_Array[iRows, iCols].NodeNo);
+                            }
+                        }
+
+                        if (iRows > 0 && iRows < _Rows - 1)
+                            list_nodes.Add(Joints_Array[iRows, iCols].NodeNo);
+                    }
+                    #endregion Chiranjit [2013 05 06]
+                }
+                if (list_nodes.Count > 0)
+                {
+                    joints_list_for_load.Add(MyList.Get_Array_Text(list_nodes));
+                    list_nodes.Clear();
+                }
+            }
+
+
+            Member mem = new Member();
+
+            if (MemColls == null)
+                MemColls = new MemberCollection();
+            MemColls.Clear();
+            for (iCols = 0; iCols < _Columns; iCols++)
+            {
+                for (iRows = 1; iRows < _Rows; iRows++)
+                {
+                    mem = new Member();
+                    mem.StartNode = Joints_Array[iRows - 1, iCols];
+                    mem.EndNode = Joints_Array[iRows, iCols];
+                    mem.MemberNo = MemColls.Count + 1;
+                    MemColls.Add(mem);
+                    Cross_Girder_Members_Array[iRows - 1, iCols] = mem;
+                }
+            }
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                for (iCols = 1; iCols < _Columns; iCols++)
+                {
+                    mem = new Member();
+                    mem.StartNode = Joints_Array[iRows, iCols - 1];
+                    mem.EndNode = Joints_Array[iRows, iCols];
+                    mem.MemberNo = MemColls.Count + 1;
+                    MemColls.Add(mem);
+                    Long_Girder_Members_Array[iRows, iCols - 1] = mem;
+                }
+            }
+
+            #region Chiranjit [2013 06 06]
+
+            if (Width_LeftCantilever > 0)
+            {
+                list_envelop_outer = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
+                list_envelop_inner = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+            }
+            else
+            {
+                list_envelop_outer = Long_Girder_Members_Array[0, 0].MemberNo + " TO " + Long_Girder_Members_Array[0, iCols - 2].MemberNo;
+                list_envelop_inner = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
+            }
+            #endregion Chiranjit [2013 06 06]
+
+
+            Set_L2_L4_Deff_Girders();
+
+            _L2_inn_joints.Clear();
+            _L4_inn_joints.Clear();
+            _deff_inn_joints.Clear();
+
+            foreach (var item in Joints)
+            {
+                if (_L2_xc.Contains(item.X)) _L2_inn_joints.Add(item.NodeNo);
+                if (_L4_xc.Contains(item.X)) _L4_inn_joints.Add(item.NodeNo);
+                if (_deff_xc.Contains(item.X)) _deff_inn_joints.Add(item.NodeNo);
+            }
+
+
+
+        }
+
+        public void CreateData_Curve()
+        {
+
+            double x_incr, z_incr;
+
+            //x_incr = (Length / (Total_Columns - 1));
+            //z_incr = (WidthBridge / (Total_Rows - 1));
+            //NMG = 7;
+            x_incr = Spacing_Cross_Girder;
+            z_incr = Spacing_Long_Girder;
+
+            JointNode nd;
+            //Joints_Array = new JointNode[Total_Rows, Total_Columns];
+            //Long_Girder_Members_Array = new Member[Total_Rows, Total_Columns - 1];
+            //Cross_Girder_Members_Array = new Member[Total_Rows - 1, Total_Columns];
+
+
+            int iCols = 0;
+            int iRows = 0;
+
+            if (Joints == null)
+                Joints = new JointNodeCollection();
+            Joints.Clear();
+
+            double skew_length = Math.Tan((Skew_Angle * (Math.PI / 180.0)));
+
+            double val1 = 12.1;
+            double val2 = val1 * skew_length;
+
+
+
+            double last_x = 0.0;
+            double last_z = 0.0;
+
+            List<double> list_x = new List<double>();
+            List<double> list_z = new List<double>();
+            Hashtable z_table = new Hashtable();
+
+            //Store Joint Coordinates
+            double L_2, L_4, eff_d;
+            double x_max, x_min;
+
+            //int _Columns, _Rows;
+
+            //_Columns = Total_Columns;
+            //_Rows = Total_Rows;
+
+            last_x = 0.0;
+
+            int i = 0;
+            bool flag = true;
+            #region Chiranjit [2011 09 23] Correct Create Data
+
+            if (Spans.Count > 1)
+            {
+
+                List<double> x_tmp = new List<double>();
+                Hashtable x_tbl = new Hashtable();
+
+                double len = 0.0;
+
+
+                for (int l = 0; l < Spans.Count; l++)
+                {
+                    Length = Spans[l];
+                    list_x = new List<double>();
+                    x_tbl.Add(l, list_x);
+
+                    #region Collection
+                    list_x.Clear();
+                    list_x.Add(0.0);
+                    last_x = Effective_Depth;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    last_x = Length / 4.0;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    last_x = Length / 2.0;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+
+
+                    last_x = Length - (Length / 4.0);
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    last_x = Length - Effective_Depth;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+
+                    last_x = Length;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    list_x.Add(last_x);
+
+                    if (NCG % 2 != 0)
+                        last_x = x_incr;
+                    else
+                        last_x = x_incr + Effective_Depth;
+
+                     i = 0;
+                     flag = true;
+                    do
+                    {
+                        flag = false;
+                        for (i = 0; i < list_x.Count; i++)
+                        {
+                            if (last_x.ToString("0.00") == list_x[i].ToString("0.00"))
+                            {
+                                flag = true; break;
+                            }
+                        }
+
+                        if (!flag && last_x > Effective_Depth && last_x < (Length - Effective_Depth))
+                            list_x.Add(last_x);
+                        last_x += x_incr;
+                        last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                        if (x_incr == 0.0) break;
+
+                    }
+                    while (last_x <= Length);
+                    #endregion Collection
+
+                    if (l > 0)
+                    {
+                        foreach (var item in list_x)
+                        {
+                            if (!x_tmp.Contains(len + item))
+                                x_tmp.Add(len + item);
+                        }
+                        len += Spans[l];
+                    }
+                    else
+                    {
+                        len = Spans[l];
+                        foreach (var item in list_x)
+                        {
+                            x_tmp.Add(item);
+                        }
+                    }
+                }
+
+                list_x.Clear();
+                list_x.AddRange(x_tmp.ToArray());
+
+                MyList.Array_Format_With(ref list_x, "f3");
+                list_x.Sort();
+
+
+            }
+            else
+            {
+
+                list_x.Clear();
+                list_x.Add(0.0);
+                last_x = Effective_Depth;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                last_x = Length / 4.0;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                last_x = Length / 2.0;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+
+
+                last_x = Length - (Length / 4.0);
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                last_x = Length - Effective_Depth;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+
+                last_x = Length;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                list_x.Add(last_x);
+
+                if (NCG % 2 != 0)
+                    last_x = x_incr;
+                else
+                    last_x = x_incr + Effective_Depth;
+
+                do
+                {
+                    flag = false;
+                    for (i = 0; i < list_x.Count; i++)
+                    {
+                        if (last_x.ToString("0.00") == list_x[i].ToString("0.00"))
+                        {
+                            flag = true; break;
+                        }
+                    }
+
+                    if (!flag && last_x > Effective_Depth && last_x < (Length - Effective_Depth))
+                        list_x.Add(last_x);
+                    last_x += x_incr;
+                    last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+                    if (x_incr == 0.0) break;
+
+                }
+                while (last_x <= Length);
+                list_x.Sort();
+
+            }
+
+            list_z.Add(0);
+
+            if (Width_LeftCantilever != 0.0)
+            {
+                last_z = Width_LeftCantilever;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+            if (Width_RightCantilever != 0.0)
+            {
+                last_z = WidthBridge - Width_RightCantilever;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+
+            last_z = WidthBridge;
+            last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+            list_z.Add(last_z);
+
+            last_z = Width_LeftCantilever + z_incr;
+            do
+            {
+                flag = false;
+                for (i = 0; i < list_z.Count; i++)
+                {
+                    if (last_z.ToString("0.00") == list_z[i].ToString("0.00"))
+                    {
+                        flag = true; break;
+                    }
+                }
+
+                if (!flag && last_z > Width_LeftCantilever && last_z < (WidthBridge - Width_RightCantilever - 0.2))
+                    list_z.Add(last_z);
+                last_z += z_incr;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+
+                if (z_incr == 0.0) break;
+
+            } while (last_z <= WidthBridge);
+
+            list_z.Sort();
+            #endregion Chiranjit [2011 09 23] Correct Create Data
+
+
+            _Columns = list_x.Count;
+            _Rows = list_z.Count;
+            Total_Rows = _Rows;
+            Total_Columns = _Columns;
+
+            //int i = 0;
+
+            List<double> list = new List<double>();
+            Hashtable x_table = new Hashtable();
+            List<double> lst_x = new List<double>();
+
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                list = new List<double>();
+                lst_x = new List<double>();
+                for (iCols = 0; iCols < _Columns; iCols++)
+                {
+                    //list.Add(list_x[iCols] + list_z[iRows] * skew_length);
+                    var ang_incr = list_x[iCols] / Radius;
+                    //var _r = list_z[iRows] + Radius;
+                    var _r = Radius - list_z[iRows];
+
+                    //list.Add(list_z[iRows] + Radius - Radius * Math.Cos(ang_incr));
+
+
+                    list.Add(_r * Math.Cos(ang_incr));
+                    lst_x.Add(_r * Math.Sin(ang_incr));
+
+                    //lst_x.Add(list_z[iRows] + Radius - Radius * Math.Sin(ang_incr));
+
+
+                    //list.Add(_r - _r * Math.Cos(ang_incr));
+
+
+                    //lst_x.Add(list_z[iRows] + _r - _r * Math.Sin(ang_incr));
+                    //lst_x.Add(_r * Math.Sin(ang_incr));
+
+
+                    //list.Add(list_z[iRows] + _r - _r * Math.Cos(ang_incr));
+                    //list.Add(_r - _r * Math.Cos(ang_incr));
+
+                    //list.Add(list_z[iRows] + Radius - Radius * Math.Cos(ang_incr));
+
+                }
+                z_table.Add(list_z[iRows], list);
+                x_table.Add(list_z[iRows], lst_x);
+            }
+
+            Joints_Array = new JointNode[_Rows, _Columns];
+            Long_Girder_Members_Array = new Member[_Rows, _Columns - 1];
+            Cross_Girder_Members_Array = new Member[_Rows - 1, _Columns];
+
+
+
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                //list_x = z_table[list_z[iRows]] as List<double>;
+                var li_z = z_table[list_z[iRows]] as List<double>;
+                var li_x = x_table[list_z[iRows]] as List<double>;
+                for (iCols = 0; iCols < _Columns; iCols++)
+                {
+                    nd = new JointNode();
+                    nd.Y = 0;
+                    //nd.Z = list_z[iRows];
+                    nd.Z = Radius - li_z[iCols];
+                    //nd.Z = li_x[iCols];
+
+                    //nd.X = list_x[iCols] + (skew_length * list_z[iRows]);
+                    //nd.X = list_x[iCols];
+                    nd.X = li_x[iCols];
+                    //nd.X = Radius - li_z[iCols];
+
+                    nd.NodeNo = Joints.JointNodes.Count + 1;
+                    Joints.Add(nd);
+
+                    Joints_Array[iRows, iCols] = nd;
+
+                    last_x = nd.X;
+                }
+            }
+            int nodeNo = 0;
+            Joints.Clear();
+
+            support_left_joints = "";
+            support_right_joints = "";
+            string  support_inner_joints = "";
+
+            joints_list_for_load.Clear();
+            List<int> list_nodes = new List<int>();
+
+
+            for (iCols = 0; iCols < _Columns; iCols++)
+            {
+                for (iRows = 0; iRows < _Rows; iRows++)
+                {
+                    nodeNo++;
+                    Joints_Array[iRows, iCols].NodeNo = nodeNo;
+                    Joints.Add(Joints_Array[iRows, iCols]);
+
+                    #region Chiranjit [2013 05 06]
+                    if (iCols == 1 && iRows >= 1 && iRows <= _Rows - 2)
+                        support_left_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                    else if (iCols == _Columns - 2 && iRows >= 1 && iRows <= _Rows - 2)
+                        support_right_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                    else
+                    {
+                        if (iRows > 0 && iRows < _Rows - 1)
+                            list_nodes.Add(Joints_Array[iRows, iCols].NodeNo);
+                    }
+                    #endregion Chiranjit [2013 05 06]
+                }
+                if (list_nodes.Count > 0)
+                {
+                    joints_list_for_load.Add(MyList.Get_Array_Text(list_nodes));
+                    list_nodes.Clear();
+                }
+            }
+
+
+            Member mem = new Member();
+
+            if (MemColls == null)
+                MemColls = new MemberCollection();
+            MemColls.Clear();
+            for (iCols = 0; iCols < _Columns; iCols++)
+            {
+                for (iRows = 1; iRows < _Rows; iRows++)
+                {
+                    mem = new Member();
+                    mem.StartNode = Joints_Array[iRows - 1, iCols];
+                    mem.EndNode = Joints_Array[iRows, iCols];
+                    mem.MemberNo = MemColls.Count + 1;
+                    MemColls.Add(mem);
+                    Cross_Girder_Members_Array[iRows - 1, iCols] = mem;
+                }
+            }
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                for (iCols = 1; iCols < _Columns; iCols++)
+                {
+                    mem = new Member();
+                    mem.StartNode = Joints_Array[iRows, iCols - 1];
+                    mem.EndNode = Joints_Array[iRows, iCols];
+                    mem.MemberNo = MemColls.Count + 1;
+                    MemColls.Add(mem);
+                    Long_Girder_Members_Array[iRows, iCols - 1] = mem;
+                }
+            }
+
+            #region Chiranjit [2013 06 06]
+
+            if (Width_LeftCantilever > 0)
+            {
+                list_envelop_outer = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
+                list_envelop_inner = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+            }
+            else
+            {
+                list_envelop_outer = Long_Girder_Members_Array[0, 0].MemberNo + " TO " + Long_Girder_Members_Array[0, iCols - 2].MemberNo;
+                list_envelop_inner = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
+            }
+            #endregion Chiranjit [2013 06 06]
+
+
+            //Set_L2_L4_Deff_Girders();
 
         }
 
@@ -9418,8 +10584,19 @@ namespace BridgeAnalysisDesign.Composite
                 //list.Add("111 112 113 114 115 116 117 118 119 120 121  PINNED");
                 
                 //Chiranjit [2013 05 06]
-                list.Add(string.Format("{0} PINNED", support_left_joints));
-                list.Add(string.Format("{0} PINNED", support_right_joints));
+                //list.Add(string.Format("{0} PINNED", support_left_joints, Start_Support));
+                //list.Add(string.Format("{0} PINNED", support_right_joints, End_Support));
+
+
+
+                list.Add(string.Format("{0} {1}", support_left_joints, Start_Support));
+                list.Add(string.Format("{0} {1}", support_right_joints, End_Support));
+
+                if(Spans.Count > 1)
+                {
+                    list.Add(string.Format("{0} PINNED", support_inner_joints));
+
+                }
             }
             //list.Add("1 3 5 7 9 11 PINNED");
             //list.Add("111 113 115 117 119 121 PINNED");
@@ -10295,6 +11472,17 @@ namespace BridgeAnalysisDesign.Composite
 
             return list_arr;
         }
+
+        public double Total_Length
+        {
+            get
+            {
+
+                if (Spans.Count > 0) return MyList.Get_Array_Sum(Spans);
+                return Length;
+            }
+        }
+
     }
     public class Composite_Girder_DeckSlab
     {
