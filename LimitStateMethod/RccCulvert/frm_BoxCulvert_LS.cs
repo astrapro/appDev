@@ -76,36 +76,7 @@ namespace LimitStateMethod.RccCulvert
             }
             else if (btn.Name == btn_TGirder_new_design.Name)
             {
-                //frm_NewProject frm = new frm_NewProject(Path.GetDirectoryName(user_path));
-                ////frm.Project_Name = "Singlecell Box Culvert Design Project";
-                //if (txt_project_name.Text != "")
-                //    frm.Project_Name = txt_project_name.Text;
-                //else
-                //    frm.Project_Name = "Design of RCC T-Girder Bridge";
-                //if (frm.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
-                //{
-                //txt_project_name.Text = frm.Project_Name;
-                //btn_TGirder_process.Enabled = true;
-
-                //if()
-
-
-
-                //if (IsCreateData == false)
-                //{
-                //    string src_path = user_path;
-                //    Create_Project();
-                //    string dest_path = user_path;
-
-                //    Folder_Copy(src_path, dest_path);
-
-                //}
-                //else
-                //{
-                //IsCreateData = true;
                 Create_Project();
-                //}
-                //}
             }
 
             uC_BoxCulvert1.Enabled = (Directory.Exists(user_path));

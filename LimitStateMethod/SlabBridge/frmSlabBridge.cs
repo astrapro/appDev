@@ -8,332 +8,276 @@ using System.IO;
 using System.Windows.Forms;
 using AstraInterface.DataStructure;
 using AstraInterface.Interface;
+using BridgeAnalysisDesign;
 
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 
 
-namespace BridgeAnalysisDesign.RCC_Culvert
+namespace LimitStateMethod.SlabBridge
 {
-    public partial class UC_BoxCulvert : UserControl
+    public partial class frmSlabBridge : Form
     {
         IApplication iApp;
 
-        public UC_BoxCulvert()
+
+        string Input_File_DL = "";
+        string Input_File_LL = "";
+
+        public frmSlabBridge(IApplication app)
         {
             InitializeComponent();
-            sc1.Panel2Collapsed = true;
-            Load_Default_Data_Single_Cell();
-            Load_Default_Data_Multi_Cell();
-            Button_Enable_Disable();
-        }
-        public void SetIApplication(IApplication app)
-        {
+            Load_Default_Data();
             iApp = app;
         }
-        void Load_Default_Data_Single_Cell()
+        public void Load_Default_Data()
         {
-            //DataGridView dgv = dgv_input_data;
-
             List<string> list = new List<string>();
-            MyList mlist = null;
 
-
-
-            #region Base Pressure
+            #region Default Data
             list.Add(string.Format("Design Data$$"));
-            list.Add(string.Format("Number of cell in culvert$1$"));
-            list.Add(string.Format("Clear Span$8.8$m"));
-            list.Add(string.Format("Clear Height$7.6$m"));
-            list.Add(string.Format("Overall width$12$m"));
-            list.Add(string.Format("Carriageway width$11$m"));
+            list.Add(string.Format("Number of span$1$"));
+            list.Add(string.Format("Clear Span$11.5$m"));
+            list.Add(string.Format("Effective span$12$m"));
+            list.Add(string.Format("Overall width$16$m"));
+            list.Add(string.Format("Carriageway width$12.000$m"));
             list.Add(string.Format("Crash barrier width$0.5$m"));
-            list.Add(string.Format("Footpath width/ Safety kerb$0$m"));
-            list.Add(string.Format("Minimum thickness of wearing coat$0.075$m"));
-            list.Add(string.Format("Thickness of soil fill over Bottom slab$0$m"));
-            list.Add(string.Format("lean concrete thickness over deck$0.000$m"));
+            list.Add(string.Format("Footpath width/ Safety kerb$0.25$m"));
+            list.Add(string.Format("Height of Crash barrier$1$m"));
+            list.Add(string.Format("Footpath width$1.500$m"));
+            list.Add(string.Format("Height of footpath slab$0.3$m"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Width of Haunch$0.3$m"));
-            list.Add(string.Format("Depth of Haunch$0.3$m"));
+            list.Add(string.Format("Width of Railing Kerb $0.5$m"));
+            list.Add(string.Format("height of rail kerb $0.25$m"));
+            list.Add(string.Format("Height of railing $1$m"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Top slab thickness$0.70$m"));
-            list.Add(string.Format("Bottom slab thickness$0.70$m"));
-            list.Add(string.Format("Side wall thickness $0.65$m"));
+            list.Add(string.Format("Slab Thickness $1$m"));
+            list.Add(string.Format("Length of cantilever portion $2$m"));
+            list.Add(string.Format("Cantilever Tip thickness $0.2$m"));
+            list.Add(string.Format("Cantilever root thickness $0.3$m"));
+            list.Add(string.Format("Lean concrete over Deck Slab $0.2$m"));
+            list.Add(string.Format("Minimum Thickness of Wearing coat $0.075$m"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Safe Bearing Capacity$150$kN/m²"));
+            list.Add(string.Format("Unit Weights$$"));
+            list.Add(string.Format("Density of concrete$25$kN/Cu.m"));
+            list.Add(string.Format("unit weight of soil$18$kN/Cu.m"));
+            list.Add(string.Format("unit weight of submerged soil$10$kN/Cu.m"));
+            list.Add(string.Format("unit weight of wearing coat$22$kN/Cu.m"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Density of concrete$25$kN/m³"));
-            list.Add(string.Format("unit weight of soil$18$kN/m³"));
-            list.Add(string.Format("unit weight of submerged soil$10$kN/m³"));
-            list.Add(string.Format("unit weight of wearing coat$22$kN/m³"));
-            list.Add(string.Format("Grade of concrete$35$N/mm2"));
-            list.Add(string.Format("Grade of reinforcement$500$N/mm2"));
-            list.Add(string.Format("Length of the box considered for design$1$m"));
+            list.Add(string.Format("Material Properties$$"));
+            list.Add(string.Format("Grade of concrete$35$N/Sq.mm"));
+            list.Add(string.Format("Grade of reinforcement$500$N/Sq.mm"));
+            list.Add(string.Format("Grade of shear reinforcement$500$N/Sq.mm"));
+            list.Add(string.Format("Length of the Slab considered for design$1$m"));
+            list.Add(string.Format("Partial safety factor for concrete $1.5$"));
+            list.Add(string.Format("Partial safety factor for steel$1.15$"));
+            list.Add(string.Format("Modulus of elasticity of concrete$3.20E+04$N/Sq.mm"));
+            list.Add(string.Format("Modulus of elasticity of Steel$2.00E+05$N/Sq.mm"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Permissible stresses$$"));
-            list.Add(string.Format("Permissible Compressive stress in Concrete$11.5$Mpa"));
-            list.Add(string.Format("Permissible Tensile stress in Steel$240$Mpa"));
+            list.Add(string.Format("Tensile strenght of concrete$2.8$Mpa"));
+            list.Add(string.Format("Effective modulus of elasticity$12903.23$"));
+            list.Add(string.Format("Moment due to self wt.$0.00$"));
+            list.Add(string.Format("Moment due to SIDL$0.00$"));
+            list.Add(string.Format("Total moment due to sustained loading$0.00$"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Grade of shear reinforcement$500$"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Design Levels$$"));
-            list.Add(string.Format("Formation road level$812.043$m"));
-            list.Add(string.Format("Highest Flood level$810.56$m"));
-            list.Add(string.Format("Lowest Water level$803$m"));
-            list.Add(string.Format("Maximum Scour level$803$m"));
-            list.Add(string.Format("Foundation level$802.899$m"));
-            //dgv = dgv_input_data;
+            list.Add(string.Format("Permissible deflection due to vehicular traffic$14.38$mm"));
+            list.Add(string.Format("K3(for simply supported members)$0.125$"));
+            list.Add(string.Format("ae(Modular ratio)$6.25$"));
+            list.Add(string.Format("ae(Effective Modular ratio)$15.50$"));
+            list.Add(string.Format("I, Moment of inertia of section$8.33E+10$mm"));
+            list.Add(string.Format("Icracked$5.83E+10$"));
+            list.Add(string.Format("?m$1.5$"));
+            list.Add(string.Format("a$0.67$"));
+            list.Add(string.Format("Ultimate compressive strain in the concrete$0.0035$"));
+            list.Add(string.Format("Creep cofficient (taking long term of creep)$1.48$"));
+            list.Add(string.Format("cofficient to consider influence of concrete strength$0.67$"));
+            list.Add(string.Format("Neutral axis depth for balanced section $454.55$"));
+            #endregion Default Data
 
-
-
-            MyList.Fill_List_to_Grid(dgv_design_data_single, list, '$');
-            MyList.Modified_Cell(dgv_design_data_single);
-
-
-            //dgv_base_pressure.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-
-            #endregion Base Pressure
-
-
-            MyList.Fill_List_to_Grid(dgv_design_data_single, list, '$');
-            //dgv_base_pressure.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            MyList.Modified_Cell(dgv_design_data_single);
-
-
-
+            MyList.Fill_List_to_Grid(dgv_design_data, list, '$');
+            dgv_design_data.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            MyList.Modified_Cell(dgv_design_data);
         }
 
-
-        void Load_Default_Data_Multi_Cell()
+        public void Write_All_Data()
         {
-            //DataGridView dgv = dgv_input_data;
-
-            List<string> list = new List<string>();
-            MyList mlist = null;
-
-
-            #region Base Pressure
-            list.Add(string.Format("Design Data$$"));
-            list.Add(string.Format("Number of cells in culvert$2$"));
-            list.Add(string.Format("Effective Span (L1)$12.6$m(skew)"));
-            list.Add(string.Format("Effective Span (L2)$12.6$m(skew)"));
-            list.Add(string.Format("Clear Height$4.5$m"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Overall width$28$m"));
-            list.Add(string.Format("Carriageway width$8.5$m"));
-            list.Add(string.Format("Crash barrier width$0.50$m"));
-            list.Add(string.Format("Crash barrier Height$0.75$m"));
-            list.Add(string.Format("Safety kerb$0.00$m"));
-            list.Add(string.Format("Ht. of crash barrier$1.00$m"));
-            list.Add(string.Format("Ht. of kerb$0.00$m"));
-            list.Add(string.Format("Width of railing$0.50$m"));
-            list.Add(string.Format("Footpath width$1.50$m"));
-            list.Add(string.Format("Minimum thickness of wearing coat$0.065$m"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Thickness of soil fill over Bottom slab$0.00$m"));
-            list.Add(string.Format("lean concrete thickness bot. slab$0.00$m"));
-            list.Add(string.Format("Length of the box considered for design$1.00$m"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Width of Haunch$1.5$m"));
-            list.Add(string.Format("Depth of Haunch$0.5$m"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Top slab thickness$0.80$m"));
-            list.Add(string.Format("Bottom slab thickness$0.90$m"));
-            list.Add(string.Format("Side wall thickness $0.80$m"));
-            list.Add(string.Format("Mid wall thickness$0.60$m"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Safe Bearing Capacity$150.00$kN/m²"));
-            list.Add(string.Format("Density of concrete$25.00$kN/m³"));
-            list.Add(string.Format("unit weight of soil$18.00$kN/m³"));
-            list.Add(string.Format("unit weight of submerged soil$10.00$kN/m³"));
-            list.Add(string.Format("unit weight of wearing coat$22.00$kN/m³"));
-            list.Add(string.Format("unit weight of water$10.00$kN/m³"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Grade of concrete$30$N/mm²"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Grade of reinforcement$500$N/mm²"));
-            list.Add(string.Format("Grade of shear reinforcement$500$N/mm²"));
-            list.Add(string.Format("$$"));
-            list.Add(string.Format("Modulus of elasticity of Steel$200000000$N/m²"));
-            //dgv = dgv_input_data;
-
-
-
-            MyList.Fill_List_to_Grid(dgv_design_data_multi, list, '$');
-            MyList.Modified_Cell(dgv_design_data_multi);
-
-
-            //dgv_base_pressure.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-
-
-            #endregion Base Pressure
-
-            //Modified_Cell(dgv_input_data);
-
-            //if (dgv[2, i].Value == "") dgv[2, i].Value = "";
-
+            Write_All_Data(true);
         }
+        public void Write_All_Data(bool showMessage)
+        {
+
+            iApp.Save_Form_Record(this, user_path);
+        }
+
+        private void btn_TGirder_new_design_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+
+            if (btn.Name == btn_TGirder_browse.Name)
+            {
+                //user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+                frm_Open_Project frm = new frm_Open_Project(this.Name, Path.Combine(iApp.LastDesignWorkingFolder, Title));
+                if (frm.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+                {
+                    //user_path = Path.Combine(user_path, Project_Name);
+                    user_path = frm.Example_Path;
+                    iApp.Read_Form_Record(this, frm.Example_Path);
+                    txt_project_name.Text = Path.GetFileName(frm.Example_Path);
+                    #region Save As
+                    if (frm.SaveAs_Path != "")
+                    {
+
+                        string src_path = user_path;
+                        txt_project_name.Text = Path.GetFileName(frm.SaveAs_Path);
+                        Create_Project();
+                        string dest_path = user_path;
+
+                        MyList.Folder_Copy(src_path, dest_path);
+                        Write_All_Data();
+                    }
+                    #endregion Save As
+                }
+            }
+            else if (btn.Name == btn_TGirder_new_design.Name)
+            {
+                Create_Project();
+            }
+
+            grb_Analysis.Enabled = (Directory.Exists(user_path));
+            Button_Enable_Disable();
+        }
+
+        #region Chiranjit [2016 09 07]
+
+        eASTRADesignType Project_Type
+        {
+            get
+            {
+                return eASTRADesignType.BOX_CULVERT_LSM;
+            }
+        }
+
+        public string Project_Name
+        {
+            get
+            {
+                return txt_project_name.Text;
+            }
+            set
+            {
+                txt_project_name.Text = value;
+            }
+        }
+
+        public string user_path
+        {
+            get
+            {
+                return iApp.user_path;
+            }
+            set
+            {
+                iApp.user_path = value;
+            }
+        }
+        public void Create_Project()
+        {
+            user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            if (!Directory.Exists(user_path))
+            {
+                Directory.CreateDirectory(user_path);
+            }
+            string fname = Path.Combine(user_path, Project_Name + ".apr");
+
+            int ty = (int)Project_Type;
+            File.WriteAllText(fname, ty.ToString());
+            user_path = Path.Combine(user_path, Project_Name);
+
+            if (Directory.Exists(user_path))
+            {
+                switch (MessageBox.Show(Project_Name + " is already exist. Do you want overwrite ?",
+                    "ASTRA", MessageBoxButtons.YesNoCancel))
+                {
+                    case System.Windows.Forms.DialogResult.Cancel:
+                        return;
+                    case System.Windows.Forms.DialogResult.Yes:
+                        //Delete Folders
+                        Delete_Folder(user_path);
+                        break;
+                }
+            }
+            if (!Directory.Exists(user_path))
+            {
+                Directory.CreateDirectory(user_path);
+            }
+
+            Write_All_Data();
+
+
+            MessageBox.Show(Project_Name + " is Created.", "ASTRA", MessageBoxButtons.OK);
+        }
+
 
         public string Title
         {
             get
             {
-                //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-                //    return "DESIGN OF RCC ABUTMENT CANTILEVER [BS]";
-                return "RCC Box Culvert Design in LSM";
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                    return "RCC SLAB BRIDGE DESIGN LIMIT STATE [BS]";
+                else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+                    return "RCC SLAB BRIDGE DESIGN LIMIT STATE [LRFD]";
+
+                return "RCC SLAB BRIDGE DESIGN LIMIT STATE [IRC]";
             }
         }
-        private void Box_Culvert_Multi_Cell()
+        public void Set_Project_Name()
         {
+            string dir = Path.Combine(iApp.LastDesignWorkingFolder, Title);
 
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
-
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
-
-            //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            //file_path = Path.Combine(file_path, "Box Culvert Multi Cell.xlsx");
-            file_path = Excel_File();
-
-            //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
-            //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
-
-            string copy_path = file_path;
-
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Box Culvert Multi Cell.xlsx");
-
-            if (File.Exists(file_path))
+            string prj_name = "";
+            string prj_dir = "";
+            int c = 1;
+            if (Directory.Exists(dir))
             {
-                File.Copy(file_path, copy_path, true);
+                while (true)
+                {
+                    prj_name = "DESIGN JOB #" + c.ToString("00");
+                    prj_dir = Path.Combine(dir, prj_name);
+
+                    if (!Directory.Exists(prj_dir)) break;
+                    c++;
+                }
             }
             else
-            {
-                MessageBox.Show(file_path + " file not found.");
-                return;
-            }
+                prj_name = "DESIGN JOB #" + c.ToString("00");
 
+            txt_project_name.Text = prj_name;
 
-            iApp.Excel_Open_Message();
-
-            Excel.Application myExcelApp;
-            Excel.Workbooks myExcelWorkbooks;
-            Excel.Workbook myExcelWorkbook;
-
-            object misValue = System.Reflection.Missing.Value;
-
-            myExcelApp = new Excel.ApplicationClass();
-            myExcelApp.Visible = true;
-            //myExcelApp.Visible = false;
-            myExcelWorkbooks = myExcelApp.Workbooks;
-
-            //myExcelWorkbook = myExcelWorkbooks.Open(fileName, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue, misValue);
-
-            myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
-
-            //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Design Data"];
-
-
-
-            List<double> data = new List<double>();
-            try
-            {
-
-                //if (false)
-                if (true)
-                {
-                    List<string> list = new List<string>();
-
-
-
-                    DataGridView dgv = dgv_design_data_multi;
-                    int rindx = 0;
-                    int i = 0;
-
-
-                    #region Design Data
-                    myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Design Data"];
-
-                    rindx = 0;
-
-                    dgv = dgv_design_data_multi;
-
-
-
-                    DataInputCollections dips = new DataInputCollections();
-
-                    dips.Load_Data_from_Grid(dgv);
-                    List<string> ldbl = new List<string>();
-
-                    rindx = 0;
-
-                    for (i = 6; i < 68; i++)
-                    {
-                        if ((i == 7) ||
-                            (i == 8) ||
-                            (i == 12) ||
-                            (i == 13) ||
-                            (i == 15) ||
-                            (i == 26) ||
-                            (i == 30) ||
-                            (i == 33) ||
-                            (i == 47) ||
-                            (i == 48) ||
-                            (i == 51) ||
-                            (i == 53) ||
-                            (i == 65) ||
-                            (i == 66) ||
-                            (i >= 53 && i <= 62)
-                           )
-                        {
-                            continue;
-                        }
-                        else
-                        {
-
-                            if (rindx == 60)
-                            {
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("M", "").Trim().ToString();
-
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                            }
-                            else if (rindx == 61)
-                            {
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("FE", "").Trim().ToString();
-                            }
-                            else
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
-
-                        }
-
-                        while (dips[rindx].DATA == "") rindx++;
-                    }
-                    #endregion Design Data
-
-
-                    rindx = 0;
-
-                }
-
-            }
-            catch (Exception exx) { }
-
-            iApp.Excel_Close_Message();
-
-            myExcelWorkbook.Save();
-
-            releaseObject(myExcelWorkbook);
-
-            //iApp.Excel_Open_Message();
         }
 
-        private void Box_Culvert_Single_Cell()
+        public void Delete_Folder(string folder)
+        {
+            try
+            {
+                if (Directory.Exists(folder))
+                {
+                    foreach (var item in Directory.GetDirectories(folder))
+                    {
+                        Delete_Folder(item);
+                    }
+                    foreach (var item in Directory.GetFiles(folder))
+                    {
+                        File.Delete(item);
+                    }
+                    Directory.Delete(folder);
+                }
+            }
+            catch (Exception exx) { }
+        }
+
+        #endregion
+
+        private void Slab_Bridge_Design()
         {
 
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
@@ -354,7 +298,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Single cell box.xlsx");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Slab Bridge\Solid Slab Bridge.xlsx");
 
             if (File.Exists(file_path))
             {
@@ -393,26 +337,19 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             try
             {
 
-                //if (false)
-                    if (true)
-                    {
+                if (false)
+                //if (true)
+                {
                     List<string> list = new List<string>();
-
-
-
-                    DataGridView dgv = dgv_design_data_single;
+                    DataGridView dgv = dgv_design_data;
                     int rindx = 0;
                     int i = 0;
-
 
                     #region Design Data
                     myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Design Data"];
 
                     rindx = 0;
 
-                    dgv = dgv_design_data_single;
-
-                       
 
                     DataInputCollections dips = new DataInputCollections();
 
@@ -421,7 +358,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
                     rindx = 0;
 
-                    for (i = 3; i < 48; i++)
+                    for (i = 4; i < 65; i++)
                     {
                         if ((i == 13) ||
                             (i == 16) ||
@@ -429,9 +366,9 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                             (i == 22) ||
                             (i >= 30 && i <= 32) ||
                             (i >= 35 && i <= 39) ||
- 
+
                             (i == 41) ||
-                            (i == 42) 
+                            (i == 42)
                            )
                         {
                             continue;
@@ -3338,272 +3275,63 @@ namespace BridgeAnalysisDesign.RCC_Culvert
         {
             List<string> list = new List<string>();
             #region  Singlecell DeadLoad
-            list.Add(string.Format("ASTRA PLANE SINGLE CELL BOX CULVERT ANALYSIS"));
+            //list.Add(string.Format("ASTRA SPACE SLAB ANALYSIS DEAD LOAD"));
+            //list.Add(string.Format("UNIT METER KN"));
+            //list.Add(string.Format("JOINT COORDINATES"));
+            //list.Add(string.Format("1 0 0 0; 2 12 0 0;"));
+            //list.Add(string.Format("MEMBER INCIDENCES"));
+            //list.Add(string.Format("1 1 2;"));
+            //list.Add(string.Format("MEMBER PROPERTY"));
+            //list.Add(string.Format("1 PRIS YD 1 ZD 1"));
+            //list.Add(string.Format("CONSTANTS"));
+            //list.Add(string.Format("E 2.17185e+007"));
+            //list.Add(string.Format("POISSON 0.17"));
+            //list.Add(string.Format("DENSITY 23.5616"));
+            //list.Add(string.Format("ALPHA 1e-005"));
+            //list.Add(string.Format("DAMP 0.05"));
+            //list.Add(string.Format("SUPPORTS"));
+            //list.Add(string.Format("2 FIXED BUT FZ MX MY MZ"));
+
+            list.Add(string.Format("ASTRA SPACE SLAB ANALYSIS DEAD LOAD"));
             list.Add(string.Format("UNIT KN METRES"));
             list.Add(string.Format("JOINT COORDINATES"));
-            list.Add(string.Format("1        0        -3.625        0"));
-            list.Add(string.Format("2        9.3        -3.625        0"));
-            list.Add(string.Format("3        9.3        4.75        0"));
-            list.Add(string.Format("4        0        4.75        0"));
-            list.Add(string.Format("5        0.1        -3.625        0"));
-            list.Add(string.Format("6        0.2        -3.625        0"));
-            list.Add(string.Format("7        0.3        -3.625        0"));
-            list.Add(string.Format("8        0.4        -3.625        0"));
-            list.Add(string.Format("9        0.5        -3.625        0"));
-            list.Add(string.Format("10        0.6        -3.625        0"));
-            list.Add(string.Format("11        0.7        -3.625        0"));
-            list.Add(string.Format("12        0.8        -3.625        0"));
-            list.Add(string.Format("13        0.9        -3.625        0"));
-            list.Add(string.Format("14        1        -3.625        0"));
-            list.Add(string.Format("15        1.1        -3.625        0"));
-            list.Add(string.Format("16        1.2        -3.625        0"));
-            list.Add(string.Format("17        1.4        -3.625        0"));
-            list.Add(string.Format("18        1.5        -3.625        0"));
-            list.Add(string.Format("19        1.6        -3.625        0"));
-            list.Add(string.Format("20        1.7        -3.625        0"));
-            list.Add(string.Format("21        1.8        -3.625        0"));
-            list.Add(string.Format("22        1.9        -3.625        0"));
-            list.Add(string.Format("23        2        -3.625        0"));
-            list.Add(string.Format("24        2.1        -3.625        0"));
-            list.Add(string.Format("25        2.2        -3.625        0"));
-            list.Add(string.Format("26        2.3        -3.625        0"));
-            list.Add(string.Format("27        2.4        -3.625        0"));
-            list.Add(string.Format("28        2.5        -3.625        0"));
-            list.Add(string.Format("29        2.6        -3.625        0"));
-            list.Add(string.Format("30        2.7        -3.625        0"));
-            list.Add(string.Format("31        2.8        -3.625        0"));
-            list.Add(string.Format("32        2.9        -3.625        0"));
-            list.Add(string.Format("33        3        -3.625        0"));
-            list.Add(string.Format("34        3.1        -3.625        0"));
-            list.Add(string.Format("35        3.2        -3.625        0"));
-            list.Add(string.Format("36        3.3        -3.625        0"));
-            list.Add(string.Format("37        3.4        -3.625        0"));
-            list.Add(string.Format("38        3.5        -3.625        0"));
-            list.Add(string.Format("39        3.6        -3.625        0"));
-            list.Add(string.Format("40        3.7        -3.625        0"));
-            list.Add(string.Format("41        3.8        -3.625        0"));
-            list.Add(string.Format("42        3.9        -3.625        0"));
-            list.Add(string.Format("43        4        -3.625        0"));
-            list.Add(string.Format("44        4.1        -3.625        0"));
-            list.Add(string.Format("45        4.2        -3.625        0"));
-            list.Add(string.Format("46        4.3        -3.625        0"));
-            list.Add(string.Format("47        4.4        -3.625        0"));
-            list.Add(string.Format("48        4.5        -3.625        0"));
-            list.Add(string.Format("49        4.6        -3.625        0"));
-            list.Add(string.Format("50        4.7        -3.625        0"));
-            list.Add(string.Format("51        4.8        -3.625        0"));
-            list.Add(string.Format("52        4.9        -3.625        0"));
-            list.Add(string.Format("53        5        -3.625        0"));
-            list.Add(string.Format("54        5.1        -3.625        0"));
-            list.Add(string.Format("55        5.2        -3.625        0"));
-            list.Add(string.Format("56        5.3        -3.625        0"));
-            list.Add(string.Format("57        5.4        -3.625        0"));
-            list.Add(string.Format("58        5.5        -3.625        0"));
-            list.Add(string.Format("59        5.6        -3.625        0"));
-            list.Add(string.Format("60        5.7        -3.625        0"));
-            list.Add(string.Format("61        5.8        -3.625        0"));
-            list.Add(string.Format("62        5.9        -3.625        0"));
-            list.Add(string.Format("63        6        -3.625        0"));
-            list.Add(string.Format("64        6.1        -3.625        0"));
-            list.Add(string.Format("65        6.2        -3.625        0"));
-            list.Add(string.Format("66        6.3        -3.625        0"));
-            list.Add(string.Format("67        6.4        -3.625        0"));
-            list.Add(string.Format("68        6.5        -3.625        0"));
-            list.Add(string.Format("69        6.6        -3.625        0"));
-            list.Add(string.Format("70        6.7        -3.625        0"));
-            list.Add(string.Format("71        6.8        -3.625        0"));
-            list.Add(string.Format("72        6.9        -3.625        0"));
-            list.Add(string.Format("73        7        -3.625        0"));
-            list.Add(string.Format("74        7.1        -3.625        0"));
-            list.Add(string.Format("75        7.2        -3.625        0"));
-            list.Add(string.Format("76        7.3        -3.625        0"));
-            list.Add(string.Format("77        7.4        -3.625        0"));
-            list.Add(string.Format("78        7.5        -3.625        0"));
-            list.Add(string.Format("79        7.6        -3.625        0"));
-            list.Add(string.Format("80        7.7        -3.625        0"));
-            list.Add(string.Format("81        7.8        -3.625        0"));
-            list.Add(string.Format("82        7.9        -3.625        0"));
-            list.Add(string.Format("83        8        -3.625        0"));
-            list.Add(string.Format("84        8.1        -3.625        0"));
-            list.Add(string.Format("85        8.2        -3.625        0"));
-            list.Add(string.Format("86        8.3        -3.625        0"));
-            list.Add(string.Format("87        8.4        -3.625        0"));
-            list.Add(string.Format("88        8.5        -3.625        0"));
-            list.Add(string.Format("89        8.6        -3.625        0"));
-            list.Add(string.Format("90        8.7        -3.625        0"));
-            list.Add(string.Format("91        8.8        -3.625        0"));
-            list.Add(string.Format("92        8.9        -3.625        0"));
-            list.Add(string.Format("93        9        -3.625        0"));
-            list.Add(string.Format("94        9.1        -3.625        0"));
-            list.Add(string.Format("95        9.2        -3.625        0"));
-            list.Add(string.Format("96        1.3        -3.625        0"));
+            list.Add(string.Format("1         0.0000     0.0000     0.0000"));
+            list.Add(string.Format("2        12.0000     0.0000     0.0000"));
             list.Add(string.Format("MEMBER INCIDENCES"));
-            list.Add(string.Format("1        2        3"));
-            list.Add(string.Format("2        3        4"));
-            list.Add(string.Format("3        4        1"));
-            list.Add(string.Format("4        1        5"));
-            list.Add(string.Format("5        5        6"));
-            list.Add(string.Format("6        6        7"));
-            list.Add(string.Format("7        7        8"));
-            list.Add(string.Format("8        8        9"));
-            list.Add(string.Format("9        9        10"));
-            list.Add(string.Format("10        10        11"));
-            list.Add(string.Format("11        11        12"));
-            list.Add(string.Format("12        12        13"));
-            list.Add(string.Format("13        13        14"));
-            list.Add(string.Format("14        14        15"));
-            list.Add(string.Format("15        15        16"));
-            list.Add(string.Format("16        17        18"));
-            list.Add(string.Format("17        18        19"));
-            list.Add(string.Format("18        19        20"));
-            list.Add(string.Format("19        20        21"));
-            list.Add(string.Format("20        21        22"));
-            list.Add(string.Format("21        22        23"));
-            list.Add(string.Format("22        23        24"));
-            list.Add(string.Format("23        24        25"));
-            list.Add(string.Format("24        25        26"));
-            list.Add(string.Format("25        26        27"));
-            list.Add(string.Format("26        27        28"));
-            list.Add(string.Format("27        28        29"));
-            list.Add(string.Format("28        29        30"));
-            list.Add(string.Format("29        30        31"));
-            list.Add(string.Format("30        31        32"));
-            list.Add(string.Format("31        32        33"));
-            list.Add(string.Format("32        33        34"));
-            list.Add(string.Format("33        34        35"));
-            list.Add(string.Format("34        35        36"));
-            list.Add(string.Format("35        36        37"));
-            list.Add(string.Format("36        37        38"));
-            list.Add(string.Format("37        38        39"));
-            list.Add(string.Format("38        39        40"));
-            list.Add(string.Format("39        40        41"));
-            list.Add(string.Format("40        41        42"));
-            list.Add(string.Format("41        42        43"));
-            list.Add(string.Format("42        43        44"));
-            list.Add(string.Format("43        44        45"));
-            list.Add(string.Format("44        45        46"));
-            list.Add(string.Format("45        46        47"));
-            list.Add(string.Format("46        47        48"));
-            list.Add(string.Format("47        48        49"));
-            list.Add(string.Format("48        49        50"));
-            list.Add(string.Format("49        50        51"));
-            list.Add(string.Format("50        51        52"));
-            list.Add(string.Format("51        52        53"));
-            list.Add(string.Format("52        53        54"));
-            list.Add(string.Format("53        54        55"));
-            list.Add(string.Format("54        55        56"));
-            list.Add(string.Format("55        56        57"));
-            list.Add(string.Format("56        57        58"));
-            list.Add(string.Format("57        58        59"));
-            list.Add(string.Format("58        59        60"));
-            list.Add(string.Format("59        60        61"));
-            list.Add(string.Format("60        61        62"));
-            list.Add(string.Format("61        62        63"));
-            list.Add(string.Format("62        63        64"));
-            list.Add(string.Format("63        64        65"));
-            list.Add(string.Format("64        65        66"));
-            list.Add(string.Format("65        66        67"));
-            list.Add(string.Format("66        67        68"));
-            list.Add(string.Format("67        68        69"));
-            list.Add(string.Format("68        69        70"));
-            list.Add(string.Format("69        70        71"));
-            list.Add(string.Format("70        71        72"));
-            list.Add(string.Format("71        72        73"));
-            list.Add(string.Format("72        73        74"));
-            list.Add(string.Format("73        74        75"));
-            list.Add(string.Format("74        75        76"));
-            list.Add(string.Format("75        76        77"));
-            list.Add(string.Format("76        77        78"));
-            list.Add(string.Format("77        78        79"));
-            list.Add(string.Format("78        79        80"));
-            list.Add(string.Format("79        80        81"));
-            list.Add(string.Format("80        81        82"));
-            list.Add(string.Format("81        82        83"));
-            list.Add(string.Format("82        83        84"));
-            list.Add(string.Format("83        84        85"));
-            list.Add(string.Format("84        85        86"));
-            list.Add(string.Format("85        86        87"));
-            list.Add(string.Format("86        87        88"));
-            list.Add(string.Format("87        88        89"));
-            list.Add(string.Format("88        89        90"));
-            list.Add(string.Format("89        90        91"));
-            list.Add(string.Format("90        91        92"));
-            list.Add(string.Format("91        92        93"));
-            list.Add(string.Format("92        93        94"));
-            list.Add(string.Format("93        94        95"));
-            list.Add(string.Format("94        95        2"));
-            list.Add(string.Format("95        16        96"));
-            list.Add(string.Format("96        96        17"));
+            list.Add(string.Format("1 1 2"));
             list.Add(string.Format("MEMBER PROPERTY"));
-            list.Add(string.Format("2 PRIS YD 0.7 ZD 1"));
-            list.Add(string.Format("1 3 PRIS YD 0.65 ZD 1"));
-            list.Add(string.Format("4 TO 96 PRIS YD 0.8 ZD 1"));
+            list.Add(string.Format("1 PRISMATIC YD 1 ZD 1"));
             list.Add(string.Format("CONSTANTS"));
-            list.Add(string.Format("E 2.17185e+007 ALL"));
-            list.Add(string.Format("POISSON 0.17 ALL"));
-            list.Add(string.Format("DENSITY 23.5616 ALL"));
-            list.Add(string.Format("ALPHA 1e-005 ALL"));
-            list.Add(string.Format("DAMP 0.05 ALL"));
+            list.Add(string.Format("E CONCRETE ALL"));
+            list.Add(string.Format("DEN CONCRETE ALL"));
+            list.Add(string.Format("POISSON CONCRETE ALL"));
             list.Add(string.Format("SUPPORTS"));
-            list.Add(string.Format("1 2 5 TO 96 FIXED BUT FX FZ MX MY MZ KFY 3613.81"));
-            list.Add(string.Format("SELFWEIGHT Y -1"));
-            list.Add(string.Format("LOAD 1 LOADTYPE NONE TITLE DL + SIDL"));
+            list.Add(string.Format("1 FIXED BUT FX MZ MY"));
+            list.Add(string.Format("2 PINNED"));
+            //list.Add(string.Format("1 FIXED BUT FX FZ MX MY MZ"));
+            //list.Add(string.Format("LOAD 1 LOADTYPE Dead  TITLE DL"));
+            list.Add(string.Format("SELFWEIGHT Y -1 "));
+            list.Add(string.Format("LOAD 1LOADTYPE Dead  TITLE SIDL(W/O SURFACING)"));
             list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -13 0 9.3"));
-            list.Add(string.Format("2 UNI GY -8.75"));
-            list.Add(string.Format("LOAD 2 LOADTYPE NONE TITLE WATER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.25"));
+            list.Add(string.Format("1 UNI GY -9 0 12"));
+            list.Add(string.Format("LOAD 2 LOADTYPE Dead  TITLE SIDL(W SURFACING)"));
             list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 TRAP GX 18.98 0 0 6.84"));
-            list.Add(string.Format("3 TRAP GX 0 -18.98 1.5 8.37"));
-            list.Add(string.Format("4 TO 94 UNI GY -18.98 0 0.1"));
-            list.Add(string.Format("LOAD 3 LOADTYPE NONE TITLE SURCHARGE LOAD"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GX -10.8 0 8.37"));
-            list.Add(string.Format("3 UNI GX 10.8 0 8.37"));
-            list.Add(string.Format("LOAD 4 LOADTYPE NONE TITLE EARTH PRESSURE(BOTH SIDE)"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 TRAP GX -82.35 0 0 8.37"));
-            list.Add(string.Format("3 TRAP GX 0 81.35 0 8.37"));
-            list.Add(string.Format("LOAD 5 LOADTYPE NONE TITLE EARTH PRESSURE(ONE SIDE)"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("3 TRAP GX 0 82.35 0 8.37"));
-            list.Add(string.Format("LOAD 6 LOADTYPE LIVE TITLE BRAKING - 70RW"));
+            list.Add(string.Format("1 UNI GY -1.65"));
+            list.Add(string.Format("LOAD 3 LOADTYPE Temperature  TITLE TEMP RISE"));
             list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("2 3 FX -26.67"));
-            list.Add(string.Format("LOAD 7 LOADTYPE NONE TITLE EARTH CUSION"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -0.1"));
-            list.Add(string.Format("LOAD 8 LOADTYPE TEMPERATURE TITLE TEMPERATURE RISE"));
+            list.Add(string.Format("1 FX 813.76"));
+            list.Add(string.Format("2 FX -813.6"));
+            list.Add(string.Format("1 MZ 278.01"));
+            list.Add(string.Format("2 MZ -278.01"));
+            list.Add(string.Format("LOAD 4 LOADTYPE Temperature  TITLE TEMP FALL"));
             list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("4 FX 796"));
-            list.Add(string.Format("3 FX -796"));
-            list.Add(string.Format("3 MZ 189"));
-            list.Add(string.Format("4 MZ -189"));
-            list.Add(string.Format("LOAD 9 LOADTYPE TEMPERATURE TITLE TEMPERATURE FALL"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("3 FX 574"));
-            list.Add(string.Format("4 FX -547"));
-            list.Add(string.Format("3 MZ -33.3"));
-            list.Add(string.Format("4 MZ -33.3"));
-            list.Add(string.Format("LOAD 10 LOADTYPE DEAD TITLE SIDL WITH WEARING COAT"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("3 UNI GY -1.65"));
-            list.Add(string.Format("LOAD COMB 11 COMBINATION LOAD CASE 11"));
-            list.Add(string.Format("1 1.35 10 1.75 "));
-            list.Add(string.Format("LOAD COMB 12 COMBINATION LOAD CASE 12"));
-            list.Add(string.Format("1 1.35 10 1.75 5 1.50 "));
-            list.Add(string.Format("LOAD COMB 13 COMBINATION LOAD CASE 13"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.50 "));
-            list.Add(string.Format("LOAD COMB 14 COMBINATION LOAD CASE 14"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.50 7 1.35 "));
-            list.Add(string.Format("LOAD COMB 15 COMBINATION LOAD CASE 15"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.50 7 1.35 6 1.50 "));
-            list.Add(string.Format("LOAD COMB 16 COMBINATION LOAD CASE 16"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.50 7 1.35 3 1.20 6 1.50 "));
-            list.Add(string.Format("LOAD COMB 17 REACTION"));
-            list.Add(string.Format("1 1.00 2 1.00 4 1.00 7 1.00 10 1.00 "));
+            list.Add(string.Format("2 FX 730.34"));
+            list.Add(string.Format("1 FX -730.34"));
+            list.Add(string.Format("1 MZ 59.3"));
+            list.Add(string.Format("2 MZ -59.3"));
+            list.Add(string.Format("PERFORM ANALYSIS"));
             list.Add(string.Format("FINISH"));
-
             #endregion  Singlecell DeadLoad
 
 
@@ -3612,1208 +3340,1894 @@ namespace BridgeAnalysisDesign.RCC_Culvert
         public void Create_Data_Singlecell_LiveLoad()
         {
             List<string> list = new List<string>();
-            list.Add(string.Format("ASTRA PLANE Input LIVE   LOAD "));
-            list.Add(string.Format("UNIT METER KN"));
+            //list.Add(string.Format("ASTRA SPACE SLAB ANALYSIS LIVE LOAD"));
+            //list.Add(string.Format("UNIT METER KN"));
+            //list.Add(string.Format("JOINT COORDINATES"));
+            //list.Add(string.Format("1 0 0 0; 2 12 0 0;"));
+            //list.Add(string.Format("MEMBER INCIDENCES"));
+            //list.Add(string.Format("1 1 2;"));
+            //list.Add(string.Format("MEMBER PROPERTY"));
+            //list.Add(string.Format("1 PRIS YD 1 ZD 1"));
+            //list.Add(string.Format("CONSTANTS"));
+            //list.Add(string.Format("E 2.17185e+007 ALL"));
+            //list.Add(string.Format("POISSON 0.17 ALL"));
+            //list.Add(string.Format("DENSITY 23.5616 ALL"));
+            //list.Add(string.Format("ALPHA 1e-005 ALL"));
+            //list.Add(string.Format("DAMP 0.05 ALL"));
+            //list.Add(string.Format("SUPPORTS"));
+            //list.Add(string.Format("1 FIXED BUT FX FZ MX MY MZ"));
+            //list.Add(string.Format("2 FIXED BUT FZ MX MY MZ"));
+
+            list.Add(string.Format("ASTRA SPACE SLAB ANALYSIS LIVE LOAD"));
+            list.Add(string.Format("UNIT KN METRES"));
             list.Add(string.Format("JOINT COORDINATES"));
-            list.Add(string.Format("1      9.3      4.75      0"));
-            list.Add(string.Format("2      0      4.75      0"));
-            list.Add(string.Format("3      9.3      -6.46      0"));
-            list.Add(string.Format("4      0      -6.46      0"));
-            list.Add(string.Format("5      0.1      -6.46      0"));
-            list.Add(string.Format("6      0.6      -6.46      0"));
-            list.Add(string.Format("7      0.7      -6.46      0"));
-            list.Add(string.Format("8      0.8      -6.46      0"));
-            list.Add(string.Format("9      0.9      -6.46      0"));
-            list.Add(string.Format("10      1      -6.46      0"));
-            list.Add(string.Format("11      1.1      -6.46      0"));
-            list.Add(string.Format("12      1.2      -6.46      0"));
-            list.Add(string.Format("13      1.3      -6.46      0"));
-            list.Add(string.Format("14      1.4      -6.46      0"));
-            list.Add(string.Format("15      1.5      -6.46      0"));
-            list.Add(string.Format("16      1.6      -6.46      0"));
-            list.Add(string.Format("17      1.7      -6.46      0"));
-            list.Add(string.Format("18      1.8      -6.46      0"));
-            list.Add(string.Format("19      1.9      -6.46      0"));
-            list.Add(string.Format("20      2      -6.46      0"));
-            list.Add(string.Format("21      2.1      -6.46      0"));
-            list.Add(string.Format("22      2.2      -6.46      0"));
-            list.Add(string.Format("23      2.3      -6.46      0"));
-            list.Add(string.Format("24      2.4      -6.46      0"));
-            list.Add(string.Format("25      2.5      -6.46      0"));
-            list.Add(string.Format("26      2.6      -6.46      0"));
-            list.Add(string.Format("27      2.7      -6.46      0"));
-            list.Add(string.Format("28      2.8      -6.46      0"));
-            list.Add(string.Format("29      2.9      -6.46      0"));
-            list.Add(string.Format("30      3      -6.46      0"));
-            list.Add(string.Format("31      3.1      -6.46      0"));
-            list.Add(string.Format("32      3.2      -6.46      0"));
-            list.Add(string.Format("33      3.3      -6.46      0"));
-            list.Add(string.Format("34      3.4      -6.46      0"));
-            list.Add(string.Format("35      3.5      -6.46      0"));
-            list.Add(string.Format("36      3.6      -6.46      0"));
-            list.Add(string.Format("37      3.7      -6.46      0"));
-            list.Add(string.Format("38      3.8      -6.46      0"));
-            list.Add(string.Format("39      3.9      -6.46      0"));
-            list.Add(string.Format("40      4      -6.46      0"));
-            list.Add(string.Format("41      4.1      -6.46      0"));
-            list.Add(string.Format("42      4.2      -6.46      0"));
-            list.Add(string.Format("43      4.3      -6.46      0"));
-            list.Add(string.Format("44      4.4      -6.46      0"));
-            list.Add(string.Format("45      4.5      -6.46      0"));
-            list.Add(string.Format("46      4.6      -6.46      0"));
-            list.Add(string.Format("47      4.7      -6.46      0"));
-            list.Add(string.Format("48      4.8      -6.46      0"));
-            list.Add(string.Format("49      4.9      -6.46      0"));
-            list.Add(string.Format("50      5      -6.46      0"));
-            list.Add(string.Format("51      5.1      -6.46      0"));
-            list.Add(string.Format("52      5.2      -6.46      0"));
-            list.Add(string.Format("53      5.3      -6.46      0"));
-            list.Add(string.Format("54      5.4      -6.46      0"));
-            list.Add(string.Format("55      5.5      -6.46      0"));
-            list.Add(string.Format("56      5.6      -6.46      0"));
-            list.Add(string.Format("57      5.7      -6.46      0"));
-            list.Add(string.Format("58      5.8      -6.46      0"));
-            list.Add(string.Format("59      5.9      -6.46      0"));
-            list.Add(string.Format("60      6      -6.46      0"));
-            list.Add(string.Format("61      6.1      -6.46      0"));
-            list.Add(string.Format("62      6.2      -6.46      0"));
-            list.Add(string.Format("63      6.3      -6.46      0"));
-            list.Add(string.Format("64      6.4      -6.46      0"));
-            list.Add(string.Format("65      6.5      -6.46      0"));
-            list.Add(string.Format("66      6.6      -6.46      0"));
-            list.Add(string.Format("67      6.7      -6.46      0"));
-            list.Add(string.Format("68      6.8      -6.46      0"));
-            list.Add(string.Format("69      6.9      -6.46      0"));
-            list.Add(string.Format("70      7      -6.46      0"));
-            list.Add(string.Format("71      7.1      -6.46      0"));
-            list.Add(string.Format("72      7.2      -6.46      0"));
-            list.Add(string.Format("73      7.3      -6.46      0"));
-            list.Add(string.Format("74      7.4      -6.46      0"));
-            list.Add(string.Format("75      7.5      -6.46      0"));
-            list.Add(string.Format("76      7.6      -6.46      0"));
-            list.Add(string.Format("77      7.7      -6.46      0"));
-            list.Add(string.Format("78      7.8      -6.46      0"));
-            list.Add(string.Format("79      7.9      -6.46      0"));
-            list.Add(string.Format("80      8      -6.46      0"));
-            list.Add(string.Format("81      8.1      -6.46      0"));
-            list.Add(string.Format("82      8.2      -6.46      0"));
-            list.Add(string.Format("83      8.3      -6.46      0"));
-            list.Add(string.Format("84      8.4      -6.46      0"));
-            list.Add(string.Format("85      8.5      -6.46      0"));
-            list.Add(string.Format("86      8.6      -6.46      0"));
-            list.Add(string.Format("87      8.7      -6.46      0"));
-            list.Add(string.Format("88      8.8      -6.46      0"));
-            list.Add(string.Format("89      8.9      -6.46      0"));
-            list.Add(string.Format("90      9      -6.46      0"));
-            list.Add(string.Format("91      9.1      -6.46      0"));
-            list.Add(string.Format("92      9.2      -6.46      0"));
-            list.Add(string.Format("MEMBER      INCIDENCES"));
-            list.Add(string.Format("1      2      1"));
-            list.Add(string.Format("2      2      4"));
-            list.Add(string.Format("3      1      3"));
-            list.Add(string.Format("4      4      5"));
-            list.Add(string.Format("5      5      6"));
-            list.Add(string.Format("6      6      7"));
-            list.Add(string.Format("7      7      8"));
-            list.Add(string.Format("8      8      9"));
-            list.Add(string.Format("9      9      10"));
-            list.Add(string.Format("10      10      11"));
-            list.Add(string.Format("11      11      12"));
-            list.Add(string.Format("12      12      13"));
-            list.Add(string.Format("13      13      14"));
-            list.Add(string.Format("14      14      15"));
-            list.Add(string.Format("15      15      16"));
-            list.Add(string.Format("16      16      17"));
-            list.Add(string.Format("17      17      18"));
-            list.Add(string.Format("18      18      19"));
-            list.Add(string.Format("19      19      20"));
-            list.Add(string.Format("20      20      21"));
-            list.Add(string.Format("21      21      22"));
-            list.Add(string.Format("22      22      23"));
-            list.Add(string.Format("23      23      24"));
-            list.Add(string.Format("24      24      25"));
-            list.Add(string.Format("25      25      26"));
-            list.Add(string.Format("26      26      27"));
-            list.Add(string.Format("27      27      28"));
-            list.Add(string.Format("28      28      29"));
-            list.Add(string.Format("29      29      30"));
-            list.Add(string.Format("30      30      31"));
-            list.Add(string.Format("31      31      32"));
-            list.Add(string.Format("32      32      33"));
-            list.Add(string.Format("33      33      34"));
-            list.Add(string.Format("34      34      35"));
-            list.Add(string.Format("35      35      36"));
-            list.Add(string.Format("36      36      37"));
-            list.Add(string.Format("37      37      38"));
-            list.Add(string.Format("38      38      39"));
-            list.Add(string.Format("39      39      40"));
-            list.Add(string.Format("40      40      41"));
-            list.Add(string.Format("41      41      42"));
-            list.Add(string.Format("42      42      43"));
-            list.Add(string.Format("43      43      44"));
-            list.Add(string.Format("44      44      45"));
-            list.Add(string.Format("45      45      46"));
-            list.Add(string.Format("46      46      47"));
-            list.Add(string.Format("47      47      48"));
-            list.Add(string.Format("48      48      49"));
-            list.Add(string.Format("49      49      50"));
-            list.Add(string.Format("50      50      51"));
-            list.Add(string.Format("51      51      52"));
-            list.Add(string.Format("52      52      53"));
-            list.Add(string.Format("53      53      54"));
-            list.Add(string.Format("54      54      55"));
-            list.Add(string.Format("55      55      56"));
-            list.Add(string.Format("56      56      57"));
-            list.Add(string.Format("57      57      58"));
-            list.Add(string.Format("58      58      59"));
-            list.Add(string.Format("59      59      60"));
-            list.Add(string.Format("60      60      61"));
-            list.Add(string.Format("61      61      62"));
-            list.Add(string.Format("62      62      63"));
-            list.Add(string.Format("63      63      64"));
-            list.Add(string.Format("64      64      65"));
-            list.Add(string.Format("65      65      66"));
-            list.Add(string.Format("66      66      67"));
-            list.Add(string.Format("67      67      68"));
-            list.Add(string.Format("68      68      69"));
-            list.Add(string.Format("69      69      70"));
-            list.Add(string.Format("70      70      71"));
-            list.Add(string.Format("71      71      72"));
-            list.Add(string.Format("72      72      73"));
-            list.Add(string.Format("73      73      74"));
-            list.Add(string.Format("74      74      75"));
-            list.Add(string.Format("75      75      76"));
-            list.Add(string.Format("76      76      77"));
-            list.Add(string.Format("77      77      78"));
-            list.Add(string.Format("78      78      79"));
-            list.Add(string.Format("79      79      80"));
-            list.Add(string.Format("80      80      81"));
-            list.Add(string.Format("81      81      82"));
-            list.Add(string.Format("82      82      83"));
-            list.Add(string.Format("83      83      84"));
-            list.Add(string.Format("84      84      85"));
-            list.Add(string.Format("85      85      86"));
-            list.Add(string.Format("86      86      87"));
-            list.Add(string.Format("87      87      88"));
-            list.Add(string.Format("88      88      89"));
-            list.Add(string.Format("89      89      90"));
-            list.Add(string.Format("90      90      91"));
-            list.Add(string.Format("91      91      92"));
-            list.Add(string.Format("92      92      3"));
-            list.Add(string.Format("MEMBER PROPERTY  "));
-            list.Add(string.Format("1 PRIS YD 0.7 ZD 1"));
-            list.Add(string.Format("2 3 PRIS YD 0.8 ZD 1"));
-            list.Add(string.Format("4 TO 92 PRIS YD 0.8 ZD 1"));
+            list.Add(string.Format("1         0.0000     0.0000     0.0000"));
+            list.Add(string.Format("2        12.0000     0.0000     0.0000"));
+            list.Add(string.Format("MEMBER INCIDENCES"));
+            list.Add(string.Format("1              1          2"));
+            list.Add(string.Format("MEMBER PROPERTY"));
+            list.Add(string.Format("1 PRISMATIC YD 1 ZD 1"));
             list.Add(string.Format("CONSTANTS"));
-            list.Add(string.Format("E 2.17185e+007 ALL"));
-            list.Add(string.Format("POISSON 0.17 ALL"));
-            list.Add(string.Format("DENSITY 23.5616 ALL"));
-            list.Add(string.Format("ALPHA 1e-005 ALL"));
-            list.Add(string.Format("DAMP 0.05 ALL"));
+            list.Add(string.Format("E CONCRETE ALL"));
+            list.Add(string.Format("DEN CONCRETE ALL"));
+            list.Add(string.Format("POISSON CONCRETE ALL"));
             list.Add(string.Format("SUPPORTS"));
-            list.Add(string.Format("3 TO 96 FIXED BUT FX FZ MX MY MZ KFY 4131.29"));
-            list.Add(string.Format("LOAD 1 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -51.9 0 0.9"));
-            list.Add(string.Format("LOAD 2 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -30.6 0 1.15"));
-            list.Add(string.Format("LOAD 3 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -22.1 0 1.4"));
-            list.Add(string.Format("LOAD 4 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -17.5 0 1.65"));
-            list.Add(string.Format("LOAD 5 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -14.7 0.1 1.9"));
-            list.Add(string.Format("LOAD 6 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -12.8 0.35 2.15"));
-            list.Add(string.Format("LOAD 7 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.4 0.6 2.4"));
-            list.Add(string.Format("1 UNI GY -37.99 0 1.03"));
-            list.Add(string.Format("LOAD 8 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.4 0.85 2.65"));
-            list.Add(string.Format("1 UNI GY -25.45 0 1.28"));
-            list.Add(string.Format("LOAD 9 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.6 1.1 2.9"));
-            list.Add(string.Format("1 UNI GY -19.43 0 1.53"));
-            list.Add(string.Format("LOAD 10 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9 1.35 3.15"));
-            list.Add(string.Format("1 UNI GY -15.9 0 1.78"));
-            list.Add(string.Format("LOAD 11 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.5 1.6 3.4"));
-            list.Add(string.Format("1 UNI GY -13.61 0.23 2.03"));
-            list.Add(string.Format("LOAD 12 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.1 1.85 3.65"));
-            list.Add(string.Format("1 UNI GY -12 0.48 2.28"));
-            list.Add(string.Format("LOAD 13 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.8 2.1 3.9"));
-            list.Add(string.Format("1 UNI GY -10.82 0.73 2.53"));
-            list.Add(string.Format("LOAD 14 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.6 2.35 4.15"));
-            list.Add(string.Format("1 UNI GY -9.93 0.98 2.78"));
-            list.Add(string.Format("LOAD 15 LOADTYPE Live  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.4 2.6 4.4"));
-            list.Add(string.Format("1 UNI GY -9.25 1.23 3.03"));
-            list.Add(string.Format("LOAD 16 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.3 2.85 4.65"));
-            list.Add(string.Format("1 UNI GY -8.71 1.48 3.28"));
-            list.Add(string.Format("LOAD 17 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.2 3.1 4.9"));
-            list.Add(string.Format("1 UNI GY -8.28 1.73 3.53"));
-            list.Add(string.Format("LOAD 18 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.1 3.35 5.15"));
-            list.Add(string.Format("1 UNI GY -7.94 1.98 3.78"));
-            list.Add(string.Format("LOAD 19 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.1 3.6 5.4"));
-            list.Add(string.Format("1 UNI GY -7.67 2.23 4.03"));
-            list.Add(string.Format("1 UNI GY -42.31 -0.82 0.98"));
-            list.Add(string.Format("LOAD 20 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.2 3.85 5.65"));
-            list.Add(string.Format("1 UNI GY -7.47 2.48 4.28"));
-            list.Add(string.Format("1 UNI GY -27.2 0 1.23"));
-            list.Add(string.Format("LOAD 21 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.2 4.1 5.9"));
-            list.Add(string.Format("1 UNI GY -7.32 2.73 4.53"));
-            list.Add(string.Format("1 UNI GY -20.37 0 1.48"));
-            list.Add(string.Format("LOAD 22 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.2 4.35 6.15"));
-            list.Add(string.Format("1 UNI GY -7.21 2.98 4.78"));
-            list.Add(string.Format("1 UNI GY -16.49 0 1.73"));
-            list.Add(string.Format("LOAD 23 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.1 4.6 6.4"));
-            list.Add(string.Format("1 UNI GY -7.15 3.23 5.03"));
-            list.Add(string.Format("1 UNI GY -14 0.18 1.98"));
-            list.Add(string.Format("LOAD 24 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.1 4.85 6.65"));
-            list.Add(string.Format("1 UNI GY -7.12 3.48 5.28"));
-            list.Add(string.Format("1 UNI GY -12.28 0.43 2.23"));
-            list.Add(string.Format("LOAD 25 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.2 5.1 6.9"));
-            list.Add(string.Format("1 UNI GY -7.14 3.73 5.53"));
-            list.Add(string.Format("1 UNI GY -11.03 0.68 2.48"));
-            list.Add(string.Format("1 UNI GY -32.7 0 1.11"));
-            list.Add(string.Format("LOAD 26 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.3 5.35 7.15"));
-            list.Add(string.Format("1 UNI GY -7.2 3.98 5.78"));
-            list.Add(string.Format("1 UNI GY -10.09 0.93 2.73"));
-            list.Add(string.Format("1 UNI GY -23.1 0 1.36"));
-            list.Add(string.Format("LOAD 27 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.4 5.6 7.4"));
-            list.Add(string.Format("1 UNI GY -7.19 4.23 6.03"));
-            list.Add(string.Format("1 UNI GY -9.37 1.18 2.98"));
-            list.Add(string.Format("1 UNI GY -18.1 0 1.61"));
-            list.Add(string.Format("LOAD 28 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.6 5.85 7.65"));
-            list.Add(string.Format("1 UNI GY -7.14 4.48 6.28"));
-            list.Add(string.Format("1 UNI GY -8.8 1.43 3.23"));
-            list.Add(string.Format("1 UNI GY -15.1 0.06 1.86"));
-            list.Add(string.Format("LOAD 29 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.8 6.1 7.9"));
-            list.Add(string.Format("1 UNI GY -7.12 4.73 6.53"));
-            list.Add(string.Format("1 UNI GY -8.36 1.68 3.48"));
-            list.Add(string.Format("1 UNI GY -13 0.31 2.11"));
-            list.Add(string.Format("LOAD 30 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.1 6.35 8.15"));
-            list.Add(string.Format("1 UNI GY -7.15 4.98 6.78"));
-            list.Add(string.Format("1 UNI GY -8 1.93 3.73"));
-            list.Add(string.Format("1 UNI GY -11.6 0.56 2.36"));
-            list.Add(string.Format("LOAD 31 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.5 6.6 8.4"));
-            list.Add(string.Format("1 UNI GY -7.21 5.23 7.03"));
-            list.Add(string.Format("1 UNI GY -7.72 2.18 3.98"));
-            list.Add(string.Format("1 UNI GY -10.5 0.81 2.61"));
-            list.Add(string.Format("LOAD 32 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9 6.85 8.65"));
-            list.Add(string.Format("1 UNI GY -7.32 5.48 7.28"));
-            list.Add(string.Format("1 UNI GY -7.51 2.43 4.23"));
-            list.Add(string.Format("1 UNI GY -9.7 1.06 2.86"));
-            list.Add(string.Format("LOAD 33 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.6 7.1 8.9"));
-            list.Add(string.Format("1 UNI GY -7.48 5.73 7.53"));
-            list.Add(string.Format("1 UNI GY -7.34 2.68 4.48"));
-            list.Add(string.Format("1 UNI GY -9.1 1.31 3.11"));
-            list.Add(string.Format("1 UNI GY -29.87 0 0.98"));
-            list.Add(string.Format("LOAD 34 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.4 7.35 9.15"));
-            list.Add(string.Format("1 UNI GY -7.68 5.98 7.78"));
-            list.Add(string.Format("1 UNI GY -7.23 2.93 4.73"));
-            list.Add(string.Format("1 UNI GY -8.6 1.56 3.36"));
-            list.Add(string.Format("1 UNI GY -19.2 0 1.23"));
-            list.Add(string.Format("LOAD 35 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.4 7.6 9.36"));
-            list.Add(string.Format("1 UNI GY -7.95 6.23 8.03"));
-            list.Add(string.Format("1 UNI GY -7.16 3.18 4.98"));
-            list.Add(string.Format("1 UNI GY -8.2 1.81 3.61"));
-            list.Add(string.Format("1 UNI GY -14.38 0 1.48"));
-            list.Add(string.Format("LOAD 36 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -12.8 7.85 9.36"));
-            list.Add(string.Format("1 UNI GY -8.29 6.48 8.28"));
-            list.Add(string.Format("1 UNI GY -7.12 3.43 5.23"));
-            list.Add(string.Format("1 UNI GY -7.8 2.06 3.86"));
-            list.Add(string.Format("1 UNI GY -11.64 0 1.73"));
-            list.Add(string.Format("LOAD 37 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -14.7 8.1 9.36"));
-            list.Add(string.Format("1 UNI GY -8.72 6.73 8.53"));
-            list.Add(string.Format("1 UNI GY -7.13 3.68 5.48"));
-            list.Add(string.Format("1 UNI GY -7.6 2.31 4.11"));
-            list.Add(string.Format("1 UNI GY -9.88 0.08 1.98"));
-            list.Add(string.Format("LOAD 38 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -17.5 8.35 9.36"));
-            list.Add(string.Format("1 UNI GY -9.27 6.98 8.78"));
-            list.Add(string.Format("1 UNI GY -7.18 3.93 5.73"));
-            list.Add(string.Format("1 UNI GY -7.4 2.56 4.36"));
-            list.Add(string.Format("1 UNI GY -8.67 0.33 2.23"));
-            list.Add(string.Format("LOAD 39 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.96 7.23 9.03"));
-            list.Add(string.Format("1 UNI GY -7.21 4.18 5.98"));
-            list.Add(string.Format("1 UNI GY -7.3 2.81 4.61"));
-            list.Add(string.Format("1 UNI GY -7.79 0.58 2.48"));
-            list.Add(string.Format("1 UNI GY -31.3 0 0.96"));
-            list.Add(string.Format("LOAD 40 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.86 7.48 9.28"));
-            list.Add(string.Format("1 UNI GY -7.15 4.43 6.23"));
-            list.Add(string.Format("1 UNI GY -7.2 3.06 4.86"));
-            list.Add(string.Format("1 UNI GY -7.12 0.83 2.73"));
-            list.Add(string.Format("1 UNI GY -19.75 0 1.21"));
-            list.Add(string.Format("LOAD 41 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -12.05 7.73 9.36"));
-            list.Add(string.Format("1 UNI GY -7.12 4.68 6.48"));
-            list.Add(string.Format("1 UNI GY -7.1 3.31 5.11"));
-            list.Add(string.Format("1 UNI GY -6.61 1.08 2.98"));
-            list.Add(string.Format("1 UNI GY -14.66 0 1.46"));
-            list.Add(string.Format("LOAD 42 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -13.68 7.98 9.36"));
-            list.Add(string.Format("1 UNI GY -7.14 4.93 6.73"));
-            list.Add(string.Format("1 UNI GY -7.1 3.56 5.36"));
-            list.Add(string.Format("1 UNI GY -6.21 1.33 3.23"));
-            list.Add(string.Format("1 UNI GY -11.81 0 1.71"));
-            list.Add(string.Format("LOAD 43 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -16.02 8.23 9.36"));
-            list.Add(string.Format("1 UNI GY -7.2 5.18 6.98"));
-            list.Add(string.Format("1 UNI GY -7.2 3.81 5.61"));
-            list.Add(string.Format("1 UNI GY -5.9 1.58 3.48"));
-            list.Add(string.Format("1 UNI GY -10 0.16 1.96"));
-            list.Add(string.Format("LOAD 44 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -19.61 8.48 9.36"));
-            list.Add(string.Format("1 UNI GY -7.3 5.43 7.23"));
-            list.Add(string.Format("1 UNI GY -7.2 4.06 5.86"));
-            list.Add(string.Format("1 UNI GY -5.65 1.83 3.73"));
-            list.Add(string.Format("1 UNI GY -8.75 0.41 2.21"));
-            list.Add(string.Format("LOAD 45 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.44 5.68 7.48"));
-            list.Add(string.Format("1 UNI GY -7.2 4.31 6.11"));
-            list.Add(string.Format("1 UNI GY -5.45 2.08 3.98"));
-            list.Add(string.Format("1 UNI GY -7.85 0.66 2.46"));
-            list.Add(string.Format("1 UNI GY -7.17 0.91 2.71"));
-            list.Add(string.Format("LOAD 46 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.64 5.93 7.73"));
-            list.Add(string.Format("1 UNI GY -7.1 4.56 6.36"));
-            list.Add(string.Format("1 UNI GY -5.3 2.33 4.23"));
-            list.Add(string.Format("1 UNI GY -6.65 1.16 2.96"));
-            list.Add(string.Format("LOAD 47 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.89 6.18 7.98"));
-            list.Add(string.Format("1 UNI GY -7.1 4.81 6.61"));
-            list.Add(string.Format("1 UNI GY -5.18 2.58 4.48"));
-            list.Add(string.Format("1 UNI GY -6.24 1.41 3.21"));
-            list.Add(string.Format("LOAD 48 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.22 6.43 8.23"));
-            list.Add(string.Format("1 UNI GY -7.2 5.06 6.86"));
-            list.Add(string.Format("1 UNI GY -5.1 2.83 4.73"));
-            list.Add(string.Format("1 UNI GY -5.92 1.66 3.46"));
-            list.Add(string.Format("LOAD 49 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.63 6.68 8.48"));
-            list.Add(string.Format("1 UNI GY -7.2 5.31 7.11"));
-            list.Add(string.Format("1 UNI GY -5.05 3.08 4.98"));
-            list.Add(string.Format("1 UNI GY -5.67 1.91 3.71"));
-            list.Add(string.Format("LOAD 50 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.15 6.93 8.73"));
-            list.Add(string.Format("1 UNI GY -7.4 5.56 7.36"));
-            list.Add(string.Format("1 UNI GY -5.03 3.33 5.23"));
-            list.Add(string.Format("1 UNI GY -5.46 2.16 3.96"));
-            list.Add(string.Format("LOAD 51 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.81 7.18 8.98"));
-            list.Add(string.Format("1 UNI GY -7.5 5.81 7.61"));
-            list.Add(string.Format("1 UNI GY -5.03 3.58 5.48"));
-            list.Add(string.Format("1 UNI GY -5.31 2.41 4.21"));
-            list.Add(string.Format("LOAD 52 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.66 7.43 9.23"));
-            list.Add(string.Format("1 UNI GY -7.8 6.06 7.86"));
-            list.Add(string.Format("1 UNI GY -5.07 3.83 5.73"));
-            list.Add(string.Format("1 UNI GY -5.19 2.66 4.46"));
-            list.Add(string.Format("LOAD 53 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.79 7.68 9.36"));
-            list.Add(string.Format("1 UNI GY -8.1 6.31 8.11"));
-            list.Add(string.Format("1 UNI GY -5.09 4.08 5.98"));
-            list.Add(string.Format("1 UNI GY -5.11 2.91 4.71"));
-            list.Add(string.Format("LOAD 54 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -13.31 7.93 9.36"));
-            list.Add(string.Format("1 UNI GY -8.4 6.56 8.36"));
-            list.Add(string.Format("1 UNI GY -5.04 4.33 6.23"));
-            list.Add(string.Format("1 UNI GY -5.05 3.16 4.96"));
-            list.Add(string.Format("LOAD 55 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -15.47 8.18 9.36"));
-            list.Add(string.Format("1 UNI GY -8.9 6.81 8.61"));
-            list.Add(string.Format("1 UNI GY -5.03 4.58 6.48"));
-            list.Add(string.Format("1 UNI GY -5.03 3.41 5.21"));
-            list.Add(string.Format("1 UNI GY -19.04 0 1"));
-            list.Add(string.Format("LOAD 56 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -18.74 8.43 9.36"));
-            list.Add(string.Format("1 UNI GY -9.5 7.06 8.86"));
-            list.Add(string.Format("1 UNI GY -5.04 4.83 6.73"));
-            list.Add(string.Format("1 UNI GY -5.03 3.66 5.46"));
-            list.Add(string.Format("1 UNI GY -12.46 0 1.25"));
-            list.Add(string.Format("LOAD 57 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.2 7.31 9.11"));
-            list.Add(string.Format("1 UNI GY -5.08 5.08 6.98"));
-            list.Add(string.Format("1 UNI GY -5.07 3.91 5.71"));
-            list.Add(string.Format("1 UNI GY -9.4 0 1.5"));
-            list.Add(string.Format("LOAD 58 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.2 7.56 9.36"));
-            list.Add(string.Format("1 UNI GY -5.15 5.33 7.23"));
-            list.Add(string.Format("1 UNI GY -5.09 4.16 5.96"));
-            list.Add(string.Format("1 UNI GY -7.65 0 1.75"));
-            list.Add(string.Format("LOAD 59 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -12.5 7.81 9.36"));
-            list.Add(string.Format("1 UNI GY -5.25 5.58 7.48"));
-            list.Add(string.Format("1 UNI GY -5.05 4.41 6.21"));
-            list.Add(string.Format("1 UNI GY -6.51 0.2 2"));
-            list.Add(string.Format("LOAD 60 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -14.3 8.06 9.36"));
-            list.Add(string.Format("1 UNI GY -5.39 5.83 7.73"));
-            list.Add(string.Format("1 UNI GY -5.03 4.66 6.46"));
-            list.Add(string.Format("1 UNI GY -5.73 0.45 2.25"));
-            list.Add(string.Format("LOAD 61 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5.57 6.08 7.98"));
-            list.Add(string.Format("1 UNI GY -5.04 4.91 6.71"));
-            list.Add(string.Format("1 UNI GY -5.15 0.7 2.5"));
-            list.Add(string.Format("LOAD 62 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5.8 6.33 8.23"));
-            list.Add(string.Format("1 UNI GY -5.08 5.16 6.96"));
-            list.Add(string.Format("1 UNI GY -4.72 0.95 2.75"));
-            list.Add(string.Format("LOAD 63 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -6.09 6.58 8.48"));
-            list.Add(string.Format("1 UNI GY -5.14 5.41 7.21"));
-            list.Add(string.Format("1 UNI GY -4.39 1.2 3"));
-            list.Add(string.Format("LOAD 64 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -6.46 6.83 8.73"));
-            list.Add(string.Format("1 UNI GY -5.24 5.66 7.46"));
-            list.Add(string.Format("1 UNI GY -4.12 1.45 3.25"));
-            list.Add(string.Format("LOAD 65 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -6.93 7.08 8.98"));
-            list.Add(string.Format("1 UNI GY -5.38 5.91 7.71"));
-            list.Add(string.Format("1 UNI GY -3.92 1.7 3.5"));
-            list.Add(string.Format("LOAD 66 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.53 7.33 9.23"));
-            list.Add(string.Format("1 UNI GY -5.56 6.16 7.96"));
-            list.Add(string.Format("1 UNI GY -3.75 1.95 3.75"));
-            list.Add(string.Format("LOAD 67 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.32 7.58 9.36"));
-            list.Add(string.Format("1 UNI GY -5.78 6.41 8.21"));
-            list.Add(string.Format("1 UNI GY -3.62 2.2 4"));
-            list.Add(string.Format("LOAD 68 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.4 7.83 9.36"));
-            list.Add(string.Format("1 UNI GY -6.07 6.66 8.46"));
-            list.Add(string.Format("1 UNI GY -3.52 2.45 4.25"));
-            list.Add(string.Format("LOAD 69 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.92 8.08 9.36"));
-            list.Add(string.Format("1 UNI GY -6.43 6.91 8.71"));
-            list.Add(string.Format("1 UNI GY -3.45 2.7 4.5"));
-            list.Add(string.Format("LOAD 70 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -13.23 8.33 9.36"));
-            list.Add(string.Format("1 UNI GY -6.88 7.16 8.96"));
-            list.Add(string.Format("1 UNI GY -3.4 2.95 4.75"));
-            list.Add(string.Format("LOAD 71 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.47 7.41 9.21"));
-            list.Add(string.Format("1 UNI GY -3.37 3.2 5"));
-            list.Add(string.Format("LOAD 72 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.25 7.66 9.36"));
-            list.Add(string.Format("1 UNI GY -3.35 3.45 5.25"));
-            list.Add(string.Format("LOAD 73 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.3 7.91 9.36"));
-            list.Add(string.Format("1 UNI GY -3.36 3.7 5.5"));
-            list.Add(string.Format("LOAD 74 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -10.78 8.16 9.36"));
-            list.Add(string.Format("1 UNI GY -3.38 3.95 5.75"));
-            list.Add(string.Format("LOAD 75 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -13 8.41 9.36"));
-            list.Add(string.Format("1 UNI GY -3.39 4.2 6"));
-            list.Add(string.Format("LOAD 76 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.36 4.45 6.25"));
-            list.Add(string.Format("LOAD 77 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.35 4.7 6.5"));
-            list.Add(string.Format("LOAD 78 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.36 4.95 6.75"));
-            list.Add(string.Format("LOAD 79 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.39 5.2 7"));
-            list.Add(string.Format("LOAD 80 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.44 5.45 7.25"));
-            list.Add(string.Format("LOAD 81 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.51 5.7 7.5"));
-            list.Add(string.Format("LOAD 82 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.6 5.95 7.75"));
-            list.Add(string.Format("LOAD 83 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.73 6.2 8"));
-            list.Add(string.Format("LOAD 84 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.88 6.45 8.25"));
-            list.Add(string.Format("LOAD 85 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.08 6.7 8.5"));
-            list.Add(string.Format("LOAD 86 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.33 6.95 8.75"));
-            list.Add(string.Format("LOAD 87 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.65 7.2 9"));
-            list.Add(string.Format("LOAD 88 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5.06 7.45 9.25"));
-            list.Add(string.Format("LOAD 89 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5.6 7.7 9.36"));
-            list.Add(string.Format("LOAD 90 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -6.33 7.95 9.36"));
-            list.Add(string.Format("LOAD 91 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.38 8.2 9.36"));
-            list.Add(string.Format("LOAD 92 LOADTYPE Dead  TITLE 70R WHEEL  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.98 8.45 9.36"));
-            list.Add(string.Format("LOAD 101 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -16.59 0 0.965"));
-            list.Add(string.Format("LOAD 102 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.79 0 1.215"));
-            list.Add(string.Format("LOAD 103 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.07 0 1.465"));
-            list.Add(string.Format("LOAD 104 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5.6 0 1.715"));
-            list.Add(string.Format("LOAD 105 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.7 0.035 1.965"));
-            list.Add(string.Format("1 UNI GY -16.64 0 1.78"));
-            list.Add(string.Format("LOAD 106 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.08 0.285 2.215"));
-            list.Add(string.Format("1 UNI GY -11.95 0 2.03"));
-            list.Add(string.Format("LOAD 107 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.64 0.535 2.465"));
-            list.Add(string.Format("1 UNI GY -9.45 0 2.28"));
-            list.Add(string.Format("LOAD 108 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.31 0.785 2.715"));
-            list.Add(string.Format("1 UNI GY -7.9 0 2.53"));
-            list.Add(string.Format("1 UNI GY -16.97 0 1.78"));
-            list.Add(string.Format("LOAD 109 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.87 1.285 3.215"));
-            list.Add(string.Format("1 UNI GY -6.11 0.33 3.03"));
-            list.Add(string.Format("1 UNI GY -9.54 0 2.28"));
-            list.Add(string.Format("LOAD 110 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.71 1.535 3.465"));
-            list.Add(string.Format("1 UNI GY -5.56 0.58 3.28"));
-            list.Add(string.Format("1 UNI GY -7.96 0 2.53"));
-            list.Add(string.Format("LOAD 111 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.59 1.785 3.715"));
-            list.Add(string.Format("1 UNI GY -5.14 0.83 3.53"));
-            list.Add(string.Format("1 UNI GY -6.9 0.08 2.78"));
-            list.Add(string.Format("1 UNI GY -17.31 0 1.77"));
-            list.Add(string.Format("LOAD 112 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.5 2.035 3.965"));
-            list.Add(string.Format("1 UNI GY -4.81 1.08 3.78"));
-            list.Add(string.Format("1 UNI GY -6.15 0.33 3.03"));
-            list.Add(string.Format("1 UNI GY -12.27 0 2.02"));
-            list.Add(string.Format("LOAD 113 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.42 2.285 4.215"));
-            list.Add(string.Format("1 UNI GY -4.55 1.33 4.03"));
-            list.Add(string.Format("1 UNI GY -5.58 0.58 3.28"));
-            list.Add(string.Format("1 UNI GY -9.63 0 2.27"));
-            list.Add(string.Format("LOAD 114 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.36 2.535 4.465"));
-            list.Add(string.Format("1 UNI GY -4.34 1.58 4.28"));
-            list.Add(string.Format("1 UNI GY -5.15 0.83 3.53"));
-            list.Add(string.Format("1 UNI GY -8.02 0 2.52"));
-            list.Add(string.Format("1 UNI GY -17.67 0 1.75"));
-            list.Add(string.Format("LOAD 115 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.32 2.785 4.715"));
-            list.Add(string.Format("1 UNI GY -4.18 1.83 4.53"));
-            list.Add(string.Format("1 UNI GY -4.82 1.08 3.78"));
-            list.Add(string.Format("1 UNI GY -6.94 0 2.77"));
-            list.Add(string.Format("1 UNI GY -12.44 0 2"));
-            list.Add(string.Format("LOAD 116 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.29 3.035 4.965"));
-            list.Add(string.Format("1 UNI GY -4.05 2.08 4.78"));
-            list.Add(string.Format("1 UNI GY -4.56 1.33 4.03"));
-            list.Add(string.Format("1 UNI GY -6.18 0.32 3.02"));
-            list.Add(string.Format("1 UNI GY -9.73 0 2.25"));
-            list.Add(string.Format("LOAD 117 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.28 3.285 5.215"));
-            list.Add(string.Format("1 UNI GY -3.95 2.33 5.03"));
-            list.Add(string.Format("1 UNI GY -4.35 1.58 4.28"));
-            list.Add(string.Format("1 UNI GY -5.61 0.57 3.27"));
-            list.Add(string.Format("1 UNI GY -8.09 0 2.5"));
-            list.Add(string.Format("1 UNI GY -18.05 0 1.74"));
-            list.Add(string.Format("LOAD 118 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.28 3.535 5.465"));
-            list.Add(string.Format("1 UNI GY -3.88 2.58 5.28"));
-            list.Add(string.Format("1 UNI GY -4.18 1.83 4.53"));
-            list.Add(string.Format("1 UNI GY -5.17 0.82 3.52"));
-            list.Add(string.Format("1 UNI GY -6.99 0.05 2.75"));
-            list.Add(string.Format("1 UNI GY -12.61 0 1.99"));
-            list.Add(string.Format("LOAD 119 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.29 3.785 5.715"));
-            list.Add(string.Format("1 UNI GY -3.84 2.83 5.53"));
-            list.Add(string.Format("1 UNI GY -4.06 2.08 4.78"));
-            list.Add(string.Format("1 UNI GY -4.83 1.07 3.77"));
-            list.Add(string.Format("1 UNI GY -6.21 0.3 3"));
-            list.Add(string.Format("1 UNI GY -9.83 0 2.24"));
-            list.Add(string.Format("LOAD 120 LOADTYPE Dead  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.31 4.035 5.965"));
-            list.Add(string.Format("1 UNI GY -3.81 3.08 5.78"));
-            list.Add(string.Format("1 UNI GY -3.96 2.33 5.03"));
-            list.Add(string.Format("1 UNI GY -4.57 1.32 4.02"));
-            list.Add(string.Format("1 UNI GY -5.63 0.55 3.25"));
-            list.Add(string.Format("1 UNI GY -8.15 0 2.49"));
-            list.Add(string.Format("1 UNI GY -11.03 0 1.48"));
-            list.Add(string.Format("LOAD 121 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.29 4.285 6.215"));
-            list.Add(string.Format("1 UNI GY -3.81 3.33 6.03"));
-            list.Add(string.Format("1 UNI GY -3.89 2.58 5.28"));
-            list.Add(string.Format("1 UNI GY -4.36 1.57 4.27"));
-            list.Add(string.Format("1 UNI GY -5.19 0.8 3.5"));
-            list.Add(string.Format("1 UNI GY -7.03 0.04 2.74"));
-            list.Add(string.Format("1 UNI GY -7.65 0 1.73"));
-            list.Add(string.Format("LOAD 122 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.28 4.535 6.465"));
-            list.Add(string.Format("1 UNI GY -3.83 3.58 6.28"));
-            list.Add(string.Format("1 UNI GY -3.84 2.83 5.53"));
-            list.Add(string.Format("1 UNI GY -4.19 1.82 4.52"));
-            list.Add(string.Format("1 UNI GY -4.85 1.05 3.75"));
-            list.Add(string.Format("1 UNI GY -6.24 0.29 2.99"));
-            list.Add(string.Format("1 UNI GY -5.94 0 1.98"));
-            list.Add(string.Format("LOAD 123 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.28 4.785 6.715"));
-            list.Add(string.Format("1 UNI GY -3.87 3.83 6.53"));
-            list.Add(string.Format("1 UNI GY -3.81 3.08 5.78"));
-            list.Add(string.Format("1 UNI GY -4.06 2.07 4.77"));
-            list.Add(string.Format("1 UNI GY -4.58 1.3 4"));
-            list.Add(string.Format("1 UNI GY -5.66 0.54 3.24"));
-            list.Add(string.Format("1 UNI GY -4.91 0 2.23"));
-            list.Add(string.Format("LOAD 124 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.29 5.035 6.965"));
-            list.Add(string.Format("1 UNI GY -3.83 4.08 6.78"));
-            list.Add(string.Format("1 UNI GY -3.81 3.33 6.03"));
-            list.Add(string.Format("1 UNI GY -3.96 2.32 5.02"));
-            list.Add(string.Format("1 UNI GY -4.37 1.55 4.25"));
-            list.Add(string.Format("1 UNI GY -5.21 0.79 3.49"));
-            list.Add(string.Format("1 UNI GY -4.23 0 2.48"));
-            list.Add(string.Format("LOAD 125 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.32 5.285 7.215"));
-            list.Add(string.Format("1 UNI GY -3.81 4.33 7.03"));
-            list.Add(string.Format("1 UNI GY -3.83 3.58 6.28"));
-            list.Add(string.Format("1 UNI GY -3.84 2.82 5.52"));
-            list.Add(string.Format("1 UNI GY -4.07 2.05 4.75"));
-            list.Add(string.Format("1 UNI GY -4.59 1.29 3.99"));
-            list.Add(string.Format("1 UNI GY -3.75 0.03 2.73"));
-            list.Add(string.Format("LOAD 126 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.36 5.535 7.465"));
-            list.Add(string.Format("1 UNI GY -3.81 4.58 7.28"));
-            list.Add(string.Format("1 UNI GY -3.86 3.83 6.53"));
-            list.Add(string.Format("1 UNI GY -3.81 3.07 5.77"));
-            list.Add(string.Format("1 UNI GY -3.97 2.3 5"));
-            list.Add(string.Format("1 UNI GY -4.38 1.54 4.24"));
-            list.Add(string.Format("1 UNI GY -3.4 0.28 2.98"));
-            list.Add(string.Format("LOAD 127 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.42 5.785 7.715"));
-            list.Add(string.Format("1 UNI GY -3.83 4.83 7.53"));
-            list.Add(string.Format("1 UNI GY -3.83 4.08 6.78"));
-            list.Add(string.Format("1 UNI GY -3.81 3.32 6.02"));
-            list.Add(string.Format("1 UNI GY -3.89 2.55 5.25"));
-            list.Add(string.Format("1 UNI GY -4.21 1.79 4.49"));
-            list.Add(string.Format("1 UNI GY -3.13 0.53 3.23"));
-            list.Add(string.Format("LOAD 128 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.5 6.035 7.965"));
-            list.Add(string.Format("1 UNI GY -3.88 5.08 7.78"));
-            list.Add(string.Format("1 UNI GY -3.81 4.33 7.03"));
-            list.Add(string.Format("1 UNI GY -3.82 3.57 6.27"));
-            list.Add(string.Format("1 UNI GY -3.84 2.8 5.5"));
-            list.Add(string.Format("1 UNI GY -4.07 2.04 4.74"));
-            list.Add(string.Format("1 UNI GY -2.92 0.78 3.48"));
-            list.Add(string.Format("LOAD 129 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.59 6.285 8.215"));
-            list.Add(string.Format("1 UNI GY -3.95 5.33 8.03"));
-            list.Add(string.Format("1 UNI GY -3.81 4.58 7.28"));
-            list.Add(string.Format("1 UNI GY -2.75 1.03 3.73"));
-            list.Add(string.Format("LOAD 130 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.71 6.535 8.465"));
-            list.Add(string.Format("1 UNI GY -4.04 5.58 8.28"));
-            list.Add(string.Format("1 UNI GY -3.83 4.83 7.53"));
-            list.Add(string.Format("1 UNI GY -3.86 3.82 6.52"));
-            list.Add(string.Format("1 UNI GY -3.81 3.05 5.75"));
-            list.Add(string.Format("1 UNI GY -3.97 2.29 4.99"));
-            list.Add(string.Format("1 UNI GY -2.62 1.28 3.98"));
-            list.Add(string.Format("LOAD 131 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.87 6.785 8.715"));
-            list.Add(string.Format("1 UNI GY -4.17 5.83 8.53"));
-            list.Add(string.Format("1 UNI GY -3.88 5.08 7.78"));
-            list.Add(string.Format("1 UNI GY -2.52 1.53 4.23"));
-            list.Add(string.Format("LOAD 132 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.06 7.035 8.965"));
-            list.Add(string.Format("1 UNI GY -4.33 6.08 8.78"));
-            list.Add(string.Format("1 UNI GY -3.94 5.33 8.03"));
-            list.Add(string.Format("1 UNI GY -3.83 4.07 6.77"));
-            list.Add(string.Format("1 UNI GY -3.81 3.3 6"));
-            list.Add(string.Format("1 UNI GY -3.89 2.54 5.24"));
-            list.Add(string.Format("1 UNI GY -2.44 1.78 4.48"));
-            list.Add(string.Format("LOAD 133 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.31 7.285 9.215"));
-            list.Add(string.Format("1 UNI GY -4.53 6.33 9.03"));
-            list.Add(string.Format("1 UNI GY -4.04 5.58 8.28"));
-            list.Add(string.Format("1 UNI GY -3.81 4.57 7.27"));
-            list.Add(string.Format("1 UNI GY -3.86 3.8 6.5"));
-            list.Add(string.Format("1 UNI GY -3.81 3.04 5.74"));
-            list.Add(string.Format("1 UNI GY -2.38 2.03 4.73"));
-            list.Add(string.Format("LOAD 134 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.64 7.535 9.36"));
-            list.Add(string.Format("1 UNI GY -4.78 6.58 9.28"));
-            list.Add(string.Format("1 UNI GY -4.16 5.83 8.53"));
-            list.Add(string.Format("1 UNI GY -3.83 4.82 7.52"));
-            list.Add(string.Format("1 UNI GY -3.83 4.05 6.75"));
-            list.Add(string.Format("1 UNI GY -3.81 3.29 5.99"));
-            list.Add(string.Format("1 UNI GY -2.33 2.28 4.98"));
-            list.Add(string.Format("LOAD 135 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.08 7.785 9.36"));
-            list.Add(string.Format("1 UNI GY -5.11 6.83 9.36"));
-            list.Add(string.Format("1 UNI GY -4.32 6.08 8.78"));
-            list.Add(string.Format("1 UNI GY -3.87 5.07 7.77"));
-            list.Add(string.Format("1 UNI GY -3.81 4.3 7"));
-            list.Add(string.Format("1 UNI GY -3.82 3.54 6.24"));
-            list.Add(string.Format("1 UNI GY -2.3 2.53 5.23"));
-            list.Add(string.Format("LOAD 136 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.7 8.035 9.36"));
-            list.Add(string.Format("1 UNI GY -5.52 7.08 9.36"));
-            list.Add(string.Format("1 UNI GY -4.52 6.33 9.03"));
-            list.Add(string.Format("1 UNI GY -3.94 5.32 8.02"));
-            list.Add(string.Format("1 UNI GY -3.81 4.55 7.25"));
-            list.Add(string.Format("1 UNI GY -3.86 3.79 6.49"));
-            list.Add(string.Format("1 UNI GY -2.28 2.78 5.48"));
-            list.Add(string.Format("LOAD 137 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5.6 8.285 9.36"));
-            list.Add(string.Format("1 UNI GY -6.06 7.33 9.36"));
-            list.Add(string.Format("1 UNI GY -4.77 6.58 9.28"));
-            list.Add(string.Format("1 UNI GY -4.03 5.57 8.27"));
-            list.Add(string.Format("1 UNI GY -3.83 4.8 7.5"));
-            list.Add(string.Format("1 UNI GY -3.84 4.04 6.74"));
-            list.Add(string.Format("1 UNI GY -2.28 3.03 5.73"));
-            list.Add(string.Format("LOAD 138 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -7.07 8.535 9.36"));
-            list.Add(string.Format("1 UNI GY -6.79 7.58 9.36"));
-            list.Add(string.Format("1 UNI GY -5.09 6.83 9.36"));
-            list.Add(string.Format("1 UNI GY -4.15 5.82 8.52"));
-            list.Add(string.Format("1 UNI GY -3.87 5.05 7.75"));
-            list.Add(string.Format("1 UNI GY -3.81 4.29 6.99"));
-            list.Add(string.Format("1 UNI GY -2.29 3.28 5.98"));
-            list.Add(string.Format("LOAD 139 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.79 8.785 9.36"));
-            list.Add(string.Format("1 UNI GY -7.8 7.83 9.36"));
-            list.Add(string.Format("1 UNI GY -5.5 7.08 9.36"));
-            list.Add(string.Format("1 UNI GY -4.31 6.07 8.77"));
-            list.Add(string.Format("1 UNI GY -3.94 5.3 8"));
-            list.Add(string.Format("1 UNI GY -3.81 4.54 7.24"));
-            list.Add(string.Format("1 UNI GY -2.31 3.53 6.23"));
-            list.Add(string.Format("LOAD 140 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.3 8.08 9.36"));
-            list.Add(string.Format("1 UNI GY -6.03 7.33 9.36"));
-            list.Add(string.Format("1 UNI GY -4.51 6.32 9.02"));
-            list.Add(string.Format("1 UNI GY -4.03 5.55 8.25"));
-            list.Add(string.Format("1 UNI GY -3.83 4.79 7.49"));
-            list.Add(string.Format("1 UNI GY -2.3 3.78 6.48"));
-            list.Add(string.Format("LOAD 141 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.69 8.33 9.36"));
-            list.Add(string.Format("1 UNI GY -6.75 7.58 9.36"));
-            list.Add(string.Format("1 UNI GY -4.76 6.57 9.27"));
-            list.Add(string.Format("1 UNI GY -4.15 5.8 8.5"));
-            list.Add(string.Format("1 UNI GY -3.87 5.04 7.74"));
-            list.Add(string.Format("1 UNI GY -2.28 4.03 6.73"));
-            list.Add(string.Format("LOAD 142 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -16.12 8.58 9.36"));
-            list.Add(string.Format("1 UNI GY -7.75 7.83 9.36"));
-            list.Add(string.Format("1 UNI GY -5.07 6.82 9.36"));
-            list.Add(string.Format("1 UNI GY -4.3 6.05 8.75"));
-            list.Add(string.Format("1 UNI GY -3.93 5.29 7.99"));
-            list.Add(string.Format("1 UNI GY -2.28 4.28 6.98"));
-            list.Add(string.Format("LOAD 143 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -26.97 8.83 9.36"));
-            list.Add(string.Format("1 UNI GY -9.21 8.08 9.36"));
-            list.Add(string.Format("1 UNI GY -5.48 7.07 9.36"));
-            list.Add(string.Format("1 UNI GY -4.5 6.3 9"));
-            list.Add(string.Format("1 UNI GY -4.02 5.54 8.24"));
-            list.Add(string.Format("1 UNI GY -2.29 4.53 7.23"));
-            list.Add(string.Format("LOAD 144 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.54 8.33 9.36"));
-            list.Add(string.Format("1 UNI GY -6.01 7.32 9.36"));
-            list.Add(string.Format("1 UNI GY -4.74 6.55 9.25"));
-            list.Add(string.Format("1 UNI GY -4.14 5.79 8.49"));
-            list.Add(string.Format("1 UNI GY -2.31 4.78 7.48"));
-            list.Add(string.Format("LOAD 145 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -15.82 8.58 9.36"));
-            list.Add(string.Format("1 UNI GY -6.71 7.57 9.36"));
-            list.Add(string.Format("1 UNI GY -5.06 6.8 9.36"));
-            list.Add(string.Format("1 UNI GY -4.29 6.04 8.74"));
-            list.Add(string.Format("1 UNI GY -2.35 5.03 7.73"));
-            list.Add(string.Format("LOAD 146 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -26.1 8.83 9.36"));
-            list.Add(string.Format("1 UNI GY -7.69 7.82 9.36"));
-            list.Add(string.Format("1 UNI GY -5.46 7.05 9.36"));
-            list.Add(string.Format("1 UNI GY -4.49 6.29 8.99"));
-            list.Add(string.Format("1 UNI GY -2.4 5.28 7.98"));
-            list.Add(string.Format("LOAD 147 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -9.12 8.07 9.36"));
-            list.Add(string.Format("1 UNI GY -5.98 7.3 9.36"));
-            list.Add(string.Format("1 UNI GY -4.73 6.54 9.24"));
-            list.Add(string.Format("1 UNI GY -2.47 5.53 8.23"));
-            list.Add(string.Format("LOAD 148 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.4 8.32 9.36"));
-            list.Add(string.Format("1 UNI GY -6.67 7.55 9.36"));
-            list.Add(string.Format("1 UNI GY -5.04 6.79 9.36"));
-            list.Add(string.Format("1 UNI GY -2.56 5.78 8.48"));
-            list.Add(string.Format("LOAD 149 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -15.54 8.57 9.36"));
-            list.Add(string.Format("1 UNI GY -7.63 7.8 9.36"));
-            list.Add(string.Format("1 UNI GY -5.43 7.04 9.36"));
-            list.Add(string.Format("1 UNI GY -2.68 6.03 8.73"));
-            list.Add(string.Format("LOAD 150 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -25.29 8.82 9.36"));
-            list.Add(string.Format("1 UNI GY -9.04 8.05 9.36"));
-            list.Add(string.Format("1 UNI GY -5.95 7.29 9.36"));
-            list.Add(string.Format("1 UNI GY -2.82 6.28 8.98"));
-            list.Add(string.Format("LOAD 151 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.26 8.3 9.36"));
-            list.Add(string.Format("1 UNI GY -6.63 7.54 9.36"));
-            list.Add(string.Format("1 UNI GY -3 6.53 9.23"));
-            list.Add(string.Format("LOAD 152 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -15.26 8.55 9.36"));
-            list.Add(string.Format("1 UNI GY -7.58 7.79 9.36"));
-            list.Add(string.Format("1 UNI GY -3.24 6.78 9.36"));
-            list.Add(string.Format("LOAD 153 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -24.53 8.8 9.36"));
-            list.Add(string.Format("1 UNI GY -8.96 8.04 9.36"));
-            list.Add(string.Format("1 UNI GY -3.54 7.03 9.36"));
-            list.Add(string.Format("LOAD 154 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.13 8.29 9.36"));
-            list.Add(string.Format("1 UNI GY -3.94 7.28 9.36"));
-            list.Add(string.Format("LOAD 155 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -15 8.54 9.36"));
-            list.Add(string.Format("1 UNI GY -4.5 7.53 9.36"));
-            list.Add(string.Format("LOAD 156 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -23.82 8.79 9.36"));
-            list.Add(string.Format("1 UNI GY -5.31 7.78 9.36"));
-            list.Add(string.Format("LOAD 157 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -6.58 8.03 9.36"));
-            list.Add(string.Format("LOAD 158 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.82 8.28 9.36"));
-            list.Add(string.Format("LOAD 159 LOADTYPE Dead  TITLE 70R TRACK  "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -13.84 8.53 9.36"));
-            list.Add(string.Format("LOAD 201 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -14.4 0 0.4"));
-            list.Add(string.Format("LOAD 202 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -8.5 0 0.6"));
-            list.Add(string.Format("LOAD 203 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -6.1 0.1 0.9"));
-            list.Add(string.Format("LOAD 204 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.9 0.4 1.1"));
-            list.Add(string.Format("LOAD 205 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.1 0.6 1.4"));
-            list.Add(string.Format("LOAD 206 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.6 0.9 1.6"));
-            list.Add(string.Format("1 UNI GY -13.3 0 0.4"));
-            list.Add(string.Format("LOAD 207 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.2 1.1 1.9"));
-            list.Add(string.Format("1 UNI GY -8.1 0 0.7"));
-            list.Add(string.Format("LOAD 208 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.9 1.4 2.1"));
-            list.Add(string.Format("1 UNI GY -6 0.1 0.9"));
-            list.Add(string.Format("LOAD 209 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.7 1.6 2.4"));
-            list.Add(string.Format("1 UNI GY -4.8 0.4 1.2"));
-            list.Add(string.Format("LOAD 210 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.5 1.9 2.6"));
-            list.Add(string.Format("1 UNI GY -4 0.6 1.4"));
-            list.Add(string.Format("LOAD 211 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.4 2.1 2.9"));
-            list.Add(string.Format("1 UNI GY -3.5 0.9 1.7"));
-            list.Add(string.Format("LOAD 212 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.3 2.4 3.1"));
-            list.Add(string.Format("1 UNI GY -3.2 1.1 1.9"));
-            list.Add(string.Format("LOAD 213 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.2 2.6 3.4"));
-            list.Add(string.Format("1 UNI GY -2.9 1.4 2.2"));
-            list.Add(string.Format("LOAD 214 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.2 2.9 3.6"));
-            list.Add(string.Format("1 UNI GY -2.7 1.6 2.4"));
-            list.Add(string.Format("LOAD 215 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 3.1 3.9"));
-            list.Add(string.Format("1 UNI GY -2.5 1.9 2.7"));
-            list.Add(string.Format("LOAD 216 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 3.4 4.1"));
-            list.Add(string.Format("1 UNI GY -2.4 2.1 2.9"));
-            list.Add(string.Format("LOAD 217 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 3.6 4.4"));
-            list.Add(string.Format("1 UNI GY -2.3 2.4 3.2"));
-            list.Add(string.Format("LOAD 218 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 3.9 4.6"));
-            list.Add(string.Format("1 UNI GY -2.2 2.6 3.4"));
-            list.Add(string.Format("LOAD 219 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 4.1 4.9"));
-            list.Add(string.Format("1 UNI GY -2.2 2.9 3.7"));
-            list.Add(string.Format("LOAD 220 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 4.4 5.1"));
-            list.Add(string.Format("1 UNI GY -2.1 3.1 3.9"));
-            list.Add(string.Format("LOAD 221 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 4.6 5.4"));
-            list.Add(string.Format("1 UNI GY -2.1 3.4 4.2"));
-            list.Add(string.Format("LOAD 222 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 4.9 5.6"));
-            list.Add(string.Format("1 UNI GY -2.1 3.6 4.4"));
-            list.Add(string.Format("LOAD 223 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 5.1 5.9"));
-            list.Add(string.Format("1 UNI GY -2.1 3.9 4.7"));
-            list.Add(string.Format("LOAD 224 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 5.4 6.1"));
-            list.Add(string.Format("1 UNI GY -2.1 4.1 4.9"));
-            list.Add(string.Format("LOAD 225 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 5.6 6.4"));
-            list.Add(string.Format("1 UNI GY -2.1 4.4 5.2"));
-            list.Add(string.Format("LOAD 226 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 5.9 6.6"));
-            list.Add(string.Format("1 UNI GY -2.1 4.6 5.4"));
-            list.Add(string.Format("LOAD 227 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.1 6.1 6.9"));
-            list.Add(string.Format("1 UNI GY -2.1 4.9 5.7"));
-            list.Add(string.Format("LOAD 228 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.2 6.4 7.1"));
-            list.Add(string.Format("1 UNI GY -2.1 5.1 5.9"));
-            list.Add(string.Format("LOAD 229 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.2 6.6 7.4"));
-            list.Add(string.Format("1 UNI GY -2.1 5.4 6.2"));
-            list.Add(string.Format("LOAD 230 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.3 6.9 7.6"));
-            list.Add(string.Format("1 UNI GY -2.1 5.6 6.4"));
-            list.Add(string.Format("LOAD 231 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.4 7.1 7.9"));
-            list.Add(string.Format("1 UNI GY -2.1 5.9 6.7"));
-            list.Add(string.Format("LOAD 232 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.5 7.4 8.1"));
-            list.Add(string.Format("1 UNI GY -2.1 6.1 6.9"));
-            list.Add(string.Format("LOAD 233 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.7 7.6 8.4"));
-            list.Add(string.Format("1 UNI GY -2.2 6.4 7.2"));
-            list.Add(string.Format("LOAD 234 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.9 7.9 8.6"));
-            list.Add(string.Format("1 UNI GY -2.2 6.6 7.4"));
-            list.Add(string.Format("LOAD 235 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.2 8.1 8.9"));
-            list.Add(string.Format("1 UNI GY -2.3 6.9 7.7"));
-            list.Add(string.Format("LOAD 236 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.6 8.4 9.1"));
-            list.Add(string.Format("1 UNI GY -2.4 7.1 7.9"));
-            list.Add(string.Format("LOAD 237 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.1 8.6 9.4"));
-            list.Add(string.Format("1 UNI GY -2.5 7.4 8.2"));
-            list.Add(string.Format("LOAD 238 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.9 8.9 9.36"));
-            list.Add(string.Format("1 UNI GY -2.7 7.6 8.4"));
-            list.Add(string.Format("LOAD 239 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -2.9 7.9 8.7"));
-            list.Add(string.Format("LOAD 240 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.2 8.1 8.9"));
-            list.Add(string.Format("LOAD 241 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -3.6 8.4 9.2"));
-            list.Add(string.Format("LOAD 242 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -4.2 8.6 9.4"));
-            list.Add(string.Format("LOAD 243 LIVE TITLE 70R BOGGIE"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -5 8.9 9.4"));
-            list.Add(string.Format("PERFORM ANALYSIS PRINT ALL"));
+            list.Add(string.Format("1 FIXED BUT FX MZ MY"));
+            list.Add(string.Format("2 PINNED"));
+            list.Add(string.Format("LOAD 1 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -38.65 0 0.381"));
+            list.Add(string.Format("LOAD 2 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -23.11 0 0.631"));
+            list.Add(string.Format("LOAD 3 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.58 0.119 0.881"));
+            list.Add(string.Format("LOAD 4 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -15.42 0.369 1.131"));
+            list.Add(string.Format("LOAD 5 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -13.81 0.619 1.381"));
+            list.Add(string.Format("1 UNI GY -47.14 0 0.619"));
+            list.Add(string.Format("LOAD 6 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.56 0.869 1.631"));
+            list.Add(string.Format("1 UNI GY -35.43 0.107 0.869"));
+            list.Add(string.Format("LOAD 7 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 1.119 1.881"));
+            list.Add(string.Format("1 UNI GY -31.05 0.357 1.119"));
+            list.Add(string.Format("LOAD 8 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 1.369 2.131"));
+            list.Add(string.Format("1 UNI GY -27.77 0.607 1.369"));
+            list.Add(string.Format("1 UNI GY -48.07 0 0.607"));
+            list.Add(string.Format("LOAD 9 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 1.619 2.381"));
+            list.Add(string.Format("1 UNI GY -25.24 0.857 1.619"));
+            list.Add(string.Format("1 UNI GY -35.68 0.095 0.857"));
+            list.Add(string.Format("LOAD 10 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 1.869 2.631"));
+            list.Add(string.Format("1 UNI GY -24.31 1.107 1.869"));
+            list.Add(string.Format("1 UNI GY -31.23 0.345 1.107"));
+            list.Add(string.Format("LOAD 11 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 2.119 2.881"));
+            list.Add(string.Format("1 UNI GY -24.31 1.357 2.119"));
+            list.Add(string.Format("1 UNI GY -27.91 0.595 1.357"));
+            list.Add(string.Format("1 UNI GY -49.04 0 0.595"));
+            list.Add(string.Format("LOAD 12 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 2.369 3.131"));
+            list.Add(string.Format("1 UNI GY -24.31 1.607 2.369"));
+            list.Add(string.Format("1 UNI GY -25.34 0.845 1.607"));
+            list.Add(string.Format("1 UNI GY -35.93 0.083 0.845"));
+            list.Add(string.Format("LOAD 13 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 2.619 3.381"));
+            list.Add(string.Format("1 UNI GY -24.31 1.857 2.619"));
+            list.Add(string.Format("1 UNI GY -24.31 1.095 1.857"));
+            list.Add(string.Format("1 UNI GY -31.41 0.333 1.095"));
+            list.Add(string.Format("LOAD 14 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 2.869 3.631"));
+            list.Add(string.Format("1 UNI GY -24.31 2.107 2.869"));
+            list.Add(string.Format("1 UNI GY -24.31 1.345 2.107"));
+            list.Add(string.Format("1 UNI GY -28.05 0.583 1.345"));
+            list.Add(string.Format("1 UNI GY -50.05 0 0.583"));
+            list.Add(string.Format("LOAD 15 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 3.119 3.881"));
+            list.Add(string.Format("1 UNI GY -24.31 2.357 3.119"));
+            list.Add(string.Format("1 UNI GY -24.31 1.595 2.357"));
+            list.Add(string.Format("1 UNI GY -25.45 0.833 1.595"));
+            list.Add(string.Format("1 UNI GY -36.18 0.071 0.833"));
+            list.Add(string.Format("LOAD 16 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 3.369 4.131"));
+            list.Add(string.Format("1 UNI GY -24.31 2.607 3.369"));
+            list.Add(string.Format("1 UNI GY -24.31 1.845 2.607"));
+            list.Add(string.Format("1 UNI GY -24.31 1.083 1.845"));
+            list.Add(string.Format("1 UNI GY -31.6 0.321 1.083"));
+            list.Add(string.Format("LOAD 17 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 3.619 4.381"));
+            list.Add(string.Format("1 UNI GY -24.31 2.857 3.619"));
+            list.Add(string.Format("1 UNI GY -24.31 2.095 2.857"));
+            list.Add(string.Format("1 UNI GY -24.31 1.333 2.095"));
+            list.Add(string.Format("1 UNI GY -28.19 0.571 1.333"));
+            list.Add(string.Format("1 UNI GY -51.1 0 0.571"));
+            list.Add(string.Format("LOAD 18 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 3.869 4.631"));
+            list.Add(string.Format("1 UNI GY -24.31 3.107 3.869"));
+            list.Add(string.Format("1 UNI GY -24.31 2.345 3.107"));
+            list.Add(string.Format("1 UNI GY -24.31 1.583 2.345"));
+            list.Add(string.Format("1 UNI GY -25.56 0.821 1.583"));
+            list.Add(string.Format("1 UNI GY -36.44 0.059 0.821"));
+            list.Add(string.Format("LOAD 19 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 4.119 4.881"));
+            list.Add(string.Format("1 UNI GY -24.31 3.357 4.119"));
+            list.Add(string.Format("1 UNI GY -24.31 2.595 3.357"));
+            list.Add(string.Format("1 UNI GY -24.31 1.833 2.595"));
+            list.Add(string.Format("1 UNI GY -24.31 1.071 1.833"));
+            list.Add(string.Format("1 UNI GY -31.79 0.309 1.071"));
+            list.Add(string.Format("LOAD 20 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 4.369 5.131"));
+            list.Add(string.Format("1 UNI GY -24.31 3.607 4.369"));
+            list.Add(string.Format("1 UNI GY -24.31 2.845 3.607"));
+            list.Add(string.Format("1 UNI GY -24.31 2.083 2.845"));
+            list.Add(string.Format("1 UNI GY -24.31 1.321 2.083"));
+            list.Add(string.Format("1 UNI GY -28.33 0.559 1.321"));
+            list.Add(string.Format("1 UNI GY -26.08 0 0.559"));
+            list.Add(string.Format("LOAD 21 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 4.619 5.381"));
+            list.Add(string.Format("1 UNI GY -24.31 3.857 4.619"));
+            list.Add(string.Format("1 UNI GY -24.31 3.095 3.857"));
+            list.Add(string.Format("1 UNI GY -24.31 2.333 3.095"));
+            list.Add(string.Format("1 UNI GY -24.31 1.571 2.333"));
+            list.Add(string.Format("1 UNI GY -25.68 0.809 1.571"));
+            list.Add(string.Format("1 UNI GY -18.34 0.047 0.809"));
+            list.Add(string.Format("LOAD 22 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 4.869 5.631"));
+            list.Add(string.Format("1 UNI GY -24.31 4.107 4.869"));
+            list.Add(string.Format("1 UNI GY -24.31 3.345 4.107"));
+            list.Add(string.Format("1 UNI GY -24.31 2.583 3.345"));
+            list.Add(string.Format("1 UNI GY -24.31 1.821 2.583"));
+            list.Add(string.Format("1 UNI GY -24.31 1.059 1.821"));
+            list.Add(string.Format("1 UNI GY -15.98 0.297 1.059"));
+            list.Add(string.Format("LOAD 23 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 5.119 5.881"));
+            list.Add(string.Format("1 UNI GY -24.31 4.357 5.119"));
+            list.Add(string.Format("1 UNI GY -24.31 3.595 4.357"));
+            list.Add(string.Format("1 UNI GY -24.31 2.833 3.595"));
+            list.Add(string.Format("1 UNI GY -24.31 2.071 2.833"));
+            list.Add(string.Format("1 UNI GY -24.31 1.309 2.071"));
+            list.Add(string.Format("1 UNI GY -14.23 0.547 1.309"));
+            list.Add(string.Format("LOAD 24 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 5.369 6.131"));
+            list.Add(string.Format("1 UNI GY -24.31 4.607 5.369"));
+            list.Add(string.Format("1 UNI GY -24.31 3.845 4.607"));
+            list.Add(string.Format("1 UNI GY -24.31 3.083 3.845"));
+            list.Add(string.Format("1 UNI GY -24.31 2.321 3.083"));
+            list.Add(string.Format("1 UNI GY -24.31 1.559 2.321"));
+            list.Add(string.Format("1 UNI GY -12.89 0.797 1.559"));
+            list.Add(string.Format("LOAD 25 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 5.619 6.381"));
+            list.Add(string.Format("1 UNI GY -24.31 4.857 5.619"));
+            list.Add(string.Format("1 UNI GY -24.31 4.095 4.857"));
+            list.Add(string.Format("1 UNI GY -24.31 3.333 4.095"));
+            list.Add(string.Format("1 UNI GY -24.31 2.571 3.333"));
+            list.Add(string.Format("1 UNI GY -24.31 1.809 2.571"));
+            list.Add(string.Format("1 UNI GY -12.15 1.047 1.809"));
+            list.Add(string.Format("LOAD 26 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 5.869 6.631"));
+            list.Add(string.Format("1 UNI GY -24.31 5.107 5.869"));
+            list.Add(string.Format("1 UNI GY -24.31 4.345 5.107"));
+            list.Add(string.Format("1 UNI GY -24.31 3.583 4.345"));
+            list.Add(string.Format("1 UNI GY -24.31 2.821 3.583"));
+            list.Add(string.Format("1 UNI GY -24.31 2.059 2.821"));
+            list.Add(string.Format("1 UNI GY -12.15 1.297 2.059"));
+            list.Add(string.Format("LOAD 27 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 6.119 6.881"));
+            list.Add(string.Format("1 UNI GY -24.31 5.357 6.119"));
+            list.Add(string.Format("1 UNI GY -24.31 4.595 5.357"));
+            list.Add(string.Format("1 UNI GY -24.31 3.833 4.595"));
+            list.Add(string.Format("1 UNI GY -24.31 3.071 3.833"));
+            list.Add(string.Format("1 UNI GY -24.31 2.309 3.071"));
+            list.Add(string.Format("1 UNI GY -12.15 1.547 2.309"));
+            list.Add(string.Format("LOAD 28 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 6.369 7.131"));
+            list.Add(string.Format("1 UNI GY -24.31 5.607 6.369"));
+            list.Add(string.Format("1 UNI GY -24.31 4.845 5.607"));
+            list.Add(string.Format("1 UNI GY -24.31 4.083 4.845"));
+            list.Add(string.Format("1 UNI GY -24.31 3.321 4.083"));
+            list.Add(string.Format("1 UNI GY -24.31 2.559 3.321"));
+            list.Add(string.Format("1 UNI GY -12.15 1.797 2.559"));
+            list.Add(string.Format("LOAD 29 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 6.619 7.381"));
+            list.Add(string.Format("1 UNI GY -24.31 5.857 6.619"));
+            list.Add(string.Format("1 UNI GY -24.31 5.095 5.857"));
+            list.Add(string.Format("1 UNI GY -24.31 4.333 5.095"));
+            list.Add(string.Format("1 UNI GY -24.31 3.571 4.333"));
+            list.Add(string.Format("1 UNI GY -24.31 2.809 3.571"));
+            list.Add(string.Format("1 UNI GY -12.15 2.047 2.809"));
+            list.Add(string.Format("LOAD 30 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 6.869 7.631"));
+            list.Add(string.Format("1 UNI GY -24.31 6.107 6.869"));
+            list.Add(string.Format("1 UNI GY -24.31 5.345 6.107"));
+            list.Add(string.Format("1 UNI GY -24.31 4.583 5.345"));
+            list.Add(string.Format("1 UNI GY -24.31 3.821 4.583"));
+            list.Add(string.Format("1 UNI GY -24.31 3.059 3.821"));
+            list.Add(string.Format("1 UNI GY -12.15 2.297 3.059"));
+            list.Add(string.Format("LOAD 31 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 7.119 7.881"));
+            list.Add(string.Format("1 UNI GY -24.31 6.357 7.119"));
+            list.Add(string.Format("1 UNI GY -24.31 5.595 6.357"));
+            list.Add(string.Format("1 UNI GY -24.31 4.833 5.595"));
+            list.Add(string.Format("1 UNI GY -24.31 4.071 4.833"));
+            list.Add(string.Format("1 UNI GY -24.31 3.309 4.071"));
+            list.Add(string.Format("1 UNI GY -12.15 2.547 3.309"));
+            list.Add(string.Format("LOAD 32 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 7.369 8.131"));
+            list.Add(string.Format("1 UNI GY -24.31 6.607 7.369"));
+            list.Add(string.Format("1 UNI GY -24.31 5.845 6.607"));
+            list.Add(string.Format("1 UNI GY -24.31 5.083 5.845"));
+            list.Add(string.Format("1 UNI GY -24.31 4.321 5.083"));
+            list.Add(string.Format("1 UNI GY -24.31 3.559 4.321"));
+            list.Add(string.Format("1 UNI GY -12.15 2.797 3.559"));
+            list.Add(string.Format("LOAD 33 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 7.619 8.381"));
+            list.Add(string.Format("1 UNI GY -24.31 6.857 7.619"));
+            list.Add(string.Format("1 UNI GY -24.31 6.095 6.857"));
+            list.Add(string.Format("1 UNI GY -24.31 5.333 6.095"));
+            list.Add(string.Format("1 UNI GY -24.31 4.571 5.333"));
+            list.Add(string.Format("1 UNI GY -24.31 3.809 4.571"));
+            list.Add(string.Format("1 UNI GY -12.15 3.047 3.809"));
+            list.Add(string.Format("LOAD 34 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 7.869 8.631"));
+            list.Add(string.Format("1 UNI GY -24.31 7.107 7.869"));
+            list.Add(string.Format("1 UNI GY -24.31 6.345 7.107"));
+            list.Add(string.Format("1 UNI GY -24.31 5.583 6.345"));
+            list.Add(string.Format("1 UNI GY -24.31 4.821 5.583"));
+            list.Add(string.Format("1 UNI GY -24.31 4.059 4.821"));
+            list.Add(string.Format("1 UNI GY -12.15 3.297 4.059"));
+            list.Add(string.Format("LOAD 35 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 8.119 8.881"));
+            list.Add(string.Format("1 UNI GY -24.31 7.357 8.119"));
+            list.Add(string.Format("1 UNI GY -24.31 6.595 7.357"));
+            list.Add(string.Format("1 UNI GY -24.31 5.833 6.595"));
+            list.Add(string.Format("1 UNI GY -24.31 5.071 5.833"));
+            list.Add(string.Format("1 UNI GY -24.31 4.309 5.071"));
+            list.Add(string.Format("1 UNI GY -12.15 3.547 4.309"));
+            list.Add(string.Format("LOAD 36 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 8.369 9.131"));
+            list.Add(string.Format("1 UNI GY -24.31 7.607 8.369"));
+            list.Add(string.Format("1 UNI GY -24.31 6.845 7.607"));
+            list.Add(string.Format("1 UNI GY -24.31 6.083 6.845"));
+            list.Add(string.Format("1 UNI GY -24.31 5.321 6.083"));
+            list.Add(string.Format("1 UNI GY -24.31 4.559 5.321"));
+            list.Add(string.Format("1 UNI GY -12.15 3.797 4.559"));
+            list.Add(string.Format("LOAD 37 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 8.619 9.381"));
+            list.Add(string.Format("1 UNI GY -24.31 7.857 8.619"));
+            list.Add(string.Format("1 UNI GY -24.31 7.095 7.857"));
+            list.Add(string.Format("1 UNI GY -24.31 6.333 7.095"));
+            list.Add(string.Format("1 UNI GY -24.31 5.571 6.333"));
+            list.Add(string.Format("1 UNI GY -24.31 4.809 5.571"));
+            list.Add(string.Format("1 UNI GY -12.15 4.047 4.809"));
+            list.Add(string.Format("LOAD 38 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 8.869 9.631"));
+            list.Add(string.Format("1 UNI GY -24.31 8.107 8.869"));
+            list.Add(string.Format("1 UNI GY -24.31 7.345 8.107"));
+            list.Add(string.Format("1 UNI GY -24.31 6.583 7.345"));
+            list.Add(string.Format("1 UNI GY -24.31 5.821 6.583"));
+            list.Add(string.Format("1 UNI GY -24.31 5.059 5.821"));
+            list.Add(string.Format("1 UNI GY -12.15 4.297 5.059"));
+            list.Add(string.Format("LOAD 39 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 9.119 9.881"));
+            list.Add(string.Format("1 UNI GY -24.31 8.357 9.119"));
+            list.Add(string.Format("1 UNI GY -24.31 7.595 8.357"));
+            list.Add(string.Format("1 UNI GY -24.31 6.833 7.595"));
+            list.Add(string.Format("1 UNI GY -24.31 6.071 6.833"));
+            list.Add(string.Format("1 UNI GY -24.31 5.309 6.071"));
+            list.Add(string.Format("1 UNI GY -12.15 4.547 5.309"));
+            list.Add(string.Format("LOAD 40 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 9.369 10.131"));
+            list.Add(string.Format("1 UNI GY -24.31 8.607 9.369"));
+            list.Add(string.Format("1 UNI GY -24.31 7.845 8.607"));
+            list.Add(string.Format("1 UNI GY -24.31 7.083 7.845"));
+            list.Add(string.Format("1 UNI GY -24.31 6.321 7.083"));
+            list.Add(string.Format("1 UNI GY -24.31 5.559 6.321"));
+            list.Add(string.Format("1 UNI GY -12.15 4.797 5.559"));
+            list.Add(string.Format("LOAD 41 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 9.619 10.381"));
+            list.Add(string.Format("1 UNI GY -24.31 8.857 9.619"));
+            list.Add(string.Format("1 UNI GY -24.31 8.095 8.857"));
+            list.Add(string.Format("1 UNI GY -24.31 7.333 8.095"));
+            list.Add(string.Format("1 UNI GY -24.31 6.571 7.333"));
+            list.Add(string.Format("1 UNI GY -24.31 5.809 6.571"));
+            list.Add(string.Format("1 UNI GY -12.15 5.047 5.809"));
+            list.Add(string.Format("LOAD 42 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 9.869 10.631"));
+            list.Add(string.Format("1 UNI GY -24.31 9.107 9.869"));
+            list.Add(string.Format("1 UNI GY -24.31 8.345 9.107"));
+            list.Add(string.Format("1 UNI GY -24.31 7.583 8.345"));
+            list.Add(string.Format("1 UNI GY -24.31 6.821 7.583"));
+            list.Add(string.Format("1 UNI GY -24.31 6.059 6.821"));
+            list.Add(string.Format("1 UNI GY -12.15 5.297 6.059"));
+            list.Add(string.Format("LOAD 43 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.15 10.119 10.881"));
+            list.Add(string.Format("1 UNI GY -24.31 9.357 10.119"));
+            list.Add(string.Format("1 UNI GY -24.31 8.595 9.357"));
+            list.Add(string.Format("1 UNI GY -24.31 7.833 8.595"));
+            list.Add(string.Format("1 UNI GY -24.31 7.071 7.833"));
+            list.Add(string.Format("1 UNI GY -24.31 6.309 7.071"));
+            list.Add(string.Format("1 UNI GY -12.15 5.547 6.309"));
+            list.Add(string.Format("LOAD 44 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.56 10.369 11.131"));
+            list.Add(string.Format("1 UNI GY -24.31 9.607 10.369"));
+            list.Add(string.Format("1 UNI GY -24.31 8.845 9.607"));
+            list.Add(string.Format("1 UNI GY -24.31 8.083 8.845"));
+            list.Add(string.Format("1 UNI GY -24.31 7.321 8.083"));
+            list.Add(string.Format("1 UNI GY -24.31 6.559 7.321"));
+            list.Add(string.Format("1 UNI GY -12.15 5.797 6.559"));
+            list.Add(string.Format("LOAD 45 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -13.81 10.619 11.381"));
+            list.Add(string.Format("1 UNI GY -24.31 9.857 10.619"));
+            list.Add(string.Format("1 UNI GY -24.31 9.095 9.857"));
+            list.Add(string.Format("1 UNI GY -24.31 8.333 9.095"));
+            list.Add(string.Format("1 UNI GY -24.31 7.571 8.333"));
+            list.Add(string.Format("1 UNI GY -24.31 6.809 7.571"));
+            list.Add(string.Format("1 UNI GY -12.15 6.047 6.809"));
+            list.Add(string.Format("LOAD 46 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -15.42 10.869 11.631"));
+            list.Add(string.Format("1 UNI GY -24.31 10.107 10.869"));
+            list.Add(string.Format("1 UNI GY -24.31 9.345 10.107"));
+            list.Add(string.Format("1 UNI GY -24.31 8.583 9.345"));
+            list.Add(string.Format("1 UNI GY -24.31 7.821 8.583"));
+            list.Add(string.Format("1 UNI GY -24.31 7.059 7.821"));
+            list.Add(string.Format("1 UNI GY -12.15 6.297 7.059"));
+            list.Add(string.Format("LOAD 47 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.58 11.119 11.881"));
+            list.Add(string.Format("1 UNI GY -25.02 10.357 11.119"));
+            list.Add(string.Format("1 UNI GY -24.31 9.595 10.357"));
+            list.Add(string.Format("1 UNI GY -24.31 8.833 9.595"));
+            list.Add(string.Format("1 UNI GY -24.31 8.071 8.833"));
+            list.Add(string.Format("1 UNI GY -24.31 7.309 8.071"));
+            list.Add(string.Format("1 UNI GY -12.15 6.547 7.309"));
+            list.Add(string.Format("LOAD 48 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -23.11 11.369 12.131"));
+            list.Add(string.Format("1 UNI GY -27.5 10.607 11.369"));
+            list.Add(string.Format("1 UNI GY -24.31 9.845 10.607"));
+            list.Add(string.Format("1 UNI GY -24.31 9.083 9.845"));
+            list.Add(string.Format("1 UNI GY -24.31 8.321 9.083"));
+            list.Add(string.Format("1 UNI GY -24.31 7.559 8.321"));
+            list.Add(string.Format("1 UNI GY -12.15 6.797 7.559"));
+            list.Add(string.Format("LOAD 49 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -38.65 11.619 12.381"));
+            list.Add(string.Format("1 UNI GY -30.69 10.857 11.619"));
+            list.Add(string.Format("1 UNI GY -24.31 10.095 10.857"));
+            list.Add(string.Format("1 UNI GY -24.31 9.333 10.095"));
+            list.Add(string.Format("1 UNI GY -24.31 8.571 9.333"));
+            list.Add(string.Format("1 UNI GY -24.31 7.809 8.571"));
+            list.Add(string.Format("1 UNI GY -12.15 7.047 7.809"));
+            list.Add(string.Format("LOAD 50 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -34.94 11.107 11.869"));
+            list.Add(string.Format("1 UNI GY -24.92 10.345 11.107"));
+            list.Add(string.Format("1 UNI GY -24.31 9.583 10.345"));
+            list.Add(string.Format("1 UNI GY -24.31 8.821 9.583"));
+            list.Add(string.Format("1 UNI GY -24.31 8.059 8.821"));
+            list.Add(string.Format("1 UNI GY -12.15 7.297 8.059"));
+            list.Add(string.Format("LOAD 51 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -45.39 11.357 12.119"));
+            list.Add(string.Format("1 UNI GY -27.36 10.595 11.357"));
+            list.Add(string.Format("1 UNI GY -24.31 9.833 10.595"));
+            list.Add(string.Format("1 UNI GY -24.31 9.071 9.833"));
+            list.Add(string.Format("1 UNI GY -24.31 8.309 9.071"));
+            list.Add(string.Format("1 UNI GY -12.15 7.547 8.309"));
+            list.Add(string.Format("LOAD 52 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -74.89 11.607 12.369"));
+            list.Add(string.Format("1 UNI GY -30.52 10.845 11.607"));
+            list.Add(string.Format("1 UNI GY -24.31 10.083 10.845"));
+            list.Add(string.Format("1 UNI GY -24.31 9.321 10.083"));
+            list.Add(string.Format("1 UNI GY -24.31 8.559 9.321"));
+            list.Add(string.Format("1 UNI GY -12.15 7.797 8.559"));
+            list.Add(string.Format("LOAD 53 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -34.71 11.095 11.857"));
+            list.Add(string.Format("1 UNI GY -24.81 10.333 11.095"));
+            list.Add(string.Format("1 UNI GY -24.31 9.571 10.333"));
+            list.Add(string.Format("1 UNI GY -24.31 8.809 9.571"));
+            list.Add(string.Format("1 UNI GY -12.15 8.047 8.809"));
+            list.Add(string.Format("LOAD 54 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -44.57 11.345 12.107"));
+            list.Add(string.Format("1 UNI GY -27.23 10.583 11.345"));
+            list.Add(string.Format("1 UNI GY -24.31 9.821 10.583"));
+            list.Add(string.Format("1 UNI GY -24.31 9.059 9.821"));
+            list.Add(string.Format("1 UNI GY -12.15 8.297 9.059"));
+            list.Add(string.Format("LOAD 55 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -72.58 11.595 12.357"));
+            list.Add(string.Format("1 UNI GY -30.34 10.833 11.595"));
+            list.Add(string.Format("1 UNI GY -24.31 10.071 10.833"));
+            list.Add(string.Format("1 UNI GY -24.31 9.309 10.071"));
+            list.Add(string.Format("1 UNI GY -12.15 8.547 9.309"));
+            list.Add(string.Format("LOAD 56 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -34.48 11.083 11.845"));
+            list.Add(string.Format("1 UNI GY -24.71 10.321 11.083"));
+            list.Add(string.Format("1 UNI GY -24.31 9.559 10.321"));
+            list.Add(string.Format("1 UNI GY -12.15 8.797 9.559"));
+            list.Add(string.Format("LOAD 57 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -43.78 11.333 12.095"));
+            list.Add(string.Format("1 UNI GY -27.1 10.571 11.333"));
+            list.Add(string.Format("1 UNI GY -24.31 9.809 10.571"));
+            list.Add(string.Format("1 UNI GY -12.15 9.047 9.809"));
+            list.Add(string.Format("LOAD 58 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -70.41 11.583 12.345"));
+            list.Add(string.Format("1 UNI GY -30.18 10.821 11.583"));
+            list.Add(string.Format("1 UNI GY -24.31 10.059 10.821"));
+            list.Add(string.Format("1 UNI GY -12.15 9.297 10.059"));
+            list.Add(string.Format("LOAD 59 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -34.25 11.071 11.833"));
+            list.Add(string.Format("1 UNI GY -24.61 10.309 11.071"));
+            list.Add(string.Format("1 UNI GY -12.15 9.547 10.309"));
+            list.Add(string.Format("LOAD 60 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -43.01 11.321 12.083"));
+            list.Add(string.Format("1 UNI GY -26.97 10.559 11.321"));
+            list.Add(string.Format("1 UNI GY -12.15 9.797 10.559"));
+            list.Add(string.Format("LOAD 62 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -68.37 11.571 12.333"));
+            list.Add(string.Format("1 UNI GY -30.01 10.809 11.571"));
+            list.Add(string.Format("1 UNI GY -12.15 10.047 10.809"));
+            list.Add(string.Format("LOAD 63 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -34.02 11.059 11.821"));
+            list.Add(string.Format("1 UNI GY -12.25 10.297 11.059"));
+            list.Add(string.Format("LOAD 64 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -42.28 11.309 12"));
+            list.Add(string.Format("1 UNI GY -13.42 10.547 11.309"));
+            list.Add(string.Format("LOAD 65 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -66.45 11.559 12"));
+            list.Add(string.Format("1 UNI GY -14.91 10.797 11.559"));
+            list.Add(string.Format("LOAD 66 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -16.89 11.047 11.809"));
+            list.Add(string.Format("LOAD 67 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -20.77 11.297 12"));
+            list.Add(string.Format("LOAD 68 LOADTYPE None  TITLE 70R TRACK"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -32.3 11.547 12"));
+            list.Add(string.Format("LOAD 101 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -44.65 0 0.9425"));
+            list.Add(string.Format("LOAD 102 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -26.91 0 1.1925"));
+            list.Add(string.Format("LOAD 103 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -21.26 0 1.4425"));
+            list.Add(string.Format("LOAD 104 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -18.59 0 1.6925"));
+            list.Add(string.Format("LOAD 105 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -16.6 0.0575 1.9425"));
+            list.Add(string.Format("LOAD 106 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -15.07 0.3075 2.1925"));
+            list.Add(string.Format("LOAD 107 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 0.5575 2.4425"));
+            list.Add(string.Format("1 UNI GY -40.53 -0.64125 0.90125"));
+            list.Add(string.Format("LOAD 108 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 0.8075 2.6925"));
+            list.Add(string.Format("1 UNI GY -27.97 0 1.15125"));
+            list.Add(string.Format("LOAD 109 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 1.0575 2.9425"));
+            list.Add(string.Format("1 UNI GY -24.15 0 1.40125"));
+            list.Add(string.Format("LOAD 110 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 1.3075 3.1925"));
+            list.Add(string.Format("1 UNI GY -21.37 0.11 1.65125"));
+            list.Add(string.Format("LOAD 111 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 1.5575 3.4425"));
+            list.Add(string.Format("1 UNI GY -19.26 0.35875 1.90125"));
+            list.Add(string.Format("LOAD 112 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 1.8075 3.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 0.60875 2.15125"));
+            list.Add(string.Format("LOAD 113 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 2.0575 3.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 0.85875 2.40125"));
+            list.Add(string.Format("LOAD 114 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 2.3075 4.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 1.10875 2.65125"));
+            list.Add(string.Format("LOAD 115 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 2.5575 4.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 1.35875 2.90125"));
+            list.Add(string.Format("LOAD 116 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 2.8075 4.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 1.60875 3.15125"));
+            list.Add(string.Format("LOAD 117 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 3.0575 4.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 1.85875 3.40125"));
+            list.Add(string.Format("LOAD 118 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 3.3075 5.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 2.10875 3.65125"));
+            list.Add(string.Format("LOAD 119 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 3.5575 5.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 2.35875 3.90125"));
+            list.Add(string.Format("1 UNI GY -36.78 0 1.0225"));
+            list.Add(string.Format("LOAD 120 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 3.8075 5.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 2.60875 4.15125"));
+            list.Add(string.Format("1 UNI GY -23.95 0 1.2725"));
+            list.Add(string.Format("LOAD 121 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 4.0575 5.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 2.85875 4.40125"));
+            list.Add(string.Format("1 UNI GY -20.31 0 1.5225"));
+            list.Add(string.Format("LOAD 122 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 4.3075 6.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 3.10875 4.65125"));
+            list.Add(string.Format("1 UNI GY -17.89 0 1.7725"));
+            list.Add(string.Format("LOAD 123 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 4.5575 6.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 3.35875 4.90125"));
+            list.Add(string.Format("1 UNI GY -16.07 0.1375 2.0225"));
+            list.Add(string.Format("LOAD 124 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 4.8075 6.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 3.60875 5.15125"));
+            list.Add(string.Format("1 UNI GY -14.65 0.3875 2.2725"));
+            list.Add(string.Format("LOAD 125 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 5.0575 6.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 3.85875 5.40125"));
+            list.Add(string.Format("1 UNI GY -14.57 0.6375 2.5225"));
+            list.Add(string.Format("1 UNI GY -38.44 0 0.91375"));
+            list.Add(string.Format("LOAD 126 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 5.3075 7.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 4.10875 5.65125"));
+            list.Add(string.Format("1 UNI GY -14.57 0.8875 2.7725"));
+            list.Add(string.Format("1 UNI GY -29.16 0 1.16375"));
+            list.Add(string.Format("LOAD 127 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 5.5575 7.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 4.35875 5.90125"));
+            list.Add(string.Format("1 UNI GY -14.57 1.1375 3.0225"));
+            list.Add(string.Format("1 UNI GY -25.4 0.01 1.41375"));
+            list.Add(string.Format("LOAD 128 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 5.8075 7.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 4.60875 6.15125"));
+            list.Add(string.Format("1 UNI GY -14.57 1.3875 3.2725"));
+            list.Add(string.Format("1 UNI GY -22.61 0.25625 1.66375"));
+            list.Add(string.Format("LOAD 129 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 6.0575 7.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 4.85875 6.40125"));
+            list.Add(string.Format("1 UNI GY -14.57 1.6375 3.5225"));
+            list.Add(string.Format("1 UNI GY -20.48 0.50625 1.91375"));
+            list.Add(string.Format("LOAD 130 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 6.3075 8.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 5.10875 6.65125"));
+            list.Add(string.Format("1 UNI GY -14.57 1.8875 3.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 0.75625 2.16375"));
+            list.Add(string.Format("LOAD 131 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 6.5575 8.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 5.35875 6.90125"));
+            list.Add(string.Format("1 UNI GY -14.57 2.1375 4.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 1.00625 2.41375"));
+            list.Add(string.Format("LOAD 132 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 6.8075 8.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 5.60875 7.15125"));
+            list.Add(string.Format("1 UNI GY -14.57 2.3875 4.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 1.25625 2.66375"));
+            list.Add(string.Format("LOAD 133 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 7.0575 8.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 5.85875 7.40125"));
+            list.Add(string.Format("1 UNI GY -14.57 2.6375 4.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 1.50625 2.91375"));
+            list.Add(string.Format("1 UNI GY -26.82 0 0.9925"));
+            list.Add(string.Format("LOAD 134 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 7.3075 9.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 6.10875 7.65125"));
+            list.Add(string.Format("1 UNI GY -14.57 2.8875 4.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 1.75625 3.16375"));
+            list.Add(string.Format("1 UNI GY -17.47 0 1.2425"));
+            list.Add(string.Format("LOAD 135 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 7.5575 9.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 6.35875 7.90125"));
+            list.Add(string.Format("1 UNI GY -14.57 3.1375 5.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 2.00625 3.41375"));
+            list.Add(string.Format("1 UNI GY -14.81 0 1.4925"));
+            list.Add(string.Format("LOAD 136 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 7.8075 9.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 6.60875 8.15125"));
+            list.Add(string.Format("1 UNI GY -14.57 3.3875 5.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 2.25625 3.66375"));
+            list.Add(string.Format("1 UNI GY -13.05 0 1.7425"));
+            list.Add(string.Format("LOAD 137 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.0575 9.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 6.85875 8.40125"));
+            list.Add(string.Format("1 UNI GY -14.57 3.6375 5.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 2.50625 3.91375"));
+            list.Add(string.Format("1 UNI GY -11.72 0.1675 1.9925"));
+            list.Add(string.Format("LOAD 138 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.3075 10.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 7.10875 8.65125"));
+            list.Add(string.Format("1 UNI GY -14.57 3.8875 5.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 2.75625 4.16375"));
+            list.Add(string.Format("1 UNI GY -10.69 0.4175 2.2425"));
+            list.Add(string.Format("LOAD 139 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.5575 10.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 7.35875 8.90125"));
+            list.Add(string.Format("1 UNI GY -14.57 4.1375 6.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 3.00625 4.41375"));
+            list.Add(string.Format("1 UNI GY -10.63 0.6675 2.4925"));
+            list.Add(string.Format("1 UNI GY -26.12 0 1.04"));
+            list.Add(string.Format("LOAD 140 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.8075 10.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 7.60875 9.15125"));
+            list.Add(string.Format("1 UNI GY -14.57 4.3875 6.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 3.25625 4.66375"));
+            list.Add(string.Format("1 UNI GY -10.63 0.9175 2.7425"));
+            list.Add(string.Format("1 UNI GY -16.72 0 1.29"));
+            list.Add(string.Format("LOAD 141 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 9.0575 10.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 7.85875 9.40125"));
+            list.Add(string.Format("1 UNI GY -14.57 4.6375 6.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 3.50625 4.91375"));
+            list.Add(string.Format("1 UNI GY -10.63 1.1675 2.9925"));
+            list.Add(string.Format("1 UNI GY -13.94 -0.42 1.54"));
+            list.Add(string.Format("LOAD 142 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 9.3075 11.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 8.10875 9.65125"));
+            list.Add(string.Format("1 UNI GY -14.57 4.8875 6.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 3.75625 5.16375"));
+            list.Add(string.Format("1 UNI GY -10.63 1.4175 3.2425"));
+            list.Add(string.Format("1 UNI GY -12.26 -0.17 1.79"));
+            list.Add(string.Format("LOAD 143 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 9.5575 11.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 8.35875 9.90125"));
+            list.Add(string.Format("1 UNI GY -14.57 5.1375 7.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 4.00625 5.41375"));
+            list.Add(string.Format("1 UNI GY -10.63 1.6675 3.4925"));
+            list.Add(string.Format("1 UNI GY -11 0.09 2.04"));
+            list.Add(string.Format("LOAD 144 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -15.07 9.8075 11.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 8.60875 10.1512"));
+            list.Add(string.Format("1 UNI GY -14.57 5.3875 7.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 4.25625 5.66375"));
+            list.Add(string.Format("1 UNI GY -10.63 1.9175 3.7425"));
+            list.Add(string.Format("1 UNI GY -10.02 0.34 2.29"));
+            list.Add(string.Format("LOAD 145 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -16.6 10.0575 11.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 8.85875 10.4012"));
+            list.Add(string.Format("1 UNI GY -14.57 5.6375 7.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 4.50625 5.91375"));
+            list.Add(string.Format("1 UNI GY -10.63 2.1675 3.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 0.59 2.54"));
+            list.Add(string.Format("LOAD 146 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -18.59 10.3075 12.1925"));
+            list.Add(string.Format("1 UNI GY -17.81 9.10875 10.6512"));
+            list.Add(string.Format("1 UNI GY -14.57 5.8875 7.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 4.75625 6.16375"));
+            list.Add(string.Format("1 UNI GY -10.63 2.4175 4.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 0.84 2.79"));
+            list.Add(string.Format("LOAD 147 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -21.26 10.5575 12.4425"));
+            list.Add(string.Format("1 UNI GY -17.81 9.35875 10.9012"));
+            list.Add(string.Format("1 UNI GY -14.57 6.1375 8.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 5.00625 6.41375"));
+            list.Add(string.Format("1 UNI GY -10.63 2.6675 4.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 1.08 3.04"));
+            list.Add(string.Format("LOAD 148 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -26.91 10.8075 12.6925"));
+            list.Add(string.Format("1 UNI GY -17.81 9.60875 11.1512"));
+            list.Add(string.Format("1 UNI GY -14.57 6.3875 8.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 5.25625 6.66375"));
+            list.Add(string.Format("1 UNI GY -10.63 2.9175 4.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 1.33 3.29"));
+            list.Add(string.Format("LOAD 149 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -44.65 11.0575 12.9425"));
+            list.Add(string.Format("1 UNI GY -17.81 9.85875 11.4012"));
+            list.Add(string.Format("1 UNI GY -14.57 6.6375 8.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 5.50625 6.91375"));
+            list.Add(string.Format("1 UNI GY -10.63 3.1675 4.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 1.58 3.54"));
+            list.Add(string.Format("LOAD 150 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -19.33 10.1088 11.6512"));
+            list.Add(string.Format("1 UNI GY -14.57 6.8875 8.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 5.75625 7.16375"));
+            list.Add(string.Format("1 UNI GY -10.63 3.4175 5.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 1.83 3.79"));
+            list.Add(string.Format("LOAD 151 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -21.47 10.3588 11.9012"));
+            list.Add(string.Format("1 UNI GY -14.57 7.1375 9.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 6.00625 7.41375"));
+            list.Add(string.Format("1 UNI GY -10.63 3.6675 5.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 2.08 4.04"));
+            list.Add(string.Format("LOAD 152 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -24.28 10.6088 12"));
+            list.Add(string.Format("1 UNI GY -14.57 7.3875 9.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 6.25625 7.66375"));
+            list.Add(string.Format("1 UNI GY -10.63 3.9175 5.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 2.33 4.29"));
+            list.Add(string.Format("LOAD 153 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -28.15 10.8588 12"));
+            list.Add(string.Format("1 UNI GY -14.57 7.6375 9.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 6.50625 7.91375"));
+            list.Add(string.Format("1 UNI GY -10.63 4.1675 5.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 2.58 4.54"));
+            list.Add(string.Format("LOAD 154 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -41.34 11.1088 12"));
+            list.Add(string.Format("1 UNI GY -14.57 7.8875 9.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 6.75625 8.16375"));
+            list.Add(string.Format("1 UNI GY -10.63 4.4175 6.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 2.83 4.79"));
+            list.Add(string.Format("LOAD 155 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.1375 10.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 7.00625 8.41375"));
+            list.Add(string.Format("1 UNI GY -10.63 4.6675 6.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 3.08 5.04"));
+            list.Add(string.Format("1 UNI GY -13.03 0 1.3"));
+            list.Add(string.Format("LOAD 156 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.3875 10.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 7.25625 8.66375"));
+            list.Add(string.Format("1 UNI GY -10.63 4.9175 6.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 3.33 5.29"));
+            list.Add(string.Format("1 UNI GY -8.63 0 1.55"));
+            list.Add(string.Format("LOAD 157 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.6375 10.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 7.50625 8.91375"));
+            list.Add(string.Format("1 UNI GY -10.63 5.1675 6.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 3.58 5.54"));
+            list.Add(string.Format("1 UNI GY -7.43 0 1.8"));
+            list.Add(string.Format("LOAD 158 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 8.8875 10.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 7.75625 9.16375"));
+            list.Add(string.Format("1 UNI GY -10.63 5.4175 7.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 3.83 5.79"));
+            list.Add(string.Format("1 UNI GY -6.56 0 2.05"));
+            list.Add(string.Format("LOAD 159 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 9.1375 11.0225"));
+            list.Add(string.Format("1 UNI GY -19.52 8.00625 9.41375"));
+            list.Add(string.Format("1 UNI GY -10.63 5.6675 7.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 4.08 6.04"));
+            list.Add(string.Format("1 UNI GY -5.9 -0.1 2.3"));
+            list.Add(string.Format("LOAD 160 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 9.3875 11.2725"));
+            list.Add(string.Format("1 UNI GY -19.52 8.25625 9.66375"));
+            list.Add(string.Format("1 UNI GY -10.63 5.9175 7.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 4.33 6.29"));
+            list.Add(string.Format("1 UNI GY -5.39 0.15 2.55"));
+            list.Add(string.Format("LOAD 161 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.57 9.6375 11.5225"));
+            list.Add(string.Format("1 UNI GY -19.52 8.50625 9.91375"));
+            list.Add(string.Format("1 UNI GY -10.63 6.1675 7.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 4.58 6.54"));
+            list.Add(string.Format("1 UNI GY -5.39 0.4 2.8"));
+            list.Add(string.Format("LOAD 162 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -15.52 9.8875 11.7725"));
+            list.Add(string.Format("1 UNI GY -19.52 8.75625 10.1637"));
+            list.Add(string.Format("1 UNI GY -10.63 6.4175 8.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 4.83 6.79"));
+            list.Add(string.Format("1 UNI GY -5.39 0.65 3.05"));
+            list.Add(string.Format("LOAD 163 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.18 10.1375 12"));
+            list.Add(string.Format("1 UNI GY -19.52 9.00625 10.4137"));
+            list.Add(string.Format("1 UNI GY -10.63 6.6675 8.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 5.08 7.04"));
+            list.Add(string.Format("1 UNI GY -5.39 0.9 3.3"));
+            list.Add(string.Format("LOAD 164 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -19.36 10.3875 12"));
+            list.Add(string.Format("1 UNI GY -19.52 9.25625 10.6637"));
+            list.Add(string.Format("1 UNI GY -10.63 6.9175 8.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 5.33 7.29"));
+            list.Add(string.Format("1 UNI GY -5.39 1.15 3.55"));
+            list.Add(string.Format("LOAD 165 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -22.31 10.6375 12"));
+            list.Add(string.Format("1 UNI GY -19.52 9.50625 10.9137"));
+            list.Add(string.Format("1 UNI GY -10.63 7.1675 8.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 5.58 7.54"));
+            list.Add(string.Format("1 UNI GY -5.39 1.4 3.8"));
+            list.Add(string.Format("LOAD 166 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -30.77 10.8875 12"));
+            list.Add(string.Format("1 UNI GY -19.52 9.75625 11.1637"));
+            list.Add(string.Format("1 UNI GY -10.63 7.4175 9.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 5.83 7.79"));
+            list.Add(string.Format("1 UNI GY -5.39 1.65 4.05"));
+            list.Add(string.Format("LOAD 167 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -19.9 10.0063 11.4137"));
+            list.Add(string.Format("1 UNI GY -10.63 7.6675 9.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 6.08 8.04"));
+            list.Add(string.Format("1 UNI GY -5.39 1.9 4.3"));
+            list.Add(string.Format("LOAD 168 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -21.87 10.2563 11.6637"));
+            list.Add(string.Format("1 UNI GY -10.63 7.9175 9.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 6.33 8.29"));
+            list.Add(string.Format("1 UNI GY -5.39 2.15 4.55"));
+            list.Add(string.Format("LOAD 169 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -24.42 10.5063 11.9137"));
+            list.Add(string.Format("1 UNI GY -10.63 8.1675 9.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 6.58 8.54"));
+            list.Add(string.Format("1 UNI GY -5.39 2.4 4.8"));
+            list.Add(string.Format("LOAD 170 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -27.82 10.7563 12"));
+            list.Add(string.Format("1 UNI GY -10.63 8.4175 10.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 6.83 8.79"));
+            list.Add(string.Format("1 UNI GY -5.39 2.65 5.05"));
+            list.Add(string.Format("LOAD 171 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -33.94 11.0063 12"));
+            list.Add(string.Format("1 UNI GY -10.63 8.6675 10.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 7.08 9.04"));
+            list.Add(string.Format("1 UNI GY -5.39 2.9 5.3"));
+            list.Add(string.Format("LOAD 172 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -54 11.2563 12"));
+            list.Add(string.Format("1 UNI GY -10.63 8.9175 10.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 7.33 9.29"));
+            list.Add(string.Format("1 UNI GY -5.39 3.15 5.55"));
+            list.Add(string.Format("LOAD 173 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -10.63 9.1675 10.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 7.58 9.54"));
+            list.Add(string.Format("1 UNI GY -5.39 3.4 5.8"));
+            list.Add(string.Format("LOAD 174 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -10.63 9.4175 11.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 7.83 9.79"));
+            list.Add(string.Format("1 UNI GY -5.39 3.65 6.05"));
+            list.Add(string.Format("LOAD 175 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -10.63 9.6675 11.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 8.08 10.04"));
+            list.Add(string.Format("1 UNI GY -5.39 3.9 6.3"));
+            list.Add(string.Format("LOAD 176 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.32 9.9175 11.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 8.33 10.29"));
+            list.Add(string.Format("1 UNI GY -5.39 4.15 6.55"));
+            list.Add(string.Format("LOAD 177 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -12.53 10.1675 11.9925"));
+            list.Add(string.Format("1 UNI GY -9.9 8.58 10.54"));
+            list.Add(string.Format("1 UNI GY -5.39 4.4 6.8"));
+            list.Add(string.Format("LOAD 178 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.11 10.4175 12.2425"));
+            list.Add(string.Format("1 UNI GY -9.9 8.83 10.79"));
+            list.Add(string.Format("1 UNI GY -5.39 4.65 7.05"));
+            list.Add(string.Format("LOAD 179 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -16.27 10.6675 12.4925"));
+            list.Add(string.Format("1 UNI GY -9.9 9.08 11.04"));
+            list.Add(string.Format("1 UNI GY -5.39 4.9 7.3"));
+            list.Add(string.Format("LOAD 180 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -22.43 10.9175 12.7425"));
+            list.Add(string.Format("1 UNI GY -9.9 9.33 11.29"));
+            list.Add(string.Format("1 UNI GY -5.39 5.15 7.55"));
+            list.Add(string.Format("LOAD 181 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -9.9 9.58 11.54"));
+            list.Add(string.Format("1 UNI GY -5.39 5.4 7.8"));
+            list.Add(string.Format("LOAD 182 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -10.46 9.83 11.79"));
+            list.Add(string.Format("1 UNI GY -5.39 5.65 8.05"));
+            list.Add(string.Format("LOAD 183 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.56 10.08 12"));
+            list.Add(string.Format("1 UNI GY -5.39 5.9 8.3"));
+            list.Add(string.Format("LOAD 184 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -13.01 10.33 12"));
+            list.Add(string.Format("1 UNI GY -5.39 6.15 8.55"));
+            list.Add(string.Format("LOAD 185 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -14.96 10.58 12"));
+            list.Add(string.Format("1 UNI GY -5.39 6.4 8.8"));
+            list.Add(string.Format("LOAD 186 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -20.16 10.83 12"));
+            list.Add(string.Format("1 UNI GY -5.39 6.65 9.05"));
+            list.Add(string.Format("LOAD 187 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 6.9 9.3"));
+            list.Add(string.Format("LOAD 188 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 7.15 9.55"));
+            list.Add(string.Format("LOAD 189 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 7.4 9.8"));
+            list.Add(string.Format("LOAD 190 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 7.65 10.05"));
+            list.Add(string.Format("LOAD 191 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 7.9 10.3"));
+            list.Add(string.Format("LOAD 193 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 8.15 10.55"));
+            list.Add(string.Format("LOAD 194 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 8.4 10.8"));
+            list.Add(string.Format("LOAD 195 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 8.65 11.05"));
+            list.Add(string.Format("LOAD 196 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 8.9 11.3"));
+            list.Add(string.Format("LOAD 197 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 9.15 11.55"));
+            list.Add(string.Format("LOAD 198 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.39 9.4 11.8"));
+            list.Add(string.Format("LOAD 199 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.78 9.65 12"));
+            list.Add(string.Format("LOAD 200 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -6.41 9.9 12"));
+            list.Add(string.Format("LOAD 201 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.23 10.15 12"));
+            list.Add(string.Format("LOAD 202 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -8.36 10.4 12"));
+            list.Add(string.Format("LOAD 203 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.8 10.65 12"));
+            list.Add(string.Format("LOAD 301 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -8.26 0 0.6"));
+            list.Add(string.Format("LOAD 302 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.12 0 0.975"));
+            list.Add(string.Format("LOAD 303 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.78 0 1.35"));
+            list.Add(string.Format("LOAD 304 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.28 0 1.655"));
+            list.Add(string.Format("LOAD 305 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.04 0.1 1.905"));
+            list.Add(string.Format("LOAD 306 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.85 0.345 2.155"));
+            list.Add(string.Format("1 UNI GY -7.45 0 0.645"));
+            list.Add(string.Format("LOAD 307 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 0.595 2.405"));
+            list.Add(string.Format("1 UNI GY -3.86 0 1.02"));
+            list.Add(string.Format("LOAD 308 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 0.845 2.655"));
+            list.Add(string.Format("1 UNI GY -2.68 0 1.395"));
+            list.Add(string.Format("LOAD 309 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 1.095 2.905"));
+            list.Add(string.Format("1 UNI GY -2.25 0 1.685"));
+            list.Add(string.Format("LOAD 310 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 1.345 3.155"));
+            list.Add(string.Format("1 UNI GY -2.01 0.125 1.935"));
+            list.Add(string.Format("LOAD 311 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 1.595 3.405"));
+            list.Add(string.Format("1 UNI GY -1.83 0.375 2.185"));
+            list.Add(string.Format("LOAD 312 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 1.845 3.655"));
+            list.Add(string.Format("1 UNI GY -1.79 0.625 2.435"));
+            list.Add(string.Format("LOAD 313 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 2.095 3.905"));
+            list.Add(string.Format("1 UNI GY -1.79 0.875 2.685"));
+            list.Add(string.Format("LOAD 314 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 2.345 4.155"));
+            list.Add(string.Format("1 UNI GY -1.79 1.125 2.935"));
+            list.Add(string.Format("LOAD 315 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 2.595 4.405"));
+            list.Add(string.Format("1 UNI GY -1.79 1.375 3.185"));
+            list.Add(string.Format("LOAD 316 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 2.845 4.655"));
+            list.Add(string.Format("1 UNI GY -1.79 1.625 3.435"));
+            list.Add(string.Format("LOAD 317 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 3.095 4.905"));
+            list.Add(string.Format("1 UNI GY -1.79 1.875 3.685"));
+            list.Add(string.Format("LOAD 318 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 3.345 5.155"));
+            list.Add(string.Format("1 UNI GY -1.79 2.125 3.935"));
+            list.Add(string.Format("LOAD 319 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 3.595 5.405"));
+            list.Add(string.Format("1 UNI GY -1.79 2.375 4.185"));
+            list.Add(string.Format("LOAD 320 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 3.845 5.655"));
+            list.Add(string.Format("1 UNI GY -1.79 2.625 4.435"));
+            list.Add(string.Format("LOAD 321 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 4.095 5.905"));
+            list.Add(string.Format("1 UNI GY -1.79 2.875 4.685"));
+            list.Add(string.Format("LOAD 322 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 4.345 6.155"));
+            list.Add(string.Format("1 UNI GY -1.79 3.125 4.935"));
+            list.Add(string.Format("LOAD 323 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 4.595 6.405"));
+            list.Add(string.Format("1 UNI GY -1.79 3.375 5.185"));
+            list.Add(string.Format("LOAD 324 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 4.845 6.655"));
+            list.Add(string.Format("1 UNI GY -1.79 3.625 5.435"));
+            list.Add(string.Format("LOAD 325 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 5.095 6.905"));
+            list.Add(string.Format("1 UNI GY -1.79 3.875 5.685"));
+            list.Add(string.Format("LOAD 326 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 5.345 7.155"));
+            list.Add(string.Format("1 UNI GY -1.79 4.125 5.935"));
+            list.Add(string.Format("LOAD 327 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 5.595 7.405"));
+            list.Add(string.Format("1 UNI GY -1.79 4.375 6.185"));
+            list.Add(string.Format("LOAD 328 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 5.845 7.655"));
+            list.Add(string.Format("1 UNI GY -1.79 4.625 6.435"));
+            list.Add(string.Format("LOAD 329 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 6.095 7.905"));
+            list.Add(string.Format("1 UNI GY -1.79 4.875 6.685"));
+            list.Add(string.Format("LOAD 330 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 6.345 8.155"));
+            list.Add(string.Format("1 UNI GY -1.79 5.125 6.935"));
+            list.Add(string.Format("LOAD 331 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 6.595 8.405"));
+            list.Add(string.Format("1 UNI GY -1.79 5.375 7.185"));
+            list.Add(string.Format("LOAD 332 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 6.845 8.655"));
+            list.Add(string.Format("1 UNI GY -1.79 5.625 7.435"));
+            list.Add(string.Format("LOAD 333 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 7.095 8.905"));
+            list.Add(string.Format("1 UNI GY -1.79 5.875 7.685"));
+            list.Add(string.Format("LOAD 334 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 7.345 9.155"));
+            list.Add(string.Format("1 UNI GY -1.79 6.125 7.935"));
+            list.Add(string.Format("LOAD 335 LOADTYPE None  TITLE 70R WHEEL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 7.595 9.405"));
+            list.Add(string.Format("1 UNI GY -1.79 6.375 8.185"));
+            list.Add(string.Format("LOAD 336 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 7.845 9.655"));
+            list.Add(string.Format("1 UNI GY -1.79 6.625 8.435"));
+            list.Add(string.Format("LOAD 337 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 8.095 9.905"));
+            list.Add(string.Format("1 UNI GY -1.79 6.875 8.685"));
+            list.Add(string.Format("LOAD 338 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 8.345 10.155"));
+            list.Add(string.Format("1 UNI GY -1.79 7.125 8.935"));
+            list.Add(string.Format("LOAD 339 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 8.595 10.405"));
+            list.Add(string.Format("1 UNI GY -1.79 7.375 9.185"));
+            list.Add(string.Format("LOAD 340 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 8.845 10.655"));
+            list.Add(string.Format("1 UNI GY -1.79 7.625 9.435"));
+            list.Add(string.Format("LOAD 341 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 9.095 10.905"));
+            list.Add(string.Format("1 UNI GY -1.79 7.875 9.685"));
+            list.Add(string.Format("LOAD 342 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 9.345 11.155"));
+            list.Add(string.Format("1 UNI GY -1.79 8.125 9.935"));
+            list.Add(string.Format("LOAD 343 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.79 9.595 11.405"));
+            list.Add(string.Format("1 UNI GY -1.79 8.375 10.185"));
+            list.Add(string.Format("LOAD 344 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -1.85 9.845 11.655"));
+            list.Add(string.Format("1 UNI GY -1.79 8.625 10.435"));
+            list.Add(string.Format("LOAD 345 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.04 10.095 11.905"));
+            list.Add(string.Format("1 UNI GY -1.79 8.875 10.685"));
+            list.Add(string.Format("LOAD 346 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.28 10.345 12"));
+            list.Add(string.Format("1 UNI GY -1.79 9.125 10.935"));
+            list.Add(string.Format("LOAD 347 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.78 10.65 12"));
+            list.Add(string.Format("1 UNI GY -1.79 9.375 11.185"));
+            list.Add(string.Format("LOAD 348 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.12 11.025 12"));
+            list.Add(string.Format("1 UNI GY -1.79 9.625 11.435"));
+            list.Add(string.Format("LOAD 349 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -8.26 11.4 12"));
+            list.Add(string.Format("1 UNI GY -1.87 9.875 11.685"));
+            list.Add(string.Format("LOAD 350 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.06 10.125 11.935"));
+            list.Add(string.Format("LOAD 351 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.32 10.375 12"));
+            list.Add(string.Format("LOAD 352 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -2.88 10.695 12"));
+            list.Add(string.Format("LOAD 353 LOADTYPE None  TITLE 70R BOGIE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.41 11.07 12"));
+            list.Add(string.Format("LOAD 401 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -26.73 0 1.2"));
+            list.Add(string.Format("LOAD 402 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.85 0 1.45"));
+            list.Add(string.Format("LOAD 403 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.7"));
+            list.Add(string.Format("LOAD 404 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.95"));
+            list.Add(string.Format("LOAD 405 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0 2.2"));
+            list.Add(string.Format("LOAD 406 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0.05 2.45"));
+            list.Add(string.Format("LOAD 407 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0.3 2.7"));
+            list.Add(string.Format("LOAD 408 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0.55 2.95"));
+            list.Add(string.Format("LOAD 409 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 0.8 3.2"));
+            list.Add(string.Format("LOAD 410 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 1.05 3.45"));
+            list.Add(string.Format("LOAD 411 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 1.3 3.7"));
+            list.Add(string.Format("LOAD 412 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 1.55 3.95"));
+            list.Add(string.Format("LOAD 413 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 1.8 4.2"));
+            list.Add(string.Format("1 UNI GY -26.73 0 1.2"));
+            list.Add(string.Format("LOAD 414 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 2.05 4.45"));
+            list.Add(string.Format("1 UNI GY -11.85 0 1.15"));
+            list.Add(string.Format("LOAD 415 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 2.3 4.7"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.4"));
+            list.Add(string.Format("LOAD 416 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 2.55 4.95"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.65"));
+            list.Add(string.Format("LOAD 417 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 2.8 5.2"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.9"));
+            list.Add(string.Format("LOAD 418 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 3.05 5.45"));
+            list.Add(string.Format("1 UNI GY -7.88 0.05 2.15"));
+            list.Add(string.Format("LOAD 419 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 3.3 5.7"));
+            list.Add(string.Format("1 UNI GY -7.88 0.3 2.4"));
+            list.Add(string.Format("LOAD 420 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 3.55 5.95"));
+            list.Add(string.Format("1 UNI GY -7.88 0.55 2.65"));
+            list.Add(string.Format("LOAD 421 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 3.8 6.2"));
+            list.Add(string.Format("1 UNI GY -7.88 0.8 2.9"));
+            list.Add(string.Format("LOAD 422 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 4.05 6.45"));
+            list.Add(string.Format("1 UNI GY -7.88 1.05 3.15"));
+            list.Add(string.Format("LOAD 423 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 4.3 6.7"));
+            list.Add(string.Format("1 UNI GY -7.88 1.3 3.4"));
+            list.Add(string.Format("LOAD 424 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 4.55 6.95"));
+            list.Add(string.Format("1 UNI GY -7.88 1.55 3.65"));
+            list.Add(string.Format("LOAD 425 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 4.8 7.2"));
+            list.Add(string.Format("1 UNI GY -7.88 1.8 3.9"));
+            list.Add(string.Format("1 UNI GY -26.73 0 1.2"));
+            list.Add(string.Format("LOAD 426 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 5.05 7.45"));
+            list.Add(string.Format("1 UNI GY -7.88 2.05 4.15"));
+            list.Add(string.Format("1 UNI GY -11.85 0 1.45"));
+            list.Add(string.Format("LOAD 427 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 5.3 7.7"));
+            list.Add(string.Format("1 UNI GY -7.88 2.3 4.4"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.7"));
+            list.Add(string.Format("LOAD 428 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 5.55 7.95"));
+            list.Add(string.Format("1 UNI GY -7.88 2.55 4.65"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.95"));
+            list.Add(string.Format("LOAD 429 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 5.8 8.2"));
+            list.Add(string.Format("1 UNI GY -7.88 2.8 4.9"));
+            list.Add(string.Format("1 UNI GY -7.88 0 2.2"));
+            list.Add(string.Format("LOAD 430 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 6.05 8.45"));
+            list.Add(string.Format("1 UNI GY -7.88 3.05 5.15"));
+            list.Add(string.Format("1 UNI GY -7.88 0.05 2.45"));
+            list.Add(string.Format("LOAD 431 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 6.3 8.7"));
+            list.Add(string.Format("1 UNI GY -7.88 3.3 5.4"));
+            list.Add(string.Format("1 UNI GY -7.88 0.3 2.7"));
+            list.Add(string.Format("LOAD 432 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 6.55 8.95"));
+            list.Add(string.Format("1 UNI GY -7.88 3.55 5.65"));
+            list.Add(string.Format("1 UNI GY -7.88 0.55 2.95"));
+            list.Add(string.Format("LOAD 433 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 6.8 9.2"));
+            list.Add(string.Format("1 UNI GY -7.88 3.8 5.9"));
+            list.Add(string.Format("1 UNI GY -7.88 0.8 3.2"));
+            list.Add(string.Format("LOAD 434 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 7.05 9.45"));
+            list.Add(string.Format("1 UNI GY -7.88 4.05 6.15"));
+            list.Add(string.Format("1 UNI GY -7.88 1.05 3.45"));
+            list.Add(string.Format("LOAD 435 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 7.3 9.7"));
+            list.Add(string.Format("1 UNI GY -7.88 4.3 6.4"));
+            list.Add(string.Format("1 UNI GY -7.88 1.3 3.7"));
+            list.Add(string.Format("LOAD 436 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 7.55 9.95"));
+            list.Add(string.Format("1 UNI GY -7.88 4.55 6.65"));
+            list.Add(string.Format("1 UNI GY -7.88 1.55 3.95"));
+            list.Add(string.Format("LOAD 437 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 7.8 10.2"));
+            list.Add(string.Format("1 UNI GY -7.88 4.8 6.9"));
+            list.Add(string.Format("1 UNI GY -7.88 1.8 4.2"));
+            list.Add(string.Format("1 UNI GY -26.73 0 0.9"));
+            list.Add(string.Format("LOAD 438 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.05 10.45"));
+            list.Add(string.Format("1 UNI GY -7.88 5.05 7.15"));
+            list.Add(string.Format("1 UNI GY -7.88 2.05 4.45"));
+            list.Add(string.Format("1 UNI GY -11.85 0 1.15"));
+            list.Add(string.Format("LOAD 439 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.3 10.7"));
+            list.Add(string.Format("1 UNI GY -7.88 5.3 7.4"));
+            list.Add(string.Format("1 UNI GY -7.88 2.3 4.7"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.4"));
+            list.Add(string.Format("LOAD 440 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.55 10.95"));
+            list.Add(string.Format("1 UNI GY -7.88 5.55 7.65"));
+            list.Add(string.Format("1 UNI GY -7.88 2.55 4.95"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.65"));
+            list.Add(string.Format("LOAD 441 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.8 11.2"));
+            list.Add(string.Format("1 UNI GY -7.88 5.8 7.9"));
+            list.Add(string.Format("1 UNI GY -7.88 2.8 5.2"));
+            list.Add(string.Format("1 UNI GY -7.88 0 1.9"));
+            list.Add(string.Format("LOAD 442 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.05 11.45"));
+            list.Add(string.Format("1 UNI GY -7.88 6.05 8.15"));
+            list.Add(string.Format("1 UNI GY -7.88 3.05 5.45"));
+            list.Add(string.Format("1 UNI GY -7.88 0.05 2.15"));
+            list.Add(string.Format("LOAD 443 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.3 11.7"));
+            list.Add(string.Format("1 UNI GY -7.88 6.3 8.4"));
+            list.Add(string.Format("1 UNI GY -7.88 3.3 5.7"));
+            list.Add(string.Format("1 UNI GY -7.88 0.3 2.4"));
+            list.Add(string.Format("LOAD 444 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.55 11.95"));
+            list.Add(string.Format("1 UNI GY -7.88 6.55 8.65"));
+            list.Add(string.Format("1 UNI GY -7.88 3.55 5.95"));
+            list.Add(string.Format("1 UNI GY -7.88 0.55 2.65"));
+            list.Add(string.Format("LOAD 445 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.8 12"));
+            list.Add(string.Format("1 UNI GY -7.88 6.8 8.9"));
+            list.Add(string.Format("1 UNI GY -7.88 3.8 6.2"));
+            list.Add(string.Format("1 UNI GY -7.88 0.8 2.9"));
+            list.Add(string.Format("LOAD 446 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.05 12"));
+            list.Add(string.Format("1 UNI GY -7.88 7.05 9.15"));
+            list.Add(string.Format("1 UNI GY -7.88 4.05 6.45"));
+            list.Add(string.Format("1 UNI GY -7.88 1.05 3.15"));
+            list.Add(string.Format("LOAD 447 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.3 12"));
+            list.Add(string.Format("1 UNI GY -7.88 7.3 9.4"));
+            list.Add(string.Format("1 UNI GY -7.88 4.3 6.7"));
+            list.Add(string.Format("1 UNI GY -7.88 1.3 3.4"));
+            list.Add(string.Format("LOAD 448 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.85 10.55 12"));
+            list.Add(string.Format("1 UNI GY -7.88 7.55 9.65"));
+            list.Add(string.Format("1 UNI GY -7.88 4.55 6.95"));
+            list.Add(string.Format("1 UNI GY -7.88 1.55 3.65"));
+            list.Add(string.Format("LOAD 449 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -26.73 10.8 13.2"));
+            list.Add(string.Format("1 UNI GY -7.88 7.8 9.9"));
+            list.Add(string.Format("1 UNI GY -7.88 4.8 7.2"));
+            list.Add(string.Format("1 UNI GY -7.88 1.8 3.9"));
+            list.Add(string.Format("LOAD 450 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.05 10.15"));
+            list.Add(string.Format("1 UNI GY -7.88 5.05 7.45"));
+            list.Add(string.Format("1 UNI GY -7.88 2.05 4.15"));
+            list.Add(string.Format("LOAD 451 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.3 10.4"));
+            list.Add(string.Format("1 UNI GY -7.88 5.3 7.7"));
+            list.Add(string.Format("1 UNI GY -7.88 2.3 4.4"));
+            list.Add(string.Format("LOAD 452 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.55 10.65"));
+            list.Add(string.Format("1 UNI GY -7.88 5.55 7.95"));
+            list.Add(string.Format("1 UNI GY -7.88 2.55 4.65"));
+            list.Add(string.Format("LOAD 453 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.8 10.9"));
+            list.Add(string.Format("1 UNI GY -7.88 5.8 8.2"));
+            list.Add(string.Format("1 UNI GY -7.88 2.8 4.9"));
+            list.Add(string.Format("LOAD 454 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.05 11.15"));
+            list.Add(string.Format("1 UNI GY -7.88 6.05 8.45"));
+            list.Add(string.Format("1 UNI GY -7.88 3.05 5.15"));
+            list.Add(string.Format("LOAD 455 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.3 11.4"));
+            list.Add(string.Format("1 UNI GY -7.88 6.3 8.7"));
+            list.Add(string.Format("1 UNI GY -7.88 3.3 5.4"));
+            list.Add(string.Format("1 UNI GY -26.73 0 1.1"));
+            list.Add(string.Format("LOAD 456 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.55 11.65"));
+            list.Add(string.Format("1 UNI GY -7.88 6.55 8.95"));
+            list.Add(string.Format("1 UNI GY -7.88 3.55 5.65"));
+            list.Add(string.Format("1 UNI GY -17.6 0 1.35"));
+            list.Add(string.Format("LOAD 457 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.8 11.9"));
+            list.Add(string.Format("1 UNI GY -7.88 6.8 9.2"));
+            list.Add(string.Format("1 UNI GY -7.88 3.8 5.9"));
+            list.Add(string.Format("1 UNI GY -17.6 0 1.6"));
+            list.Add(string.Format("LOAD 458 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.05 12.15"));
+            list.Add(string.Format("1 UNI GY -7.88 7.05 9.45"));
+            list.Add(string.Format("1 UNI GY -7.88 4.05 6.15"));
+            list.Add(string.Format("1 UNI GY -17.6 0.05 1.85"));
+            list.Add(string.Format("LOAD 459 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.3 12.4"));
+            list.Add(string.Format("1 UNI GY -7.88 7.3 9.7"));
+            list.Add(string.Format("1 UNI GY -7.88 4.3 6.4"));
+            list.Add(string.Format("1 UNI GY -17.6 0.3 2.1"));
+            list.Add(string.Format("1 UNI GY -48.72 0 0.9"));
+            list.Add(string.Format("LOAD 460 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.85 10.55 12.65"));
+            list.Add(string.Format("1 UNI GY -7.88 7.8 10.2"));
+            list.Add(string.Format("1 UNI GY -7.88 4.55 6.65"));
+            list.Add(string.Format("1 UNI GY -17.6 0.55 2.35"));
+            list.Add(string.Format("1 UNI GY -24.07 0 1.15"));
+            list.Add(string.Format("LOAD 461 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.05 10.45"));
+            list.Add(string.Format("1 UNI GY -7.88 4.8 6.9"));
+            list.Add(string.Format("1 UNI GY -17.6 0.8 2.6"));
+            list.Add(string.Format("1 UNI GY -17.6 0 1.4"));
+            list.Add(string.Format("LOAD 462 LOADTYPE None   "));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.3 10.7"));
+            list.Add(string.Format("1 UNI GY -7.88 5.05 7.15"));
+            list.Add(string.Format("1 UNI GY -17.6 1.05 2.85"));
+            list.Add(string.Format("1 UNI GY -17.6 0 1.65"));
+            list.Add(string.Format("LOAD 463 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.55 10.95"));
+            list.Add(string.Format("1 UNI GY -7.88 5.3 7.4"));
+            list.Add(string.Format("1 UNI GY -17.6 1.3 3.1"));
+            list.Add(string.Format("1 UNI GY -17.6 0.1 1.9"));
+            list.Add(string.Format("LOAD 464 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.8 11.2"));
+            list.Add(string.Format("1 UNI GY -7.88 5.55 7.65"));
+            list.Add(string.Format("1 UNI GY -17.6 1.55 3.35"));
+            list.Add(string.Format("1 UNI GY -17.6 0.35 2.15"));
+            list.Add(string.Format("LOAD 465 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.05 11.45"));
+            list.Add(string.Format("1 UNI GY -7.88 5.8 7.9"));
+            list.Add(string.Format("1 UNI GY -17.6 1.8 3.6"));
+            list.Add(string.Format("1 UNI GY -17.6 0.6 2.4"));
+            list.Add(string.Format("LOAD 466 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.3 11.7"));
+            list.Add(string.Format("1 UNI GY -7.88 6.05 8.15"));
+            list.Add(string.Format("1 UNI GY -17.6 2.05 3.85"));
+            list.Add(string.Format("1 UNI GY -17.6 0.85 2.65"));
+            list.Add(string.Format("LOAD 467 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.55 11.95"));
+            list.Add(string.Format("1 UNI GY -7.88 6.3 8.4"));
+            list.Add(string.Format("1 UNI GY -17.6 2.3 4.1"));
+            list.Add(string.Format("1 UNI GY -17.6 1.1 2.9"));
+            list.Add(string.Format("LOAD 468 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.8 12"));
+            list.Add(string.Format("1 UNI GY -7.88 6.55 8.65"));
+            list.Add(string.Format("1 UNI GY -17.6 2.55 4.35"));
+            list.Add(string.Format("1 UNI GY -17.6 1.35 3.15"));
+            list.Add(string.Format("LOAD 469 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.05 12"));
+            list.Add(string.Format("1 UNI GY -7.88 6.8 8.9"));
+            list.Add(string.Format("1 UNI GY -17.6 2.8 4.6"));
+            list.Add(string.Format("1 UNI GY -17.6 1.6 3.4"));
+            list.Add(string.Format("LOAD 470 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.3 12"));
+            list.Add(string.Format("1 UNI GY -7.88 7.05 9.15"));
+            list.Add(string.Format("1 UNI GY -17.6 3.05 4.85"));
+            list.Add(string.Format("1 UNI GY -17.6 1.85 3.65"));
+            list.Add(string.Format("LOAD 471 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.85 10.55 12"));
+            list.Add(string.Format("1 UNI GY -7.88 7.3 9.4"));
+            list.Add(string.Format("1 UNI GY -17.6 3.3 5.1"));
+            list.Add(string.Format("1 UNI GY -17.6 2.1 3.9"));
+            list.Add(string.Format("LOAD 472 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 7.55 9.65"));
+            list.Add(string.Format("1 UNI GY -17.6 3.55 5.35"));
+            list.Add(string.Format("1 UNI GY -17.6 2.35 4.15"));
+            list.Add(string.Format("1 UNI GY -15.9 0 0.925"));
+            list.Add(string.Format("1 UNI GY -10.9 0 0.9"));
+            list.Add(string.Format("LOAD 473 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 7.8 9.9"));
+            list.Add(string.Format("1 UNI GY -7.88 7.8 9.9"));
+            list.Add(string.Format("1 UNI GY -17.6 3.8 5.6"));
+            list.Add(string.Format("1 UNI GY -17.6 2.6 4.4"));
+            list.Add(string.Format("1 UNI GY -6.74 0 1.175"));
+            list.Add(string.Format("1 UNI GY -5.36 0 1.28"));
+            list.Add(string.Format("LOAD 474 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.05 10.15"));
+            list.Add(string.Format("1 UNI GY -17.6 4.05 5.85"));
+            list.Add(string.Format("1 UNI GY -17.6 2.85 4.65"));
+            list.Add(string.Format("1 UNI GY -4.35 0 1.425"));
+            list.Add(string.Format("1 UNI GY -4.29 0 1.58"));
+            list.Add(string.Format("LOAD 475 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.3 10.4"));
+            list.Add(string.Format("1 UNI GY -17.6 4.3 6.1"));
+            list.Add(string.Format("1 UNI GY -17.6 3.1 4.9"));
+            list.Add(string.Format("1 UNI GY -4.29 0 1.675"));
+            list.Add(string.Format("1 UNI GY -4.29 0.08 1.83"));
+            list.Add(string.Format("LOAD 476 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.55 10.65"));
+            list.Add(string.Format("1 UNI GY -17.6 4.55 6.35"));
+            list.Add(string.Format("1 UNI GY -17.6 3.35 5.15"));
+            list.Add(string.Format("1 UNI GY -4.29 0.18 1.925"));
+            list.Add(string.Format("1 UNI GY -4.29 0.33 2.08"));
+            list.Add(string.Format("LOAD 477 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 8.8 10.9"));
+            list.Add(string.Format("1 UNI GY -17.6 4.8 6.6"));
+            list.Add(string.Format("1 UNI GY -17.6 3.6 5.4"));
+            list.Add(string.Format("1 UNI GY -4.29 0.43 2.175"));
+            list.Add(string.Format("1 UNI GY -10.9 0 0.9"));
+            list.Add(string.Format("LOAD 478 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.05 11.15"));
+            list.Add(string.Format("1 UNI GY -17.6 5.05 6.85"));
+            list.Add(string.Format("1 UNI GY -17.6 3.85 5.65"));
+            list.Add(string.Format("1 UNI GY -4.29 0.68 2.425"));
+            list.Add(string.Format("1 UNI GY -5.36 0 1.28"));
+            list.Add(string.Format("LOAD 479 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.3 11.4"));
+            list.Add(string.Format("1 UNI GY -17.6 5.3 7.1"));
+            list.Add(string.Format("1 UNI GY -17.6 4.1 5.9"));
+            list.Add(string.Format("1 UNI GY -4.29 0.93 2.675"));
+            list.Add(string.Format("1 UNI GY -4.29 0 1.58"));
+            list.Add(string.Format("LOAD 480 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.55 11.65"));
+            list.Add(string.Format("1 UNI GY -17.6 5.55 7.35"));
+            list.Add(string.Format("1 UNI GY -17.6 4.35 6.15"));
+            list.Add(string.Format("1 UNI GY -4.29 1.175 2.925"));
+            list.Add(string.Format("1 UNI GY -4.29 0.08 1.83"));
+            list.Add(string.Format("LOAD 481 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 9.8 11.9"));
+            list.Add(string.Format("1 UNI GY -17.6 5.8 7.6"));
+            list.Add(string.Format("1 UNI GY -17.6 4.6 6.4"));
+            list.Add(string.Format("1 UNI GY -4.29 1.425 3.175"));
+            list.Add(string.Format("1 UNI GY -4.29 0.33 2.08"));
+            list.Add(string.Format("LOAD 482 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.05 12"));
+            list.Add(string.Format("1 UNI GY -17.6 6.05 7.85"));
+            list.Add(string.Format("1 UNI GY -17.6 4.85 6.65"));
+            list.Add(string.Format("1 UNI GY -4.29 1.675 3.425"));
+            list.Add(string.Format("1 UNI GY -4.29 0.58 2.33"));
+            list.Add(string.Format("LOAD 483 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.88 10.3 12"));
+            list.Add(string.Format("1 UNI GY -17.6 6.3 8.1"));
+            list.Add(string.Format("1 UNI GY -17.6 5.1 6.9"));
+            list.Add(string.Format("1 UNI GY -4.29 1.925 3.675"));
+            list.Add(string.Format("1 UNI GY -4.29 0.83 2.58"));
+            list.Add(string.Format("LOAD 484 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -11.85 10.55 12"));
+            list.Add(string.Format("1 UNI GY -17.6 6.55 8.35"));
+            list.Add(string.Format("1 UNI GY -17.6 5.35 7.15"));
+            list.Add(string.Format("1 UNI GY -4.29 2.175 3.925"));
+            list.Add(string.Format("1 UNI GY -4.29 1.08 2.83"));
+            list.Add(string.Format("LOAD 485 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 6.8 8.6"));
+            list.Add(string.Format("1 UNI GY -17.6 5.6 7.4"));
+            list.Add(string.Format("1 UNI GY -4.29 2.425 4.175"));
+            list.Add(string.Format("1 UNI GY -4.29 1.33 3.08"));
+            list.Add(string.Format("LOAD 486 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 7.05 8.85"));
+            list.Add(string.Format("1 UNI GY -17.6 5.85 7.65"));
+            list.Add(string.Format("1 UNI GY -4.29 2.675 4.425"));
+            list.Add(string.Format("1 UNI GY -4.29 1.58 3.33"));
+            list.Add(string.Format("LOAD 487 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 7.3 9.1"));
+            list.Add(string.Format("1 UNI GY -17.6 6.1 7.9"));
+            list.Add(string.Format("1 UNI GY -4.29 2.925 4.675"));
+            list.Add(string.Format("1 UNI GY -4.29 1.83 3.58"));
+            list.Add(string.Format("LOAD 488 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 7.55 9.35"));
+            list.Add(string.Format("1 UNI GY -17.6 6.35 8.15"));
+            list.Add(string.Format("1 UNI GY -4.29 3.175 4.925"));
+            list.Add(string.Format("1 UNI GY -4.29 2.08 3.83"));
+            list.Add(string.Format("LOAD 489 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 7.8 9.6"));
+            list.Add(string.Format("1 UNI GY -17.6 6.6 8.4"));
+            list.Add(string.Format("1 UNI GY -4.29 3.425 5.175"));
+            list.Add(string.Format("1 UNI GY -4.29 2.33 4.08"));
+            list.Add(string.Format("LOAD 490 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 8.05 9.85"));
+            list.Add(string.Format("1 UNI GY -17.6 6.85 8.65"));
+            list.Add(string.Format("1 UNI GY -4.29 3.675 5.425"));
+            list.Add(string.Format("1 UNI GY -4.29 2.58 4.33"));
+            list.Add(string.Format("LOAD 491 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 8.3 10.1"));
+            list.Add(string.Format("1 UNI GY -17.6 7.1 8.9"));
+            list.Add(string.Format("1 UNI GY -4.29 3.925 5.675"));
+            list.Add(string.Format("1 UNI GY -4.29 2.83 4.58"));
+            list.Add(string.Format("LOAD 492 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 8.55 10.35"));
+            list.Add(string.Format("1 UNI GY -17.6 7.35 9.15"));
+            list.Add(string.Format("1 UNI GY -4.29 4.175 5.925"));
+            list.Add(string.Format("1 UNI GY -4.29 3.08 4.83"));
+            list.Add(string.Format("LOAD 493 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 8.8 10.6"));
+            list.Add(string.Format("1 UNI GY -17.6 7.6 9.4"));
+            list.Add(string.Format("1 UNI GY -4.29 4.425 6.175"));
+            list.Add(string.Format("1 UNI GY -4.29 3.33 5.08"));
+            list.Add(string.Format("LOAD 494 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 9.05 10.85"));
+            list.Add(string.Format("1 UNI GY -17.6 7.85 9.65"));
+            list.Add(string.Format("1 UNI GY -4.29 4.675 6.425"));
+            list.Add(string.Format("1 UNI GY -4.29 3.58 5.33"));
+            list.Add(string.Format("LOAD 495 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 9.3 11.1"));
+            list.Add(string.Format("1 UNI GY -17.6 8.1 9.9"));
+            list.Add(string.Format("1 UNI GY -4.29 4.925 6.675"));
+            list.Add(string.Format("1 UNI GY -4.29 3.83 5.58"));
+            list.Add(string.Format("LOAD 496 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 9.55 11.35"));
+            list.Add(string.Format("1 UNI GY -17.6 8.35 10.15"));
+            list.Add(string.Format("1 UNI GY -4.29 5.175 6.925"));
+            list.Add(string.Format("1 UNI GY -4.29 4.08 5.83"));
+            list.Add(string.Format("LOAD 497 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 9.8 11.6"));
+            list.Add(string.Format("1 UNI GY -17.6 8.6 10.4"));
+            list.Add(string.Format("1 UNI GY -4.29 5.425 7.175"));
+            list.Add(string.Format("1 UNI GY -4.29 4.33 6.08"));
+            list.Add(string.Format("LOAD 498 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 10.05 11.85"));
+            list.Add(string.Format("1 UNI GY -17.6 8.85 10.65"));
+            list.Add(string.Format("1 UNI GY -4.29 5.675 7.425"));
+            list.Add(string.Format("1 UNI GY -4.29 4.58 6.33"));
+            list.Add(string.Format("LOAD 499 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 10.3 12"));
+            list.Add(string.Format("1 UNI GY -17.6 9.1 10.9"));
+            list.Add(string.Format("1 UNI GY -4.29 5.925 7.675"));
+            list.Add(string.Format("1 UNI GY -4.29 4.83 6.58"));
+            list.Add(string.Format("LOAD 500 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 10.55 12"));
+            list.Add(string.Format("1 UNI GY -17.6 9.35 11.15"));
+            list.Add(string.Format("1 UNI GY -4.29 6.175 7.925"));
+            list.Add(string.Format("1 UNI GY -4.29 5.08 6.83"));
+            list.Add(string.Format("LOAD 501 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -21.91 10.8 12"));
+            list.Add(string.Format("1 UNI GY -17.6 9.6 11.4"));
+            list.Add(string.Format("1 UNI GY -4.29 6.425 8.175"));
+            list.Add(string.Format("1 UNI GY -4.29 5.33 7.08"));
+            list.Add(string.Format("LOAD 502 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -40.32 11.05 12"));
+            list.Add(string.Format("1 UNI GY -17.6 9.85 11.65"));
+            list.Add(string.Format("1 UNI GY -4.29 6.675 8.425"));
+            list.Add(string.Format("1 UNI GY -4.29 5.58 7.33"));
+            list.Add(string.Format("LOAD 503 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 10.1 11.9"));
+            list.Add(string.Format("1 UNI GY -4.29 6.925 8.675"));
+            list.Add(string.Format("1 UNI GY -4.29 5.83 7.58"));
+            list.Add(string.Format("LOAD 504 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 10.35 12"));
+            list.Add(string.Format("1 UNI GY -4.29 7.175 8.925"));
+            list.Add(string.Format("1 UNI GY -4.29 6.08 7.83"));
+            list.Add(string.Format("LOAD 505 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -17.6 10.6 12"));
+            list.Add(string.Format("1 UNI GY -4.29 7.425 9.175"));
+            list.Add(string.Format("1 UNI GY -4.29 6.33 8.08"));
+            list.Add(string.Format("LOAD 506 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -24.07 10.85 12"));
+            list.Add(string.Format("1 UNI GY -4.29 7.675 9.425"));
+            list.Add(string.Format("1 UNI GY -4.29 6.58 8.33"));
+            list.Add(string.Format("LOAD 507 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 7.925 9.675"));
+            list.Add(string.Format("1 UNI GY -4.29 6.83 8.58"));
+            list.Add(string.Format("LOAD 508 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 8.175 9.925"));
+            list.Add(string.Format("1 UNI GY -4.29 7.08 8.83"));
+            list.Add(string.Format("LOAD 509 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 8.425 10.175"));
+            list.Add(string.Format("1 UNI GY -4.29 7.33 9.08"));
+            list.Add(string.Format("LOAD 510 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 8.675 10.425"));
+            list.Add(string.Format("1 UNI GY -4.29 7.58 9.33"));
+            list.Add(string.Format("LOAD 511 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 8.925 10.675"));
+            list.Add(string.Format("1 UNI GY -4.29 7.83 9.58"));
+            list.Add(string.Format("1 UNI GY -4.29 9.175 10.925"));
+            list.Add(string.Format("1 UNI GY -4.29 8.08 9.83"));
+            list.Add(string.Format("LOAD 513 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 9.425 11.175"));
+            list.Add(string.Format("1 UNI GY -4.29 8.33 10.08"));
+            list.Add(string.Format("LOAD 514 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 9.675 11.425"));
+            list.Add(string.Format("1 UNI GY -4.29 8.58 10.33"));
+            list.Add(string.Format("LOAD 515 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 9.925 11.675"));
+            list.Add(string.Format("1 UNI GY -4.29 8.83 10.58"));
+            list.Add(string.Format("LOAD 516 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 10.175 11.925"));
+            list.Add(string.Format("1 UNI GY -4.29 9.08 10.83"));
+            list.Add(string.Format("LOAD 517 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 10.425 12.175"));
+            list.Add(string.Format("1 UNI GY -4.29 9.33 11.08"));
+            list.Add(string.Format("LOAD 518 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -5.05 10.675 12.425"));
+            list.Add(string.Format("1 UNI GY -4.29 9.58 11.33"));
+            list.Add(string.Format("LOAD 519 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -8.72 10.925 12.675"));
+            list.Add(string.Format("1 UNI GY -4.29 9.83 11.58"));
+            list.Add(string.Format("LOAD 520 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 10.08 11.83"));
+            list.Add(string.Format("LOAD 521 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.29 10.33 12"));
+            list.Add(string.Format("LOAD 522 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -4.35 10.58 12"));
+            list.Add(string.Format("LOAD 523 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -7.86 10.95 12"));
+            list.Add(string.Format("LOAD 524 LOADTYPE None  TITLE CLASS A"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 UNI GY -22.25 11.33 12"));
+            list.Add(string.Format("PERFORM ANALYSIS"));
             list.Add(string.Format("FINISH"));
-         
+
             File.WriteAllLines(Input_File_LL, list.ToArray());
         }
         public string Excel_File()
@@ -4829,10 +5243,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            if (Is_Multi_Cell)
-                file_path = Path.Combine(file_path, "Box Culvert Multi Cell LSM.xlsx");
-            else
-                file_path = Path.Combine(file_path, "Box Culvert Single Cell LSM.xlsx");
+            file_path = Path.Combine(file_path, "Slab Bridge Design in LSM.xlsx");
 
             return file_path;
         }
@@ -4842,14 +5253,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             if (btn == btn_process_design)
             {
-                if (rbtn_multi.Checked)
-                {
-                    Box_Culvert_Multi_Cell();
-                }
-                else
-                {
-                    Box_Culvert_Single_Cell();
-                }
+                Slab_Bridge_Design();
             }
             else if (btn == btn_create_data)
             {
@@ -4895,35 +5299,6 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             Button_Enable_Disable();
         }
 
-        public bool Is_Multi_Cell
-        {
-            get
-            {
-                return rbtn_multi.Checked;
-            }
-            set
-            {
-                rbtn_multi.Checked = value;
-                rbtn_single.Checked = !value;
-            }
-        }
-        string Input_File_DL = "";
-        string Input_File_LL = "";
-        private void rbtn_single_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbtn_multi.Checked)
-            {
-                sc1.Panel1Collapsed = true;
-                sc1.Panel2Collapsed = false;
-            }
-            else
-            {
-                sc1.Panel1Collapsed = false;
-                sc1.Panel2Collapsed = true;
-            }
-            Button_Enable_Disable();
-            this.Refresh();
-        }
         public void Create_Data()
         {
 
@@ -4932,51 +5307,28 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
             if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
+            {
+                //file_path = Path.Combine(iApp.user_path, Title);
+                Working_Folder = iApp.user_path;
+            }
 
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            Working_Folder = file_path;
 
             string pd = "";
             if (Directory.Exists(Working_Folder))
             {
-                if (rbtn_multi.Checked)
-                {
-                    pd = Path.Combine(Working_Folder, "Multicell Box Culvert Dead Load");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                pd = Path.Combine(Working_Folder, "Slab Analysis Dead Load");
+                if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
 
-                    Input_File_DL = Path.Combine(pd, "Multicell_DL_Input_File.txt");
+                Input_File_DL = Path.Combine(pd, "Slab_DL_Input_File.txt");
 
-                    pd = Path.Combine(Working_Folder, "Multicell Box Culvert Live Load");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                pd = Path.Combine(Working_Folder, "Slab Analysis Live Load");
+                if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
 
-                    Input_File_LL = Path.Combine(pd, "Multicell_LL_Input_File.txt");
-                }
-                else
-                {
-                    pd = Path.Combine(Working_Folder, "Single cell Box Culvert Dead Load");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
-
-                    Input_File_DL = Path.Combine(pd, "Single_DL_Input_File.txt");
-
-                    pd = Path.Combine(Working_Folder, "Single cell Box Culvert Live Load");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
-
-                    Input_File_LL = Path.Combine(pd, "Single_LL_Input_File.txt");
-                }
+                Input_File_LL = Path.Combine(pd, "Slab_LL_Input_File.txt");
             }
-
-            if (Is_Multi_Cell)
-            {
-                Create_Data_Multicell_DeadLoad();
-                Create_Data_MulticellLiveLoad();
-            }
-            else
-            {
-                Create_Data_Singlecell_DeadLoad();
-                Create_Data_Singlecell_LiveLoad();
-            }
+            Create_Data_Singlecell_DeadLoad();
+            Create_Data_Singlecell_LiveLoad();
             MessageBox.Show(this, "Analysis Input Data files are created as \n\n" + Input_File_DL + "\n\n and \n\n" + Input_File_LL, "ASTRA", MessageBoxButtons.OK);
         }
         public void Process_Data()
@@ -5089,33 +5441,17 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             string Working_Folder = "";
 
 
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
-
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            Working_Folder = file_path;
+            Working_Folder = user_path;
 
             string pd = "";
             if (Directory.Exists(Working_Folder))
             {
-                if (rbtn_multi.Checked)
-                {
-                    pd = Path.Combine(Working_Folder, "Multicell Box Culvert Dead Load");
-                    Input_File_DL = Path.Combine(pd, "Multicell_DL_Input_File.txt");
 
-                    pd = Path.Combine(Working_Folder, "Multicell Box Culvert Live Load");
-                    Input_File_LL = Path.Combine(pd, "Multicell_LL_Input_File.txt");
-                }
-                else
-                {
-                    pd = Path.Combine(Working_Folder, "Single cell Box Culvert Dead Load");
-                    Input_File_DL = Path.Combine(pd, "Single_DL_Input_File.txt");
+                pd = Path.Combine(Working_Folder, "Slab Analysis Dead Load");
+                Input_File_DL = Path.Combine(pd, "Slab_DL_Input_File.txt");
 
-                    pd = Path.Combine(Working_Folder, "Single cell Box Culvert Live Load");
-                    Input_File_LL = Path.Combine(pd, "Single_LL_Input_File.txt");
-                }
+                pd = Path.Combine(Working_Folder, "Slab Analysis Live Load");
+                Input_File_LL = Path.Combine(pd, "Slab_LL_Input_File.txt");
             }
 
 
@@ -5128,9 +5464,18 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
 
             btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+
+            grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+
             //btn_.Enabled = File.Exists(Input_File_DL);
         }
 
+        private void frmSlabBridge_Load(object sender, EventArgs e)
+        {
+            grb_Analysis.Enabled = false;
+            grb_Design.Enabled = false;
+            Set_Project_Name();
+        }
 
     }
 }

@@ -18,6 +18,7 @@ using BridgeAnalysisDesign.PSC_I_Girder;
 using BridgeAnalysisDesign.Composite;
 using LimitStateMethod.RCC_T_Girder;
 using AstraAccess.SAP_Classes;
+using AstraAccess.ADOC;
 //using LimitStateMethod.LS_Progress;
 
 
@@ -46,8 +47,6 @@ namespace LimitStateMethod.Composite
         Composite_LS_StraightAnalysis Curve_Analysis = null;
 
 
-
-
         IApplication iApp = null;
         Composite_Girder_LS Deck = null;
         LS_DeckSlab_Analysis Deck_Analysis = null;
@@ -60,10 +59,10 @@ namespace LimitStateMethod.Composite
         //Chiranjit [2012 05 27]
         RCC_AbutmentWall Abut = null;
 
+
         Steel_Girder_Section steel_section;
 
         CompositeSection Comp_sections { get; set; }
-
 
         public List<string> Results { get; set; }
         public frm_CompositeLSM(IApplication app)
@@ -166,7 +165,7 @@ namespace LimitStateMethod.Composite
                 //if (IsCreate_Data)
                 //    user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
 
-
+                //return;
 
                 string usp = Path.Combine(user_path, "Steel Girder Analysis");
 
@@ -270,6 +269,13 @@ namespace LimitStateMethod.Composite
                     {
 
                         Bridge_Analysis.CreateData_Straight_Indian();
+
+
+
+
+                        //Bridge_Analysis.WriteData_Orthotropic_Analysis("", false);
+
+
 
                         #region Chiranjit [2014 09 08] Indian Standard
 
@@ -605,14 +611,18 @@ namespace LimitStateMethod.Composite
                 if (File.Exists(file_name))
                 {
                     //if(cmb_ana)
+
+                    Form f = null;
                     if (chk_curve.Checked)
                     {
-                        iApp.Form_ASTRA_TEXT_Data(file_name).Show();
+                      f =  iApp.Form_ASTRA_TEXT_Data(file_name);
                     }
                     else
                     {
-                        iApp.Form_ASTRA_TEXT_Data(file_name, false).Show();
+                        f = iApp.Form_ASTRA_TEXT_Data(file_name, false);
                     }
+                    f.Owner = this;
+                    f.Show();
                 }
 
             }
@@ -643,9 +653,23 @@ namespace LimitStateMethod.Composite
             else if (btn.Name == btn_View_Moving_Load.Name)
             {
                 //file_name = MyList.Get_Analysis_Report_File(file_name);
-                if (File.Exists(file_name))
+                string ll = MyList.Get_LL_TXT_File(file_name);
+                if (!File.Exists(MyList.Get_LL_TXT_File(file_name)))
                 {
-                    iApp.OpenWork(file_name, true);
+                    MessageBox.Show("Moving Load Data not found in the input file.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    if (File.Exists(file_name))
+                    {
+                        //iApp.OpenWork(file_name, true);
+                        //iApp.Form_ASTRA_Moving_Load(file_name).Show();
+
+
+                        Form f = iApp.Form_ASTRA_Moving_Load(file_name);
+                        f.Owner = this;
+                        f.Show();
+                    }
                 }
             }
         }
@@ -3009,6 +3033,10 @@ namespace LimitStateMethod.Composite
             btn_view_report.Enabled = File.Exists(Bridge_Analysis.Total_Analysis_Report);
             btn_Ana_process_analysis.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
 
+
+            Analysis_Button_Enabled();
+
+
             btnReport.Enabled = File.Exists(Deck.rep_file_name);
             //btn_dwg_deck_slab.Enabled = File.Exists(Deck.drawing_path);
             //btn_dwg_cant.Enabled = File.Exists(Cant.user_drawing_file);
@@ -4332,7 +4360,6 @@ namespace LimitStateMethod.Composite
 
 
 
-
             txt_Ana_NMG.SelectedIndex = 0;
             txt_curve_des_spd_kph.Text = "50";
 
@@ -4356,6 +4383,8 @@ namespace LimitStateMethod.Composite
             Text_Changed();
             Button_Enable_Disable();
             Show_Steel_SectionProperties();
+
+            uC_Orthotropic1.SetApplication(iApp);
 
 
             Set_Project_Name();
@@ -14625,6 +14654,12 @@ namespace LimitStateMethod.Composite
         private void cmb_long_open_file_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+            Analysis_Button_Enabled();
+
+        }
+
+        private void Analysis_Button_Enabled()
+        {
             #region Set File Name
 
             string file_name = "";
@@ -14636,7 +14671,7 @@ namespace LimitStateMethod.Composite
                 }
                 else
                 {
-                    //file_name = File_Long_Girder_Results;
+                    file_name = Result_Report;
                 }
             }
 
@@ -14646,7 +14681,6 @@ namespace LimitStateMethod.Composite
             btn_View_Moving_Load.Enabled = File.Exists(MyList.Get_LL_TXT_File(file_name)) && File.Exists(MyList.Get_Analysis_Report_File(file_name));
             btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
             btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
-
         }
 
         #endregion British Standard Loading
@@ -15051,9 +15085,9 @@ namespace LimitStateMethod.Composite
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            grb.Enabled = chk_curve.Checked;
+            grb_curve.Enabled = chk_curve.Checked;
 
-            if (grb.Enabled)
+            if (grb_curve.Enabled)
             {
                 if (Curve_Radius == 0) txt_curve_radius.Text = "50";
             }
@@ -15100,6 +15134,223 @@ namespace LimitStateMethod.Composite
         }
         void Write_Result_Summary()
         {
+
+        }
+
+        private void uC_Orthotropic1_OnDraw_Click(object sender, EventArgs e)
+        {
+            SectionElement elmt = new SectionElement();
+
+            #region Draw Pen Ultimate Span
+
+
+            var ES = Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span;
+
+            elmt.Curve_Radius = Curve_Radius;
+            elmt.L = L;
+            elmt.Z = CL;
+            elmt.Web_Thickness = ES.Bw / 1000;
+            elmt.Web_Depth = ES.Dw / 1000;
+
+            elmt.TF_THK = ES.Dft / 1000;
+            elmt.TF_WD = ES.Bft / 1000;
+            elmt.BF_THK = ES.Dfb / 1000;
+            elmt.BF_WD = ES.Bfb / 1000;
+
+            elmt.Lat_Spacing = ES.S / 1000;
+
+
+            elmt.TP_WD = ES.Bt / 1000;
+            elmt.TP_THK = ES.Dt / 1000;
+
+            elmt.BP_WD = ES.Bb / 1000;
+            elmt.BP_THK = ES.Db / 1000;
+
+            elmt.SP_1_THK = ES.Bs1 / 1000;
+            elmt.SP_2_THK = ES.Bs2 / 1000;
+            elmt.SP_3_THK = ES.Bs3 / 1000;
+            elmt.SP_4_THK = ES.Bs4 / 1000;
+
+            elmt.SP_1_WD = ES.Ds1 / 1000;
+            elmt.SP_2_WD = ES.Ds2 / 1000;
+            elmt.SP_3_WD = ES.Ds3 / 1000;
+            elmt.SP_4_WD = ES.Ds4 / 1000;
+
+
+
+            uC_Orthotropic1.DrawElement(elmt);
+
+            //return;
+
+
+
+            elmt.Z = CL + SMG;
+
+
+            elmt.L = L;
+            elmt.Web_Thickness = ES.Bw / 1000;
+            elmt.Web_Depth = ES.Dw / 1000;
+
+            elmt.TF_THK = ES.Dft / 1000;
+            elmt.TF_WD = ES.Bft / 1000;
+            elmt.BF_THK = ES.Dfb / 1000;
+            elmt.BF_WD = ES.Bfb / 1000;
+
+            elmt.Lat_Spacing = ES.S / 1000;
+
+
+            elmt.SP_1_THK = ES.Bs1 / 1000;
+            elmt.SP_2_THK = ES.Bs2 / 1000;
+            elmt.SP_3_THK = ES.Bs3 / 1000;
+            elmt.SP_4_THK = ES.Bs4 / 1000;
+
+            elmt.SP_1_WD = ES.Ds1 / 1000;
+            elmt.SP_2_WD = ES.Ds2 / 1000;
+            elmt.SP_3_WD = ES.Ds3 / 1000;
+            elmt.SP_4_WD = ES.Ds4 / 1000;
+
+
+
+
+
+            uC_Orthotropic1.DrawElement(elmt);
+
+
+
+
+            elmt.X = 0;
+            elmt.Y = 0;
+            elmt.Z = CL + SMG * 2;
+
+
+            elmt.L = L;
+            elmt.Web_Thickness = ES.Bw / 1000;
+            elmt.Web_Depth = ES.Dw / 1000;
+
+            elmt.TF_THK = ES.Dft / 1000;
+            elmt.TF_WD = ES.Bft / 1000;
+            elmt.BF_THK = ES.Dfb / 1000;
+            elmt.BF_WD = ES.Bfb / 1000;
+
+            elmt.Lat_Spacing = ES.S / 1000;
+
+
+            elmt.SP_1_THK = ES.Bs1 / 1000;
+            elmt.SP_2_THK = ES.Bs2 / 1000;
+            elmt.SP_3_THK = ES.Bs3 / 1000;
+            elmt.SP_4_THK = ES.Bs4 / 1000;
+
+            elmt.SP_1_WD = ES.Ds1 / 1000;
+            elmt.SP_2_WD = ES.Ds2 / 1000;
+            elmt.SP_3_WD = ES.Ds3 / 1000;
+            elmt.SP_4_WD = ES.Ds4 / 1000;
+
+
+            uC_Orthotropic1.DrawElement(elmt);
+
+
+            #endregion Draw Pen Ultimate Span
+
+
+            if (true)
+            {
+
+                #region Deck Slab
+
+
+                elmt = new SectionElement();
+
+                elmt.Curve_Radius = Curve_Radius;
+
+                elmt.Y = ES.Dw / 1000 + ES.Dt / 1000 + ES.Dfb / 1000 + ES.Db / 1000 + ES.Dfb / 1000;
+                elmt.Z = B / 2;
+                elmt.L = L;
+                elmt.Web_Thickness = B;
+                elmt.Web_Depth = Ds;
+
+                elmt.Color_Web_Plate = Color.White;
+                uC_Orthotropic1.DrawElement(elmt);
+
+                #endregion Deckslab
+                ES = Bridge_Analysis.Steel_Section.Section_Cross_Girder;
+
+                for (int i = 0; i <= 10; i++)
+                {
+                    #region Cross Girder
+                    if (i == 0)
+                    {
+                        //elmt.X = L - (ES.Bfb / 2) / 1000;
+                        //elmt.X = L - (ES.Bfb + ES.Dw / 2) / 1000;
+                        elmt.X = L - (ES.Bfb / 2 + ES.Bw) / 1000;
+                    }
+                    else if (i == 10)
+                    {
+                        elmt.X = (ES.Bfb / 2) / 1000;
+                    }
+                    else
+                    {
+                        elmt.X = L - (L / 10) * i;
+                    }
+                    //elmt.Y = ((Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span.Dw - ES.Dw) / 2) / 1000;
+
+                    var EL = Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span;
+
+                    elmt.Y = (EL.Dw - ES.Dw + ES.Dt + ES.Dft) / 1000;
+
+                    if (rbtn_sec_box.Checked)
+                    {
+                        elmt.Z = CL - (Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span.S / 2)/1000;
+                    }
+                    else
+                        elmt.Z = CL;
+
+
+                    elmt.Is_Cross_Girder = true;
+                    if (rbtn_sec_box.Checked)
+                    {
+                        elmt.L = B - elmt.Z * 2;
+                    }
+                    else
+                    elmt.L = B - CL - CR;
+                    elmt.Web_Thickness = ES.Bw / 1000;
+                    elmt.Web_Depth = ES.Dw / 1000;
+
+                    elmt.TF_THK = ES.Dft / 1000;
+                    elmt.TF_WD = ES.Bft / 1000;
+                    elmt.BF_THK = ES.Dfb / 1000;
+                    elmt.BF_WD = ES.Bfb / 1000;
+
+
+
+
+                    elmt.TP_THK = ES.Dt / 1000;
+                    elmt.TP_WD = ES.Bt / 1000;
+                    elmt.BP_THK = ES.Db / 1000;
+                    elmt.BP_WD = ES.Bb / 1000;
+
+
+
+                    elmt.Lat_Spacing = ES.S / 1000;
+
+
+                    elmt.SP_1_THK = ES.Bs1 / 1000;
+                    elmt.SP_2_THK = ES.Bs2 / 1000;
+                    elmt.SP_3_THK = ES.Bs3 / 1000;
+                    elmt.SP_4_THK = ES.Bs4 / 1000;
+
+                    elmt.SP_1_WD = ES.Ds1 / 1000;
+                    elmt.SP_2_WD = ES.Ds2 / 1000;
+                    elmt.SP_3_WD = ES.Ds3 / 1000;
+                    elmt.SP_4_WD = ES.Ds4 / 1000;
+
+
+                    uC_Orthotropic1.DrawElement(elmt);
+
+                    #endregion
+
+                }
+            }
+
 
         }
 

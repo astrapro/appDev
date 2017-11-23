@@ -2961,40 +2961,11 @@ namespace AstraFunctionOne
         {
             AstraAccess.ViewerFunctions.ASTRA_Analysis_Process(file_name, caption);
         }
+
         public void SetApp_Structure(string filePath, bool IsOpenMovingLoad)
         {
-            AstraAccess.ViewerFunctions.ASTRA_Analysis_Process(filePath, IsOpenMovingLoad);
-
-            //AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath);
-            //AstraAccess.ViewerFunctions.Form_ASTRA_Analysis_Process(filePath, IsOpenMovingLoad);
-
-            #region Chiranjit [2014 10 31]
-            //StreamWriter sw = new StreamWriter(new FileStream(EnvFilePath, FileMode.Create));
-            //try
-            //{
-            //    if (IsOpenMovingLoad)
-            //        sw.WriteLine("ASTRA_MOVINGLOAD");
-            //    else
-            //        sw.WriteLine("ASTRA");
-
-            //    sw.WriteLine("PATH =" + filePath);
-
-            //}
-            //catch (Exception ex)
-            //{
-            //}
-            //finally
-            //{
-            //    sw.Flush();
-            //    sw.Close();
-            //}
-            //RunViewer();
-            #endregion Chiranjit [2014 10 31]
-
-
 
         }
-
         public void SetApp_Structure(string filePath, string feature)
         {
             AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath);
@@ -5131,6 +5102,10 @@ namespace AstraFunctionOne
             return AstraAccess.ViewerFunctions.Form_ASTRA_Analysis_Process(file_name, IsMoving_Load);
         }
 
+        public Form Form_ASTRA_Moving_Load(string file_name)
+        {
+            return AstraAccess.ViewerFunctions.Form_ASTRA_Moving_Load(file_name);
+        }
 
         public void View_SAP_Data(string file_name)
         {
@@ -5391,7 +5366,8 @@ namespace AstraFunctionOne
         private void tsmi_structureModeling_Click(object sender, EventArgs e)
         {
             //ShowTimerScreen(eASTRAImage.Cable_Car_Tower);
-            ASTRAStructures.frmStructureModeling frm2 = new ASTRAStructures.frmStructureModeling(this, eASTRADesignType.Structure_Modeling);
+            //ASTRAStructures.frmStructureModeling frm2 = new ASTRAStructures.frmStructureModeling(this, eASTRADesignType.Structure_Modeling);
+            ASTRAStructures.frm_Structure3D frm2 = new ASTRAStructures.frm_Structure3D(this, eASTRADesignType.Structure_Modeling);
             frm2.Owner = this;
             frm2.Show();
         }
@@ -5623,10 +5599,9 @@ namespace AstraFunctionOne
             {
                 Show_PSC_IGirder_Bridge_Working_Stress();
             }
-            else if (tsmi == tsmi_minor_Bridge)
+            else if (tsmi == tsmi_minor_Bridge_ls)
             {
                 Show_Minor_Bridge_Limit_State();
-
             }
             else if (tsmi == tsmi_minor_Bridge_ws)
             {
@@ -5682,7 +5657,8 @@ namespace AstraFunctionOne
         private void Show_Minor_Bridge_Limit_State()
         {
             //if (!Is_select_Design_Standard) SelectDesignStandard();
-            LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS frm = new LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS(this);
+            //LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS frm = new LimitStateMethod.Minor_Bridge.frm_MinorBridge_LS(this);
+            LimitStateMethod.SlabBridge.frmSlabBridge frm = new LimitStateMethod.SlabBridge.frmSlabBridge(this);
             frm.Owner = this;
             frm.Show();
         }

@@ -5527,7 +5527,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             list.Add(string.Format("Total Tension in Strips = Total_Tmax = σ_h * wi * ∆i"));
             list.Add(string.Format("                                     = {0:f3} * {1} * {2}", sigma_h, wi, del_i));
-            list.Add(string.Format("                                     = {0:f3} kN", sigma_h, wi, del_i));
+            list.Add(string.Format("                                     = {0:f3} kN", Total_Tmax));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add(string.Format("Total Number of Strips in the Layers = Tot_layers = {0} nos", tot_layers));

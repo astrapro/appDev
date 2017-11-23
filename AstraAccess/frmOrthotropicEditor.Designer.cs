@@ -49,6 +49,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmOrthotropicEditor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmOrthotropicEditor_Load);
             this.ResumeLayout(false);
 
         }

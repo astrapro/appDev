@@ -935,6 +935,7 @@
             this.btn_view_report = new System.Windows.Forms.Button();
             this.btn_view_data = new System.Windows.Forms.Button();
             this.btn_view_structure = new System.Windows.Forms.Button();
+            this.label1116 = new System.Windows.Forms.Label();
             this.btn_Ana_create_data = new System.Windows.Forms.Button();
             this.btn_Ana_process_analysis = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
@@ -1323,6 +1324,7 @@
             this.label1110 = new System.Windows.Forms.Label();
             this.label1111 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
             this.lbl_orthotropic = new System.Windows.Forms.Label();
             this.tab_DeckSlab_Steel_Girder = new System.Windows.Forms.TabPage();
             this.tc_steel = new System.Windows.Forms.TabControl();
@@ -2320,7 +2322,6 @@
             this.label50 = new System.Windows.Forms.Label();
             this.btn_dwg_deck_slab = new System.Windows.Forms.Button();
             this.btn_dwg_abutment = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab_Analysis.SuspendLayout();
             this.tbc_girder.SuspendLayout();
@@ -11715,12 +11716,13 @@
             this.groupBox109.Controls.Add(this.btn_view_report);
             this.groupBox109.Controls.Add(this.btn_view_data);
             this.groupBox109.Controls.Add(this.btn_view_structure);
+            this.groupBox109.Controls.Add(this.label1116);
             this.groupBox109.Location = new System.Drawing.Point(183, 10);
             this.groupBox109.Name = "groupBox109";
-            this.groupBox109.Size = new System.Drawing.Size(319, 102);
+            this.groupBox109.Size = new System.Drawing.Size(319, 106);
             this.groupBox109.TabIndex = 80;
             this.groupBox109.TabStop = false;
-            this.groupBox109.Text = "Open Analysis File";
+            this.groupBox109.Text = "Select Analysis File";
             // 
             // cmb_long_open_file
             // 
@@ -11730,7 +11732,7 @@
             "Dead Load Analysis",
             "Live Load Analysis",
             "Total DL+SIDL+LL Analysis"});
-            this.cmb_long_open_file.Location = new System.Drawing.Point(6, 18);
+            this.cmb_long_open_file.Location = new System.Drawing.Point(6, 13);
             this.cmb_long_open_file.Name = "cmb_long_open_file";
             this.cmb_long_open_file.Size = new System.Drawing.Size(308, 21);
             this.cmb_long_open_file.TabIndex = 79;
@@ -11738,7 +11740,7 @@
             // 
             // btn_View_Moving_Load
             // 
-            this.btn_View_Moving_Load.Location = new System.Drawing.Point(168, 73);
+            this.btn_View_Moving_Load.Location = new System.Drawing.Point(168, 81);
             this.btn_View_Moving_Load.Name = "btn_View_Moving_Load";
             this.btn_View_Moving_Load.Size = new System.Drawing.Size(146, 22);
             this.btn_View_Moving_Load.TabIndex = 78;
@@ -11748,7 +11750,7 @@
             // 
             // btn_view_report
             // 
-            this.btn_view_report.Location = new System.Drawing.Point(6, 73);
+            this.btn_view_report.Location = new System.Drawing.Point(6, 81);
             this.btn_view_report.Name = "btn_view_report";
             this.btn_view_report.Size = new System.Drawing.Size(146, 22);
             this.btn_view_report.TabIndex = 76;
@@ -11758,7 +11760,7 @@
             // 
             // btn_view_data
             // 
-            this.btn_view_data.Location = new System.Drawing.Point(6, 45);
+            this.btn_view_data.Location = new System.Drawing.Point(6, 56);
             this.btn_view_data.Name = "btn_view_data";
             this.btn_view_data.Size = new System.Drawing.Size(146, 22);
             this.btn_view_data.TabIndex = 74;
@@ -11768,13 +11770,23 @@
             // 
             // btn_view_structure
             // 
-            this.btn_view_structure.Location = new System.Drawing.Point(168, 45);
+            this.btn_view_structure.Location = new System.Drawing.Point(168, 56);
             this.btn_view_structure.Name = "btn_view_structure";
             this.btn_view_structure.Size = new System.Drawing.Size(146, 22);
             this.btn_view_structure.TabIndex = 74;
             this.btn_view_structure.Text = "View Structure (GUI)";
             this.btn_view_structure.UseVisualStyleBackColor = true;
             this.btn_view_structure.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // label1116
+            // 
+            this.label1116.AutoSize = true;
+            this.label1116.ForeColor = System.Drawing.Color.Red;
+            this.label1116.Location = new System.Drawing.Point(6, 38);
+            this.label1116.Name = "label1116";
+            this.label1116.Size = new System.Drawing.Size(299, 13);
+            this.label1116.TabIndex = 0;
+            this.label1116.Text = "The Buttons below act on the selected analysis file.";
             // 
             // btn_Ana_create_data
             // 
@@ -14107,7 +14119,7 @@
             this.groupBox35.Controls.Add(this.label539);
             this.groupBox35.Location = new System.Drawing.Point(838, 63);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(54, 20);
+            this.groupBox35.Size = new System.Drawing.Size(19, 10);
             this.groupBox35.TabIndex = 106;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "Design Forces";
@@ -15932,7 +15944,7 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.uC_Orthotropic1);
             this.tabPage5.Controls.Add(this.lbl_orthotropic);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -15942,16 +15954,27 @@
             this.tabPage5.Text = "Orthotropic Model Analysis";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // uC_Orthotropic1
+            // 
+            this.uC_Orthotropic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Orthotropic1.Location = new System.Drawing.Point(3, 36);
+            this.uC_Orthotropic1.Name = "uC_Orthotropic1";
+            this.uC_Orthotropic1.Size = new System.Drawing.Size(934, 603);
+            this.uC_Orthotropic1.TabIndex = 1;
+            this.uC_Orthotropic1.OnDraw_Click += new System.EventHandler(this.uC_Orthotropic1_OnDraw_Click);
+            // 
             // lbl_orthotropic
             // 
-            this.lbl_orthotropic.AutoSize = true;
+            this.lbl_orthotropic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_orthotropic.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbl_orthotropic.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_orthotropic.ForeColor = System.Drawing.Color.Red;
-            this.lbl_orthotropic.Location = new System.Drawing.Point(222, 185);
+            this.lbl_orthotropic.Location = new System.Drawing.Point(3, 3);
             this.lbl_orthotropic.Name = "lbl_orthotropic";
-            this.lbl_orthotropic.Size = new System.Drawing.Size(498, 25);
+            this.lbl_orthotropic.Size = new System.Drawing.Size(934, 33);
             this.lbl_orthotropic.TabIndex = 0;
             this.lbl_orthotropic.Text = "The Module is not attached for large size.";
+            this.lbl_orthotropic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_orthotropic.Click += new System.EventHandler(this.lbl_orthotropic_Click);
             // 
             // tab_DeckSlab_Steel_Girder
@@ -16006,7 +16029,7 @@
             this.tab_SteelAlternative.Location = new System.Drawing.Point(4, 22);
             this.tab_SteelAlternative.Name = "tab_SteelAlternative";
             this.tab_SteelAlternative.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_SteelAlternative.Size = new System.Drawing.Size(940, 642);
+            this.tab_SteelAlternative.Size = new System.Drawing.Size(178, 42);
             this.tab_SteelAlternative.TabIndex = 0;
             this.tab_SteelAlternative.Text = "Alternative Design";
             this.tab_SteelAlternative.UseVisualStyleBackColor = true;
@@ -16020,7 +16043,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(934, 601);
+            this.tabControl2.Size = new System.Drawing.Size(172, 1);
             this.tabControl2.TabIndex = 5;
             // 
             // tab_frc
@@ -16031,7 +16054,7 @@
             this.tab_frc.Location = new System.Drawing.Point(4, 22);
             this.tab_frc.Name = "tab_frc";
             this.tab_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_frc.Size = new System.Drawing.Size(926, 575);
+            this.tab_frc.Size = new System.Drawing.Size(164, 0);
             this.tab_frc.TabIndex = 0;
             this.tab_frc.Text = "Steel Girder Design Force Data";
             this.tab_frc.UseVisualStyleBackColor = true;
@@ -16057,7 +16080,7 @@
             this.groupBox13.Controls.Add(this.label7);
             this.groupBox13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.ForeColor = System.Drawing.Color.Red;
-            this.groupBox13.Location = new System.Drawing.Point(229, 159);
+            this.groupBox13.Location = new System.Drawing.Point(-152, -128);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(469, 364);
             this.groupBox13.TabIndex = 98;
@@ -21504,9 +21527,9 @@
             this.panel2.Controls.Add(this.btnReport);
             this.panel2.Controls.Add(this.btnProcess);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 604);
+            this.panel2.Location = new System.Drawing.Point(3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(934, 35);
+            this.panel2.Size = new System.Drawing.Size(172, 35);
             this.panel2.TabIndex = 6;
             // 
             // label140
@@ -21523,7 +21546,7 @@
             // btnReport
             // 
             this.btnReport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReport.Location = new System.Drawing.Point(479, 4);
+            this.btnReport.Location = new System.Drawing.Point(98, 4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(153, 27);
             this.btnReport.TabIndex = 4;
@@ -21534,7 +21557,7 @@
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProcess.Location = new System.Drawing.Point(303, 4);
+            this.btnProcess.Location = new System.Drawing.Point(-78, 4);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(153, 27);
             this.btnProcess.TabIndex = 3;
@@ -21630,7 +21653,7 @@
             this.tab_deck_ll_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_ll_data.Name = "tab_deck_ll_data";
             this.tab_deck_ll_data.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_deck_ll_data.Size = new System.Drawing.Size(940, 498);
+            this.tab_deck_ll_data.Size = new System.Drawing.Size(178, 0);
             this.tab_deck_ll_data.TabIndex = 0;
             this.tab_deck_ll_data.Text = "Deck Slab Live Load Data";
             this.tab_deck_ll_data.UseVisualStyleBackColor = true;
@@ -22020,7 +22043,7 @@
             this.tab_deck_des_data.Controls.Add(this.dgv_deck_design_input);
             this.tab_deck_des_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_des_data.Name = "tab_deck_des_data";
-            this.tab_deck_des_data.Size = new System.Drawing.Size(940, 498);
+            this.tab_deck_des_data.Size = new System.Drawing.Size(178, 0);
             this.tab_deck_des_data.TabIndex = 2;
             this.tab_deck_des_data.Text = "Design Data";
             this.tab_deck_des_data.UseVisualStyleBackColor = true;
@@ -23633,7 +23656,7 @@
             this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
             this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentOpenLSM.TabIndex = 1;
             this.tab_AbutmentOpenLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
@@ -23669,7 +23692,7 @@
             this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
             this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
             this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
-            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(172, 36);
             this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentOpenLS1.Span = "25.0";
             this.uC_AbutmentOpenLS1.TabIndex = 0;
@@ -23681,7 +23704,7 @@
             this.tab_AbutmentPileLSM.Controls.Add(this.uC_AbutmentPileLS1);
             this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
-            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentPileLSM.TabIndex = 2;
             this.tab_AbutmentPileLSM.Text = "Abutment Design with Pile Foundation in LSM";
             this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
@@ -23724,7 +23747,7 @@
             this.uC_AbutmentPileLS1.Show_Title = false;
             this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
             this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
-            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(940, 642);
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(178, 42);
             this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentPileLS1.Span = "12.687";
             this.uC_AbutmentPileLS1.TabIndex = 0;
@@ -25802,7 +25825,7 @@
             this.tab_des_form2.Location = new System.Drawing.Point(4, 22);
             this.tab_des_form2.Name = "tab_des_form2";
             this.tab_des_form2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form2.Size = new System.Drawing.Size(932, 573);
+            this.tab_des_form2.Size = new System.Drawing.Size(170, 0);
             this.tab_des_form2.TabIndex = 2;
             this.tab_des_form2.Text = "Design Input Data [Form2]";
             this.tab_des_form2.UseVisualStyleBackColor = true;
@@ -26464,7 +26487,7 @@
             this.tab_des_Diagram.Location = new System.Drawing.Point(4, 22);
             this.tab_des_Diagram.Name = "tab_des_Diagram";
             this.tab_des_Diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_Diagram.Size = new System.Drawing.Size(932, 573);
+            this.tab_des_Diagram.Size = new System.Drawing.Size(170, 0);
             this.tab_des_Diagram.TabIndex = 1;
             this.tab_des_Diagram.Text = "Diagram";
             this.tab_des_Diagram.UseVisualStyleBackColor = true;
@@ -26477,7 +26500,7 @@
             this.pic_pier_interactive_diagram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_pier_interactive_diagram.Location = new System.Drawing.Point(3, 3);
             this.pic_pier_interactive_diagram.Name = "pic_pier_interactive_diagram";
-            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(926, 567);
+            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(164, 0);
             this.pic_pier_interactive_diagram.TabIndex = 0;
             this.pic_pier_interactive_diagram.TabStop = false;
             // 
@@ -26530,7 +26553,7 @@
             this.tab_PierWSM_Excel.Controls.Add(this.uC_PierDesignWSM1);
             this.tab_PierWSM_Excel.Location = new System.Drawing.Point(4, 22);
             this.tab_PierWSM_Excel.Name = "tab_PierWSM_Excel";
-            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(184, 48);
             this.tab_PierWSM_Excel.TabIndex = 2;
             this.tab_PierWSM_Excel.Text = "Design of RCC Pier in Working Stress Method";
             this.tab_PierWSM_Excel.UseVisualStyleBackColor = true;
@@ -26545,7 +26568,7 @@
             this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
             this.uC_PierDesignWSM1.Show_Note = false;
             this.uC_PierDesignWSM1.Show_Title = false;
-            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(184, 48);
             this.uC_PierDesignWSM1.TabIndex = 0;
             // 
             // tab_PierOpenLSM
@@ -26553,7 +26576,7 @@
             this.tab_PierOpenLSM.Controls.Add(this.uC_PierOpenLS1);
             this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
-            this.tab_PierOpenLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierOpenLSM.TabIndex = 3;
             this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
             this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
@@ -26594,7 +26617,7 @@
             this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
             this.uC_PierOpenLS1.Show_Title = false;
             this.uC_PierOpenLS1.SIDL_Force = "723.52";
-            this.uC_PierOpenLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(184, 48);
             this.uC_PierOpenLS1.SkewAngle = "0.0";
             this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
             this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
@@ -26611,7 +26634,7 @@
             this.tab_PierLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierLSM.Name = "tab_PierLSM";
             this.tab_PierLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierLSM.TabIndex = 1;
             this.tab_PierLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierLSM.UseVisualStyleBackColor = true;
@@ -26633,7 +26656,7 @@
             this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
             this.uC_PierDesignLSM1.Show_Note = false;
             this.uC_PierDesignLSM1.Show_Title = false;
-            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(940, 642);
+            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(178, 42);
             this.uC_PierDesignLSM1.TabIndex = 0;
             this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
             this.uC_PierDesignLSM1.OnProcess += new System.EventHandler(this.uC_PierDesignLSM1_OnProcess);
@@ -26643,7 +26666,7 @@
             this.tab_PierPileLSM.Controls.Add(this.uC_PierPileLS1);
             this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierPileLSM.Name = "tab_PierPileLSM";
-            this.tab_PierPileLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierPileLSM.TabIndex = 4;
             this.tab_PierPileLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierPileLSM.UseVisualStyleBackColor = true;
@@ -26681,7 +26704,7 @@
             this.uC_PierPileLS1.RailingWidth_Nos = "0";
             this.uC_PierPileLS1.RailingWidth_Right = "0.0";
             this.uC_PierPileLS1.Show_Title = false;
-            this.uC_PierPileLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierPileLS1.Size = new System.Drawing.Size(184, 48);
             this.uC_PierPileLS1.SkewAngle = "18.0";
             this.uC_PierPileLS1.SlabDepth_Left = "0.22";
             this.uC_PierPileLS1.SlabDepth_Right = "0.22";
@@ -26877,15 +26900,6 @@
             this.btn_dwg_abutment.Visible = false;
             this.btn_dwg_abutment.Click += new System.EventHandler(this.btn_dwg_long_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(390, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 34);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Orthotropic Editor";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // frm_CompositeLSM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -27032,6 +27046,7 @@
             this.groupBox43.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox109.ResumeLayout(false);
+            this.groupBox109.PerformLayout();
             this.tabControl5.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.pnl_2.ResumeLayout(false);
@@ -27102,7 +27117,6 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
             this.tab_DeckSlab_Steel_Girder.ResumeLayout(false);
             this.tc_steel.ResumeLayout(false);
             this.tab_SteelWorksheet.ResumeLayout(false);
@@ -29492,6 +29506,7 @@
         private System.Windows.Forms.Label label1126;
         private System.Windows.Forms.Label label1124;
         private System.Windows.Forms.Label label1123;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1116;
+        private AstraAccess.ADOC.UC_Orthotropic uC_Orthotropic1;
     }
 }

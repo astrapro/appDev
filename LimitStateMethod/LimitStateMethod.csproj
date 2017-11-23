@@ -275,6 +275,12 @@
       <DependentUpon>frm_RCC_T_Girder_LS.cs</DependentUpon>
     </Compile>
     <Compile Include="RCC_T_Girder\RCC_T_Girder_Excel_Update.cs" />
+    <Compile Include="SlabBridge\frmSlabBridge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlabBridge\frmSlabBridge.Designer.cs">
+      <DependentUpon>frmSlabBridge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Steel_Truss\Arch_Cable_Suspension_Data.cs" />
     <Compile Include="Steel_Truss\frm_Arch_Cable_Bridge.cs">
       <SubType>Form</SubType>
@@ -504,6 +510,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RCC_T_Girder\frm_RCC_T_Girder_LS.resx">
       <DependentUpon>frm_RCC_T_Girder_LS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlabBridge\frmSlabBridge.resx">
+      <DependentUpon>frmSlabBridge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steel_Truss\frm_Arch_Cable_Bridge.resx">
       <DependentUpon>frm_Arch_Cable_Bridge.cs</DependentUpon>

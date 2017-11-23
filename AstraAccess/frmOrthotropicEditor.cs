@@ -18,5 +18,10 @@ namespace AstraAccess
             iApp = app;
             uC_Orthotropic1.SetApplication(iApp);
         }
+
+        private void frmOrthotropicEditor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

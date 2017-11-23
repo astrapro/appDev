@@ -139,6 +139,12 @@
     <Compile Include="frmTower2Head.Designer.cs">
       <DependentUpon>frmTower2Head.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_Structure3D.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_Structure3D.Designer.cs">
+      <DependentUpon>frm_Structure3D.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransmissionTower.cs" />
     <Compile Include="VehicleLoad.cs" />
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTower2Head.resx">
       <DependentUpon>frmTower2Head.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_Structure3D.resx">
+      <DependentUpon>frm_Structure3D.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -13509,6 +13509,7 @@ namespace LimitStateMethod.Composite
             if (iApp.DesignStandard == eDesignStandard.IndianStandard) CreateData_Indian();
             else CreateData_British();
 
+            return;
             double x_incr, z_incr;
 
             //x_incr = (Length / (Total_Columns - 1));
@@ -17682,6 +17683,300 @@ namespace LimitStateMethod.Composite
                 list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
 
             }
+            list.Add("MATERIAL CONSTANTS");
+            list.Add("E 2.85E6 ALL");
+            //list.Add("E " + Ecm * 100 + " ALL");
+            list.Add("DENSITY CONCRETE ALL");
+            list.Add("POISSON CONCRETE ALL");
+
+
+            list.Add("SUPPORT");
+
+            //list.Add(string.Format("{0}  PINNED", support_left_joints));
+            //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
+
+
+            list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
+            list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
+
+
+            list.Add("LOAD 1 DEAD LOAD + SIDL");
+            list.Add("**dEAD lOAD");
+            list.Add("MEMBER LOAD");
+            list.Add("153 TO 158 173 TO 178 UNI GY -2.7504");
+            list.Add("151 160 171 180 UNI GY -2.66888");
+            list.Add("152 159 172 179 UNI GY -1.68024");
+            list.Add("133 TO 138 193 TO 198 UNI GY -2.916");
+            list.Add("131 140 191 200 UNI GY -2.97768");
+            list.Add("132 139 192 199 UNI GY -1.89528");
+            list.Add("1 TO 10 101 TO 110 UNI GY -0.702");
+            list.Add("** SIDL");
+            list.Add("MEMBER LOAD");
+            list.Add("** WEARING COAT");
+            list.Add("131 TO 140 191 TO 200 UNI GY -0.68");
+            list.Add("151 TO 160 171 TO 180 UNI GY -0.53");
+            list.Add("**CRASH BARRIER");
+            list.Add("111 TO 120 211 TO 220 UNI GY -1.0");
+            list.Add("**** OUTER GIRDER *********");
+            //list.Add("DEFINE MOVING LOAD FILE LL.TXT");
+            iApp.LiveLoads.Impact_Factor(ref list, iApp.DesignStandard);
+            //list.Add("TYPE 1 CLA 1.179");
+            //list.Add("TYPE 2 A70R 1.188");
+            //list.Add("TYPE 3 A70RT 1.10");
+            //list.Add("TYPE 4 CLAR 1.179");
+            //list.Add("TYPE 5 A70RR 1.188");
+            //list.Add("TYPE 6 A70RR 1.188");
+            //list.Add("TYPE 7 A70RR 1.188");
+            //list.Add("TYPE 8 A70RR 1.188");
+            //list.Add("TYPE 9 A70RR 1.188");
+            //list.Add("TYPE 10 A70RR 1.188");
+            //list.Add("TYPE 11 A70RR 1.188");
+            //list.Add("TYPE 12 A70RR 1.188");
+            //list.Add("TYPE 13 A70RR 1.188");
+            //list.Add("**** 3 LANE CLASS A *****");
+            list.Add("LOAD GENERATION 191");
+            list.Add("TYPE 1 -18.8 0 2.75 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 6.25 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 9.75 XINC 0.2");
+            //list.Add("**** 3 LANE CLASS A *****");
+            //list.Add("*LOAD GENERATION 160");
+            //list.Add("*TYPE 1 -18.8 0 2.125 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 5.625 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 9.125 XINC 0.2");
+            //list.Add("*PLOT DISPLACEMENT FILE");
+            list.Add("PRINT SUPPORT REACTIONS");
+            list.Add("PRINT MAX FORCE ENVELOPE LIST " + list_envelop_outer);
+            list.Add("PRINT MAX FORCE ENVELOPE LIST " + list_envelop_inner);
+            list.Add("PERFORM ANALYSIS");
+            list.Add("FINISH");
+            list.Add(kStr);
+            File.WriteAllLines(file_name, list.ToArray());
+            //iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name), true, iApp.DesignStandard);
+            iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name));
+            list.Clear();
+        }
+
+        public void WriteData_Orthotropic_Analysis(string file_name, bool is_british)
+        {
+            if (file_name == "")
+            {
+                string pd = Path.Combine(working_folder, "TempAnalysis");
+                if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                pd = Path.Combine(pd, "OrthoAnalysis");
+                if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+
+                file_name = Path.Combine(pd, "OrthoAnalysis.txt");
+            }
+
+            string kStr = "";
+            List<string> list = new List<string>();
+            int i = 0;
+
+            List<int> DeckSlab = new List<int>();
+
+            List<int> Inner_Girder_Mid = new List<int>();
+            List<int> Inner_Girder_Support = new List<int>();
+
+            List<int> Outer_Girder_Mid = new List<int>();
+            List<int> Outer_Girder_Support = new List<int>();
+
+            List<int> Cross_Girder_Inter = new List<int>();
+            List<int> Cross_Girder_End = new List<int>();
+
+
+            List<int> HA_Members = new List<int>();
+
+            List<double> HA_Dists = new List<double>();
+            HA_Dists = new List<double>();
+            if (HA_Lanes != null)
+            {
+                for (i = 0; i < HA_Lanes.Count; i++)
+                {
+                    HA_Dists.Add(1.75 + (HA_Lanes[i] - 1) * 3.5);
+                }
+            }
+
+            list.Add("ASTRA FLOOR PSC I GIRDER BRIDGE DECK ANALYSIS");
+            list.Add("UNIT METER MTON");
+            list.Add("JOINT COORDINATES");
+            for (i = 0; i < Joints.Count; i++)
+            {
+                list.Add(Joints[i].ToString());
+            }
+            list.Add("MEMBER INCIDENCES");
+            for (i = 0; i < MemColls.Count; i++)
+            {
+                list.Add(MemColls[i].ToString());
+            }
+
+            #region Element Connectibity
+            list.Add("ELEMENT CONNECTIVITY");
+
+            int ele_count = 1;
+            for (int iColumn = 1; iColumn < _Columns; iColumn++)
+            {
+                for (int iRows = 1; iRows < _Rows; iRows++)
+                {
+                    list.Add(string.Format("{0} {1} {2} {3} {4}",
+                        ele_count++,
+                        Joints_Array[iRows-1, iColumn-1].NodeNo,
+                        Joints_Array[iRows, iColumn-1].NodeNo,
+                        Joints_Array[iRows, iColumn].NodeNo,
+                        Joints_Array[iRows-1, iColumn].NodeNo
+                        ));
+
+                }
+            }
+            #endregion Element Connectibity
+
+
+
+
+            ele_count--;
+
+
+
+
+
+
+
+            int index = 2;
+
+            for (int c = 0; c < _Rows; c++)
+            {
+                for (i = 0; i < _Columns - 1; i++)
+                {
+                    if (i <= 1 || i >= (_Columns - 3))
+                    {
+                        if (c == index || c == _Rows - index - 1)
+                        {
+                            Outer_Girder_Support.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else if (c > index && c < _Rows - index - 1)
+                        {
+                            var item = Long_Girder_Members_Array[c, i];
+
+                            if (HA_Dists.Contains(item.EndNode.Z) && HA_Dists.Contains(item.StartNode.Z))
+                                HA_Members.Add(item.MemberNo);
+                            else
+                                Inner_Girder_Support.Add(item.MemberNo);
+                        }
+                        else
+                            DeckSlab.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                    }
+                    else
+                    {
+                        if (c == index || c == _Rows - index - 1)
+                        {
+                            Outer_Girder_Mid.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else if (c > index && c < _Rows - index - 1)
+                        {
+
+                            var item = Long_Girder_Members_Array[c, i];
+
+                            if (HA_Dists.Contains(item.EndNode.Z) && HA_Dists.Contains(item.StartNode.Z))
+                                HA_Members.Add(item.MemberNo);
+                            else
+                                Inner_Girder_Mid.Add(item.MemberNo);
+
+
+                            //Inner_Girder_Mid.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else
+                            DeckSlab.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                    }
+                }
+            }
+
+            Outer_Girder_Mid.Sort();
+            Outer_Girder_Support.Sort();
+
+
+            Inner_Girder_Mid.Sort();
+            Inner_Girder_Support.Sort();
+            DeckSlab.Sort();
+            index = 2;
+            List<int> lst_index = new List<int>();
+            for (int n = 1; n <= NCG - 2; n++)
+            {
+                for (i = 0; i < _Columns; i++)
+                {
+                    if (Cross_Girder_Members_Array[0, i].StartNode.X.ToString("0.00") == (Spacing_Cross_Girder * n + Effective_Depth).ToString("0.00"))
+                    {
+                        index = i;
+                        lst_index.Add(i);
+                    }
+                }
+            }
+            for (int c = 0; c < _Rows - 1; c++)
+            {
+                for (i = 0; i < _Columns - 1; i++)
+                {
+                    if (lst_index.Contains(i))
+                        Cross_Girder_Inter.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                    else if (i == 1 || i == _Columns - 2)
+                    {
+                        Cross_Girder_End.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                    }
+                    else
+                        DeckSlab.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                }
+            }
+
+            DeckSlab.Sort();
+            Cross_Girder_Inter.Sort();
+            Cross_Girder_End.Sort();
+
+
+            //_Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder);
+            //_Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder);
+            //_Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder);
+
+
+
+
+            //string _DeckSlab = "";
+            //string _Inner_Girder_Mid = "";
+            //string _Inner_Girder_Support = "";
+            //string _Outer_Girder_Mid = "";
+            //string _Outer_Girder_Support = "";
+            //string _Cross_Girder_Inter = "";
+            //string _Cross_Girder_End = "";
+
+
+
+
+            _DeckSlab = MyList.Get_Array_Text(DeckSlab);
+            _Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder_Mid);
+            _Inner_Girder_Support = MyList.Get_Array_Text(Inner_Girder_Support);
+            _Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder_Mid);
+            _Outer_Girder_Support = MyList.Get_Array_Text(Outer_Girder_Support);
+            _Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder_Inter);
+            _Cross_Girder_End = MyList.Get_Array_Text(Cross_Girder_End);
+
+
+
+            //HA_Loading_Members = MyList.Get_Array_Text(HA_Members);
+
+            list.Add("SECTION PROPERTIES");
+            if (Steel_Section != null)
+            {
+                Write_Composite_Section_Properties(list);
+            }
+            else
+            {
+                list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
+
+            }
+
+
+            list.Add("ELEMENT PROPERTIES");
+            if (Steel_Section != null)
+            {
+                list.Add(string.Format("1 TO {0} TH {1}", ele_count, Steel_Section.Ds / 1000));
+            }
+
             list.Add("MATERIAL CONSTANTS");
             list.Add("E 2.85E6 ALL");
             //list.Add("E " + Ecm * 100 + " ALL");

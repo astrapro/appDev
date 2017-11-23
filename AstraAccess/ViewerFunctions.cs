@@ -78,6 +78,11 @@ namespace AstraAccess
             frm_ASTRA_Analysis frm = new frm_ASTRA_Analysis(file_name, IsMoving_Load);
             return frm;
         }
+        public static Form Form_ASTRA_Moving_Load(string file_name)
+        {
+            frm_ASTRA_MovingLoad frm = new frm_ASTRA_MovingLoad(file_name, true);
+            return frm;
+        }
         public static Form Form_SAP_Editor(IApplication app)
         {
             frmSAP_Editor frm = new frmSAP_Editor(app);
