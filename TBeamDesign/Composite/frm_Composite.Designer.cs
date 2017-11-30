@@ -3403,6 +3403,7 @@
             this.chk_curve.TabIndex = 130;
             this.chk_curve.Text = "Curved Span";
             this.chk_curve.UseVisualStyleBackColor = true;
+            this.chk_curve.Visible = false;
             this.chk_curve.CheckedChanged += new System.EventHandler(this.chk_curve_CheckedChanged);
             // 
             // groupBox116
@@ -3424,6 +3425,7 @@
             this.groupBox116.TabIndex = 131;
             this.groupBox116.TabStop = false;
             this.groupBox116.Text = "Span Data";
+            this.groupBox116.Visible = false;
             // 
             // rbtn_multiSpan
             // 
@@ -3566,6 +3568,7 @@
             this.grb_curve.Size = new System.Drawing.Size(388, 73);
             this.grb_curve.TabIndex = 129;
             this.grb_curve.TabStop = false;
+            this.grb_curve.Visible = false;
             // 
             // txt_curve_ang_incr
             // 

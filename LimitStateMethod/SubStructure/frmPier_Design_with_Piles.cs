@@ -55,7 +55,7 @@ namespace LimitStateMethod.SubStructure
             list.Add("");
             list.Add("");
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 21            *");
+            list.Add("\t\t*            ASTRA Pro Release 22            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*          DESIGN OF PIER WITH PILES         *");

@@ -32,6 +32,10 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.vdPropertyGrid1 = new vdPropertyGrid.vdPropertyGrid();
             this.chk_BF = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.chk_SP = new System.Windows.Forms.CheckBox();
             this.chk_BP = new System.Windows.Forms.CheckBox();
             this.chk_TF = new System.Windows.Forms.CheckBox();
@@ -66,12 +70,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btn_gen_members = new System.Windows.Forms.Button();
             this.btn_draw = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.uC_CAD1 = new AstraAccess.ADOC.UC_CAD();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -126,9 +127,10 @@
             this.splitContainer2.Panel2.Controls.Add(this.chk_WB);
             this.splitContainer2.Panel2.Controls.Add(this.chk_DS);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_gen_members);
             this.splitContainer2.Panel2.Controls.Add(this.btn_draw);
             this.splitContainer2.Size = new System.Drawing.Size(210, 468);
-            this.splitContainer2.SplitterDistance = 263;
+            this.splitContainer2.SplitterDistance = 231;
             this.splitContainer2.TabIndex = 4;
             // 
             // vdPropertyGrid1
@@ -143,9 +145,11 @@
                         ((object)(new object[] {
                                 ((object)(new object[] {
                                         ((object)(new object[] {
-                                                ((object)(new object[0]))}))}))}))}))}))};
+                                                ((object)(new object[] {
+                                                        ((object)(new object[] {
+                                                                ((object)(new object[0]))}))}))}))}))}))}))}))};
             this.vdPropertyGrid1.ShowSelectedItemComboBox = true;
-            this.vdPropertyGrid1.Size = new System.Drawing.Size(208, 261);
+            this.vdPropertyGrid1.Size = new System.Drawing.Size(208, 229);
             this.vdPropertyGrid1.TabIndex = 0;
             this.vdPropertyGrid1.UseGroupItems = true;
             // 
@@ -161,6 +165,58 @@
             this.chk_BF.Text = "Bottom Flange";
             this.chk_BF.UseVisualStyleBackColor = true;
             this.chk_BF.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.Location = new System.Drawing.Point(104, 136);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(94, 17);
+            this.checkBox3.TabIndex = 4;
+            this.checkBox3.Text = "Side Plate 4";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Checked = true;
+            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox4.Location = new System.Drawing.Point(2, 162);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(105, 17);
+            this.checkBox4.TabIndex = 4;
+            this.checkBox4.Text = "Cross Girders";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(4, 136);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(94, 17);
+            this.checkBox2.TabIndex = 4;
+            this.checkBox2.Text = "Side Plate 3";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(104, 116);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(94, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Side Plate 2";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
             // 
             // chk_SP
             // 
@@ -516,6 +572,17 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Bottom Flange Thickness";
             // 
+            // btn_gen_members
+            // 
+            this.btn_gen_members.Location = new System.Drawing.Point(3, 191);
+            this.btn_gen_members.Name = "btn_gen_members";
+            this.btn_gen_members.Size = new System.Drawing.Size(202, 28);
+            this.btn_gen_members.TabIndex = 0;
+            this.btn_gen_members.Text = "Generate Members";
+            this.btn_gen_members.UseVisualStyleBackColor = true;
+            this.btn_gen_members.Visible = false;
+            this.btn_gen_members.Click += new System.EventHandler(this.btn_gen_members_Click);
+            // 
             // btn_draw
             // 
             this.btn_draw.Location = new System.Drawing.Point(3, 13);
@@ -526,45 +593,6 @@
             this.btn_draw.UseVisualStyleBackColor = true;
             this.btn_draw.Click += new System.EventHandler(this.btn_draw_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(104, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(94, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Side Plate 2";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(4, 136);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(94, 17);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Side Plate 3";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(104, 136);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(94, 17);
-            this.checkBox3.TabIndex = 4;
-            this.checkBox3.Text = "Side Plate 4";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
-            // 
             // uC_CAD1
             // 
             this.uC_CAD1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -574,19 +602,6 @@
             this.uC_CAD1.Size = new System.Drawing.Size(621, 466);
             this.uC_CAD1.TabIndex = 0;
             this.uC_CAD1.View_Buttons = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Checked = true;
-            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Location = new System.Drawing.Point(2, 162);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(105, 17);
-            this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "Cross Girders";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.chk_DS_CheckedChanged);
             // 
             // UC_Orthotropic
             // 
@@ -654,5 +669,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.Button btn_gen_members;
     }
 }

@@ -205,7 +205,13 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Box Culvert Multi Cell.xlsx");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Box Culvert Multi Cell LSM.xlsx");
+
+            if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Box Culvert Multi Cell LSM BS.xlsx");
+
+            }
 
             if (File.Exists(file_path))
             {
@@ -276,6 +282,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                     {
                         if ((i == 7) ||
                             (i == 8) ||
+                            (i == 9) ||
                             (i == 12) ||
                             (i == 13) ||
                             (i == 15) ||
@@ -354,7 +361,13 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             string copy_path = file_path;
 
-            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Single cell box.xlsx");
+            file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Box Culvert Single Cell LSM.xlsx");
+
+            if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Box Culvert\Box Culvert Single Cell LSM BS.xlsx");
+            }
+
 
             if (File.Exists(file_path))
             {
@@ -5120,14 +5133,18 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
 
             //btn_create_data.Enabled = Directory.Exists(iApp.WorkingFolder);
-            btn_process_data.Enabled = File.Exists(Input_File_DL);
-            btn_DL_input.Enabled = File.Exists(Input_File_DL);
-            btn_LL_input.Enabled = File.Exists(Input_File_LL);
-            btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
-            btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
+            //btn_process_data.Enabled = File.Exists(Input_File_DL);
+            //btn_DL_input.Enabled = File.Exists(Input_File_DL);
+            //btn_LL_input.Enabled = File.Exists(Input_File_LL);
+            //btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
+            //btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
 
 
-            btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            //btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            btn_process_design.Enabled = Directory.Exists(Working_Folder);
+
+
+
             //btn_.Enabled = File.Exists(Input_File_DL);
         }
 

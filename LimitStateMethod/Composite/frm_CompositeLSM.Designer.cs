@@ -1323,7 +1323,7 @@
             this.label1109 = new System.Windows.Forms.Label();
             this.label1110 = new System.Windows.Forms.Label();
             this.label1111 = new System.Windows.Forms.Label();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tab_orthotropic = new System.Windows.Forms.TabPage();
             this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
             this.lbl_orthotropic = new System.Windows.Forms.Label();
             this.tab_DeckSlab_Steel_Girder = new System.Windows.Forms.TabPage();
@@ -2447,7 +2447,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).BeginInit();
             this.groupBox36.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage5.SuspendLayout();
+            this.tab_orthotropic.SuspendLayout();
             this.tab_DeckSlab_Steel_Girder.SuspendLayout();
             this.tc_steel.SuspendLayout();
             this.tab_SteelWorksheet.SuspendLayout();
@@ -2580,7 +2580,7 @@
             this.tbc_girder.Controls.Add(this.tab_result);
             this.tbc_girder.Controls.Add(this.tab_moving_data_british);
             this.tbc_girder.Controls.Add(this.tab_Analysis_Result);
-            this.tbc_girder.Controls.Add(this.tabPage5);
+            this.tbc_girder.Controls.Add(this.tab_orthotropic);
             this.tbc_girder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbc_girder.Location = new System.Drawing.Point(3, 3);
             this.tbc_girder.Name = "tbc_girder";
@@ -3965,9 +3965,9 @@
             this.groupBox41.Controls.Add(this.rbtn_create_analysis_file);
             this.groupBox41.Controls.Add(this.rbtn_ana_select_analysis_file);
             this.groupBox41.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox41.Location = new System.Drawing.Point(415, 25);
+            this.groupBox41.Location = new System.Drawing.Point(385, 43);
             this.groupBox41.Name = "groupBox41";
-            this.groupBox41.Size = new System.Drawing.Size(39, 10);
+            this.groupBox41.Size = new System.Drawing.Size(80, 17);
             this.groupBox41.TabIndex = 97;
             this.groupBox41.TabStop = false;
             this.groupBox41.Text = "Analysis Input Data";
@@ -15942,17 +15942,17 @@
             this.label1111.TabIndex = 14;
             this.label1111.Text = "Maximum Horizontal Reaction (Trans. Direction)";
             // 
-            // tabPage5
+            // tab_orthotropic
             // 
-            this.tabPage5.Controls.Add(this.uC_Orthotropic1);
-            this.tabPage5.Controls.Add(this.lbl_orthotropic);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(940, 642);
-            this.tabPage5.TabIndex = 5;
-            this.tabPage5.Text = "Orthotropic Model Analysis";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tab_orthotropic.Controls.Add(this.uC_Orthotropic1);
+            this.tab_orthotropic.Controls.Add(this.lbl_orthotropic);
+            this.tab_orthotropic.Location = new System.Drawing.Point(4, 22);
+            this.tab_orthotropic.Name = "tab_orthotropic";
+            this.tab_orthotropic.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_orthotropic.Size = new System.Drawing.Size(940, 642);
+            this.tab_orthotropic.TabIndex = 5;
+            this.tab_orthotropic.Text = "Orthotropic Model Analysis";
+            this.tab_orthotropic.UseVisualStyleBackColor = true;
             // 
             // uC_Orthotropic1
             // 
@@ -27116,7 +27116,7 @@
             this.groupBox36.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
+            this.tab_orthotropic.ResumeLayout(false);
             this.tab_DeckSlab_Steel_Girder.ResumeLayout(false);
             this.tc_steel.ResumeLayout(false);
             this.tab_SteelWorksheet.ResumeLayout(false);
@@ -29491,7 +29491,7 @@
         private System.Windows.Forms.Label label1121;
         private System.Windows.Forms.Label label1122;
         private System.Windows.Forms.Label label1125;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tab_orthotropic;
         private System.Windows.Forms.Label lbl_orthotropic;
         private System.Windows.Forms.RadioButton rbtn_multiSpan;
         private System.Windows.Forms.RadioButton rbtn_singleSpan;

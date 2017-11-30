@@ -626,7 +626,6 @@ namespace BridgeAnalysisDesign.Abutment
             return list;
         }
 
-
         private void releaseObject(object obj)
         {
             try
@@ -650,7 +649,6 @@ namespace BridgeAnalysisDesign.Abutment
             iApp.Open_ASTRA_Worksheet_Dialog();
         }
 
-
         public event EventHandler Worksheet_Force_CheckedChanged;
         private void rbtn_value_worksheet_CheckedChanged(object sender, EventArgs e)
         {
@@ -660,11 +658,9 @@ namespace BridgeAnalysisDesign.Abutment
             grb_LL_Min.Enabled = rbtn_value_analysis.Checked;
             if (Worksheet_Force_CheckedChanged != null) Worksheet_Force_CheckedChanged(sender, e);
         }
-
         private void btn_Excel_Notes_Click(object sender, EventArgs e)
         {
             if (iApp != null) iApp.Open_Excel_Macro_Notes();
-
         }
     }
 }

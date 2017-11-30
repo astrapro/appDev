@@ -2275,7 +2275,7 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
             //sw.WriteLine("----------------------------------------------------------------------------------------------");
             //sw.WriteLine("----------------------------------------------------------------------------------------------");
             list.Add(string.Format("\t\t***********************************************"));
-            list.Add(string.Format("\t\t*            ASTRA Pro Release 21             *"));
+            list.Add(string.Format("\t\t*            ASTRA Pro Release 22             *"));
             list.Add(string.Format("\t\t*        TechSOFT Engineering Services        *"));
             list.Add(string.Format("\t\t*                                             *"));
             list.Add(string.Format("\t\t*  LIMIT STATE DESIGN OF LONGITUDINAL GIRDER  *"));

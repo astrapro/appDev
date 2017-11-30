@@ -4358,7 +4358,7 @@ namespace LimitStateMethod.Composite
             #endregion RCC Pier
 
 
-
+            tbc_girder.TabPages.Remove(tab_orthotropic);
 
             txt_Ana_NMG.SelectedIndex = 0;
             txt_curve_des_spd_kph.Text = "50";

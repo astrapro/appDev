@@ -164,7 +164,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 21            *");
+            list.Add("\t\t*            ASTRA Pro Release 22            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*    DESIGN OF RE (REINFORCED EARTH)  WALL   *");
@@ -198,7 +198,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format("Angle at Toe = Bs = {0} °(deg)", Bs));
             list.Add(string.Format("Mechanical Height = Hm = {0} m", Hm));
             list.Add(string.Format("Length of Geogrid Strips = L = {0} m", L));
-            list.Add(string.Format("Economic Ramification = fn = {0}", L));
+            list.Add(string.Format("Economic Ramification = fn = {0}", fn));
             list.Add("");
             list.Add("");
             list.Add("SURCHARGE");
@@ -581,7 +581,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             string format = "{0,-7} {1,-10} {2,-18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -683,7 +683,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -779,7 +779,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -1157,7 +1157,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             format = "{0,-7} {1,-10} {2,18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -1345,7 +1345,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 21            *");
+            list.Add("\t\t*            ASTRA Pro Release 22            *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*    DESIGN OF RE (REINFORCED EARTH)  WALL   *");
@@ -1358,7 +1358,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             _table_list.Add(string.Format(""));
             _table_list.Add("\t\t**********************************************");
-            _table_list.Add("\t\t*            ASTRA Pro Release 21            *");
+            _table_list.Add("\t\t*            ASTRA Pro Release 22            *");
             _table_list.Add("\t\t*        TechSOFT Engineering Services       *");
             _table_list.Add("\t\t*                                            *");
             _table_list.Add("\t\t*    DESIGN OF RE (REINFORCED EARTH)  WALL   *");
@@ -1434,7 +1434,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add("----------------------------------");
             list.Add("");
             list.Add(string.Format("Maximum Dry Density = γf = {0} kN/Cu.m.", gama2));
-            list.Add(string.Format("Angle of Internal Friction = φf = {0} °(deg).", phi2));
+            list.Add(string.Format("Angle of Internal Friction = φf = {0} °(deg).", phi_f));
             list.Add(string.Format("Cohesion = C = {0} kN/Sq.m", C));
             list.Add(string.Format("Thickness of Pavement = Dp = {0} m", Dp));
             list.Add(string.Format("Thickness = Df = {0} m", Df));
@@ -1480,7 +1480,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
 
 
-                    kStr = string.Format("STEP {0}.{1} : SECTION {0} LAYER {1} [H1 = {2:f3} m, Zi = {3:f3} m]", (i + 1), (j + 1), H1, Zi);
+                    kStr = string.Format("STEP {0}.{1} : SECTION {0} LAYER {1} [H1 = {2:f3} m, Zi = {3:f3} m, L = {4:f2} m]", (i + 1), (j + 1), H1, Zi, L);
                     list.Add(string.Format(""));
 
                     list.Add(string.Format("".PadLeft(kStr.Length, '-')));
@@ -1951,7 +1951,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             string format = "{0,-7} {1,-10} {2,-18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -2053,7 +2053,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -2149,7 +2149,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -2518,7 +2518,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             format = "{0,-7} {1,-10} {2,18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -3131,7 +3131,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             string format = "{0,-7} {1,-10} {2,-18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -3235,7 +3235,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -3331,7 +3331,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -3727,7 +3727,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             format = "{0,-7} {1,-10} {2,18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -4032,7 +4032,8 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format("RE Backfill Height = H1 = {0} m", H1));
             list.Add("");
             list.Add(string.Format("Zi = Depth of Strips Layer from top = {0} m", Zi));
-            //list.Add(string.Format("RE Backfill Height = H1 = {0} m", H1));
+            list.Add("");
+            list.Add(string.Format("Strip Length = L = {0:f2} m", L));
             list.Add("");
             list.Add("");
             list.Add("");
@@ -4313,7 +4314,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format("Wm (c) = Weight of  backfill mass retained by RE Wall"));
             list.Add(string.Format(""));
             list.Add(string.Format("       = (Hm - H2) * γ1_min * L * Fp"));
-            list.Add(string.Format("       = ({0:f3} - {1:f3}) * {2:f3} * {3:f3}", Hm, H2, gama1_min, L, Fp));
+            list.Add(string.Format("       = ({0:f3} - {1:f3}) * {2:f3} * {3:f3} * {4:f1}", Hm, H2, gama1_min, L, Fp));
             list.Add(string.Format("       = {0:f3} kN/m", Wm_c));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
@@ -4390,7 +4391,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             string format = "{0,-7} {1,-10} {2,-18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -4494,7 +4495,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -4584,7 +4585,8 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format("Vertical Stress at the base of the Wall, q_req following Meyerhof's equation"));
             list.Add(string.Format(""));
 
-            double q_req_b = Rv_a / (L - 2 * e);
+            //double q_req_b = Rv_a / (L - 2 * e);
+            double q_req_b = Rv_b / (L - 2 * e_b);
 
             list.Add(string.Format("q_req = ΣRv(B) / (L - 2 * e)"));
             list.Add(string.Format("      = {0:f3} / ({1} - 2 * {2:f3})", Rv_b, L, e_b));
@@ -4597,7 +4599,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -5003,7 +5005,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             format = "{0,-7} {1,-10} {2,18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));
@@ -5406,7 +5408,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             format = "{0,-7} {1,-10} {2,18:f3} {3,18:f3} {4,22:f3} {5,20:f3}";
 
 
-            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Forces", "Horizontal Forces", "Lever Arm", "Moment"));
+            list.Add(string.Format(format, "S.No:", "Fp (FoS)", "Vertical Loads", "Horizontal Loads", "Lever Arm", "Moment"));
             list.Add(string.Format(format, "", "", "   (kN/m)   ", "   (kN/m)   ", "     (m)   ", " (kN-m)"));
             list.Add(string.Format("".PadLeft(100, '-')));
             list.Add(string.Format(""));

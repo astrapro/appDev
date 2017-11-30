@@ -33,14 +33,13 @@ namespace LimitStateMethod.SlabBridge
         public void Load_Default_Data()
         {
             List<string> list = new List<string>();
-
             #region Default Data
             list.Add(string.Format("Design Data$$"));
             list.Add(string.Format("Number of span$1$"));
             list.Add(string.Format("Clear Span$11.5$m"));
             list.Add(string.Format("Effective span$12$m"));
             list.Add(string.Format("Overall width$16$m"));
-            list.Add(string.Format("Carriageway width$12.000$m"));
+            list.Add(string.Format("$$"));
             list.Add(string.Format("Crash barrier width$0.5$m"));
             list.Add(string.Format("Footpath width/ Safety kerb$0.25$m"));
             list.Add(string.Format("Height of Crash barrier$1$m"));
@@ -59,41 +58,36 @@ namespace LimitStateMethod.SlabBridge
             list.Add(string.Format("Minimum Thickness of Wearing coat $0.075$m"));
             list.Add(string.Format("$$"));
             list.Add(string.Format("Unit Weights$$"));
-            list.Add(string.Format("Density of concrete$25$kN/Cu.m"));
-            list.Add(string.Format("unit weight of soil$18$kN/Cu.m"));
-            list.Add(string.Format("unit weight of submerged soil$10$kN/Cu.m"));
-            list.Add(string.Format("unit weight of wearing coat$22$kN/Cu.m"));
+            list.Add(string.Format("Density of concrete$25$kN/m³"));
+            list.Add(string.Format("unit weight of soil$18$kN/m³"));
+            list.Add(string.Format("unit weight of submerged soil$10$kN/m³"));
+            list.Add(string.Format("unit weight of wearing coat$22$kN/m³"));
             list.Add(string.Format("$$"));
             list.Add(string.Format("Material Properties$$"));
-            list.Add(string.Format("Grade of concrete$35$N/Sq.mm"));
-            list.Add(string.Format("Grade of reinforcement$500$N/Sq.mm"));
-            list.Add(string.Format("Grade of shear reinforcement$500$N/Sq.mm"));
+            list.Add(string.Format("Grade of concrete$35$N/mm2"));
+            list.Add(string.Format("Grade of reinforcement$500$N/mm2"));
+            list.Add(string.Format("Grade of shear reinforcement$500$N/mm2"));
             list.Add(string.Format("Length of the Slab considered for design$1$m"));
             list.Add(string.Format("Partial safety factor for concrete $1.5$"));
             list.Add(string.Format("Partial safety factor for steel$1.15$"));
-            list.Add(string.Format("Modulus of elasticity of concrete$3.20E+04$N/Sq.mm"));
-            list.Add(string.Format("Modulus of elasticity of Steel$2.00E+05$N/Sq.mm"));
+            list.Add(string.Format("Modulus of elasticity of concrete$3.20E+04$N/mm2"));
+            list.Add(string.Format("Modulus of elasticity of Steel$2.00E+05$N/mm2"));
             list.Add(string.Format("$$"));
             list.Add(string.Format("Tensile strenght of concrete$2.8$Mpa"));
-            list.Add(string.Format("Effective modulus of elasticity$12903.23$"));
+            list.Add(string.Format("$$"));
             list.Add(string.Format("Moment due to self wt.$0.00$"));
             list.Add(string.Format("Moment due to SIDL$0.00$"));
             list.Add(string.Format("Total moment due to sustained loading$0.00$"));
             list.Add(string.Format("$$"));
-            list.Add(string.Format("Permissible deflection due to vehicular traffic$14.38$mm"));
             list.Add(string.Format("K3(for simply supported members)$0.125$"));
-            list.Add(string.Format("ae(Modular ratio)$6.25$"));
-            list.Add(string.Format("ae(Effective Modular ratio)$15.50$"));
-            list.Add(string.Format("I, Moment of inertia of section$8.33E+10$mm"));
-            list.Add(string.Format("Icracked$5.83E+10$"));
-            list.Add(string.Format("?m$1.5$"));
-            list.Add(string.Format("a$0.67$"));
-            list.Add(string.Format("Ultimate compressive strain in the concrete$0.0035$"));
+            list.Add(string.Format("$$"));
+            list.Add(string.Format("Gamma_m$1.5$"));
+            list.Add(string.Format("alpha$0.67$"));
+            list.Add(string.Format("$$"));
             list.Add(string.Format("Creep cofficient (taking long term of creep)$1.48$"));
             list.Add(string.Format("cofficient to consider influence of concrete strength$0.67$"));
-            list.Add(string.Format("Neutral axis depth for balanced section $454.55$"));
-            #endregion Default Data
 
+            #endregion Default Data
             MyList.Fill_List_to_Grid(dgv_design_data, list, '$');
             dgv_design_data.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MyList.Modified_Cell(dgv_design_data);
@@ -282,7 +276,7 @@ namespace LimitStateMethod.SlabBridge
 
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
             if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
+                file_path = Path.Combine(iApp.user_path, "Worksheet Design");
 
             if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
@@ -299,6 +293,13 @@ namespace LimitStateMethod.SlabBridge
             string copy_path = file_path;
 
             file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Slab Bridge\Solid Slab Bridge.xlsx");
+
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Slab Bridge\Solid Slab Bridge BS.xlsx");
+            }
+
 
             if (File.Exists(file_path))
             {
@@ -337,8 +338,8 @@ namespace LimitStateMethod.SlabBridge
             try
             {
 
-                if (false)
-                //if (true)
+                //if (false)
+                    if (true)
                 {
                     List<string> list = new List<string>();
                     DataGridView dgv = dgv_design_data;
@@ -354,44 +355,75 @@ namespace LimitStateMethod.SlabBridge
                     DataInputCollections dips = new DataInputCollections();
 
                     dips.Load_Data_from_Grid(dgv);
+
+                    List<string> lst_vals = new List<string>();
+                    foreach (var item in dips)
+                    {
+                        if(item.DATA != "")
+                        {
+                            //lst_vals.Add(MyList.StringToDouble(item.DATA));
+                            lst_vals.Add(item.DATA);
+                        }
+                    }
+
                     List<string> ldbl = new List<string>();
 
                     rindx = 0;
 
+                        //8
+
+//14
+
+//18
+
+//25
+//26
+//31
+//32
+
+//41
+//43
+//47-49
+//51-54
+//57-62
                     for (i = 4; i < 65; i++)
                     {
-                        if ((i == 13) ||
-                            (i == 16) ||
-                            (i == 20) ||
-                            (i == 22) ||
-                            (i >= 30 && i <= 32) ||
-                            (i >= 35 && i <= 39) ||
-
+                        if ((i == 8) ||
+                            (i == 14) ||
+                            (i == 18) ||
+                            (i == 25) ||
+                            (i == 26) ||
+                            (i == 31) ||
+                            (i == 32) ||
                             (i == 41) ||
-                            (i == 42)
+                            (i == 43) ||
+                            (i >= 47 && i <= 49) ||
+                            (i >= 51 && i <= 54) ||
+                            (i >= 57 && i <= 62) 
                            )
                         {
                             continue;
                         }
                         else
                         {
+                            myExcelWorksheet.get_Range("G" + i).Formula = lst_vals[rindx++].ToUpper().Replace("M", "").Replace("FE", "").Trim().ToString();
 
-                            if (rindx == 60)
-                            {
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                            //if (rindx == 60)
+                            //{
+                            //    myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("M", "").Trim().ToString();
 
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                            }
-                            else if (rindx == 61)
-                            {
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("FE", "").Trim().ToString();
-                            }
-                            else
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            //    //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                            //}
+                            //else if (rindx == 61)
+                            //{
+                            //    //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                            //    myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("FE", "").Trim().ToString();
+                            //}
+                            //else
+                            //    myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
 
-                            while (dips[rindx].DATA == "")
-                                rindx++;
+                            //while (dips[rindx].DATA == "")
+                            //    rindx++;
                         }
                     }
                     #endregion Design Data
@@ -5233,11 +5265,20 @@ namespace LimitStateMethod.SlabBridge
         public string Excel_File()
         {
 
+            //string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            //if (iApp.user_path != "")
+            //    file_path = Path.Combine(iApp.user_path, Title);
+
+            //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
             if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
+                file_path = Path.Combine(iApp.user_path, "Worksheet Design");
 
             if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+            
 
             //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
 
@@ -5455,17 +5496,20 @@ namespace LimitStateMethod.SlabBridge
             }
 
 
+            btn_process_design.Enabled = Directory.Exists(Working_Folder);
+
+
             //btn_create_data.Enabled = Directory.Exists(iApp.WorkingFolder);
-            btn_process_data.Enabled = File.Exists(Input_File_DL);
-            btn_DL_input.Enabled = File.Exists(Input_File_DL);
-            btn_LL_input.Enabled = File.Exists(Input_File_LL);
-            btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
-            btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
+            //btn_process_data.Enabled = File.Exists(Input_File_DL);
+            //btn_DL_input.Enabled = File.Exists(Input_File_DL);
+            //btn_LL_input.Enabled = File.Exists(Input_File_LL);
+            //btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
+            //btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
 
 
-            btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            //btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
 
-            grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            //grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
 
             //btn_.Enabled = File.Exists(Input_File_DL);
         }
@@ -5474,7 +5518,17 @@ namespace LimitStateMethod.SlabBridge
         {
             grb_Analysis.Enabled = false;
             grb_Design.Enabled = false;
+
+            btn_process_design.Enabled = false;
+
             Set_Project_Name();
+
+            uC_AbutmentWallType1.SetIApplication(iApp);
+        }
+
+        private void btn_drawings_Click(object sender, EventArgs e)
+        {
+            iApp.RunViewer(Path.Combine(user_path, "Drawings"), "SLAB_DRAWING_LSM");
         }
 
     }

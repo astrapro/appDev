@@ -91,6 +91,12 @@
     <Compile Include="Abutment\UC_AbutmentPileLS.Designer.cs">
       <DependentUpon>UC_AbutmentPileLS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abutment\UC_AbutmentWallType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Abutment\UC_AbutmentWallType.Designer.cs">
+      <DependentUpon>UC_AbutmentWallType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abutment\UC_Abut_Cant.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -519,6 +525,9 @@
     <EmbeddedResource Include="Abutment\UC_AbutmentPileLS.resx">
       <DependentUpon>UC_AbutmentPileLS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abutment\UC_AbutmentWallType.resx">
+      <DependentUpon>UC_AbutmentWallType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abutment\UC_Abut_Cant.resx">
       <DependentUpon>UC_Abut_Cant.cs</DependentUpon>
     </EmbeddedResource>
@@ -747,6 +756,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Drawing_Path.txt" />
+    <None Include="Resources\AbutmentWallType.jpg" />
     <None Include="Resources\AbutmentPileDiagram.jpg" />
     <None Include="Resources\PierPile Foundation.jpg" />
     <None Include="Resources\Pile Foundation3.jpg" />

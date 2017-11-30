@@ -9453,7 +9453,7 @@ namespace BridgeAnalysisDesign.CableStayed
             Results.Add("");
             Results.Add("");
             Results.Add("\t\t**********************************************");
-            Results.Add("\t\t*            ASTRA Pro Release 21            *");
+            Results.Add("\t\t*            ASTRA Pro Release 22            *");
             Results.Add("\t\t*        TechSOFT Engineering Services       *");
             Results.Add("\t\t*                                            *");
             Results.Add("\t\t*        DESIGN OF STAY CABLE MEMBERS        *");
@@ -11309,7 +11309,7 @@ namespace BridgeAnalysisDesign.CableStayed
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t**********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
                 sw.WriteLine("\t\t*                                            *");
                 sw.WriteLine("\t\t*        DESIGN OF CABLE STAYED BRIDGE       *");

@@ -194,10 +194,10 @@ namespace BridgeAnalysisDesign.Composite
                 Bridge_Analysis.Start_Support = Start_Support_Text;
                 Bridge_Analysis.End_Support = END_Support_Text;
 
-                //Bridge_Analysis.CreateData();
+                Bridge_Analysis.CreateData();
 
                 //Bridge_Analysis.CreateData_Curve();
-                Bridge_Analysis.CreateData_Straight();
+                //Bridge_Analysis.CreateData_Straight();
 
                 #region Chiranjit [2013 07 02]
 
@@ -482,32 +482,32 @@ namespace BridgeAnalysisDesign.Composite
 
                     string s1 = "";
                     string s2 = "";
-                    //for (i = 0; i < Bridge_Analysis.Structure.Supports.Count; i++)
-                    //{
-                    //    if (i < Bridge_Analysis.Structure.Supports.Count / 2)
-                    //    {
-                    //        if (i == Bridge_Analysis.Structure.Supports.Count / 2 - 1)
-                    //        {
-                    //            s1 += Bridge_Analysis.Structure.Supports[i].NodeNo;
-                    //        }
-                    //        else
-                    //            s1 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
-                    //    }
-                    //    else
-                    //    {
-                    //        if (i == Bridge_Analysis.Structure.Supports.Count - 1)
-                    //        {
-                    //            s2 += Bridge_Analysis.Structure.Supports[i].NodeNo;
-                    //        }
-                    //        else
-                    //            s2 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
-                    //    }
-                    //}
+                    for (i = 0; i < Bridge_Analysis.Structure.Supports.Count; i++)
+                    {
+                        if (i < Bridge_Analysis.Structure.Supports.Count / 2)
+                        {
+                            if (i == Bridge_Analysis.Structure.Supports.Count / 2 - 1)
+                            {
+                                s1 += Bridge_Analysis.Structure.Supports[i].NodeNo;
+                            }
+                            else
+                                s1 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
+                        }
+                        else
+                        {
+                            if (i == Bridge_Analysis.Structure.Supports.Count - 1)
+                            {
+                                s2 += Bridge_Analysis.Structure.Supports[i].NodeNo;
+                            }
+                            else
+                                s2 += Bridge_Analysis.Structure.Supports[i].NodeNo + ",";
+                        }
+                    }
                     //double BB = MyList.StringToDouble(txt_Abut_B.Text, 8.5);
 
 
-                    s1 = Left_support;
-                    s2 = Right_support;
+                    //s1 = Left_support;
+                    //s2 = Right_support;
                     double BB = B;
 
                     
@@ -1008,10 +1008,14 @@ namespace BridgeAnalysisDesign.Composite
                     }
                 }
                 catch (Exception exx) { }
+                Bridge_Analysis.Length = Bridge_Analysis.Total_Length;
+            }
+            else
+            {
+                Bridge_Analysis.Length = L;
             }
 
 
-            Bridge_Analysis.Length = Bridge_Analysis.Total_Length;
 
 
 
@@ -9096,7 +9100,7 @@ namespace BridgeAnalysisDesign.Composite
             }
             else
             {
-
+                
                 list_x.Clear();
                 list_x.Add(0.0);
                 last_x = Effective_Depth;
@@ -9220,7 +9224,6 @@ namespace BridgeAnalysisDesign.Composite
                     //_r = list_z[iRows] + Radius;
 
                     //list.Add(list_z[iRows] + _r - _r * Math.Cos(ang_incr));
-
                 }
                 z_table.Add(list_z[iRows], list);
             }
@@ -11625,7 +11628,7 @@ namespace BridgeAnalysisDesign.Composite
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t**********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
                 sw.WriteLine("\t\t*                                            *");
                 sw.WriteLine("\t\t*         DESIGN OF COMPOSITE BRIDGE         *");
@@ -13349,7 +13352,7 @@ namespace BridgeAnalysisDesign.Composite
                 sw.WriteLine();
                 sw.WriteLine();
                 sw.WriteLine("\t\t**********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 21            *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 22            *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services       *");
                 sw.WriteLine("\t\t*                                            *");
                 sw.WriteLine("\t\t*         DESIGN OF COMPOSITE BRIDGE         *");

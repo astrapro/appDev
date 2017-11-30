@@ -1391,7 +1391,7 @@
             this.toolStripSeparator3});
             this.toolStrip1.Location = new System.Drawing.Point(49, 18);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(182, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(151, 25);
             this.toolStrip1.TabIndex = 139;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -6460,7 +6460,7 @@
             // 
             this.txt_env_mnos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_env_mnos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_env_mnos.Location = new System.Drawing.Point(293, 26);
+            this.txt_env_mnos.Location = new System.Drawing.Point(294, 26);
             this.txt_env_mnos.Name = "txt_env_mnos";
             this.txt_env_mnos.Size = new System.Drawing.Size(211, 21);
             this.txt_env_mnos.TabIndex = 2;
@@ -6503,7 +6503,7 @@
             // btn_env_show
             // 
             this.btn_env_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_env_show.Location = new System.Drawing.Point(327, 97);
+            this.btn_env_show.Location = new System.Drawing.Point(328, 97);
             this.btn_env_show.Name = "btn_env_show";
             this.btn_env_show.Size = new System.Drawing.Size(121, 23);
             this.btn_env_show.TabIndex = 0;

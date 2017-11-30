@@ -1360,6 +1360,12 @@ namespace AstraInterface.DataStructure
             NodeNo = -1;
             XYZ = new gPoint();
         }
+
+        public JointNode(double x, double y, double z)
+        {
+            NodeNo = -1;
+            XYZ = new gPoint(x, y, z);
+        }
         public int NodeNo { get; set; }
         public double X { get { return XYZ.x; } set { XYZ.x = value; } }
         public double Y { get { return XYZ.y; }  set { XYZ.y = value; } }
@@ -1570,6 +1576,21 @@ namespace AstraInterface.DataStructure
                 if ((Math.Abs(list[i].X - x) < 0.9) &&
                     list[i].Y.ToString("0.00") == y.ToString("0.00") &&
                     list[i].Z.ToString("0.00") == z.ToString("0.00"))
+                {
+                    return list[i];
+                }
+            }
+            throw new Exception("Joint not found. ");
+        }
+
+        public JointNode GetJoints(double x, double y, double z, string format)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (
+                    list[i].X.ToString(format) == x.ToString(format) &&
+                    list[i].Y.ToString(format) == y.ToString(format) &&
+                    list[i].Z.ToString(format) == z.ToString(format))
                 {
                     return list[i];
                 }

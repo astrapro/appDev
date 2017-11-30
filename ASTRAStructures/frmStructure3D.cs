@@ -42,7 +42,7 @@ using ASTR = AstraInterface.DataStructure;
 
 namespace ASTRAStructures
 {
-    public partial class frm_Structure3D : Form
+    public partial class frmStructure3D : Form
     {
         #region Processing
         IApplication iApp;
@@ -123,7 +123,7 @@ namespace ASTRAStructures
             }
         }
 
-        public frm_Structure3D(string input_file)
+        public frmStructure3D(string input_file)
         {
             //Member m;
             //MemberIncidence mi;
@@ -154,7 +154,7 @@ namespace ASTRAStructures
 
         }
 
-        public frm_Structure3D(string drawing_file, bool IsDrawingFile)
+        public frmStructure3D(string drawing_file, bool IsDrawingFile)
         {
             //Member m;
             //MemberIncidence mi;
@@ -195,7 +195,7 @@ namespace ASTRAStructures
         }
 
         eASTRADesignType Project_Type { get; set; }
-        public frm_Structure3D(IApplication app, eASTRADesignType prts)
+        public frmStructure3D(IApplication app, eASTRADesignType prts)
         {
             //this.Show
             try
@@ -615,10 +615,9 @@ namespace ASTRAStructures
 
                 Load_Initials();
 
-
-
             }
             catch (Exception exx) { }
+            Curve_Changed();
         }
 
         private void Load_Initials()
@@ -799,6 +798,76 @@ namespace ASTRAStructures
         private void toolStripButtons_Click(object sender, EventArgs e)
         {
 
+            vdDocument VD = VDoc;
+
+            //if (tc4.SelectedIndex == 1) VD = defDoc;
+            //if (tc4.SelectedIndex == 1) VD = defDoc;
+
+            ToolStripButton tsb = sender as ToolStripButton;
+            if (tsb.Name == tsb_3D_rotate.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Vrot(VD);
+            else if (tsb.Name == tsb_VTop.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(VD);
+            else if (tsb.Name == tsb_VBot.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VBottom(VD);
+            else if (tsb.Name == tsb_VLeft.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VLeft(VD);
+            else if (tsb.Name == tsb_VRight.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VRight(VD);
+            else if (tsb.Name == tsb_VFront.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VFront(VD);
+            else if (tsb.Name == tsb_VBack.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VBack(VD);
+            else if (tsb.Name == tsb_VNE.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VINE(VD);
+            else if (tsb.Name == tsb_VNW.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VINW(VD);
+            else if (tsb.Name == tsb_VSE.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VISE(VD);
+            else if (tsb.Name == tsb_VSW.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VISW(VD);
+            else if (tsb.Name == tsb_ZoomA.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomA_Ex(VD);
+            else if (tsb.Name == tsb_ZoomE.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomE_Ex(VD);
+            else if (tsb.Name == tsb_ZoomP.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomP_Ex(VD);
+
+            else if (tsb.Name == tsb_ZoomW.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomW_Ex(VD);
+
+            else if (tsb.Name == tsb_ZoomIn.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomIn_Ex(VD);
+            else if (tsb.Name == tsb_ZoomOut.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomOut_Ex(VD);
+
+            else if (tsb.Name == tsb_Pan.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.PanEx(VD);
+            else if (tsb.Name == tsb_ShadeOn.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_ShadeOn(VD);
+            else if (tsb.Name == tsb_Wire.Name)
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire(VD);
+            else if (tsb.Name == tsb_Save.Name)
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "VDML File (*.vdml)|*.vdml|DXF File (*.dxf)|*.dxf|DWG File (*.dwg)|*.dwg";
+                    if (sfd.ShowDialog() != DialogResult.Cancel)
+                    {
+                        if (iApp.IsDemo)
+                        {
+                            MessageBox.Show("This function is not available in Demo version.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            if (VD.SaveAs(sfd.FileName))
+                            {
+                                MessageBox.Show("File Saved successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                }
+            }
         }
         private void tc1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -10139,8 +10208,13 @@ namespace ASTRAStructures
         }
 
 
-        public void Draw_Curve(vdDocument vdoc, string sectionName, double Curve_Radius, double length, double z, double hgt, Color c)
+        Hashtable ht_Lst_X = new Hashtable();
+        Hashtable ht_Lst_Z = new Hashtable();
+
+        public void Draw_Curve(vdDocument vdoc, bool IsGrid, double Curve_Radius, double length, double z, double hgt, Color c)
         {
+
+
             gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
             //int _Columns = 100;
 
@@ -10162,14 +10236,59 @@ namespace ASTRAStructures
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
 
-            for (int iCols = 0; iCols <= _Columns; iCols++)
+
+            double start_ang = MyList.StringToDouble(txt_Start_Angle);
+            double end_ang = MyList.StringToDouble(txt_End_Angle);
+
+
+            start_ang = MyList.Convert_Degree_To_Radian(start_ang);
+            end_ang = MyList.Convert_Degree_To_Radian(end_ang);
+
+
+            double ang_div = MyList.StringToDouble(txt_curve_divs);
+            double ang_ncr = MyList.StringToDouble(txt_curve_ang_incr);
+
+            ang_ncr = MyList.Convert_Degree_To_Radian(ang_ncr);
+
+            if (chk_ang_dtls.Checked)
             {
-                var ang_incr = ((length / _Columns) * iCols) / Curve_Radius;
+
+                _Columns = (int)((end_ang - start_ang) / ang_ncr) + 1;
+                var ang = start_ang;
                 var _r = Curve_Radius - z;
 
-                lst_z.Add(Curve_Radius - _r * Math.Cos(ang_incr));
-                lst_x.Add(_r * Math.Sin(ang_incr));
+                for (int iCols = 0; iCols <= _Columns; iCols++)
+                {
+                    lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                    lst_x.Add(_r * Math.Sin(ang));
+                    ang += ang_ncr;
+                }
             }
+            else
+            {
+                for (int iCols = 0; iCols <= _Columns; iCols++)
+                {
+                    var ang = ((length / _Columns) * iCols) / Curve_Radius;
+                    var _r = Curve_Radius - z;
+
+                    //lst_z.Add(Curve_Radius - _r * Math.Cos(ang_incr));
+                    //lst_x.Add(_r * Math.Sin(ang_incr));
+
+                    ang += start_ang;
+                    lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                    lst_x.Add(_r * Math.Sin(ang));
+                }
+            }
+            try
+            {
+
+                ht_Lst_X.Add(z, lst_x);
+                ht_Lst_Z.Add(z, lst_z);
+
+            }
+            catch (Exception exx) { }
+            //ht_Lst_X.Add(z, lst_x);
+            //ht_Lst_Z.Add(z, lst_z);
 
             for (int iCols = 1; iCols < lst_x.Count; iCols++)
             {
@@ -10201,26 +10320,28 @@ namespace ASTRAStructures
                 ln.StartPoint = pnt1;
                 ln.EndPoint = pnt2;
 
-                ln.Layer = GRID_LAYER;
+                if (IsGrid) ln.Layer = GRID_LAYER;
+                else ln.Layer = MODEL_LAYER;
                 vdoc.ActiveLayOut.Entities.Add(ln);
 
-
-
-                vdPoint pt;
-                if (iCols == 1)
+                if (IsGrid)
                 {
+                    vdPoint pt;
+                    if (iCols == 1)
+                    {
+                        pt = new vdPoint(vdoc);
+                        pt.setDocumentDefaults();
+                        pt.InsertionPoint = pnt1;
+                        pt.Layer = GRID_LAYER;
+                        vdoc.ActiveLayOut.Entities.Add(pt);
+                    }
+
                     pt = new vdPoint(vdoc);
                     pt.setDocumentDefaults();
-                    pt.InsertionPoint = pnt1;
+                    pt.InsertionPoint = pnt2;
                     pt.Layer = GRID_LAYER;
                     vdoc.ActiveLayOut.Entities.Add(pt);
                 }
-
-                pt = new vdPoint(vdoc);
-                pt.setDocumentDefaults();
-                pt.InsertionPoint = pnt2;
-                pt.Layer = GRID_LAYER;
-                vdoc.ActiveLayOut.Entities.Add(pt);
             }
 
 
@@ -10235,9 +10356,248 @@ namespace ASTRAStructures
         }
 
 
-        private void btn_gen_grid_Click(object sender, EventArgs e)
+
+        public void Draw_Straight(vdDocument vdoc, bool IsGrid, double length, double z, double hgt, Color c)
         {
 
+            gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
+            //int _Columns = 100;
+
+            MyList spans = new MyList(txt_multiSpan.Text, ',');
+
+
+            int _Columns = MyList.StringToInt(txt_Ana_NCG.Text, 10);
+
+
+
+            if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
+
+
+
+            List<double> lst_x = new List<double>();
+            List<double> lst_z = new List<double>();
+
+
+            for (int iCols = 0; iCols <= _Columns; iCols++)
+            {
+                var x = ((length / _Columns) * iCols);
+                lst_z.Add(z);
+                lst_x.Add(x);
+            }
+            try
+            {
+                ht_Lst_X.Add(z, lst_x);
+                ht_Lst_Z.Add(z, lst_z);
+            }
+            catch (Exception exx) { }
+
+
+
+            for (int iCols = 1; iCols < lst_x.Count; iCols++)
+            {
+                var pnt1 = new gPoint(lst_x[iCols - 1], hgt, lst_z[iCols - 1]);
+                var pnt2 = new gPoint(lst_x[iCols], hgt, lst_z[iCols]);
+
+                if (cmb_grid_plane.SelectedIndex == 0) //X-Y
+                {
+                    pnt1 = new gPoint(lst_x[iCols - 1], lst_z[iCols - 1], hgt);
+                    pnt2 = new gPoint(lst_x[iCols], lst_z[iCols], hgt);
+                }
+                else if (cmb_grid_plane.SelectedIndex == 2) // Y-Z
+                {
+                    pnt1 = new gPoint(hgt, lst_x[iCols - 1], lst_z[iCols - 1]);
+                    pnt2 = new gPoint(hgt, lst_x[iCols], lst_z[iCols]);
+                }
+
+
+                pnt1.x += insPnt.x;
+                pnt1.y += insPnt.y;
+                pnt1.z += insPnt.z;
+
+                pnt2.x += insPnt.x;
+                pnt2.y += insPnt.y;
+                pnt2.z += insPnt.z;
+
+                vdLine ln = new vdLine(vdoc);
+                ln.setDocumentDefaults();
+                ln.StartPoint = pnt1;
+                ln.EndPoint = pnt2;
+
+                if (IsGrid) ln.Layer = GRID_LAYER;
+                else ln.Layer = MODEL_LAYER;
+                vdoc.ActiveLayOut.Entities.Add(ln);
+
+                if (IsGrid)
+                {
+                    vdPoint pt;
+                    if (iCols == 1)
+                    {
+                        pt = new vdPoint(vdoc);
+                        pt.setDocumentDefaults();
+                        pt.InsertionPoint = pnt1;
+                        pt.Layer = GRID_LAYER;
+                        vdoc.ActiveLayOut.Entities.Add(pt);
+                    }
+
+                    pt = new vdPoint(vdoc);
+                    pt.setDocumentDefaults();
+                    pt.InsertionPoint = pnt2;
+                    pt.Layer = GRID_LAYER;
+                    vdoc.ActiveLayOut.Entities.Add(pt);
+                }
+            }
+
+
+            doc_grid.Redraw(true);
+
+
+            VDRAW.vdCommandAction.ZoomE_Ex(doc_grid);
+
+            #region Web Section
+
+            #endregion Web Section
+        }
+
+        public void Draw_Curve_Cross(vdDocument vdoc, bool IsGrid, double Curve_Radius, double length, List<double> z_lst, double hgt, Color c)
+        {
+            gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
+            //int _Columns = 100;
+
+
+            MyList spans = new MyList(txt_multiSpan.Text, ',');
+
+
+
+
+            int _Columns = MyList.StringToInt(txt_Ana_NCG.Text, 10);
+
+
+
+            if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
+
+
+
+            List<double> lst_x = new List<double>();
+            List<double> lst_z = new List<double>();
+
+
+            double start_ang = MyList.StringToDouble(txt_Start_Angle);
+            double end_ang = MyList.StringToDouble(txt_End_Angle);
+
+
+            start_ang = MyList.Convert_Degree_To_Radian(start_ang);
+            end_ang = MyList.Convert_Degree_To_Radian(end_ang);
+
+
+            double ang_div = MyList.StringToDouble(txt_curve_divs);
+            double ang_ncr = MyList.StringToDouble(txt_curve_ang_incr);
+
+            ang_ncr = MyList.Convert_Degree_To_Radian(ang_ncr);
+
+            if (chk_ang_dtls.Checked)
+            {
+
+                _Columns = (int)((end_ang - start_ang) / ang_ncr) + 1;
+
+                var ang = start_ang;
+
+                for (int iCols = 0; iCols <= z_lst.Count; iCols++)
+                {
+                    var _r = Curve_Radius - z_lst[iCols];
+
+                    lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                    lst_x.Add(_r * Math.Sin(ang));
+                }
+            }
+            else
+            {
+                for (int iCols = 0; iCols <= _Columns; iCols++)
+                {
+                    var ang = ((length / _Columns) * iCols) / Curve_Radius;
+                    var _r = Curve_Radius - z_lst[iCols];
+
+                    //lst_z.Add(Curve_Radius - _r * Math.Cos(ang_incr));
+                    //lst_x.Add(_r * Math.Sin(ang_incr));
+
+                    ang += start_ang;
+                    lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                    lst_x.Add(_r * Math.Sin(ang));
+                }
+            }
+
+
+
+            for (int iCols = 1; iCols < lst_x.Count; iCols++)
+            {
+                var pnt1 = new gPoint(lst_x[iCols - 1], hgt, lst_z[iCols - 1]);
+                var pnt2 = new gPoint(lst_x[iCols], hgt, lst_z[iCols]);
+
+                if (cmb_grid_plane.SelectedIndex == 0) //X-Y
+                {
+                    pnt1 = new gPoint(lst_x[iCols - 1], lst_z[iCols - 1], hgt);
+                    pnt2 = new gPoint(lst_x[iCols], lst_z[iCols], hgt);
+                }
+                else if (cmb_grid_plane.SelectedIndex == 2) // Y-Z
+                {
+                    pnt1 = new gPoint(hgt, lst_x[iCols - 1], lst_z[iCols - 1]);
+                    pnt2 = new gPoint(hgt, lst_x[iCols], lst_z[iCols]);
+                }
+
+
+                pnt1.x += insPnt.x;
+                pnt1.y += insPnt.y;
+                pnt1.z += insPnt.z;
+
+                pnt2.x += insPnt.x;
+                pnt2.y += insPnt.y;
+                pnt2.z += insPnt.z;
+
+                vdLine ln = new vdLine(vdoc);
+                ln.setDocumentDefaults();
+                ln.StartPoint = pnt1;
+                ln.EndPoint = pnt2;
+
+                if (IsGrid) ln.Layer = GRID_LAYER;
+                else ln.Layer = MODEL_LAYER;
+                vdoc.ActiveLayOut.Entities.Add(ln);
+
+                if (IsGrid)
+                {
+                    vdPoint pt;
+                    if (iCols == 1)
+                    {
+                        pt = new vdPoint(vdoc);
+                        pt.setDocumentDefaults();
+                        pt.InsertionPoint = pnt1;
+                        pt.Layer = GRID_LAYER;
+                        vdoc.ActiveLayOut.Entities.Add(pt);
+                    }
+
+                    pt = new vdPoint(vdoc);
+                    pt.setDocumentDefaults();
+                    pt.InsertionPoint = pnt2;
+                    pt.Layer = GRID_LAYER;
+                    vdoc.ActiveLayOut.Entities.Add(pt);
+                }
+            }
+
+
+            doc_grid.Redraw(true);
+
+
+            VDRAW.vdCommandAction.ZoomE_Ex(doc_grid);
+
+            #region Web Section
+
+            #endregion Web Section
+        }
+
+        private void btn_gen_grid_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            bool IsGrid = true;
+
+            if (btn == btn_set_model) IsGrid = false; 
 
 
             double B = MyList.StringToDouble(txt_Ana_B);
@@ -10245,7 +10605,10 @@ namespace ASTRAStructures
             double CR = MyList.StringToDouble(txt_Ana_CR);
             double NMG = MyList.StringToDouble(txt_Ana_NMG);
             double NCG = MyList.StringToDouble(txt_Ana_NCG);
+            double R = MyList.StringToDouble(txt_curve_radius);
 
+
+            double hgt = MyList.StringToDouble(cmb_grid_level_val.Text);
 
             
 
@@ -10274,17 +10637,80 @@ namespace ASTRAStructures
             //    0.0, 
             //    Color.Red);
 
+            ht_Lst_X.Clear();
+            ht_Lst_Z.Clear();
 
             foreach (var item in list_z)
             {
-
-                Draw_Curve(doc_grid, "LOL",
-                    MyList.StringToDouble(txt_curve_radius),
-                    MyList.StringToDouble(txt_Ana_L),
-                    item,
-                    0.0,
-                    Color.Red);
+                if (R == 0.0)
+                {
+                    Draw_Straight(doc_grid, IsGrid, MyList.StringToDouble(txt_Ana_L), item, hgt, Color.Red);
+                }
+                else
+                {
+                    Draw_Curve(doc_grid, IsGrid, R, MyList.StringToDouble(txt_Ana_L), item, hgt, Color.Red);
+                }
             }
+
+            gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
+
+
+
+
+            for (int i = 1; i < list_z.Count;i++)
+            {
+
+                var z1 = list_z[i-1];
+                var z2 = list_z[i];
+
+                var lst_X1 = (List<double>) ht_Lst_X[z1];
+                var lst_Z1 = (List<double>)ht_Lst_Z[z1];
+
+                var lst_X2 = (List<double>)ht_Lst_X[z2];
+                var lst_Z2 = (List<double>) ht_Lst_Z[z2];
+
+
+                for (int iCols = 0; iCols < lst_X1.Count; iCols++)
+                {
+
+
+
+                    var pnt1 = new gPoint(lst_X1[iCols], hgt, lst_Z1[iCols]);
+                    var pnt2 = new gPoint(lst_X2[iCols], hgt, lst_Z2[iCols]);
+
+                    if (cmb_grid_plane.SelectedIndex == 0) //X-Y
+                    {
+                        pnt1 = new gPoint(lst_X1[iCols], lst_Z1[iCols], hgt);
+                        pnt2 = new gPoint(lst_X2[iCols], lst_Z2[iCols], hgt);
+                    }
+                    else if (cmb_grid_plane.SelectedIndex == 2) // Y-Z
+                    {
+                        pnt1 = new gPoint(hgt, lst_X1[iCols], lst_Z1[iCols]);
+                        pnt2 = new gPoint(hgt, lst_X2[iCols], lst_Z2[iCols]);
+                    }
+
+
+                    pnt1.x += insPnt.x;
+                    pnt1.y += insPnt.y;
+                    pnt1.z += insPnt.z;
+
+                    pnt2.x += insPnt.x;
+                    pnt2.y += insPnt.y;
+                    pnt2.z += insPnt.z;
+
+                    vdLine ln = new vdLine(doc_grid);
+                    ln.setDocumentDefaults();
+                    ln.StartPoint = pnt1;
+                    ln.EndPoint = pnt2;
+
+                    if (IsGrid) ln.Layer = GRID_LAYER;
+                    else ln.Layer = MODEL_LAYER;
+                    doc_grid.ActiveLayOut.Entities.Add(ln);
+                }
+
+
+            }
+
             doc_grid.ActiveLayer = MODEL_LAYER;
 
             VDRAW.vdCommandAction.View3D_Vrot(doc_grid);
@@ -10596,109 +11022,7 @@ namespace ASTRAStructures
 
         private void btn_Set_grid_Click(object sender, EventArgs e)
         {
-            vdLine vl = new vdLine();
 
-
-            vdLayer vlay = GRID_LAYER;
-
-            vdLayer vlay_model = MODEL_LAYER;
-             
-
-            double level = MyList.StringToDouble(cmb_grid_level_val.Text, 0.0);
-
-            for (int i = 0; i < doc_grid.ActiveLayOut.Entities.Count; i++)
-            {
-                if (doc_grid.ActiveLayOut.Entities[i].Layer.Name == "GRID")
-                {
-                    //doc_grid.ActiveLayOut.Entities[i].Deleted = true;
-                }
-                //else if (doc_grid.ActiveLayOut.Entities[i].Layer.Name == "MODEL")
-                //{
-                //    //doc_grid.ActiveLayOut.Entities[i].Deleted = true;
-
-                //}
-                else if (doc_grid.ActiveLayOut.Entities[i].Deleted != true)
-                {
-                    if (doc_grid.ActiveLayOut.Entities[i].Layer.Name == "MODEL")
-                    {
-                        if (!chk_withAll.Checked) continue;
-                    }
-
-                    try
-                    {
-                        vdLine fig = (vdLine)doc_grid.ActiveLayOut.Entities[i];
-
-
-                        if (fig != null)
-                        {
-                            fig.Layer = vlay_model;
-
-                            vl = new vdLine(doc_model);
-                            vl.setDocumentDefaults();
-                            vl.StartPoint = fig.StartPoint;
-                            vl.EndPoint = fig.EndPoint;
-
-                            if (cmb_grid_level_of.SelectedIndex == 2)
-                            {
-                                vl.StartPoint.z = level;
-                                vl.EndPoint.z = level;
-                            }
-                            else if (cmb_grid_level_of.SelectedIndex == 1)
-                            {
-                                vl.StartPoint.y = level;
-                                vl.EndPoint.y = level;
-                            }
-                            else 
-                            {
-                                vl.StartPoint.x = level;
-                                vl.EndPoint.x = level;
-                            }
-
-                            doc_model.ActiveLayOut.Entities.Add(vl);
-
-                            fig.Update();
-
-                            //doc_grid.ActiveLayOut.Entities[i].Deleted = true;
-                        }
-                    }
-                    catch (Exception exx) { }
-                }
-            }
-
-
-            doc_grid.ClearEraseItems();
-            doc_grid.Redraw(true);
-            doc_model.Redraw(true);
-            VDRAW.vdCommandAction.View3D_VTop(doc_model);
-            VDRAW.vdCommandAction.ZoomOut_Ex(doc_model);
-
-            if (cmb_grid_plane.SelectedIndex == 0)// X-Y Plane
-            {
-                VDRAW.vdCommandAction.View3D_VTop(doc_grid);
-
-            }
-            if (cmb_grid_plane.SelectedIndex == 1)// X-Z Plane
-            {
-
-                VDRAW.vdCommandAction.View3D_VFront(doc_grid);
-            }
-
-            if (cmb_grid_plane.SelectedIndex == 2)// Y-Z Plane
-            {
-
-                VDRAW.vdCommandAction.View3D_VRight(doc_grid);
-            }
-
-
-
-
-            if (doc_grid != null)
-            {
-                //VDRAW.vdCommandAction.View3D_VTop(doc_grid);
-                if (chk_circular.Checked) doc_grid.osnapMode = OsnapMode.END;
-                else doc_grid.osnapMode = OsnapMode.INTERS;
-                VDRAW.vdCommandAction.LineEx(doc_grid);
-            }
         }
 
         private void chk_grid_ON_CheckedChanged(object sender, EventArgs e)
@@ -10720,16 +11044,24 @@ namespace ASTRAStructures
             for (int i = 0; i < doc_grid.ActiveLayOut.Entities.Count; i++)
             {
                 //if (doc_grid.ActiveLayOut.Entities[i].Layer.Name == "MODEL")
-                    if (doc_grid.ActiveLayOut.Entities[i].Layer.Name == "GRID")
-                    {
+                if (doc_grid.ActiveLayOut.Entities[i].Layer.Name == "GRID")
+                {
                     doc_grid.ActiveLayOut.Entities[i].Deleted = true;
                 }
             }
+
+            doc_grid.ClearEraseItems();
+
             doc_grid.Redraw(true);
 
         }
 
         private void txt_curve_radius_TextChanged(object sender, EventArgs e)
+        {
+            Curve_Changed();
+        }
+
+        private void Curve_Changed()
         {
 
             #region // Calculate Curve Span
@@ -10741,7 +11073,13 @@ namespace ASTRAStructures
             {
                 double theta = MyList.StringToDouble(txt_Ana_L) * 180 / (R * Math.PI);
 
+
+
+
                 txt_curve_angle.Text = theta.ToString("f2");
+
+
+                theta = (MyList.StringToDouble(txt_End_Angle) - MyList.StringToDouble(txt_Start_Angle)); 
 
                 double dvs = MyList.StringToDouble(txt_curve_divs.Text, 0.0);
 

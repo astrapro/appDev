@@ -220,5 +220,30 @@ namespace LimitStateMethod.RccCulvert
 
         }
 
+        private void btn_dwg_box_culvert_multicell_Click(object sender, EventArgs e)
+        {
+            //Box_Culvert_Single_Cell =Culvert\RCC Box Culvert Drawings\Single Cell Box Culvert
+            //Box_Culvert_Double_Cell =Culvert\RCC Box Culvert Drawings\Double Cell Box Culvert
+            //Box_Culvert_3_Cell =Culvert\RCC Box Culvert Drawings\Tripple Cell Box Culvert
+
+            Button btn = sender as Button;
+
+            string exl_file = uC_BoxCulvert1.Excel_File();
+
+
+           
+            if (btn.Name == btn_dwg_box_culvert_multicell.Name)
+            {
+                if (rbtn_dwg_multi_without_earth_cusion.Checked)
+                {
+                    iApp.Form_Drawing_Editor(eBaseDrawings.RCC_CULVERT_BOX_MULTICELL_WITHOUT_EARTH_CUSION, Path.Combine(user_path, "DRAWINGS"), exl_file).ShowDialog();
+                }
+                else
+                {
+                    iApp.Form_Drawing_Editor(eBaseDrawings.RCC_CULVERT_BOX_MULTICELL_WITH_EARTH_CUSION, Path.Combine(user_path, "DRAWINGS"), exl_file).ShowDialog();
+                }
+            }
+        }
+
     }
 }

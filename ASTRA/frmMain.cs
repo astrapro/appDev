@@ -585,7 +585,6 @@ namespace AstraFunctionOne
                 //tsmi_cableCarTower.Visible = false;
 
 
-
                 //tsmi_PSC_I_GIRDER_Program.Visible = false;
                 //tsmi_RCC_Culverts_LS.Visible = false;
                 //tsmi_RCC_Culverts_WS.Visible = false;
@@ -593,6 +592,12 @@ namespace AstraFunctionOne
 
 
 
+                //tsmi_streamHydrology
+
+                tsmi_Process_Design.DropDownItems.Remove(tsmi_streamHydrology);
+                tsmi_Bridge_Design.DropDownItems.Insert(tsmi_Bridge_Design.DropDownItems.Count - 2, tsmi_streamHydrology);
+                tsmi_structureModeling.Visible = false;
+                tsmi_research_Studies.Visible = false;
                 //tsmi_workingFolder.Visible = false;
                 tsmi_openAnalysisExampleTXTDataFile.Visible = true;
 
@@ -2964,7 +2969,7 @@ namespace AstraFunctionOne
 
         public void SetApp_Structure(string filePath, bool IsOpenMovingLoad)
         {
-
+            AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath);
         }
         public void SetApp_Structure(string filePath, string feature)
         {
@@ -5270,7 +5275,6 @@ namespace AstraFunctionOne
             }
         }
 
-
         public Form Form_Drawing_Editor(eBaseDrawings DrawingType, string drawing_path, string report_file)
         {
 
@@ -5367,7 +5371,7 @@ namespace AstraFunctionOne
         {
             //ShowTimerScreen(eASTRAImage.Cable_Car_Tower);
             //ASTRAStructures.frmStructureModeling frm2 = new ASTRAStructures.frmStructureModeling(this, eASTRADesignType.Structure_Modeling);
-            ASTRAStructures.frm_Structure3D frm2 = new ASTRAStructures.frm_Structure3D(this, eASTRADesignType.Structure_Modeling);
+            ASTRAStructures.frmStructure3D frm2 = new ASTRAStructures.frmStructure3D(this, eASTRADesignType.Structure_Modeling);
             frm2.Owner = this;
             frm2.Show();
         }

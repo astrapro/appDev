@@ -163,8 +163,8 @@
   <data name="Cont_PSC_Box_Girder_Section1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Cont_PSC_Box_Girder_Section1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="T_Girder_Outer_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\T_Girder_Outer_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Multicell_Box_Culvert_Pressure_fig2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Multicell_Box_Culvert_Pressure_fig2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SLAB Culvert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SLAB Culvert.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,6 +229,9 @@
   <data name="T_Girder_Cross_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\T_Girder_Cross_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="AbutmentPileDiagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbutmentPileDiagram.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ABUTMENT DESIGN GENERAL DATA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ABUTMENT DESIGN GENERAL DATA.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -283,9 +286,6 @@
   <data name="Channel Section2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Channel Section2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Multicell_Box_Culvert_Pressure_fig2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Multicell_Box_Culvert_Pressure_fig2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PierPile Foundation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PierPile Foundation.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -313,8 +313,8 @@
   <data name="Builtup_Long" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Builtup_Long.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RE_Wall_Fig_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RE_Wall_Fig_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="T_Girder_Outer_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T_Girder_Outer_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AbutmentPileFdn3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AbutmentPileFdn3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,8 +373,11 @@
   <data name="PSC Girder End Span Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC Girder End Span Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RE_Wall_Fig_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RE_Wall_Fig_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="AbutmentPileDiagram" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AbutmentPileDiagram.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AbutmentWallType" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AbutmentWallType.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

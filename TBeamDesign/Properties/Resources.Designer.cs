@@ -143,6 +143,16 @@ namespace BridgeAnalysisDesign.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AbutmentWallType {
+            get {
+                object obj = ResourceManager.GetObject("AbutmentWallType", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Angle_Section1 {
             get {
                 object obj = ResourceManager.GetObject("Angle Section1", resourceCulture);

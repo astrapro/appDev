@@ -36,10 +36,6 @@
             this.btn_deck_slab_Drawing = new System.Windows.Forms.Button();
             this.btn_abutment_Drawing = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_abutment_open = new System.Windows.Forms.Button();
-            this.btn_abutment_process = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_new_design = new System.Windows.Forms.Button();
@@ -368,9 +364,9 @@
             this.btn_RCC_Pier_Process = new System.Windows.Forms.Button();
             this.btn_RCC_Pier_Report = new System.Windows.Forms.Button();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
+            this.uC_Abut_Cant1 = new BridgeAnalysisDesign.Abutment.UC_Abut_Cant();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -457,8 +453,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.uC_RCC_Abut1);
-            this.tabPage2.Controls.Add(this.panel1);
+            this.tabPage2.Controls.Add(this.uC_Abut_Cant1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -466,52 +461,6 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "RCC Abutment";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // uC_RCC_Abut1
-            // 
-            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_RCC_Abut1.iApp = null;
-            this.uC_RCC_Abut1.Is_Individual = true;
-            this.uC_RCC_Abut1.Is_Limit_State = false;
-            this.uC_RCC_Abut1.IsBoxType = true;
-            this.uC_RCC_Abut1.Length = 60D;
-            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
-            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
-            this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(942, 592);
-            this.uC_RCC_Abut1.TabIndex = 2;
-            this.uC_RCC_Abut1.Width = 12D;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btn_abutment_open);
-            this.panel1.Controls.Add(this.btn_abutment_process);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 595);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(942, 45);
-            this.panel1.TabIndex = 1;
-            // 
-            // btn_abutment_open
-            // 
-            this.btn_abutment_open.Location = new System.Drawing.Point(456, 5);
-            this.btn_abutment_open.Name = "btn_abutment_open";
-            this.btn_abutment_open.Size = new System.Drawing.Size(185, 34);
-            this.btn_abutment_open.TabIndex = 1;
-            this.btn_abutment_open.Text = "Open Design";
-            this.btn_abutment_open.UseVisualStyleBackColor = true;
-            this.btn_abutment_open.Click += new System.EventHandler(this.btn_abutment_open_Click);
-            // 
-            // btn_abutment_process
-            // 
-            this.btn_abutment_process.Location = new System.Drawing.Point(265, 5);
-            this.btn_abutment_process.Name = "btn_abutment_process";
-            this.btn_abutment_process.Size = new System.Drawing.Size(185, 34);
-            this.btn_abutment_process.TabIndex = 2;
-            this.btn_abutment_process.Text = "Process Design";
-            this.btn_abutment_process.UseVisualStyleBackColor = true;
-            this.btn_abutment_process.Click += new System.EventHandler(this.btn_abutment_process_Click);
             // 
             // tabPage1
             // 
@@ -4081,6 +4030,16 @@
             this.btn_RCC_Pier_Report.UseVisualStyleBackColor = true;
             this.btn_RCC_Pier_Report.Click += new System.EventHandler(this.btn_RccPier_Report_Click);
             // 
+            // uC_Abut_Cant1
+            // 
+            this.uC_Abut_Cant1.Dead_Load_Reactions = "1635.12";
+            this.uC_Abut_Cant1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Abut_Cant1.Length = "7.900";
+            this.uC_Abut_Cant1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Abut_Cant1.Name = "uC_Abut_Cant1";
+            this.uC_Abut_Cant1.Size = new System.Drawing.Size(942, 637);
+            this.uC_Abut_Cant1.TabIndex = 2;
+            // 
             // frm_MinorBridge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4095,7 +4054,6 @@
             this.Load += new System.EventHandler(this.frmSlabCulvert_Load);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
@@ -4201,9 +4159,6 @@
         private System.Windows.Forms.FolderBrowserDialog fbd;
         private System.Windows.Forms.Button btn_deck_slab_Drawing;
         private System.Windows.Forms.Button btn_abutment_Drawing;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_abutment_open;
-        private System.Windows.Forms.Button btn_abutment_process;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btn_new_design;
         private System.Windows.Forms.Button btn_browse_design;
@@ -4212,7 +4167,6 @@
         private System.Windows.Forms.Button btn_pier_Drawing;
         private System.Windows.Forms.Button btn_cfort_abut_Drawing;
         private System.Windows.Forms.Button btn_cant_abut_Drawing;
-        private Abutment.UC_RCC_Abut uC_RCC_Abut1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tab_des_form1;
@@ -4468,6 +4422,7 @@
         private System.Windows.Forms.Label label182;
         private System.Windows.Forms.TextBox txt_pier_2_sdia;
         private System.Windows.Forms.Label label181;
+        private Abutment.UC_Abut_Cant uC_Abut_Cant1;
 
     }
 }

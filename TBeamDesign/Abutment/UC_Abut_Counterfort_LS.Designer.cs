@@ -621,6 +621,7 @@
             // 
             // btn_Excel_Notes
             // 
+            this.btn_Excel_Notes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_Excel_Notes.Location = new System.Drawing.Point(16, 565);
             this.btn_Excel_Notes.Name = "btn_Excel_Notes";
             this.btn_Excel_Notes.Size = new System.Drawing.Size(172, 33);

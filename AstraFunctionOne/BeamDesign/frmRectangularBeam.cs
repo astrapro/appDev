@@ -358,7 +358,7 @@ namespace AstraFunctionOne.BeamDesign
                 dptr.WriteLine();
                 dptr.WriteLine();
                 dptr.WriteLine("\t\t*****************************************************");
-                dptr.WriteLine("\t\t*              ASTRA Pro Release 21                  *");
+                dptr.WriteLine("\t\t*              ASTRA Pro Release 22                  *");
                 dptr.WriteLine("\t\t*         TechSOFT Engineering Services             *");
                 dptr.WriteLine("\t\t*                                                   *");
                 dptr.WriteLine("\t\t*  DESIGN OF CONTINUOUS BEAM AND SUBFRAME ANALYSIS  *");

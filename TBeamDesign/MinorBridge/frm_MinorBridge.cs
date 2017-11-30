@@ -327,7 +327,7 @@ namespace BridgeAnalysisDesign.MinorBridge
                 //sw.WriteLine("----------------------------------------------------------------------------------------------");
                 //sw.WriteLine("----------------------------------------------------------------------------------------------");
                 sw.WriteLine("\t\t***********************************************");
-                sw.WriteLine("\t\t*            ASTRA Pro Release 21             *");
+                sw.WriteLine("\t\t*            ASTRA Pro Release 22             *");
                 sw.WriteLine("\t\t*        TechSOFT Engineering Services        *");
                 sw.WriteLine("\t\t*                                             *");
                 sw.WriteLine("\t\t*   DESIGN OF MINOR BRIDGE / RCC SLAB BRIDGE  *");
@@ -1232,9 +1232,8 @@ namespace BridgeAnalysisDesign.MinorBridge
             //uC_Abut1.Is_Box_Type = false;
             Load_Abutment_Inputs();
             //iApp.user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            uC_RCC_Abut1.iApp = iApp;
+            uC_Abut_Cant1.iApp = iApp;
 
-            uC_RCC_Abut1.Load_Data();
 
 
             #region RCC Pier

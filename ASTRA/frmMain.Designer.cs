@@ -1290,14 +1290,14 @@
             // tsmi_minor_Bridge_ls
             // 
             this.tsmi_minor_Bridge_ls.Name = "tsmi_minor_Bridge_ls";
-            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(197, 22);
-            this.tsmi_minor_Bridge_ls.Text = "Limit State Method";
+            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(204, 22);
+            this.tsmi_minor_Bridge_ls.Text = "Limit State Method (IRC)";
             this.tsmi_minor_Bridge_ls.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
             // tsmi_minor_Bridge_ws
             // 
             this.tsmi_minor_Bridge_ws.Name = "tsmi_minor_Bridge_ws";
-            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(204, 22);
             this.tsmi_minor_Bridge_ws.Text = "Working Stress Method";
             this.tsmi_minor_Bridge_ws.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
@@ -1318,14 +1318,14 @@
             // tsmi_RCC_Culverts_LS
             // 
             this.tsmi_RCC_Culverts_LS.Name = "tsmi_RCC_Culverts_LS";
-            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(197, 22);
-            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method";
+            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(204, 22);
+            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method (IRC)";
             this.tsmi_RCC_Culverts_LS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
             // tsmi_RCC_Culverts_WS
             // 
             this.tsmi_RCC_Culverts_WS.Name = "tsmi_RCC_Culverts_WS";
-            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(204, 22);
             this.tsmi_RCC_Culverts_WS.Text = "Working Stress Method";
             this.tsmi_RCC_Culverts_WS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 

@@ -391,8 +391,208 @@ namespace AstraAccess.ADOC
 
             uC_CAD1.VDoc.Redraw(true);
         }
+
+        private void btn_gen_members_Click(object sender, EventArgs e)
+        {
+            Generate_Members();
+        }
+
+        public void Generate_Members()
+        {
+            vdDocument doc = uC_CAD1.VDoc;
+            List<vdPolyface> lst = new List<vdPolyface>();
+
+            int i = 0; 
+            for ( i = 0; i < doc.ActiveLayOut.Entities.Count; i++)
+            {
+                vdPolyface pf = doc.ActiveLayOut.Entities[i] as vdPolyface;
+
+                if (pf != null) lst.Add(pf);
+            }
+
+            List<PlateElement> list_plates = new List<PlateElement>();
+
+            for (i = 0; i < lst.Count; i++)
+            {
+                list_plates.Add(new PlateElement(lst[i]));
+
+                //pf.Layer
+            }
+
+            iApp.Progress_ON("Reading Coordinates....");
+            for (i = 0; i < list_plates.Count; i++)
+            {
+                var pl = list_plates[i];
+
+                Add_Joint(pl.Node1);
+                Add_Joint(pl.Node2);
+                Add_Joint(pl.Node3);
+                Add_Joint(pl.Node4);
+
+                
+                Add_Beam(pl.Node1.NodeNo, pl.Node2.NodeNo);
+                Add_Beam(pl.Node2.NodeNo, pl.Node3.NodeNo);
+                Add_Beam(pl.Node3.NodeNo, pl.Node4.NodeNo);
+                Add_Beam(pl.Node1.NodeNo, pl.Node4.NodeNo);
+
+
+                iApp.SetProgressValue(i, list_plates.Count);
+
+            }
+
+            iApp.Progress_OFF();
+
+
+
+            List<string> list = new List<string>();
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("ASTRA SPACE EXAMPLE WITH FRAME AND FINITE ELEMENT"));
+            list.Add(string.Format("UNIT FT KIP"));
+            list.Add(string.Format("JOINT COORD"));
+            foreach (var item in jntCol)
+            {
+                list.Add(item.ToString());
+            }
+            int c = 1;
+
+            list.Add(string.Format("MEMB INCI"));
+            foreach (var itm in beamCol)
+            {
+                list.Add(string.Format("{0} {1} {2}", itm.BeamNo, itm.Start_Node, itm.End_Node));
+            }
+            //list.Add(string.Format("1 1 3 ; 2 2 4 ; 3 9 11 ; 4 10 12"));
+            //list.Add(string.Format("5 3 7 ; 6 7 11 ; 7 4 8 ; 8 8 12"));
+            //list.Add(string.Format("9 3 4 ; 10 7 8 ; 11 11 12"));
+            list.Add(string.Format("ELEMENT CONNECTIVITY"));
+            foreach (var itm in list_plates)
+            {
+                itm.PlateNo = c++;
+                list.Add(string.Format("{0} {1} {2} {3} {4}", itm.PlateNo, itm.Node1.NodeNo, itm.Node2.NodeNo, itm.Node3.NodeNo, itm.Node4.NodeNo));
+            }
+            //list.Add(string.Format("1 5 6 8 7"));
+            //list.Add(string.Format("2 3 4 8 7"));
+            //list.Add(string.Format("3 7 8 12 11"));
+            list.Add(string.Format("FINISH"));
+
+
+            string file_ortho = System.IO.Path.Combine(iApp.user_path, "Orthotropic Analysis");
+            if (!System.IO.Directory.Exists(file_ortho)) System.IO.Directory.CreateDirectory(file_ortho);
+
+            file_ortho = System.IO.Path.Combine(file_ortho, "Orthotropic_Input.txt");
+
+            System.IO.File.WriteAllLines(file_ortho, list.ToArray());
+
+            System.Diagnostics.Process.Start(file_ortho);
+        }
+        JointNodeCollection jntCol = new JointNodeCollection();
+        List<BeamElement> beamCol = new List<BeamElement>();
+
+        void Add_Joint(JointNode nt)
+        {
+            try
+            {
+                var j = jntCol.GetJoints(nt.X, nt.Y, nt.Z, "f4");
+                nt.NodeNo = j.NodeNo;
+
+                return;
+            }
+            catch (Exception exx)
+            {
+            }
+            nt.NodeNo = jntCol.Count + 1;
+            jntCol.Add(nt);
+
+        }
+
+
+        void Add_Beam(int Node1, int Node2)
+        {
+            try
+            {
+                foreach (var item in beamCol)
+                {
+                    if(item.End_Node == Node2 && item.End_Node == Node2)
+                    {
+                        return;
+
+                    }
+                }
+
+            }
+            catch (Exception exx)
+            {
+            }
+
+            BeamElement bm = new BeamElement();
+            bm.BeamNo = beamCol.Count + 1;
+            bm.Start_Node = Node1;
+            bm.End_Node = Node2;
+
+            beamCol.Add(bm);
+        }
+
     }
 
+
+    public class PlateElement
+    {
+        public int PlateNo { get; set; }
+        public JointNode Node1 { get; set; }
+        public JointNode Node2 { get; set; }
+        public JointNode Node3 { get; set; }
+        public JointNode Node4 { get; set; }
+
+
+        public PlateElement()
+        {
+            PlateNo = 0;
+            Node1 = new JointNode();
+            Node2 = new JointNode();
+            Node3 = new JointNode();
+            Node4 = new JointNode();
+        }
+
+        public PlateElement(vdPolyface pf)
+        {
+            PlateNo = 0;
+
+            if (pf.Layer.Name.ToUpper().StartsWith("WEB") || pf.Layer.Name.ToUpper().StartsWith("SIDE"))
+            {
+                Node1 = new JointNode(pf.VertexList[0].x, pf.VertexList[0].y, pf.VertexList[0].z);
+                Node2 = new JointNode(pf.VertexList[4].x, pf.VertexList[4].y, pf.VertexList[4].z);
+                Node3 = new JointNode(pf.VertexList[7].x, pf.VertexList[7].y, pf.VertexList[7].z);
+                Node4 = new JointNode(pf.VertexList[3].x, pf.VertexList[3].y, pf.VertexList[3].z);
+            }
+            else
+            {
+                Node1 = new JointNode(pf.VertexList[0].x, pf.VertexList[0].y, pf.VertexList[0].z);
+                Node2 = new JointNode(pf.VertexList[1].x, pf.VertexList[1].y, pf.VertexList[1].z);
+                Node3 = new JointNode(pf.VertexList[2].x, pf.VertexList[2].y, pf.VertexList[2].z);
+                Node4 = new JointNode(pf.VertexList[3].x, pf.VertexList[3].y, pf.VertexList[3].z);
+            }
+        }
+    }
+    public class BeamElement
+    {
+
+        public int BeamNo { get; set; }
+        public int Start_Node { get; set; }
+        public int End_Node { get; set; }
+        //public JointNode Start_Node { get; set; }
+        //public JointNode End_Node { get; set; }
+
+        public BeamElement()
+        {
+            BeamNo = 0;
+            //Start_Node = new JointNode();
+            //End_Node = new JointNode();
+            Start_Node = 0;
+            End_Node = 0;
+        }
+    }
     public class SectionElement
     {
 
@@ -793,9 +993,6 @@ namespace AstraAccess.ADOC
                 vdoc.ActiveLayOut.Entities.Add(pf);
             }
             #endregion Bottom Flange Section
-
-            vdoc.Redraw(true);
-
 
             vdoc.Redraw(true);
         }
@@ -2199,10 +2396,7 @@ namespace AstraAccess.ADOC
 
                     #endregion Web Section
                 }
-
             }
-
-        
         }
         public void Draw_Curve(vdDocument vdoc, string sectionName, double Thickness, double depth, double hgt)
         {
@@ -2210,10 +2404,7 @@ namespace AstraAccess.ADOC
         }
         public void Draw_Curve(vdDocument vdoc, string sectionName, double Thickness, double depth, double hgt, Color c)
         {
-
-
             Draw_Curve(vdoc, sectionName, Thickness, depth, L, Z, hgt, c); return;
-
 
 
             vdLayer ly = Add_Layer(vdoc, sectionName, c);
@@ -2261,7 +2452,6 @@ namespace AstraAccess.ADOC
                 var pnt3 = new gPoint(lst_x2[iCols], hgt, lst_z2[iCols]);
 
                 Add_Web(vdoc, pnt1, pnt2, pnt3, pnt4, depth, c);
-
             }
 
             #region Web Section
@@ -2290,7 +2480,8 @@ namespace AstraAccess.ADOC
             //gPoint endPnt = new gPoint(X + L, Y, Z);
 
 
-            int _Columns = 100;
+            //int _Columns = 100;
+            int _Columns = 10;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
@@ -2319,10 +2510,8 @@ namespace AstraAccess.ADOC
 
             for (int iCols = 1; iCols < lst_x2.Count; iCols++)
             {
-
                 //var pnt1 = new gPoint(lst_x[iCols - 1], Y, lst_z[iCols - 1]);
                 //var pnt2 = new gPoint(lst_x[iCols], Y, lst_z[iCols]);
-
 
                 //var pnt3 = new gPoint(lst_x2[iCols - 1], Y, lst_z2[iCols - 1]);
                 //var pnt4 = new gPoint(lst_x2[iCols], Y, lst_z2[iCols]);
@@ -2347,8 +2536,6 @@ namespace AstraAccess.ADOC
             #endregion Web Section
         }
 
-
-
         public void Draw_Curve_Cross(vdDocument vdoc, string sectionName, double Thickness, double depth, double length, double z, double hgt, Color c)
         {
             vdLayer ly = Add_Layer(vdoc, sectionName, c);
@@ -2359,7 +2546,7 @@ namespace AstraAccess.ADOC
             //gPoint endPnt = new gPoint(X + L, Y, Z);
 
 
-            int _Columns = 12;
+            int _Columns = 10;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
