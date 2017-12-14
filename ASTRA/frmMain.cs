@@ -235,8 +235,8 @@ namespace AstraFunctionOne
             {
                 flPath = value;
 
-                if (LastDesignWorkingFolder == "")
-                    LastDesignWorkingFolder = WorkingFolder;
+                //if (LastDesignWorkingFolder == "")
+                //LastDesignWorkingFolder = WorkingFolder;
 
                 string tst = flPath;
 
@@ -593,11 +593,27 @@ namespace AstraFunctionOne
 
 
                 //tsmi_streamHydrology
+                if (true)//true if ASTRA Pro Version 22 V1, false  if ASTRA Pro Version 22 V2
+                {
+                    //tsmi_Process_Design.DropDownItems.Remove(tsmi_streamHydrology);
+                    //tsmi_Bridge_Design.DropDownItems.Insert(tsmi_Bridge_Design.DropDownItems.Count - 2, tsmi_streamHydrology);
+                    //tsmi_structureModeling.Visible = false;
+                    //tsmi_research_Studies.Visible = false;
 
-                tsmi_Process_Design.DropDownItems.Remove(tsmi_streamHydrology);
-                tsmi_Bridge_Design.DropDownItems.Insert(tsmi_Bridge_Design.DropDownItems.Count - 2, tsmi_streamHydrology);
-                tsmi_structureModeling.Visible = false;
-                tsmi_research_Studies.Visible = false;
+
+                    mns_ASTRA_menues.Items.Remove(tsmi_research_Studies);
+                    tsmi_research_Studies.DropDownItems.Remove(tsmi_streamHydrologyResearch);
+
+
+                    tsmi_Process_Design.DropDownItems.Add(tsmi_research_Studies);
+                    tsmi_Hydraulic_Calculations.DropDownItems.Add(tsmi_streamHydrology);
+
+
+                    tsmi_process_analysis.DropDownItems.Add(tsmi_structureModeling);
+
+                }
+
+
                 //tsmi_workingFolder.Visible = false;
                 tsmi_openAnalysisExampleTXTDataFile.Visible = true;
 
@@ -2760,7 +2776,7 @@ namespace AstraFunctionOne
         {
             get
             {
-
+                if (!File.Exists(flPath)) return "";
                 return Path.GetDirectoryName(flPath);
             }
             set
@@ -4727,7 +4743,7 @@ namespace AstraFunctionOne
                         TEXT_File = sfd.FileName;
                         flPath = sfd.FileName;
 
-                        LastDesignWorkingFolder = Path.GetDirectoryName(flPath);
+                        //LastDesignWorkingFolder = Path.GetDirectoryName(flPath);
                         List<string> list = new List<string>();
                         list.Add(string.Format(""));
                         list.Add(string.Format(""));
@@ -4794,7 +4810,7 @@ namespace AstraFunctionOne
                         SAP_File = sfd.FileName;
                         flPath = sfd.FileName;
 
-                        LastDesignWorkingFolder = Path.GetDirectoryName(flPath);
+                        //LastDesignWorkingFolder = Path.GetDirectoryName(flPath);
                         List<string> list = new List<string>();
                         list.Add(string.Format(""));
                         File.WriteAllLines(flPath, list.ToArray());
@@ -4840,7 +4856,7 @@ namespace AstraFunctionOne
                             File.WriteAllText(Drawing_File, "");
                         }
 
-                        LastDesignWorkingFolder = Path.GetDirectoryName(Drawing_File);
+                        //LastDesignWorkingFolder = Path.GetDirectoryName(Drawing_File);
                         System.Environment.SetEnvironmentVariable("OPENFILE", Drawing_File);
                         RunViewer();
                     }
@@ -5206,7 +5222,8 @@ namespace AstraFunctionOne
 
             if (tsmi.Name == tsmi_rcc_structure_design.Name)
             {
-                AstraAccess.ViewerFunctions.Form_ASTRA_Structure_Input_Data(LastDesignWorkingFolder, false).Show();
+                //AstraAccess.ViewerFunctions.Form_ASTRA_Structure_Input_Data( LastDesignWorkingFolder, false).Show();
+                AstraAccess.ViewerFunctions.Form_ASTRA_Structure_Input_Data(this, LastDesignWorkingFolder).Show();
             }
             else if (tsmi.Name == tsmi_tunnel_design.Name)
             {

@@ -59,9 +59,10 @@ namespace AstraAccess
             frm.Set_SAP_Data(new frm_ASTRA_Inputs.dWrite_Data_to_File(app.Write_Data_to_File));
             return frm;
         }
-        public static Form Form_ASTRA_Structure_Input_Data(string working_folder, bool IsDrawingFile)
+        public static Form Form_ASTRA_Structure_Input_Data(IApplication app, string working_folder)
         {
             frm_StructureDesign frm = new frm_StructureDesign();
+            frm.StageAnalysisForm = Form_Stage_Analysis(app);
             frm.Working_Folder = working_folder;
             frm.LastDesignWorkingFolder = working_folder;
             return frm;

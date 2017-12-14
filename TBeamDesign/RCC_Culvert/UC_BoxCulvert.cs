@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -19,10 +20,19 @@ namespace BridgeAnalysisDesign.RCC_Culvert
     {
         IApplication iApp;
 
+        public event EventHandler OnButtonProceed;
+
+
+        //Box_Culvert_Model box = new Box_Culvert_Model(5, 8, 7);
+        Box_Culvert_Model MultiCell_Box_Model { get; set; }
+        Box_Culvert_Model SingleCell_Box_Model { get; set; }
+
         public UC_BoxCulvert()
         {
             InitializeComponent();
             sc1.Panel2Collapsed = true;
+
+
             Load_Default_Data_Single_Cell();
             Load_Default_Data_Multi_Cell();
             Button_Enable_Disable();
@@ -156,6 +166,10 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             list.Add(string.Format("Grade of shear reinforcement$500$N/mm²"));
             list.Add(string.Format("$$"));
             list.Add(string.Format("Modulus of elasticity of Steel$200000000$N/m²"));
+            list.Add(string.Format("Design Levels$$"));
+            list.Add(string.Format("Formation road level$263.335$m"));
+            list.Add(string.Format("Highest Flood level$260.660$m"));
+            list.Add(string.Format("Foundation level$258.259$m"));
             //dgv = dgv_input_data;
 
 
@@ -289,6 +303,8 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                             (i == 26) ||
                             (i == 30) ||
                             (i == 33) ||
+                            (i == 38) ||
+                            (i == 45) ||
                             (i == 47) ||
                             (i == 48) ||
                             (i == 51) ||
@@ -303,29 +319,360 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                         else
                         {
 
-                            if (rindx == 60)
-                            {
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                            //if (rindx == 60)
+                            //{
+                            //    myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("M", "").Trim().ToString();
 
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                            }
-                            else if (rindx == 61)
-                            {
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("FE", "").Trim().ToString();
-                            }
-                            else
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            //    //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                            //}
+                            //else if (rindx == 61)
+                            //{
+                            //    //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                            //    myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("FE", "").Trim().ToString();
+                            //}
+                            //else
+                            myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
 
                         }
-
-                        while (dips[rindx].DATA == "") rindx++;
+                        if (rindx < dips.Count)
+                            while (dips[rindx].DATA == "") rindx++;
                     }
                     #endregion Design Data
 
 
-                    rindx = 0;
+                    if (true)
+                    {
+                        #region Analysis Results
+                        rindx = 0;
 
+
+                        myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Summary of loads"];
+
+
+
+                        BC_Results BR = new BC_Results(Result_File);
+
+
+
+
+                        BC_Table bt = BR[0];
+
+                        List<string> cells = new List<string>();
+
+
+
+                        cells.Add("C");
+                        cells.Add("D");
+                        cells.Add("E");
+                        cells.Add("F");
+                        cells.Add("G");
+                        cells.Add("H");
+                        cells.Add("I");
+                        cells.Add("J");
+                        cells.Add("K");
+                        cells.Add("L");
+                        cells.Add("M");
+                        cells.Add("N");
+                        cells.Add("O");
+
+
+                        #region Top Slab
+                        bt = BR[0];
+
+                        #region Top Slab 1 Bending Moment
+                        rindx = 0;
+                        for (i = 9; i <= 19; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+                        bt = BR[1];
+
+
+                        #region Top Slab 2 Bending Moment
+                        rindx = 0;
+                        for (i = 24; i <= 34; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 2 Bending Moment
+
+
+                        bt = BR[2];
+
+                        #region Top Slab 1 Shear Force
+                        rindx = 0;
+
+                        for (i = 55; i <= 65; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion  Top Slab 1 Shear Force
+
+                        bt = BR[3];
+
+                        #region Top Slab 2 Shear Force
+                        rindx = 0;
+
+                        for (i = 70; i <= 80; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion  Top Slab 1 Shear Force
+                        #endregion Top Slab
+
+
+                        #region Side Wall
+
+                        bt = BR[4];
+
+                        #region Side Wall 1 Bending Moment
+                        rindx = 0;
+                        for (i = 861; i <= 871; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+                        bt = BR[5];
+
+                        #region Side Wall 2 Bending Moment
+                        rindx = 0;
+                        for (i = 906; i <= 916; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+
+                        bt = BR[6];
+
+                        #region Side Wall 1 Shear Force
+                        rindx = 0;
+                        for (i = 922; i <= 932; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+                        bt = BR[7];
+
+                        #region Side Wall 2 Shear Force
+                        rindx = 0;
+                        for (i = 968; i <= 978; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+                        #endregion Side Wall
+
+                        #region Inner Wall
+
+                        bt = BR[8];
+
+                        #region Inner Wall 1 Bending Moment
+                        rindx = 0;
+                        for (i = 876; i <= 886; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+
+                        bt = BR[9];
+
+                        #region Inner Wall 1 Shear Force
+                        rindx = 0;
+                        for (i = 937; i <= 947; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+                        #endregion Inner Wall
+
+                        bt = BR[10];
+
+                        #region Bottom Slab 1 Bending Moment
+                        rindx = 0;
+                        for (i = 1990; i <= 1992; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+                        bt = BR[11];
+
+                        #region Bottom Slab 2 Bending Moment
+                        rindx = 0;
+                        for (i = 1997; i <= 1999; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+                        bt = BR[12];
+
+                        #region Bottom Slab 1 Shear Force
+                        rindx = 0;
+                        for (i = 2012; i <= 2014; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Bottom Slab 1 Shear Force
+
+                        bt = BR[13];
+
+                        #region Bottom Slab 2 Shear Force
+                        rindx = 0;
+                        for (i = 2019; i <= 2021; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Bottom Slab 1 Shear Force
+
+                        #endregion Analysis Results
+                    }
                 }
 
             }
@@ -407,8 +754,8 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
 
                 //if (false)
-                    if (true)
-                    {
+                if (true)
+                {
                     List<string> list = new List<string>();
 
 
@@ -417,7 +764,6 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                     int rindx = 0;
                     int i = 0;
 
-
                     #region Design Data
                     myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Design Data"];
 
@@ -425,7 +771,7 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
                     dgv = dgv_design_data_single;
 
-                       
+
 
                     DataInputCollections dips = new DataInputCollections();
 
@@ -442,39 +788,250 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                             (i == 22) ||
                             (i >= 30 && i <= 32) ||
                             (i >= 35 && i <= 39) ||
- 
+
                             (i == 41) ||
-                            (i == 42) 
+                            (i == 42)
                            )
                         {
                             continue;
                         }
                         else
                         {
+                            myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
 
-                            if (rindx == 60)
+                            if (rindx < dips.Count)
                             {
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("M", "").Trim().ToString();
-
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
+                                while (dips[rindx].DATA == "")
+                                    rindx++;
                             }
-                            else if (rindx == 61)
-                            {
-                                //myExcelWorksheet.get_Range("E" + i).Formula = dips[rindx].DATA.ToUpper().Replace("M", "").Trim().ToString();
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToUpper().Replace("FE", "").Trim().ToString();
-                            }
-                            else
-                                myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
-
-                            while (dips[rindx].DATA == "")
-                                rindx++;
                         }
                     }
+
+
                     #endregion Design Data
+
+                    #region Analysis Report
+
+
+
+                    #region Analysis Results
+                    rindx = 0;
+
+
+                    myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Summary of loads"];
+
+
+
+
+                    BC_Results BR = new BC_Results(Result_File);
+
+
+
+
+                    BC_Table bt = BR[0];
+
+                    List<string> cells = new List<string>();
+
+
+
+                    cells.Add("C");
+                    cells.Add("D");
+                    cells.Add("E");
+                    cells.Add("F");
+                    cells.Add("G");
+                    cells.Add("H");
+                    cells.Add("I");
+                    cells.Add("J");
+                    cells.Add("K");
+                    cells.Add("L");
+                    cells.Add("M");
+                    cells.Add("N");
+                    cells.Add("O");
+
+
+                    #region Top Slab
+
+
+                    #region Top Slab 1 Bending Moment
+                    rindx = 0;
+                    for (i = 6; i <= 16; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Top Slab 1 Bending Moment
+
+
+                    bt = BR[1];
+
+                    #region Top Slab 1 Shear Force
+                    rindx = 0;
+
+                    for (i = 22; i <= 32; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion  Top Slab 1 Shear Force
+
+
+                    #endregion Top Slab
+
+
+                    #region Side Wall
+
+                    bt = BR[2];
+
+                    #region Side Wall 1 Bending Moment
+                    rindx = 0;
+                    for (i = 223; i <= 233; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Top Slab 1 Bending Moment
+
+                    bt = BR[3];
+
+                    #region Side Wall 2 Bending Moment
+                    rindx = 0;
+                    for (i = 437; i <= 447; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Top Slab 1 Bending Moment
+
+
+
+                    #region Side Wall 1 Shear Force
+
+                    bt = BR[4];
+
 
 
                     rindx = 0;
+                    for (i = 239; i <= 249; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
 
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Top Slab 1 Bending Moment
+
+                    #region Side Wall 2 Shear Force
+
+                    bt = BR[5];
+
+                    rindx = 0;
+                    for (i = 453; i <= 463; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Top Slab 1 Bending Moment
+
+                    #endregion Side Wall
+
+                    bt = BR[6];
+
+                    #region Bottom Slab 1 Bending Moment
+                    rindx = 0;
+                    for (i = 654; i <= 664; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Top Slab 1 Bending Moment
+
+
+                    bt = BR[7];
+
+                    #region Bottom Slab 1 Shear Force
+                    rindx = 0;
+                    for (i = 670; i <= 680; i++)
+                    {
+                        //foreach (var item in cells)
+                        //{
+                        //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                        //}
+
+                        for (int c = 0; c < cells.Count; c++)
+                        {
+                            myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                        }
+                        //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                        rindx++;
+                    }
+                    #endregion Bottom Slab 1 Shear Force
+
+                    #endregion Analysis Results
+
+
+                    #endregion Analysis Report
+                    rindx = 0;
                 }
 
             }
@@ -4885,20 +5442,24 @@ namespace BridgeAnalysisDesign.RCC_Culvert
             {
                 if (File.Exists(Input_File_DL))
                 {
-                    //iApp.Form_ASTRA_Input_Data(Input_File_DL, false).Show();
-                    System.Diagnostics.Process.Start(Input_File_DL);
+                    iApp.Form_ASTRA_TEXT_Data(Input_File_DL, false).Show();
+                    //System.Diagnostics.Process.Start(Input_File_DL);
                 }
             }
             else if (btn == btn_DL_report)
             {
                 if (File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL))) System.Diagnostics.Process.Start(MyList.Get_Analysis_Report_File(Input_File_DL));
             }
+            else if (btn == btn_open_result_summary)
+            {
+                if (File.Exists(Result_File)) System.Diagnostics.Process.Start(Result_File);
+            }
             else if (btn == btn_LL_input)
             {
                 if (File.Exists(Input_File_LL))
                 {
-                    // iApp.Form_ASTRA_Input_Data(Input_File_LL, false).Show();
-                    System.Diagnostics.Process.Start(Input_File_LL);
+                    iApp.Form_ASTRA_TEXT_Data(Input_File_LL, false).Show();
+                    //System.Diagnostics.Process.Start(Input_File_LL);
                 }
             }
             else if (btn == btn_LL_report)
@@ -4906,6 +5467,11 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                 if (File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL))) System.Diagnostics.Process.Start(MyList.Get_Analysis_Report_File(Input_File_LL));
             }
             Button_Enable_Disable();
+
+            if(OnButtonProceed != null)
+            {
+                OnButtonProceed(sender, e);
+            }
         }
 
         public bool Is_Multi_Cell
@@ -4922,18 +5488,55 @@ namespace BridgeAnalysisDesign.RCC_Culvert
         }
         string Input_File_DL = "";
         string Input_File_LL = "";
+
+
+        string Result_File
+        {
+            get
+            {
+                if (rbtn_multi.Checked) return Path.Combine(iApp.user_path, "Multiple_Cell_Result_Summary.txt");
+                return Path.Combine(iApp.user_path, "Single_Cell_Result_Summary.txt");
+            }
+        }
+
         private void rbtn_single_CheckedChanged(object sender, EventArgs e)
         {
             if (rbtn_multi.Checked)
             {
                 sc1.Panel1Collapsed = true;
                 sc1.Panel2Collapsed = false;
+                if(MultiCell_Box_Model!= null)
+                {
+                    rtb_load_data.Lines = MultiCell_Box_Model.DL_Load_Data.ToArray();
+                }
+                else
+                {
+                    rtb_load_data.Text = "";
+                }
             }
             else
             {
                 sc1.Panel1Collapsed = false;
                 sc1.Panel2Collapsed = true;
+                if (SingleCell_Box_Model != null)
+                {
+                    rtb_load_data.Lines = SingleCell_Box_Model.DL_Load_Data.ToArray();
+                }
+                else
+                {
+                    rtb_load_data.Text = "";
+                }
             }
+
+            if(File.Exists(Result_File))
+            {
+                rtb_results.Lines = File.ReadAllLines(Result_File);
+            }
+            else
+            {
+                rtb_results.Text = "";
+            }
+
             Button_Enable_Disable();
             this.Refresh();
         }
@@ -4941,7 +5544,6 @@ namespace BridgeAnalysisDesign.RCC_Culvert
         {
 
             string Working_Folder = "";
-
 
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
             if (iApp.user_path != "")
@@ -4982,13 +5584,72 @@ namespace BridgeAnalysisDesign.RCC_Culvert
 
             if (Is_Multi_Cell)
             {
-                Create_Data_Multicell_DeadLoad();
-                Create_Data_MulticellLiveLoad();
+                //Create_Data_Multicell_DeadLoad();
+                //Create_Data_MulticellLiveLoad();
+
+                MultiCell_Box_Model = new Box_Culvert_Model();
+                DataGridView dgv = dgv_design_data_multi;
+
+                //box.No_of_Cells = dgv_design_data_multi
+
+                DataInputCollections dips = new DataInputCollections();
+
+                dips.Load_Data_from_Grid(dgv);
+
+                MultiCell_Box_Model.No_of_Cells = dips[0].ToInt;
+
+                MultiCell_Box_Model.Width = dips[1].ToDouble;
+                MultiCell_Box_Model.Height = dips[3].ToDouble;
+
+                MultiCell_Box_Model.Top_slab_thickness = dips[23].ToDouble;
+                MultiCell_Box_Model.Bottom_slab_thickness = dips[24].ToDouble;
+                MultiCell_Box_Model.Side_wall_thickness = dips[25].ToDouble;
+                MultiCell_Box_Model.Mid_wall_thickness = dips[26].ToDouble;
+
+                MultiCell_Box_Model.Create_Data_Multicell();
+                MultiCell_Box_Model.Write_Data(Input_File_DL, false);
+                MultiCell_Box_Model.Write_Data(Input_File_LL, true);
+
+                rtb_load_data.Lines = MultiCell_Box_Model.DL_Load_Data.ToArray();
+                //string fl_path = Path.Combine(iApp.user_path, "Analysis_Input_Data.TXT");
+                //File.WriteAllLines(Input_File_DL, MultiCell_Box_Model.Input_Data.ToArray());
+                //File.WriteAllLines(Input_File_LL, MultiCell_Box_Model.Input_Data.ToArray());
             }
             else
             {
-                Create_Data_Singlecell_DeadLoad();
-                Create_Data_Singlecell_LiveLoad();
+                //Create_Data_Singlecell_DeadLoad();
+                //Create_Data_Singlecell_LiveLoad();
+
+
+                SingleCell_Box_Model = new Box_Culvert_Model();
+                DataGridView dgv = dgv_design_data_single;
+
+                //box.No_of_Cells = dgv_design_data_multi
+
+                DataInputCollections dips = new DataInputCollections();
+
+                dips.Load_Data_from_Grid(dgv);
+
+
+                SingleCell_Box_Model.No_of_Cells = dips[0].ToInt;
+
+                SingleCell_Box_Model.Width = dips[1].ToDouble;
+                SingleCell_Box_Model.Height = dips[2].ToDouble;
+
+
+                SingleCell_Box_Model.Top_slab_thickness = dips[14].ToDouble;
+                SingleCell_Box_Model.Bottom_slab_thickness = dips[15].ToDouble;
+                SingleCell_Box_Model.Side_wall_thickness = dips[16].ToDouble;
+
+
+                SingleCell_Box_Model.Create_Data_Singlecell();
+                SingleCell_Box_Model.Write_Data(Input_File_DL, false);
+                SingleCell_Box_Model.Write_Data(Input_File_LL, true);
+                rtb_load_data.Lines = SingleCell_Box_Model.DL_Load_Data.ToArray();
+
+                //string fl_path = Path.Combine(iApp.user_path, "Analysis_Input_Data.TXT");
+                //File.WriteAllLines(Input_File_DL, SingleCell_Box_Model.Input_Data.ToArray());
+                //File.WriteAllLines(Input_File_LL, SingleCell_Box_Model.Input_Data.ToArray());
             }
             MessageBox.Show(this, "Analysis Input Data files are created as \n\n" + Input_File_DL + "\n\n and \n\n" + Input_File_LL, "ASTRA", MessageBoxButtons.OK);
         }
@@ -5067,18 +5728,25 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                     //Deck_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, Deck_Analysis.DeadLoad_Analysis_Report);
 
                     if (!iApp.Is_Progress_Cancel)
-                    {                        //Show_Deckslab_Moment_Shear();
+                    {                        
+                        //Show_Deckslab_Moment_Shear();
+
                     }
                     else
                     {
                         iApp.Progress_Works.Clear();
                         iApp.Progress_OFF();
                         return;
-
                     }
-
                 }
-
+                if (rbtn_multi.Checked)
+                {
+                    Read_Multicell_Bending_Moment_Shear_Force();
+                }
+                else
+                {
+                    Read_Singlecell_Bending_Moment_Shear_Force();
+                }
                 ////grb_create_input_data.Enabled = rbtn_ana_create_analysis_file.Checked;
                 //grb_select_analysis.Enabled = !rbtn_ana_create_analysis_file.Checked;
 
@@ -5094,6 +5762,1618 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                 //Write_All_Data(false);
             }
             catch (Exception ex) { }
+        }
+
+        private void Read_Multicell_Bending_Moment_Shear_Force()
+        {
+            BridgeMemberAnalysis brd = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Input_File_DL));
+            BridgeMemberAnalysis brd1 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Input_File_LL));
+
+            List<int> top_arr = new List<int>();
+            int c = 0;
+            //for (int i = 0; i < 11; i++)
+            //{
+            //    top_arr.Add(Box_Model.jnTop[i].NodeNo);
+            //}
+            List<double> lst_frcs = new List<double>();
+
+            MaxForce mf;
+
+
+            List<List<double>> All_Frcs = new List<List<double>>();
+
+
+            List<string> list = new List<string>();
+
+            #region Top Slab
+
+            #region Top Slab 1 Bending Moment
+
+            List<double> dst = MultiCell_Box_Model.list_Top_X;
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnTop[i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnTop[i].NodeNo);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnTop[i].NodeNo);
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add("");
+            list.Add("");
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 1 : Summary of Bending Moments  for Unfactored Loads (Top Slab 1)"));
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+            list.Add("");
+            list.Add("");
+
+            #region Top Slab 2  Bending Moment
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnTop[10 + i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnTop[10 + i].NodeNo);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnTop[10 + i].NodeNo);
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+
+
+            dst = MultiCell_Box_Model.list_Top_X;
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 2 : Summary of Bending Moments  for Unfactored Loads (Top Slab 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 2
+            list.Add("");
+            list.Add("");
+
+            #region Top Slab 1 Shear Force
+            All_Frcs.Clear();
+
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnTop[i].NodeNo);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnTop[i].NodeNo);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 3 : Summary of Shear Force  for Unfactored Loads (Top Slab 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+            list.Add("");
+            list.Add("");
+
+            #region Top Slab 2 Shear Force
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnTop[10 + i].NodeNo);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnTop[10 + i].NodeNo);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                lst_frcs.Add(sf.MaxShearForce);
+                 
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+
+
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 4 : Summary of Shear Force  for Unfactored Loads (Top Slab 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 2
+            #endregion Top Slab
+
+            #region Side Wall
+
+            List<int> mm = MultiCell_Box_Model.ht_side_mems[0] as List<int>;
+
+            //mm = Box_Model.ht_mid_mems[0] as List<int>;
+
+            List<int> sd = new List<int>();
+
+            for (int i = 0; i < mm.Count; i++)
+            {
+                var mb = brd.Analysis.Members.GetMember(mm[i]);
+                if (!sd.Contains(mb.StartNode.NodeNo)) sd.Add(mb.StartNode.NodeNo);
+                if (!sd.Contains(mb.EndNode.NodeNo)) sd.Add(mb.EndNode.NodeNo);
+            }
+
+            mm = MultiCell_Box_Model.ht_side_mems[MultiCell_Box_Model.No_of_Cells] as List<int>;
+
+            //mm = Box_Model.ht_mid_mems[0] as List<int>;
+
+            List<int> sd2 = new List<int>();
+
+            for (int i = 0; i < mm.Count; i++)
+            {
+                var mb = brd.Analysis.Members.GetMember(mm[i]);
+                if (!sd2.Contains(mb.StartNode.NodeNo)) sd2.Add(mb.StartNode.NodeNo);
+                if (!sd2.Contains(mb.EndNode.NodeNo)) sd2.Add(mb.EndNode.NodeNo);
+            }
+
+
+            #region Side Wall
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 1 Bending Moment
+
+            dst = MultiCell_Box_Model.list_Y;
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd[i]);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+
+                top_arr.Clear();
+                top_arr.Add(sd[i]);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 5 : Summary of Bending Moments  for Unfactored Loads (Side Wall 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Side Wall 1
+
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 2  Bending Moment
+
+
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd2[i]);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(sd2[i]);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 6 : Summary of Bending Moments  for Unfactored Loads (Side Wall 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Side Wall 2
+
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 1 Shear Force
+            All_Frcs.Clear();
+
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd[i]);
+
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(sd[i]);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 7 : Summary of Shear Force  for Unfactored Loads (Side Wall 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load        Load     Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 2 Shear Force
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd2[i]);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(sd2[i]);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+
+
+
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 8 : Summary of Shear Force  for Unfactored Loads (Side Wall 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 2
+
+            #endregion Side Wall
+
+
+
+            #endregion Side Wall
+
+
+            #region Inner Wall
+
+            mm = MultiCell_Box_Model.ht_mid_mems[1] as List<int>;
+
+            //mm = Box_Model.ht_mid_mems[0] as List<int>;
+
+            List<int> inner = new List<int>();
+
+            for (int i = 0; i < mm.Count; i++)
+            {
+                var mb = brd.Analysis.Members.GetMember(mm[i]);
+                if (!inner.Contains(mb.StartNode.NodeNo)) inner.Add(mb.StartNode.NodeNo);
+                if (!inner.Contains(mb.EndNode.NodeNo)) inner.Add(mb.EndNode.NodeNo);
+            }
+
+            mm = MultiCell_Box_Model.ht_side_mems[MultiCell_Box_Model.No_of_Cells] as List<int>;
+
+            #region Inner Wall 1
+            list.Add("");
+            list.Add("");
+
+            #region Inner Wall 1 Bending Moment
+
+            dst = MultiCell_Box_Model.list_Y;
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(inner[i]);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(inner[i]);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 9 :  Summary of Bending Moments  for Unfactored Loads (Inner Wall 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Side Wall 1
+            list.Add("");
+            list.Add("");
+
+            #region Inner Wall 1 Shear Force
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(inner[i]);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(inner[i]);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 10 :  Summary of Shear Force  for Unfactored Loads (Inner Wall 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+
+            #endregion Inner Wall 1
+
+            #endregion Inner Wall
+
+            #region Bottom Slab
+            list.Add("");
+            list.Add("");
+
+            #region Bottom Slab 1 Bending Moment
+
+            dst = MultiCell_Box_Model.list_Bottom_X;
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnBots[i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnBots[i].NodeNo);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 11 : Summary of Bending Moments  for Unfactored Loads (Bottom Slab 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+ 
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 1
+
+            list.Add("");
+            list.Add("");
+
+            #region Bottom Slab 2  Bending Moment
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnTop[dst.Count - 1 + i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnBots[dst.Count - 1 + i].NodeNo);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 12 : Summary of Bending Moments  for Unfactored Loads (Bottom Slab 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load        Load     Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 2
+
+            list.Add("");
+            list.Add("");
+
+            #region Bottom Slab 1 Shear Force
+
+            All_Frcs.Clear();
+
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnBots[i].NodeNo);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnBots[i].NodeNo);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 13 : Summary of Shear Force  for Unfactored Loads (Bottom Slab 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load        Load     Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 2
+
+            list.Add("");
+            list.Add("");
+
+            #region Bottom Slab 2 Shear Force
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(MultiCell_Box_Model.jnTop[dst.Count - 1 + i].NodeNo);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(MultiCell_Box_Model.jnBots[dst.Count - 1 + i].NodeNo);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 14 : Summary of Shear Force  for Unfactored Loads (Bottom Slab 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load        Load     Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 2
+            #endregion Bottom Slab
+
+
+            rtb_results.Lines = list.ToArray();
+            File.WriteAllLines(Result_File, list.ToArray());
+            System.Diagnostics.Process.Start(Result_File);
+        }
+
+        private void Read_Singlecell_Bending_Moment_Shear_Force()
+        {
+            BridgeMemberAnalysis brd = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Input_File_DL));
+            BridgeMemberAnalysis brd1 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Input_File_LL));
+
+            List<int> top_arr = new List<int>();
+            int c = 0;
+            //for (int i = 0; i < 11; i++)
+            //{
+            //    top_arr.Add(Box_Model.jnTop[i].NodeNo);
+            //}
+            List<double> lst_frcs = new List<double>();
+
+            MaxForce mf;
+
+
+            List<List<double>> All_Frcs = new List<List<double>>();
+
+
+            List<string> list = new List<string>();
+
+            #region Top Slab
+
+            #region Top Slab 1 Bending Moment
+
+            List<double> dst = SingleCell_Box_Model.list_Top_X;
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(SingleCell_Box_Model.jnTop[i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(SingleCell_Box_Model.jnTop[i].NodeNo);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                top_arr.Clear();
+                top_arr.Add(SingleCell_Box_Model.jnTop[i].NodeNo);
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add("");
+            list.Add("");
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 1 : Summary of Bending Moments  for Unfactored Loads (Top Slab)"));
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+            list.Add("");
+            list.Add("");
+
+            #region Top Slab 1 Shear Force
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(SingleCell_Box_Model.jnTop[i].NodeNo);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(SingleCell_Box_Model.jnTop[i].NodeNo);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 2 : Summary of Shear Force  for Unfactored Loads (Top Slab)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+            list.Add("");
+            list.Add("");
+
+            #endregion Top Slab
+
+            #region Side Wall
+
+            List<int> mm = SingleCell_Box_Model.ht_side_mems[0] as List<int>;
+
+            //mm = Box_Model.ht_mid_mems[0] as List<int>;
+
+            List<int> sd = new List<int>();
+
+            for (int i = 0; i < mm.Count; i++)
+            {
+                var mb = brd.Analysis.Members.GetMember(mm[i]);
+                if (!sd.Contains(mb.StartNode.NodeNo)) sd.Add(mb.StartNode.NodeNo);
+                if (!sd.Contains(mb.EndNode.NodeNo)) sd.Add(mb.EndNode.NodeNo);
+            }
+
+            mm = SingleCell_Box_Model.ht_side_mems[SingleCell_Box_Model.No_of_Cells] as List<int>;
+
+            //mm = Box_Model.ht_mid_mems[0] as List<int>;
+
+            List<int> sd2 = new List<int>();
+
+            for (int i = 0; i < mm.Count; i++)
+            {
+                var mb = brd.Analysis.Members.GetMember(mm[i]);
+                if (!sd2.Contains(mb.StartNode.NodeNo)) sd2.Add(mb.StartNode.NodeNo);
+                if (!sd2.Contains(mb.EndNode.NodeNo)) sd2.Add(mb.EndNode.NodeNo);
+            }
+
+            #region Side Wall
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 1 Bending Moment
+
+            dst = SingleCell_Box_Model.list_Y;
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd[i]);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+
+                top_arr.Clear();
+                top_arr.Add(sd[i]);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 3 : Summary of Bending Moments  for Unfactored Loads (Side Wall 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Side Wall 1
+
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 2  Bending Moment
+
+
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd2[i]);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(sd2[i]);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 4 : Summary of Bending Moments  for Unfactored Loads (Side Wall 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Side Wall 2
+
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 1 Shear Force
+            All_Frcs.Clear();
+
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd[i]);
+
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(sd[i]);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 5 : Summary of Shear Force  for Unfactored Loads (Side Wall 1)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load        Load     Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 1
+
+            list.Add("");
+            list.Add("");
+
+            #region Side Wall 2 Shear Force
+
+
+            All_Frcs.Clear();
+
+            for (int i = 0; i < 11; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(sd2[i]);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(sd2[i]);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+
+
+
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 6 : Summary of Shear Force  for Unfactored Loads (Side Wall 2)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Top Slab 2
+
+            #endregion Side Wall
+
+
+
+            #endregion Side Wall
+
+
+
+            #region Bottom Slab
+            list.Add("");
+            list.Add("");
+
+            #region Bottom Slab 1 Bending Moment
+
+            dst = SingleCell_Box_Model.list_Bottom_X;
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(SingleCell_Box_Model.jnBots[i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                top_arr.Clear();
+                top_arr.Add(SingleCell_Box_Model.jnBots[i].NodeNo);
+                mf = brd1.GetJoint_Max_Hogging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+                mf = brd1.GetJoint_Max_Sagging(top_arr, true);
+                lst_frcs.Add(mf.Force);
+
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 7 : Summary of Bending Moments  for Unfactored Loads (Bottom Slab)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp        Live Load               "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load       Load      Cushion     load       Rise        Fall      Bending Moment "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                Hogging     Sagging   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 1
+
+            list.Add("");
+            list.Add("");
+
+
+            #region Bottom Slab 1 Shear Force
+
+            All_Frcs.Clear();
+
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 11; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(SingleCell_Box_Model.jnBots[i].NodeNo);
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+
+                top_arr.Clear();
+                top_arr.Add(SingleCell_Box_Model.jnBots[i].NodeNo);
+                var sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, true);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                sf = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, false, false);
+                lst_frcs.Add(sf.MaxShearForce);
+
+                All_Frcs.Add(lst_frcs);
+            }
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 8 : Summary of Shear Force  for Unfactored Loads (Bottom Slab)"));
+
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("Distance   Dead Load   SIDL (w.c)  Live Load   Earth      Earth      Braking    Braking    Earth       Water      Temp        Temp         Live Load "));
+            list.Add(string.Format("              +                    Surcharge   Pressure   Pressure    Load        Load     Cushion     load       Rise        Fall        Shear Force "));
+            list.Add(string.Format("           SIDL(w/o)               Load        Both side  one side    (LHS)      (RHS)                                                 Maximum    Minimum   "));
+            list.Add(string.Format("--------------------------------------------------------------------------------------------------------------------------------------------------------- "));
+
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                    ));
+            }
+            list.Add(string.Format("---------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 2
+
+            list.Add("");
+            list.Add("");
+
+            #endregion Bottom Slab
+
+
+
+
+            rtb_results.Lines = list.ToArray();
+            File.WriteAllLines(Result_File, list.ToArray());
+            System.Diagnostics.Process.Start(Result_File);
         }
 
         public void Button_Enable_Disable()
@@ -5131,23 +7411,1423 @@ namespace BridgeAnalysisDesign.RCC_Culvert
                 }
             }
 
-
-            //btn_create_data.Enabled = Directory.Exists(iApp.WorkingFolder);
-            //btn_process_data.Enabled = File.Exists(Input_File_DL);
-            //btn_DL_input.Enabled = File.Exists(Input_File_DL);
-            //btn_LL_input.Enabled = File.Exists(Input_File_LL);
-            //btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
-            //btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
-
+            btn_create_data.Enabled = Directory.Exists(Working_Folder);
+            btn_process_data.Enabled = File.Exists(Input_File_DL);
+            btn_DL_input.Enabled = File.Exists(Input_File_DL);
+            btn_LL_input.Enabled = File.Exists(Input_File_LL);
+            btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
+            btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
 
             //btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
-            btn_process_design.Enabled = Directory.Exists(Working_Folder);
-
-
-
+            //btn_process_design.Enabled = Directory.Exists(Working_Folder);
             //btn_.Enabled = File.Exists(Input_File_DL);
+        }
+
+        private void btn_save_load_data_Click(object sender, EventArgs e)
+        {
+            if (rbtn_multi.Checked)
+            {
+                MultiCell_Box_Model.DL_Load_Data = new List<string>(rtb_load_data.Lines);
+                MultiCell_Box_Model.Write_Data(Input_File_DL, false);
+                MultiCell_Box_Model.Write_Data(Input_File_LL, true);
+            }
+            else
+            {
+                SingleCell_Box_Model.DL_Load_Data = new List<string>(rtb_load_data.Lines);
+                SingleCell_Box_Model.Write_Data(Input_File_DL, false);
+                SingleCell_Box_Model.Write_Data(Input_File_LL, true);
+            }
         }
 
 
     }
+
+    public class Box_Culvert_Model
+    {
+        public int No_of_Cells { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
+        public double Top_slab_thickness { get; set; }
+        public double Bottom_slab_thickness { get; set; }
+        public double Side_wall_thickness { get; set; }
+        public double Mid_wall_thickness { get; set; }
+
+        public List<string> Input_Data { get; set; }
+
+        public Hashtable ht_top_mems { get; set; }
+        public Hashtable ht_bot_mems { get; set; }
+        public Hashtable ht_side_mems { get; set; }
+        public Hashtable ht_mid_mems { get; set; }
+
+
+        public JointNodeCollection jnBots { get; set; }
+        public JointNodeCollection jnSide { get; set; }
+        public JointNodeCollection jnTop { get; set; }
+
+
+        public double LL_70R_Track { get; set; }
+        public double LL_70R_Wheel { get; set; }
+        public double LL_Class_A { get; set; }
+        public double LL_Boggie { get; set; }
+
+        public Box_Culvert_Model()
+        {
+            No_of_Cells = 2;
+            Width = 8.0;
+            Height = 7.0;
+
+            Top_slab_thickness = 0.80;
+            Bottom_slab_thickness = 0.90;
+            Side_wall_thickness = 0.80;
+            Mid_wall_thickness = 0.70;
+
+            ht_top_mems = new Hashtable();
+            ht_bot_mems = new Hashtable();
+            ht_side_mems = new Hashtable();
+            ht_mid_mems = new Hashtable();
+
+
+            jnBots = new JointNodeCollection();
+            jnSide = new JointNodeCollection();
+            jnTop = new JointNodeCollection();
+
+            LL_70R_Track = 700;
+            LL_70R_Wheel = 700;
+            LL_Class_A = 554;
+            LL_Boggie = 40;
+
+        }
+
+
+        public List<double> list_Top_X { get; set; }
+        public List<double> list_Bottom_X { get; set; }
+        public List<double> list_Y { get; set; }
+
+        JointNodeCollection All_Joints { get; set; }
+
+        MemberCollection mbrCols { get; set; }
+
+        public void Create_Data_Multicell()
+        {
+            double org_bot = 12.60;
+            double org_side = 5.07;
+            double org_top = 12.75;
+
+            #region List Bottom
+            List<double> list_bottom = new List<double>();
+            //list_bottom(Bottom Slab);
+            list_bottom.Add(0.00);
+            list_bottom.Add(6.30);
+            list_bottom.Add(12.60);
+
+            #endregion List Bottom
+
+            #region List Side
+
+            List<double> list_side = new List<double>();
+            list_side.Add(0.00);
+            list_side.Add(0.51);
+            list_side.Add(1.01);
+            list_side.Add(1.52);
+            list_side.Add(2.03);
+            list_side.Add(2.54);
+            list_side.Add(3.04);
+            list_side.Add(3.55);
+            list_side.Add(4.06);
+            list_side.Add(4.56);
+            list_side.Add(5.07);
+
+            #endregion List Side
+
+            #region List Top
+
+
+            List<double> list_top = new List<double>();
+            list_top.Add(0.00);
+            list_top.Add(1.28);
+            list_top.Add(2.55);
+            list_top.Add(3.83);
+            list_top.Add(5.10);
+            list_top.Add(6.38);
+            list_top.Add(7.65);
+            list_top.Add(8.93);
+            list_top.Add(10.20);
+            list_top.Add(11.48);
+            list_top.Add(12.75);
+            #endregion List Top
+
+            List<int> arr = new List<int>();
+
+            #region Generate Coordinates
+            list_Top_X = new List<double>();
+            list_Bottom_X = new List<double>();
+            list_Y = new List<double>();
+
+
+            double _x = 0.0, _y = 0.0;
+
+
+
+            for (int i = 0; i < list_top.Count; i++)
+            {
+                //_x = _x + Width * list_top[j] / org_top;
+                _x = Width * list_top[i] / org_top;
+                if (!list_Top_X.Contains(_x)) list_Top_X.Add(_x);
+            }
+
+            for (int i = 0; i < list_bottom.Count; i++)
+            {
+                //_x = _x + Width * list_top[j] / org_top;
+                _x = Width * list_bottom[i] / org_bot;
+                if (!list_Bottom_X.Contains(_x)) list_Bottom_X.Add(_x);
+            }
+
+            _y = 0.0;
+            for (int i = 0; i < list_side.Count; i++)
+            {
+                _y = Height * list_side[i] / org_side;
+                list_Y.Add(_y);
+            }
+
+            //for (int i = 0; i < No_of_Cells; i++)
+            //{
+            //    for (int j = 0; j < list_top.Count; j++)
+            //    {
+            //        //_x = _x + Width * list_top[j] / org_top;
+            //        _x = Width * list_top[j] / org_top;
+            //        if (!list_Top_X.Contains(_x)) list_Top_X.Add(_x);
+            //    }
+            //}
+            _x = 0.0;
+            //for (int i = 0; i < No_of_Cells; i++)
+            //{
+            //    for (int j = 0; j < list_bottom.Count; j++)
+            //    {
+            //        _x = _x + Width * list_bottom[j] / org_bot;
+            //        list_Bottom_X.Add(_x);
+            //    }
+            //}
+
+
+
+            JointNode jn = new JointNode();
+
+
+            jnBots = new JointNodeCollection();
+            jnSide = new JointNodeCollection();
+            jnTop = new JointNodeCollection();
+
+
+            _x = 0.0;
+            for (int i = 0; i < No_of_Cells; i++)
+            {
+                if (i == 0)
+                {
+                    jn = new JointNode();
+                    _x += list_Bottom_X[0];
+                    jn.X = _x;
+                    jnBots.Add(jn);
+                }
+                for (int j = 1; j < list_Bottom_X.Count; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width) + list_Bottom_X[j];
+                    jn.X = _x;
+                    jnBots.Add(jn);
+                }
+            }
+
+            _x = 0.0;
+            for (int i = 0; i < No_of_Cells; i++)
+            {
+                if (i == 0)
+                {
+                    jn = new JointNode();
+                    _x += list_Top_X[0];
+                    jn.X = _x;
+                    jn.Y = Height;
+                    jnTop.Add(jn);
+                }
+                for (int j = 1; j < list_Top_X.Count; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width) + list_Top_X[j];
+                    jn.X = _x;
+                    jn.Y = Height;
+                    jnTop.Add(jn);
+                }
+            }
+
+
+            _x = 0.0;
+            _y = 0.0;
+            jnSide.Clear();
+
+            for (int i = 0; i <= No_of_Cells; i++)
+            {
+                _y = 0.0;
+                for (int j = 1; j < list_Y.Count - 1; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width);
+                    jn.X = _x;
+                    jn.Y = list_Y[j];
+                    jnSide.Add(jn);
+                }
+            }
+
+            _x = 0.0;
+
+             All_Joints = new JointNodeCollection();
+
+            int count = 1;
+
+            foreach (var item in jnBots)
+            {
+                item.NodeNo = count++;
+                All_Joints.Add(item);
+            }
+            foreach (var item in jnTop)
+            {
+                item.NodeNo = count++;
+                All_Joints.Add(item);
+            }
+            foreach (var item in jnSide)
+            {
+                item.NodeNo = count++;
+                All_Joints.Add(item);
+            }
+
+            Member mbr = new Member();
+
+             mbrCols = new MemberCollection();
+
+            count = 1;
+
+            #region Bottom Members
+            mbrCols.Clear();
+            for (int i = 1; i < jnBots.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = count++;
+                mbr.StartNode = jnBots[i - 1];
+                mbr.EndNode = jnBots[i];
+                mbrCols.Add(mbr);
+
+                arr.Add(mbr.MemberNo);
+            }
+
+
+            ht_bot_mems.Add(1, arr);
+
+            #endregion Bottom Members
+
+
+            #region Top Members
+            arr = new List<int>();
+
+            for (int i = 1; i < jnTop.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = count++;
+                mbr.StartNode = jnTop[i - 1];
+                mbr.EndNode = jnTop[i];
+                mbrCols.Add(mbr);
+                arr.Add(mbr.MemberNo);
+            }
+
+            ht_top_mems.Add(1, arr);
+
+            #endregion Top Members
+
+            #region Side Members
+
+            for (int i = 0; i <= No_of_Cells; i++)
+            {
+                _y = 0.0;
+                arr = new List<int>();
+
+                for (int j = 1; j < list_Y.Count; j++)
+                {
+                    mbr = new Member();
+                    mbr.MemberNo = count++;
+
+                    _x = (i * Width);
+
+                    //mbr.StartNode = new JointNode(_x, list_Y[i - 1], 0.0);
+                    //mbr.EndNode = new JointNode(_x, list_Y[i], 0.0);
+
+                    mbr.StartNode = All_Joints.GetJoints(_x, list_Y[j - 1], 0.0, 0.1);
+                    mbr.EndNode = All_Joints.GetJoints(_x, list_Y[j], 0.0, 0.1);
+
+
+                    mbrCols.Add(mbr);
+
+                    arr.Add(mbr.MemberNo);
+
+                }
+                if (i == 0 || i == No_of_Cells)
+                {
+                    ht_side_mems.Add(i, arr);
+                }
+                else
+                {
+                    ht_mid_mems.Add(i, arr);
+                }
+
+            }
+            #endregion Side Members
+
+
+            #endregion Generate Coordinates
+
+
+            List<string> list = new List<string>();
+
+            #region Live Load
+
+            arr = ht_top_mems[1] as List<int>;
+
+            LL_Load_Data = new List<string>();
+
+            LL_Load_Data.Add(string.Format("LOAD 1 LOADTYPE 70R TRACK"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            double ll = LL_70R_Track / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+
+            LL_Load_Data.Add(string.Format("LOAD 2 LOADTYPE 70R Wheel"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_70R_Wheel / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+            LL_Load_Data.Add(string.Format("LOAD 3 LOADTYPE CLASS A"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_Class_A / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+
+
+            LL_Load_Data.Add(string.Format("LOAD 4 LOADTYPE Boggie"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_Boggie / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+            #endregion Live Load
+
+            list.Add(string.Format("LOAD 1 DEAD LOAD"));
+            //list.Add(string.Format("SELFWEIGHT Y -1 "));
+            //list.Add(string.Format("SELFWEIGHT Y -1 "));
+
+            double _dl = 25 * Height * Width / 11;
+
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("{0} UNI GY -{1:f3}", MyList.Get_Array_Text(arr), _dl));
+
+            list.Add(string.Format("LOAD 2 SIDL (W/O)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("{0} UNI GY -18.75", MyList.Get_Array_Text(arr)));
+            list.Add(string.Format("LOAD 3 LIVE REDUCIBLE TITLE SIDL(WC)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -1.43"));
+            list.Add(string.Format("{0} UNI GY -1.43", MyList.Get_Array_Text(arr)));
+            list.Add(string.Format("LOAD 4 EARTH PRESSURE BOTH SIDE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("3 LIN Y -2 0"));
+            //list.Add(string.Format("2 LIN Y -40.7 -2"));
+            //list.Add(string.Format("1 LIN Y -43.2 -40.2"));
+            //list.Add(string.Format("24 LIN Y 2 0"));
+            //list.Add(string.Format("23 LIN Y 40.7 2"));
+            //list.Add(string.Format("22 LIN Y 43.2 40.2"));
+
+            arr = ht_side_mems[0] as List<int>;
+
+            double ld = 0.0;
+            double ld2 = 0.0;
+            double Ka = 0.33;
+            double Gama_d = 18.0;
+            foreach (var item in arr)
+            {
+                var mb = mbrCols.GetMember(item);
+
+                //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                if (ld2 != 0.0)
+                    list.Add(string.Format("{0} UNI GX {1:f3}", mb.MemberNo, ld2));
+                //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+            }
+
+            arr = ht_side_mems[No_of_Cells] as List<int>;
+
+            foreach (var item in arr)
+            {
+                var mb = mbrCols.GetMember(item);
+
+                //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                if (ld2 != 0.0)
+                    list.Add(string.Format("{0} UNI GX -{1:f3}", mb.MemberNo, ld2));
+                //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+            }
+
+
+            list.Add(string.Format("LOAD 5 EARTH PRESSURE ONE SIDE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            foreach (var item in arr)
+            {
+                var mb = mbrCols.GetMember(item);
+
+                //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                if (ld2 != 0.0)
+                    list.Add(string.Format("{0} UNI GX -{1:f3}", mb.MemberNo, ld2));
+                //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+            }
+
+
+
+            list.Add(string.Format("LOAD 6 SURCHARGE PRESSURE BS"));
+            list.Add(string.Format("MEMBER LOAD"));
+
+            arr = ht_side_mems[0] as List<int>;
+            //list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+            list.Add(string.Format("{0} UNI GX 10.8", MyList.Get_Array_Text(arr)));
+
+            arr = ht_side_mems[No_of_Cells] as List<int>;
+            list.Add(string.Format("{0} UNI GX -10.8", MyList.Get_Array_Text(arr)));
+
+
+
+            list.Add(string.Format("LOAD 7 SURCHARGE PRESSURE RS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+            list.Add(string.Format("{0} UNI GX -10.8", MyList.Get_Array_Text(arr)));
+
+
+            arr = ht_side_mems[0] as List<int>;
+            list.Add(string.Format("LOAD 8 SURCHARGE PRESSURE LS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("{0} UNI GX 10.8", MyList.Get_Array_Text(arr)));
+
+
+
+            arr = ht_top_mems[1] as List<int>;
+
+            list.Add(string.Format("LOAD 9 BREAKING LOAD RS"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("{0} FX -21.03", arr[arr.Count - 1]));
+
+
+
+            list.Add(string.Format("LOAD 10 BREAKING LOAD LS"));
+            list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("101 FX 21.03"));
+            list.Add(string.Format("{0} FX 21.03", arr[0]));
+            list.Add(string.Format("LOAD 11 TEMPERATURE GRADIENT RISE"));
+            list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("101 FX 550.66"));
+            //list.Add(string.Format("110 FX -550.66"));
+            //list.Add(string.Format("101 MZ -68.9"));
+            //list.Add(string.Format("110 MZ 68.9"));
+
+
+            list.Add(string.Format("{0} FX 550.66", arr[0]));
+            list.Add(string.Format("{0} FX -550.66", arr[arr.Count - 1]));
+            list.Add(string.Format("{0} MZ -68.9", arr[0]));
+            list.Add(string.Format("{0} MZ 68.9", arr[arr.Count - 1]));
+
+
+            list.Add(string.Format("LOAD 12 TEMPERATURE GRADIENT FALL"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("{0} FX -287.23", arr[0]));
+            list.Add(string.Format("{0} FX 287.23", arr[arr.Count - 1]));
+            list.Add(string.Format("{0} MZ -9.1", arr[arr.Count - 1]));
+            list.Add(string.Format("{0} MZ 9.1", arr[0]));
+
+
+            DL_Load_Data = list;
+
+
+            if (false)
+            {
+                #region Comment
+
+
+                list.Add(string.Format("ASTRA SPACE MULTIPLE CELL INPUT DATA FILE"));
+                list.Add(string.Format("UNIT KN METRES"));
+                list.Add(string.Format("JOINT COORDINATES"));
+                for (int i = 0; i < All_Joints.Count; i++)
+                {
+                    list.Add(string.Format("{0}", All_Joints[i].ToString()));
+                }
+
+                list.Add(string.Format("MEMBER INCIDENCES"));
+                for (int i = 0; i < mbrCols.Count; i++)
+                {
+                    list.Add(string.Format("{0}", mbrCols[i].ToString()));
+                }
+
+                list.Add(string.Format("MEMBER PROPERTY"));
+
+
+                arr = new List<int>();
+
+                arr = ht_bot_mems[1] as List<int>;
+
+                //list.Add(string.Format("210 TO 212 222 TO 350 PRIS YD 0.5 ZD 1"));
+                list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Bottom_slab_thickness));
+                //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+
+
+
+                arr = ht_top_mems[1] as List<int>;
+
+
+                //list.Add(string.Format("1 TO 3 22 TO 24 201 TO 209 PRIS YD 0.4 ZD 1"));
+                list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Top_slab_thickness));
+
+
+
+                for (int i = 0; i <= No_of_Cells; i++)
+                {
+                    if (i == 0 || i == No_of_Cells)
+                    {
+                        arr = ht_side_mems[i] as List<int>;
+                        //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+                        list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Side_wall_thickness));
+                    }
+                    else
+                    {
+                        arr = ht_mid_mems[i] as List<int>;
+                        //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+                        list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Mid_wall_thickness));
+                    }
+                }
+
+
+                list.Add(string.Format("CONSTANTS"));
+                list.Add(string.Format("E 2.17185e+007 ALL"));
+                list.Add(string.Format("POISSON 0.17 ALL"));
+                list.Add(string.Format("DENSITY 25 ALL"));
+                list.Add(string.Format("DAMP 0.05 ALL"));
+
+                arr = new List<int>();
+                foreach (var item in jnBots)
+                {
+                    arr.Add(item.NodeNo);
+                }
+
+                list.Add(string.Format("SUPPORTS"));
+                //list.Add(string.Format("1 5 9 13 169 TO 297 FIXED BUT FX FZ MX MY MZ KFY 1210.3"));
+                list.Add(string.Format("{0} FIXED BUT FX FZ MX MY MZ KFY 1210.3", MyList.Get_Array_Text(arr)));
+                //list.Add(string.Format("*1 5 9 13 169 TO 297 FIXED"));
+
+                arr = ht_top_mems[1] as List<int>;
+
+                list.Add(string.Format("LOAD 1 LOADTYPE Dead  TITLE DL"));
+                list.Add(string.Format("SELFWEIGHT Y -1 "));
+                list.Add(string.Format("LOAD 2 LOADTYPE Live REDUCIBLE TITLE SIDL"));
+                list.Add(string.Format("MEMBER LOAD"));
+                //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+                list.Add(string.Format("{0} UNI GY -18.75", MyList.Get_Array_Text(arr)));
+                list.Add(string.Format("LOAD 3 LOADTYPE Live REDUCIBLE TITLE SIDL(WC)"));
+                list.Add(string.Format("MEMBER LOAD"));
+                //list.Add(string.Format("201 TO 209 UNI GY -1.43"));
+                list.Add(string.Format("{0} UNI GY -1.43", MyList.Get_Array_Text(arr)));
+
+
+                list.Add(string.Format("LOAD 4 LOADTYPE Live REDUCIBLE TITLE EARTH PRESSURE"));
+                list.Add(string.Format("MEMBER LOAD"));
+                //list.Add(string.Format("3 LIN Y -2 0"));
+                //list.Add(string.Format("2 LIN Y -40.7 -2"));
+                //list.Add(string.Format("1 LIN Y -43.2 -40.2"));
+                //list.Add(string.Format("24 LIN Y 2 0"));
+                //list.Add(string.Format("23 LIN Y 40.7 2"));
+                //list.Add(string.Format("22 LIN Y 43.2 40.2"));
+
+
+
+                arr = ht_side_mems[0] as List<int>;
+
+                 ld = 0.0;
+                 ld2 = 0.0;
+                 Ka = 0.33;
+                 Gama_d = 18.0;
+                foreach (var item in arr)
+                {
+                    var mb = mbrCols.GetMember(item);
+
+                    //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                    ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                    //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                    if (ld2 != 0.0)
+                        list.Add(string.Format("{0} UNI GX {1:f3}", mb.MemberNo, ld2));
+                    //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+                }
+
+                arr = ht_side_mems[No_of_Cells] as List<int>;
+
+                foreach (var item in arr)
+                {
+                    var mb = mbrCols.GetMember(item);
+
+                    //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                    ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                    //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                    if (ld2 != 0.0)
+                        list.Add(string.Format("{0} UNI GX -{1:f3}", mb.MemberNo, ld2));
+                    //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+                }
+
+
+
+
+
+                list.Add(string.Format("LOAD 5 LOADTYPE Live REDUCIBLE TITLE SURCHARGE PRESSURE(BS)"));
+                list.Add(string.Format("MEMBER LOAD"));
+
+
+
+                arr = ht_side_mems[0] as List<int>;
+                //list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+                list.Add(string.Format("{0} UNI GX 10.8", MyList.Get_Array_Text(arr)));
+
+                arr = ht_side_mems[No_of_Cells] as List<int>;
+                list.Add(string.Format("{0} UNI GX -10.8", MyList.Get_Array_Text(arr)));
+
+
+
+                list.Add(string.Format("LOAD 6 LOADTYPE None  TITLE SURCHARGE PRESSURE RS"));
+                list.Add(string.Format("MEMBER LOAD"));
+                //list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+                list.Add(string.Format("{0} UNI GX -10.8", MyList.Get_Array_Text(arr)));
+
+
+                arr = ht_side_mems[0] as List<int>;
+                list.Add(string.Format("LOAD 7 LOADTYPE None  TITLE SURCHARGE PRESSURE LS"));
+                list.Add(string.Format("MEMBER LOAD"));
+                list.Add(string.Format("{0} UNI GX 10.8", MyList.Get_Array_Text(arr)));
+
+
+
+                arr = ht_top_mems[1] as List<int>;
+
+                list.Add(string.Format("LOAD 8 LOADTYPE None  TITLE BREAKING LOAD RS"));
+                list.Add(string.Format("JOINT LOAD"));
+                list.Add(string.Format("{0} FX -21.03", arr[arr.Count - 1]));
+
+
+
+                list.Add(string.Format("LOAD 9 LOADTYPE None  TITLE BREAKING LOAD LS"));
+                list.Add(string.Format("JOINT LOAD"));
+                //list.Add(string.Format("101 FX 21.03"));
+                list.Add(string.Format("{0} FX 21.03", arr[0]));
+                list.Add(string.Format("LOAD 10 LOADTYPE None  TITLE TEMPERATURE GRADIENT RISE"));
+                list.Add(string.Format("JOINT LOAD"));
+                //list.Add(string.Format("101 FX 550.66"));
+                //list.Add(string.Format("110 FX -550.66"));
+                //list.Add(string.Format("101 MZ -68.9"));
+                //list.Add(string.Format("110 MZ 68.9"));
+
+
+                list.Add(string.Format("{0} FX 550.66", arr[0]));
+                list.Add(string.Format("{0} FX -550.66", arr[arr.Count - 1]));
+                list.Add(string.Format("{0} MZ -68.9", arr[0]));
+                list.Add(string.Format("{0} MZ 68.9", arr[arr.Count - 1]));
+
+
+                list.Add(string.Format("LOAD 11 LOADTYPE None  TITLE TEMPERATURE GRADIENT FALL"));
+                list.Add(string.Format("JOINT LOAD"));
+                list.Add(string.Format("{0} FX -287.23", arr[0]));
+                list.Add(string.Format("{0} FX 287.23", arr[arr.Count - 1]));
+                list.Add(string.Format("{0} MZ -9.1", arr[arr.Count - 1]));
+                list.Add(string.Format("{0} MZ 9.1", arr[0]));
+
+                arr = ht_top_mems[1] as List<int>;
+
+                //list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+                //list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+
+                list.Add(string.Format("PERFORM ANALYSIS PRINT ALL"));
+                //list.Add(string.Format("FINISH"));
+                list.Add(string.Format("FINISH"));
+
+
+                #endregion Comment
+            }
+
+        }
+        public void Create_Data_Singlecell()
+        {
+
+            No_of_Cells = 1;
+            List<double> lst_fact = new List<double>();
+
+            #region List Factors
+
+            lst_fact.Add(0.0);
+            lst_fact.Add(0.1);
+            lst_fact.Add(0.2);
+            lst_fact.Add(0.3);
+            lst_fact.Add(0.4);
+            lst_fact.Add(0.5);
+            lst_fact.Add(0.6);
+            lst_fact.Add(0.7);
+            lst_fact.Add(0.8);
+            lst_fact.Add(0.9);
+            lst_fact.Add(1.0);
+
+            #endregion List Factors
+
+
+
+
+            List<int> arr = new List<int>();
+
+
+
+            #region Generate Coordinates
+            list_Top_X = new List<double>();
+            list_Bottom_X = new List<double>();
+            list_Y = new List<double>();
+
+
+            double _x = 0.0, _y = 0.0;
+
+
+
+            for (int i = 0; i < lst_fact.Count; i++)
+            {
+                //_x = _x + Width * list_top[j] / org_top;
+                _x = Width * lst_fact[i];
+                if (!list_Top_X.Contains(_x)) list_Top_X.Add(_x);
+            }
+
+            for (int i = 0; i < lst_fact.Count; i++)
+            {
+                //_x = _x + Width * list_top[j] / org_top;
+                _x = Width * lst_fact[i];
+                if (!list_Bottom_X.Contains(_x)) list_Bottom_X.Add(_x);
+            }
+
+            _y = 0.0;
+            for (int i = 0; i < lst_fact.Count; i++)
+            {
+                _y = Height * lst_fact[i];
+                list_Y.Add(_y);
+            }
+
+            _x = 0.0;
+
+            JointNode jn = new JointNode();
+
+
+            jnBots = new JointNodeCollection();
+            jnSide = new JointNodeCollection();
+            jnTop = new JointNodeCollection();
+
+
+            _x = 0.0;
+            for (int i = 0; i < No_of_Cells; i++)
+            {
+                if (i == 0)
+                {
+                    jn = new JointNode();
+                    _x += list_Bottom_X[0];
+                    jn.X = _x;
+                    jnBots.Add(jn);
+                }
+                for (int j = 1; j < list_Bottom_X.Count; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width) + list_Bottom_X[j];
+                    jn.X = _x;
+                    jnBots.Add(jn);
+                }
+            }
+
+            _x = 0.0;
+            for (int i = 0; i < No_of_Cells; i++)
+            {
+                if (i == 0)
+                {
+                    jn = new JointNode();
+                    _x += list_Top_X[0];
+                    jn.X = _x;
+                    jn.Y = Height;
+                    jnTop.Add(jn);
+                }
+                for (int j = 1; j < list_Top_X.Count; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width) + list_Top_X[j];
+                    jn.X = _x;
+                    jn.Y = Height;
+                    jnTop.Add(jn);
+                }
+            }
+
+
+            _x = 0.0;
+            _y = 0.0;
+            jnSide.Clear();
+
+            for (int i = 0; i <= No_of_Cells; i++)
+            {
+                _y = 0.0;
+                for (int j = 1; j < list_Y.Count - 1; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width);
+                    jn.X = _x;
+                    jn.Y = list_Y[j];
+                    jnSide.Add(jn);
+                }
+            }
+
+            _x = 0.0;
+
+            All_Joints = new JointNodeCollection();
+
+            int count = 1;
+
+            foreach (var item in jnBots)
+            {
+                item.NodeNo = count++;
+                All_Joints.Add(item);
+            }
+            foreach (var item in jnTop)
+            {
+                item.NodeNo = count++;
+                All_Joints.Add(item);
+            }
+            foreach (var item in jnSide)
+            {
+                item.NodeNo = count++;
+                All_Joints.Add(item);
+            }
+
+            Member mbr = new Member();
+
+            mbrCols = new MemberCollection();
+
+            count = 1;
+
+            #region Bottom Members
+            mbrCols.Clear();
+            for (int i = 1; i < jnBots.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = count++;
+                mbr.StartNode = jnBots[i - 1];
+                mbr.EndNode = jnBots[i];
+                mbrCols.Add(mbr);
+                arr.Add(mbr.MemberNo);
+            }
+            ht_bot_mems.Add(1, arr);
+
+            #endregion Bottom Members
+
+            #region Top Members
+            arr = new List<int>();
+
+            for (int i = 1; i < jnTop.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = count++;
+                mbr.StartNode = jnTop[i - 1];
+                mbr.EndNode = jnTop[i];
+                mbrCols.Add(mbr);
+                arr.Add(mbr.MemberNo);
+            }
+
+            ht_top_mems.Add(1, arr);
+
+            #endregion Top Members
+
+            #region Side Members
+
+            for (int i = 0; i <= No_of_Cells; i++)
+            {
+                _y = 0.0;
+                arr = new List<int>();
+
+                for (int j = 1; j < list_Y.Count; j++)
+                {
+                    mbr = new Member();
+                    mbr.MemberNo = count++;
+
+                    _x = (i * Width);
+
+                    //mbr.StartNode = new JointNode(_x, list_Y[i - 1], 0.0);
+                    //mbr.EndNode = new JointNode(_x, list_Y[i], 0.0);
+
+                    mbr.StartNode = All_Joints.GetJoints(_x, list_Y[j - 1], 0.0, 0.1);
+                    mbr.EndNode = All_Joints.GetJoints(_x, list_Y[j], 0.0, 0.1);
+
+
+                    mbrCols.Add(mbr);
+
+                    arr.Add(mbr.MemberNo);
+
+                }
+                if (i == 0 || i == No_of_Cells)
+                {
+                    ht_side_mems.Add(i, arr);
+                }
+                else
+                {
+                    ht_mid_mems.Add(i, arr);
+                }
+
+            }
+            #endregion Side Members
+
+
+            #endregion Generate Coordinates
+
+
+
+
+            #region Live Load
+
+            arr = ht_top_mems[1] as List<int>;
+
+            LL_Load_Data = new List<string>();
+
+            LL_Load_Data.Add(string.Format("LOAD 1 LOADTYPE 70R TRACK"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            double ll = LL_70R_Track / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+
+            LL_Load_Data.Add(string.Format("LOAD 2 LOADTYPE 70R Wheel"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_70R_Wheel / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+            LL_Load_Data.Add(string.Format("LOAD 3 LOADTYPE CLASS A"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_Class_A / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+
+
+            LL_Load_Data.Add(string.Format("LOAD 4 LOADTYPE Boggie"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_Boggie / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+            #endregion Live Load
+
+            List<string> list = new List<string>();
+
+            list.Add(string.Format("LOAD 1 DEAD LOAD"));
+            //list.Add(string.Format("SELFWEIGHT Y -1 "));
+            //list.Add(string.Format("SELFWEIGHT Y -1 "));
+
+            double _dl = 25 * Height * Width / 11;
+
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("{0} UNI GY -{1:f3}", MyList.Get_Array_Text(arr), _dl));
+
+            list.Add(string.Format("LOAD 2 SIDL (W/O)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("{0} UNI GY -18.75", MyList.Get_Array_Text(arr)));
+            list.Add(string.Format("LOAD 3 LIVE REDUCIBLE TITLE SIDL(WC)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -1.43"));
+            list.Add(string.Format("{0} UNI GY -1.43", MyList.Get_Array_Text(arr)));
+            list.Add(string.Format("LOAD 4 EARTH PRESSURE BOTH SIDE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("3 LIN Y -2 0"));
+            //list.Add(string.Format("2 LIN Y -40.7 -2"));
+            //list.Add(string.Format("1 LIN Y -43.2 -40.2"));
+            //list.Add(string.Format("24 LIN Y 2 0"));
+            //list.Add(string.Format("23 LIN Y 40.7 2"));
+            //list.Add(string.Format("22 LIN Y 43.2 40.2"));
+
+            arr = ht_side_mems[0] as List<int>;
+
+            double ld = 0.0;
+            double ld2 = 0.0;
+            double Ka = 0.33;
+            double Gama_d = 18.0;
+            foreach (var item in arr)
+            {
+                var mb = mbrCols.GetMember(item);
+
+                //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                if (ld2 != 0.0)
+                    list.Add(string.Format("{0} UNI GX {1:f3}", mb.MemberNo, ld2));
+                //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+            }
+
+            arr = ht_side_mems[No_of_Cells] as List<int>;
+
+            foreach (var item in arr)
+            {
+                var mb = mbrCols.GetMember(item);
+
+                //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                if (ld2 != 0.0)
+                    list.Add(string.Format("{0} UNI GX -{1:f3}", mb.MemberNo, ld2));
+                //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+            }
+
+
+            list.Add(string.Format("LOAD 5 EARTH PRESSURE ONE SIDE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            foreach (var item in arr)
+            {
+                var mb = mbrCols.GetMember(item);
+
+                //ld = 0.5 * Ka * Gama_d * mb.StartNode.Y * mb.StartNode.Y;
+                ld2 = 0.5 * Ka * Gama_d * Math.Pow(Height - mb.EndNode.Y, 2.0); ;
+
+                //list.Add(string.Format("{0} LIN Y -{1:f3} -{2:f3}", mb.MemberNo, ld2, ld));
+                if (ld2 != 0.0)
+                    list.Add(string.Format("{0} UNI GX -{1:f3}", mb.MemberNo, ld2));
+                //list.Add(string.Format("{0} UNI GX -{1:f3}", MyList.Get_Array_Text(arr)));
+            }
+
+
+
+            list.Add(string.Format("LOAD 6 SURCHARGE PRESSURE BS"));
+            list.Add(string.Format("MEMBER LOAD"));
+
+            arr = ht_side_mems[0] as List<int>;
+            //list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+            list.Add(string.Format("{0} UNI GX 10.8", MyList.Get_Array_Text(arr)));
+
+            arr = ht_side_mems[No_of_Cells] as List<int>;
+            list.Add(string.Format("{0} UNI GX -10.8", MyList.Get_Array_Text(arr)));
+
+
+
+            list.Add(string.Format("LOAD 7 SURCHARGE PRESSURE RS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+            list.Add(string.Format("{0} UNI GX -10.8", MyList.Get_Array_Text(arr)));
+
+
+            arr = ht_side_mems[0] as List<int>;
+            list.Add(string.Format("LOAD 8 SURCHARGE PRESSURE LS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("{0} UNI GX 10.8", MyList.Get_Array_Text(arr)));
+
+
+
+            arr = ht_top_mems[1] as List<int>;
+
+            list.Add(string.Format("LOAD 9 BREAKING LOAD RS"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("{0} FX -21.03", arr[arr.Count - 1]));
+
+
+
+            list.Add(string.Format("LOAD 10 BREAKING LOAD LS"));
+            list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("101 FX 21.03"));
+            list.Add(string.Format("{0} FX 21.03", arr[0]));
+            list.Add(string.Format("LOAD 11 TEMPERATURE GRADIENT RISE"));
+            list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("101 FX 550.66"));
+            //list.Add(string.Format("110 FX -550.66"));
+            //list.Add(string.Format("101 MZ -68.9"));
+            //list.Add(string.Format("110 MZ 68.9"));
+
+
+            list.Add(string.Format("{0} FX 550.66", arr[0]));
+            list.Add(string.Format("{0} FX -550.66", arr[arr.Count - 1]));
+            list.Add(string.Format("{0} MZ -68.9", arr[0]));
+            list.Add(string.Format("{0} MZ 68.9", arr[arr.Count - 1]));
+
+
+            list.Add(string.Format("LOAD 12 TEMPERATURE GRADIENT FALL"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("{0} FX -287.23", arr[0]));
+            list.Add(string.Format("{0} FX 287.23", arr[arr.Count - 1]));
+            list.Add(string.Format("{0} MZ -9.1", arr[arr.Count - 1]));
+            list.Add(string.Format("{0} MZ 9.1", arr[0]));
+
+
+            DL_Load_Data = list;
+        }
+
+
+        public List<string> DL_Load_Data { get; set; }
+
+        public List<string> LL_Load_Data { get; set; }
+
+        public void Write_Data(string fileName, bool liveLoad)
+        {
+            List<string> list = new List<string>();
+
+
+            if(No_of_Cells == 1)
+                list.Add(string.Format("ASTRA SPACE SINGLE CELL INPUT DATA FILE"));
+            else
+                list.Add(string.Format("ASTRA SPACE MULTIPLE CELL INPUT DATA FILE"));
+
+
+            list.Add(string.Format("UNIT KN METRES"));
+            list.Add(string.Format("JOINT COORDINATES"));
+            for (int i = 0; i < All_Joints.Count; i++)
+            {
+                list.Add(string.Format("{0}", All_Joints[i].ToString()));
+            }
+
+            list.Add(string.Format("MEMBER INCIDENCES"));
+            for (int i = 0; i < mbrCols.Count; i++)
+            {
+                list.Add(string.Format("{0}", mbrCols[i].ToString()));
+            }
+
+            list.Add(string.Format("MEMBER PROPERTY"));
+
+            List<int> arr = new List<int>();
+
+            arr = ht_bot_mems[1] as List<int>;
+
+            //list.Add(string.Format("210 TO 212 222 TO 350 PRIS YD 0.5 ZD 1"));
+            list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Bottom_slab_thickness));
+            //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+
+
+
+            arr = ht_top_mems[1] as List<int>;
+
+
+            //list.Add(string.Format("1 TO 3 22 TO 24 201 TO 209 PRIS YD 0.4 ZD 1"));
+            list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Top_slab_thickness));
+
+
+
+            for (int i = 0; i <= No_of_Cells; i++)
+            {
+                if (i == 0 || i == No_of_Cells)
+                {
+                    arr = ht_side_mems[i] as List<int>;
+                    //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+                    list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Side_wall_thickness));
+                }
+                else
+                {
+                    arr = ht_mid_mems[i] as List<int>;
+                    //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+                    list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Mid_wall_thickness));
+                }
+            }
+
+
+            list.Add(string.Format("CONSTANTS"));
+            list.Add(string.Format("E 2.17185e+007 ALL"));
+            list.Add(string.Format("POISSON 0.17 ALL"));
+            list.Add(string.Format("DENSITY 25 ALL"));
+            list.Add(string.Format("DAMP 0.05 ALL"));
+
+            arr = new List<int>();
+            //arr = ht_bot_mems[1] as List<int>;
+            foreach (var item in jnBots)
+            {
+                arr.Add(item.NodeNo);
+            }
+
+            list.Add(string.Format("SUPPORTS"));
+            //list.Add(string.Format("1 5 9 13 169 TO 297 FIXED BUT FX FZ MX MY MZ KFY 1210.3"));
+            list.Add(string.Format("{0} FIXED BUT FX MX MY MZ KFY 1210.3", MyList.Get_Array_Text(arr)));
+            //list.Add(string.Format("*1 5 9 13 169 TO 297 FIXED"));
+
+            if (liveLoad)
+            {
+                list.AddRange(LL_Load_Data.ToArray());
+            }
+            else
+            {
+                list.AddRange(DL_Load_Data.ToArray());
+            }
+
+            list.Add(string.Format("PERFORM ANALYSIS PRINT ALL"));
+            list.Add(string.Format("FINISH"));
+
+            Input_Data = list;
+
+            File.WriteAllLines(fileName, list.ToArray());
+        }
+        void STAAD_Data()
+        {
+            List<string> list = new List<string>();
+
+            #region STAAD LOADS
+            list.Add(string.Format("LOAD 1 LOADTYPE Dead  TITLE DL"));
+            list.Add(string.Format("SELFWEIGHT Y -1 "));
+            list.Add(string.Format("LOAD 2 LOADTYPE Live REDUCIBLE TITLE SIDL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("LOAD 3 LOADTYPE Live REDUCIBLE TITLE SIDL(WC)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("201 TO 209 UNI GY -1.43"));
+            list.Add(string.Format("LOAD 4 LOADTYPE Live REDUCIBLE TITLE EARTH PRESSURE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("3 LIN Y -2 0"));
+            list.Add(string.Format("2 LIN Y -40.7 -2"));
+            list.Add(string.Format("1 LIN Y -43.2 -40.2"));
+            list.Add(string.Format("24 LIN Y 2 0"));
+            list.Add(string.Format("23 LIN Y 40.7 2"));
+            list.Add(string.Format("22 LIN Y 43.2 40.2"));
+            list.Add(string.Format("LOAD 5 LOADTYPE Live REDUCIBLE TITLE SURCHARGE PRESSURE(BS)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+            list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+            list.Add(string.Format("LOAD 6 LOADTYPE None  TITLE SURCHARGE PRESSURE RS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+            list.Add(string.Format("LOAD 7 LOADTYPE None  TITLE SURCHARGE PRESSURE LS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+            list.Add(string.Format("LOAD 8 LOADTYPE None  TITLE BREAKING LOAD RS"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("110 FX -21.03"));
+            list.Add(string.Format("LOAD 9 LOADTYPE None  TITLE BREAKING LOAD LS"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("101 FX 21.03"));
+            list.Add(string.Format("LOAD 10 LOADTYPE None  TITLE TEMPERATURE GRADIENT RISE"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("101 FX 550.66"));
+            list.Add(string.Format("110 FX -550.66"));
+            list.Add(string.Format("101 MZ -68.9"));
+            list.Add(string.Format("110 MZ 68.9"));
+            list.Add(string.Format("LOAD 11 LOADTYPE None  TITLE TEMPERATURE GRADIENT FALL"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("101 FX -287.23"));
+            list.Add(string.Format("110 FX 287.23"));
+            list.Add(string.Format("110 MZ -9.1"));
+            list.Add(string.Format("101 MZ 9.1"));
+
+            #endregion STAAD LOADS
+
+        }
+    }
+    public class BC_Results : List<BC_Table>
+    {
+        string _flName = "";
+        public BC_Results(string fileName)
+        {
+            _flName = fileName;
+            Read_From_Result();
+        }
+        void Read_From_Result()
+        {
+            if (!File.Exists(_flName)) return;
+            List<string> list = new List<string>(File.ReadAllLines(_flName));
+
+            string kStr = "";
+
+
+            BC_Table tab = null;
+            BC_Rows br = null;
+
+            bool flag = false;
+            for (int i = 0; i < list.Count; i++)
+            {
+                kStr = MyList.RemoveAllSpaces(list[i].ToUpper());
+
+
+                if (kStr == "") continue;
+                if (kStr.StartsWith("-------------------"))
+                {
+                    if (flag) flag = false;
+                    continue;
+                }
+
+
+
+                if(kStr.StartsWith("TABLE"))
+                {
+                    tab = new BC_Table(kStr);
+                    this.Add(tab);
+                    flag = true;
+                    i += 5;
+                    continue;
+                }
+                
+                if(flag)
+                {
+                    br = BC_Rows.Parse(kStr);
+                    if(br != null)
+                    {
+                        tab.Add(br);
+                    }
+                }
+
+            }
+
+
+        }
+
+    }
+    public class BC_Table : List<BC_Rows>
+    {
+        public string Title { get; set; }
+        public BC_Table(string title):base()
+        {
+            Title = title;
+        }
+    }
+    public class BC_Rows : List<string>
+    {
+        public BC_Rows():base()
+        {
+        }
+        public static BC_Rows Parse(string txt)
+        {
+            try
+            {
+                MyList m = new MyList(MyList.RemoveAllSpaces(txt.ToUpper()), ' ');
+                BC_Rows bc = new BC_Rows();
+                bc.AddRange(m.StringList);
+                return bc;
+            }
+            catch (Exception exx) { }
+
+            return null;
+
+        }
+    }
+
 }

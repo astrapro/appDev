@@ -245,5 +245,10 @@ namespace LimitStateMethod.RccCulvert
             }
         }
 
+        private void uC_BoxCulvert1_OnButtonProceed(object sender, EventArgs e)
+        {
+            iApp.Save_Form_Record(this, user_path);
+        }
+
     }
 }

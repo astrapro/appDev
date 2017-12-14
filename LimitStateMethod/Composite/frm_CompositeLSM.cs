@@ -6384,24 +6384,51 @@ namespace LimitStateMethod.Composite
                 L, NCG, SCG));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
+
+
+            double Y_deck = Y_w;
+
+            if (rbtn_steel_deck.Checked)
+            {
+
+                Y_deck = Y_S;
+                list.Add(string.Format("Steel Plate Deckslab used, Y = {0:f2}", Y_deck));
+            }
+
+
+
+
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add(string.Format(""));
             list.Add(string.Format("//UDL in all main long Inner Girder members"));
             list.Add(string.Format(""));
-            list.Add(string.Format("//Load from RCC Deck Slab (Dry Concrete)"));
-            wi1 = SMG * SCG * (Ds * Y_c + Dw * Y_w);
-            list.Add(string.Format("wi1 = SMG*SCG*(Ds*Y_c + Dw*Y_w) "));
+            if (rbtn_steel_deck.Checked)
+            {
+                list.Add(string.Format("//Load from RCC Deck Slab (Steel Plate)"));
+
+            }
+            else
+                list.Add(string.Format("//Load from RCC Deck Slab (Dry Concrete)"));
+
+
+            wi1 = SMG * SCG * (Ds * Y_c + Dw * Y_deck);
+            list.Add(string.Format("wi1 = SMG*SCG*(Ds*Y_c + Dw*Y) "));
             list.Add(string.Format("   = {0:f3}*{1:f3}*({2:f3}*{3:f3}+{4:f3}*{5:f3}) ",
-                SMG, SCG, Ds, Y_c, Dw, Y_w));
+                SMG, SCG, Ds, Y_c, Dw, Y_deck));
             list.Add(string.Format("   = {0:f3} kN.", wi1));
             list.Add(string.Format(""));
 
 
-            list.Add(string.Format("//Load from RCC Deck Slab (Green Concrete)"));
-            double wi1_green = SMG * SCG * (Ds * Y_c_Green + Dw * Y_w);
+            if (rbtn_steel_deck.Checked)
+                list.Add(string.Format("//Load from RCC Deck Slab (Green Concrete)"));
+            else
+                list.Add(string.Format("//Load from RCC Deck Slab (Steel Plate)"));
 
-            list.Add(string.Format("wi1 = SMG*SCG*(Ds*Y_c + Dw*Y_w) "));
+
+            double wi1_green = SMG * SCG * (Ds * Y_c_Green + Dw * Y_deck);
+
+            list.Add(string.Format("wi1 = SMG*SCG*(Ds*Y_c + Dw*Y) "));
             list.Add(string.Format("   = {0:f3}*{1:f3}*({2:f3}*{3:f3}+{4:f3}*{5:f3}) ",
                 SMG, SCG, Ds, Y_c_Green, Dw, Y_w));
             list.Add(string.Format("   = {0:f3} kN.", wi1_green));
@@ -15349,6 +15376,20 @@ namespace LimitStateMethod.Composite
                     #endregion
 
                 }
+            }
+
+
+        }
+
+        private void rbtn_steel_deck_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rbtn_steel_deck.Checked)
+            {
+                Ds = 0.01;
+            }
+            else
+            {
+                Ds = 0.21;
             }
 
 

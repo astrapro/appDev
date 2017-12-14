@@ -39,6 +39,22 @@ namespace AstraInterface.DataStructure
             return string.Format("{0} = {1} {2}", ITEM, DATA, UNIT);
         }
 
+        public double ToDouble
+        {
+            get
+            {
+                return MyList.StringToDouble(DATA);
+            }
+        }
+
+        public int ToInt
+        {
+            get
+            {
+                return  (int) ToDouble;
+            }
+        }
+
     }
 
     public class DataInputCollections : List<DataInput>

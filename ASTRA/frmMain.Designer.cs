@@ -180,6 +180,7 @@
             this.tsmi_Bridge_Foundation = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_Hydraulic_Calculations = new System.Windows.Forms.ToolStripMenuItem();
+            this.hydraulicCalculationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Material_Properties1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_CostEstimation = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_RCC_Structural_Design = new System.Windows.Forms.ToolStripMenuItem();
@@ -1290,14 +1291,14 @@
             // tsmi_minor_Bridge_ls
             // 
             this.tsmi_minor_Bridge_ls.Name = "tsmi_minor_Bridge_ls";
-            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(204, 22);
-            this.tsmi_minor_Bridge_ls.Text = "Limit State Method (IRC)";
+            this.tsmi_minor_Bridge_ls.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_minor_Bridge_ls.Text = "Limit State Method";
             this.tsmi_minor_Bridge_ls.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
             // tsmi_minor_Bridge_ws
             // 
             this.tsmi_minor_Bridge_ws.Name = "tsmi_minor_Bridge_ws";
-            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(204, 22);
+            this.tsmi_minor_Bridge_ws.Size = new System.Drawing.Size(197, 22);
             this.tsmi_minor_Bridge_ws.Text = "Working Stress Method";
             this.tsmi_minor_Bridge_ws.Click += new System.EventHandler(this.tsmi_NewMenu_Click);
             // 
@@ -1318,14 +1319,14 @@
             // tsmi_RCC_Culverts_LS
             // 
             this.tsmi_RCC_Culverts_LS.Name = "tsmi_RCC_Culverts_LS";
-            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(204, 22);
-            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method (IRC)";
+            this.tsmi_RCC_Culverts_LS.Size = new System.Drawing.Size(197, 22);
+            this.tsmi_RCC_Culverts_LS.Text = "Limit State Method";
             this.tsmi_RCC_Culverts_LS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
             // tsmi_RCC_Culverts_WS
             // 
             this.tsmi_RCC_Culverts_WS.Name = "tsmi_RCC_Culverts_WS";
-            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(204, 22);
+            this.tsmi_RCC_Culverts_WS.Size = new System.Drawing.Size(197, 22);
             this.tsmi_RCC_Culverts_WS.Text = "Working Stress Method";
             this.tsmi_RCC_Culverts_WS.Click += new System.EventHandler(this.tsmi_RCC_Culverts_Click);
             // 
@@ -1438,10 +1439,18 @@
             // 
             // tsmi_Hydraulic_Calculations
             // 
+            this.tsmi_Hydraulic_Calculations.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hydraulicCalculationsToolStripMenuItem});
             this.tsmi_Hydraulic_Calculations.Name = "tsmi_Hydraulic_Calculations";
             this.tsmi_Hydraulic_Calculations.Size = new System.Drawing.Size(385, 22);
             this.tsmi_Hydraulic_Calculations.Text = "Hydraulic Calculations";
-            this.tsmi_Hydraulic_Calculations.Click += new System.EventHandler(this.hYDRAULICCALCULATIONSToolStripMenuItem_Click);
+            // 
+            // hydraulicCalculationsToolStripMenuItem
+            // 
+            this.hydraulicCalculationsToolStripMenuItem.Name = "hydraulicCalculationsToolStripMenuItem";
+            this.hydraulicCalculationsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.hydraulicCalculationsToolStripMenuItem.Text = "Hydraulic Calculations";
+            this.hydraulicCalculationsToolStripMenuItem.Click += new System.EventHandler(this.hYDRAULICCALCULATIONSToolStripMenuItem_Click);
             // 
             // tsmi_Material_Properties1
             // 
@@ -1476,7 +1485,7 @@
             this.tsmi_cableCarTower});
             this.tsmi_RCC_Structural_Design.Name = "tsmi_RCC_Structural_Design";
             this.tsmi_RCC_Structural_Design.Size = new System.Drawing.Size(244, 22);
-            this.tsmi_RCC_Structural_Design.Text = "Structure Design";
+            this.tsmi_RCC_Structural_Design.Text = "Structure Design (Optional)";
             // 
             // tsmi_Working_Folder1
             // 
@@ -1700,14 +1709,15 @@
             this.tsmi_PDelta,
             this.tsmi_streamHydrologyResearch});
             this.tsmi_research_Studies.Name = "tsmi_research_Studies";
-            this.tsmi_research_Studies.Size = new System.Drawing.Size(107, 20);
-            this.tsmi_research_Studies.Text = "Research Studies";
+            this.tsmi_research_Studies.Size = new System.Drawing.Size(164, 20);
+            this.tsmi_research_Studies.Text = "Research Studies (Optional)";
             // 
             // tsmi_selectWorkingFolderResearch
             // 
             this.tsmi_selectWorkingFolderResearch.Name = "tsmi_selectWorkingFolderResearch";
             this.tsmi_selectWorkingFolderResearch.Size = new System.Drawing.Size(280, 22);
             this.tsmi_selectWorkingFolderResearch.Text = "Select Working Folder";
+            this.tsmi_selectWorkingFolderResearch.Visible = false;
             this.tsmi_selectWorkingFolderResearch.Click += new System.EventHandler(this.tsmi_Working_Folder_Click);
             // 
             // tsmi_HSTBD
@@ -2457,6 +2467,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_minor_Bridge_ws;
         private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_Culverts_LS;
         private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_Culverts_WS;
+        private System.Windows.Forms.ToolStripMenuItem hydraulicCalculationsToolStripMenuItem;
     }
 }
 

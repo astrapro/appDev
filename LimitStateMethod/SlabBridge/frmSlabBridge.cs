@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -22,13 +23,26 @@ namespace LimitStateMethod.SlabBridge
 
 
         string Input_File_DL = "";
+
+
         string Input_File_LL = "";
+
+        public string Get_LL_File(int LoadNo)
+        {
+            string fl_name = Path.Combine(Path.GetDirectoryName(Input_File_LL), "LL_ANALYSIS_" + LoadNo);
+            if (!Directory.Exists(fl_name)) Directory.CreateDirectory(fl_name);
+
+            fl_name = Path.Combine(fl_name, "LL_ANALYSIS_" + LoadNo + ".txt");
+
+            return fl_name;
+        }
 
         public frmSlabBridge(IApplication app)
         {
             InitializeComponent();
-            Load_Default_Data();
             iApp = app;
+            Load_Default_Data();
+            Load_LL();
         }
         public void Load_Default_Data()
         {
@@ -463,2911 +477,224 @@ namespace LimitStateMethod.SlabBridge
             }
         }
 
-        public void Create_Data_Multicell_DeadLoad()
-        {
-            List<string> list = new List<string>();
-            list.Add(string.Format("ASTRA SPACE MULTICELL BOX CULVERT"));
-            list.Add(string.Format("UNIT METER KN"));
-            list.Add(string.Format("JOINT COORDINATES"));
-            list.Add(string.Format("1        0.0000        0.0000        0.0000"));
-            list.Add(string.Format("2        12.7500        0.0000        0.0000"));
-            list.Add(string.Format("3        25.5000        0.0000        0.0000"));
-            list.Add(string.Format("4        0.0000        5.0700        0.0000"));
-            list.Add(string.Format("5        12.7500        5.0700        0.0000"));
-            list.Add(string.Format("6        25.5000        5.0700        0.0000"));
-            list.Add(string.Format("7        12.7400        0.0000        0.0000"));
-            list.Add(string.Format("8        0.1400        0.0000        0.0000"));
-            list.Add(string.Format("9        0.2800        0.0000        0.0000"));
-            list.Add(string.Format("10        0.4200        0.0000        0.0000"));
-            list.Add(string.Format("11        0.5600        0.0000        0.0000"));
-            list.Add(string.Format("12        0.7000        0.0000        0.0000"));
-            list.Add(string.Format("13        0.8400        0.0000        0.0000"));
-            list.Add(string.Format("14        0.9800        0.0000        0.0000"));
-            list.Add(string.Format("15        1.1200        0.0000        0.0000"));
-            list.Add(string.Format("16        1.2600        0.0000        0.0000"));
-            list.Add(string.Format("17        1.4000        0.0000        0.0000"));
-            list.Add(string.Format("18        1.5400        0.0000        0.0000"));
-            list.Add(string.Format("19        1.6800        0.0000        0.0000"));
-            list.Add(string.Format("20        1.8200        0.0000        0.0000"));
-            list.Add(string.Format("21        1.9600        0.0000        0.0000"));
-            list.Add(string.Format("22        2.1000        0.0000        0.0000"));
-            list.Add(string.Format("23        2.2400        0.0000        0.0000"));
-            list.Add(string.Format("24        2.3800        0.0000        0.0000"));
-            list.Add(string.Format("25        2.5200        0.0000        0.0000"));
-            list.Add(string.Format("26        2.6600        0.0000        0.0000"));
-            list.Add(string.Format("27        2.8000        0.0000        0.0000"));
-            list.Add(string.Format("28        2.9400        0.0000        0.0000"));
-            list.Add(string.Format("29        3.0800        0.0000        0.0000"));
-            list.Add(string.Format("30        3.2200        0.0000        0.0000"));
-            list.Add(string.Format("31        3.3600        0.0000        0.0000"));
-            list.Add(string.Format("32        3.5000        0.0000        0.0000"));
-            list.Add(string.Format("33        3.6400        0.0000        0.0000"));
-            list.Add(string.Format("34        3.7800        0.0000        0.0000"));
-            list.Add(string.Format("35        3.9200        0.0000        0.0000"));
-            list.Add(string.Format("36        4.0600        0.0000        0.0000"));
-            list.Add(string.Format("37        4.2000        0.0000        0.0000"));
-            list.Add(string.Format("38        4.3400        0.0000        0.0000"));
-            list.Add(string.Format("39        4.4800        0.0000        0.0000"));
-            list.Add(string.Format("40        4.6200        0.0000        0.0000"));
-            list.Add(string.Format("41        4.7600        0.0000        0.0000"));
-            list.Add(string.Format("42        4.9000        0.0000        0.0000"));
-            list.Add(string.Format("43        5.0400        0.0000        0.0000"));
-            list.Add(string.Format("44        5.1800        0.0000        0.0000"));
-            list.Add(string.Format("45        5.3200        0.0000        0.0000"));
-            list.Add(string.Format("46        5.4600        0.0000        0.0000"));
-            list.Add(string.Format("47        5.6000        0.0000        0.0000"));
-            list.Add(string.Format("48        5.7400        0.0000        0.0000"));
-            list.Add(string.Format("49        5.8800        0.0000        0.0000"));
-            list.Add(string.Format("50        6.0200        0.0000        0.0000"));
-            list.Add(string.Format("51        6.1600        0.0000        0.0000"));
-            list.Add(string.Format("52        6.3000        0.0000        0.0000"));
-            list.Add(string.Format("53        6.4400        0.0000        0.0000"));
-            list.Add(string.Format("54        6.5800        0.0000        0.0000"));
-            list.Add(string.Format("55        6.7200        0.0000        0.0000"));
-            list.Add(string.Format("56        6.8600        0.0000        0.0000"));
-            list.Add(string.Format("57        7.0000        0.0000        0.0000"));
-            list.Add(string.Format("58        7.1400        0.0000        0.0000"));
-            list.Add(string.Format("59        7.2800        0.0000        0.0000"));
-            list.Add(string.Format("60        7.4200        0.0000        0.0000"));
-            list.Add(string.Format("61        7.5600        0.0000        0.0000"));
-            list.Add(string.Format("62        7.7000        0.0000        0.0000"));
-            list.Add(string.Format("63        7.8400        0.0000        0.0000"));
-            list.Add(string.Format("64        7.9800        0.0000        0.0000"));
-            list.Add(string.Format("65        8.1200        0.0000        0.0000"));
-            list.Add(string.Format("66        8.2600        0.0000        0.0000"));
-            list.Add(string.Format("67        8.4000        0.0000        0.0000"));
-            list.Add(string.Format("68        8.5400        0.0000        0.0000"));
-            list.Add(string.Format("69        8.6800        0.0000        0.0000"));
-            list.Add(string.Format("70        8.8200        0.0000        0.0000"));
-            list.Add(string.Format("71        8.9600        0.0000        0.0000"));
-            list.Add(string.Format("72        9.1000        0.0000        0.0000"));
-            list.Add(string.Format("73        9.2400        0.0000        0.0000"));
-            list.Add(string.Format("74        9.3800        0.0000        0.0000"));
-            list.Add(string.Format("75        9.5200        0.0000        0.0000"));
-            list.Add(string.Format("76        9.6600        0.0000        0.0000"));
-            list.Add(string.Format("77        9.8000        0.0000        0.0000"));
-            list.Add(string.Format("78        9.9400        0.0000        0.0000"));
-            list.Add(string.Format("79        10.0800        0.0000        0.0000"));
-            list.Add(string.Format("80        10.2200        0.0000        0.0000"));
-            list.Add(string.Format("81        10.3600        0.0000        0.0000"));
-            list.Add(string.Format("82        10.5000        0.0000        0.0000"));
-            list.Add(string.Format("83        10.6400        0.0000        0.0000"));
-            list.Add(string.Format("84        10.7800        0.0000        0.0000"));
-            list.Add(string.Format("85        10.9200        0.0000        0.0000"));
-            list.Add(string.Format("86        11.0600        0.0000        0.0000"));
-            list.Add(string.Format("87        11.2000        0.0000        0.0000"));
-            list.Add(string.Format("88        11.3400        0.0000        0.0000"));
-            list.Add(string.Format("89        11.4800        0.0000        0.0000"));
-            list.Add(string.Format("90        11.6200        0.0000        0.0000"));
-            list.Add(string.Format("91        11.7600        0.0000        0.0000"));
-            list.Add(string.Format("92        11.9000        0.0000        0.0000"));
-            list.Add(string.Format("93        12.0400        0.0000        0.0000"));
-            list.Add(string.Format("94        12.1800        0.0000        0.0000"));
-            list.Add(string.Format("95        12.3200        0.0000        0.0000"));
-            list.Add(string.Format("96        12.4600        0.0000        0.0000"));
-            list.Add(string.Format("97        12.6000        0.0000        0.0000"));
-            list.Add(string.Format("98        12.8901        0.0000        0.0000"));
-            list.Add(string.Format("99        13.0302        0.0000        0.0000"));
-            list.Add(string.Format("100        13.1703        0.0000        0.0000"));
-            list.Add(string.Format("101        13.3104        0.0000        0.0000"));
-            list.Add(string.Format("102        13.4505        0.0000        0.0000"));
-            list.Add(string.Format("103        13.5907        0.0000        0.0000"));
-            list.Add(string.Format("104        13.7308        0.0000        0.0000"));
-            list.Add(string.Format("105        13.8709        0.0000        0.0000"));
-            list.Add(string.Format("106        14.0110        0.0000        0.0000"));
-            list.Add(string.Format("107        14.1511        0.0000        0.0000"));
-            list.Add(string.Format("108        14.2912        0.0000        0.0000"));
-            list.Add(string.Format("109        14.4313        0.0000        0.0000"));
-            list.Add(string.Format("110        14.5714        0.0000        0.0000"));
-            list.Add(string.Format("111        14.7115        0.0000        0.0000"));
-            list.Add(string.Format("112        14.8516        0.0000        0.0000"));
-            list.Add(string.Format("113        14.9918        0.0000        0.0000"));
-            list.Add(string.Format("114        15.1319        0.0000        0.0000"));
-            list.Add(string.Format("115        15.2720        0.0000        0.0000"));
-            list.Add(string.Format("116        15.4121        0.0000        0.0000"));
-            list.Add(string.Format("117        15.5522        0.0000        0.0000"));
-            list.Add(string.Format("118        15.6923        0.0000        0.0000"));
-            list.Add(string.Format("119        15.8324        0.0000        0.0000"));
-            list.Add(string.Format("120        15.9725        0.0000        0.0000"));
-            list.Add(string.Format("121        16.1126        0.0000        0.0000"));
-            list.Add(string.Format("122        16.2527        0.0000        0.0000"));
-            list.Add(string.Format("123        16.3929        0.0000        0.0000"));
-            list.Add(string.Format("124        16.5330        0.0000        0.0000"));
-            list.Add(string.Format("125        16.6731        0.0000        0.0000"));
-            list.Add(string.Format("126        16.8132        0.0000        0.0000"));
-            list.Add(string.Format("127        16.9533        0.0000        0.0000"));
-            list.Add(string.Format("128        17.0934        0.0000        0.0000"));
-            list.Add(string.Format("129        17.2335        0.0000        0.0000"));
-            list.Add(string.Format("130        17.3736        0.0000        0.0000"));
-            list.Add(string.Format("131        17.5137        0.0000        0.0000"));
-            list.Add(string.Format("132        17.6538        0.0000        0.0000"));
-            list.Add(string.Format("133        17.7940        0.0000        0.0000"));
-            list.Add(string.Format("134        17.9341        0.0000        0.0000"));
-            list.Add(string.Format("135        18.0742        0.0000        0.0000"));
-            list.Add(string.Format("136        18.2143        0.0000        0.0000"));
-            list.Add(string.Format("137        18.3544        0.0000        0.0000"));
-            list.Add(string.Format("138        18.4945        0.0000        0.0000"));
-            list.Add(string.Format("139        18.6346        0.0000        0.0000"));
-            list.Add(string.Format("140        18.7747        0.0000        0.0000"));
-            list.Add(string.Format("141        18.9148        0.0000        0.0000"));
-            list.Add(string.Format("142        19.0549        0.0000        0.0000"));
-            list.Add(string.Format("143        19.1951        0.0000        0.0000"));
-            list.Add(string.Format("144        19.3352        0.0000        0.0000"));
-            list.Add(string.Format("145        19.4753        0.0000        0.0000"));
-            list.Add(string.Format("146        19.6154        0.0000        0.0000"));
-            list.Add(string.Format("147        19.7555        0.0000        0.0000"));
-            list.Add(string.Format("148        19.8956        0.0000        0.0000"));
-            list.Add(string.Format("149        20.0357        0.0000        0.0000"));
-            list.Add(string.Format("150        20.1758        0.0000        0.0000"));
-            list.Add(string.Format("151        20.3159        0.0000        0.0000"));
-            list.Add(string.Format("152        20.4560        0.0000        0.0000"));
-            list.Add(string.Format("153        20.5962        0.0000        0.0000"));
-            list.Add(string.Format("154        20.7363        0.0000        0.0000"));
-            list.Add(string.Format("155        20.8764        0.0000        0.0000"));
-            list.Add(string.Format("156        21.0165        0.0000        0.0000"));
-            list.Add(string.Format("157        21.1566        0.0000        0.0000"));
-            list.Add(string.Format("158        21.2967        0.0000        0.0000"));
-            list.Add(string.Format("159        21.4368        0.0000        0.0000"));
-            list.Add(string.Format("160        21.5769        0.0000        0.0000"));
-            list.Add(string.Format("161        21.7170        0.0000        0.0000"));
-            list.Add(string.Format("162        21.8571        0.0000        0.0000"));
-            list.Add(string.Format("163        21.9973        0.0000        0.0000"));
-            list.Add(string.Format("164        22.1374        0.0000        0.0000"));
-            list.Add(string.Format("165        22.2775        0.0000        0.0000"));
-            list.Add(string.Format("166        22.4176        0.0000        0.0000"));
-            list.Add(string.Format("167        22.5577        0.0000        0.0000"));
-            list.Add(string.Format("168        22.6978        0.0000        0.0000"));
-            list.Add(string.Format("169        22.8379        0.0000        0.0000"));
-            list.Add(string.Format("170        22.9780        0.0000        0.0000"));
-            list.Add(string.Format("171        23.1181        0.0000        0.0000"));
-            list.Add(string.Format("172        23.2582        0.0000        0.0000"));
-            list.Add(string.Format("173        23.3984        0.0000        0.0000"));
-            list.Add(string.Format("174        23.5385        0.0000        0.0000"));
-            list.Add(string.Format("175        23.6786        0.0000        0.0000"));
-            list.Add(string.Format("176        23.8187        0.0000        0.0000"));
-            list.Add(string.Format("177        23.9588        0.0000        0.0000"));
-            list.Add(string.Format("178        24.0989        0.0000        0.0000"));
-            list.Add(string.Format("179        24.2390        0.0000        0.0000"));
-            list.Add(string.Format("180        24.3791        0.0000        0.0000"));
-            list.Add(string.Format("181        24.5192        0.0000        0.0000"));
-            list.Add(string.Format("182        24.6593        0.0000        0.0000"));
-            list.Add(string.Format("183        24.7994        0.0000        0.0000"));
-            list.Add(string.Format("184        24.9396        0.0000        0.0000"));
-            list.Add(string.Format("185        25.0797        0.0000        0.0000"));
-            list.Add(string.Format("186        25.2198        0.0000        0.0000"));
-            list.Add(string.Format("187        25.3599        0.0000        0.0000"));
-            list.Add(string.Format("MEMBER INCIDENCES"));
-            list.Add(string.Format("1        4        5"));
-            list.Add(string.Format("2        5        6"));
-            list.Add(string.Format("3        1        4"));
-            list.Add(string.Format("4        2        5"));
-            list.Add(string.Format("5        2        7"));
-            list.Add(string.Format("6        3        6"));
-            list.Add(string.Format("7        1        8"));
-            list.Add(string.Format("8        2        98"));
-            list.Add(string.Format("9        8        9"));
-            list.Add(string.Format("10        9        10"));
-            list.Add(string.Format("11        10        11"));
-            list.Add(string.Format("12        11        12"));
-            list.Add(string.Format("13        12        13"));
-            list.Add(string.Format("14        13        14"));
-            list.Add(string.Format("15        14        15"));
-            list.Add(string.Format("16        15        16"));
-            list.Add(string.Format("17        16        17"));
-            list.Add(string.Format("18        17        18"));
-            list.Add(string.Format("19        18        19"));
-            list.Add(string.Format("20        19        20"));
-            list.Add(string.Format("21        20        21"));
-            list.Add(string.Format("22        21        22"));
-            list.Add(string.Format("23        22        23"));
-            list.Add(string.Format("24        23        24"));
-            list.Add(string.Format("25        24        25"));
-            list.Add(string.Format("26        25        26"));
-            list.Add(string.Format("27        26        27"));
-            list.Add(string.Format("28        27        28"));
-            list.Add(string.Format("29        28        29"));
-            list.Add(string.Format("30        29        30"));
-            list.Add(string.Format("31        30        31"));
-            list.Add(string.Format("32        31        32"));
-            list.Add(string.Format("33        32        33"));
-            list.Add(string.Format("34        33        34"));
-            list.Add(string.Format("35        34        35"));
-            list.Add(string.Format("36        35        36"));
-            list.Add(string.Format("37        36        37"));
-            list.Add(string.Format("38        37        38"));
-            list.Add(string.Format("39        38        39"));
-            list.Add(string.Format("40        39        40"));
-            list.Add(string.Format("41        40        41"));
-            list.Add(string.Format("42        41        42"));
-            list.Add(string.Format("43        42        43"));
-            list.Add(string.Format("44        43        44"));
-            list.Add(string.Format("45        44        45"));
-            list.Add(string.Format("46        45        46"));
-            list.Add(string.Format("47        46        47"));
-            list.Add(string.Format("48        47        48"));
-            list.Add(string.Format("49        48        49"));
-            list.Add(string.Format("50        49        50"));
-            list.Add(string.Format("51        50        51"));
-            list.Add(string.Format("52        51        52"));
-            list.Add(string.Format("53        52        53"));
-            list.Add(string.Format("54        53        54"));
-            list.Add(string.Format("55        54        55"));
-            list.Add(string.Format("56        55        56"));
-            list.Add(string.Format("57        56        57"));
-            list.Add(string.Format("58        57        58"));
-            list.Add(string.Format("59        58        59"));
-            list.Add(string.Format("60        59        60"));
-            list.Add(string.Format("61        60        61"));
-            list.Add(string.Format("62        61        62"));
-            list.Add(string.Format("63        62        63"));
-            list.Add(string.Format("64        63        64"));
-            list.Add(string.Format("65        64        65"));
-            list.Add(string.Format("66        65        66"));
-            list.Add(string.Format("67        66        67"));
-            list.Add(string.Format("68        67        68"));
-            list.Add(string.Format("69        68        69"));
-            list.Add(string.Format("70        69        70"));
-            list.Add(string.Format("71        70        71"));
-            list.Add(string.Format("72        71        72"));
-            list.Add(string.Format("73        72        73"));
-            list.Add(string.Format("74        73        74"));
-            list.Add(string.Format("75        74        75"));
-            list.Add(string.Format("76        75        76"));
-            list.Add(string.Format("77        76        77"));
-            list.Add(string.Format("78        77        78"));
-            list.Add(string.Format("79        78        79"));
-            list.Add(string.Format("80        79        80"));
-            list.Add(string.Format("81        80        81"));
-            list.Add(string.Format("82        81        82"));
-            list.Add(string.Format("83        82        83"));
-            list.Add(string.Format("84        83        84"));
-            list.Add(string.Format("85        84        85"));
-            list.Add(string.Format("86        85        86"));
-            list.Add(string.Format("87        86        87"));
-            list.Add(string.Format("88        87        88"));
-            list.Add(string.Format("89        88        89"));
-            list.Add(string.Format("90        89        90"));
-            list.Add(string.Format("91        90        91"));
-            list.Add(string.Format("92        91        92"));
-            list.Add(string.Format("93        92        93"));
-            list.Add(string.Format("94        93        94"));
-            list.Add(string.Format("95        94        95"));
-            list.Add(string.Format("96        95        96"));
-            list.Add(string.Format("97        96        97"));
-            list.Add(string.Format("98        97        98"));
-            list.Add(string.Format("99        98        99"));
-            list.Add(string.Format("100        99        100"));
-            list.Add(string.Format("101        100        101"));
-            list.Add(string.Format("102        101        102"));
-            list.Add(string.Format("103        102        103"));
-            list.Add(string.Format("104        103        104"));
-            list.Add(string.Format("105        104        105"));
-            list.Add(string.Format("106        105        106"));
-            list.Add(string.Format("107        106        107"));
-            list.Add(string.Format("108        107        108"));
-            list.Add(string.Format("109        108        109"));
-            list.Add(string.Format("110        109        110"));
-            list.Add(string.Format("111        110        111"));
-            list.Add(string.Format("112        111        112"));
-            list.Add(string.Format("113        112        113"));
-            list.Add(string.Format("114        113        114"));
-            list.Add(string.Format("115        114        115"));
-            list.Add(string.Format("116        115        116"));
-            list.Add(string.Format("117        116        117"));
-            list.Add(string.Format("118        117        118"));
-            list.Add(string.Format("119        118        119"));
-            list.Add(string.Format("120        119        120"));
-            list.Add(string.Format("121        120        121"));
-            list.Add(string.Format("122        121        122"));
-            list.Add(string.Format("123        122        123"));
-            list.Add(string.Format("124        123        124"));
-            list.Add(string.Format("125        124        125"));
-            list.Add(string.Format("126        125        126"));
-            list.Add(string.Format("127        126        127"));
-            list.Add(string.Format("128        127        128"));
-            list.Add(string.Format("129        128        129"));
-            list.Add(string.Format("130        129        130"));
-            list.Add(string.Format("131        130        131"));
-            list.Add(string.Format("132        131        132"));
-            list.Add(string.Format("133        132        133"));
-            list.Add(string.Format("134        133        134"));
-            list.Add(string.Format("135        134        135"));
-            list.Add(string.Format("136        135        136"));
-            list.Add(string.Format("137        136        137"));
-            list.Add(string.Format("138        137        138"));
-            list.Add(string.Format("139        138        139"));
-            list.Add(string.Format("140        139        140"));
-            list.Add(string.Format("141        140        141"));
-            list.Add(string.Format("142        141        142"));
-            list.Add(string.Format("143        142        143"));
-            list.Add(string.Format("144        143        144"));
-            list.Add(string.Format("145        144        145"));
-            list.Add(string.Format("146        145        146"));
-            list.Add(string.Format("147        146        147"));
-            list.Add(string.Format("148        147        148"));
-            list.Add(string.Format("149        148        149"));
-            list.Add(string.Format("150        149        150"));
-            list.Add(string.Format("151        150        151"));
-            list.Add(string.Format("152        151        152"));
-            list.Add(string.Format("153        152        153"));
-            list.Add(string.Format("154        153        154"));
-            list.Add(string.Format("155        154        155"));
-            list.Add(string.Format("156        155        156"));
-            list.Add(string.Format("157        156        157"));
-            list.Add(string.Format("158        157        158"));
-            list.Add(string.Format("159        158        159"));
-            list.Add(string.Format("160        159        160"));
-            list.Add(string.Format("161        160        161"));
-            list.Add(string.Format("162        161        162"));
-            list.Add(string.Format("163        162        163"));
-            list.Add(string.Format("164        163        164"));
-            list.Add(string.Format("165        164        165"));
-            list.Add(string.Format("166        165        166"));
-            list.Add(string.Format("167        166        167"));
-            list.Add(string.Format("168        167        168"));
-            list.Add(string.Format("169        168        169"));
-            list.Add(string.Format("170        169        170"));
-            list.Add(string.Format("171        170        171"));
-            list.Add(string.Format("172        171        172"));
-            list.Add(string.Format("173        172        173"));
-            list.Add(string.Format("174        173        174"));
-            list.Add(string.Format("175        174        175"));
-            list.Add(string.Format("176        175        176"));
-            list.Add(string.Format("177        176        177"));
-            list.Add(string.Format("178        177        178"));
-            list.Add(string.Format("179        178        179"));
-            list.Add(string.Format("180        179        180"));
-            list.Add(string.Format("181        180        181"));
-            list.Add(string.Format("182        181        182"));
-            list.Add(string.Format("183        182        183"));
-            list.Add(string.Format("184        183        184"));
-            list.Add(string.Format("185        184        185"));
-            list.Add(string.Format("186        185        186"));
-            list.Add(string.Format("187        186        187"));
-            list.Add(string.Format("188        187        3"));
-            list.Add(string.Format("MEMBER PROPERTY"));
-            list.Add(string.Format("5 7 TO 188 PRIS YD 0.8 ZD 1"));
-            list.Add(string.Format("1 2 3 6 PRIS YD 0.7 ZD 1"));
-            list.Add(string.Format("4 PRIS YD 0.5 ZD 1"));
-            list.Add(string.Format("CONSTANTS"));
-            list.Add(string.Format("E 2.17185e+007 ALL"));
-            list.Add(string.Format("POISSON 0.17 ALL"));
-            list.Add(string.Format("DENSITY 23.5616 ALL"));
-            list.Add(string.Format("ALPHA 1e-005 ALL"));
-            list.Add(string.Format("DAMP 0.05 ALL"));
-            list.Add(string.Format("SUPPORTS"));
-            list.Add(string.Format("1 TO 3 7 TO 187 FIXED BUT FX FZ MX MY MZ KFY 2093"));
-            list.Add(string.Format("MEMBER RELEASE"));
-            list.Add(string.Format("8 98 START FX FZ MX MY"));
-            list.Add(string.Format("8 98 END FX FZ MX MY"));
-            list.Add(string.Format("LOAD 1 LOADTYPE Dead  TITLE DL+SIDL"));
-            list.Add(string.Format("SELFWEIGHT Y -1 "));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 2 UNI GY -12.5"));
-            list.Add(string.Format("1 2 UNI GY -10"));
-            list.Add(string.Format("LOAD 2 LOADTYPE Dead  TITLE WATER LOAD"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("3 4 TRAP GX -20 0"));
-            list.Add(string.Format("4 6 TRAP GX 20 0"));
-            list.Add(string.Format("5 7 TO 196 UNI GY -20"));
-            list.Add(string.Format("LOAD 3 LOADTYPE Dead  TITLE SURCHARGE LOAD"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("6 UNI GX -10.8"));
-            list.Add(string.Format("3 UNI GX 10.8"));
-            list.Add(string.Format("LOAD 4 LOADTYPE Dead  TITLE EARTH PRESSURE BS."));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("3 TRAP GX 55.8 0"));
-            list.Add(string.Format("6 TRAP GX -55.8 0"));
-            list.Add(string.Format("LOAD 5 LOADTYPE Dead  TITLE EARTH PRESSURE OS."));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("3 TRAP GX 55.8 0"));
-            list.Add(string.Format("LOAD 6 LOADTYPE Dead  TITLE BRAKING LOAD"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("4 6 FX -23.53"));
-            list.Add(string.Format("LOAD 7 LOADTYPE Dead  TITLE EARTH CUSHION"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 2 UNI GY -0.2"));
-            list.Add(string.Format("LOAD 8 LOADTYPE None  TITLE TEMPERATURE RISE"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("4 FX 845 MZ -217"));
-            list.Add(string.Format("6 FX -845 MZ 217"));
-            list.Add(string.Format("LOAD 9 LOADTYPE None  TITLE TEMPERATURE FALL"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("4 FX -612 MZ 39"));
-            list.Add(string.Format("6 FX 612 MZ -39"));
-            list.Add(string.Format("LOAD 10 LOADTYPE Dead  TITLE SIDL WC"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 2 UNI GY -1.65"));
-            list.Add(string.Format("LOAD COMB 11 COMBINATION LOAD CASE 11"));
-            list.Add(string.Format("1 1.35 10 1.75 "));
-            list.Add(string.Format("LOAD COMB 12 COMBINATION LOAD CASE 12"));
-            list.Add(string.Format("1 1.35 10 1.75 5 1.5 "));
-            list.Add(string.Format("LOAD COMB 13 COMBINATION LOAD CASE 13"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.5 "));
-            list.Add(string.Format("LOAD COMB 14 COMBINATION LOAD CASE 14"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.5 7 1.35 "));
-            list.Add(string.Format("LOAD COMB 15 COMBINATION LOAD CASE 15"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.5 7 1.35 6 1.5 "));
-            list.Add(string.Format("LOAD COMB 16 COMBINATION LOAD CASE 16"));
-            list.Add(string.Format("1 1.35 10 1.75 4 1.5 7 1.35 3 1.2 6 1.5 "));
-            list.Add(string.Format("LOAD COMB 17 REACTION"));
-            list.Add(string.Format("1 1.0 2 1.0 4 1.0 7 1.0 10 1.0 "));
-            list.Add(string.Format("PERFORM ANALYSIS"));
-            list.Add(string.Format("FINISH"));
 
-            //string frm = "Multicell Dead Loads.txt";
 
-            File.WriteAllLines(Input_File_DL, list.ToArray());
-        }
-        public void Create_Data_MulticellLiveLoad()
+        Slab_Bridge_Model Slab_Model;
+
+        private void Read_Singlecell_Bending_Moment_Shear_Force()
         {
 
+            BridgeMemberAnalysis brd = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Input_File_DL));
+            //BridgeMemberAnalysis brd1 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Input_File_LL));
+            BridgeMemberAnalysis brd1 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Get_LL_File(1)));
+            BridgeMemberAnalysis brd2 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Get_LL_File(2)));
+            BridgeMemberAnalysis brd3 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Get_LL_File(3)));
+            BridgeMemberAnalysis brd4 = new BridgeMemberAnalysis(iApp, MyList.Get_Analysis_Report_File(Get_LL_File(4)));
+
+            List<int> top_arr = new List<int>();
+            int c = 0;
+            //for (int i = 0; i < 11; i++)
+            //{
+            //    top_arr.Add(Box_Model.jnTop[i].NodeNo);
+            //}
+            List<double> lst_frcs = new List<double>();
+
+            MaxForce mf;
+
+
+            List<List<double>> All_Frcs = new List<List<double>>();
+
+
             List<string> list = new List<string>();
-            list.Add(string.Format("ASTRA SPACE MULTICELL BOX CULVERT"));
-            list.Add(string.Format("UNIT METER KN"));
-            list.Add(string.Format("JOINT COORDINATES"));
-            list.Add(string.Format("1        0.0000        0.0000        0.0000"));
-            list.Add(string.Format("2        12.7500        0.0000        0.0000"));
-            list.Add(string.Format("3        25.5000        0.0000        0.0000"));
-            list.Add(string.Format("4        0.0000        5.0700        0.0000"));
-            list.Add(string.Format("5        12.7500        5.0700        0.0000"));
-            list.Add(string.Format("6        25.5000        5.0700        0.0000"));
-            list.Add(string.Format("7        12.7400        0.0000        0.0000"));
-            list.Add(string.Format("8        0.1400        0.0000        0.0000"));
-            list.Add(string.Format("9        0.2800        0.0000        0.0000"));
-            list.Add(string.Format("10        0.4200        0.0000        0.0000"));
-            list.Add(string.Format("11        0.5600        0.0000        0.0000"));
-            list.Add(string.Format("12        0.7000        0.0000        0.0000"));
-            list.Add(string.Format("13        0.8400        0.0000        0.0000"));
-            list.Add(string.Format("14        0.9800        0.0000        0.0000"));
-            list.Add(string.Format("15        1.1200        0.0000        0.0000"));
-            list.Add(string.Format("16        1.2600        0.0000        0.0000"));
-            list.Add(string.Format("17        1.4000        0.0000        0.0000"));
-            list.Add(string.Format("18        1.5400        0.0000        0.0000"));
-            list.Add(string.Format("19        1.6800        0.0000        0.0000"));
-            list.Add(string.Format("20        1.8200        0.0000        0.0000"));
-            list.Add(string.Format("21        1.9600        0.0000        0.0000"));
-            list.Add(string.Format("22        2.1000        0.0000        0.0000"));
-            list.Add(string.Format("23        2.2400        0.0000        0.0000"));
-            list.Add(string.Format("24        2.3800        0.0000        0.0000"));
-            list.Add(string.Format("25        2.5200        0.0000        0.0000"));
-            list.Add(string.Format("26        2.6600        0.0000        0.0000"));
-            list.Add(string.Format("27        2.8000        0.0000        0.0000"));
-            list.Add(string.Format("28        2.9400        0.0000        0.0000"));
-            list.Add(string.Format("29        3.0800        0.0000        0.0000"));
-            list.Add(string.Format("30        3.2200        0.0000        0.0000"));
-            list.Add(string.Format("31        3.3600        0.0000        0.0000"));
-            list.Add(string.Format("32        3.5000        0.0000        0.0000"));
-            list.Add(string.Format("33        3.6400        0.0000        0.0000"));
-            list.Add(string.Format("34        3.7800        0.0000        0.0000"));
-            list.Add(string.Format("35        3.9200        0.0000        0.0000"));
-            list.Add(string.Format("36        4.0600        0.0000        0.0000"));
-            list.Add(string.Format("37        4.2000        0.0000        0.0000"));
-            list.Add(string.Format("38        4.3400        0.0000        0.0000"));
-            list.Add(string.Format("39        4.4800        0.0000        0.0000"));
-            list.Add(string.Format("40        4.6200        0.0000        0.0000"));
-            list.Add(string.Format("41        4.7600        0.0000        0.0000"));
-            list.Add(string.Format("42        4.9000        0.0000        0.0000"));
-            list.Add(string.Format("43        5.0400        0.0000        0.0000"));
-            list.Add(string.Format("44        5.1800        0.0000        0.0000"));
-            list.Add(string.Format("45        5.3200        0.0000        0.0000"));
-            list.Add(string.Format("46        5.4600        0.0000        0.0000"));
-            list.Add(string.Format("47        5.6000        0.0000        0.0000"));
-            list.Add(string.Format("48        5.7400        0.0000        0.0000"));
-            list.Add(string.Format("49        5.8800        0.0000        0.0000"));
-            list.Add(string.Format("50        6.0200        0.0000        0.0000"));
-            list.Add(string.Format("51        6.1600        0.0000        0.0000"));
-            list.Add(string.Format("52        6.3000        0.0000        0.0000"));
-            list.Add(string.Format("53        6.4400        0.0000        0.0000"));
-            list.Add(string.Format("54        6.5800        0.0000        0.0000"));
-            list.Add(string.Format("55        6.7200        0.0000        0.0000"));
-            list.Add(string.Format("56        6.8600        0.0000        0.0000"));
-            list.Add(string.Format("57        7.0000        0.0000        0.0000"));
-            list.Add(string.Format("58        7.1400        0.0000        0.0000"));
-            list.Add(string.Format("59        7.2800        0.0000        0.0000"));
-            list.Add(string.Format("60        7.4200        0.0000        0.0000"));
-            list.Add(string.Format("61        7.5600        0.0000        0.0000"));
-            list.Add(string.Format("62        7.7000        0.0000        0.0000"));
-            list.Add(string.Format("63        7.8400        0.0000        0.0000"));
-            list.Add(string.Format("64        7.9800        0.0000        0.0000"));
-            list.Add(string.Format("65        8.1200        0.0000        0.0000"));
-            list.Add(string.Format("66        8.2600        0.0000        0.0000"));
-            list.Add(string.Format("67        8.4000        0.0000        0.0000"));
-            list.Add(string.Format("68        8.5400        0.0000        0.0000"));
-            list.Add(string.Format("69        8.6800        0.0000        0.0000"));
-            list.Add(string.Format("70        8.8200        0.0000        0.0000"));
-            list.Add(string.Format("71        8.9600        0.0000        0.0000"));
-            list.Add(string.Format("72        9.1000        0.0000        0.0000"));
-            list.Add(string.Format("73        9.2400        0.0000        0.0000"));
-            list.Add(string.Format("74        9.3800        0.0000        0.0000"));
-            list.Add(string.Format("75        9.5200        0.0000        0.0000"));
-            list.Add(string.Format("76        9.6600        0.0000        0.0000"));
-            list.Add(string.Format("77        9.8000        0.0000        0.0000"));
-            list.Add(string.Format("78        9.9400        0.0000        0.0000"));
-            list.Add(string.Format("79        10.0800        0.0000        0.0000"));
-            list.Add(string.Format("80        10.2200        0.0000        0.0000"));
-            list.Add(string.Format("81        10.3600        0.0000        0.0000"));
-            list.Add(string.Format("82        10.5000        0.0000        0.0000"));
-            list.Add(string.Format("83        10.6400        0.0000        0.0000"));
-            list.Add(string.Format("84        10.7800        0.0000        0.0000"));
-            list.Add(string.Format("85        10.9200        0.0000        0.0000"));
-            list.Add(string.Format("86        11.0600        0.0000        0.0000"));
-            list.Add(string.Format("87        11.2000        0.0000        0.0000"));
-            list.Add(string.Format("88        11.3400        0.0000        0.0000"));
-            list.Add(string.Format("89        11.4800        0.0000        0.0000"));
-            list.Add(string.Format("90        11.6200        0.0000        0.0000"));
-            list.Add(string.Format("91        11.7600        0.0000        0.0000"));
-            list.Add(string.Format("92        11.9000        0.0000        0.0000"));
-            list.Add(string.Format("93        12.0400        0.0000        0.0000"));
-            list.Add(string.Format("94        12.1800        0.0000        0.0000"));
-            list.Add(string.Format("95        12.3200        0.0000        0.0000"));
-            list.Add(string.Format("96        12.4600        0.0000        0.0000"));
-            list.Add(string.Format("97        12.6000        0.0000        0.0000"));
-            list.Add(string.Format("98        12.8901        0.0000        0.0000"));
-            list.Add(string.Format("99        13.0302        0.0000        0.0000"));
-            list.Add(string.Format("100        13.1703        0.0000        0.0000"));
-            list.Add(string.Format("101        13.3104        0.0000        0.0000"));
-            list.Add(string.Format("102        13.4505        0.0000        0.0000"));
-            list.Add(string.Format("103        13.5907        0.0000        0.0000"));
-            list.Add(string.Format("104        13.7308        0.0000        0.0000"));
-            list.Add(string.Format("105        13.8709        0.0000        0.0000"));
-            list.Add(string.Format("106        14.0110        0.0000        0.0000"));
-            list.Add(string.Format("107        14.1511        0.0000        0.0000"));
-            list.Add(string.Format("108        14.2912        0.0000        0.0000"));
-            list.Add(string.Format("109        14.4313        0.0000        0.0000"));
-            list.Add(string.Format("110        14.5714        0.0000        0.0000"));
-            list.Add(string.Format("111        14.7115        0.0000        0.0000"));
-            list.Add(string.Format("112        14.8516        0.0000        0.0000"));
-            list.Add(string.Format("113        14.9918        0.0000        0.0000"));
-            list.Add(string.Format("114        15.1319        0.0000        0.0000"));
-            list.Add(string.Format("115        15.2720        0.0000        0.0000"));
-            list.Add(string.Format("116        15.4121        0.0000        0.0000"));
-            list.Add(string.Format("117        15.5522        0.0000        0.0000"));
-            list.Add(string.Format("118        15.6923        0.0000        0.0000"));
-            list.Add(string.Format("119        15.8324        0.0000        0.0000"));
-            list.Add(string.Format("120        15.9725        0.0000        0.0000"));
-            list.Add(string.Format("121        16.1126        0.0000        0.0000"));
-            list.Add(string.Format("122        16.2527        0.0000        0.0000"));
-            list.Add(string.Format("123        16.3929        0.0000        0.0000"));
-            list.Add(string.Format("124        16.5330        0.0000        0.0000"));
-            list.Add(string.Format("125        16.6731        0.0000        0.0000"));
-            list.Add(string.Format("126        16.8132        0.0000        0.0000"));
-            list.Add(string.Format("127        16.9533        0.0000        0.0000"));
-            list.Add(string.Format("128        17.0934        0.0000        0.0000"));
-            list.Add(string.Format("129        17.2335        0.0000        0.0000"));
-            list.Add(string.Format("130        17.3736        0.0000        0.0000"));
-            list.Add(string.Format("131        17.5137        0.0000        0.0000"));
-            list.Add(string.Format("132        17.6538        0.0000        0.0000"));
-            list.Add(string.Format("133        17.7940        0.0000        0.0000"));
-            list.Add(string.Format("134        17.9341        0.0000        0.0000"));
-            list.Add(string.Format("135        18.0742        0.0000        0.0000"));
-            list.Add(string.Format("136        18.2143        0.0000        0.0000"));
-            list.Add(string.Format("137        18.3544        0.0000        0.0000"));
-            list.Add(string.Format("138        18.4945        0.0000        0.0000"));
-            list.Add(string.Format("139        18.6346        0.0000        0.0000"));
-            list.Add(string.Format("140        18.7747        0.0000        0.0000"));
-            list.Add(string.Format("141        18.9148        0.0000        0.0000"));
-            list.Add(string.Format("142        19.0549        0.0000        0.0000"));
-            list.Add(string.Format("143        19.1951        0.0000        0.0000"));
-            list.Add(string.Format("144        19.3352        0.0000        0.0000"));
-            list.Add(string.Format("145        19.4753        0.0000        0.0000"));
-            list.Add(string.Format("146        19.6154        0.0000        0.0000"));
-            list.Add(string.Format("147        19.7555        0.0000        0.0000"));
-            list.Add(string.Format("148        19.8956        0.0000        0.0000"));
-            list.Add(string.Format("149        20.0357        0.0000        0.0000"));
-            list.Add(string.Format("150        20.1758        0.0000        0.0000"));
-            list.Add(string.Format("151        20.3159        0.0000        0.0000"));
-            list.Add(string.Format("152        20.4560        0.0000        0.0000"));
-            list.Add(string.Format("153        20.5962        0.0000        0.0000"));
-            list.Add(string.Format("154        20.7363        0.0000        0.0000"));
-            list.Add(string.Format("155        20.8764        0.0000        0.0000"));
-            list.Add(string.Format("156        21.0165        0.0000        0.0000"));
-            list.Add(string.Format("157        21.1566        0.0000        0.0000"));
-            list.Add(string.Format("158        21.2967        0.0000        0.0000"));
-            list.Add(string.Format("159        21.4368        0.0000        0.0000"));
-            list.Add(string.Format("160        21.5769        0.0000        0.0000"));
-            list.Add(string.Format("161        21.7170        0.0000        0.0000"));
-            list.Add(string.Format("162        21.8571        0.0000        0.0000"));
-            list.Add(string.Format("163        21.9973        0.0000        0.0000"));
-            list.Add(string.Format("164        22.1374        0.0000        0.0000"));
-            list.Add(string.Format("165        22.2775        0.0000        0.0000"));
-            list.Add(string.Format("166        22.4176        0.0000        0.0000"));
-            list.Add(string.Format("167        22.5577        0.0000        0.0000"));
-            list.Add(string.Format("168        22.6978        0.0000        0.0000"));
-            list.Add(string.Format("169        22.8379        0.0000        0.0000"));
-            list.Add(string.Format("170        22.9780        0.0000        0.0000"));
-            list.Add(string.Format("171        23.1181        0.0000        0.0000"));
-            list.Add(string.Format("172        23.2582        0.0000        0.0000"));
-            list.Add(string.Format("173        23.3984        0.0000        0.0000"));
-            list.Add(string.Format("174        23.5385        0.0000        0.0000"));
-            list.Add(string.Format("175        23.6786        0.0000        0.0000"));
-            list.Add(string.Format("176        23.8187        0.0000        0.0000"));
-            list.Add(string.Format("177        23.9588        0.0000        0.0000"));
-            list.Add(string.Format("178        24.0989        0.0000        0.0000"));
-            list.Add(string.Format("179        24.2390        0.0000        0.0000"));
-            list.Add(string.Format("180        24.3791        0.0000        0.0000"));
-            list.Add(string.Format("181        24.5192        0.0000        0.0000"));
-            list.Add(string.Format("182        24.6593        0.0000        0.0000"));
-            list.Add(string.Format("183        24.7994        0.0000        0.0000"));
-            list.Add(string.Format("184        24.9396        0.0000        0.0000"));
-            list.Add(string.Format("185        25.0797        0.0000        0.0000"));
-            list.Add(string.Format("186        25.2198        0.0000        0.0000"));
-            list.Add(string.Format("187        25.3599        0.0000        0.0000"));
-            list.Add(string.Format("MEMBER INCIDENCES"));
-            list.Add(string.Format("1        4        5"));
-            list.Add(string.Format("2        5        6"));
-            list.Add(string.Format("3        1        4"));
-            list.Add(string.Format("4        2        5"));
-            list.Add(string.Format("5        2        7"));
-            list.Add(string.Format("6        3        6"));
-            list.Add(string.Format("7        1        8"));
-            list.Add(string.Format("8        2        98"));
-            list.Add(string.Format("9        8        9"));
-            list.Add(string.Format("10        9        10"));
-            list.Add(string.Format("11        10        11"));
-            list.Add(string.Format("12        11        12"));
-            list.Add(string.Format("13        12        13"));
-            list.Add(string.Format("14        13        14"));
-            list.Add(string.Format("15        14        15"));
-            list.Add(string.Format("16        15        16"));
-            list.Add(string.Format("17        16        17"));
-            list.Add(string.Format("18        17        18"));
-            list.Add(string.Format("19        18        19"));
-            list.Add(string.Format("20        19        20"));
-            list.Add(string.Format("21        20        21"));
-            list.Add(string.Format("22        21        22"));
-            list.Add(string.Format("23        22        23"));
-            list.Add(string.Format("24        23        24"));
-            list.Add(string.Format("25        24        25"));
-            list.Add(string.Format("26        25        26"));
-            list.Add(string.Format("27        26        27"));
-            list.Add(string.Format("28        27        28"));
-            list.Add(string.Format("29        28        29"));
-            list.Add(string.Format("30        29        30"));
-            list.Add(string.Format("31        30        31"));
-            list.Add(string.Format("32        31        32"));
-            list.Add(string.Format("33        32        33"));
-            list.Add(string.Format("34        33        34"));
-            list.Add(string.Format("35        34        35"));
-            list.Add(string.Format("36        35        36"));
-            list.Add(string.Format("37        36        37"));
-            list.Add(string.Format("38        37        38"));
-            list.Add(string.Format("39        38        39"));
-            list.Add(string.Format("40        39        40"));
-            list.Add(string.Format("41        40        41"));
-            list.Add(string.Format("42        41        42"));
-            list.Add(string.Format("43        42        43"));
-            list.Add(string.Format("44        43        44"));
-            list.Add(string.Format("45        44        45"));
-            list.Add(string.Format("46        45        46"));
-            list.Add(string.Format("47        46        47"));
-            list.Add(string.Format("48        47        48"));
-            list.Add(string.Format("49        48        49"));
-            list.Add(string.Format("50        49        50"));
-            list.Add(string.Format("51        50        51"));
-            list.Add(string.Format("52        51        52"));
-            list.Add(string.Format("53        52        53"));
-            list.Add(string.Format("54        53        54"));
-            list.Add(string.Format("55        54        55"));
-            list.Add(string.Format("56        55        56"));
-            list.Add(string.Format("57        56        57"));
-            list.Add(string.Format("58        57        58"));
-            list.Add(string.Format("59        58        59"));
-            list.Add(string.Format("60        59        60"));
-            list.Add(string.Format("61        60        61"));
-            list.Add(string.Format("62        61        62"));
-            list.Add(string.Format("63        62        63"));
-            list.Add(string.Format("64        63        64"));
-            list.Add(string.Format("65        64        65"));
-            list.Add(string.Format("66        65        66"));
-            list.Add(string.Format("67        66        67"));
-            list.Add(string.Format("68        67        68"));
-            list.Add(string.Format("69        68        69"));
-            list.Add(string.Format("70        69        70"));
-            list.Add(string.Format("71        70        71"));
-            list.Add(string.Format("72        71        72"));
-            list.Add(string.Format("73        72        73"));
-            list.Add(string.Format("74        73        74"));
-            list.Add(string.Format("75        74        75"));
-            list.Add(string.Format("76        75        76"));
-            list.Add(string.Format("77        76        77"));
-            list.Add(string.Format("78        77        78"));
-            list.Add(string.Format("79        78        79"));
-            list.Add(string.Format("80        79        80"));
-            list.Add(string.Format("81        80        81"));
-            list.Add(string.Format("82        81        82"));
-            list.Add(string.Format("83        82        83"));
-            list.Add(string.Format("84        83        84"));
-            list.Add(string.Format("85        84        85"));
-            list.Add(string.Format("86        85        86"));
-            list.Add(string.Format("87        86        87"));
-            list.Add(string.Format("88        87        88"));
-            list.Add(string.Format("89        88        89"));
-            list.Add(string.Format("90        89        90"));
-            list.Add(string.Format("91        90        91"));
-            list.Add(string.Format("92        91        92"));
-            list.Add(string.Format("93        92        93"));
-            list.Add(string.Format("94        93        94"));
-            list.Add(string.Format("95        94        95"));
-            list.Add(string.Format("96        95        96"));
-            list.Add(string.Format("97        96        97"));
-            list.Add(string.Format("98        97        7"));
-            list.Add(string.Format("99        98        99"));
-            list.Add(string.Format("100        99        100"));
-            list.Add(string.Format("101        100        101"));
-            list.Add(string.Format("102        101        102"));
-            list.Add(string.Format("103        102        103"));
-            list.Add(string.Format("104        103        104"));
-            list.Add(string.Format("105        104        105"));
-            list.Add(string.Format("106        105        106"));
-            list.Add(string.Format("107        106        107"));
-            list.Add(string.Format("108        107        108"));
-            list.Add(string.Format("109        108        109"));
-            list.Add(string.Format("110        109        110"));
-            list.Add(string.Format("111        110        111"));
-            list.Add(string.Format("112        111        112"));
-            list.Add(string.Format("113        112        113"));
-            list.Add(string.Format("114        113        114"));
-            list.Add(string.Format("115        114        115"));
-            list.Add(string.Format("116        115        116"));
-            list.Add(string.Format("117        116        117"));
-            list.Add(string.Format("118        117        118"));
-            list.Add(string.Format("119        118        119"));
-            list.Add(string.Format("120        119        120"));
-            list.Add(string.Format("121        120        121"));
-            list.Add(string.Format("122        121        122"));
-            list.Add(string.Format("123        122        123"));
-            list.Add(string.Format("124        123        124"));
-            list.Add(string.Format("125        124        125"));
-            list.Add(string.Format("126        125        126"));
-            list.Add(string.Format("127        126        127"));
-            list.Add(string.Format("128        127        128"));
-            list.Add(string.Format("129        128        129"));
-            list.Add(string.Format("130        129        130"));
-            list.Add(string.Format("131        130        131"));
-            list.Add(string.Format("132        131        132"));
-            list.Add(string.Format("133        132        133"));
-            list.Add(string.Format("134        133        134"));
-            list.Add(string.Format("135        134        135"));
-            list.Add(string.Format("136        135        136"));
-            list.Add(string.Format("137        136        137"));
-            list.Add(string.Format("138        137        138"));
-            list.Add(string.Format("139        138        139"));
-            list.Add(string.Format("140        139        140"));
-            list.Add(string.Format("141        140        141"));
-            list.Add(string.Format("142        141        142"));
-            list.Add(string.Format("143        142        143"));
-            list.Add(string.Format("144        143        144"));
-            list.Add(string.Format("145        144        145"));
-            list.Add(string.Format("146        145        146"));
-            list.Add(string.Format("147        146        147"));
-            list.Add(string.Format("148        147        148"));
-            list.Add(string.Format("149        148        149"));
-            list.Add(string.Format("150        149        150"));
-            list.Add(string.Format("151        150        151"));
-            list.Add(string.Format("152        151        152"));
-            list.Add(string.Format("153        152        153"));
-            list.Add(string.Format("154        153        154"));
-            list.Add(string.Format("155        154        155"));
-            list.Add(string.Format("156        155        156"));
-            list.Add(string.Format("157        156        157"));
-            list.Add(string.Format("158        157        158"));
-            list.Add(string.Format("159        158        159"));
-            list.Add(string.Format("160        159        160"));
-            list.Add(string.Format("161        160        161"));
-            list.Add(string.Format("162        161        162"));
-            list.Add(string.Format("163        162        163"));
-            list.Add(string.Format("164        163        164"));
-            list.Add(string.Format("165        164        165"));
-            list.Add(string.Format("166        165        166"));
-            list.Add(string.Format("167        166        167"));
-            list.Add(string.Format("168        167        168"));
-            list.Add(string.Format("169        168        169"));
-            list.Add(string.Format("170        169        170"));
-            list.Add(string.Format("171        170        171"));
-            list.Add(string.Format("172        171        172"));
-            list.Add(string.Format("173        172        173"));
-            list.Add(string.Format("174        173        174"));
-            list.Add(string.Format("175        174        175"));
-            list.Add(string.Format("176        175        176"));
-            list.Add(string.Format("177        176        177"));
-            list.Add(string.Format("178        177        178"));
-            list.Add(string.Format("179        178        179"));
-            list.Add(string.Format("180        179        180"));
-            list.Add(string.Format("181        180        181"));
-            list.Add(string.Format("182        181        182"));
-            list.Add(string.Format("183        182        183"));
-            list.Add(string.Format("184        183        184"));
-            list.Add(string.Format("185        184        185"));
-            list.Add(string.Format("186        185        186"));
-            list.Add(string.Format("187        186        187"));
-            list.Add(string.Format("188        187        3"));
-            list.Add(string.Format("MEMBER PROPERTY"));
-            list.Add(string.Format("5 7 TO 196 PRIS YD 0.9 ZD 1"));
-            list.Add(string.Format("1 2 3 6 PRIS YD 0.8 ZD 1"));
-            list.Add(string.Format("4 PRIS YD 0.6 ZD 1"));
-            list.Add(string.Format("CONSTANTS "));
-            list.Add(string.Format("E 2.17185e+007 ALL"));
-            list.Add(string.Format("POISSON 0.17 ALL"));
-            list.Add(string.Format("DENSITY 23.5616  ALL"));
-            list.Add(string.Format("ALPHA 1e-005 ALL"));
-            list.Add(string.Format("DAMP 0.05 ALL"));
-            list.Add(string.Format("SUPPORTS"));
-            list.Add(string.Format("1 TO 3 7 TO 187 FIXED BUT FX FZ MX MY MZ KFY 2900"));
-            list.Add(string.Format("*MEMBER RELEASE"));
-            list.Add(string.Format("LOAD 1 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -46.37        0.00        0.38"));
-            list.Add(string.Format("LOAD 2 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -29.91        0.00        0.63"));
-            list.Add(string.Format("LOAD 3 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -22.32        0.12        0.88"));
-            list.Add(string.Format("LOAD 4 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -19.88        0.37        1.13"));
-            list.Add(string.Format("LOAD 5 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -18.02        0.62        1.38"));
-            list.Add(string.Format("1 UNI GY        -30.34        0.00        0.62"));
-            list.Add(string.Format("LOAD 6 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -16.54        0.87        1.63"));
-            list.Add(string.Format("1 UNI GY        -22.54        0.11        0.87"));
-            list.Add(string.Format("LOAD 7 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -15.34        1.12        1.88"));
-            list.Add(string.Format("1 UNI GY        -19.97        0.36        1.12"));
-            list.Add(string.Format("LOAD 8 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.37        2.13"));
-            list.Add(string.Format("1 UNI GY        -18.08        0.61        1.37"));
-            list.Add(string.Format("1 UNI GY        -30.9        0        0.609"));
-            list.Add(string.Format("LOAD 9 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.62        2.38"));
-            list.Add(string.Format("1 UNI GY        -16.59        0.86        1.62"));
-            list.Add(string.Format("1 UNI GY        -22.8        0.097        0.859"));
-            list.Add(string.Format("LOAD 10 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.87        2.63"));
-            list.Add(string.Format("1 UNI GY        -15.38        1.11        1.87"));
-            list.Add(string.Format("1 UNI GY        -20.1        0.347        1.109"));
-            list.Add(string.Format("LOAD 11 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.12        2.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.36        2.12"));
-            list.Add(string.Format("1 UNI GY        -18.16        0.60        1.36"));
-            list.Add(string.Format("1 UNI GY        -31.4        0.0        0.6"));
-            list.Add(string.Format("LOAD 12 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.37        3.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.61        2.37"));
-            list.Add(string.Format("1 UNI GY        -16.65        0.85        1.61"));
-            list.Add(string.Format("1 UNI GY        -23.1        0.1        0.8"));
-            list.Add(string.Format("LOAD 13 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.62        3.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.86        2.62"));
-            list.Add(string.Format("1 UNI GY        -15.43        1.10        1.86"));
-            list.Add(string.Format("1 UNI GY        -20.2        0.3        1.1"));
-            list.Add(string.Format("LOAD 14 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.87        3.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.11        2.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.35        2.11"));
-            list.Add(string.Format("1 UNI GY        -18.2        0.6        1.3"));
-            list.Add(string.Format("1 UNI GY        -32.0        0.0        0.6"));
-            list.Add(string.Format("LOAD 15 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.12        3.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.36        3.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.60        2.36"));
-            list.Add(string.Format("1 UNI GY        -16.7        0.8        1.6"));
-            list.Add(string.Format("1 UNI GY        -23.4        0.1        0.8"));
-            list.Add(string.Format("LOAD 16 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.37        4.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.61        3.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        1.85        2.61"));
-            list.Add(string.Format("1 UNI GY        -15.5        1.1        1.8"));
-            list.Add(string.Format("1 UNI GY        -20.3        0.3        1.1"));
-            list.Add(string.Format("LOAD 17 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.62        4.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.86        3.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.10        2.86"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.3        2.1"));
-            list.Add(string.Format("1 UNI GY        -18.3        0.6        1.3"));
-            list.Add(string.Format("1 UNI GY        -32.6        0.0        0.6"));
-            list.Add(string.Format("LOAD 18 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.87        4.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.11        3.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.35        3.11"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.6        2.3"));
-            list.Add(string.Format("1 UNI GY        -16.8        0.8        1.6"));
-            list.Add(string.Format("1 UNI GY        -23.7        0.1        0.8"));
-            list.Add(string.Format("LOAD 19 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.12        4.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.36        4.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.60        3.36"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.8        2.6"));
-            list.Add(string.Format("1 UNI GY        -15.5        1.1        1.8"));
-            list.Add(string.Format("1 UNI GY        -20.4        0.3        1.1"));
-            list.Add(string.Format("LOAD 20 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.37        5.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.61        4.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        2.85        3.61"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.1        2.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.3        2.1"));
-            list.Add(string.Format("1 UNI GY        -18.4        0.6        1.3"));
-            list.Add(string.Format("1 UNI GY        -33.2        -0.2        0.6"));
-            list.Add(string.Format("LOAD 21 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.62        5.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.86        4.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.10        3.86"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.3        3.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.6        2.3"));
-            list.Add(string.Format("1 UNI GY        -16.9        0.8        1.6"));
-            list.Add(string.Format("1 UNI GY        -24.0        0.0        0.8"));
-            list.Add(string.Format("LOAD 22 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.87        5.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.11        4.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.35        4.11"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.6        3.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.8        2.6"));
-            list.Add(string.Format("1 UNI GY        -15.6        1.1        1.8"));
-            list.Add(string.Format("1 UNI GY        -20.5        0.3        1.1"));
-            list.Add(string.Format("LOAD 23 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.12        5.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.36        5.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.60        4.36"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.8        3.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.1        2.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.3        2.1"));
-            list.Add(string.Format("1 UNI GY        -18.5        0.5        1.3"));
-            list.Add(string.Format("LOAD 24 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.37        6.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.61        5.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        3.85        4.61"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.1        3.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.3        3.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.6        2.3"));
-            list.Add(string.Format("1 UNI GY        -16.9        0.8        1.6"));
-            list.Add(string.Format("LOAD 25 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.62        6.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.86        5.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.10        4.86"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.3        4.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.6        3.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.8        2.6"));
-            list.Add(string.Format("1 UNI GY        -15.6        1.0        1.8"));
-            list.Add(string.Format("LOAD 26 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.87        6.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.11        5.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.35        5.11"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.6        4.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.8        3.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.1        2.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.3        2.1"));
-            list.Add(string.Format("LOAD 27 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.12        6.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.36        6.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.60        5.36"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.8        4.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.1        3.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.3        3.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.5        2.3"));
-            list.Add(string.Format("LOAD 28 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.37        7.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.61        6.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        4.85        5.61"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.1        4.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.3        4.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.6        3.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        1.8        2.6"));
-            list.Add(string.Format("LOAD 29 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.62        7.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.86        6.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.10        5.86"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.3        5.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.6        4.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.8        3.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.0        2.8"));
-            list.Add(string.Format("LOAD 30 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.87        7.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.11        6.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.35        6.11"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.6        5.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.8        4.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.1        3.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.3        3.1"));
-            list.Add(string.Format("LOAD 31 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.12        7.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.36        7.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.60        6.36"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.8        5.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.1        4.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.3        4.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.5        3.3"));
-            list.Add(string.Format("LOAD 32 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.37        8.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.61        7.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        5.85        6.61"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.1        5.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.3        5.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.6        4.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        2.8        3.6"));
-            list.Add(string.Format("LOAD 33 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.62        8.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.87        7.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.10        6.86"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.3        6.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.6        5.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.8        4.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.0        3.8"));
-            list.Add(string.Format("LOAD 34 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.87        8.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.12        7.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.35        7.11"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.6        6.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.8        5.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.1        4.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.3        4.1"));
-            list.Add(string.Format("LOAD 35 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.12        8.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.37        8.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.60        7.36"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.8        6.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.1        5.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.3        5.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.5        4.3"));
-            list.Add(string.Format("LOAD 36 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.37        9.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.62        8.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.87        7.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.1        6.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.3        6.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.6        5.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        3.8        4.6"));
-            list.Add(string.Format("LOAD 37 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.62        9.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.87        8.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.99        7.76"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.3        7.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.6        6.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.8        5.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.0        4.8"));
-            list.Add(string.Format("LOAD 38 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.87        9.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.12        8.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.12        7.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.6        7.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.8        6.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.1        5.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.3        5.1"));
-            list.Add(string.Format("LOAD 39 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.12        9.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.37        9.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.37        8.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.87        7.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.1        6.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.3        6.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.5        5.3"));
-            list.Add(string.Format("LOAD 40 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.37        10.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.62        9.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.62        8.38"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.12        7.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.3        7.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.6        6.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        4.8        5.6"));
-            list.Add(string.Format("LOAD 41 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.62        10.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.86        9.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.87        8.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.37        8.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.6        7.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.8        6.6"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.0        5.8"));
-            list.Add(string.Format("LOAD 42 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.87        10.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.11        9.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.12        8.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.62        8.38"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.87        7.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.1        6.8"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.3        6.1"));
-            list.Add(string.Format("LOAD 43 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.12        10.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.36        10.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.37        9.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.87        8.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.12        7.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.3        7.1"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.5        6.3"));
-            list.Add(string.Format("LOAD 44 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.37        11.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.61        10.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.85        9.61"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.12        8.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.37        8.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.6        7.3"));
-            list.Add(string.Format("1 UNI GY        -14.6        5.8        6.6"));
-            list.Add(string.Format("LOAD 45 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.62        11.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.86        10.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.10        9.86"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.37        9.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.62        8.38"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.87        7.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.0        6.8"));
-            list.Add(string.Format("LOAD 46 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -15.34        10.87        11.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.11        10.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.35        10.11"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.4        9.4"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.87        8.63"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.12        7.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.3        7.1"));
-            list.Add(string.Format("LOAD 47 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -16.54        11.12        11.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.36        11.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.60        10.36"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.84        9.60"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.12        8.88"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.37        8.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        6.5        7.3"));
-            list.Add(string.Format("LOAD 48 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -18.02        11.37        12.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.61        11.37"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.85        10.61"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.09        9.85"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.37        9.13"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.62        8.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        6.87        7.63"));
-            list.Add(string.Format("LOAD 49 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -19.88        11.62        12.38"));
-            list.Add(string.Format("1 UNI GY        -15.29        10.86        11.62"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.10        10.86"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.34        10.10"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.62        9"));
-            list.Add(string.Format("1 UNI GY        -14.6        7.87        8.63"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.12        7.88"));
-            list.Add(string.Format("LOAD 50 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -22.32        11.87        12.63"));
-            list.Add(string.Format("1 UNI GY        -16.48        11.11        11.87"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.35        11.11"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.59        10.35"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.82        9.59"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.12        8.88"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.37        8.13"));
-            list.Add(string.Format("LOAD 51 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY        -29.91        12.12        12.88"));
-            list.Add(string.Format("1 UNI GY        -17.95        11.36        12.12"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.60        11.36"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.84        10.60"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.07        9.84"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.37        9.13"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.62        8.38"));
-            list.Add(string.Format("LOAD 52 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -46.37        -0.38        0.38"));
-            list.Add(string.Format("1 UNI GY        -19.80        11.61        12.37"));
-            list.Add(string.Format("1 UNI GY        -15.24        10.85        11.61"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.09        10.85"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.32        10.09"));
-            list.Add(string.Format("1 UNI GY        -14.6        8.62        9.38"));
-            list.Add(string.Format("1 UNI GY        -14.57        7.87        8.63"));
-            list.Add(string.Format("LOAD 53 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -29.91        -0.13        0.63"));
-            list.Add(string.Format("1 UNI GY        -22.19        11.86        12.62"));
-            list.Add(string.Format("1 UNI GY        -16.42        11.10        11.86"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.34        11.10"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.57        10.34"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.56        9.32"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.12        8.88"));
-            list.Add(string.Format("LOAD 54 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -22.32        0.12        0.88"));
-            list.Add(string.Format("1 UNI GY        -29.50        12.11        12.87"));
-            list.Add(string.Format("1 UNI GY        -17.87        11.35        12.11"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.59        11.35"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.82        10.59"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.81        9.57"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.37        9.13"));
-            list.Add(string.Format("LOAD 55 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -19.88        0.37        1.13"));
-            list.Add(string.Format("1 UNI GY        -45.35        12.36        13.12"));
-            list.Add(string.Format("1 UNI GY        -19.70        11.60        12.36"));
-            list.Add(string.Format("1 UNI GY        -15.19        10.84        11.60"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.07        10.84"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.06        9.82"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.6        9.0"));
-            list.Add(string.Format("LOAD 56 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -18.02        0.62        1.38"));
-            list.Add(string.Format("2 UNI GY        -30.34        -0.14        0.62"));
-            list.Add(string.Format("1 UNI GY        -22.06        11.85        12.61"));
-            list.Add(string.Format("1 UNI GY        -16.36        11.09        11.85"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.32        11.09"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.31        10.07"));
-            list.Add(string.Format("1 UNI GY        -14.57        8.80        9.56"));
-            list.Add(string.Format("LOAD 57 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -16.54        0.87        1.63"));
-            list.Add(string.Format("2 UNI GY        -22.54        0.11        0.87"));
-            list.Add(string.Format("1 UNI GY        -29.03        12.10        12.86"));
-            list.Add(string.Format("1 UNI GY        -17.80        11.34        12.10"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.57        11.34"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.56        10.32"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.05        9.81"));
-            list.Add(string.Format("LOAD 58 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -15.34        1.12        1.88"));
-            list.Add(string.Format("2 UNI GY        -19.97        0.36        1.12"));
-            list.Add(string.Format("1 UNI GY        -44.19        12.35        13.11"));
-            list.Add(string.Format("1 UNI GY        -19.60        11.59        12.35"));
-            list.Add(string.Format("1 UNI GY        -15.14        10.82        11.59"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.81        10.57"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.30        10.06"));
-            list.Add(string.Format("LOAD 59 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.37        2.13"));
-            list.Add(string.Format("2 UNI GY        -18.08        0.61        1.37"));
-            list.Add(string.Format("2 UNI GY        -30.86        -0.15        0.61"));
-            list.Add(string.Format("1 UNI GY        -21.93        11.84        12.60"));
-            list.Add(string.Format("1 UNI GY        -16.30        11.07        11.84"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.06        10.82"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.55        10.31"));
-            list.Add(string.Format("LOAD 60 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.62        2.38"));
-            list.Add(string.Format("2 UNI GY        -16.59        0.86        1.62"));
-            list.Add(string.Format("2 UNI GY        -22.82        0.10        0.86"));
-            list.Add(string.Format("1 UNI GY        -28.57        12.09        12.85"));
-            list.Add(string.Format("1 UNI GY        -17.72        11.32        12.09"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.31        11.07"));
-            list.Add(string.Format("1 UNI GY        -14.57        9.80        10.56"));
-            list.Add(string.Format("LOAD 61 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.87        2.63"));
-            list.Add(string.Format("2 UNI GY        -15.38        1.11        1.87"));
-            list.Add(string.Format("2 UNI GY        -20.07        0.35        1.11"));
-            list.Add(string.Format("1 UNI GY        -43.09        12.34        13.10"));
-            list.Add(string.Format("1 UNI GY        -19.50        11.57        12.34"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.56        11.32"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.05        10.81"));
-            list.Add(string.Format("LOAD 62 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.12        2.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.36        2.12"));
-            list.Add(string.Format("2 UNI GY        -18.16        0.60        1.36"));
-            list.Add(string.Format("2 UNI GY        -31.40        -0.17        0.60"));
-            list.Add(string.Format("1 UNI GY        -21.80        11.82        12.59"));
-            list.Add(string.Format("1 UNI GY        -15.09        10.81        11.57"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.30        11.06"));
-            list.Add(string.Format("LOAD 63 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.37        3.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.61        2.37"));
-            list.Add(string.Format("2 UNI GY        -16.65        0.85        1.61"));
-            list.Add(string.Format("2 UNI GY        -23.10        0.08        0.85"));
-            list.Add(string.Format("1 UNI GY        -28.12        12.07        12.84"));
-            list.Add(string.Format("1 UNI GY        -16.24        11.06        11.82"));
-            list.Add(string.Format("1 UNI GY        -14.57        10.55        11.31"));
-            list.Add(string.Format("LOAD 64 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.62        3.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.86        2.62"));
-            list.Add(string.Format("2 UNI GY        -15.43        1.10        1.86"));
-            list.Add(string.Format("2 UNI GY        -20.18        0.33        1.10"));
-            list.Add(string.Format("1 UNI GY        -42.04        12.32        13.09"));
-            list.Add(string.Format("1 UNI GY        -17.64        11.31        12.07"));
-            list.Add(string.Format("1 UNI GY        -15.04        10.80        11.56"));
-            list.Add(string.Format("LOAD 65 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.87        3.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.11        2.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.35        2.11"));
-            list.Add(string.Format("2 UNI GY        -18.25        0.58        1.35"));
-            list.Add(string.Format("2 UNI GY        -31.97        -0.18        0.59"));
-            list.Add(string.Format("1 UNI GY        -19.41        11.56        12.32"));
-            list.Add(string.Format("1 UNI GY        -16.18        11.05        11.81"));
-            list.Add(string.Format("LOAD 66 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.12        3.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.36        3.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.60        2.36"));
-            list.Add(string.Format("2 UNI GY        -16.72        0.83        1.60"));
-            list.Add(string.Format("2 UNI GY        -23.39        0.07        0.84"));
-            list.Add(string.Format("1 UNI GY        -21.68        11.81        12.57"));
-            list.Add(string.Format("1 UNI GY        -17.57        11.30        12.06"));
-            list.Add(string.Format("LOAD 67 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.37        4.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.61        3.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.85        2.61"));
-            list.Add(string.Format("2 UNI GY        -15.49        1.09        1.85"));
-            list.Add(string.Format("2 UNI GY        -20.28        0.32        1.09"));
-            list.Add(string.Format("1 UNI GY        -27.69        12.06        12.82"));
-            list.Add(string.Format("1 UNI GY        -19.31        11.55        12.31"));
-            list.Add(string.Format("LOAD 68 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.62        4.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.86        3.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.10        2.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.34        2.10"));
-            list.Add(string.Format("2 UNI GY        -18.33        0.57        1.34"));
-            list.Add(string.Format("1 UNI GY        -41.05        12.31        13.07"));
-            list.Add(string.Format("1 UNI GY        -21.56        11.80        12.56"));
-            list.Add(string.Format("LOAD 69 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.87        4.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.11        3.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.35        3.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.59        2.35"));
-            list.Add(string.Format("2 UNI GY        -16.78        0.82        1.59"));
-            list.Add(string.Format("2 UNI GY        -32.55        -0.19        0.57"));
-            list.Add(string.Format("1 UNI GY        -27.28        12.05        12.81"));
-            list.Add(string.Format("LOAD 70 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.12        4.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.36        4.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.60        3.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.84        2.60"));
-            list.Add(string.Format("2 UNI GY        -15.54        1.07        1.84"));
-            list.Add(string.Format("2 UNI GY        -23.69        0.06        0.82"));
-            list.Add(string.Format("1 UNI GY        -40.10        12.30        13.06"));
-            list.Add(string.Format("LOAD 71 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.37        5.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.61        4.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.85        3.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.09        2.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.32        2.09"));
-            list.Add(string.Format("2 UNI GY        -20.39        0.31        1.07"));
-            list.Add(string.Format("2 UNI GY        -33.16        -0.20        0.56"));
-            list.Add(string.Format("LOAD 72 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.62        5.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.86        4.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.10        3.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.34        3.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.57        2.34"));
-            list.Add(string.Format("2 UNI GY        -18.41        0.56        1.32"));
-            list.Add(string.Format("2 UNI GY        -24.00        0.05        0.81"));
-            list.Add(string.Format("LOAD 73 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.87        5.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.11        4.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.35        4.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.59        3.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.82        2.59"));
-            list.Add(string.Format("2 UNI GY        -16.85        0.81        1.57"));
-            list.Add(string.Format("2 UNI GY        -20.50        0.30        1.06"));
-            list.Add(string.Format("LOAD 74 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.12        5.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.36        5.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.60        4.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.84        3.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.07        2.84"));
-            list.Add(string.Format("2 UNI GY        -15.59        1.06        1.82"));
-            list.Add(string.Format("2 UNI GY        -18.49        0.55        1.31"));
-            list.Add(string.Format("LOAD 75 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.37        6.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.61        5.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.85        4.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.09        3.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.32        3.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.56        2.32"));
-            list.Add(string.Format("2 UNI GY        -16.92        0.80        1.56"));
-            list.Add(string.Format("LOAD 76 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.62        6.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.86        5.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.10        4.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.34        4.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.57        3.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.31        2.07"));
-            list.Add(string.Format("2 UNI GY        -15.65        1.05        1.81"));
-            list.Add(string.Format("LOAD 77 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.87        6.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.11        5.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.35        5.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.59        4.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.82        3.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.81        2.57"));
-            list.Add(string.Format("2 UNI GY        -14.61        1.30        2.06"));
-            list.Add(string.Format("LOAD 78 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.12        6.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.36        6.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.60        5.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.84        4.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.07        3.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.06        2.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.55        2.31"));
-            list.Add(string.Format("LOAD 79 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.37        7.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.61        6.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.85        5.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.09        4.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.32        4.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.31        3.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        1.80        2.56"));
-            list.Add(string.Format("LOAD 80 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.62        7.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.86        6.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.10        5.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.34        5.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.57        4.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.56        3.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.05        2.81"));
-            list.Add(string.Format("LOAD 81 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.87        7.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.11        6.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.35        6.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.59        5.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.82        4.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.81        3.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.30        3.06"));
-            list.Add(string.Format("LOAD 82 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.12        7.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.36        7.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.60        6.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.84        5.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.07        4.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.06        3.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.55        3.31"));
-            list.Add(string.Format("LOAD 83 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.37        8.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.61        7.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.85        6.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.09        5.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.32        5.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.31        4.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        2.80        3.56"));
-            list.Add(string.Format("LOAD 84 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.62        8.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.86        7.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.10        6.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.34        6.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.57        5.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.56        4.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.05        3.81"));
-            list.Add(string.Format("LOAD 85 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.87        8.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.11        7.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.35        7.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.59        6.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.82        5.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.81        4.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.30        4.06"));
-            list.Add(string.Format("LOAD 86 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.12        8.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.36        8.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.60        7.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.84        6.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.07        5.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.06        4.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.55        4.31"));
-            list.Add(string.Format("LOAD 87 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.37        9.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.61        8.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.85        7.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.32        6.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.31        5.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        3.80        4.56"));
-            list.Add(string.Format("LOAD 88 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.62        9.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.86        8.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.10        7.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.09        6.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.57        6.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.56        5.32"));
-            list.Add(string.Format("2 UNI GY    -14.57        4.05        4.81"));
-            list.Add(string.Format("LOAD 89 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.87        9.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.11        8.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.35        8.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.34        7.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.82        6.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.81        5.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.30        5.06"));
-            list.Add(string.Format("LOAD 90 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.12        9.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.36        9.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.60        8.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.59        7.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.07        6.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.06        5.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.55        5.31"));
-            list.Add(string.Format("LOAD 91 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.37        10.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.61        9.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.85        8.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.84        7.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.32        7.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.31        6.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        4.80        5.56"));
-            list.Add(string.Format("LOAD 92 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.62        10.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.86        9.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.10        8.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.09        7.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.57        7.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.56        6.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.05        5.81"));
-            list.Add(string.Format("LOAD 93 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.87        10.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.11        9.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.35        9.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.34        8.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.82        7.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.81        6.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.30        6.06"));
-            list.Add(string.Format("LOAD 94 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.12        10.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.36        10.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.60        9.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.59        8.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.07        7.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.06        6.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.55        6.31"));
-            list.Add(string.Format("LOAD 95 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.37        11.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.61        10.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.85        9.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.84        8.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.32        8.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.31        7.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        5.80        6.56"));
-            list.Add(string.Format("LOAD 96 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.62        11.38"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.86        10.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.10        9.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.09        8.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.57        8.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.56        7.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.05        6.81"));
-            list.Add(string.Format("LOAD 97 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -15.34        10.87        11.63"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.11        10.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.35        10.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.34        9.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.82        8.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.81        7.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.30        7.06"));
-            list.Add(string.Format("LOAD 98 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -16.54        11.12        11.88"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.36        11.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.60        10.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.59        9.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.07        8.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.06        7.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.55        7.31"));
-            list.Add(string.Format("LOAD 99 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -18.02        11.37        12.13"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.61        11.37"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.85        10.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.84        9.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.32        9.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.31        8.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        6.80        7.56"));
-            list.Add(string.Format("LOAD 100 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -19.88        11.62        12.38"));
-            list.Add(string.Format("2 UNI GY        -15.29        10.86        11.62"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.10        10.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.09        9.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.57        9.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.56        8.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.05        7.81"));
-            list.Add(string.Format("LOAD 101 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -22.32        11.87        12.63"));
-            list.Add(string.Format("2 UNI GY        -16.48        11.11        11.87"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.35        11.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.34        10.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.82        9.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.81        8.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.30        8.06"));
-            list.Add(string.Format("LOAD 102 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -29.91        12.12        12.88"));
-            list.Add(string.Format("2 UNI GY        -17.95        11.36        12.12"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.60        11.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.59        10.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.07        9.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.06        8.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.55        8.31"));
-            list.Add(string.Format("LOAD 103 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -19.80        11.61        12.37"));
-            list.Add(string.Format("2 UNI GY        -15.24        10.85        11.61"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.84        10.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.32        10.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.31        9.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        7.80        8.56"));
-            list.Add(string.Format("LOAD 104 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -22.19        11.86        12.62"));
-            list.Add(string.Format("2 UNI GY        -16.42        11.10        11.86"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.09        10.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.57        10.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.56        9.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.05        8.81"));
-            list.Add(string.Format("LOAD 105 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -29.50        12.11        12.87"));
-            list.Add(string.Format("2 UNI GY        -17.87        11.35        12.11"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.34        11.10"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.82        10.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.81        9.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.30        9.06"));
-            list.Add(string.Format("LOAD 106 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -45.35        12.36        13.12"));
-            list.Add(string.Format("2 UNI GY        -19.70        11.60        12.36"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.59        11.35"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.07        10.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.06        9.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.55        9.31"));
-            list.Add(string.Format("LOAD 107 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -22.06        11.85        12.61"));
-            list.Add(string.Format("2 UNI GY        -15.19        10.84        11.60"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.32        11.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.31        10.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        8.80        9.56"));
-            list.Add(string.Format("LOAD 108 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -29.03        12.10        12.86"));
-            list.Add(string.Format("2 UNI GY        -16.36        11.09        11.85"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.57        11.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.56        10.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.05        9.81"));
-            list.Add(string.Format("LOAD 109 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -44.19        12.35        13.11"));
-            list.Add(string.Format("2 UNI GY        -17.80        11.34        12.10"));
-            list.Add(string.Format("2 UNI GY        -15.14        10.82        11.59"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.81        10.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.30        10.06"));
-            list.Add(string.Format("LOAD 110 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -19.60        11.59        12.35"));
-            list.Add(string.Format("2 UNI GY        -16.30        11.07        11.84"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.06        10.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.55        10.31"));
-            list.Add(string.Format("LOAD 111 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -21.93        11.84        12.60"));
-            list.Add(string.Format("2 UNI GY        -17.72        11.32        12.09"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.31        11.07"));
-            list.Add(string.Format("2 UNI GY        -14.57        9.80        10.56"));
-            list.Add(string.Format("LOAD 112 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -28.57        12.09        12.85"));
-            list.Add(string.Format("2 UNI GY        -19.50        11.57        12.34"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.56        11.32"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.05        10.81"));
-            list.Add(string.Format("LOAD 113 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -43.09        12.34        13.10"));
-            list.Add(string.Format("2 UNI GY        -21.80        11.82        12.59"));
-            list.Add(string.Format("2 UNI GY        -15.09        10.81        11.57"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.30        11.06"));
-            list.Add(string.Format("LOAD 114 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -28.12        12.07        12.84"));
-            list.Add(string.Format("2 UNI GY        -16.24        11.06        11.82"));
-            list.Add(string.Format("2 UNI GY        -14.57        10.55        11.31"));
-            list.Add(string.Format("LOAD 115 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -42.04        12.70        13.09"));
-            list.Add(string.Format("2 UNI GY        -17.64        11.31        12.07"));
-            list.Add(string.Format("2 UNI GY        -15.04        10.80        11.56"));
-            list.Add(string.Format("LOAD 116 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -19.41        11.56        12.32"));
-            list.Add(string.Format("2 UNI GY        -16.18        11.05        11.81"));
-            list.Add(string.Format("LOAD 117 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -21.68        11.81        12.57"));
-            list.Add(string.Format("2 UNI GY        -17.57        11.30        12.06"));
-            list.Add(string.Format("LOAD 118 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -27.69        12.06        12.82"));
-            list.Add(string.Format("2 UNI GY        -19.31        11.55        12.31"));
-            list.Add(string.Format("LOAD 119 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -41.05        12.31        13.07"));
-            list.Add(string.Format("2 UNI GY        -21.56        11.80        12.56"));
-            list.Add(string.Format("LOAD 120 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -27.28        12.05        12.81"));
-            list.Add(string.Format("LOAD 121 LOADTYPE Live  TITLE 70R TRACK"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY        -40.10        12.30        13.06"));
+
+            List<double> dst = Slab_Model.list_X;
+
+
+            #region Bottom Slab
+            list.Add("");
+            list.Add("");
+
+            #region Bottom Slab 1 Bending Moment
+
+            dst = Slab_Model.list_X;
+            All_Frcs.Clear();
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                for (int l = 1; l <= 3; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(Slab_Model.jnBots[i].NodeNo);
+                    mf = brd.GetJoint_MomentForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+
+                    mf = brd.GetJoint_ShearForce(top_arr, l);
+                    lst_frcs.Add(mf.Force);
+                }
+
+                All_Frcs.Add(lst_frcs);
+            }
+
             list.Add(string.Format(""));
-            list.Add(string.Format("LOAD 501 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -63.1188 0 0.8"));
-            list.Add(string.Format("LOAD 502 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -41.0091 0 1.05"));
-            list.Add(string.Format("LOAD 503 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -31.8192 0 1.3"));
-            list.Add(string.Format("LOAD 504 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -28.2864 0 1.55"));
-            list.Add(string.Format("LOAD 505 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -25.5723 0.2 1.8"));
-            list.Add(string.Format("LOAD 506 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -23.428 0.45 2.05"));
-            list.Add(string.Format("LOAD 507 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -21.6966 0.7 2.3"));
-            list.Add(string.Format("1 UNI GY -49.1933 0 0.93"));
-            list.Add(string.Format("LOAD 508 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 0.95 2.55"));
-            list.Add(string.Format("1 UNI GY -34.8555 0 1.18"));
-            list.Add(string.Format("LOAD 509 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.2 2.8"));
-            list.Add(string.Format("1 UNI GY -29.8595 0 1.43"));
-            list.Add(string.Format("LOAD 510 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.45 3.05"));
-            list.Add(string.Format("1 UNI GY -26.7915 0.08 1.68"));
-            list.Add(string.Format("LOAD 511 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.7 3.3"));
-            list.Add(string.Format("1 UNI GY -24.3977 0.33 1.93"));
-            list.Add(string.Format("LOAD 512 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.95 3.55"));
-            list.Add(string.Format("1 UNI GY -22.4836 0.58 2.18"));
-            list.Add(string.Format("LOAD 513 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.2 3.8"));
-            list.Add(string.Format("1 UNI GY -20.9235 0.83 2.43 12.5"));
-            list.Add(string.Format("LOAD 514 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.45 4.05"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.08 2.68"));
-            list.Add(string.Format("LOAD 515 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.7 4.3"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.33 2.93"));
-            list.Add(string.Format("LOAD 516 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.95 4.55"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.58 3.18"));
-            list.Add(string.Format("LOAD 517 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.2 4.8"));
-            list.Add(string.Format("1 UNI GY -20.5977 1.83 3.43"));
-            list.Add(string.Format("LOAD 518 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.45 5.05"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.08 3.68"));
-            list.Add(string.Format("LOAD 519 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.7 5.3"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.33 3.93"));
-            list.Add(string.Format("1 UNI GY -53.72 0 0.88"));
-            list.Add(string.Format("LOAD 520 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.95 5.55"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.58 4.18"));
-            list.Add(string.Format("1 UNI GY -36.98 0 1.13"));
-            list.Add(string.Format("LOAD 521 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.2 5.8"));
-            list.Add(string.Format("1 UNI GY -20.5977 2.83 4.43"));
-            list.Add(string.Format("1 UNI GY -30.58 0 1.38"));
-            list.Add(string.Format("LOAD 522 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.45 6.05"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.08 4.68"));
-            list.Add(string.Format("1 UNI GY -27.34 0.03 1.63"));
-            list.Add(string.Format("LOAD 523 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.7 6.3"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.33 4.93"));
-            list.Add(string.Format("1 UNI GY -24.83 0.28 1.88"));
-            list.Add(string.Format("LOAD 524 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.95 6.55"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.58 5.18"));
-            list.Add(string.Format("1 UNI GY -22.83 0.53 2.13"));
-            list.Add(string.Format("LOAD 525 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.2 6.8"));
-            list.Add(string.Format("1 UNI GY -20.5977 3.83 5.43"));
-            list.Add(string.Format("1 UNI GY -21.21 0.78 2.38"));
-            list.Add(string.Format("1 UNI GY -43.4 0 1.01"));
-            list.Add(string.Format("LOAD 526 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.45 7.05"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.08 5.68"));
-            list.Add(string.Format("1 UNI GY -20.6 1.03 2.63"));
-            list.Add(string.Format("1 UNI GY -32.48 0 1.26"));
-            list.Add(string.Format("LOAD 527 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.7 7.3"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.33 5.93"));
-            list.Add(string.Format("1 UNI GY -20.6 1.28 2.88"));
-            list.Add(string.Format("1 UNI GY -28.79 0 1.51"));
-            list.Add(string.Format("LOAD 528 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.95 7.55"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.58 6.18"));
-            list.Add(string.Format("1 UNI GY -20.6 1.53 3.13"));
-            list.Add(string.Format("1 UNI GY -25.96 0.16 1.76"));
-            list.Add(string.Format("LOAD 529 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 6.2 7.8"));
-            list.Add(string.Format("1 UNI GY -20.5977 4.83 6.43"));
-            list.Add(string.Format("1 UNI GY -20.6 1.78 3.38"));
-            list.Add(string.Format("1 UNI GY -23.74 0.41 2.01"));
-            list.Add(string.Format("LOAD 530 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 6.45 8.05"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.08 6.68"));
-            list.Add(string.Format("1 UNI GY -20.6 2.03 3.63"));
-            list.Add(string.Format("1 UNI GY -21.95 0.66 2.26"));
-            list.Add(string.Format("LOAD 531 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 6.7 8.3"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.33 6.93"));
-            list.Add(string.Format("1 UNI GY -20.6 2.28 3.88"));
-            list.Add(string.Format("1 UNI GY -20.6 0.91 2.51"));
-            list.Add(string.Format("LOAD 532 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 6.95 8.55"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.58 7.18"));
-            list.Add(string.Format("1 UNI GY -20.6 2.53 4.13"));
-            list.Add(string.Format("1 UNI GY -20.6 1.16 2.76"));
-            list.Add(string.Format("LOAD 533 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 7.2 8.8"));
-            list.Add(string.Format("1 UNI GY -20.5977 5.83 7.43"));
-            list.Add(string.Format("1 UNI GY -20.6 2.78 4.38"));
-            list.Add(string.Format("1 UNI GY -20.6 1.41 3.01"));
-            list.Add(string.Format("1 UNI GY -37.92 0 0.88"));
-            list.Add(string.Format("LOAD 534 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 7.45 9.05"));
-            list.Add(string.Format("1 UNI GY -20.5977 6.08 7.68"));
-            list.Add(string.Format("1 UNI GY -20.6 3.03 4.63"));
-            list.Add(string.Format("1 UNI GY -20.6 1.66 3.26"));
-            list.Add(string.Format("LOAD 535 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 7.7 9.3"));
-            list.Add(string.Format("1 UNI GY -20.6 0 0.93"));
-            list.Add(string.Format("1 UNI GY -20.6 6.33 7.93"));
-            list.Add(string.Format("1 UNI GY -20.6 1.91 3.51"));
-            list.Add(string.Format("1 UNI GY -26.1 0 1.13"));
-            list.Add(string.Format("LOAD 536 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.5977 7.95 9.55"));
-            list.Add(string.Format("1 UNI GY -20.6 6.58 8.18"));
-            list.Add(string.Format("1 UNI GY -20.6 3.53 5.13"));
-            list.Add(string.Format("1 UNI GY -20.6 2.16 3.76"));
-            list.Add(string.Format("1 UNI GY -21.59 0 1.38"));
-            list.Add(string.Format("LOAD 537 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 8.2 9.8"));
-            list.Add(string.Format("1 UNI GY -20.6 6.83 8.43"));
-            list.Add(string.Format("1 UNI GY -20.6 3.78 5.38"));
-            list.Add(string.Format("1 UNI GY -20.6 2.41 4.01"));
-            list.Add(string.Format("1 UNI GY -19.3 0.03 1.63"));
-            list.Add(string.Format("LOAD 538 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 8.45 10.05"));
-            list.Add(string.Format("1 UNI GY -20.6 7.08 8.68"));
-            list.Add(string.Format("1 UNI GY -20.6 4.03 5.63"));
-            list.Add(string.Format("1 UNI GY -20.6 2.66 4.26"));
-            list.Add(string.Format("1 UNI GY -17.53 0.28 1.88"));
-            list.Add(string.Format("1 UNI GY -39.38 0 0.86"));
-            list.Add(string.Format("LOAD 539 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 8.7 10.3"));
-            list.Add(string.Format("1 UNI GY -20.6 7.33 8.93"));
-            list.Add(string.Format("1 UNI GY -20.6 4.28 5.88"));
-            list.Add(string.Format("1 UNI GY -20.6 2.91 4.51"));
-            list.Add(string.Format("1 UNI GY -16.12 0.53 2.13"));
-            list.Add(string.Format("1 UNI GY -26.75 0 1.11"));
-            list.Add(string.Format("LOAD 540 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 8.95 10.55"));
-            list.Add(string.Format("1 UNI GY -20.6 7.58 9.18"));
-            list.Add(string.Format("1 UNI GY -20.6 4.53 6.13"));
-            list.Add(string.Format("1 UNI GY -20.6 3.16 4.76"));
-            list.Add(string.Format("1 UNI GY -14.97 0.78 2.38"));
-            list.Add(string.Format("1 UNI GY -21.8 0 1.36"));
-            list.Add(string.Format("LOAD 541 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 9.2 10.8"));
-            list.Add(string.Format("1 UNI GY -20.6 7.83 9.43"));
-            list.Add(string.Format("1 UNI GY -20.6 4.78 6.38"));
-            list.Add(string.Format("1 UNI GY -20.6 3.41 5.01"));
-            list.Add(string.Format("1 UNI GY -14.54 1.03 2.63"));
-            list.Add(string.Format("1 UNI GY -19.46 0.01 1.61"));
-            list.Add(string.Format("LOAD 542 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 9.45 11.05"));
-            list.Add(string.Format("1 UNI GY -20.6 8.08 9.68"));
-            list.Add(string.Format("1 UNI GY -20.6 5.03 6.63"));
-            list.Add(string.Format("1 UNI GY -20.6 3.66 5.26"));
-            list.Add(string.Format("1 UNI GY -14.54 1.28 2.88"));
-            list.Add(string.Format("1 UNI GY -17.66 0.26 1.86"));
-            list.Add(string.Format("LOAD 543 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 9.7 11.3"));
-            list.Add(string.Format("1 UNI GY -20.6 8.33 9.93"));
-            list.Add(string.Format("1 UNI GY -20.6 5.28 6.88"));
-            list.Add(string.Format("1 UNI GY -20.6 3.91 5.51"));
-            list.Add(string.Format("1 UNI GY -14.54 1.53 3.13"));
-            list.Add(string.Format("1 UNI GY -16.22 0.51 2.11"));
-            list.Add(string.Format("LOAD 544 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 9.95 11.55"));
-            list.Add(string.Format("1 UNI GY -20.6 8.58 10.18"));
-            list.Add(string.Format("1 UNI GY -20.6 5.53 7.13"));
-            list.Add(string.Format("1 UNI GY -20.6 4.16 5.76"));
-            list.Add(string.Format("1 UNI GY -14.54 1.78 3.38"));
-            list.Add(string.Format("1 UNI GY -15.06 0.76 2.36"));
-            list.Add(string.Format("LOAD 545 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -20.6 10.2 11.8"));
-            list.Add(string.Format("1 UNI GY -20.6 8.83 10.43"));
-            list.Add(string.Format("1 UNI GY -20.6 5.78 7.38"));
-            list.Add(string.Format("1 UNI GY -20.6 4.41 6.01"));
-            list.Add(string.Format("1 UNI GY -14.54 2.03 3.63"));
-            list.Add(string.Format("1 UNI GY -14.54 1.01 2.61"));
-            list.Add(string.Format("LOAD 546 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -21.7 10.45 12.05"));
-            list.Add(string.Format("1 UNI GY -20.6 9.08 10.68"));
-            list.Add(string.Format("1 UNI GY -20.6 6.03 7.63"));
-            list.Add(string.Format("1 UNI GY -20.6 4.66 6.26"));
-            list.Add(string.Format("1 UNI GY -14.54 2.28 3.88"));
-            list.Add(string.Format("1 UNI GY -14.54 1.26 2.86"));
-            list.Add(string.Format("LOAD 547 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -23.43 10.7 12.3"));
-            list.Add(string.Format("1 UNI GY -20.6 9.33 10.93"));
-            list.Add(string.Format("1 UNI GY -20.6 6.28 7.88"));
-            list.Add(string.Format("1 UNI GY -20.6 4.91 6.51"));
-            list.Add(string.Format("1 UNI GY -14.54 2.53 4.13"));
-            list.Add(string.Format("1 UNI GY -14.54 1.51 3.11"));
-            list.Add(string.Format("LOAD 548 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -25.57 10.95 12.55"));
-            list.Add(string.Format("1 UNI GY -20.6 9.58 11.18"));
-            list.Add(string.Format("1 UNI GY -20.6 6.53 8.13"));
-            list.Add(string.Format("1 UNI GY -20.6 5.16 6.76"));
-            list.Add(string.Format("1 UNI GY -14.54 2.78 4.38"));
-            list.Add(string.Format("1 UNI GY -14.54 1.76 3.36"));
-            list.Add(string.Format("LOAD 549 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -28.29 11.2 12.8"));
-            list.Add(string.Format("1 UNI GY -20.6 9.83 11.43"));
-            list.Add(string.Format("1 UNI GY -20.6 6.78 8.38"));
-            list.Add(string.Format("1 UNI GY -20.6 5.41 7.01"));
-            list.Add(string.Format("1 UNI GY -14.54 3.03 4.63"));
-            list.Add(string.Format("1 UNI GY -14.54 2.01 3.61"));
-            list.Add(string.Format("LOAD 550 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -31.82 11.45 13.05"));
-            list.Add(string.Format("1 UNI GY -20.6 10.08 11.68"));
-            list.Add(string.Format("1 UNI GY -20.6 7.03 8.63"));
-            list.Add(string.Format("1 UNI GY -20.6 5.66 7.26"));
-            list.Add(string.Format("1 UNI GY -14.54 3.28 4.88"));
-            list.Add(string.Format("1 UNI GY -14.54 2.26 3.86"));
-            list.Add(string.Format("LOAD 551 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -41.01 11.7 13.3"));
-            list.Add(string.Format("1 UNI GY -20.98 10.33 11.93"));
-            list.Add(string.Format("1 UNI GY -20.6 7.28 8.88"));
-            list.Add(string.Format("1 UNI GY -20.6 5.91 7.51"));
-            list.Add(string.Format("1 UNI GY -14.54 3.53 5.13"));
-            list.Add(string.Format("1 UNI GY -14.54 2.51 4.11"));
-            list.Add(string.Format("LOAD 552 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -63.12 11.95 13.55"));
-            list.Add(string.Format("1 UNI GY -22.55 10.58 12.18"));
-            list.Add(string.Format("1 UNI GY -20.6 7.53 9.13"));
-            list.Add(string.Format("1 UNI GY -20.6 6.16 7.76"));
-            list.Add(string.Format("1 UNI GY -14.54 3.78 5.38"));
-            list.Add(string.Format("1 UNI GY -14.54 2.76 4.36"));
-            list.Add(string.Format("LOAD 553 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -41.01 -0.3 1.3"));
-            list.Add(string.Format("1 UNI GY -24.48 10.83 12.43"));
-            list.Add(string.Format("1 UNI GY -20.6 7.78 9.38"));
-            list.Add(string.Format("1 UNI GY -20.6 6.41 8.01"));
-            list.Add(string.Format("1 UNI GY -14.54 4.03 5.63"));
-            list.Add(string.Format("1 UNI GY -14.54 3.01 4.61"));
-            list.Add(string.Format("LOAD 554 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -31.82 -0.05 1.55"));
-            list.Add(string.Format("1 UNI GY -26.9 11.08 12.68"));
-            list.Add(string.Format("1 UNI GY -20.6 8.03 9.63"));
-            list.Add(string.Format("1 UNI GY -20.6 6.66 8.26"));
-            list.Add(string.Format("1 UNI GY -14.54 4.28 5.88"));
-            list.Add(string.Format("1 UNI GY -14.54 3.26 4.86"));
-            list.Add(string.Format("LOAD 555 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -28.29 0.2 1.8"));
-            list.Add(string.Format("1 UNI GY -30 11.33 12.93"));
-            list.Add(string.Format("1 UNI GY -20.6 8.28 9.88"));
-            list.Add(string.Format("1 UNI GY -20.6 6.91 8.51"));
-            list.Add(string.Format("1 UNI GY -14.54 4.53 6.13"));
-            list.Add(string.Format("1 UNI GY -14.54 3.51 5.11"));
-            list.Add(string.Format("1 UNI GY -36.57 0 0.9"));
-            list.Add(string.Format("LOAD 556 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -25.57 0.45 2.05"));
-            list.Add(string.Format("1 UNI GY -35.26 11.58 13.18"));
-            list.Add(string.Format("1 UNI GY -20.6 8.53 10.13"));
-            list.Add(string.Format("1 UNI GY -20.6 7.16 8.76"));
-            list.Add(string.Format("1 UNI GY -14.54 4.78 6.38"));
-            list.Add(string.Format("1 UNI GY -14.54 3.76 5.36"));
-            list.Add(string.Format("1 UNI GY -25.48 0 1.15"));
-            list.Add(string.Format("LOAD 557 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -23.43 0.7 2.3"));
-            list.Add(string.Format("1 UNI GY -50.03 11.83 13.43"));
-            list.Add(string.Format("1 UNI GY -20.6 8.78 10.38"));
-            list.Add(string.Format("1 UNI GY -20.6 7.41 9.01"));
-            list.Add(string.Format("1 UNI GY -14.54 5.03 6.63"));
-            list.Add(string.Format("1 UNI GY -14.54 4.01 5.61"));
-            list.Add(string.Format("1 UNI GY -21.38 0 1.4"));
-            list.Add(string.Format("LOAD 558 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -21.7 0.95 2.55"));
-            list.Add(string.Format("1 UNI GY -49.19 12.08 13.68"));
-            list.Add(string.Format("1 UNI GY -20.6 9.03 10.63"));
-            list.Add(string.Format("1 UNI GY -20.6 7.66 9.26"));
-            list.Add(string.Format("1 UNI GY -14.54 5.28 6.88"));
-            list.Add(string.Format("1 UNI GY -14.54 4.26 5.86"));
-            list.Add(string.Format("1 UNI GY -19.14 0.05 1.65"));
-            list.Add(string.Format("LOAD 559 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 1.2 2.8"));
-            list.Add(string.Format("2 UNI GY -34.86 -0.17 1.43"));
-            list.Add(string.Format("1 UNI GY -20.6 9.28 10.88"));
-            list.Add(string.Format("1 UNI GY -20.6 7.91 9.51"));
-            list.Add(string.Format("1 UNI GY -14.54 5.53 7.13"));
-            list.Add(string.Format("1 UNI GY -14.54 4.51 6.11"));
-            list.Add(string.Format("1 UNI GY -17.4 0.3 1.9"));
-            list.Add(string.Format("LOAD 560 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 1.45 3.05"));
-            list.Add(string.Format("2 UNI GY -29.86 0.08 1.68"));
-            list.Add(string.Format("1 UNI GY -20.6 9.53 11.13"));
-            list.Add(string.Format("1 UNI GY -20.6 8.16 9.76"));
-            list.Add(string.Format("1 UNI GY -14.54 5.78 7.38"));
-            list.Add(string.Format("1 UNI GY -14.54 4.76 6.36"));
-            list.Add(string.Format("1 UNI GY -16.02 0.55 2.15"));
-            list.Add(string.Format("LOAD 561 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 1.7 3.3"));
-            list.Add(string.Format("2 UNI GY -26.79 0.33 1.93"));
-            list.Add(string.Format("1 UNI GY -20.6 9.78 11.38"));
-            list.Add(string.Format("1 UNI GY -20.6 8.41 10.01"));
-            list.Add(string.Format("1 UNI GY -14.54 6.03 7.63"));
-            list.Add(string.Format("1 UNI GY -14.54 5.01 6.61"));
-            list.Add(string.Format("1 UNI GY -14.89 0.8 2.4"));
-            list.Add(string.Format("LOAD 562 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 1.95 3.55"));
-            list.Add(string.Format("2 UNI GY -24.4 0.58 2.18"));
-            list.Add(string.Format("1 UNI GY -20.6 10.03 11.63"));
-            list.Add(string.Format("1 UNI GY -20.6 8.66 10.26"));
-            list.Add(string.Format("1 UNI GY -14.54 6.28 7.88"));
-            list.Add(string.Format("1 UNI GY -14.54 5.26 6.86"));
-            list.Add(string.Format("1 UNI GY -14.54 1.05 2.65"));
-            list.Add(string.Format("LOAD 563 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 2.2 3.8"));
-            list.Add(string.Format("2 UNI GY -22.48 0.83 2.43"));
-            list.Add(string.Format("1 UNI GY -20.7 10.28 11.88"));
-            list.Add(string.Format("1 UNI GY -20.6 8.91 10.51"));
-            list.Add(string.Format("1 UNI GY -14.54 6.53 8.13"));
-            list.Add(string.Format("1 UNI GY -14.54 5.51 7.11"));
-            list.Add(string.Format("1 UNI GY -14.54 1.3 2.9"));
-            list.Add(string.Format("LOAD 564 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 2.45 4.05"));
-            list.Add(string.Format("2 UNI GY -20.92 1.08 2.68"));
-            list.Add(string.Format("1 UNI GY -22.21 10.53 12.13"));
-            list.Add(string.Format("2 UNI GY -20.6 9.16 10.76"));
-            list.Add(string.Format("1 UNI GY -14.54 6.78 8.38"));
-            list.Add(string.Format("1 UNI GY -14.54 5.76 7.36"));
-            list.Add(string.Format("1 UNI GY -14.54 1.55 3.15"));
-            list.Add(string.Format("LOAD 565 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 2.7 4.3"));
-            list.Add(string.Format("2 UNI GY -20.6 1.33 2.93"));
-            list.Add(string.Format("1 UNI GY -24.06 10.78 12.38"));
-            list.Add(string.Format("1 UNI GY -20.6 9.41 11.01"));
-            list.Add(string.Format("1 UNI GY -14.54 7.03 8.63"));
-            list.Add(string.Format("1 UNI GY -14.54 6.01 7.61"));
-            list.Add(string.Format("1 UNI GY -14.54 1.8 3.4"));
-            list.Add(string.Format("LOAD 566 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 2.95 4.55"));
-            list.Add(string.Format("2 UNI GY -20.6 1.58 3.18"));
-            list.Add(string.Format("1 UNI GY -26.37 11.03 12.63"));
-            list.Add(string.Format("1 UNI GY -20.6 9.66 11.26"));
-            list.Add(string.Format("1 UNI GY -14.54 7.28 8.88"));
-            list.Add(string.Format("1 UNI GY -14.54 6.28 7.88"));
-            list.Add(string.Format("1 UNI GY -14.54 2.05 3.65"));
-            list.Add(string.Format("LOAD 567 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 3.2 4.8"));
-            list.Add(string.Format("2 UNI GY -20.6 1.83 3.43"));
-            list.Add(string.Format("1 UNI GY -29.31 11.28 12.88"));
-            list.Add(string.Format("1 UNI GY -20.6 9.91 11.51"));
-            list.Add(string.Format("1 UNI GY -14.54 7.53 9.13"));
-            list.Add(string.Format("1 UNI GY -14.54 6.53 8.13"));
-            list.Add(string.Format("1 UNI GY -14.54 2.3 3.9"));
-            list.Add(string.Format("LOAD 568 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 3.45 5.05"));
-            list.Add(string.Format("2 UNI GY -20.6 2.08 3.68"));
-            list.Add(string.Format("1 UNI GY -33.34 11.53 13.13"));
-            list.Add(string.Format("1 UNI GY -20.6 10.16 11.76"));
-            list.Add(string.Format("1 UNI GY -14.54 7.78 9.38"));
-            list.Add(string.Format("1 UNI GY -14.54 6.78 8.38"));
-            list.Add(string.Format("1 UNI GY -14.54 2.55 4.15"));
-            list.Add(string.Format("LOAD 569 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 3.7 5.3"));
-            list.Add(string.Format("2 UNI GY -20.6 2.33 3.93"));
-            list.Add(string.Format("1 UNI GY -46.11 11.78 13.38"));
-            list.Add(string.Format("1 UNI GY -21.45 10.41 12.01"));
-            list.Add(string.Format("1 UNI GY -14.54 8.03 9.63"));
-            list.Add(string.Format("1 UNI GY -14.54 7.03 8.63"));
-            list.Add(string.Format("1 UNI GY -14.54 2.8 4.4"));
-            list.Add(string.Format("LOAD 570 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 3.95 5.55"));
-            list.Add(string.Format("2 UNI GY -20.6 2.58 4.18"));
-            list.Add(string.Format("1 UNI GY -53.72 12.03 13.63"));
-            list.Add(string.Format("1 UNI GY -23.13 10.66 12.26"));
-            list.Add(string.Format("1 UNI GY -14.54 8.28 9.88"));
-            list.Add(string.Format("1 UNI GY -14.54 7.28 8.88"));
-            list.Add(string.Format("1 UNI GY -14.54 3.05 4.65"));
-            list.Add(string.Format("LOAD 571 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 4.2 5.8"));
-            list.Add(string.Format("2 UNI GY -20.6 2.83 4.43"));
-            list.Add(string.Format("2 UNI GY -36.98 -0.22 1.38"));
-            list.Add(string.Format("1 UNI GY -25.2 10.91 12.51"));
-            list.Add(string.Format("1 UNI GY -14.54 8.53 10.13"));
-            list.Add(string.Format("1 UNI GY -14.54 7.53 9.13"));
-            list.Add(string.Format("1 UNI GY -14.54 3.3 4.9"));
-            list.Add(string.Format("LOAD 572 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 4.45 6.05"));
-            list.Add(string.Format("2 UNI GY -20.6 3.08 4.68"));
-            list.Add(string.Format("2 UNI GY -30.58 0.03 1.63"));
-            list.Add(string.Format("1 UNI GY -27.81 11.16 12.76"));
-            list.Add(string.Format("1 UNI GY -14.54 8.78 10.38"));
-            list.Add(string.Format("1 UNI GY -14.54 7.78 9.38"));
-            list.Add(string.Format("1 UNI GY -14.54 3.55 5.15"));
-            list.Add(string.Format("LOAD 573 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 4.7 6.3"));
-            list.Add(string.Format("2 UNI GY -20.6 3.33 4.93"));
-            list.Add(string.Format("2 UNI GY -27.34 0.28 1.88"));
-            list.Add(string.Format("1 UNI GY -31.18 11.41 13.01"));
-            list.Add(string.Format("1 UNI GY -14.54 9.03 10.63"));
-            list.Add(string.Format("1 UNI GY -14.54 8.03 9.63"));
-            list.Add(string.Format("1 UNI GY -14.54 3.8 5.4"));
-            list.Add(string.Format("LOAD 574 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 4.95 6.55"));
-            list.Add(string.Format("2 UNI GY -20.6 3.58 5.18"));
-            list.Add(string.Format("2 UNI GY -24.83 0.53 2.13"));
-            list.Add(string.Format("1 UNI GY -38.88 11.66 13.26"));
-            list.Add(string.Format("1 UNI GY -14.54 9.28 10.88"));
-            list.Add(string.Format("1 UNI GY -14.54 8.26 9.86"));
-            list.Add(string.Format("1 UNI GY -14.54 4.05 5.65"));
-            list.Add(string.Format("LOAD 575 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 5.2 6.8"));
-            list.Add(string.Format("2 UNI GY -20.6 3.83 5.43"));
-            list.Add(string.Format("2 UNI GY -22.83 0.78 2.38"));
-            list.Add(string.Format("1 UNI GY -58.03 11.91 13.51"));
-            list.Add(string.Format("1 UNI GY -14.54 9.53 11.13"));
-            list.Add(string.Format("1 UNI GY -14.54 8.51 10.11"));
-            list.Add(string.Format("1 UNI GY -14.54 4.3 5.9"));
-            list.Add(string.Format("LOAD 576 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 5.45 7.05"));
-            list.Add(string.Format("2 UNI GY -20.6 4.08 5.68"));
-            list.Add(string.Format("2 UNI GY -21.21 1.03 2.63"));
-            list.Add(string.Format("1 UNI GY -43.4 12.16 13.76"));
-            list.Add(string.Format("1 UNI GY -14.54 9.78 11.38"));
-            list.Add(string.Format("1 UNI GY -14.54 8.76 10.36"));
-            list.Add(string.Format("1 UNI GY -14.54 4.55 6.15"));
-            list.Add(string.Format("LOAD 577 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 5.7 7.3"));
-            list.Add(string.Format("2 UNI GY -20.6 4.33 5.93"));
-            list.Add(string.Format("2 UNI GY -20.6 1.28 2.88"));
-            list.Add(string.Format("2 UNI GY -32.48 -0.09 1.51"));
-            list.Add(string.Format("1 UNI GY -14.54 10.03 11.63"));
-            list.Add(string.Format("1 UNI GY -14.54 9.01 10.61"));
-            list.Add(string.Format("1 UNI GY -14.54 4.8 6.4"));
-            list.Add(string.Format("LOAD 578 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 5.95 7.55"));
-            list.Add(string.Format("2 UNI GY -20.6 4.58 6.18"));
-            list.Add(string.Format("2 UNI GY -20.6 1.53 3.13"));
-            list.Add(string.Format("2 UNI GY -28.79 0.16 1.76"));
-            list.Add(string.Format("1 UNI GY -14.61 10.28 11.88"));
-            list.Add(string.Format("1 UNI GY -14.54 9.26 10.86"));
-            list.Add(string.Format("1 UNI GY -14.54 5.05 6.65"));
-            list.Add(string.Format("LOAD 579 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 6.2 7.8"));
-            list.Add(string.Format("2 UNI GY -20.6 4.83 6.43"));
-            list.Add(string.Format("2 UNI GY -20.6 1.78 3.38"));
-            list.Add(string.Format("2 UNI GY -25.96 0.41 2.01"));
-            list.Add(string.Format("1 UNI GY -15.68 10.53 12.13"));
-            list.Add(string.Format("1 UNI GY -14.54 9.51 11.11"));
-            list.Add(string.Format("1 UNI GY -14.54 5.3 6.9"));
-            list.Add(string.Format("LOAD 580 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 6.45 8.05"));
-            list.Add(string.Format("2 UNI GY -20.6 5.08 6.68"));
-            list.Add(string.Format("2 UNI GY -20.6 2.03 3.63"));
-            list.Add(string.Format("2 UNI GY -23.74 0.66 2.26"));
-            list.Add(string.Format("1 UNI GY -16.99 10.78 12.38"));
-            list.Add(string.Format("1 UNI GY -14.54 9.76 11.36"));
-            list.Add(string.Format("1 UNI GY -14.54 5.55 7.15"));
-            list.Add(string.Format("LOAD 581 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 6.7 8.3"));
-            list.Add(string.Format("2 UNI GY -20.6 5.33 6.93"));
-            list.Add(string.Format("2 UNI GY -20.6 2.28 3.88"));
-            list.Add(string.Format("2 UNI GY -21.95 0.91 2.51"));
-            list.Add(string.Format("1 UNI GY -18.61 11.03 12.63"));
-            list.Add(string.Format("1 UNI GY -14.54 10.01 11.61"));
-            list.Add(string.Format("1 UNI GY -14.54 5.8 7.4"));
-            list.Add(string.Format("LOAD 582 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 6.95 8.55"));
-            list.Add(string.Format("2 UNI GY -20.6 5.58 7.18"));
-            list.Add(string.Format("2 UNI GY -20.6 2.53 4.13"));
-            list.Add(string.Format("2 UNI GY -20.6 1.16 2.76"));
-            list.Add(string.Format("1 UNI GY -20.69 11.28 12.88"));
-            list.Add(string.Format("1 UNI GY -14.54 10.26 11.86"));
-            list.Add(string.Format("1 UNI GY -14.54 6.05 7.65"));
-            list.Add(string.Format("LOAD 583 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 7.2 8.8"));
-            list.Add(string.Format("2 UNI GY -20.6 5.83 7.43"));
-            list.Add(string.Format("2 UNI GY -20.6 2.78 4.38"));
-            list.Add(string.Format("2 UNI GY -20.6 1.41 3.01"));
-            list.Add(string.Format("1 UNI GY -23.53 11.53 13.13"));
-            list.Add(string.Format("1 UNI GY -15.59 10.51 12.11"));
-            list.Add(string.Format("LOAD 584 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 7.45 9.05"));
-            list.Add(string.Format("2 UNI GY -20.6 6.08 7.68"));
-            list.Add(string.Format("2 UNI GY -20.6 3.03 4.63"));
-            list.Add(string.Format("2 UNI GY -20.6 1.66 3.26"));
-            list.Add(string.Format("1 UNI GY -32.55 11.78 13.38"));
-            list.Add(string.Format("1 UNI GY -16.87 10.76 12.36"));
-            list.Add(string.Format("1 UNI GY -14.54 6.55 8.15"));
-            list.Add(string.Format("LOAD 585 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 7.7 9.3"));
-            list.Add(string.Format("2 UNI GY -20.6 6.33 7.93"));
-            list.Add(string.Format("2 UNI GY -20.6 3.28 4.88"));
-            list.Add(string.Format("2 UNI GY -20.6 1.91 3.51"));
-            list.Add(string.Format("1 UNI GY -37.92 12.03 13.63"));
-            list.Add(string.Format("1 UNI GY -18.47 11.01 12.61"));
-            list.Add(string.Format("1 UNI GY -14.54 6.8 8.4"));
-            list.Add(string.Format("LOAD 586 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 7.95 9.55"));
-            list.Add(string.Format("2 UNI GY -20.6 6.58 8.18"));
-            list.Add(string.Format("2 UNI GY -20.6 3.53 5.13"));
-            list.Add(string.Format("2 UNI GY -20.6 2.16 3.76"));
-            list.Add(string.Format("2 UNI GY -26.1 -0.22 1.38"));
-            list.Add(string.Format("1 UNI GY -20.5 11.26 12.86"));
-            list.Add(string.Format("LOAD 587 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 8.2 9.8"));
-            list.Add(string.Format("2 UNI GY -20.6 6.83 8.43"));
-            list.Add(string.Format("2 UNI GY -20.6 3.78 5.38"));
-            list.Add(string.Format("2 UNI GY -20.6 2.41 4.01"));
-            list.Add(string.Format("2 UNI GY -21.59 0.03 1.63"));
-            list.Add(string.Format("1 UNI GY -23.17 11.51 13.11"));
-            list.Add(string.Format("LOAD 588 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 8.45 10.05"));
-            list.Add(string.Format("2 UNI GY -20.6 7.08 8.68"));
-            list.Add(string.Format("2 UNI GY -20.6 4.03 5.63"));
-            list.Add(string.Format("2 UNI GY -19.3 0.28 1.88"));
-            list.Add(string.Format("1 UNI GY -31.56 11.76 13.36"));
-            list.Add(string.Format("1 UNI GY -14.54 7.55 9.15"));
-            list.Add(string.Format("LOAD 589 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 8.7 10.3"));
-            list.Add(string.Format("2 UNI GY -20.6 7.33 8.93"));
-            list.Add(string.Format("2 UNI GY -20.6 4.28 5.88"));
-            list.Add(string.Format("2 UNI GY -20.6 2.91 4.51"));
-            list.Add(string.Format("2 UNI GY -17.53 0.53 2.13"));
-            list.Add(string.Format("1 UNI GY -39.38 12.01 13.61"));
-            list.Add(string.Format("LOAD 590 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 8.95 10.55"));
-            list.Add(string.Format("2 UNI GY -20.6 7.58 9.18"));
-            list.Add(string.Format("2 UNI GY -20.6 4.53 6.13"));
-            list.Add(string.Format("2 UNI GY -20.6 3.16 4.76"));
-            list.Add(string.Format("2 UNI GY -26.75 -0.24 1.36"));
-            list.Add(string.Format("1 UNI GY -14.54 8.05 9.65"));
-            list.Add(string.Format("LOAD 591 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.2 10.8"));
-            list.Add(string.Format("2 UNI GY -20.6 7.83 9.43"));
-            list.Add(string.Format("2 UNI GY -20.6 3.41 5.01"));
-            list.Add(string.Format("2 UNI GY -16.12 0.78 2.38"));
-            list.Add(string.Format("2 UNI GY -21.8 0.01 1.61"));
-            list.Add(string.Format("LOAD 592 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.45 11.05"));
-            list.Add(string.Format("2 UNI GY -20.6 8.08 9.68"));
-            list.Add(string.Format("2 UNI GY -20.6 5.03 6.63"));
-            list.Add(string.Format("2 UNI GY -20.6 3.66 5.26"));
-            list.Add(string.Format("2 UNI GY -14.97 1.03 2.63"));
-            list.Add(string.Format("2 UNI GY -19.46 0.26 1.86"));
-            list.Add(string.Format("1 UNI GY -14.54 8.3 9.9"));
-            list.Add(string.Format("LOAD 593 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.7 11.3"));
-            list.Add(string.Format("2 UNI GY -20.6 8.33 9.93"));
-            list.Add(string.Format("2 UNI GY -20.6 5.28 6.88"));
-            list.Add(string.Format("2 UNI GY -20.6 3.91 5.51"));
-            list.Add(string.Format("2 UNI GY -14.54 1.28 2.88"));
-            list.Add(string.Format("2 UNI GY -17.66 0.51 2.11"));
-            list.Add(string.Format("1 UNI GY -14.54 8.55 10.15"));
-            list.Add(string.Format("LOAD 594 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.95 11.55"));
-            list.Add(string.Format("2 UNI GY -20.6 8.58 10.18"));
-            list.Add(string.Format("2 UNI GY -20.6 5.53 7.13"));
-            list.Add(string.Format("2 UNI GY -20.6 4.16 5.76"));
-            list.Add(string.Format("2 UNI GY -14.54 1.53 3.13"));
-            list.Add(string.Format("2 UNI GY -16.22 0.76 2.36"));
-            list.Add(string.Format("1 UNI GY -14.54 8.8 10.4"));
-            list.Add(string.Format("LOAD 595 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 10.2 11.8"));
-            list.Add(string.Format("2 UNI GY -20.6 8.83 10.43"));
-            list.Add(string.Format("2 UNI GY -20.6 5.78 7.38"));
-            list.Add(string.Format("2 UNI GY -20.6 4.41 6.01"));
-            list.Add(string.Format("2 UNI GY -14.54 1.78 3.38"));
-            list.Add(string.Format("2 UNI GY -15.06 1.01 2.61"));
-            list.Add(string.Format("1 UNI GY -14.54 9.05 10.65"));
-            list.Add(string.Format("LOAD 596 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 10.45 12.05"));
-            list.Add(string.Format("2 UNI GY -20.6 9.08 10.68"));
-            list.Add(string.Format("2 UNI GY -20.6 6.03 7.63"));
-            list.Add(string.Format("2 UNI GY -20.6 4.66 6.26"));
-            list.Add(string.Format("2 UNI GY -14.54 2.03 3.63"));
-            list.Add(string.Format("2 UNI GY -14.54 1.26 2.86"));
-            list.Add(string.Format("1 UNI GY -14.54 9.3 10.9"));
-            list.Add(string.Format("LOAD 597 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -21.7 10.7 12.3"));
-            list.Add(string.Format("2 UNI GY -20.6 9.33 10.93"));
-            list.Add(string.Format("2 UNI GY -20.6 6.28 7.88"));
-            list.Add(string.Format("2 UNI GY -20.6 4.91 6.51"));
-            list.Add(string.Format("2 UNI GY -14.54 2.28 3.88"));
-            list.Add(string.Format("2 UNI GY -14.54 1.51 3.11"));
-            list.Add(string.Format("1 UNI GY -14.54 9.55 11.15"));
-            list.Add(string.Format("LOAD 598 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -23.43 10.95 12.55"));
-            list.Add(string.Format("2 UNI GY -20.6 9.58 11.18"));
-            list.Add(string.Format("2 UNI GY -20.6 6.53 8.13"));
-            list.Add(string.Format("2 UNI GY -20.6 5.16 6.76"));
-            list.Add(string.Format("2 UNI GY -14.54 2.53 4.13"));
-            list.Add(string.Format("2 UNI GY -14.54 1.76 3.36"));
-            list.Add(string.Format("1 UNI GY -14.54 9.8 11.4"));
-            list.Add(string.Format("LOAD 599 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -25.57 11.2 12.8"));
-            list.Add(string.Format("2 UNI GY -20.6 9.83 11.43"));
-            list.Add(string.Format("2 UNI GY -20.6 6.78 8.38"));
-            list.Add(string.Format("2 UNI GY -20.6 5.41 7.01"));
-            list.Add(string.Format("2 UNI GY -14.54 2.78 4.38"));
-            list.Add(string.Format("2 UNI GY -14.54 2.01 3.61"));
-            list.Add(string.Format("1 UNI GY -14.54 10.05 11.65"));
-            list.Add(string.Format("LOAD 600 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -28.29 11.45 13.05"));
-            list.Add(string.Format("2 UNI GY -20.6 10.08 11.68"));
-            list.Add(string.Format("2 UNI GY -20.6 7.03 8.63"));
-            list.Add(string.Format("2 UNI GY -20.6 5.66 7.26"));
-            list.Add(string.Format("2 UNI GY -14.54 3.03 4.63"));
-            list.Add(string.Format("2 UNI GY -14.54 2.26 3.86"));
-            list.Add(string.Format("1 UNI GY -14.69 10.3 11.9"));
-            list.Add(string.Format("LOAD 601 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -31.82 11.7 13.3"));
-            list.Add(string.Format("2 UNI GY -20.6 10.33 11.93"));
-            list.Add(string.Format("2 UNI GY -20.6 7.28 8.88"));
-            list.Add(string.Format("2 UNI GY -20.6 5.91 7.51"));
-            list.Add(string.Format("2 UNI GY -14.54 3.28 4.88"));
-            list.Add(string.Format("2 UNI GY -14.54 2.51 4.11"));
-            list.Add(string.Format("1 UNI GY -15.77 10.55 12.15"));
-            list.Add(string.Format("LOAD 602 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -41.01 11.95 13.55"));
-            list.Add(string.Format("2 UNI GY -20.98 10.58 12.18"));
-            list.Add(string.Format("2 UNI GY -20.6 7.53 9.13"));
-            list.Add(string.Format("2 UNI GY -20.6 6.16 7.76"));
-            list.Add(string.Format("2 UNI GY -14.54 3.53 5.13"));
-            list.Add(string.Format("2 UNI GY -14.54 2.76 4.36"));
-            list.Add(string.Format("1 UNI GY -17.1 10.8 12.4"));
-            list.Add(string.Format("LOAD 603 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -63.12 12.2 13.8"));
-            list.Add(string.Format("2 UNI GY -22.55 10.83 12.43"));
-            list.Add(string.Format("2 UNI GY -20.6 7.78 9.38"));
-            list.Add(string.Format("2 UNI GY -20.6 6.41 8.01"));
-            list.Add(string.Format("2 UNI GY -14.54 3.78 5.38"));
-            list.Add(string.Format("2 UNI GY -14.54 3.01 4.61"));
-            list.Add(string.Format("1 UNI GY -18.76 11.05 12.65"));
-            list.Add(string.Format("LOAD 604 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -24.48 11.08 12.68"));
-            list.Add(string.Format("2 UNI GY -20.6 8.03 9.63"));
-            list.Add(string.Format("2 UNI GY -20.6 6.66 8.26"));
-            list.Add(string.Format("2 UNI GY -14.54 4.03 5.63"));
-            list.Add(string.Format("2 UNI GY -14.54 3.26 4.86"));
-            list.Add(string.Format("1 UNI GY -20.88 11.3 12.9"));
-            list.Add(string.Format("LOAD 605 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -26.9 11.33 12.93"));
-            list.Add(string.Format("2 UNI GY -20.6 8.28 9.88"));
-            list.Add(string.Format("2 UNI GY -20.6 6.91 8.51"));
-            list.Add(string.Format("2 UNI GY -14.54 4.28 5.88"));
-            list.Add(string.Format("2 UNI GY -14.54 3.51 5.11"));
-            list.Add(string.Format("1 UNI GY -24.06 11.55 13.15"));
-            list.Add(string.Format("LOAD 606 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -30 11.58 13.18"));
-            list.Add(string.Format("2 UNI GY -20.6 8.53 10.13"));
-            list.Add(string.Format("2 UNI GY -20.6 7.16 8.76"));
-            list.Add(string.Format("2 UNI GY -14.54 4.53 6.13"));
-            list.Add(string.Format("2 UNI GY -14.54 3.76 5.36"));
-            list.Add(string.Format("1 UNI GY -33.6 11.8 13.4"));
-            list.Add(string.Format("LOAD 607 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -35.26 11.83 13.43"));
-            list.Add(string.Format("2 UNI GY -20.6 8.78 10.38"));
-            list.Add(string.Format("2 UNI GY -20.6 7.41 9.01"));
-            list.Add(string.Format("2 UNI GY -14.54 4.78 6.38"));
-            list.Add(string.Format("2 UNI GY -14.54 4.01 5.61"));
-            list.Add(string.Format("1 UNI GY -36.57 12.05 13.65"));
-            list.Add(string.Format("LOAD 608 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -50.03 12.08 13.68"));
-            list.Add(string.Format("2 UNI GY -20.6 9.03 10.63"));
-            list.Add(string.Format("2 UNI GY -20.6 7.66 9.26"));
-            list.Add(string.Format("2 UNI GY -14.54 5.03 6.63"));
-            list.Add(string.Format("2 UNI GY -14.54 4.26 5.86"));
-            list.Add(string.Format("2 UNI GY -25.48 -0.2 1.4"));
-            list.Add(string.Format("LOAD 609 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.28 10.88"));
-            list.Add(string.Format("2 UNI GY -20.6 7.91 9.51"));
-            list.Add(string.Format("2 UNI GY -14.54 5.28 6.88"));
-            list.Add(string.Format("2 UNI GY -14.54 4.51 6.11"));
-            list.Add(string.Format("2 UNI GY -21.38 0.05 1.65"));
-            list.Add(string.Format("LOAD 610 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.53 11.13"));
-            list.Add(string.Format("2 UNI GY -20.6 8.16 9.76"));
-            list.Add(string.Format("2 UNI GY -14.54 5.53 7.13"));
-            list.Add(string.Format("2 UNI GY -14.54 4.76 6.36"));
-            list.Add(string.Format("2 UNI GY -19.14 0.3 1.9"));
-            list.Add(string.Format("LOAD 611 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 9.78 11.38"));
-            list.Add(string.Format("2 UNI GY -20.6 8.41 10.01"));
-            list.Add(string.Format("2 UNI GY -14.54 5.78 7.38"));
-            list.Add(string.Format("2 UNI GY -14.54 5.01 6.61"));
-            list.Add(string.Format("2 UNI GY -17.4 0.55 2.15"));
-            list.Add(string.Format("LOAD 612 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 10.03 11.63"));
-            list.Add(string.Format("2 UNI GY -20.6 8.66 10.26"));
-            list.Add(string.Format("2 UNI GY -14.54 6.03 7.63"));
-            list.Add(string.Format("2 UNI GY -14.54 5.26 6.86"));
-            list.Add(string.Format("2 UNI GY -16.02 0.8 2.4"));
-            list.Add(string.Format("LOAD 613 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.6 10.28 11.88"));
-            list.Add(string.Format("2 UNI GY -20.6 8.91 10.51"));
-            list.Add(string.Format("2 UNI GY -14.54 6.28 7.88"));
-            list.Add(string.Format("2 UNI GY -14.54 5.51 7.11"));
-            list.Add(string.Format("2 UNI GY -14.89 1.05 2.65"));
-            list.Add(string.Format("LOAD 614 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.7 10.53 12.13"));
-            list.Add(string.Format("2 UNI GY -20.6 9.16 10.76"));
-            list.Add(string.Format("2 UNI GY -14.54 6.53 8.13"));
-            list.Add(string.Format("2 UNI GY -14.54 5.76 7.36"));
-            list.Add(string.Format("2 UNI GY -14.54 1.3 2.9"));
-            list.Add(string.Format("LOAD 615 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -22.21 10.78 12.38"));
-            list.Add(string.Format("2 UNI GY -20.6 9.41 11.01"));
-            list.Add(string.Format("2 UNI GY -14.54 6.78 8.38"));
-            list.Add(string.Format("2 UNI GY -14.54 6.01 7.61"));
-            list.Add(string.Format("2 UNI GY -14.54 1.55 3.15"));
-            list.Add(string.Format("LOAD 616 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -24.06 11.03 12.63"));
-            list.Add(string.Format("2 UNI GY -20.6 9.66 11.26"));
-            list.Add(string.Format("2 UNI GY -14.54 7.03 8.63"));
-            list.Add(string.Format("2 UNI GY -14.54 6.26 7.86"));
-            list.Add(string.Format("2 UNI GY -14.54 1.8 3.4"));
-            list.Add(string.Format("LOAD 617 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -26.37 11.28 12.88"));
-            list.Add(string.Format("2 UNI GY -20.6 9.91 11.51"));
-            list.Add(string.Format("2 UNI GY -14.54 7.28 8.88"));
-            list.Add(string.Format("2 UNI GY -14.54 6.51 8.11"));
-            list.Add(string.Format("2 UNI GY -14.54 2.05 3.65"));
-            list.Add(string.Format("LOAD 618 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -29.31 11.53 13.13"));
-            list.Add(string.Format("2 UNI GY -20.6 10.16 11.76"));
-            list.Add(string.Format("2 UNI GY -14.54 7.53 9.13"));
-            list.Add(string.Format("2 UNI GY -14.54 6.76 8.36"));
-            list.Add(string.Format("2 UNI GY -14.54 2.3 3.9"));
-            list.Add(string.Format("LOAD 619 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -33.34 11.78 13.38"));
-            list.Add(string.Format("2 UNI GY -20.6 10.41 12.01"));
-            list.Add(string.Format("2 UNI GY -14.54 7.78 9.38"));
-            list.Add(string.Format("2 UNI GY -14.54 7.01 8.61"));
-            list.Add(string.Format("2 UNI GY -14.54 2.55 4.15"));
-            list.Add(string.Format("LOAD 620 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -46.11 12.03 13.63"));
-            list.Add(string.Format("2 UNI GY -21.45 10.66 12.26"));
-            list.Add(string.Format("2 UNI GY -14.54 8.03 9.63"));
-            list.Add(string.Format("2 UNI GY -14.54 7.26 8.86"));
-            list.Add(string.Format("2 UNI GY -14.54 2.8 4.4"));
-            list.Add(string.Format("LOAD 621 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -23.13 10.91 12.51"));
-            list.Add(string.Format("2 UNI GY -14.54 8.28 9.88"));
-            list.Add(string.Format("2 UNI GY -14.54 7.51 9.11"));
-            list.Add(string.Format("2 UNI GY -14.54 3.05 4.65"));
-            list.Add(string.Format("LOAD 622 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -25.2 11.16 12.76"));
-            list.Add(string.Format("2 UNI GY -14.54 8.53 10.13"));
-            list.Add(string.Format("2 UNI GY -14.54 7.76 9.36"));
-            list.Add(string.Format("2 UNI GY -14.54 3.3 4.9"));
-            list.Add(string.Format("LOAD 623 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -27.81 11.41 13.01"));
-            list.Add(string.Format("2 UNI GY -14.54 8.78 10.38"));
-            list.Add(string.Format("2 UNI GY -14.54 8.01 9.61"));
-            list.Add(string.Format("2 UNI GY -14.54 3.55 5.15"));
-            list.Add(string.Format("LOAD 624 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -31.18 11.66 13.26"));
-            list.Add(string.Format("2 UNI GY -14.54 9.03 10.63"));
-            list.Add(string.Format("2 UNI GY -14.54 8.26 9.86"));
-            list.Add(string.Format("2 UNI GY -14.54 3.8 5.4"));
-            list.Add(string.Format("LOAD 625 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -38.88 11.91 13.51"));
-            list.Add(string.Format("2 UNI GY -14.54 9.28 10.88"));
-            list.Add(string.Format("2 UNI GY -14.54 8.51 10.11"));
-            list.Add(string.Format("2 UNI GY -14.54 4.05 5.65"));
-            list.Add(string.Format("LOAD 626 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -58.03 12.16 13.76"));
-            list.Add(string.Format("2 UNI GY -14.54 9.53 11.13"));
-            list.Add(string.Format("2 UNI GY -14.54 8.76 10.36"));
-            list.Add(string.Format("2 UNI GY -14.54 4.3 5.9"));
-            list.Add(string.Format("LOAD 627 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 9.78 11.38"));
-            list.Add(string.Format("2 UNI GY -14.54 9.01 10.61"));
-            list.Add(string.Format("2 UNI GY -14.54 4.55 6.15"));
-            list.Add(string.Format("LOAD 628 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 10.03 11.63"));
-            list.Add(string.Format("2 UNI GY -14.54 9.26 10.86"));
-            list.Add(string.Format("2 UNI GY -14.54 4.8 6.4"));
-            list.Add(string.Format("LOAD 629 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 10.28 11.88"));
-            list.Add(string.Format("2 UNI GY -14.54 9.51 11.11"));
-            list.Add(string.Format("2 UNI GY -14.54 5.05 6.65"));
-            list.Add(string.Format("LOAD 630 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.61 10.53 12.13"));
-            list.Add(string.Format("2 UNI GY -14.54 9.76 11.36"));
-            list.Add(string.Format("2 UNI GY -14.54 5.3 6.9"));
-            list.Add(string.Format("LOAD 631 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -15.68 10.78 12.38"));
-            list.Add(string.Format("2 UNI GY -14.54 10.01 11.61"));
-            list.Add(string.Format("2 UNI GY -14.54 5.55 7.15"));
-            list.Add(string.Format("LOAD 632 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -16.99 11.03 12.63"));
-            list.Add(string.Format("2 UNI GY -14.54 10.26 11.86"));
-            list.Add(string.Format("2 UNI GY -14.54 5.8 7.4"));
-            list.Add(string.Format("LOAD 633 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -18.61 11.28 12.88"));
-            list.Add(string.Format("2 UNI GY -14.54 10.51 12.11"));
-            list.Add(string.Format("2 UNI GY -14.54 6.05 7.65"));
-            list.Add(string.Format("LOAD 634 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.69 11.53 13.13"));
-            list.Add(string.Format("2 UNI GY -15.59 10.76 12.36"));
-            list.Add(string.Format("2 UNI GY -14.54 6.3 7.9"));
-            list.Add(string.Format("LOAD 635 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -23.53 11.78 13.38"));
-            list.Add(string.Format("2 UNI GY -16.87 11.01 12.61"));
-            list.Add(string.Format("2 UNI GY -14.54 6.55 8.15"));
-            list.Add(string.Format("LOAD 636 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -32.55 12.03 13.63"));
-            list.Add(string.Format("2 UNI GY -18.47 11.26 12.86"));
-            list.Add(string.Format("2 UNI GY -14.54 6.8 8.4"));
-            list.Add(string.Format("LOAD 637 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 5.8 7.4"));
-            list.Add(string.Format("2 UNI GY -20.5 11.51 13.11"));
-            list.Add(string.Format("2 UNI GY -14.54 7.05 8.65"));
-            list.Add(string.Format("LOAD 638 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 6.05 7.65"));
-            list.Add(string.Format("2 UNI GY -23.17 11.76 13.36"));
-            list.Add(string.Format("2 UNI GY -14.54 7.3 8.9"));
-            list.Add(string.Format("LOAD 639 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -31.56 12.01 13.61"));
-            list.Add(string.Format("2 UNI GY -14.54 7.55 9.15"));
-            list.Add(string.Format("LOAD 640 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 7.8 9.4"));
-            list.Add(string.Format("LOAD 641 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 8.05 9.65"));
-            list.Add(string.Format("LOAD 642 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 8.3 9.9"));
-            list.Add(string.Format("LOAD 643 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 8.55 10.15"));
-            list.Add(string.Format("LOAD 644 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 8.8 10.4"));
-            list.Add(string.Format("LOAD 645 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 9.05 10.65"));
-            list.Add(string.Format("LOAD 646 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 9.3 10.9"));
-            list.Add(string.Format("LOAD 647 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 9.55 11.15"));
-            list.Add(string.Format("LOAD 648 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 9.8 11.4"));
-            list.Add(string.Format("LOAD 649 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 10.05 11.65"));
-            list.Add(string.Format("LOAD 650 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.54 10.3 11.9"));
-            list.Add(string.Format("LOAD 651 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -14.69 10.55 12.15"));
-            list.Add(string.Format("LOAD 652 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -15.77 10.8 12.4"));
-            list.Add(string.Format("LOAD 653 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -17.1 11.05 12.65"));
-            list.Add(string.Format("LOAD 654 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -18.76 11.3 12.9"));
-            list.Add(string.Format("LOAD 655 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -20.88 11.55 13.15"));
-            list.Add(string.Format("LOAD 656 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -24.06 11.8 13.4"));
-            list.Add(string.Format("LOAD 657 LOADTYPE Live  TITLE 70R WHEEL"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("2 UNI GY -33.6 12.05 13.65"));
-            list.Add(string.Format("PERFORM ANALYSIS"));
-            list.Add(string.Format("FINISH"));
-            File.WriteAllLines(Input_File_LL, list.ToArray());
+            list.Add(string.Format("------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 1 : SUMMARY OF FORCES"));
+            list.Add(string.Format("------------------------------------------------------------------------------"));
+            list.Add(string.Format("  Distance        Dead Load         SIDL w/o surfacing   SIDL with surfacing"));
+            list.Add(string.Format("------------------------------------------------------------------------------"));
+            list.Add(string.Format("                BM          SF         BM          SF        BM          SF"));
+            list.Add(string.Format("              (kN-m)       (kN)      (kN-m)       (kN)     (kN-m)       (kN)"));
+            list.Add(string.Format("------------------------------------------------------------------------------"));
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                    ));
+            }
+            list.Add(string.Format("------------------------------------------------------------------------------"));
+
+            #endregion Bottom Slab 1
+
+            All_Frcs.Clear();
+
+
+            for (int i = 0; i < dst.Count; i++)
+            {
+                lst_frcs = new List<double>();
+                //for (int l = 1; l <= 3; l++)
+                {
+                    top_arr.Clear();
+                    top_arr.Add(Slab_Model.jnBots[i].NodeNo);
+                    var bm = brd1.GetJoint_MaxBendingMoment_Corrs_ShearForce(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd1.GetJoint_MinimumBendingMoment_Corrs_ShearForce(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+
+                    bm = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd1.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+
+
+                    bm = brd2.GetJoint_MaxBendingMoment_Corrs_ShearForce(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd2.GetJoint_MinimumBendingMoment_Corrs_ShearForce(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+
+                    bm = brd2.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd2.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+
+                    bm = brd3.GetJoint_MaxBendingMoment_Corrs_ShearForce(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd3.GetJoint_MinimumBendingMoment_Corrs_ShearForce(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+
+                    bm = brd3.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd3.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd4.GetJoint_MaxBendingMoment_Corrs_ShearForce(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd4.GetJoint_MinimumBendingMoment_Corrs_ShearForce(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+
+                    bm = brd4.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, false);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                    bm = brd4.GetJoint_MaxShearForce_Corrs_BendingMoment(top_arr, true, true);
+                    lst_frcs.Add(bm.MaxBendingMoment);
+
+                }
+
+                All_Frcs.Add(lst_frcs);
+            }
+            list.Add("");
+            list.Add("");
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("------------------------------------------------------------------------------"));
+            list.Add(string.Format("TABLE 2 : SUMMARY OF FORCES DUE TO LIVE LOADS"));
+            list.Add(string.Format("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                list.Add(string.Format("  Distance                     70R Track                                    70R Wheel                                 70R Boggie                              CLASS A"));
+            }
+            else
+            {
+                list.Add(string.Format("  Distance                  LL ANALYSIS 1                             LL ANALYSIS 2                                LL ANALYSIS 3                                 LL ANALYSIS 4"));
+            }
+            list.Add(string.Format("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("                       BM                    SF                    BM                   SF                   BM                       SF                    BM                  SF"));
+            list.Add(string.Format("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+            list.Add(string.Format("                 MAX       MIN         MAX         MIN       MAX        MIN        MAX        MIN        MAX        MIN        MAX        MIN         MAX        MIN       MAX         MIN"));
+            list.Add(string.Format("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+            for (int i = 0; i < All_Frcs.Count; i++)
+            {
+                var itm = All_Frcs[i];
+                list.Add(string.Format("{0,10:f2} {1,10:f2} {2,10:f2} {3,10:f2} {4,10:f2} {5,10:f2} {6,10:f2} {7,10:f2} {8,10:f2} {9,10:f2} {10,10:f2} {11,10:f2} {12,10:f2} {13,10:f2} {14,10:f2} {15,10:f2} {16,10:f2}",
+                     dst[i]
+                   , itm[0]
+                   , itm[1]
+                   , itm[2]
+                   , itm[3]
+                   , itm[4]
+                   , itm[5]
+                   , itm[6]
+                   , itm[7]
+                   , itm[8]
+                   , itm[9]
+                   , itm[10]
+                   , itm[11]
+                   , itm[12]
+                   , itm[13]
+                   , itm[14]
+                   , itm[15]
+                    ));
+            }
+            list.Add(string.Format("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"));
+
+
+            #endregion Bottom Slab
+
+
+
+
+            rtb_results.Lines = list.ToArray();
+            File.WriteAllLines(Result_File, list.ToArray());
+            System.Diagnostics.Process.Start(Result_File);
         }
 
-        public void Create_Data_Singlecell_DeadLoad()
+        string Result_File
         {
-            List<string> list = new List<string>();
-            #region  Singlecell DeadLoad
-            //list.Add(string.Format("ASTRA SPACE SLAB ANALYSIS DEAD LOAD"));
-            //list.Add(string.Format("UNIT METER KN"));
-            //list.Add(string.Format("JOINT COORDINATES"));
-            //list.Add(string.Format("1 0 0 0; 2 12 0 0;"));
-            //list.Add(string.Format("MEMBER INCIDENCES"));
-            //list.Add(string.Format("1 1 2;"));
-            //list.Add(string.Format("MEMBER PROPERTY"));
-            //list.Add(string.Format("1 PRIS YD 1 ZD 1"));
-            //list.Add(string.Format("CONSTANTS"));
-            //list.Add(string.Format("E 2.17185e+007"));
-            //list.Add(string.Format("POISSON 0.17"));
-            //list.Add(string.Format("DENSITY 23.5616"));
-            //list.Add(string.Format("ALPHA 1e-005"));
-            //list.Add(string.Format("DAMP 0.05"));
-            //list.Add(string.Format("SUPPORTS"));
-            //list.Add(string.Format("2 FIXED BUT FZ MX MY MZ"));
-
-            list.Add(string.Format("ASTRA SPACE SLAB ANALYSIS DEAD LOAD"));
-            list.Add(string.Format("UNIT KN METRES"));
-            list.Add(string.Format("JOINT COORDINATES"));
-            list.Add(string.Format("1         0.0000     0.0000     0.0000"));
-            list.Add(string.Format("2        12.0000     0.0000     0.0000"));
-            list.Add(string.Format("MEMBER INCIDENCES"));
-            list.Add(string.Format("1 1 2"));
-            list.Add(string.Format("MEMBER PROPERTY"));
-            list.Add(string.Format("1 PRISMATIC YD 1 ZD 1"));
-            list.Add(string.Format("CONSTANTS"));
-            list.Add(string.Format("E CONCRETE ALL"));
-            list.Add(string.Format("DEN CONCRETE ALL"));
-            list.Add(string.Format("POISSON CONCRETE ALL"));
-            list.Add(string.Format("SUPPORTS"));
-            list.Add(string.Format("1 FIXED BUT FX MZ MY"));
-            list.Add(string.Format("2 PINNED"));
-            //list.Add(string.Format("1 FIXED BUT FX FZ MX MY MZ"));
-            //list.Add(string.Format("LOAD 1 LOADTYPE Dead  TITLE DL"));
-            list.Add(string.Format("SELFWEIGHT Y -1 "));
-            list.Add(string.Format("LOAD 1LOADTYPE Dead  TITLE SIDL(W/O SURFACING)"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -11.25"));
-            list.Add(string.Format("1 UNI GY -9 0 12"));
-            list.Add(string.Format("LOAD 2 LOADTYPE Dead  TITLE SIDL(W SURFACING)"));
-            list.Add(string.Format("MEMBER LOAD"));
-            list.Add(string.Format("1 UNI GY -1.65"));
-            list.Add(string.Format("LOAD 3 LOADTYPE Temperature  TITLE TEMP RISE"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("1 FX 813.76"));
-            list.Add(string.Format("2 FX -813.6"));
-            list.Add(string.Format("1 MZ 278.01"));
-            list.Add(string.Format("2 MZ -278.01"));
-            list.Add(string.Format("LOAD 4 LOADTYPE Temperature  TITLE TEMP FALL"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("2 FX 730.34"));
-            list.Add(string.Format("1 FX -730.34"));
-            list.Add(string.Format("1 MZ 59.3"));
-            list.Add(string.Format("2 MZ -59.3"));
-            list.Add(string.Format("PERFORM ANALYSIS"));
-            list.Add(string.Format("FINISH"));
-            #endregion  Singlecell DeadLoad
-
-
-            File.WriteAllLines(Input_File_DL, list.ToArray());
+            get
+            {
+                return Path.Combine(iApp.user_path, "Slab_Bridge_Result_Summary.txt");
+            }
         }
         public void Create_Data_Singlecell_LiveLoad()
         {
@@ -5318,7 +2645,8 @@ namespace LimitStateMethod.SlabBridge
                 if (File.Exists(Input_File_DL))
                 {
                     //iApp.Form_ASTRA_Input_Data(Input_File_DL, false).Show();
-                    System.Diagnostics.Process.Start(Input_File_DL);
+                    //System.Diagnostics.Process.Start(Input_File_DL);
+                    iApp.Form_ASTRA_TEXT_Data(Input_File_DL, false).Show();
                 }
             }
             else if (btn == btn_DL_report)
@@ -5330,12 +2658,20 @@ namespace LimitStateMethod.SlabBridge
                 if (File.Exists(Input_File_LL))
                 {
                     // iApp.Form_ASTRA_Input_Data(Input_File_LL, false).Show();
-                    System.Diagnostics.Process.Start(Input_File_LL);
+                    //System.Diagnostics.Process.Start(Input_File_LL);
+                    iApp.Form_ASTRA_TEXT_Data(Input_File_LL, false).Show();
                 }
             }
             else if (btn == btn_LL_report)
             {
                 if (File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL))) System.Diagnostics.Process.Start(MyList.Get_Analysis_Report_File(Input_File_LL));
+            }
+            else if (btn == btn_result_summary)
+            {
+                if (File.Exists(MyList.Get_Analysis_Report_File(Result_File))) System.Diagnostics.Process.Start(MyList.Get_Analysis_Report_File(Result_File));
+
+                if (File.Exists((Result_File))) System.Diagnostics.Process.Start((Result_File));
+
             }
             Button_Enable_Disable();
         }
@@ -5368,8 +2704,65 @@ namespace LimitStateMethod.SlabBridge
 
                 Input_File_LL = Path.Combine(pd, "Slab_LL_Input_File.txt");
             }
-            Create_Data_Singlecell_DeadLoad();
-            Create_Data_Singlecell_LiveLoad();
+
+
+            //List<string> list = new List<string>();
+
+            Slab_Model = new Slab_Bridge_Model();
+            DataGridView dgv = dgv_design_data;
+
+            //box.No_of_Cells = dgv_design_data_multi
+
+            DataInputCollections dips = new DataInputCollections();
+
+            dips.Load_Data_from_Grid(dgv);
+
+            //Slab_Model.No_of_Cells = dips[0].ToInt;
+
+            Slab_Model.Width = dips[1].ToDouble;
+            Slab_Model.Length = dips[3].ToDouble;
+
+            Slab_Model.Slab_Thickness = dips[24].ToDouble;
+
+
+
+
+            Slab_Model.Create_Data_Live_Load();
+
+            Slab_Model.LL_TXT_Data = new List<string>(rtb_LL_TXT.Lines);
+
+            Slab_Model.Write_Data(Input_File_LL, true);
+
+            Slab_Model.LL_Load_Data = new List<string>(rtb_LL_1.Lines);
+
+            Slab_Model.Write_Data(Get_LL_File(1), true);
+
+            Slab_Model.LL_Load_Data = new List<string>(rtb_LL_2.Lines);
+
+            Slab_Model.Write_Data(Get_LL_File(2), true);
+
+            Slab_Model.LL_Load_Data = new List<string>(rtb_LL_3.Lines);
+
+            Slab_Model.Write_Data(Get_LL_File(3), true);
+
+
+            Slab_Model.LL_Load_Data = new List<string>(rtb_LL_4.Lines);
+
+            Slab_Model.Write_Data(Get_LL_File(4), true);
+
+
+            Slab_Model.Create_Data_Dead_Load();
+            Slab_Model.Write_Data(Input_File_DL, false);
+
+
+
+
+            rtb_load_data.Lines = Slab_Model.DL_Load_Data.ToArray();
+
+
+
+
+
             MessageBox.Show(this, "Analysis Input Data files are created as \n\n" + Input_File_DL + "\n\n and \n\n" + Input_File_LL, "ASTRA", MessageBoxButtons.OK);
         }
         public void Process_Data()
@@ -5393,9 +2786,10 @@ namespace LimitStateMethod.SlabBridge
                     {
                         flPath = Input_File_DL;
                     }
-                    else if (i == 2)
+                    //else if (i == 2)
+                    else
                     {
-                        flPath = Input_File_LL;
+                        flPath = Get_LL_File(i - 1);
                     }
                     pd = new ProcessData();
                     pd.Process_File_Name = flPath;
@@ -5403,7 +2797,7 @@ namespace LimitStateMethod.SlabBridge
                     pcol.Add(pd);
                     i++;
                 }
-                while (i <= 2);
+                while (i <= 5);
 
                 //frm_LS_Process ff = new frm_LS_Process(pcol);
                 //ff.Owner = this;
@@ -5425,26 +2819,9 @@ namespace LimitStateMethod.SlabBridge
 
                     iApp.Progress_Works.Add("Reading Analysis Data from Dead Load Analysis Report File (ANALYSIS_REP.TXT)");
                     iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis Report File (ANALYSIS_REP.TXT)");
-
-                    //Deck_Analysis.LiveLoad_1_Analysis = new BridgeMemberAnalysis(iApp,
-                    //    Deck_Analysis.Get_Analysis_Report_File(Deck_Analysis.LL_Analysis_1_Input_File));
-
-                    //Deck_Analysis.LiveLoad_2_Analysis = new BridgeMemberAnalysis(iApp,
-                    //    Deck_Analysis.Get_Analysis_Report_File(Deck_Analysis.LL_Analysis_2_Input_File));
-
-                    //Deck_Analysis.LiveLoad_3_Analysis = new BridgeMemberAnalysis(iApp,
-                    //    Deck_Analysis.Get_Analysis_Report_File(Deck_Analysis.LL_Analysis_3_Input_File));
-
-                    //Deck_Analysis.LiveLoad_4_Analysis = new BridgeMemberAnalysis(iApp,
-                    //    Deck_Analysis.Get_Analysis_Report_File(Deck_Analysis.LL_Analysis_4_Input_File));
-
-                    //Deck_Analysis.LiveLoad_5_Analysis = new BridgeMemberAnalysis(iApp,
-                    //    Deck_Analysis.Get_Analysis_Report_File(Deck_Analysis.LL_Analysis_5_Input_File));
-
-                    //Deck_Analysis.LiveLoad_6_Analysis = new BridgeMemberAnalysis(iApp,
-                    //    Deck_Analysis.Get_Analysis_Report_File(Deck_Analysis.LL_Analysis_6_Input_File));
-
-                    //Deck_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, Deck_Analysis.DeadLoad_Analysis_Report);
+                    iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis Report File (ANALYSIS_REP.TXT)");
+                    iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis Report File (ANALYSIS_REP.TXT)");
+                    iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis Report File (ANALYSIS_REP.TXT)");
 
                     if (!iApp.Is_Progress_Cancel)
                     {                        //Show_Deckslab_Moment_Shear();
@@ -5459,13 +2836,10 @@ namespace LimitStateMethod.SlabBridge
 
                 }
 
-                ////grb_create_input_data.Enabled = rbtn_ana_create_analysis_file.Checked;
-                //grb_select_analysis.Enabled = !rbtn_ana_create_analysis_file.Checked;
 
-                ////grb_create_input_data.Enabled = !rbtn_ana_select_analysis_file.Checked;
-                //grb_select_analysis.Enabled = rbtn_ana_select_analysis_file.Checked;
+                Read_Singlecell_Bending_Moment_Shear_Force();
 
-                //Button_Enable_Disable();
+                Button_Enable_Disable();
                 //Write_All_Data(false);
                 iApp.Progress_Works.Clear();
                 Button_Enable_Disable();
@@ -5496,20 +2870,20 @@ namespace LimitStateMethod.SlabBridge
             }
 
 
-            btn_process_design.Enabled = Directory.Exists(Working_Folder);
+            //btn_process_design.Enabled = Directory.Exists(Working_Folder);
 
 
-            //btn_create_data.Enabled = Directory.Exists(iApp.WorkingFolder);
-            //btn_process_data.Enabled = File.Exists(Input_File_DL);
-            //btn_DL_input.Enabled = File.Exists(Input_File_DL);
-            //btn_LL_input.Enabled = File.Exists(Input_File_LL);
-            //btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
-            //btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
+            btn_create_data.Enabled = Directory.Exists(iApp.user_path);
+            btn_process_data.Enabled = File.Exists(Input_File_DL);
+            btn_DL_input.Enabled = File.Exists(Input_File_DL);
+            btn_LL_input.Enabled = File.Exists(Input_File_LL);
+            btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
+            btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
 
 
-            //btn_process_design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            btn_process_design.Enabled = File.Exists(Result_File);
 
-            //grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
 
             //btn_.Enabled = File.Exists(Input_File_DL);
         }
@@ -5526,10 +2900,2377 @@ namespace LimitStateMethod.SlabBridge
             uC_AbutmentWallType1.SetIApplication(iApp);
         }
 
+        public void Load_LL()
+        {
+            List<string> list = new List<string>();
+
+
+            //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                if (iApp.DesignStandard != eDesignStandard.IndianStandard)
+                {
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 1 HB_45_6"));
+                list.Add(string.Format("45.00 45.00 45.00 45.00 "));
+                list.Add(string.Format("1.8 6.0 1.8 "));
+                list.Add(string.Format("1.000"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 2 HB_30_6"));
+                list.Add(string.Format("30.00 30.00 30.00 30.00 "));
+                list.Add(string.Format("1.8 6.0 1.8 "));
+                list.Add(string.Format("1.000"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 3 HB_25_6"));
+                list.Add(string.Format("25.00 25.00 25.00 25.00 "));
+                list.Add(string.Format("1.8 6.0 1.8 "));
+                list.Add(string.Format("1.000"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 4 HB_UNIT_6"));
+                list.Add(string.Format("1.00 1.00 1.00 1.00 "));
+                list.Add(string.Format("1.8 6.0 1.8 "));
+                list.Add(string.Format("1.000"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+            }
+            else
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 1 IRCCLASSA "));
+                list.Add(string.Format("2.7 2.7 11.4 11.4 6.8 6.8 6.8 6.8 "));
+                list.Add(string.Format("1.10 3.20 1.20 4.30 3.00 3.00 3.00 "));
+                list.Add(string.Format("1.800 "));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 2 IRC70RTRACK "));
+                list.Add(string.Format("7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 7.0 "));
+                list.Add(string.Format("0.457 0.457 0.457 0.457 0.457 0.457 0.457 0.457 0.457 "));
+                list.Add(string.Format("2.900 "));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 3 IRC70RWHEEL "));
+                list.Add(string.Format("17.0 17.0 17.0 17.0 12.0 12.0 8.0 "));
+                list.Add(string.Format("1.37 3.05 1.37 2.13 1.52 3.96 "));
+                list.Add(string.Format("2.900 "));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 4 IRC70RW40TBL "));
+                list.Add(string.Format("10.0 10.0 "));
+                list.Add(string.Format("1.93 "));
+                list.Add(string.Format("2.790 "));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 5 IRC70RW40TBM "));
+                list.Add(string.Format("5.0 5.0 5.0 5.0 "));
+                list.Add(string.Format("0.795 0.38 0.795 "));
+                list.Add(string.Format("2.790 "));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+            }
+
+            rtb_LL_TXT.Lines = list.ToArray();
+
+            list.Clear();
+
+
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 3 IRCCLASSA  1.179"));
+                list.Add(string.Format("LOAD GENERATION 39"));
+                list.Add(string.Format("TYPE 3 -18.800 0 1.500 XINC 0.5"));
+
+                rtb_LL_1.Lines = list.ToArray();
+
+
+                list.Clear();
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 2 IRCCLASSA  1.179"));
+                list.Add(string.Format("LOAD GENERATION 39"));
+                list.Add(string.Format("TYPE 2 0.0 0 1.500 XINC 0.5"));
+
+
+                rtb_LL_2.Lines = list.ToArray();
+
+
+                list.Clear();
+
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 4 IRCCLASSA  1.179"));
+                list.Add(string.Format("LOAD GENERATION 39"));
+                list.Add(string.Format("TYPE 4 0.0 0 1.500 XINC 0.5"));
+
+                rtb_LL_3.Lines = list.ToArray();
+
+                list.Clear();
+
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 1 IRCCLASSA  1.179"));
+                list.Add(string.Format("LOAD GENERATION 39"));
+                list.Add(string.Format("TYPE 1 0.0 0 1.500 XINC 0.5"));
+
+                rtb_LL_4.Lines = list.ToArray();
+            }
+            else
+            {
+                list.Clear();
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 1 HB_45_6  1.0"));
+                list.Add(string.Format("LOAD GENERATION 40"));
+                list.Add(string.Format("TYPE 1 0.0 0 2.250 XINC 0.5"));
+
+                rtb_LL_1.Lines = list.ToArray();
+
+                list.Clear();
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 2 HB_30_6  1.0"));
+                list.Add(string.Format("LOAD GENERATION 40"));
+                list.Add(string.Format("TYPE 2 -14.600 0 2.250 XINC 0.5"));
+
+                rtb_LL_2.Lines = list.ToArray();
+
+                list.Clear();
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 3 HB_25_6  1.0"));
+                list.Add(string.Format("LOAD GENERATION 40"));
+                list.Add(string.Format("TYPE 3 0.00 0 2.250 XINC 0.5"));
+
+
+                rtb_LL_3.Lines = list.ToArray();
+
+                list.Clear();
+                list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
+                list.Add(string.Format("TYPE 4 HB_UNIT_6  1.0"));
+                list.Add(string.Format("LOAD GENERATION 40"));
+                list.Add(string.Format("TYPE 4 0.00 0 2.250 XINC 0.5"));
+
+                rtb_LL_4.Lines = list.ToArray();
+            }
+
+        }
+
         private void btn_drawings_Click(object sender, EventArgs e)
         {
             iApp.RunViewer(Path.Combine(user_path, "Drawings"), "SLAB_DRAWING_LSM");
         }
+    }
+
+
+    public class Slab_Bridge_Model
+    {
+        public int No_of_Spans { get; set; }
+        public double Width { get; set; }
+        public double Length { get; set; }
+        public double Slab_Thickness { get; set; }
+        public List<string> Input_Data_DL { get; set; }
+        public List<string> Input_Data_LL { get; set; }
+
+        public Hashtable ht_bot_mems { get; set; }
+        public Hashtable ht_coords { get; set; }
+
+
+        public JointNodeCollection jnBots { get; set; }
+
+        public double LL_70R_Track { get; set; }
+        public double LL_70R_Wheel { get; set; }
+        public double LL_Class_A { get; set; }
+        public double LL_Boggie { get; set; }
+
+        public Slab_Bridge_Model()
+        {
+            No_of_Spans = 1;
+            Width = 16;
+            Length = 12;
+
+            Slab_Thickness = 0.90;
+            ht_bot_mems = new Hashtable();
+            ht_coords = new Hashtable();
+
+            jnBots = new JointNodeCollection();
+
+            LL_70R_Track = 700;
+            LL_70R_Wheel = 1000;
+            LL_Class_A = 554;
+            LL_Boggie = 40;
+
+
+            Input_Data_DL = Input_Data_LL = new List<string>();
+        }
+
+
+        public List<double> list_X { get; set; }
+        public List<double> list_Z { get; set; }
+
+        JointNodeCollection All_Joints_DL { get; set; }
+        JointNodeCollection All_Joints_LL { get; set; }
+
+        MemberCollection mbrCols_DL { get; set; }
+        MemberCollection mbrCols_LL { get; set; }
+
+        public void Create_Data_Dead_Load()
+        {
+            #region List Bottom
+            List<double> list_bottom = new List<double>();
+            //list_bottom(Bottom Slab);
+            list_bottom.Add(0);
+            list_bottom.Add(0.111083333);
+            list_bottom.Add(0.22225);
+            list_bottom.Add(0.333333333);
+            list_bottom.Add(0.444416667);
+            list_bottom.Add(0.555583333);
+            list_bottom.Add(0.666666667);
+            list_bottom.Add(0.77775);
+            list_bottom.Add(0.888916667);
+            list_bottom.Add(1);
+
+            #endregion List Bottom
+
+            List<int> arr = new List<int>();
+
+            #region Generate Coordinates
+            list_X = new List<double>();
+
+
+            double _x = 0.0, _y = 0.0;
+
+
+            for (int i = 0; i < list_bottom.Count; i++)
+            {
+                //_x = _x + Width * list_top[j] / org_top;
+                _x = Width * list_bottom[i];
+                if (!list_X.Contains(_x)) list_X.Add(_x);
+            }
+
+            _x = 0.0;
+
+
+            JointNode jn = new JointNode();
+
+
+            jnBots = new JointNodeCollection();
+
+
+            _x = 0.0;
+            for (int i = 0; i < No_of_Spans; i++)
+            {
+                if (i == 0)
+                {
+                    jn = new JointNode();
+                    _x += list_X[0];
+                    jn.X = _x;
+                    jnBots.Add(jn);
+                }
+                for (int j = 1; j < list_X.Count; j++)
+                {
+                    jn = new JointNode();
+                    _x = (i * Width) + list_X[j];
+                    jn.X = _x;
+                    jnBots.Add(jn);
+                }
+            }
+
+            All_Joints_DL = new JointNodeCollection();
+            int count = 1;
+            foreach (var item in jnBots)
+            {
+                item.NodeNo = count++;
+                All_Joints_DL.Add(item);
+            }
+
+            Member mbr = new Member();
+
+            mbrCols_DL = new MemberCollection();
+
+            count = 1;
+
+            #region Bottom Members
+            mbrCols_DL.Clear();
+            for (int i = 1; i < jnBots.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = count++;
+                mbr.StartNode = jnBots[i - 1];
+                mbr.EndNode = jnBots[i];
+                mbrCols_DL.Add(mbr);
+
+                arr.Add(mbr.MemberNo);
+            }
+
+
+            ht_bot_mems.Add(1, arr);
+
+            #endregion Bottom Members
+
+
+            #endregion Generate Coordinates
+
+
+            List<string> list = new List<string>();
+
+            #region Live Load
+
+            arr = ht_bot_mems[1] as List<int>;
+
+            LL_Load_Data = new List<string>();
+
+            LL_Load_Data.Add(string.Format("LOAD 1 LOADTYPE 70R TRACK"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            double ll = LL_70R_Track / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+
+            LL_Load_Data.Add(string.Format("LOAD 2 LOADTYPE 70R Wheel"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_70R_Wheel / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+            LL_Load_Data.Add(string.Format("LOAD 3 LOADTYPE CLASS A"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_Class_A / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+
+
+            LL_Load_Data.Add(string.Format("LOAD 4 LOADTYPE Boggie"));
+            LL_Load_Data.Add(string.Format("MEMBER LOAD"));
+
+            ll = LL_Boggie / Width;
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            LL_Load_Data.Add(string.Format("{0} UNI GY -{1:f2}", MyList.Get_Array_Text(arr), ll));
+
+            #endregion Live Load
+
+            list.Add(string.Format("LOAD 1 DEAD LOAD"));
+
+            double _dl = 25 * Length * Width / 110;
+
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("{0} UNI GY -{1:f3}", MyList.Get_Array_Text(arr), _dl));
+
+            list.Add(string.Format("LOAD 2 SIDL (W/O)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("{0} UNI GY -18.75", MyList.Get_Array_Text(arr)));
+            list.Add(string.Format("LOAD 3 LIVE REDUCIBLE TITLE SIDL(WC)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            //list.Add(string.Format("201 TO 209 UNI GY -1.43"));
+            list.Add(string.Format("{0} UNI GY -1.43", MyList.Get_Array_Text(arr)));
+          
+            //list.Add(string.Format("LOAD 11 TEMPERATURE GRADIENT RISE"));
+            //list.Add(string.Format("JOINT LOAD"));
+            ////list.Add(string.Format("101 FX 550.66"));
+            ////list.Add(string.Format("110 FX -550.66"));
+            ////list.Add(string.Format("101 MZ -68.9"));
+            ////list.Add(string.Format("110 MZ 68.9"));
+
+
+            //list.Add(string.Format("{0} FX 550.66", arr[0]));
+            //list.Add(string.Format("{0} FX -550.66", arr[arr.Count - 1]));
+            //list.Add(string.Format("{0} MZ -68.9", arr[0]));
+            //list.Add(string.Format("{0} MZ 68.9", arr[arr.Count - 1]));
+
+
+            //list.Add(string.Format("LOAD 12 TEMPERATURE GRADIENT FALL"));
+            //list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("{0} FX -287.23", arr[0]));
+            //list.Add(string.Format("{0} FX 287.23", arr[arr.Count - 1]));
+            //list.Add(string.Format("{0} MZ -9.1", arr[arr.Count - 1]));
+            //list.Add(string.Format("{0} MZ 9.1", arr[0]));
+
+            DL_Load_Data = list;
+        }
+
+
+        public void Create_Data_Live_Load()
+        {
+
+            #region List Bottom
+            List<double> list_bottom = new List<double>();
+            //list_bottom(Bottom Slab);
+            list_bottom.Add(0);
+            list_bottom.Add(0.111083333);
+            list_bottom.Add(0.22225);
+            list_bottom.Add(0.333333333);
+            list_bottom.Add(0.444416667);
+            list_bottom.Add(0.555583333);
+            list_bottom.Add(0.666666667);
+            list_bottom.Add(0.77775);
+            list_bottom.Add(0.888916667);
+            list_bottom.Add(1);
+
+            #endregion List Bottom
+
+            List<int> arr = new List<int>();
+
+            #region Generate Coordinates
+            list_X = new List<double>();
+            list_Z = new List<double>();
+
+
+            double _x = 0.0, _y = 0.0;
+
+
+            for (int i = 0; i < list_bottom.Count; i++)
+            {
+                //_x = _x + Width * list_top[j] / org_top;
+                //_x = Width * list_bottom[i];
+                _x = Length * list_bottom[i];
+                if (!list_X.Contains(_x)) list_X.Add(_x);
+            }
+
+            _x = 0.0;
+
+
+            double CL = 2.0;
+            list_Z.Add(0.0);
+            list_Z.Add(CL);
+            list_Z.Add(Width - CL);
+            list_Z.Add(Width / 2);
+            list_Z.Add(Width);
+
+            list_Z.Sort();
+
+
+
+
+
+
+
+
+
+
+            JointNode jn = new JointNode();
+
+
+            jnBots = new JointNodeCollection();
+
+
+            _x = 0.0;
+
+
+
+            foreach (var _z in list_Z)
+            {
+                jnBots = new JointNodeCollection();
+                _x = 0.0;
+                for (int i = 0; i < No_of_Spans; i++)
+                {
+                    if (i == 0)
+                    {
+                        jn = new JointNode();
+                        _x += list_X[0];
+                        jn.X = _x;
+                        jn.Z = _z;
+                        jnBots.Add(jn);
+                    }
+                    for (int j = 1; j < list_X.Count; j++)
+                    {
+                        jn = new JointNode();
+                        _x = (i * Width) + list_X[j];
+                        jn.X = _x;
+                        jn.Z = _z;
+                        jnBots.Add(jn);
+                    }
+                }
+                ht_coords.Add(_z, jnBots);
+            }
+
+
+            All_Joints_LL = new JointNodeCollection();
+            int count = 1;
+
+            foreach (var _z in list_Z)
+            {
+                jnBots = ht_coords[_z] as JointNodeCollection;
+                foreach (var item in jnBots)
+                {
+                    item.NodeNo = count++;
+
+
+                    All_Joints_LL.Add(item);
+                }
+            }
+
+
+            Member mbr = new Member();
+
+            mbrCols_LL = new MemberCollection();
+
+            count = 1;
+
+
+
+            #region Bottom Members
+
+            #region Long Members
+
+            foreach (var _z in list_Z)
+            {
+                jnBots = ht_coords[_z] as JointNodeCollection;
+                arr = new List<int>();
+                for (int i = 1; i < jnBots.Count; i++)
+                {
+                    mbr = new Member();
+                    mbr.MemberNo = count++;
+                    mbr.StartNode = jnBots[i - 1];
+                    mbr.EndNode = jnBots[i];
+                    mbrCols_LL.Add(mbr);
+                    arr.Add(mbr.MemberNo);
+                }
+                ht_bot_mems.Add(_z, arr);
+            }
+
+
+            #region Cross Girders
+            for (int c = 1; c < list_Z.Count; c++)
+            {
+
+                var m1 = ht_coords[list_Z[c-1]] as JointNodeCollection;
+                var m2 = ht_coords[list_Z[c]] as JointNodeCollection;
+
+                for (int i = 0; i < m1.Count; i++)
+                {
+                    mbr = new Member();
+                    mbr.MemberNo = count++;
+                    mbr.StartNode = m1[i];
+                    mbr.EndNode = m2[i];
+                    mbrCols_LL.Add(mbr);
+                    arr.Add(mbr.MemberNo);
+                }
+                //ht_bot_mems.Add(_z, arr);
+            }
+            #endregion Cross Girders
+
+
+            //arr.Add(mbr.MemberNo);
+
+            #endregion Long Members
+
+
+            #endregion Bottom Members
+
+
+            #endregion Generate Coordinates
+
+
+            List<string> list = new List<string>();
+
+            #region Live Load
+          
+            #endregion Live Load
+        }
+
+
+        public List<string> DL_Load_Data { get; set; }
+
+        public List<string> LL_Load_Data { get; set; }
+
+
+        public List<string> LL_TXT_Data { get; set; }
+
+
+        public void Write_Data(string fileName, bool liveLoad)
+        {
+            List<string> list = new List<string>();
+
+            list.Add(string.Format("ASTRA SPACE SLAB BRIDGE INPUT DATA FILE"));
+
+
+            list.Add(string.Format("UNIT KN METRES"));
+            list.Add(string.Format("JOINT COORDINATES"));
+            for (int i = 0; i < All_Joints_LL.Count; i++)
+            {
+                list.Add(string.Format("{0}", All_Joints_LL[i].ToString()));
+            }
+
+            list.Add(string.Format("MEMBER INCIDENCES"));
+            for (int i = 0; i < mbrCols_LL.Count; i++)
+            {
+                list.Add(string.Format("{0}", mbrCols_LL[i].ToString()));
+            }
+
+            list.Add(string.Format("MEMBER PROPERTY"));
+
+            List<int> arr = new List<int>();
+
+            //arr = ht_bot_mems[1] as List<int>;
+            //arr = ht_bot_mems[1] as List<int>;
+
+
+            foreach (var _z in list_Z)
+            {
+                arr.AddRange((ht_bot_mems[_z] as List<int>).ToArray());
+            }
+
+
+            //list.Add(string.Format("210 TO 212 222 TO 350 PRIS YD 0.5 ZD 1"));
+            //list.Add(string.Format("{0} PRIS YD {1:f3} ZD 1", MyList.Get_Array_Text(arr), Slab_Thickness));
+            list.Add(string.Format("{0} TO {1} PRIS YD {2:f3} ZD 1", mbrCols_LL[0].MemberNo, mbrCols_LL[mbrCols_LL.Count - 1].MemberNo, Slab_Thickness));
+            //list.Add(string.Format("8 TO 10 15 TO 17 PRIS YD 0.3 ZD 1"));
+
+
+
+            list.Add(string.Format("CONSTANTS"));
+            list.Add(string.Format("E 2.17185e+007 ALL"));
+            list.Add(string.Format("POISSON 0.17 ALL"));
+            list.Add(string.Format("DENSITY 25 ALL"));
+            list.Add(string.Format("DAMP 0.05 ALL"));
+
+            arr = new List<int>();
+            //arr = ht_bot_mems[1] as List<int>;
+            List<int> L_Supp = new List<int>();
+            List<int> R_Supp = new List<int>();
+            foreach (var _z in list_Z)
+            {
+                var jnts = ht_coords[_z] as JointNodeCollection;
+                L_Supp.Add(jnts[0].NodeNo);
+                R_Supp.Add(jnts[jnts.Count - 1].NodeNo);
+            }
+
+            list.Add(string.Format("SUPPORTS"));
+            //list.Add(string.Format("1 5 9 13 169 TO 297 FIXED BUT FX FZ MX MY MZ KFY 1210.3"));
+            list.Add(string.Format("{0} FIXED BUT FX MZ", MyList.Get_Array_Text(L_Supp)));
+            list.Add(string.Format("{0} PINNED", MyList.Get_Array_Text(R_Supp)));
+            //list.Add(string.Format("*1 5 9 13 169 TO 297 FIXED"));
+
+            if (liveLoad)
+            {
+                if (LL_Load_Data != null)
+                {
+                    LL_Load_Data.Remove("");
+                    list.AddRange(LL_Load_Data.ToArray());
+                }
+            }
+            else
+            {
+                list.AddRange(DL_Load_Data.ToArray());
+            }
+
+            list.Add(string.Format("PERFORM ANALYSIS PRINT ALL"));
+            list.Add(string.Format("FINISH"));
+
+            if (liveLoad) Input_Data_LL = list;
+            else Input_Data_DL = list;
+
+            File.WriteAllLines(fileName, list.ToArray());
+
+            if(LL_TXT_Data != null && liveLoad)
+            {
+                File.WriteAllLines(MyList.Get_LL_TXT_File(fileName), LL_TXT_Data.ToArray());
+
+            }
+
+
+        }
+        void STAAD_Data()
+        {
+            List<string> list = new List<string>();
+
+            #region STAAD LOADS
+            list.Add(string.Format("LOAD 1 LOADTYPE Dead  TITLE DL"));
+            list.Add(string.Format("SELFWEIGHT Y -1 "));
+            list.Add(string.Format("LOAD 2 LOADTYPE Live REDUCIBLE TITLE SIDL"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("201 TO 209 UNI GY -18.75"));
+            list.Add(string.Format("LOAD 3 LOADTYPE Live REDUCIBLE TITLE SIDL(WC)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("201 TO 209 UNI GY -1.43"));
+            list.Add(string.Format("LOAD 4 LOADTYPE Live REDUCIBLE TITLE EARTH PRESSURE"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("3 LIN Y -2 0"));
+            list.Add(string.Format("2 LIN Y -40.7 -2"));
+            list.Add(string.Format("1 LIN Y -43.2 -40.2"));
+            list.Add(string.Format("24 LIN Y 2 0"));
+            list.Add(string.Format("23 LIN Y 40.7 2"));
+            list.Add(string.Format("22 LIN Y 43.2 40.2"));
+            list.Add(string.Format("LOAD 5 LOADTYPE Live REDUCIBLE TITLE SURCHARGE PRESSURE(BS)"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+            list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+            list.Add(string.Format("LOAD 6 LOADTYPE None  TITLE SURCHARGE PRESSURE RS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("22 TO 24 UNI GX -10.8"));
+            list.Add(string.Format("LOAD 7 LOADTYPE None  TITLE SURCHARGE PRESSURE LS"));
+            list.Add(string.Format("MEMBER LOAD"));
+            list.Add(string.Format("1 TO 3 UNI GX 10.8"));
+            list.Add(string.Format("LOAD 8 LOADTYPE None  TITLE BREAKING LOAD RS"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("110 FX -21.03"));
+            list.Add(string.Format("LOAD 9 LOADTYPE None  TITLE BREAKING LOAD LS"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("101 FX 21.03"));
+            list.Add(string.Format("LOAD 10 LOADTYPE None  TITLE TEMPERATURE GRADIENT RISE"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("101 FX 550.66"));
+            list.Add(string.Format("110 FX -550.66"));
+            list.Add(string.Format("101 MZ -68.9"));
+            list.Add(string.Format("110 MZ 68.9"));
+            list.Add(string.Format("LOAD 11 LOADTYPE None  TITLE TEMPERATURE GRADIENT FALL"));
+            list.Add(string.Format("JOINT LOAD"));
+            list.Add(string.Format("101 FX -287.23"));
+            list.Add(string.Format("110 FX 287.23"));
+            list.Add(string.Format("110 MZ -9.1"));
+            list.Add(string.Format("101 MZ 9.1"));
+
+            #endregion STAAD LOADS
+
+        }
 
     }
+    public class SB_Results : List<SB_Table>
+    {
+        string _flName = "";
+        public SB_Results(string fileName)
+        {
+            _flName = fileName;
+            Read_From_Result();
+        }
+        void Read_From_Result()
+        {
+            if (!File.Exists(_flName)) return;
+            List<string> list = new List<string>(File.ReadAllLines(_flName));
+
+            string kStr = "";
+
+
+            SB_Table tab = null;
+            SB_Rows br = null;
+
+            bool flag = false;
+            for (int i = 0; i < list.Count; i++)
+            {
+                kStr = MyList.RemoveAllSpaces(list[i].ToUpper());
+
+
+                if (kStr == "") continue;
+                if (kStr.StartsWith("-------------------"))
+                {
+                    if (flag) flag = false;
+                    continue;
+                }
+
+
+
+                if (kStr.StartsWith("TABLE"))
+                {
+                    tab = new SB_Table(kStr);
+                    this.Add(tab);
+                    flag = true;
+                    i += 5;
+                    continue;
+                }
+
+                if (flag)
+                {
+                    br = SB_Rows.Parse(kStr);
+                    if (br != null)
+                    {
+                        tab.Add(br);
+                    }
+                }
+
+            }
+
+
+        }
+
+    }
+    public class SB_Table : List<SB_Rows>
+    {
+        public string Title { get; set; }
+        public SB_Table(string title)
+            : base()
+        {
+            Title = title;
+        }
+    }
+    public class SB_Rows : List<string>
+    {
+        public SB_Rows()
+            : base()
+        {
+        }
+        public static SB_Rows Parse(string txt)
+        {
+            try
+            {
+                MyList m = new MyList(MyList.RemoveAllSpaces(txt.ToUpper()), ' ');
+                SB_Rows bc = new SB_Rows();
+                bc.AddRange(m.StringList);
+                return bc;
+            }
+            catch (Exception exx) { }
+
+            return null;
+
+        }
+    }
+
+    public class RCC_Slab_Bridge_Analysis
+    {
+
+        IApplication iApp;
+        public JointNodeCollection Joints { get; set; }
+        JointNode[,] Joints_Array;
+        Member[,] Long_Girder_Members_Array;
+        Member[,] Cross_Girder_Members_Array;
+        public MemberCollection MemColls { get; set; }
+
+        public BridgeMemberAnalysis TotalLoad_Analysis = null;
+        public BridgeMemberAnalysis LiveLoad_Analysis = null;
+
+        public BridgeMemberAnalysis LiveLoad_1_Analysis = null;
+        public BridgeMemberAnalysis LiveLoad_2_Analysis = null;
+        public BridgeMemberAnalysis LiveLoad_3_Analysis = null;
+        public BridgeMemberAnalysis LiveLoad_4_Analysis = null;
+        public BridgeMemberAnalysis LiveLoad_5_Analysis = null;
+        public BridgeMemberAnalysis LiveLoad_6_Analysis = null;
+
+        public List<BridgeMemberAnalysis> All_LL_Analysis = null;
+
+
+
+
+
+        public BridgeMemberAnalysis DeadLoad_Analysis = null;
+
+        public List<LoadData> LoadList_1 = null;
+        public List<LoadData> LoadList_2 = null;
+        public List<LoadData> LoadList_3 = null;
+        public List<LoadData> LoadList_4 = null;
+        public List<LoadData> LoadList_5 = null;
+        public List<LoadData> LoadList_6 = null;
+
+
+
+        public List<LoadData> Live_Load_List = null;
+        TotalDeadLoad SIDL = null;
+
+        int _Columns = 0, _Rows = 0;
+
+        double span_length = 0.0;
+
+        public string Start_Support { get; set; }
+        public string End_Support { get; set; }
+
+        string input_file, user_path;
+        public RCC_Slab_Bridge_Analysis(IApplication thisApp)
+        {
+            iApp = thisApp;
+            input_file = "";
+            Length = WidthBridge = Effective_Depth = Skew_Angle = Width_LeftCantilever = 0.0;
+            Input_File = "";
+
+            Joints = new JointNodeCollection();
+            MemColls = new MemberCollection();
+        }
+
+        #region Properties
+
+        public double Length { get; set; }
+        public double Ds { get; set; }
+
+
+
+        /// <summary>
+        /// width of crash barrier
+        /// </summary>
+        public double Wc { get; set; }
+        public double Wf_left { get; set; }
+        public double Wf_right { get; set; }
+        /// <summary>
+        /// width of footpath
+        /// </summary>
+        public double Wk_left { get; set; }
+        public double Wk_right { get; set; }
+
+        /// <summary>
+        /// width of railing
+        /// </summary>
+        public double Wr { get; set; }
+        /// <summary>
+        /// Overhang of girder off the bearing [og]
+        /// </summary>
+        public double og { get; set; }
+        /// <summary>
+        /// Overhang of slab off the bearing [os]
+        /// </summary>
+        public double os { get; set; }
+        /// <summary>
+        /// Expansion Gap [eg]
+        /// </summary>
+        public double eg { get; set; }
+        /// <summary>
+        /// Length of varring portion
+        /// </summary>
+        public double Lvp { get; set; }
+        /// <summary>
+        /// Length of Solid portion
+        /// </summary>
+        public double Lsp { get; set; }
+        /// <summary>
+        /// Effective Length
+        /// </summary>
+        public double Leff { get; set; }
+
+
+        public double WidthBridge { get; set; }
+        public double Effective_Depth { get; set; }
+        public int Total_Rows
+        {
+            get
+            {
+                return 11;
+            }
+        }
+        public int Total_Columns
+        {
+            get
+            {
+                return 11;
+            }
+        }
+        public double Skew_Angle { get; set; }
+        public double Width_LeftCantilever { get; set; }
+        public double Width_RightCantilever { get; set; }
+
+        public double Spacing_Long_Girder
+        {
+
+            get
+            {
+                //Chiranjit [2013 05 02]
+                //return MyList.StringToDouble(((WidthBridge - (2 * Width_LeftCantilever)) / 6.0).ToString("0.000"), 0.0);
+
+                double val = ((WidthBridge - (Width_LeftCantilever + Width_RightCantilever)) / (NMG - 1));
+                return MyList.StringToDouble(val.ToString("0.000"), 0.0);
+            }
+        }
+        public double Spacing_Cross_Girder
+        {
+            get
+            {
+                //chiranji [2013 05 03]
+                //return MyList.StringToDouble(((Length) / 8.0).ToString("0.000"), 0.0);
+
+                double val = (Length - 2 * Effective_Depth) / (NCG - 1);
+                return MyList.StringToDouble(val.ToString("0.000"), 0.0);
+            }
+        }
+        public string LiveLoad_File
+        {
+            get
+            {
+                return Path.Combine(Working_Folder, "LL.TXT");
+            }
+        }
+        public string Analysis_Report
+        {
+            get
+            {
+                return Path.Combine(Working_Folder, "ANALYSIS_REP.TXT");
+            }
+        }
+        #region Analysis Input File
+        public string Input_File
+        {
+            get
+            {
+                return input_file;
+            }
+            set
+            {
+                input_file = value;
+                if (File.Exists(value))
+                    user_path = Path.GetDirectoryName(input_file);
+            }
+        }
+
+        //Chiranjit [2013 09 24]
+        public string LL_Analysis_1_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "LL Analysis Load 1");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "LL_Load_1_Input_File.txt");
+                }
+                return "";
+            }
+        }
+
+        public string LL_Analysis_2_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "LL Analysis Load 2");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "LL_Load_2_Input_File.txt");
+                }
+                return "";
+            }
+        }
+
+        public string LL_Analysis_3_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "LL Analysis Load 3");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "LL_Load_3_Input_File.txt");
+                }
+                return "";
+            }
+        }
+
+
+        public string LL_Analysis_4_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "LL Analysis Load 4");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "LL_Load_4_Input_File.txt");
+                }
+                return "";
+            }
+        }
+        public string LL_Analysis_5_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "LL Analysis Load 5");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "LL_Load_5_Input_File.txt");
+                }
+                return "";
+            }
+        }
+        public string LL_Analysis_6_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "LL Analysis Load 6");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "LL_Load_6_Input_File.txt");
+                    //return Path.Combine(pd, "LL_Type_6_Input_File.txt");
+                }
+                return "";
+            }
+        }
+
+
+        //Chiranjit [2012 05 27]
+        public string DeadLoadAnalysis_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "Dead Load Analysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "DeadLoad_Analysis_Input_File.txt");
+                }
+                return "";
+            }
+        }
+        public string User_Input_Data
+        {
+            get
+            {
+                if (!Directory.Exists(Working_Folder)) return "";
+                return Path.Combine(Working_Folder, "ASTRA_DATA_FILE.TXT");
+
+            }
+        }
+
+
+        public string Get_Analysis_Report_File(string input_path)
+        {
+
+            if (!File.Exists(input_path)) return "";
+
+            return Path.Combine(Path.GetDirectoryName(input_path), "ANALYSIS_REP.TXT");
+
+
+        }
+        public string Working_Folder
+        {
+            get
+            {
+                if (File.Exists(Input_File))
+                    return Path.GetDirectoryName(Input_File);
+                return "";
+            }
+        }
+        public int NoOfInsideJoints
+        {
+            get
+            {
+                return 1;
+            }
+        }
+        #endregion Analysis Input File
+        public int NCG { get; set; }
+        public int NMG { get; set; }
+
+
+        #endregion Properties
+
+
+
+        //Chiranjit [2013 05 02]
+        string support_left_joints = "";
+        string support_right_joints = "";
+
+        //Chiranjit [2013 05 03]
+        public List<string> joints_list_for_load = new List<string>();
+
+
+        //Chiranjit [2011 08 01]
+        //Create Bridge Input Data by user's given values.
+        //Long Girder Spacing, Cross Girder Spacing, Cantilever Width
+        public void CreateData()
+        {
+
+            //double x_incr = (Length / (Total_Columns - 1));
+            //double z_incr = (WidthBridge / (Total_Rows - 1));
+
+            double x_incr = Spacing_Cross_Girder;
+            double z_incr = Spacing_Long_Girder;
+
+            JointNode nd;
+            //Joints_Array = new JointNode[Total_Rows, Total_Columns];
+            //Long_Girder_Members_Array = new Member[Total_Rows, Total_Columns - 1];
+            //Cross_Girder_Members_Array = new Member[Total_Rows - 1, Total_Columns];
+
+
+            int iCols = 0;
+            int iRows = 0;
+
+            if (Joints == null)
+                Joints = new JointNodeCollection();
+            Joints.Clear();
+
+            double skew_length = Math.Tan((Skew_Angle * (Math.PI / 180.0)));
+
+            //double val1 = 12.1;
+            double val1 = WidthBridge;
+            double val2 = val1 * skew_length;
+
+
+
+            double last_x = 0.0;
+            double last_z = 0.0;
+
+            List<double> list_x = new List<double>();
+            List<double> list_z = new List<double>();
+            Hashtable z_table = new Hashtable();
+
+            //Store Joint Coordinates
+            double L_2, L_4, eff_d;
+            double x_max, x_min;
+
+            //int _Columns, _Rows;
+
+            //_Columns = Total_Columns;
+            //_Rows = Total_Rows;
+
+            last_x = 0.0;
+
+            #region Chiranjit [2011 09 23] Correct Create Data
+
+            //Effective_Depth = Lvp;
+            Effective_Depth = Lsp;
+
+            list_x.Clear();
+            list_x.Add(0.0);
+
+            list_x.Add(og);
+
+            list_x.Add(Lsp);
+
+
+            //last_x = (Lsp + Lvp);
+            //last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            //list_x.Add(last_x);
+
+            last_x = Length / 8.0;
+            last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            list_x.Add(last_x);
+
+
+            //last_x = 3 * Length / 16.0;
+            //last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            //list_x.Add(last_x);
+
+            last_x = Length / 4.0;
+            last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            list_x.Add(last_x);
+
+            //last_x = 5 * Length / 16.0;
+            //last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            //list_x.Add(last_x);
+
+            last_x = 3 * Length / 8.0;
+            last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            list_x.Add(last_x);
+
+            //last_x = 7 * Length / 16.0;
+            //last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            //list_x.Add(last_x);
+
+            last_x = Length / 2.0;
+            last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+            list_x.Add(last_x);
+
+            int i = 0;
+            for (i = list_x.Count - 2; i >= 0; i--)
+            {
+                last_x = Length - list_x[i];
+                list_x.Add(last_x);
+            }
+            MyList.Array_Format_With(ref list_x, "F3");
+            last_x = x_incr + Effective_Depth;
+
+            bool flag = true;
+            do
+            {
+                flag = false;
+                for (i = 0; i < list_x.Count; i++)
+                {
+                    if (last_x.ToString("0.00") == list_x[i].ToString("0.00"))
+                    {
+                        flag = true; break;
+                    }
+                }
+
+                if (!flag && last_x > Effective_Depth && last_x < (Length - Effective_Depth))
+                    list_x.Add(last_x);
+                last_x += x_incr;
+                last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
+
+            }
+            while (last_x <= Length);
+            list_x.Sort();
+
+
+            list_z.Clear();
+            list_z.Add(0);
+
+            if (Wc != 0.0)
+            {
+                last_z = Wc;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+
+                last_z = WidthBridge - Wc;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+            else if (Wf_left != 0.0 && Wf_right != 0.0)
+            {
+                last_z = Wf_left;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+
+
+                last_z = WidthBridge - Wf_right;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+            else if (Wf_left != 0.0 && Wf_right == 0.0)
+            {
+                last_z = Wf_left;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+
+
+                last_z = WidthBridge - Wk_right;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+            else if (Wf_left == 0.0 && Wf_right != 0.0)
+            {
+                last_z = Wk_left;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+
+
+                last_z = WidthBridge - Wf_right;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+            if (Width_LeftCantilever != 0.0)
+            {
+                last_z = Width_LeftCantilever;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+            if (Width_RightCantilever != 0.0)
+            {
+                last_z = WidthBridge - Width_RightCantilever;
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+                list_z.Add(last_z);
+            }
+
+            last_z = WidthBridge;
+            last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+            list_z.Add(last_z);
+
+            last_z = Width_LeftCantilever + z_incr;
+            do
+            {
+                flag = false;
+                for (i = 0; i < list_z.Count; i++)
+                {
+                    if (last_z.ToString("0.00") == list_z[i].ToString("0.00"))
+                    {
+                        flag = true; break;
+                    }
+                }
+
+                if (!flag && last_z > Width_LeftCantilever && last_z < (WidthBridge - Width_RightCantilever - 0.2))
+                    list_z.Add(last_z);
+
+                last_z += z_incr;
+
+                last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+
+            } while (last_z <= WidthBridge);
+
+            list_z.Sort();
+            #endregion Chiranjit [2011 09 23] Correct Create Data
+
+
+
+            _Columns = list_x.Count;
+            _Rows = list_z.Count;
+
+            //int i = 0;
+
+            List<double> list = new List<double>();
+
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                list = new List<double>();
+                for (iCols = 0; iCols < _Columns; iCols++)
+                {
+                    list.Add(list_x[iCols] + list_z[iRows] * skew_length);
+                }
+                z_table.Add(list_z[iRows], list);
+            }
+
+            Joints_Array = new JointNode[_Rows, _Columns];
+            Long_Girder_Members_Array = new Member[_Rows, _Columns - 1];
+            Cross_Girder_Members_Array = new Member[_Rows - 1, _Columns];
+
+
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                list_x = z_table[list_z[iRows]] as List<double>;
+                for (iCols = 0; iCols < _Columns; iCols++)
+                {
+                    nd = new JointNode();
+                    nd.Y = 0;
+                    nd.Z = list_z[iRows];
+
+                    //nd.X = list_x[iCols] + (skew_length * list_z[iRows]);
+                    nd.X = list_x[iCols];
+
+                    nd.NodeNo = Joints.JointNodes.Count + 1;
+                    Joints.Add(nd);
+
+                    Joints_Array[iRows, iCols] = nd;
+
+                    last_x = nd.X;
+                }
+            }
+            int nodeNo = 0;
+            Joints.Clear();
+
+            //support_left_joints = Joints_Array[0, 0].NodeNo + " TO " + Joints_Array[0, iCols - 1].NodeNo;
+            //support_right_joints = Joints_Array[iRows - 1, 0].NodeNo + " TO " + Joints_Array[iRows - 1, iCols - 1].NodeNo;
+
+            support_left_joints = "";
+            support_right_joints = "";
+
+            joints_list_for_load.Clear();
+            List<int> list_nodes = new List<int>();
+
+
+
+
+
+            //string str_joints = "";
+
+            for (iCols = 0; iCols < _Columns; iCols++)
+            {
+                for (iRows = 0; iRows < _Rows; iRows++)
+                {
+                    nodeNo++;
+                    Joints_Array[iRows, iCols].NodeNo = nodeNo;
+                    Joints.Add(Joints_Array[iRows, iCols]);
+
+                    if (iCols == 1 && iRows > 1 && iRows < _Rows - 2)
+                        support_left_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                    else if (iCols == _Columns - 2 && iRows > 1 && iRows < _Rows - 2)
+                        support_right_joints += Joints_Array[iRows, iCols].NodeNo + " ";
+                    else
+                    {
+                        if (iRows > 0 && iRows < _Rows - 1)
+                            list_nodes.Add(Joints_Array[iRows, iCols].NodeNo);
+                    }
+                }
+                if (list_nodes.Count > 0)
+                {
+                    joints_list_for_load.Add(MyList.Get_Array_Text(list_nodes));
+                    list_nodes.Clear();
+                }
+            }
+
+            Member mem = new Member();
+
+            if (MemColls == null)
+                MemColls = new MemberCollection();
+            MemColls.Clear();
+
+
+            #region Chiranjit [2013 05 30]
+            for (iCols = 0; iCols < _Columns; iCols++)
+            {
+                for (iRows = 1; iRows < _Rows; iRows++)
+                {
+                    mem = new Member();
+                    mem.StartNode = Joints_Array[iRows - 1, iCols];
+                    mem.EndNode = Joints_Array[iRows, iCols];
+                    mem.MemberNo = MemColls.Count + 1;
+                    MemColls.Add(mem);
+                    Cross_Girder_Members_Array[iRows - 1, iCols] = mem;
+                }
+            }
+            for (iRows = 0; iRows < _Rows; iRows++)
+            {
+                for (iCols = 1; iCols < _Columns; iCols++)
+                {
+                    mem = new Member();
+                    mem.StartNode = Joints_Array[iRows, iCols - 1];
+                    mem.EndNode = Joints_Array[iRows, iCols];
+                    mem.MemberNo = MemColls.Count + 1;
+                    MemColls.Add(mem);
+                    Long_Girder_Members_Array[iRows, iCols - 1] = mem;
+
+                }
+            }
+            #endregion Chiranjit [2013 05 30]
+
+
+            #region Chiranjit [2013 06 06]
+
+            #endregion Chiranjit [2013 06 06]
+        }
+
+        public string _DeckSlab { get; set; }
+        public string _Inner_Girder_Mid { get; set; }
+        public string _Inner_Girder_Support { get; set; }
+        public string _Outer_Girder_Mid { get; set; }
+        public string _Outer_Girder_Support { get; set; }
+        public string _Cross_Girder_Inter { get; set; }
+        public string _Cross_Girder_End { get; set; }
+
+        void Set_Inner_Outer_Cross_Girders()
+        {
+
+            List<int> Inner_Girder = new List<int>();
+            List<int> Outer_Girder = new List<int>();
+            List<int> Cross_Girder = new List<int>();
+
+            for (int i = 0; i < MemColls.Count; i++)
+            {
+
+                if ((MemColls[i].StartNode.Z.ToString("0.000") != MemColls[i].EndNode.Z.ToString("0.000")))
+                {
+                    Cross_Girder.Add(MemColls[i].MemberNo);
+                }
+                else if ((MemColls[i].StartNode.Z.ToString("0.000") == Width_LeftCantilever.ToString("0.000") &&
+                    MemColls[i].EndNode.Z.ToString("0.000") == Width_LeftCantilever.ToString("0.000")) ||
+                    (MemColls[i].StartNode.Z.ToString("0.000") == (WidthBridge - Width_RightCantilever).ToString("0.000") &&
+                    MemColls[i].EndNode.Z.ToString("0.000") == (WidthBridge - Width_RightCantilever).ToString("0.000")))
+                {
+                    Outer_Girder.Add(MemColls[i].MemberNo);
+                }
+                else if ((MemColls[i].StartNode.Z == 0.0 &&
+                    MemColls[i].EndNode.Z == 0.0) ||
+                    (MemColls[i].StartNode.Z == WidthBridge) &&
+                    (MemColls[i].EndNode.Z == WidthBridge))
+                {
+                    Outer_Girder.Add(MemColls[i].MemberNo);
+                }
+                else
+                {
+                    Inner_Girder.Add(MemColls[i].MemberNo);
+                }
+            }
+            Inner_Girder.Sort();
+            Outer_Girder.Sort();
+            Cross_Girder.Sort();
+
+
+            _Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder);
+            _Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder);
+            _Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder);
+
+        }
+
+
+
+        #region Chiranjit [2014 09 02] For British Standard
+
+        public List<int> HA_Lanes;
+
+        public string HA_Loading_Members;
+        public void WriteData_Total_Analysis(string file_name, bool is_british)
+        {
+
+            string kStr = "";
+            List<string> list = new List<string>();
+            int i = 0;
+
+            List<int> DeckSlab = new List<int>();
+
+            List<int> Inner_Girder_Mid = new List<int>();
+            List<int> Inner_Girder_Support = new List<int>();
+
+            List<int> Outer_Girder_Mid = new List<int>();
+            List<int> Outer_Girder_Support = new List<int>();
+
+            List<int> Cross_Girder_Inter = new List<int>();
+            List<int> Cross_Girder_End = new List<int>();
+
+
+            List<int> HA_Members = new List<int>();
+
+            List<double> HA_Dists = new List<double>();
+            HA_Dists = new List<double>();
+            if (HA_Lanes != null)
+            {
+                for (i = 0; i < HA_Lanes.Count; i++)
+                {
+                    HA_Dists.Add(1.75 + (HA_Lanes[i] - 1) * 3.5);
+                }
+            }
+
+            list.Add("ASTRA FLOOR PSC I GIRDER BRIDGE DECK ANALYSIS");
+            list.Add("UNIT METER MTON");
+            list.Add("JOINT COORDINATES");
+            for (i = 0; i < Joints.Count; i++)
+            {
+                list.Add(Joints[i].ToString());
+            }
+            list.Add("MEMBER INCIDENCES");
+            for (i = 0; i < MemColls.Count; i++)
+            {
+                list.Add(MemColls[i].ToString());
+            }
+
+            int index = 2;
+
+            for (int c = 0; c < _Rows; c++)
+            {
+                for (i = 0; i < _Columns - 1; i++)
+                {
+                    if (i <= 1 || i >= (_Columns - 3))
+                    {
+                        if (c == index || c == _Rows - index - 1)
+                        {
+                            Outer_Girder_Support.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else if (c > index && c < _Rows - index - 1)
+                        {
+                            var item = Long_Girder_Members_Array[c, i];
+
+                            if (HA_Dists.Contains(item.EndNode.Z) && HA_Dists.Contains(item.StartNode.Z))
+                                HA_Members.Add(item.MemberNo);
+                            else
+                                Inner_Girder_Support.Add(item.MemberNo);
+                        }
+                        else
+                            DeckSlab.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                    }
+                    else
+                    {
+                        if (c == index || c == _Rows - index - 1)
+                        {
+                            Outer_Girder_Mid.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else if (c > index && c < _Rows - index - 1)
+                        {
+
+                            var item = Long_Girder_Members_Array[c, i];
+
+                            if (HA_Dists.Contains(item.EndNode.Z) && HA_Dists.Contains(item.StartNode.Z))
+                                HA_Members.Add(item.MemberNo);
+                            else
+                                Inner_Girder_Mid.Add(item.MemberNo);
+
+
+                            //Inner_Girder_Mid.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else
+                            DeckSlab.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                    }
+                }
+            }
+
+            Outer_Girder_Mid.Sort();
+            Outer_Girder_Support.Sort();
+
+
+            Inner_Girder_Mid.Sort();
+            Inner_Girder_Support.Sort();
+            DeckSlab.Sort();
+            index = 2;
+            List<int> lst_index = new List<int>();
+            for (int n = 1; n <= NCG - 2; n++)
+            {
+                for (i = 0; i < _Columns; i++)
+                {
+                    if (Cross_Girder_Members_Array[0, i].StartNode.X.ToString("0.00") == (Spacing_Cross_Girder * n + Effective_Depth).ToString("0.00"))
+                    {
+                        index = i;
+                        lst_index.Add(i);
+                    }
+                }
+            }
+            for (int c = 0; c < _Rows - 1; c++)
+            {
+                for (i = 0; i < _Columns - 1; i++)
+                {
+                    if (lst_index.Contains(i))
+                        Cross_Girder_Inter.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                    else if (i == 1 || i == _Columns - 2)
+                    {
+                        Cross_Girder_End.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                    }
+                    else
+                        DeckSlab.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                }
+            }
+
+            DeckSlab.Sort();
+            Cross_Girder_Inter.Sort();
+            Cross_Girder_End.Sort();
+
+
+            //_Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder);
+            //_Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder);
+            //_Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder);
+
+
+
+
+            //string _DeckSlab = "";
+            //string _Inner_Girder_Mid = "";
+            //string _Inner_Girder_Support = "";
+            //string _Outer_Girder_Mid = "";
+            //string _Outer_Girder_Support = "";
+            //string _Cross_Girder_Inter = "";
+            //string _Cross_Girder_End = "";
+
+
+
+
+            _DeckSlab = MyList.Get_Array_Text(DeckSlab);
+            _Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder_Mid);
+            _Inner_Girder_Support = MyList.Get_Array_Text(Inner_Girder_Support);
+            _Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder_Mid);
+            _Outer_Girder_Support = MyList.Get_Array_Text(Outer_Girder_Support);
+            _Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder_Inter);
+            _Cross_Girder_End = MyList.Get_Array_Text(Cross_Girder_End);
+
+
+
+            HA_Loading_Members = MyList.Get_Array_Text(HA_Members);
+
+            list.Add("SECTION PROPERTIES");
+            //if (Long_Inner_Mid_Section != null)
+            //{
+            //    Set_Section_Properties(list);
+            //}
+            //else
+            {
+                list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
+
+            }
+            list.Add("MATERIAL CONSTANTS");
+            list.Add("E 2.85E6 ALL");
+            //list.Add("E " + Ecm * 100 + " ALL");
+            list.Add("DENSITY CONCRETE ALL");
+            list.Add("POISSON CONCRETE ALL");
+            list.Add("SUPPORT");
+
+            //list.Add(string.Format("{0}  PINNED", support_left_joints));
+            //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
+
+
+            list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
+            list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
+
+
+            list.Add("LOAD 1 DEAD LOAD + SIDL");
+            list.Add("**dEAD lOAD");
+            list.Add("MEMBER LOAD");
+            list.Add("153 TO 158 173 TO 178 UNI GY -2.7504");
+            list.Add("151 160 171 180 UNI GY -2.66888");
+            list.Add("152 159 172 179 UNI GY -1.68024");
+            list.Add("133 TO 138 193 TO 198 UNI GY -2.916");
+            list.Add("131 140 191 200 UNI GY -2.97768");
+            list.Add("132 139 192 199 UNI GY -1.89528");
+            list.Add("1 TO 10 101 TO 110 UNI GY -0.702");
+            list.Add("** SIDL");
+            list.Add("MEMBER LOAD");
+            list.Add("** WEARING COAT");
+            list.Add("131 TO 140 191 TO 200 UNI GY -0.68");
+            list.Add("151 TO 160 171 TO 180 UNI GY -0.53");
+            list.Add("**CRASH BARRIER");
+            list.Add("111 TO 120 211 TO 220 UNI GY -1.0");
+            list.Add("**** OUTER GIRDER *********");
+            //list.Add("DEFINE MOVING LOAD FILE LL.TXT");
+            iApp.LiveLoads.Impact_Factor(ref list, iApp.DesignStandard);
+            //list.Add("TYPE 1 CLA 1.179");
+            //list.Add("TYPE 2 A70R 1.188");
+            //list.Add("TYPE 3 A70RT 1.10");
+            //list.Add("TYPE 4 CLAR 1.179");
+            //list.Add("TYPE 5 A70RR 1.188");
+            //list.Add("TYPE 6 A70RR 1.188");
+            //list.Add("TYPE 7 A70RR 1.188");
+            //list.Add("TYPE 8 A70RR 1.188");
+            //list.Add("TYPE 9 A70RR 1.188");
+            //list.Add("TYPE 10 A70RR 1.188");
+            //list.Add("TYPE 11 A70RR 1.188");
+            //list.Add("TYPE 12 A70RR 1.188");
+            //list.Add("TYPE 13 A70RR 1.188");
+            //list.Add("**** 3 LANE CLASS A *****");
+            list.Add("LOAD GENERATION 191");
+            list.Add("TYPE 1 -18.8 0 2.75 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 6.25 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 9.75 XINC 0.2");
+            //list.Add("**** 3 LANE CLASS A *****");
+            //list.Add("*LOAD GENERATION 160");
+            //list.Add("*TYPE 1 -18.8 0 2.125 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 5.625 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 9.125 XINC 0.2");
+            //list.Add("*PLOT DISPLACEMENT FILE");
+            list.Add("PRINT SUPPORT REACTIONS");
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Outer);
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Inner);
+            list.Add("PERFORM ANALYSIS");
+            list.Add("FINISH");
+            list.Add(kStr);
+            File.WriteAllLines(file_name, list.ToArray());
+            //iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name), true, iApp.DesignStandard);
+            iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name));
+            list.Clear();
+        }
+
+        #endregion Chiranjit [2014 09 02] For British Standard
+
+        public void WriteData_Total_Analysis(string file_name)
+        {
+            string kStr = "";
+            List<string> list = new List<string>();
+            int i = 0;
+
+            List<int> DeckSlab = new List<int>();
+
+            List<int> Inner_Girder_Mid = new List<int>();
+            List<int> Inner_Girder_Support = new List<int>();
+
+            List<int> Outer_Girder_Mid = new List<int>();
+            List<int> Outer_Girder_Support = new List<int>();
+
+            List<int> Cross_Girder_Inter = new List<int>();
+            List<int> Cross_Girder_End = new List<int>();
+
+
+
+
+
+
+            list.Add("ASTRA FLOOR RCC T GIRDER BRIDGE DECK ANALYSIS");
+            list.Add("UNIT METER MTON");
+            list.Add("JOINT COORDINATES");
+            for (i = 0; i < Joints.Count; i++)
+            {
+                list.Add(Joints[i].ToString());
+            }
+            list.Add("MEMBER INCIDENCES");
+            for (i = 0; i < MemColls.Count; i++)
+            {
+                list.Add(MemColls[i].ToString());
+            }
+
+            int index = 2;
+
+            for (int c = 0; c < _Rows; c++)
+            {
+                for (i = 0; i < _Columns - 1; i++)
+                {
+                    if (i <= 1 || i >= (_Columns - 3))
+                    {
+                        if (c == index || c == _Rows - index - 1)
+                        {
+                            Outer_Girder_Support.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else if (c > index && c < _Rows - index - 1)
+                        {
+                            Inner_Girder_Support.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else
+                            DeckSlab.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                    }
+                    else
+                    {
+                        if (c == index || c == _Rows - index - 1)
+                        {
+                            Outer_Girder_Mid.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else if (c > index && c < _Rows - index - 1)
+                        {
+                            Inner_Girder_Mid.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                        }
+                        else
+                            DeckSlab.Add(Long_Girder_Members_Array[c, i].MemberNo);
+                    }
+                }
+            }
+
+            Outer_Girder_Mid.Sort();
+            Outer_Girder_Support.Sort();
+
+
+            Inner_Girder_Mid.Sort();
+            Inner_Girder_Support.Sort();
+            DeckSlab.Sort();
+            index = 2;
+            List<int> lst_index = new List<int>();
+            for (int n = 1; n <= NCG - 2; n++)
+            {
+                for (i = 0; i < _Columns; i++)
+                {
+                    if (Cross_Girder_Members_Array[0, i].StartNode.X.ToString("0.00") == (Spacing_Cross_Girder * n + Effective_Depth).ToString("0.00"))
+                    {
+                        index = i;
+                        lst_index.Add(i);
+                    }
+                }
+            }
+            for (int c = 0; c < _Rows - 1; c++)
+            {
+                for (i = 0; i < _Columns; i++)
+                {
+                    if (lst_index.Contains(i))
+                        Cross_Girder_Inter.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                    else if (i == 1 || i == _Columns - 2)
+                    {
+                        Cross_Girder_End.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                    }
+                    else
+                        DeckSlab.Add(Cross_Girder_Members_Array[c, i].MemberNo);
+                }
+            }
+
+            DeckSlab.Sort();
+            Cross_Girder_Inter.Sort();
+            Cross_Girder_End.Sort();
+
+
+            //_Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder);
+            //_Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder);
+            //_Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder);
+
+
+
+
+            //string _DeckSlab = "";
+            //string _Inner_Girder_Mid = "";
+            //string _Inner_Girder_Support = "";
+            //string _Outer_Girder_Mid = "";
+            //string _Outer_Girder_Support = "";
+            //string _Cross_Girder_Inter = "";
+            //string _Cross_Girder_End = "";
+
+
+
+
+            _DeckSlab = MyList.Get_Array_Text(DeckSlab);
+            _Inner_Girder_Mid = MyList.Get_Array_Text(Inner_Girder_Mid);
+            _Inner_Girder_Support = MyList.Get_Array_Text(Inner_Girder_Support);
+            _Outer_Girder_Mid = MyList.Get_Array_Text(Outer_Girder_Mid);
+            _Outer_Girder_Support = MyList.Get_Array_Text(Outer_Girder_Support);
+            _Cross_Girder_Inter = MyList.Get_Array_Text(Cross_Girder_Inter);
+            _Cross_Girder_End = MyList.Get_Array_Text(Cross_Girder_End);
+
+
+            list.Add("SECTION PROPERTIES");
+
+            //if (Long_Inner_Mid_Section != null)
+            //{
+            //    Set_Section_Properties(list);
+            //}
+            //else
+            {
+                list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
+
+            }
+            list.Add("MATERIAL CONSTANT");
+            list.Add("E 2.85E6 ALL");
+            list.Add("DENSITY CONCRETE ALL");
+            list.Add("POISSON CONCRETE ALL");
+            list.Add("SUPPORT");
+            //list.Add(string.Format("{0}  PINNED", support_left_joints));
+            ////list.Add(string.Format("{0}  PINNED", support_right_joints));
+            //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
+
+
+            list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
+            //list.Add(string.Format("{0}  PINNED", support_right_joints));
+            list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
+
+
+
+            //list.Add("111 112 113 114 115 116 117 118 119 120 121  PINNED");
+            //list.Add("1 3 5 7 9 11 PINNED");
+            //list.Add("111 113 115 117 119 121 PINNED");
+            list.Add("LOAD 1 DEAD LOAD + SIDL");
+            list.Add("**dEAD lOAD");
+            list.Add("MEMBER LOAD");
+            list.Add("153 TO 158 173 TO 178 UNI GY -2.7504");
+            list.Add("151 160 171 180 UNI GY -2.66888");
+            list.Add("152 159 172 179 UNI GY -1.68024");
+            list.Add("133 TO 138 193 TO 198 UNI GY -2.916");
+            list.Add("131 140 191 200 UNI GY -2.97768");
+            list.Add("132 139 192 199 UNI GY -1.89528");
+            list.Add("1 TO 10 101 TO 110 UNI GY -0.702");
+            list.Add("** SIDL");
+            list.Add("MEMBER LOAD");
+            list.Add("** WEARING COAT");
+            list.Add("131 TO 140 191 TO 200 UNI GY -0.68");
+            list.Add("151 TO 160 171 TO 180 UNI GY -0.53");
+            list.Add("**CRASH BARRIER");
+            list.Add("111 TO 120 211 TO 220 UNI GY -1.0");
+            list.Add("**** OUTER GIRDER *********");
+            //list.Add("DEFINE MOVING LOAD FILE LL.TXT");
+            iApp.LiveLoads.Impact_Factor(ref list, iApp.DesignStandard);
+            //list.Add("TYPE 1 CLA 1.179");
+            //list.Add("TYPE 2 A70R 1.188");
+            //list.Add("TYPE 3 A70RT 1.10");
+            //list.Add("TYPE 4 CLAR 1.179");
+            //list.Add("TYPE 5 A70RR 1.188");
+            //list.Add("TYPE 6 A70RR 1.188");
+            //list.Add("TYPE 7 A70RR 1.188");
+            //list.Add("TYPE 8 A70RR 1.188");
+            //list.Add("TYPE 9 A70RR 1.188");
+            //list.Add("TYPE 10 A70RR 1.188");
+            //list.Add("TYPE 11 A70RR 1.188");
+            //list.Add("TYPE 12 A70RR 1.188");
+            //list.Add("TYPE 13 A70RR 1.188");
+            //list.Add("**** 3 LANE CLASS A *****");
+            list.Add("LOAD GENERATION 191");
+            list.Add("TYPE 1 -18.8 0 2.75 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 6.25 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 9.75 XINC 0.2");
+            //list.Add("**** 3 LANE CLASS A *****");
+            //list.Add("*LOAD GENERATION 160");
+            //list.Add("*TYPE 1 -18.8 0 2.125 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 5.625 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 9.125 XINC 0.2");
+            //list.Add("*PLOT DISPLACEMENT FILE");
+            list.Add("PRINT SUPPORT REACTIONS");
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Outer);
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Inner);
+            list.Add("PERFORM ANALYSIS");
+            list.Add("FINISH");
+            list.Add(kStr);
+            File.WriteAllLines(file_name, list.ToArray());
+            //iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name), true, iApp.DesignStandard);
+            iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name));
+            list.Clear();
+        }
+
+        public void WriteData_LiveLoad_Analysis(string file_name, List<string> ll_data)
+        {
+            string kStr = "";
+            List<string> list = new List<string>();
+            int i = 0;
+
+            list.Add("ASTRA FLOOR RCC T GIRDER BRIDGE DECK ANALYSIS");
+            list.Add("UNIT METER MTON");
+            list.Add("JOINT COORDINATES");
+            for (i = 0; i < Joints.Count; i++)
+            {
+                list.Add(Joints[i].ToString());
+            }
+            list.Add("MEMBER INCIDENCES");
+            for (i = 0; i < MemColls.Count; i++)
+            {
+                list.Add(MemColls[i].ToString());
+            }
+
+
+            list.Add("SECTION PROPERTIES");
+
+            //if (Long_Inner_Mid_Section != null)
+            //{
+            //    Set_Section_Properties(list);
+            //}
+            //else
+            {
+                list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
+
+            }
+            list.Add("MATERIAL CONSTANT");
+            list.Add("E 2.85E6 ALL");
+            list.Add("DENSITY CONCRETE ALL");
+            list.Add("POISSON CONCRETE ALL");
+            list.Add("SUPPORT");
+            //list.Add(string.Format("{0}  PINNED", support_left_joints));
+            ////list.Add(string.Format("{0}  PINNED", support_right_joints));
+            //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
+
+            list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
+            //list.Add(string.Format("{0}  PINNED", support_right_joints));
+            list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
+
+
+            list.Add("LOAD 1 DEAD LOAD + SIDL");
+            list.Add("**DEAD lOAD");
+            list.Add("MEMBER LOAD");
+            list.Add("1 TO 220 UNI GY -0.0001");
+
+            list.Add("DEFINE MOVING LOAD FILE LL.TXT");
+            iApp.LiveLoads.Impact_Factor(ref list, iApp.DesignStandard);
+
+            list.Add("LOAD GENERATION 191");
+            list.Add("TYPE 1 -18.8 0 2.75 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 6.25 XINC 0.2");
+            list.Add("TYPE 1 -18.8 0 9.75 XINC 0.2");
+            //list.Add("**** 3 LANE CLASS A *****");
+            //list.Add("*LOAD GENERATION 160");
+            //list.Add("*TYPE 1 -18.8 0 2.125 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 5.625 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 9.125 XINC 0.2");
+            //list.Add("*PLOT DISPLACEMENT FILE");
+            list.Add("PRINT SUPPORT REACTIONS");
+
+            list.Add("PERFORM ANALYSIS");
+            list.Add("FINISH");
+            list.Add(kStr);
+            File.WriteAllLines(file_name, list.ToArray());
+            //iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(file_name));
+            string fn = Path.GetDirectoryName(file_name);
+            fn = Path.Combine(fn, "LL.TXT");
+            File.WriteAllLines(fn, ll_data.ToArray());
+
+            list.Clear();
+        }
+
+        public void WriteData_DeadLoad_Analysis(string file_name)
+        {
+
+            string kStr = "";
+            List<string> list = new List<string>();
+            int i = 0;
+
+            list.Add("ASTRA FLOOR RCC T GIRDER BRIDGE DECK ANALYSIS WITH DEAD LOAD");
+            list.Add("UNIT METER MTON");
+            list.Add("JOINT COORDINATES");
+            for (i = 0; i < Joints.Count; i++)
+            {
+                list.Add(Joints[i].ToString());
+            }
+            list.Add("MEMBER INCIDENCES");
+            for (i = 0; i < MemColls.Count; i++)
+            {
+                list.Add(MemColls[i].ToString());
+            }
+
+            list.Add("SECTION PROPERTIES");
+            //if (Long_Inner_Mid_Section != null)
+            //{
+            //    Set_Section_Properties(list);
+            //}
+            //else
+            {
+                list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
+            }
+            list.Add("MATERIAL CONSTANT");
+            list.Add("E 2.85E6 ALL");
+            list.Add("DENSITY CONCRETE ALL");
+            list.Add("POISSON CONCRETE ALL");
+            list.Add("SUPPORT");
+            //list.Add(string.Format("{0}  PINNED", support_left_joints));
+            ////list.Add(string.Format("{0}  PINNED", support_right_joints));
+            //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
+
+
+            list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
+            //list.Add(string.Format("{0}  PINNED", support_right_joints));
+            list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
+
+
+            //list.Add("1 3 5 7 9 11 PINNED");
+            //list.Add("111 113 115 117 119 121 PINNED");
+            list.Add("LOAD 1 DEAD LOAD + SIDL");
+            list.Add("**DEAD lOAD");
+            list.Add("MEMBER LOAD");
+            list.Add("153 TO 158 173 TO 178 UNI GY -2.7504");
+            list.Add("151 160 171 180 UNI GY -2.66888");
+            list.Add("152 159 172 179 UNI GY -1.68024");
+            list.Add("133 TO 138 193 TO 198 UNI GY -2.916");
+            list.Add("131 140 191 200 UNI GY -2.97768");
+            list.Add("132 139 192 199 UNI GY -1.89528");
+            list.Add("1 TO 10 101 TO 110 UNI GY -0.702");
+            list.Add("** SIDL");
+            list.Add("MEMBER LOAD");
+            list.Add("** WEARING COAT");
+            list.Add("131 TO 140 191 TO 200 UNI GY -0.68");
+            list.Add("151 TO 160 171 TO 180 UNI GY -0.53");
+            list.Add("**CRASH BARRIER");
+            list.Add("111 TO 120 211 TO 220 UNI GY -1.0");
+            list.Add("**** OUTER GIRDER *********");
+            //list.Add("DEFINE MOVING LOAD FILE LL.TXT");
+            //iApp.LiveLoads.Impact_Factor(ref list, iApp.DesignStandard);
+            //list.Add("TYPE 1 CLA 1.179");
+            //list.Add("TYPE 2 A70R 1.188");
+            //list.Add("TYPE 3 A70RT 1.10");
+            //list.Add("TYPE 4 CLAR 1.179");
+            //list.Add("TYPE 5 A70RR 1.188");
+            //list.Add("TYPE 6 A70RR 1.188");
+            //list.Add("TYPE 7 A70RR 1.188");
+            //list.Add("TYPE 8 A70RR 1.188");
+            //list.Add("TYPE 9 A70RR 1.188");
+            //list.Add("TYPE 10 A70RR 1.188");
+            //list.Add("TYPE 11 A70RR 1.188");
+            //list.Add("TYPE 12 A70RR 1.188");
+            //list.Add("TYPE 13 A70RR 1.188");
+            //list.Add("**** 3 LANE CLASS A *****");
+            //list.Add("LOAD GENERATION 191");
+            //list.Add("TYPE 1 -18.8 0 2.75 XINC 0.2");
+            //list.Add("TYPE 1 -18.8 0 6.25 XINC 0.2");
+            //list.Add("TYPE 1 -18.8 0 9.75 XINC 0.2");
+            //list.Add("**** 3 LANE CLASS A *****");
+            //list.Add("*LOAD GENERATION 160");
+            //list.Add("*TYPE 1 -18.8 0 2.125 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 5.625 XINC 0.2");
+            //list.Add("*TYPE 1 -18.8 0 9.125 XINC 0.2");
+            //list.Add("*PLOT DISPLACEMENT FILE");
+            list.Add("PRINT SUPPORT REACTIONS");
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Outer);
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Inner);
+            list.Add("PERFORM ANALYSIS");
+            list.Add("FINISH");
+            list.Add(kStr);
+            File.WriteAllLines(file_name, list.ToArray());
+            //iApp.Write_LiveLoad_LL_TXT(Working_Folder, true, iApp.DesignStandard);
+            list.Clear();
+        }
+
+        public void Clear()
+        {
+            Joints_Array = null;
+            Long_Girder_Members_Array = null;
+            Cross_Girder_Members_Array = null;
+            MemColls.Clear();
+            MemColls = null;
+        }
+        public void LoadReadFromGrid(DataGridView dgv_live_load)
+        {
+            LoadData ld = new LoadData();
+            int i = 0;
+            LoadList_1 = new List<LoadData>();
+            //LoadList.Clear();
+            MyList mlist = null;
+            for (i = 0; i < dgv_live_load.RowCount; i++)
+            {
+                try
+                {
+                    ld = new LoadData();
+                    mlist = new MyList(MyList.RemoveAllSpaces(dgv_live_load[0, i].Value.ToString().ToUpper()), ':');
+                    ld.TypeNo = mlist.StringList[0];
+                    ld.Code = mlist.StringList[1];
+                    ld.X = MyList.StringToDouble(dgv_live_load[1, i].Value.ToString(), -60.0);
+                    ld.Y = MyList.StringToDouble(dgv_live_load[2, i].Value.ToString(), 0.0);
+                    ld.Z = MyList.StringToDouble(dgv_live_load[3, i].Value.ToString(), 1.0);
+                    for (int j = 0; j < Live_Load_List.Count; j++)
+                    {
+                        if (Live_Load_List[j].TypeNo == ld.TypeNo)
+                        {
+                            ld.LoadWidth = Live_Load_List[j].LoadWidth;
+                            break;
+                        }
+                    }
+                    if ((ld.Z + ld.LoadWidth) > WidthBridge)
+                    {
+                        throw new Exception("Width of Bridge Deck is insufficient to accommodate \ngiven numbers of Lanes of Vehicle Load. \n\nBridge Width = " + WidthBridge + " <  Load Width (" + ld.Z + " + " + ld.LoadWidth + ") = " + (ld.Z + ld.LoadWidth));
+                    }
+                    else
+                    {
+                        ld.XINC = MyList.StringToDouble(dgv_live_load[4, i].Value.ToString(), 0.5);
+                        ld.ImpactFactor = MyList.StringToDouble(dgv_live_load[5, i].Value.ToString(), 0.5);
+                        LoadList_1.Add(ld);
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            #region Set Loads
+
+            List<LoadData> LoadList_tmp = new List<LoadData>(LoadList_1.ToArray());
+
+            LoadList_2 = new List<LoadData>();
+            LoadList_3 = new List<LoadData>();
+            LoadList_4 = new List<LoadData>();
+            LoadList_5 = new List<LoadData>();
+            LoadList_6 = new List<LoadData>();
+
+            LoadList_1.Clear();
+
+            //70 R Wheel
+            ld = new LoadData(Live_Load_List[2]);
+
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[0].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_1.Add(ld);
+
+
+            //1 Lane Class A
+            ld = new LoadData(Live_Load_List[0]);
+
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[0].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_2.Add(ld);
+
+
+
+            //2 Lane Class A
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[0].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_3.Add(ld);
+
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[1].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_3.Add(ld);
+
+
+
+            //3 Lane Class A
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[0].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_4.Add(ld);
+
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[1].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_4.Add(ld);
+
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[2].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_4.Add(ld);
+
+
+            //1 Lane Class A + 70 RW
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[0].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_5.Add(ld);
+
+            ld = new LoadData(Live_Load_List[2]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[1].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_5.Add(ld);
+
+
+
+            //70 RW + 1 Lane Class A 
+            ld = new LoadData(Live_Load_List[2]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[0].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_6.Add(ld);
+
+            ld = new LoadData(Live_Load_List[0]);
+            ld.X = ld.Distance;
+            ld.Y = LoadList_tmp[0].Y;
+            ld.Z = LoadList_tmp[1].Z;
+            ld.XINC = LoadList_tmp[0].XINC;
+
+            LoadList_6.Add(ld);
+
+            #endregion Set Loads
+
+        }
+    }
+
+
 }

@@ -188,6 +188,12 @@ namespace AstraAccess.StageAnalysis
 
         private void frmStageAnalysis_Load(object sender, EventArgs e)
         {
+
+            if(Tag != "")
+            {
+                file_path = Tag.ToString();
+            }
+
             cmb_stage.SelectedIndex = 0;
             if (File.Exists(file_path))
             {
@@ -406,11 +412,6 @@ namespace AstraAccess.StageAnalysis
 
                 Write_Data_to_File(2);
 
-
-
-
-
-
                 //if (Run_Data(fname))
                 if (Run_Data2(fname))
                 {
@@ -469,7 +470,6 @@ namespace AstraAccess.StageAnalysis
                 {
                     File.Copy(knode, knode2, true);
                 }
-
 
             }
 
@@ -534,7 +534,7 @@ namespace AstraAccess.StageAnalysis
 
             for (int i = 0; i < file_1.Count; i++)
             {
-                kStr = file_1[i].ToUpper();
+                kStr = MyList.RemoveAllSpaces(file_1[i].ToUpper());
                 if (kStr.Contains("JOINT C"))
                 {
                     j_index = i;

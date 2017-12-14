@@ -34,7 +34,6 @@
             this.btn_TGirder_browse = new System.Windows.Forms.Button();
             this.txt_project_name = new System.Windows.Forms.TextBox();
             this.label205 = new System.Windows.Forms.Label();
-            this.uC_BoxCulvert1 = new BridgeAnalysisDesign.RCC_Culvert.UC_BoxCulvert();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -43,6 +42,7 @@
             this.rbtn_dwg_multi_without_earth_cusion = new System.Windows.Forms.RadioButton();
             this.rbtn_dwg_multi_with_earth_cusion = new System.Windows.Forms.RadioButton();
             this.btn_dwg_box_culvert_multicell = new System.Windows.Forms.Button();
+            this.uC_BoxCulvert1 = new BridgeAnalysisDesign.RCC_Culvert.UC_BoxCulvert();
             this.panel4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -98,18 +98,6 @@
             this.label205.Size = new System.Drawing.Size(93, 13);
             this.label205.TabIndex = 187;
             this.label205.Text = "Project Name :";
-            // 
-            // uC_BoxCulvert1
-            // 
-            this.uC_BoxCulvert1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_BoxCulvert1.Enabled = false;
-            this.uC_BoxCulvert1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_BoxCulvert1.Is_Multi_Cell = false;
-            this.uC_BoxCulvert1.Location = new System.Drawing.Point(3, 66);
-            this.uC_BoxCulvert1.Name = "uC_BoxCulvert1";
-            this.uC_BoxCulvert1.Size = new System.Drawing.Size(684, 502);
-            this.uC_BoxCulvert1.TabIndex = 0;
-            this.uC_BoxCulvert1.Load += new System.EventHandler(this.uC_BoxCulvert1_Load);
             // 
             // tabControl1
             // 
@@ -199,6 +187,19 @@
             this.btn_dwg_box_culvert_multicell.Text = "Open Design Drawings\r\n";
             this.btn_dwg_box_culvert_multicell.UseVisualStyleBackColor = true;
             this.btn_dwg_box_culvert_multicell.Click += new System.EventHandler(this.btn_dwg_box_culvert_multicell_Click);
+            // 
+            // uC_BoxCulvert1
+            // 
+            this.uC_BoxCulvert1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BoxCulvert1.Enabled = false;
+            this.uC_BoxCulvert1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BoxCulvert1.Is_Multi_Cell = false;
+            this.uC_BoxCulvert1.Location = new System.Drawing.Point(3, 66);
+            this.uC_BoxCulvert1.Name = "uC_BoxCulvert1";
+            this.uC_BoxCulvert1.Size = new System.Drawing.Size(684, 502);
+            this.uC_BoxCulvert1.TabIndex = 0;
+            this.uC_BoxCulvert1.OnButtonProceed += new System.EventHandler(this.uC_BoxCulvert1_OnButtonProceed);
+            this.uC_BoxCulvert1.Load += new System.EventHandler(this.uC_BoxCulvert1_Load);
             // 
             // frm_BoxCulvert_LS
             // 
