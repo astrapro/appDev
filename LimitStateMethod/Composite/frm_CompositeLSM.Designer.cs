@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -68,14 +68,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_CompositeLSM));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Analysis = new System.Windows.Forms.TabPage();
@@ -89,6 +88,12 @@
             this.grb_genData = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.grb_create_input_data = new System.Windows.Forms.GroupBox();
+            this.groupBox37 = new System.Windows.Forms.GroupBox();
+            this.rbtn_concrete_deck = new System.Windows.Forms.RadioButton();
+            this.rbtn_steel_deck = new System.Windows.Forms.RadioButton();
+            this.label32 = new System.Windows.Forms.Label();
+            this.txt_Ana_Ds = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.groupBox116 = new System.Windows.Forms.GroupBox();
             this.rbtn_multiSpan = new System.Windows.Forms.RadioButton();
             this.rbtn_singleSpan = new System.Windows.Forms.RadioButton();
@@ -136,16 +141,13 @@
             this.label116 = new System.Windows.Forms.Label();
             this.label1082 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label112 = new System.Windows.Forms.Label();
             this.label1081 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
             this.txt_Ana_gamma_s = new System.Windows.Forms.TextBox();
             this.txt_Ana_gamma_c_green = new System.Windows.Forms.TextBox();
             this.txt_Ana_gamma_c = new System.Windows.Forms.TextBox();
-            this.txt_Ana_Ds = new System.Windows.Forms.TextBox();
             this.label503 = new System.Windows.Forms.Label();
             this.label501 = new System.Windows.Forms.Label();
             this.label499 = new System.Windows.Forms.Label();
@@ -208,34 +210,6 @@
             this.btn_ana_browse_input_file = new System.Windows.Forms.Button();
             this.rbtn_create_analysis_file = new System.Windows.Forms.RadioButton();
             this.rbtn_ana_select_analysis_file = new System.Windows.Forms.RadioButton();
-            this.grb_ll_indian = new System.Windows.Forms.GroupBox();
-            this.btn_def_mov_load = new System.Windows.Forms.Button();
-            this.grb_LL = new System.Windows.Forms.GroupBox();
-            this.label75 = new System.Windows.Forms.Label();
-            this.btn_live_load_remove_all = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
-            this.btn_add_load = new System.Windows.Forms.Button();
-            this.btn_live_load_remove = new System.Windows.Forms.Button();
-            this.txt_Y = new System.Windows.Forms.TextBox();
-            this.dgv_live_load = new System.Windows.Forms.DataGridView();
-            this.col_load_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_if = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_XINC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_imf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label139 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.txt_Load_Impact = new System.Windows.Forms.TextBox();
-            this.txt_XINCR = new System.Windows.Forms.TextBox();
-            this.cmb_Ana_load_type = new System.Windows.Forms.ComboBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.txt_Ana_X = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txt_Z = new System.Windows.Forms.TextBox();
-            this.txt_Ana_member_load = new System.Windows.Forms.TextBox();
             this.tab_section = new System.Windows.Forms.TabPage();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.cmb_ana_ang_section_name = new System.Windows.Forms.ComboBox();
@@ -799,6 +773,50 @@
             this.label568 = new System.Windows.Forms.Label();
             this.txt_sec_Ixb = new System.Windows.Forms.TextBox();
             this.label544 = new System.Windows.Forms.Label();
+            this.tab_LL_IRC = new System.Windows.Forms.TabPage();
+            this.btn_IRC_Loadings = new System.Windows.Forms.Button();
+            this.btn_edit_load_combs = new System.Windows.Forms.Button();
+            this.groupBox117 = new System.Windows.Forms.GroupBox();
+            this.label1129 = new System.Windows.Forms.Label();
+            this.dgv_long_loads = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1130 = new System.Windows.Forms.Label();
+            this.btn_long_restore_ll = new System.Windows.Forms.Button();
+            this.groupBox118 = new System.Windows.Forms.GroupBox();
+            this.label1132 = new System.Windows.Forms.Label();
+            this.dgv_long_liveloads = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn91 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn92 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn94 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn95 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn96 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn97 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn99 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn101 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn102 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn103 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_moving_data_british = new System.Windows.Forms.TabPage();
             this.groupBox45 = new System.Windows.Forms.GroupBox();
             this.spc_HB = new System.Windows.Forms.SplitContainer();
@@ -1324,7 +1342,6 @@
             this.label1110 = new System.Windows.Forms.Label();
             this.label1111 = new System.Windows.Forms.Label();
             this.tab_orthotropic = new System.Windows.Forms.TabPage();
-            this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
             this.lbl_orthotropic = new System.Windows.Forms.Label();
             this.tab_DeckSlab_Steel_Girder = new System.Windows.Forms.TabPage();
             this.tc_steel = new System.Windows.Forms.TabControl();
@@ -2035,11 +2052,8 @@
             this.tab_rcc_abutment = new System.Windows.Forms.TabPage();
             this.tc_abutment = new System.Windows.Forms.TabControl();
             this.tab_AbutmentLSM = new System.Windows.Forms.TabPage();
-            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
             this.tab_AbutmentOpenLSM = new System.Windows.Forms.TabPage();
-            this.uC_AbutmentOpenLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS();
             this.tab_AbutmentPileLSM = new System.Windows.Forms.TabPage();
-            this.uC_AbutmentPileLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS();
             this.tab_pier = new System.Windows.Forms.TabPage();
             this.tc_Pier = new System.Windows.Forms.TabControl();
             this.tab_PierWSM_Text = new System.Windows.Forms.TabPage();
@@ -2298,13 +2312,9 @@
             this.label144 = new System.Windows.Forms.Label();
             this.btn_RCC_Pier_Report = new System.Windows.Forms.Button();
             this.tab_PierWSM_Excel = new System.Windows.Forms.TabPage();
-            this.uC_PierDesignWSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignWSM();
             this.tab_PierOpenLSM = new System.Windows.Forms.TabPage();
-            this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
             this.tab_PierLSM = new System.Windows.Forms.TabPage();
-            this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
             this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
-            this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_Bearing = new System.Windows.Forms.TabPage();
             this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tab_Drawing = new System.Windows.Forms.TabPage();
@@ -2322,9 +2332,21 @@
             this.label50 = new System.Windows.Forms.Label();
             this.btn_dwg_deck_slab = new System.Windows.Forms.Button();
             this.btn_dwg_abutment = new System.Windows.Forms.Button();
-            this.groupBox37 = new System.Windows.Forms.GroupBox();
-            this.rbtn_concrete_deck = new System.Windows.Forms.RadioButton();
-            this.rbtn_steel_deck = new System.Windows.Forms.RadioButton();
+            this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
+            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
+            this.uC_AbutmentOpenLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS();
+            this.uC_AbutmentPileLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS();
+            this.uC_PierDesignWSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignWSM();
+            this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
+            this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
+            this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
+            this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
+            this.txt_XINCR = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txt_Ana_member_load = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tab_Analysis.SuspendLayout();
             this.tbc_girder.SuspendLayout();
@@ -2333,6 +2355,7 @@
             this.grb_genData.SuspendLayout();
             this.panel7.SuspendLayout();
             this.grb_create_input_data.SuspendLayout();
+            this.groupBox37.SuspendLayout();
             this.groupBox116.SuspendLayout();
             this.grb_curve.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_section)).BeginInit();
@@ -2345,9 +2368,6 @@
             this.grb_ana_wc.SuspendLayout();
             this.groupBox41.SuspendLayout();
             this.grb_select_analysis.SuspendLayout();
-            this.grb_ll_indian.SuspendLayout();
-            this.grb_LL.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_live_load)).BeginInit();
             this.tab_section.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox77.SuspendLayout();
@@ -2386,6 +2406,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sec_res_details)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sec_res)).BeginInit();
             this.groupBox56.SuspendLayout();
+            this.tab_LL_IRC.SuspendLayout();
+            this.groupBox117.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_loads)).BeginInit();
+            this.groupBox118.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_liveloads)).BeginInit();
             this.tab_moving_data_british.SuspendLayout();
             this.groupBox45.SuspendLayout();
             this.spc_HB.Panel1.SuspendLayout();
@@ -2542,7 +2567,6 @@
             this.tab_Bearing.SuspendLayout();
             this.tab_Drawing.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.groupBox37.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -2582,6 +2606,7 @@
             this.tbc_girder.Controls.Add(this.tab_UID);
             this.tbc_girder.Controls.Add(this.tab_section);
             this.tbc_girder.Controls.Add(this.tab_result);
+            this.tbc_girder.Controls.Add(this.tab_LL_IRC);
             this.tbc_girder.Controls.Add(this.tab_moving_data_british);
             this.tbc_girder.Controls.Add(this.tab_Analysis_Result);
             this.tbc_girder.Controls.Add(this.tab_orthotropic);
@@ -2600,7 +2625,6 @@
             this.tab_UID.Controls.Add(this.pic_diagram);
             this.tab_UID.Controls.Add(this.groupBox70);
             this.tab_UID.Controls.Add(this.groupBox12);
-            this.tab_UID.Controls.Add(this.grb_ll_indian);
             this.tab_UID.Location = new System.Drawing.Point(4, 22);
             this.tab_UID.Name = "tab_UID";
             this.tab_UID.Padding = new System.Windows.Forms.Padding(3);
@@ -2730,6 +2754,72 @@
             this.grb_create_input_data.TabIndex = 1;
             this.grb_create_input_data.TabStop = false;
             this.grb_create_input_data.Text = "GENERAL ARRANGEMENTS AND DEAD LOAD [DL]";
+            // 
+            // groupBox37
+            // 
+            this.groupBox37.Controls.Add(this.rbtn_concrete_deck);
+            this.groupBox37.Controls.Add(this.rbtn_steel_deck);
+            this.groupBox37.Controls.Add(this.label32);
+            this.groupBox37.Controls.Add(this.txt_Ana_Ds);
+            this.groupBox37.Controls.Add(this.label33);
+            this.groupBox37.Location = new System.Drawing.Point(3, 449);
+            this.groupBox37.Name = "groupBox37";
+            this.groupBox37.Size = new System.Drawing.Size(391, 62);
+            this.groupBox37.TabIndex = 129;
+            this.groupBox37.TabStop = false;
+            // 
+            // rbtn_concrete_deck
+            // 
+            this.rbtn_concrete_deck.AutoSize = true;
+            this.rbtn_concrete_deck.Checked = true;
+            this.rbtn_concrete_deck.Location = new System.Drawing.Point(12, 13);
+            this.rbtn_concrete_deck.Name = "rbtn_concrete_deck";
+            this.rbtn_concrete_deck.Size = new System.Drawing.Size(119, 17);
+            this.rbtn_concrete_deck.TabIndex = 105;
+            this.rbtn_concrete_deck.TabStop = true;
+            this.rbtn_concrete_deck.Text = "Concrete Deck";
+            this.rbtn_concrete_deck.UseVisualStyleBackColor = true;
+            // 
+            // rbtn_steel_deck
+            // 
+            this.rbtn_steel_deck.AutoSize = true;
+            this.rbtn_steel_deck.Location = new System.Drawing.Point(195, 13);
+            this.rbtn_steel_deck.Name = "rbtn_steel_deck";
+            this.rbtn_steel_deck.Size = new System.Drawing.Size(94, 17);
+            this.rbtn_steel_deck.TabIndex = 106;
+            this.rbtn_steel_deck.Text = "Steel Deck";
+            this.rbtn_steel_deck.UseVisualStyleBackColor = true;
+            this.rbtn_steel_deck.CheckedChanged += new System.EventHandler(this.rbtn_steel_deck_CheckedChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(6, 39);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(169, 13);
+            this.label32.TabIndex = 54;
+            this.label32.Text = "Thickness of Deck Slab [Ds]";
+            // 
+            // txt_Ana_Ds
+            // 
+            this.txt_Ana_Ds.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Ana_Ds.Location = new System.Drawing.Point(290, 36);
+            this.txt_Ana_Ds.Name = "txt_Ana_Ds";
+            this.txt_Ana_Ds.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Ds.TabIndex = 5;
+            this.txt_Ana_Ds.Text = "0.210";
+            this.txt_Ana_Ds.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Ds.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(342, 39);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(19, 13);
+            this.label33.TabIndex = 18;
+            this.label33.Text = "m";
             // 
             // groupBox116
             // 
@@ -3249,15 +3339,6 @@
             this.label6.TabIndex = 18;
             this.label6.Text = "kN/cu.m";
             // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(342, 39);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(19, 13);
-            this.label33.TabIndex = 18;
-            this.label33.Text = "m";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -3298,16 +3379,6 @@
             this.label5.TabIndex = 54;
             this.label5.Text = "Unit weight of Concrete [Y_c]";
             // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(6, 39);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(169, 13);
-            this.label32.TabIndex = 54;
-            this.label32.Text = "Thickness of Deck Slab [Ds]";
-            // 
             // txt_Ana_gamma_s
             // 
             this.txt_Ana_gamma_s.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3340,17 +3411,6 @@
             this.txt_Ana_gamma_c.Text = "25";
             this.txt_Ana_gamma_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_gamma_c.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            // 
-            // txt_Ana_Ds
-            // 
-            this.txt_Ana_Ds.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_Ds.Location = new System.Drawing.Point(290, 36);
-            this.txt_Ana_Ds.Name = "txt_Ana_Ds";
-            this.txt_Ana_Ds.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Ds.TabIndex = 5;
-            this.txt_Ana_Ds.Text = "0.210";
-            this.txt_Ana_Ds.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Ds.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label503
             // 
@@ -3521,7 +3581,7 @@
             this.pic_diagram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pic_diagram.Location = new System.Drawing.Point(446, 338);
             this.pic_diagram.Name = "pic_diagram";
-            this.pic_diagram.Size = new System.Drawing.Size(475, 111);
+            this.pic_diagram.Size = new System.Drawing.Size(475, 298);
             this.pic_diagram.TabIndex = 6;
             this.pic_diagram.TabStop = false;
             // 
@@ -3585,6 +3645,7 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.txt_Ana_member_load);
             this.groupBox12.Controls.Add(this.groupBox39);
             this.groupBox12.Controls.Add(this.chk_WC);
             this.groupBox12.Controls.Add(this.grb_ana_wc);
@@ -4033,334 +4094,6 @@
             this.rbtn_ana_select_analysis_file.Text = "Open Analysis Data File (INPUT_DATA.TXT)";
             this.rbtn_ana_select_analysis_file.UseVisualStyleBackColor = true;
             this.rbtn_ana_select_analysis_file.CheckedChanged += new System.EventHandler(this.rbtn_Ana_select_analysis_file_CheckedChanged);
-            // 
-            // grb_ll_indian
-            // 
-            this.grb_ll_indian.Controls.Add(this.btn_def_mov_load);
-            this.grb_ll_indian.Controls.Add(this.grb_LL);
-            this.grb_ll_indian.Controls.Add(this.txt_Ana_member_load);
-            this.grb_ll_indian.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_ll_indian.ForeColor = System.Drawing.Color.Black;
-            this.grb_ll_indian.Location = new System.Drawing.Point(440, 455);
-            this.grb_ll_indian.Name = "grb_ll_indian";
-            this.grb_ll_indian.Size = new System.Drawing.Size(493, 187);
-            this.grb_ll_indian.TabIndex = 99;
-            this.grb_ll_indian.TabStop = false;
-            this.grb_ll_indian.Text = "LIVE LOAD (LL) / Vehicle Moving Load";
-            // 
-            // btn_def_mov_load
-            // 
-            this.btn_def_mov_load.Location = new System.Drawing.Point(273, 1);
-            this.btn_def_mov_load.Name = "btn_def_mov_load";
-            this.btn_def_mov_load.Size = new System.Drawing.Size(203, 23);
-            this.btn_def_mov_load.TabIndex = 107;
-            this.btn_def_mov_load.Text = "Define New Moving Load";
-            this.btn_def_mov_load.UseVisualStyleBackColor = true;
-            this.btn_def_mov_load.Click += new System.EventHandler(this.btn_def_mov_load_Click);
-            // 
-            // grb_LL
-            // 
-            this.grb_LL.Controls.Add(this.label75);
-            this.grb_LL.Controls.Add(this.btn_live_load_remove_all);
-            this.grb_LL.Controls.Add(this.label18);
-            this.grb_LL.Controls.Add(this.txt_LL_load_gen);
-            this.grb_LL.Controls.Add(this.btn_add_load);
-            this.grb_LL.Controls.Add(this.btn_live_load_remove);
-            this.grb_LL.Controls.Add(this.txt_Y);
-            this.grb_LL.Controls.Add(this.dgv_live_load);
-            this.grb_LL.Controls.Add(this.label139);
-            this.grb_LL.Controls.Add(this.label19);
-            this.grb_LL.Controls.Add(this.label60);
-            this.grb_LL.Controls.Add(this.txt_Load_Impact);
-            this.grb_LL.Controls.Add(this.txt_XINCR);
-            this.grb_LL.Controls.Add(this.cmb_Ana_load_type);
-            this.grb_LL.Controls.Add(this.label59);
-            this.grb_LL.Controls.Add(this.txt_Ana_X);
-            this.grb_LL.Controls.Add(this.label20);
-            this.grb_LL.Controls.Add(this.txt_Z);
-            this.grb_LL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_LL.ForeColor = System.Drawing.Color.Blue;
-            this.grb_LL.Location = new System.Drawing.Point(9, 12);
-            this.grb_LL.Name = "grb_LL";
-            this.grb_LL.Size = new System.Drawing.Size(478, 174);
-            this.grb_LL.TabIndex = 89;
-            this.grb_LL.TabStop = false;
-            this.grb_LL.Text = "Define Moving Load";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(6, 152);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(114, 13);
-            this.label75.TabIndex = 80;
-            this.label75.Text = "Load Generation";
-            // 
-            // btn_live_load_remove_all
-            // 
-            this.btn_live_load_remove_all.Location = new System.Drawing.Point(378, 145);
-            this.btn_live_load_remove_all.Name = "btn_live_load_remove_all";
-            this.btn_live_load_remove_all.Size = new System.Drawing.Size(97, 23);
-            this.btn_live_load_remove_all.TabIndex = 69;
-            this.btn_live_load_remove_all.Text = "Remove All";
-            this.btn_live_load_remove_all.UseVisualStyleBackColor = true;
-            this.btn_live_load_remove_all.Click += new System.EventHandler(this.btn_Ana_live_load_remove_all_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(30, 23);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 14);
-            this.label18.TabIndex = 59;
-            this.label18.Text = "Load Type";
-            // 
-            // txt_LL_load_gen
-            // 
-            this.txt_LL_load_gen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_LL_load_gen.Location = new System.Drawing.Point(122, 149);
-            this.txt_LL_load_gen.Name = "txt_LL_load_gen";
-            this.txt_LL_load_gen.Size = new System.Drawing.Size(53, 21);
-            this.txt_LL_load_gen.TabIndex = 79;
-            this.txt_LL_load_gen.Text = "191";
-            this.txt_LL_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // btn_add_load
-            // 
-            this.btn_add_load.Location = new System.Drawing.Point(430, 41);
-            this.btn_add_load.Name = "btn_add_load";
-            this.btn_add_load.Size = new System.Drawing.Size(42, 23);
-            this.btn_add_load.TabIndex = 63;
-            this.btn_add_load.Text = "Add";
-            this.btn_add_load.UseVisualStyleBackColor = true;
-            this.btn_add_load.Click += new System.EventHandler(this.btn_Ana_add_load_Click);
-            // 
-            // btn_live_load_remove
-            // 
-            this.btn_live_load_remove.Location = new System.Drawing.Point(300, 145);
-            this.btn_live_load_remove.Name = "btn_live_load_remove";
-            this.btn_live_load_remove.Size = new System.Drawing.Size(75, 23);
-            this.btn_live_load_remove.TabIndex = 68;
-            this.btn_live_load_remove.Text = "Remove";
-            this.btn_live_load_remove.UseVisualStyleBackColor = true;
-            this.btn_live_load_remove.Click += new System.EventHandler(this.btn_Ana_live_load_remove_all_Click);
-            // 
-            // txt_Y
-            // 
-            this.txt_Y.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Y.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Y.Location = new System.Drawing.Point(247, 43);
-            this.txt_Y.Name = "txt_Y";
-            this.txt_Y.Size = new System.Drawing.Size(36, 18);
-            this.txt_Y.TabIndex = 64;
-            this.txt_Y.Text = "0.0";
-            this.txt_Y.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // dgv_live_load
-            // 
-            this.dgv_live_load.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_live_load.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_live_load.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_live_load.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col_load_type,
-            this.col_code,
-            this.col_if,
-            this.col_Z,
-            this.col_XINC,
-            this.col_imf});
-            this.dgv_live_load.Location = new System.Drawing.Point(8, 63);
-            this.dgv_live_load.Name = "dgv_live_load";
-            this.dgv_live_load.RowHeadersWidth = 25;
-            this.dgv_live_load.Size = new System.Drawing.Size(467, 80);
-            this.dgv_live_load.TabIndex = 62;
-            // 
-            // col_load_type
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_load_type.DefaultCellStyle = dataGridViewCellStyle2;
-            this.col_load_type.HeaderText = "Load Type";
-            this.col_load_type.Name = "col_load_type";
-            this.col_load_type.Width = 150;
-            // 
-            // col_code
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_code.DefaultCellStyle = dataGridViewCellStyle3;
-            this.col_code.HeaderText = "X";
-            this.col_code.Name = "col_code";
-            this.col_code.Width = 55;
-            // 
-            // col_if
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_if.DefaultCellStyle = dataGridViewCellStyle4;
-            this.col_if.HeaderText = "Y";
-            this.col_if.Name = "col_if";
-            this.col_if.Width = 45;
-            // 
-            // col_Z
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_Z.DefaultCellStyle = dataGridViewCellStyle5;
-            this.col_Z.HeaderText = "Z";
-            this.col_Z.Name = "col_Z";
-            this.col_Z.Width = 55;
-            // 
-            // col_XINC
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_XINC.DefaultCellStyle = dataGridViewCellStyle6;
-            this.col_XINC.HeaderText = "XINC";
-            this.col_XINC.Name = "col_XINC";
-            this.col_XINC.Width = 55;
-            // 
-            // col_imf
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_imf.DefaultCellStyle = dataGridViewCellStyle7;
-            this.col_imf.HeaderText = "Impact Factor";
-            this.col_imf.Name = "col_imf";
-            this.col_imf.Width = 60;
-            // 
-            // label139
-            // 
-            this.label139.AutoSize = true;
-            this.label139.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label139.Location = new System.Drawing.Point(378, 13);
-            this.label139.Name = "label139";
-            this.label139.Size = new System.Drawing.Size(57, 28);
-            this.label139.TabIndex = 60;
-            this.label139.Text = "Impact \r\nFactor";
-            this.label139.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(325, 26);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(54, 14);
-            this.label19.TabIndex = 60;
-            this.label19.Text = "X INCR";
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.Location = new System.Drawing.Point(301, 26);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(15, 14);
-            this.label60.TabIndex = 67;
-            this.label60.Text = "Z";
-            // 
-            // txt_Load_Impact
-            // 
-            this.txt_Load_Impact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Load_Impact.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Load_Impact.Location = new System.Drawing.Point(381, 43);
-            this.txt_Load_Impact.Name = "txt_Load_Impact";
-            this.txt_Load_Impact.Size = new System.Drawing.Size(47, 18);
-            this.txt_Load_Impact.TabIndex = 58;
-            this.txt_Load_Impact.Text = "0.2";
-            this.txt_Load_Impact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_XINCR
-            // 
-            this.txt_XINCR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_XINCR.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_XINCR.Location = new System.Drawing.Point(328, 43);
-            this.txt_XINCR.Name = "txt_XINCR";
-            this.txt_XINCR.Size = new System.Drawing.Size(47, 18);
-            this.txt_XINCR.TabIndex = 58;
-            this.txt_XINCR.Text = "0.5";
-            this.txt_XINCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_XINCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            // 
-            // cmb_Ana_load_type
-            // 
-            this.cmb_Ana_load_type.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_Ana_load_type.FormattingEnabled = true;
-            this.cmb_Ana_load_type.Items.AddRange(new object[] {
-            "TYPE 1 : IRCCLASSA",
-            "TYPE 2 : IRCCLASSB",
-            "TYPE 3 : IRC70RTRACK",
-            "TYPE 4 : IRC70RWHEEL",
-            "TYPE 5 : IRCCLASSAATRACK",
-            "TYPE 6 : IRC24RTRACK",
-            "TYPE 7 : BG_RAIL_1",
-            "TYPE 8 : BG_RAIL_2",
-            "TYPE 9 : MG_RAIL_1",
-            "TYPE 10 : MG_RAIL_2"});
-            this.cmb_Ana_load_type.Location = new System.Drawing.Point(24, 41);
-            this.cmb_Ana_load_type.Name = "cmb_Ana_load_type";
-            this.cmb_Ana_load_type.Size = new System.Drawing.Size(167, 20);
-            this.cmb_Ana_load_type.TabIndex = 56;
-            this.cmb_Ana_load_type.SelectedIndexChanged += new System.EventHandler(this.cmb_Ana_load_type_SelectedIndexChanged);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(261, 26);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(17, 14);
-            this.label59.TabIndex = 65;
-            this.label59.Text = "Y";
-            // 
-            // txt_Ana_X
-            // 
-            this.txt_Ana_X.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Ana_X.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_X.Location = new System.Drawing.Point(194, 43);
-            this.txt_Ana_X.Name = "txt_Ana_X";
-            this.txt_Ana_X.Size = new System.Drawing.Size(47, 18);
-            this.txt_Ana_X.TabIndex = 57;
-            this.txt_Ana_X.Text = "-13.0";
-            this.txt_Ana_X.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(203, 27);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(16, 14);
-            this.label20.TabIndex = 61;
-            this.label20.Text = "X";
-            // 
-            // txt_Z
-            // 
-            this.txt_Z.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_Z.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Z.Location = new System.Drawing.Point(286, 43);
-            this.txt_Z.Name = "txt_Z";
-            this.txt_Z.Size = new System.Drawing.Size(37, 18);
-            this.txt_Z.TabIndex = 66;
-            this.txt_Z.Text = "0.5";
-            this.txt_Z.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_Ana_member_load
-            // 
-            this.txt_Ana_member_load.Location = new System.Drawing.Point(203, 206);
-            this.txt_Ana_member_load.Multiline = true;
-            this.txt_Ana_member_load.Name = "txt_Ana_member_load";
-            this.txt_Ana_member_load.Size = new System.Drawing.Size(82, 20);
-            this.txt_Ana_member_load.TabIndex = 100;
-            this.txt_Ana_member_load.Visible = false;
             // 
             // tab_section
             // 
@@ -9518,14 +9251,14 @@
             this.dgv_sec_res_details.AllowUserToAddRows = false;
             this.dgv_sec_res_details.AllowUserToDeleteRows = false;
             this.dgv_sec_res_details.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sec_res_details.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sec_res_details.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_sec_res_details.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sec_res_details.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colSection,
@@ -9546,14 +9279,14 @@
             this.Column15,
             this.Column16,
             this.Izz});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_sec_res_details.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_sec_res_details.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_sec_res_details.Dock = System.Windows.Forms.DockStyle.Top;
             this.dgv_sec_res_details.Location = new System.Drawing.Point(3, 17);
             this.dgv_sec_res_details.Name = "dgv_sec_res_details";
@@ -9565,8 +9298,8 @@
             // 
             // colSection
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.colSection.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.colSection.DefaultCellStyle = dataGridViewCellStyle2;
             this.colSection.HeaderText = "Section";
             this.colSection.Name = "colSection";
             this.colSection.ReadOnly = true;
@@ -9696,14 +9429,14 @@
             this.dgv_sec_res.AllowUserToAddRows = false;
             this.dgv_sec_res.AllowUserToDeleteRows = false;
             this.dgv_sec_res.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sec_res.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sec_res.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_sec_res.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sec_res.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column19,
@@ -9711,14 +9444,14 @@
             this.Column21,
             this.Column22,
             this.Column23});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_sec_res.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_sec_res.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_sec_res.Location = new System.Drawing.Point(3, 40);
             this.dgv_sec_res.Name = "dgv_sec_res";
             this.dgv_sec_res.RowHeadersVisible = false;
@@ -9727,8 +9460,8 @@
             // 
             // Column19
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column19.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column19.DefaultCellStyle = dataGridViewCellStyle5;
             this.Column19.HeaderText = "Section";
             this.Column19.Name = "Column19";
             this.Column19.Width = 300;
@@ -10307,6 +10040,423 @@
             this.label544.TabIndex = 0;
             this.label544.Text = "Ixb";
             // 
+            // tab_LL_IRC
+            // 
+            this.tab_LL_IRC.Controls.Add(this.label18);
+            this.tab_LL_IRC.Controls.Add(this.label75);
+            this.tab_LL_IRC.Controls.Add(this.txt_LL_load_gen);
+            this.tab_LL_IRC.Controls.Add(this.txt_dl_ll_comb);
+            this.tab_LL_IRC.Controls.Add(this.txt_XINCR);
+            this.tab_LL_IRC.Controls.Add(this.label19);
+            this.tab_LL_IRC.Controls.Add(this.btn_IRC_Loadings);
+            this.tab_LL_IRC.Controls.Add(this.btn_edit_load_combs);
+            this.tab_LL_IRC.Controls.Add(this.groupBox117);
+            this.tab_LL_IRC.Controls.Add(this.label1130);
+            this.tab_LL_IRC.Controls.Add(this.btn_long_restore_ll);
+            this.tab_LL_IRC.Controls.Add(this.groupBox118);
+            this.tab_LL_IRC.Location = new System.Drawing.Point(4, 22);
+            this.tab_LL_IRC.Name = "tab_LL_IRC";
+            this.tab_LL_IRC.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_LL_IRC.Size = new System.Drawing.Size(940, 642);
+            this.tab_LL_IRC.TabIndex = 6;
+            this.tab_LL_IRC.Text = "Live Load Data (IRC)";
+            this.tab_LL_IRC.UseVisualStyleBackColor = true;
+            // 
+            // btn_IRC_Loadings
+            // 
+            this.btn_IRC_Loadings.Location = new System.Drawing.Point(18, 578);
+            this.btn_IRC_Loadings.Name = "btn_IRC_Loadings";
+            this.btn_IRC_Loadings.Size = new System.Drawing.Size(204, 29);
+            this.btn_IRC_Loadings.TabIndex = 93;
+            this.btn_IRC_Loadings.Text = "IRC Live Load Combinations";
+            this.btn_IRC_Loadings.UseVisualStyleBackColor = true;
+            this.btn_IRC_Loadings.Click += new System.EventHandler(this.btn_IRC_Loadings_Click);
+            // 
+            // btn_edit_load_combs
+            // 
+            this.btn_edit_load_combs.Location = new System.Drawing.Point(246, 578);
+            this.btn_edit_load_combs.Name = "btn_edit_load_combs";
+            this.btn_edit_load_combs.Size = new System.Drawing.Size(175, 29);
+            this.btn_edit_load_combs.TabIndex = 94;
+            this.btn_edit_load_combs.Text = "Edit Load Combinations";
+            this.btn_edit_load_combs.UseVisualStyleBackColor = true;
+            // 
+            // groupBox117
+            // 
+            this.groupBox117.Controls.Add(this.label1129);
+            this.groupBox117.Controls.Add(this.dgv_long_loads);
+            this.groupBox117.ForeColor = System.Drawing.Color.Black;
+            this.groupBox117.Location = new System.Drawing.Point(659, 27);
+            this.groupBox117.Name = "groupBox117";
+            this.groupBox117.Size = new System.Drawing.Size(278, 546);
+            this.groupBox117.TabIndex = 84;
+            this.groupBox117.TabStop = false;
+            this.groupBox117.Text = "Define Load Start position";
+            // 
+            // label1129
+            // 
+            this.label1129.AutoSize = true;
+            this.label1129.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1129.ForeColor = System.Drawing.Color.Black;
+            this.label1129.Location = new System.Drawing.Point(3, 17);
+            this.label1129.Name = "label1129";
+            this.label1129.Size = new System.Drawing.Size(264, 13);
+            this.label1129.TabIndex = 11;
+            this.label1129.Text = "(Refer to Page 100, ASTRA Pro User Manual)";
+            // 
+            // dgv_long_loads
+            // 
+            this.dgv_long_loads.AllowUserToAddRows = false;
+            this.dgv_long_loads.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_long_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_long_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn31,
+            this.dataGridViewTextBoxColumn32,
+            this.dataGridViewTextBoxColumn33,
+            this.dataGridViewTextBoxColumn34,
+            this.dataGridViewTextBoxColumn35,
+            this.dataGridViewTextBoxColumn36,
+            this.Column24,
+            this.Column25,
+            this.Column26,
+            this.Column27,
+            this.Column43});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_loads.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgv_long_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
+            this.dgv_long_loads.Name = "dgv_long_loads";
+            this.dgv_long_loads.RowHeadersWidth = 21;
+            this.dgv_long_loads.Size = new System.Drawing.Size(272, 510);
+            this.dgv_long_loads.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn31.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "1";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn32.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.HeaderText = "2";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn33.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.HeaderText = "3";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn34.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.HeaderText = "4";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn35.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.HeaderText = "5";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn36.Width = 50;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "6";
+            this.Column24.Name = "Column24";
+            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column24.Width = 50;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "7";
+            this.Column25.Name = "Column25";
+            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column25.Width = 50;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "8";
+            this.Column26.Name = "Column26";
+            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column26.Width = 50;
+            // 
+            // Column27
+            // 
+            this.Column27.HeaderText = "9";
+            this.Column27.Name = "Column27";
+            this.Column27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column27.Width = 50;
+            // 
+            // Column43
+            // 
+            this.Column43.HeaderText = "10";
+            this.Column43.Name = "Column43";
+            this.Column43.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column43.Width = 50;
+            // 
+            // label1130
+            // 
+            this.label1130.AutoSize = true;
+            this.label1130.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1130.ForeColor = System.Drawing.Color.Black;
+            this.label1130.Location = new System.Drawing.Point(127, 11);
+            this.label1130.Name = "label1130";
+            this.label1130.Size = new System.Drawing.Size(687, 13);
+            this.label1130.TabIndex = 86;
+            this.label1130.Text = "GRILLAGE ANALYSIS OF SUPER STRUCTURE APPLYING 5 TYPES OF LIVE LOADS WITH SOME COM" +
+    "BINATIONS";
+            // 
+            // btn_long_restore_ll
+            // 
+            this.btn_long_restore_ll.Location = new System.Drawing.Point(427, 578);
+            this.btn_long_restore_ll.Name = "btn_long_restore_ll";
+            this.btn_long_restore_ll.Size = new System.Drawing.Size(175, 29);
+            this.btn_long_restore_ll.TabIndex = 85;
+            this.btn_long_restore_ll.Text = "Restore Default Values";
+            this.btn_long_restore_ll.UseVisualStyleBackColor = true;
+            // 
+            // groupBox118
+            // 
+            this.groupBox118.Controls.Add(this.label1132);
+            this.groupBox118.Controls.Add(this.dgv_long_liveloads);
+            this.groupBox118.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox118.ForeColor = System.Drawing.Color.Black;
+            this.groupBox118.Location = new System.Drawing.Point(3, 27);
+            this.groupBox118.Name = "groupBox118";
+            this.groupBox118.Size = new System.Drawing.Size(653, 543);
+            this.groupBox118.TabIndex = 83;
+            this.groupBox118.TabStop = false;
+            this.groupBox118.Text = "Define Vehicle Axle Loads";
+            // 
+            // label1132
+            // 
+            this.label1132.AutoSize = true;
+            this.label1132.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1132.ForeColor = System.Drawing.Color.Black;
+            this.label1132.Location = new System.Drawing.Point(2, 17);
+            this.label1132.Name = "label1132";
+            this.label1132.Size = new System.Drawing.Size(648, 13);
+            this.label1132.TabIndex = 10;
+            this.label1132.Text = "(USER MAY CHANGE THE VAUES IN THE CELLS, THE DATA WILL BE SAVED IN FILE \"LL.TXT\" " +
+    "FOR USE)";
+            // 
+            // dgv_long_liveloads
+            // 
+            this.dgv_long_liveloads.AllowUserToAddRows = false;
+            this.dgv_long_liveloads.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dgv_long_liveloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_long_liveloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn28,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn43,
+            this.dataGridViewTextBoxColumn44,
+            this.dataGridViewTextBoxColumn45,
+            this.dataGridViewTextBoxColumn52,
+            this.dataGridViewTextBoxColumn53,
+            this.dataGridViewTextBoxColumn54,
+            this.dataGridViewTextBoxColumn91,
+            this.dataGridViewTextBoxColumn92,
+            this.dataGridViewTextBoxColumn93,
+            this.dataGridViewTextBoxColumn94,
+            this.dataGridViewTextBoxColumn95,
+            this.dataGridViewTextBoxColumn96,
+            this.dataGridViewTextBoxColumn97,
+            this.dataGridViewTextBoxColumn98,
+            this.dataGridViewTextBoxColumn99,
+            this.dataGridViewTextBoxColumn100,
+            this.dataGridViewTextBoxColumn101,
+            this.dataGridViewTextBoxColumn102,
+            this.dataGridViewTextBoxColumn103});
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_liveloads.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dgv_long_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
+            this.dgv_long_liveloads.Name = "dgv_long_liveloads";
+            this.dgv_long_liveloads.RowHeadersWidth = 21;
+            this.dgv_long_liveloads.Size = new System.Drawing.Size(647, 507);
+            this.dgv_long_liveloads.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewTextBoxColumn28.HeaderText = "Moving Load";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Width = 200;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.HeaderText = "1";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.HeaderText = "2";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            this.dataGridViewTextBoxColumn43.HeaderText = "3";
+            this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            this.dataGridViewTextBoxColumn43.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            this.dataGridViewTextBoxColumn44.HeaderText = "4";
+            this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            this.dataGridViewTextBoxColumn44.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn45
+            // 
+            this.dataGridViewTextBoxColumn45.HeaderText = "5";
+            this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
+            this.dataGridViewTextBoxColumn45.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            this.dataGridViewTextBoxColumn52.HeaderText = "6";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            this.dataGridViewTextBoxColumn52.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            this.dataGridViewTextBoxColumn53.HeaderText = "7";
+            this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            this.dataGridViewTextBoxColumn53.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.HeaderText = "8";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn91
+            // 
+            this.dataGridViewTextBoxColumn91.HeaderText = "9";
+            this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
+            this.dataGridViewTextBoxColumn91.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn92
+            // 
+            this.dataGridViewTextBoxColumn92.HeaderText = "10";
+            this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
+            this.dataGridViewTextBoxColumn92.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn93
+            // 
+            this.dataGridViewTextBoxColumn93.HeaderText = "11";
+            this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
+            this.dataGridViewTextBoxColumn93.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn94
+            // 
+            this.dataGridViewTextBoxColumn94.HeaderText = "12";
+            this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
+            this.dataGridViewTextBoxColumn94.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn95
+            // 
+            this.dataGridViewTextBoxColumn95.HeaderText = "13";
+            this.dataGridViewTextBoxColumn95.Name = "dataGridViewTextBoxColumn95";
+            this.dataGridViewTextBoxColumn95.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn96
+            // 
+            this.dataGridViewTextBoxColumn96.HeaderText = "14";
+            this.dataGridViewTextBoxColumn96.Name = "dataGridViewTextBoxColumn96";
+            this.dataGridViewTextBoxColumn96.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn97
+            // 
+            this.dataGridViewTextBoxColumn97.HeaderText = "15";
+            this.dataGridViewTextBoxColumn97.Name = "dataGridViewTextBoxColumn97";
+            this.dataGridViewTextBoxColumn97.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn98
+            // 
+            this.dataGridViewTextBoxColumn98.HeaderText = "16";
+            this.dataGridViewTextBoxColumn98.Name = "dataGridViewTextBoxColumn98";
+            this.dataGridViewTextBoxColumn98.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn99
+            // 
+            this.dataGridViewTextBoxColumn99.HeaderText = "17";
+            this.dataGridViewTextBoxColumn99.Name = "dataGridViewTextBoxColumn99";
+            this.dataGridViewTextBoxColumn99.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn100
+            // 
+            this.dataGridViewTextBoxColumn100.HeaderText = "18";
+            this.dataGridViewTextBoxColumn100.Name = "dataGridViewTextBoxColumn100";
+            this.dataGridViewTextBoxColumn100.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn101
+            // 
+            this.dataGridViewTextBoxColumn101.HeaderText = "19";
+            this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
+            this.dataGridViewTextBoxColumn101.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn102
+            // 
+            this.dataGridViewTextBoxColumn102.HeaderText = "20";
+            this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
+            this.dataGridViewTextBoxColumn102.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn103
+            // 
+            this.dataGridViewTextBoxColumn103.HeaderText = "21";
+            this.dataGridViewTextBoxColumn103.Name = "dataGridViewTextBoxColumn103";
+            this.dataGridViewTextBoxColumn103.Width = 50;
+            // 
             // tab_moving_data_british
             // 
             this.tab_moving_data_british.Controls.Add(this.groupBox45);
@@ -10366,14 +10516,14 @@
             // 
             this.dgv_long_british_loads.AllowUserToAddRows = false;
             this.dgv_long_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_long_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn55,
@@ -10398,14 +10548,14 @@
             this.dataGridViewTextBoxColumn74,
             this.dataGridViewTextBoxColumn75,
             this.dataGridViewTextBoxColumn76});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_long_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_long_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_long_british_loads.Name = "dgv_long_british_loads";
@@ -10415,9 +10565,9 @@
             // 
             // dataGridViewTextBoxColumn55
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn55.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -10603,14 +10753,14 @@
             // 
             this.dgv_british_loads.AllowUserToAddRows = false;
             this.dgv_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgv_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn77,
@@ -10634,14 +10784,14 @@
             this.Column40,
             this.Column41,
             this.Column42});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgv_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_british_loads.Location = new System.Drawing.Point(3, 74);
             this.dgv_british_loads.Name = "dgv_british_loads";
@@ -10651,9 +10801,9 @@
             // 
             // dataGridViewTextBoxColumn77
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn77.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn77.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn77.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
             this.dataGridViewTextBoxColumn77.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -14721,14 +14871,14 @@
             // dgv_left_des_frc
             // 
             this.dgv_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgv_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn9,
@@ -14750,8 +14900,8 @@
             // 
             // dataGridViewTextBoxColumn10
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn10.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
@@ -14759,8 +14909,8 @@
             // 
             // col_Max_Mx
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Max_Mx.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Max_Mx.DefaultCellStyle = dataGridViewCellStyle21;
             this.col_Max_Mx.HeaderText = "Maximum    Mx   (Ton-m)";
             this.col_Max_Mx.Name = "col_Max_Mx";
             this.col_Max_Mx.ReadOnly = true;
@@ -14768,8 +14918,8 @@
             // 
             // col_Max_Mz
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Max_Mz.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Max_Mz.DefaultCellStyle = dataGridViewCellStyle22;
             this.col_Max_Mz.HeaderText = "Maximum   Mz  (Ton-m)";
             this.col_Max_Mz.Name = "col_Max_Mz";
             this.col_Max_Mz.ReadOnly = true;
@@ -14794,14 +14944,14 @@
             // dgv_right_des_frc
             // 
             this.dgv_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgv_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
@@ -14823,8 +14973,8 @@
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn6.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -14832,8 +14982,8 @@
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn7.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -14841,8 +14991,8 @@
             // 
             // dataGridViewTextBoxColumn8
             // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn8.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -15049,14 +15199,14 @@
             // dgv_sidl_left_des_frc
             // 
             this.dgv_sidl_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sidl_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sidl_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgv_sidl_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sidl_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn83,
@@ -15078,8 +15228,8 @@
             // 
             // dataGridViewTextBoxColumn84
             // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn84.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn84.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn84.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn84.Name = "dataGridViewTextBoxColumn84";
             this.dataGridViewTextBoxColumn84.ReadOnly = true;
@@ -15087,8 +15237,8 @@
             // 
             // dataGridViewTextBoxColumn85
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn85.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn85.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn85.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn85.Name = "dataGridViewTextBoxColumn85";
             this.dataGridViewTextBoxColumn85.ReadOnly = true;
@@ -15096,8 +15246,8 @@
             // 
             // dataGridViewTextBoxColumn86
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn86.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn86.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn86.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn86.Name = "dataGridViewTextBoxColumn86";
             this.dataGridViewTextBoxColumn86.ReadOnly = true;
@@ -15122,14 +15272,14 @@
             // dgv_sidl_right_des_frc
             // 
             this.dgv_sidl_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sidl_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sidl_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgv_sidl_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sidl_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn87,
@@ -15151,8 +15301,8 @@
             // 
             // dataGridViewTextBoxColumn88
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn88.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn88.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewTextBoxColumn88.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn88.Name = "dataGridViewTextBoxColumn88";
             this.dataGridViewTextBoxColumn88.ReadOnly = true;
@@ -15160,8 +15310,8 @@
             // 
             // dataGridViewTextBoxColumn89
             // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn89.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn89.DefaultCellStyle = dataGridViewCellStyle33;
             this.dataGridViewTextBoxColumn89.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn89.Name = "dataGridViewTextBoxColumn89";
             this.dataGridViewTextBoxColumn89.ReadOnly = true;
@@ -15169,8 +15319,8 @@
             // 
             // dataGridViewTextBoxColumn90
             // 
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn90.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn90.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridViewTextBoxColumn90.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn90.Name = "dataGridViewTextBoxColumn90";
             this.dataGridViewTextBoxColumn90.ReadOnly = true;
@@ -15434,14 +15584,14 @@
             // dgv_right_end_design_forces
             // 
             this.dgv_right_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgv_right_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_right_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn3,
@@ -15461,8 +15611,8 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridViewTextBoxColumn4.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -15575,14 +15725,14 @@
             // dgv_left_end_design_forces
             // 
             this.dgv_left_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgv_left_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_left_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_Joints,
@@ -15602,8 +15752,8 @@
             // 
             // col_Vert_Reaction
             // 
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle38;
             this.col_Vert_Reaction.HeaderText = "Vertical Reaction (Ton)";
             this.col_Vert_Reaction.Name = "col_Vert_Reaction";
             this.col_Vert_Reaction.ReadOnly = true;
@@ -15956,15 +16106,6 @@
             this.tab_orthotropic.Text = "Orthotropic Model Analysis";
             this.tab_orthotropic.UseVisualStyleBackColor = true;
             // 
-            // uC_Orthotropic1
-            // 
-            this.uC_Orthotropic1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Orthotropic1.Location = new System.Drawing.Point(3, 36);
-            this.uC_Orthotropic1.Name = "uC_Orthotropic1";
-            this.uC_Orthotropic1.Size = new System.Drawing.Size(934, 603);
-            this.uC_Orthotropic1.TabIndex = 1;
-            this.uC_Orthotropic1.OnDraw_Click += new System.EventHandler(this.uC_Orthotropic1_OnDraw_Click);
-            // 
             // lbl_orthotropic
             // 
             this.lbl_orthotropic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -16031,7 +16172,7 @@
             this.tab_SteelAlternative.Location = new System.Drawing.Point(4, 22);
             this.tab_SteelAlternative.Name = "tab_SteelAlternative";
             this.tab_SteelAlternative.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_SteelAlternative.Size = new System.Drawing.Size(178, 42);
+            this.tab_SteelAlternative.Size = new System.Drawing.Size(940, 642);
             this.tab_SteelAlternative.TabIndex = 0;
             this.tab_SteelAlternative.Text = "Alternative Design";
             this.tab_SteelAlternative.UseVisualStyleBackColor = true;
@@ -16045,7 +16186,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(172, 1);
+            this.tabControl2.Size = new System.Drawing.Size(934, 601);
             this.tabControl2.TabIndex = 5;
             // 
             // tab_frc
@@ -16056,7 +16197,7 @@
             this.tab_frc.Location = new System.Drawing.Point(4, 22);
             this.tab_frc.Name = "tab_frc";
             this.tab_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_frc.Size = new System.Drawing.Size(164, 0);
+            this.tab_frc.Size = new System.Drawing.Size(926, 575);
             this.tab_frc.TabIndex = 0;
             this.tab_frc.Text = "Steel Girder Design Force Data";
             this.tab_frc.UseVisualStyleBackColor = true;
@@ -16082,7 +16223,7 @@
             this.groupBox13.Controls.Add(this.label7);
             this.groupBox13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.ForeColor = System.Drawing.Color.Red;
-            this.groupBox13.Location = new System.Drawing.Point(-152, -128);
+            this.groupBox13.Location = new System.Drawing.Point(229, 159);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(469, 364);
             this.groupBox13.TabIndex = 98;
@@ -21529,9 +21670,9 @@
             this.panel2.Controls.Add(this.btnReport);
             this.panel2.Controls.Add(this.btnProcess);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 4);
+            this.panel2.Location = new System.Drawing.Point(3, 604);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(172, 35);
+            this.panel2.Size = new System.Drawing.Size(934, 35);
             this.panel2.TabIndex = 6;
             // 
             // label140
@@ -21548,7 +21689,7 @@
             // btnReport
             // 
             this.btnReport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReport.Location = new System.Drawing.Point(98, 4);
+            this.btnReport.Location = new System.Drawing.Point(479, 4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(153, 27);
             this.btnReport.TabIndex = 4;
@@ -21559,7 +21700,7 @@
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProcess.Location = new System.Drawing.Point(-78, 4);
+            this.btnProcess.Location = new System.Drawing.Point(303, 4);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(153, 27);
             this.btnProcess.TabIndex = 3;
@@ -21629,9 +21770,9 @@
             // 
             // col_inp_val
             // 
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_inp_val.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col_inp_val.DefaultCellStyle = dataGridViewCellStyle39;
             this.col_inp_val.HeaderText = "VALUE";
             this.col_inp_val.Name = "col_inp_val";
             this.col_inp_val.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -21655,7 +21796,7 @@
             this.tab_deck_ll_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_ll_data.Name = "tab_deck_ll_data";
             this.tab_deck_ll_data.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_deck_ll_data.Size = new System.Drawing.Size(178, 0);
+            this.tab_deck_ll_data.Size = new System.Drawing.Size(940, 498);
             this.tab_deck_ll_data.TabIndex = 0;
             this.tab_deck_ll_data.Text = "Deck Slab Live Load Data";
             this.tab_deck_ll_data.UseVisualStyleBackColor = true;
@@ -21708,14 +21849,14 @@
             // 
             this.dgv_deck_loads.AllowUserToAddRows = false;
             this.dgv_deck_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_deck_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_deck_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.dgv_deck_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_deck_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn46,
@@ -21724,14 +21865,14 @@
             this.dataGridViewTextBoxColumn49,
             this.dataGridViewTextBoxColumn50,
             this.dataGridViewTextBoxColumn51});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_deck_loads.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_deck_loads.DefaultCellStyle = dataGridViewCellStyle42;
             this.dgv_deck_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_deck_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_deck_loads.Name = "dgv_deck_loads";
@@ -21741,9 +21882,9 @@
             // 
             // dataGridViewTextBoxColumn46
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridViewTextBoxColumn46.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
             this.dataGridViewTextBoxColumn46.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -21821,14 +21962,14 @@
             // 
             this.dgv_deck_liveloads.AllowUserToAddRows = false;
             this.dgv_deck_liveloads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_deck_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_deck_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dgv_deck_liveloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_deck_liveloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col1,
@@ -21853,14 +21994,14 @@
             this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn27});
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_deck_liveloads.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_deck_liveloads.DefaultCellStyle = dataGridViewCellStyle45;
             this.dgv_deck_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_deck_liveloads.Location = new System.Drawing.Point(3, 38);
             this.dgv_deck_liveloads.Name = "dgv_deck_liveloads";
@@ -21869,9 +22010,9 @@
             // 
             // col1
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col1.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col1.DefaultCellStyle = dataGridViewCellStyle44;
             this.col1.HeaderText = "Moving Load";
             this.col1.Name = "col1";
             this.col1.ReadOnly = true;
@@ -22045,7 +22186,7 @@
             this.tab_deck_des_data.Controls.Add(this.dgv_deck_design_input);
             this.tab_deck_des_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_des_data.Name = "tab_deck_des_data";
-            this.tab_deck_des_data.Size = new System.Drawing.Size(178, 0);
+            this.tab_deck_des_data.Size = new System.Drawing.Size(940, 498);
             this.tab_deck_des_data.TabIndex = 2;
             this.tab_deck_des_data.Text = "Design Data";
             this.tab_deck_des_data.UseVisualStyleBackColor = true;
@@ -22096,9 +22237,9 @@
             // 
             // dataGridViewTextBoxColumn41
             // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridViewTextBoxColumn41.HeaderText = "VALUE";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -22136,9 +22277,9 @@
             // 
             // dataGridViewTextBoxColumn38
             // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridViewTextBoxColumn38.HeaderText = "VALUE";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -23633,128 +23774,26 @@
             this.tab_AbutmentLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentLSM.UseVisualStyleBackColor = true;
             // 
-            // uC_RCC_Abut1
-            // 
-            this.uC_RCC_Abut1.Deadload_Reaction = "";
-            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_RCC_Abut1.iApp = null;
-            this.uC_RCC_Abut1.Is_Individual = true;
-            this.uC_RCC_Abut1.Is_Limit_State = true;
-            this.uC_RCC_Abut1.IsBoxType = false;
-            this.uC_RCC_Abut1.Length = 60D;
-            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
-            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
-            this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(934, 636);
-            this.uC_RCC_Abut1.TabIndex = 0;
-            this.uC_RCC_Abut1.Width = 383D;
-            this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
-            this.uC_RCC_Abut1.Load += new System.EventHandler(this.uC_RCC_Abut1_Load);
-            // 
             // tab_AbutmentOpenLSM
             // 
             this.tab_AbutmentOpenLSM.Controls.Add(this.uC_AbutmentOpenLS1);
             this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
             this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(178, 42);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(940, 642);
             this.tab_AbutmentOpenLSM.TabIndex = 1;
             this.tab_AbutmentOpenLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
-            // 
-            // uC_AbutmentOpenLS1
-            // 
-            this.uC_AbutmentOpenLS1.Bridge_Type = "RCC Girder with Deck Slab";
-            this.uC_AbutmentOpenLS1.Carriageway_width = "16";
-            this.uC_AbutmentOpenLS1.Concrete_Grade = "30";
-            this.uC_AbutmentOpenLS1.Concrete_Reinforcement = "500";
-            this.uC_AbutmentOpenLS1.Crash_Barrier = "0.5";
-            this.uC_AbutmentOpenLS1.Crash_Barrier_weight = "0.8";
-            this.uC_AbutmentOpenLS1.Cross_Camber = "0.025";
-            this.uC_AbutmentOpenLS1.DL_MLL = "0.0";
-            this.uC_AbutmentOpenLS1.DL_MTT = "-2095.50";
-            this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_AbutmentOpenLS1.Exp_Gap = "40";
-            this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_AbutmentOpenLS1.Foot_path = "1.5";
-            this.uC_AbutmentOpenLS1.Foot_Path_Live_Load = "0.4";
-            this.uC_AbutmentOpenLS1.Girder_Depth = "2.0";
-            this.uC_AbutmentOpenLS1.Girder_Nos = "6";
-            this.uC_AbutmentOpenLS1.Girder_Spacing = "2.6";
-            this.uC_AbutmentOpenLS1.Is_Force_From_Analysis = true;
-            this.uC_AbutmentOpenLS1.LL_MLL_Max = "104.72";
-            this.uC_AbutmentOpenLS1.LL_MLL_Min = "26.23";
-            this.uC_AbutmentOpenLS1.LL_MTT_Max = "-660.72";
-            this.uC_AbutmentOpenLS1.LL_MTT_Min = "-165.473";
-            this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
-            this.uC_AbutmentOpenLS1.Railing = "0.5";
-            this.uC_AbutmentOpenLS1.Railing_weight = "0.6";
-            this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
-            this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
-            this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
-            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(172, 36);
-            this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
-            this.uC_AbutmentOpenLS1.Span = "25.0";
-            this.uC_AbutmentOpenLS1.TabIndex = 0;
-            this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
-            this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
             // 
             // tab_AbutmentPileLSM
             // 
             this.tab_AbutmentPileLSM.Controls.Add(this.uC_AbutmentPileLS1);
             this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
-            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(178, 42);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(940, 642);
             this.tab_AbutmentPileLSM.TabIndex = 2;
             this.tab_AbutmentPileLSM.Text = "Abutment Design with Pile Foundation in LSM";
             this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
-            // 
-            // uC_AbutmentPileLS1
-            // 
-            this.uC_AbutmentPileLS1.Abutment_Length = "13.0";
-            this.uC_AbutmentPileLS1.Bridge_Type = "PSC Girder with Deck Slab";
-            this.uC_AbutmentPileLS1.Carriageway_width = "13.0";
-            this.uC_AbutmentPileLS1.Concrete_Grade = "35";
-            this.uC_AbutmentPileLS1.Concrete_Reinforcement = "500";
-            this.uC_AbutmentPileLS1.Crash_Barrier = "0.5";
-            this.uC_AbutmentPileLS1.Crash_Barrier_weight = "0.8";
-            this.uC_AbutmentPileLS1.Cross_Camber = "0.025";
-            this.uC_AbutmentPileLS1.DL_MLL = "0.0";
-            this.uC_AbutmentPileLS1.DL_MTT = "-458.64";
-            this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_AbutmentPileLS1.Exp_Gap = "50";
-            this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_AbutmentPileLS1.Foot_path = "0.0";
-            this.uC_AbutmentPileLS1.Foot_Path_Live_Load = "0.4";
-            this.uC_AbutmentPileLS1.Girder_Depth = "1.08";
-            this.uC_AbutmentPileLS1.Girder_Nos = "4";
-            this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
-            this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
-            this.uC_AbutmentPileLS1.LL_MLL_Max = "104.72";
-            this.uC_AbutmentPileLS1.LL_MLL_Min = "26.23";
-            this.uC_AbutmentPileLS1.LL_MTT_Max = "-660.726";
-            this.uC_AbutmentPileLS1.LL_MTT_Min = "-165.47";
-            this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(0, 0);
-            this.uC_AbutmentPileLS1.MAX_HOR_LOAD = "80.0";
-            this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
-            this.uC_AbutmentPileLS1.MAX_VERT_LOAD = "433.0";
-            this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
-            this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
-            this.uC_AbutmentPileLS1.Pile_Dia = "1.2";
-            this.uC_AbutmentPileLS1.Railing = "0.0";
-            this.uC_AbutmentPileLS1.Railing_weight = "0.6";
-            this.uC_AbutmentPileLS1.RCC_Density = "2.5";
-            this.uC_AbutmentPileLS1.Show_Title = false;
-            this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
-            this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
-            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(178, 42);
-            this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
-            this.uC_AbutmentPileLS1.Span = "12.687";
-            this.uC_AbutmentPileLS1.TabIndex = 0;
-            this.uC_AbutmentPileLS1.Wearing_coat_load = "0.22";
-            this.uC_AbutmentPileLS1.Wearing_Coat_Thickness = "65";
             // 
             // tab_pier
             // 
@@ -25827,7 +25866,7 @@
             this.tab_des_form2.Location = new System.Drawing.Point(4, 22);
             this.tab_des_form2.Name = "tab_des_form2";
             this.tab_des_form2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form2.Size = new System.Drawing.Size(170, 0);
+            this.tab_des_form2.Size = new System.Drawing.Size(932, 573);
             this.tab_des_form2.TabIndex = 2;
             this.tab_des_form2.Text = "Design Input Data [Form2]";
             this.tab_des_form2.UseVisualStyleBackColor = true;
@@ -26489,7 +26528,7 @@
             this.tab_des_Diagram.Location = new System.Drawing.Point(4, 22);
             this.tab_des_Diagram.Name = "tab_des_Diagram";
             this.tab_des_Diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_Diagram.Size = new System.Drawing.Size(170, 0);
+            this.tab_des_Diagram.Size = new System.Drawing.Size(932, 573);
             this.tab_des_Diagram.TabIndex = 1;
             this.tab_des_Diagram.Text = "Diagram";
             this.tab_des_Diagram.UseVisualStyleBackColor = true;
@@ -26502,7 +26541,7 @@
             this.pic_pier_interactive_diagram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_pier_interactive_diagram.Location = new System.Drawing.Point(3, 3);
             this.pic_pier_interactive_diagram.Name = "pic_pier_interactive_diagram";
-            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(164, 0);
+            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(926, 567);
             this.pic_pier_interactive_diagram.TabIndex = 0;
             this.pic_pier_interactive_diagram.TabStop = false;
             // 
@@ -26555,80 +26594,20 @@
             this.tab_PierWSM_Excel.Controls.Add(this.uC_PierDesignWSM1);
             this.tab_PierWSM_Excel.Location = new System.Drawing.Point(4, 22);
             this.tab_PierWSM_Excel.Name = "tab_PierWSM_Excel";
-            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(946, 648);
             this.tab_PierWSM_Excel.TabIndex = 2;
             this.tab_PierWSM_Excel.Text = "Design of RCC Pier in Working Stress Method";
             this.tab_PierWSM_Excel.UseVisualStyleBackColor = true;
-            // 
-            // uC_PierDesignWSM1
-            // 
-            this.uC_PierDesignWSM1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierDesignWSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierDesignWSM1.Left_Span_Force = "2600.0";
-            this.uC_PierDesignWSM1.Location = new System.Drawing.Point(0, 0);
-            this.uC_PierDesignWSM1.Name = "uC_PierDesignWSM1";
-            this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
-            this.uC_PierDesignWSM1.Show_Note = false;
-            this.uC_PierDesignWSM1.Show_Title = false;
-            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(184, 48);
-            this.uC_PierDesignWSM1.TabIndex = 0;
             // 
             // tab_PierOpenLSM
             // 
             this.tab_PierOpenLSM.Controls.Add(this.uC_PierOpenLS1);
             this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
-            this.tab_PierOpenLSM.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(946, 648);
             this.tab_PierOpenLSM.TabIndex = 3;
             this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
             this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
-            // 
-            // uC_PierOpenLS1
-            // 
-            this.uC_PierOpenLS1.CarriageWidth_Left = "11.00";
-            this.uC_PierOpenLS1.CarriageWidth_Right = "11.00";
-            this.uC_PierOpenLS1.CC_Exp_Gap_Left = "40";
-            this.uC_PierOpenLS1.CC_Exp_Gap_Right = "40";
-            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "0.42";
-            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "0.42";
-            this.uC_PierOpenLS1.CC_Exp_Joint_Left_Skew = "25.84";
-            this.uC_PierOpenLS1.CC_Exp_Joint_Right_Skew = "25.84";
-            this.uC_PierOpenLS1.CrashBarierHeight_Left = "1.10";
-            this.uC_PierOpenLS1.CrashBarierHeight_Right = "1.10";
-            this.uC_PierOpenLS1.CrashBarierWidth_Left = "0.50";
-            this.uC_PierOpenLS1.CrashBarierWidth_Nos = "2";
-            this.uC_PierOpenLS1.CrashBarierWidth_Right = "0.50";
-            this.uC_PierOpenLS1.CrossGirderNos_Left = "2";
-            this.uC_PierOpenLS1.CrossGirderNos_Right = "2";
-            this.uC_PierOpenLS1.CrossGirderWidth_Left = "0.45";
-            this.uC_PierOpenLS1.CrossGirderWidth_Right = "0.45";
-            this.uC_PierOpenLS1.DL_Force = "3322.53";
-            this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierOpenLS1.FootPathWidth_Left = "1.50";
-            this.uC_PierOpenLS1.FootPathWidth_Nos = "2";
-            this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
-            this.uC_PierOpenLS1.FPLL_Force = "310.08";
-            this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
-            this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
-            this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
-            this.uC_PierOpenLS1.Location = new System.Drawing.Point(0, 0);
-            this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
-            this.uC_PierOpenLS1.RailingWidth_Left = "0.50";
-            this.uC_PierOpenLS1.RailingWidth_Nos = "2";
-            this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
-            this.uC_PierOpenLS1.Show_Title = false;
-            this.uC_PierOpenLS1.SIDL_Force = "723.52";
-            this.uC_PierOpenLS1.Size = new System.Drawing.Size(184, 48);
-            this.uC_PierOpenLS1.SkewAngle = "0.0";
-            this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
-            this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
-            this.uC_PierOpenLS1.Surface_Force = "723.52";
-            this.uC_PierOpenLS1.TabIndex = 0;
-            this.uC_PierOpenLS1.TopFlangeWidth_Left = "1.00";
-            this.uC_PierOpenLS1.TopFlangeWidth_Right = "0.22";
-            this.uC_PierOpenLS1.WearingCoatThickness_Left = "65";
-            this.uC_PierOpenLS1.WearingCoatThickness_Right = "65";
             // 
             // tab_PierLSM
             // 
@@ -26636,85 +26615,20 @@
             this.tab_PierLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierLSM.Name = "tab_PierLSM";
             this.tab_PierLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierLSM.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierLSM.Size = new System.Drawing.Size(946, 648);
             this.tab_PierLSM.TabIndex = 1;
             this.tab_PierLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierLSM.UseVisualStyleBackColor = true;
-            // 
-            // uC_PierDesignLSM1
-            // 
-            this.uC_PierDesignLSM1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierDesignLSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierDesignLSM1.iApp = null;
-            this.uC_PierDesignLSM1.Left_Span = "35";
-            this.uC_PierDesignLSM1.Left_Span_Moment_Mx = "0.0";
-            this.uC_PierDesignLSM1.Left_Span_Moment_Mz = "0.0";
-            this.uC_PierDesignLSM1.Left_Span_Vertical_Load = "42";
-            this.uC_PierDesignLSM1.Location = new System.Drawing.Point(3, 3);
-            this.uC_PierDesignLSM1.Name = "uC_PierDesignLSM1";
-            this.uC_PierDesignLSM1.Right_Span = "35";
-            this.uC_PierDesignLSM1.Right_Span_Moment_Mx = "0.0";
-            this.uC_PierDesignLSM1.Right_Span_Moment_Mz = "0.0";
-            this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
-            this.uC_PierDesignLSM1.Show_Note = false;
-            this.uC_PierDesignLSM1.Show_Title = false;
-            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(178, 42);
-            this.uC_PierDesignLSM1.TabIndex = 0;
-            this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
-            this.uC_PierDesignLSM1.OnProcess += new System.EventHandler(this.uC_PierDesignLSM1_OnProcess);
             // 
             // tab_PierPileLSM
             // 
             this.tab_PierPileLSM.Controls.Add(this.uC_PierPileLS1);
             this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierPileLSM.Name = "tab_PierPileLSM";
-            this.tab_PierPileLSM.Size = new System.Drawing.Size(184, 48);
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(946, 648);
             this.tab_PierPileLSM.TabIndex = 4;
             this.tab_PierPileLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierPileLSM.UseVisualStyleBackColor = true;
-            // 
-            // uC_PierPileLS1
-            // 
-            this.uC_PierPileLS1.CarriageWidth_Left = "12.00";
-            this.uC_PierPileLS1.CarriageWidth_Right = "12.00";
-            this.uC_PierPileLS1.CC_Exp_Gap_Left = "50";
-            this.uC_PierPileLS1.CC_Exp_Gap_Right = "50";
-            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "1.157";
-            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "1.157";
-            this.uC_PierPileLS1.CC_Exp_Joint_Left_Skew = "15.00";
-            this.uC_PierPileLS1.CC_Exp_Joint_Right_Skew = "30.00";
-            this.uC_PierPileLS1.CrashBarierHeight_Left = "1.10";
-            this.uC_PierPileLS1.CrashBarierHeight_Right = "1.10";
-            this.uC_PierPileLS1.CrashBarierWidth_Left = "0.50";
-            this.uC_PierPileLS1.CrashBarierWidth_Nos = "2";
-            this.uC_PierPileLS1.CrashBarierWidth_Right = "0.50";
-            this.uC_PierPileLS1.CrossGirderNos_Left = "2";
-            this.uC_PierPileLS1.CrossGirderNos_Right = "2";
-            this.uC_PierPileLS1.CrossGirderWidth_Left = "0.50";
-            this.uC_PierPileLS1.CrossGirderWidth_Right = "0.50";
-            this.uC_PierPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierPileLS1.FootPathWidth_Left = "0.0";
-            this.uC_PierPileLS1.FootPathWidth_Nos = "0";
-            this.uC_PierPileLS1.FootPathWidth_Right = "0.0";
-            this.uC_PierPileLS1.GirderDepth_Left = "1.08";
-            this.uC_PierPileLS1.GirderDepth_Right = "2.00";
-            this.uC_PierPileLS1.Is_Force_From_Analysis = true;
-            this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
-            this.uC_PierPileLS1.Name = "uC_PierPileLS1";
-            this.uC_PierPileLS1.RailingWidth_Left = "0.0";
-            this.uC_PierPileLS1.RailingWidth_Nos = "0";
-            this.uC_PierPileLS1.RailingWidth_Right = "0.0";
-            this.uC_PierPileLS1.Show_Title = false;
-            this.uC_PierPileLS1.Size = new System.Drawing.Size(184, 48);
-            this.uC_PierPileLS1.SkewAngle = "18.0";
-            this.uC_PierPileLS1.SlabDepth_Left = "0.22";
-            this.uC_PierPileLS1.SlabDepth_Right = "0.22";
-            this.uC_PierPileLS1.TabIndex = 0;
-            this.uC_PierPileLS1.TopFlangeWidth_Left = "0.80";
-            this.uC_PierPileLS1.TopFlangeWidth_Right = "0.22";
-            this.uC_PierPileLS1.WearingCoatThickness_Left = "65";
-            this.uC_PierPileLS1.WearingCoatThickness_Right = "65";
             // 
             // tab_Bearing
             // 
@@ -26902,41 +26816,313 @@
             this.btn_dwg_abutment.Visible = false;
             this.btn_dwg_abutment.Click += new System.EventHandler(this.btn_dwg_long_Click);
             // 
-            // groupBox37
+            // uC_Orthotropic1
             // 
-            this.groupBox37.Controls.Add(this.rbtn_concrete_deck);
-            this.groupBox37.Controls.Add(this.rbtn_steel_deck);
-            this.groupBox37.Controls.Add(this.label32);
-            this.groupBox37.Controls.Add(this.txt_Ana_Ds);
-            this.groupBox37.Controls.Add(this.label33);
-            this.groupBox37.Location = new System.Drawing.Point(3, 449);
-            this.groupBox37.Name = "groupBox37";
-            this.groupBox37.Size = new System.Drawing.Size(391, 62);
-            this.groupBox37.TabIndex = 129;
-            this.groupBox37.TabStop = false;
+            this.uC_Orthotropic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Orthotropic1.Location = new System.Drawing.Point(3, 36);
+            this.uC_Orthotropic1.Name = "uC_Orthotropic1";
+            this.uC_Orthotropic1.Size = new System.Drawing.Size(934, 603);
+            this.uC_Orthotropic1.TabIndex = 1;
+            this.uC_Orthotropic1.OnDraw_Click += new System.EventHandler(this.uC_Orthotropic1_OnDraw_Click);
             // 
-            // rbtn_concrete_deck
+            // uC_RCC_Abut1
             // 
-            this.rbtn_concrete_deck.AutoSize = true;
-            this.rbtn_concrete_deck.Checked = true;
-            this.rbtn_concrete_deck.Location = new System.Drawing.Point(12, 13);
-            this.rbtn_concrete_deck.Name = "rbtn_concrete_deck";
-            this.rbtn_concrete_deck.Size = new System.Drawing.Size(119, 17);
-            this.rbtn_concrete_deck.TabIndex = 105;
-            this.rbtn_concrete_deck.TabStop = true;
-            this.rbtn_concrete_deck.Text = "Concrete Deck";
-            this.rbtn_concrete_deck.UseVisualStyleBackColor = true;
+            this.uC_RCC_Abut1.Deadload_Reaction = "";
+            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_RCC_Abut1.iApp = null;
+            this.uC_RCC_Abut1.Is_Individual = true;
+            this.uC_RCC_Abut1.Is_Limit_State = true;
+            this.uC_RCC_Abut1.IsBoxType = false;
+            this.uC_RCC_Abut1.Length = 60D;
+            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
+            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
+            this.uC_RCC_Abut1.Overhang = 0.65D;
+            this.uC_RCC_Abut1.Size = new System.Drawing.Size(934, 636);
+            this.uC_RCC_Abut1.TabIndex = 0;
+            this.uC_RCC_Abut1.Width = 383D;
+            this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
+            this.uC_RCC_Abut1.Load += new System.EventHandler(this.uC_RCC_Abut1_Load);
             // 
-            // rbtn_steel_deck
+            // uC_AbutmentOpenLS1
             // 
-            this.rbtn_steel_deck.AutoSize = true;
-            this.rbtn_steel_deck.Location = new System.Drawing.Point(195, 13);
-            this.rbtn_steel_deck.Name = "rbtn_steel_deck";
-            this.rbtn_steel_deck.Size = new System.Drawing.Size(94, 17);
-            this.rbtn_steel_deck.TabIndex = 106;
-            this.rbtn_steel_deck.Text = "Steel Deck";
-            this.rbtn_steel_deck.UseVisualStyleBackColor = true;
-            this.rbtn_steel_deck.CheckedChanged += new System.EventHandler(this.rbtn_steel_deck_CheckedChanged);
+            this.uC_AbutmentOpenLS1.Bridge_Type = "RCC Girder with Deck Slab";
+            this.uC_AbutmentOpenLS1.Carriageway_width = "16";
+            this.uC_AbutmentOpenLS1.Concrete_Grade = "30";
+            this.uC_AbutmentOpenLS1.Concrete_Reinforcement = "500";
+            this.uC_AbutmentOpenLS1.Crash_Barrier = "0.5";
+            this.uC_AbutmentOpenLS1.Crash_Barrier_weight = "0.8";
+            this.uC_AbutmentOpenLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentOpenLS1.DL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.DL_MTT = "-2095.50";
+            this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentOpenLS1.Exp_Gap = "40";
+            this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentOpenLS1.Foot_path = "1.5";
+            this.uC_AbutmentOpenLS1.Foot_Path_Live_Load = "0.4";
+            this.uC_AbutmentOpenLS1.Girder_Depth = "2.0";
+            this.uC_AbutmentOpenLS1.Girder_Nos = "6";
+            this.uC_AbutmentOpenLS1.Girder_Spacing = "2.6";
+            this.uC_AbutmentOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentOpenLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentOpenLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentOpenLS1.LL_MTT_Max = "-660.72";
+            this.uC_AbutmentOpenLS1.LL_MTT_Min = "-165.473";
+            this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
+            this.uC_AbutmentOpenLS1.Railing = "0.5";
+            this.uC_AbutmentOpenLS1.Railing_weight = "0.6";
+            this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
+            this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
+            this.uC_AbutmentOpenLS1.Span = "25.0";
+            this.uC_AbutmentOpenLS1.TabIndex = 0;
+            this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
+            this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
+            // 
+            // uC_AbutmentPileLS1
+            // 
+            this.uC_AbutmentPileLS1.Abutment_Length = "13.0";
+            this.uC_AbutmentPileLS1.Bridge_Type = "PSC Girder with Deck Slab";
+            this.uC_AbutmentPileLS1.Carriageway_width = "13.0";
+            this.uC_AbutmentPileLS1.Concrete_Grade = "35";
+            this.uC_AbutmentPileLS1.Concrete_Reinforcement = "500";
+            this.uC_AbutmentPileLS1.Crash_Barrier = "0.5";
+            this.uC_AbutmentPileLS1.Crash_Barrier_weight = "0.8";
+            this.uC_AbutmentPileLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentPileLS1.DL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.DL_MTT = "-458.64";
+            this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentPileLS1.Exp_Gap = "50";
+            this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentPileLS1.Foot_path = "0.0";
+            this.uC_AbutmentPileLS1.Foot_Path_Live_Load = "0.4";
+            this.uC_AbutmentPileLS1.Girder_Depth = "1.08";
+            this.uC_AbutmentPileLS1.Girder_Nos = "4";
+            this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
+            this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentPileLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentPileLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentPileLS1.LL_MTT_Max = "-660.726";
+            this.uC_AbutmentPileLS1.LL_MTT_Min = "-165.47";
+            this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_AbutmentPileLS1.MAX_HOR_LOAD = "80.0";
+            this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
+            this.uC_AbutmentPileLS1.MAX_VERT_LOAD = "433.0";
+            this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
+            this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
+            this.uC_AbutmentPileLS1.Pile_Dia = "1.2";
+            this.uC_AbutmentPileLS1.Railing = "0.0";
+            this.uC_AbutmentPileLS1.Railing_weight = "0.6";
+            this.uC_AbutmentPileLS1.RCC_Density = "2.5";
+            this.uC_AbutmentPileLS1.Show_Title = false;
+            this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(940, 642);
+            this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
+            this.uC_AbutmentPileLS1.Span = "12.687";
+            this.uC_AbutmentPileLS1.TabIndex = 0;
+            this.uC_AbutmentPileLS1.Wearing_coat_load = "0.22";
+            this.uC_AbutmentPileLS1.Wearing_Coat_Thickness = "65";
+            // 
+            // uC_PierDesignWSM1
+            // 
+            this.uC_PierDesignWSM1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierDesignWSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierDesignWSM1.Left_Span_Force = "2600.0";
+            this.uC_PierDesignWSM1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierDesignWSM1.Name = "uC_PierDesignWSM1";
+            this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
+            this.uC_PierDesignWSM1.Show_Note = false;
+            this.uC_PierDesignWSM1.Show_Title = false;
+            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierDesignWSM1.TabIndex = 0;
+            // 
+            // uC_PierOpenLS1
+            // 
+            this.uC_PierOpenLS1.CarriageWidth_Left = "11.00";
+            this.uC_PierOpenLS1.CarriageWidth_Right = "11.00";
+            this.uC_PierOpenLS1.CC_Exp_Gap_Left = "40";
+            this.uC_PierOpenLS1.CC_Exp_Gap_Right = "40";
+            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "0.42";
+            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "0.42";
+            this.uC_PierOpenLS1.CC_Exp_Joint_Left_Skew = "25.84";
+            this.uC_PierOpenLS1.CC_Exp_Joint_Right_Skew = "25.84";
+            this.uC_PierOpenLS1.CrashBarierHeight_Left = "1.10";
+            this.uC_PierOpenLS1.CrashBarierHeight_Right = "1.10";
+            this.uC_PierOpenLS1.CrashBarierWidth_Left = "0.50";
+            this.uC_PierOpenLS1.CrashBarierWidth_Nos = "2";
+            this.uC_PierOpenLS1.CrashBarierWidth_Right = "0.50";
+            this.uC_PierOpenLS1.CrossGirderNos_Left = "2";
+            this.uC_PierOpenLS1.CrossGirderNos_Right = "2";
+            this.uC_PierOpenLS1.CrossGirderWidth_Left = "0.45";
+            this.uC_PierOpenLS1.CrossGirderWidth_Right = "0.45";
+            this.uC_PierOpenLS1.DL_Force = "3322.53";
+            this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierOpenLS1.FootPathWidth_Left = "1.50";
+            this.uC_PierOpenLS1.FootPathWidth_Nos = "2";
+            this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
+            this.uC_PierOpenLS1.FPLL_Force = "310.08";
+            this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
+            this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
+            this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_PierOpenLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
+            this.uC_PierOpenLS1.RailingWidth_Left = "0.50";
+            this.uC_PierOpenLS1.RailingWidth_Nos = "2";
+            this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
+            this.uC_PierOpenLS1.Show_Title = false;
+            this.uC_PierOpenLS1.SIDL_Force = "723.52";
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierOpenLS1.SkewAngle = "0.0";
+            this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
+            this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
+            this.uC_PierOpenLS1.Surface_Force = "723.52";
+            this.uC_PierOpenLS1.TabIndex = 0;
+            this.uC_PierOpenLS1.TopFlangeWidth_Left = "1.00";
+            this.uC_PierOpenLS1.TopFlangeWidth_Right = "0.22";
+            this.uC_PierOpenLS1.WearingCoatThickness_Left = "65";
+            this.uC_PierOpenLS1.WearingCoatThickness_Right = "65";
+            // 
+            // uC_PierDesignLSM1
+            // 
+            this.uC_PierDesignLSM1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierDesignLSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierDesignLSM1.iApp = null;
+            this.uC_PierDesignLSM1.Left_Span = "35";
+            this.uC_PierDesignLSM1.Left_Span_Moment_Mx = "0.0";
+            this.uC_PierDesignLSM1.Left_Span_Moment_Mz = "0.0";
+            this.uC_PierDesignLSM1.Left_Span_Vertical_Load = "42";
+            this.uC_PierDesignLSM1.Location = new System.Drawing.Point(3, 3);
+            this.uC_PierDesignLSM1.Name = "uC_PierDesignLSM1";
+            this.uC_PierDesignLSM1.Right_Span = "35";
+            this.uC_PierDesignLSM1.Right_Span_Moment_Mx = "0.0";
+            this.uC_PierDesignLSM1.Right_Span_Moment_Mz = "0.0";
+            this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
+            this.uC_PierDesignLSM1.Show_Note = false;
+            this.uC_PierDesignLSM1.Show_Title = false;
+            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(940, 642);
+            this.uC_PierDesignLSM1.TabIndex = 0;
+            this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
+            this.uC_PierDesignLSM1.OnProcess += new System.EventHandler(this.uC_PierDesignLSM1_OnProcess);
+            // 
+            // uC_PierPileLS1
+            // 
+            this.uC_PierPileLS1.CarriageWidth_Left = "12.00";
+            this.uC_PierPileLS1.CarriageWidth_Right = "12.00";
+            this.uC_PierPileLS1.CC_Exp_Gap_Left = "50";
+            this.uC_PierPileLS1.CC_Exp_Gap_Right = "50";
+            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "1.157";
+            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "1.157";
+            this.uC_PierPileLS1.CC_Exp_Joint_Left_Skew = "15.00";
+            this.uC_PierPileLS1.CC_Exp_Joint_Right_Skew = "30.00";
+            this.uC_PierPileLS1.CrashBarierHeight_Left = "1.10";
+            this.uC_PierPileLS1.CrashBarierHeight_Right = "1.10";
+            this.uC_PierPileLS1.CrashBarierWidth_Left = "0.50";
+            this.uC_PierPileLS1.CrashBarierWidth_Nos = "2";
+            this.uC_PierPileLS1.CrashBarierWidth_Right = "0.50";
+            this.uC_PierPileLS1.CrossGirderNos_Left = "2";
+            this.uC_PierPileLS1.CrossGirderNos_Right = "2";
+            this.uC_PierPileLS1.CrossGirderWidth_Left = "0.50";
+            this.uC_PierPileLS1.CrossGirderWidth_Right = "0.50";
+            this.uC_PierPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierPileLS1.FootPathWidth_Left = "0.0";
+            this.uC_PierPileLS1.FootPathWidth_Nos = "0";
+            this.uC_PierPileLS1.FootPathWidth_Right = "0.0";
+            this.uC_PierPileLS1.GirderDepth_Left = "1.08";
+            this.uC_PierPileLS1.GirderDepth_Right = "2.00";
+            this.uC_PierPileLS1.Is_Force_From_Analysis = true;
+            this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierPileLS1.Name = "uC_PierPileLS1";
+            this.uC_PierPileLS1.RailingWidth_Left = "0.0";
+            this.uC_PierPileLS1.RailingWidth_Nos = "0";
+            this.uC_PierPileLS1.RailingWidth_Right = "0.0";
+            this.uC_PierPileLS1.Show_Title = false;
+            this.uC_PierPileLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierPileLS1.SkewAngle = "18.0";
+            this.uC_PierPileLS1.SlabDepth_Left = "0.22";
+            this.uC_PierPileLS1.SlabDepth_Right = "0.22";
+            this.uC_PierPileLS1.TabIndex = 0;
+            this.uC_PierPileLS1.TopFlangeWidth_Left = "0.80";
+            this.uC_PierPileLS1.TopFlangeWidth_Right = "0.22";
+            this.uC_PierPileLS1.WearingCoatThickness_Left = "65";
+            this.uC_PierPileLS1.WearingCoatThickness_Right = "65";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(716, 611);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(170, 13);
+            this.label18.TabIndex = 97;
+            this.label18.Text = "DL + LL Combine Load No";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(778, 586);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(114, 13);
+            this.label75.TabIndex = 100;
+            this.label75.Text = "Load Generation";
+            // 
+            // txt_LL_load_gen
+            // 
+            this.txt_LL_load_gen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_LL_load_gen.Location = new System.Drawing.Point(898, 583);
+            this.txt_LL_load_gen.Name = "txt_LL_load_gen";
+            this.txt_LL_load_gen.Size = new System.Drawing.Size(39, 21);
+            this.txt_LL_load_gen.TabIndex = 99;
+            this.txt_LL_load_gen.Text = "191";
+            this.txt_LL_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_dl_ll_comb
+            // 
+            this.txt_dl_ll_comb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_dl_ll_comb.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_dl_ll_comb.Location = new System.Drawing.Point(898, 611);
+            this.txt_dl_ll_comb.Name = "txt_dl_ll_comb";
+            this.txt_dl_ll_comb.Size = new System.Drawing.Size(39, 18);
+            this.txt_dl_ll_comb.TabIndex = 95;
+            this.txt_dl_ll_comb.Text = "1";
+            this.txt_dl_ll_comb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_XINCR
+            // 
+            this.txt_XINCR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_XINCR.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_XINCR.Location = new System.Drawing.Point(719, 585);
+            this.txt_XINCR.Name = "txt_XINCR";
+            this.txt_XINCR.Size = new System.Drawing.Size(37, 18);
+            this.txt_XINCR.TabIndex = 96;
+            this.txt_XINCR.Text = "0.5";
+            this.txt_XINCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_XINCR.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(663, 586);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 98;
+            this.label19.Text = "X INCR";
+            // 
+            // txt_Ana_member_load
+            // 
+            this.txt_Ana_member_load.Location = new System.Drawing.Point(429, 77);
+            this.txt_Ana_member_load.Multiline = true;
+            this.txt_Ana_member_load.Name = "txt_Ana_member_load";
+            this.txt_Ana_member_load.Size = new System.Drawing.Size(52, 36);
+            this.txt_Ana_member_load.TabIndex = 101;
+            this.txt_Ana_member_load.Visible = false;
             // 
             // frm_CompositeLSM
             // 
@@ -26959,6 +27145,8 @@
             this.panel7.ResumeLayout(false);
             this.grb_create_input_data.ResumeLayout(false);
             this.grb_create_input_data.PerformLayout();
+            this.groupBox37.ResumeLayout(false);
+            this.groupBox37.PerformLayout();
             this.groupBox116.ResumeLayout(false);
             this.groupBox116.PerformLayout();
             this.grb_curve.ResumeLayout(false);
@@ -26981,11 +27169,6 @@
             this.groupBox41.PerformLayout();
             this.grb_select_analysis.ResumeLayout(false);
             this.grb_select_analysis.PerformLayout();
-            this.grb_ll_indian.ResumeLayout(false);
-            this.grb_ll_indian.PerformLayout();
-            this.grb_LL.ResumeLayout(false);
-            this.grb_LL.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_live_load)).EndInit();
             this.tab_section.ResumeLayout(false);
             this.tab_section.PerformLayout();
             this.groupBox10.ResumeLayout(false);
@@ -27052,6 +27235,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sec_res)).EndInit();
             this.groupBox56.ResumeLayout(false);
             this.groupBox56.PerformLayout();
+            this.tab_LL_IRC.ResumeLayout(false);
+            this.tab_LL_IRC.PerformLayout();
+            this.groupBox117.ResumeLayout(false);
+            this.groupBox117.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_loads)).EndInit();
+            this.groupBox118.ResumeLayout(false);
+            this.groupBox118.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_liveloads)).EndInit();
             this.tab_moving_data_british.ResumeLayout(false);
             this.groupBox45.ResumeLayout(false);
             this.spc_HB.Panel1.ResumeLayout(false);
@@ -27295,8 +27486,6 @@
             this.tab_Drawing.ResumeLayout(false);
             this.tab_Drawing.PerformLayout();
             this.panel4.ResumeLayout(false);
-            this.groupBox37.ResumeLayout(false);
-            this.groupBox37.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -27311,7 +27500,6 @@
         private System.Windows.Forms.RadioButton rbtn_sec_plate;
         private System.Windows.Forms.RadioButton rbtn_sec_box;
         private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.TextBox txt_Ana_member_load;
         private System.Windows.Forms.CheckBox chk_WC;
         private System.Windows.Forms.CheckBox chk_fp_right;
         private System.Windows.Forms.GroupBox grb_ana_wc;
@@ -27336,32 +27524,6 @@
         private System.Windows.Forms.Label label525;
         private System.Windows.Forms.Label label526;
         private System.Windows.Forms.TextBox txt_Ana_wf;
-        private System.Windows.Forms.GroupBox grb_ll_indian;
-        private System.Windows.Forms.GroupBox grb_LL;
-        private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.Button btn_live_load_remove_all;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox txt_LL_load_gen;
-        private System.Windows.Forms.Button btn_add_load;
-        private System.Windows.Forms.Button btn_live_load_remove;
-        private System.Windows.Forms.TextBox txt_Y;
-        private System.Windows.Forms.DataGridView dgv_live_load;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_load_type;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_if;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Z;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_XINC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_imf;
-        private System.Windows.Forms.Label label139;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.TextBox txt_Load_Impact;
-        private System.Windows.Forms.TextBox txt_XINCR;
-        private System.Windows.Forms.ComboBox cmb_Ana_load_type;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.TextBox txt_Ana_X;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txt_Z;
         private System.Windows.Forms.GroupBox grb_genData;
         private System.Windows.Forms.TextBox txt_Ana_NCG;
         private System.Windows.Forms.Label label519;
@@ -29114,7 +29276,6 @@
         private System.Windows.Forms.CheckBox chk_ssprt_fixed_FY;
         private System.Windows.Forms.CheckBox chk_ssprt_fixed_MX;
         private System.Windows.Forms.CheckBox chk_ssprt_fixed_FX;
-        private System.Windows.Forms.Button btn_def_mov_load;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_input;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_inp_val;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_val_unit;
@@ -29551,5 +29712,56 @@
         private System.Windows.Forms.GroupBox groupBox37;
         private System.Windows.Forms.RadioButton rbtn_concrete_deck;
         private System.Windows.Forms.RadioButton rbtn_steel_deck;
+        private System.Windows.Forms.TabPage tab_LL_IRC;
+        private System.Windows.Forms.Button btn_IRC_Loadings;
+        private System.Windows.Forms.Button btn_edit_load_combs;
+        private System.Windows.Forms.GroupBox groupBox117;
+        private System.Windows.Forms.Label label1129;
+        private System.Windows.Forms.DataGridView dgv_long_loads;
+        private System.Windows.Forms.Label label1130;
+        private System.Windows.Forms.Button btn_long_restore_ll;
+        private System.Windows.Forms.GroupBox groupBox118;
+        private System.Windows.Forms.Label label1132;
+        private System.Windows.Forms.DataGridView dgv_long_liveloads;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn91;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn92;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn93;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn94;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn95;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn96;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn97;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn98;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn99;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn102;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn103;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column43;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.TextBox txt_LL_load_gen;
+        private System.Windows.Forms.TextBox txt_dl_ll_comb;
+        private System.Windows.Forms.TextBox txt_XINCR;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txt_Ana_member_load;
     }
 }

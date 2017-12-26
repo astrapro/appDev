@@ -280,6 +280,8 @@ namespace LimitStateMethod.RCC_T_Girder
         #region Form Events
         private void frm_RCC_T_Girder_LS_Load(object sender, EventArgs e)
         {
+            btn_IRC_Loadings.Visible = iApp.DesignStandard == eDesignStandard.IndianStandard;
+
             Set_Project_Name();
 
             #region Analysis Data
@@ -290,6 +292,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
             Default_Moving_Type_LoadData(dgv_long_loads);
             Default_Moving_Type_LoadData(dgv_deck_loads);
+
+
             Deckslab_User_Input();
             Long_Girder_User_Input();
             Cross_Girder_User_Input();
@@ -17607,15 +17611,9 @@ namespace LimitStateMethod.RCC_T_Girder
             }
         }
 
+
         public void Default_Moving_Type_LoadData(DataGridView dgv_live_load)
         {
-            List<string> lst_spcs = new List<string>();
-            dgv_live_load.Rows.Clear();
-            int i = 0;
-            for (i = 0; i < dgv_live_load.ColumnCount; i++)
-            {
-                lst_spcs.Add("");
-            }
             List<string> list = new List<string>();
 
             if (dgv_live_load.Name == dgv_long_loads.Name)
@@ -17657,7 +17655,6 @@ namespace LimitStateMethod.RCC_T_Girder
                 else
                 {
                     #region Long Girder
-                    list.Clear();
                     list.Add(string.Format("LOAD 1,TYPE 4"));
                     list.Add(string.Format("X,0"));
                     list.Add(string.Format("Z,1.5"));
@@ -17700,9 +17697,19 @@ namespace LimitStateMethod.RCC_T_Girder
                 #endregion
             }
 
+            Default_Moving_Type_LoadData(dgv_live_load, list);
+        }
+        public void Default_Moving_Type_LoadData(DataGridView dgv_live_load,  List<string> list)
+        {
+            List<string> lst_spcs = new List<string>();
+            dgv_live_load.Rows.Clear();
+            int i = 0;
+            for (i = 0; i < dgv_live_load.ColumnCount; i++)
+            {
+                lst_spcs.Add("");
+            }
             for (i = 0; i < list.Count; i++)
             {
-
                 dgv_live_load.Rows.Add(lst_spcs.ToArray());
             }
 
@@ -18472,6 +18479,10 @@ namespace LimitStateMethod.RCC_T_Girder
                     CW = B - Wf - Wk;
                 else
                     CW = B - 2 * Wf;
+            }
+            else
+            {
+
             }
 
             Calculate_Interactive_Values();
@@ -24336,8 +24347,11 @@ namespace LimitStateMethod.RCC_T_Girder
         private void uC_AbutmentOpenLS1_Worksheet_Force_CheckedChanged(object sender, EventArgs e)
         {
             //uC_AbutmentOpenLS1.DL_MLL = 
+        }
 
-
+        private void btn_IRC_Loadings_Click(object sender, EventArgs e)
+        {
+            Default_Moving_Type_LoadData(dgv_long_loads, iApp.IRC_6_2014_Load_Combinations(CW));
         }
 
     }

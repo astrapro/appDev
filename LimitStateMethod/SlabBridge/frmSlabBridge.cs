@@ -29,6 +29,7 @@ namespace LimitStateMethod.SlabBridge
 
         public string Get_LL_File(int LoadNo)
         {
+            if (Input_File_LL == "") return "";
             string fl_name = Path.Combine(Path.GetDirectoryName(Input_File_LL), "LL_ANALYSIS_" + LoadNo);
             if (!Directory.Exists(fl_name)) Directory.CreateDirectory(fl_name);
 
@@ -113,7 +114,6 @@ namespace LimitStateMethod.SlabBridge
         }
         public void Write_All_Data(bool showMessage)
         {
-
             iApp.Save_Form_Record(this, user_path);
         }
 
@@ -353,7 +353,7 @@ namespace LimitStateMethod.SlabBridge
             {
 
                 //if (false)
-                    if (true)
+                if (true)
                 {
                     List<string> list = new List<string>();
                     DataGridView dgv = dgv_design_data;
@@ -373,7 +373,7 @@ namespace LimitStateMethod.SlabBridge
                     List<string> lst_vals = new List<string>();
                     foreach (var item in dips)
                     {
-                        if(item.DATA != "")
+                        if (item.DATA != "")
                         {
                             //lst_vals.Add(MyList.StringToDouble(item.DATA));
                             lst_vals.Add(item.DATA);
@@ -384,22 +384,22 @@ namespace LimitStateMethod.SlabBridge
 
                     rindx = 0;
 
-                        //8
+                    //8
 
-//14
+                    //14
 
-//18
+                    //18
 
-//25
-//26
-//31
-//32
+                    //25
+                    //26
+                    //31
+                    //32
 
-//41
-//43
-//47-49
-//51-54
-//57-62
+                    //41
+                    //43
+                    //47-49
+                    //51-54
+                    //57-62
                     for (i = 4; i < 65; i++)
                     {
                         if ((i == 8) ||
@@ -413,7 +413,7 @@ namespace LimitStateMethod.SlabBridge
                             (i == 43) ||
                             (i >= 47 && i <= 49) ||
                             (i >= 51 && i <= 54) ||
-                            (i >= 57 && i <= 62) 
+                            (i >= 57 && i <= 62)
                            )
                         {
                             continue;
@@ -442,9 +442,112 @@ namespace LimitStateMethod.SlabBridge
                     }
                     #endregion Design Data
 
-
                     rindx = 0;
 
+
+                    if (true)
+                    {
+                        #region Analysis Results
+                        rindx = 0;
+
+
+                        myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Summary"];
+
+
+
+                        SB_Results BR = new SB_Results(Result_File);
+
+
+
+
+                        SB_Table bt = BR[0];
+
+                        List<string> cells = new List<string>();
+
+
+
+                        cells.Add("B");
+                        cells.Add("C");
+                        cells.Add("D");
+                        cells.Add("E");
+                        cells.Add("F");
+                        cells.Add("G");
+                        cells.Add("H");
+                        //cells.Add("I");
+                        //cells.Add("J");
+                        //cells.Add("K");
+                        //cells.Add("L");
+                        //cells.Add("M");
+                        //cells.Add("N");
+                        //cells.Add("O");
+
+
+                        bt = BR[0];
+
+                        #region Top Slab 1 Bending Moment
+                        rindx = 0;
+                        for (i = 4; i <= 13; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 1 Bending Moment
+
+                        rindx = 0;
+
+                        bt = BR[1];
+
+
+                        cells.Clear();
+                        cells.Add("B");
+                        cells.Add("C");
+                        cells.Add("D");
+                        cells.Add("E");
+                        cells.Add("F");
+                        cells.Add("G");
+                        cells.Add("H");
+                        cells.Add("I");
+                        cells.Add("J");
+                        cells.Add("K");
+                        cells.Add("L");
+                        cells.Add("M");
+                        cells.Add("N");
+                        cells.Add("O");
+                        cells.Add("P");
+                        cells.Add("Q");
+                        cells.Add("R");
+
+
+                        #region Top Slab 2 Bending Moment
+                        rindx = 0;
+                        for (i = 19; i <= 28; i++)
+                        {
+                            //foreach (var item in cells)
+                            //{
+                            //    //myExcelWorksheet.get_Range(item + i).Formula = bt[i][rindx++];
+                            //}
+
+                            for (int c = 0; c < cells.Count; c++)
+                            {
+                                myExcelWorksheet.get_Range(cells[c] + i).Formula = bt[rindx][c];
+                            }
+                            //myExcelWorksheet.get_Range("G" + i).Formula = dips[rindx++].DATA.ToString();
+                            rindx++;
+                        }
+                        #endregion Top Slab 2 Bending Moment
+                        #endregion
+
+
+                    }
                 }
 
             }
@@ -2655,11 +2758,12 @@ namespace LimitStateMethod.SlabBridge
             }
             else if (btn == btn_LL_input)
             {
-                if (File.Exists(Input_File_LL))
+                string ff = Get_LL_File(1);
+                if (File.Exists(ff))
                 {
                     // iApp.Form_ASTRA_Input_Data(Input_File_LL, false).Show();
                     //System.Diagnostics.Process.Start(Input_File_LL);
-                    iApp.Form_ASTRA_TEXT_Data(Input_File_LL, false).Show();
+                    iApp.Form_ASTRA_TEXT_Data(ff, false).Show();
                 }
             }
             else if (btn == btn_LL_report)
@@ -2674,6 +2778,7 @@ namespace LimitStateMethod.SlabBridge
 
             }
             Button_Enable_Disable();
+            Write_All_Data(false);
         }
 
         public void Create_Data()
@@ -2857,6 +2962,8 @@ namespace LimitStateMethod.SlabBridge
 
 
             Working_Folder = user_path;
+            //Input_File_LL = Get_LL_File(1);
+            string ll_file = Get_LL_File(1);
 
             string pd = "";
             if (Directory.Exists(Working_Folder))
@@ -2872,18 +2979,18 @@ namespace LimitStateMethod.SlabBridge
 
             //btn_process_design.Enabled = Directory.Exists(Working_Folder);
 
-
             btn_create_data.Enabled = Directory.Exists(iApp.user_path);
             btn_process_data.Enabled = File.Exists(Input_File_DL);
             btn_DL_input.Enabled = File.Exists(Input_File_DL);
-            btn_LL_input.Enabled = File.Exists(Input_File_LL);
+            btn_LL_input.Enabled = File.Exists(ll_file);
             btn_DL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_DL));
-            btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL));
+            btn_LL_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(ll_file));
 
 
             btn_process_design.Enabled = File.Exists(Result_File);
 
-            grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            //grb_Design.Enabled = (btn_DL_report.Enabled && btn_LL_report.Enabled);
+            grb_Design.Enabled = File.Exists(Result_File);
 
             //btn_.Enabled = File.Exists(Input_File_DL);
         }
@@ -2979,7 +3086,7 @@ namespace LimitStateMethod.SlabBridge
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
             {
                 list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
-                list.Add(string.Format("TYPE 3 IRCCLASSA  1.179"));
+                list.Add(string.Format("TYPE 3 IRC70RWHEEL  1.179"));
                 list.Add(string.Format("LOAD GENERATION 39"));
                 list.Add(string.Format("TYPE 3 -18.800 0 1.500 XINC 0.5"));
 
@@ -2988,7 +3095,7 @@ namespace LimitStateMethod.SlabBridge
 
                 list.Clear();
                 list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
-                list.Add(string.Format("TYPE 2 IRCCLASSA  1.179"));
+                list.Add(string.Format("TYPE 2 IRC70RTRACK  1.179"));
                 list.Add(string.Format("LOAD GENERATION 39"));
                 list.Add(string.Format("TYPE 2 0.0 0 1.500 XINC 0.5"));
 
@@ -2999,7 +3106,7 @@ namespace LimitStateMethod.SlabBridge
                 list.Clear();
 
                 list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
-                list.Add(string.Format("TYPE 4 IRCCLASSA  1.179"));
+                list.Add(string.Format("TYPE 4 IRC70RW40TBL  1.179"));
                 list.Add(string.Format("LOAD GENERATION 39"));
                 list.Add(string.Format("TYPE 4 0.0 0 1.500 XINC 0.5"));
 
@@ -3666,7 +3773,8 @@ namespace LimitStateMethod.SlabBridge
                     tab = new SB_Table(kStr);
                     this.Add(tab);
                     flag = true;
-                    i += 5;
+                    if (Count == 1) i += 6;
+                    if (Count == 2) i += 7;
                     continue;
                 }
 
@@ -5268,9 +5376,6 @@ namespace LimitStateMethod.SlabBridge
             LoadList_6.Add(ld);
 
             #endregion Set Loads
-
         }
     }
-
-
 }

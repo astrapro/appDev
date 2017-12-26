@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_RCC_T_Girder_LS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -72,6 +71,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tab_dl = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -449,18 +449,13 @@
             this.label546 = new System.Windows.Forms.Label();
             this.tab_mov_data_Indian = new System.Windows.Forms.TabPage();
             this.label202 = new System.Windows.Forms.Label();
+            this.btn_IRC_Loadings = new System.Windows.Forms.Button();
             this.btn_edit_load_combs = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
             this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dgv_long_loads = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
             this.txt_XINCR = new System.Windows.Forms.TextBox();
@@ -878,9 +873,7 @@
             this.btn_LS_deck_ws = new System.Windows.Forms.Button();
             this.btn_LS_deck_ws_open = new System.Windows.Forms.Button();
             this.tab_deck_slab_BS = new System.Windows.Forms.TabPage();
-            this.uC_Deckslab_BS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_BS();
             this.tab_deck_slab_IS = new System.Windows.Forms.TabPage();
-            this.uC_Deckslab_IS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_IS();
             this.tab_abutment = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.label508 = new System.Windows.Forms.Label();
@@ -1259,7 +1252,6 @@
             this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
             this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_bearing = new System.Windows.Forms.TabPage();
-            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.button1 = new System.Windows.Forms.Button();
             this.tab_drawings = new System.Windows.Forms.TabPage();
             this.tc_drawings = new System.Windows.Forms.TabControl();
@@ -1281,6 +1273,20 @@
             this.tab_Reports = new System.Windows.Forms.TabPage();
             this.uC_ViewReports1 = new BridgeAnalysisDesign.ViewReports.UC_ViewReports();
             this.label210 = new System.Windows.Forms.Label();
+            this.uC_Deckslab_BS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_BS();
+            this.uC_Deckslab_IS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_IS();
+            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCtrl.SuspendLayout();
             this.tab_dl.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -5485,6 +5491,7 @@
             // tab_mov_data_Indian
             // 
             this.tab_mov_data_Indian.Controls.Add(this.label202);
+            this.tab_mov_data_Indian.Controls.Add(this.btn_IRC_Loadings);
             this.tab_mov_data_Indian.Controls.Add(this.btn_edit_load_combs);
             this.tab_mov_data_Indian.Controls.Add(this.label75);
             this.tab_mov_data_Indian.Controls.Add(this.txt_LL_load_gen);
@@ -5512,11 +5519,21 @@
             this.label202.TabIndex = 60;
             this.label202.Text = "DL + LL Combine Load No";
             // 
+            // btn_IRC_Loadings
+            // 
+            this.btn_IRC_Loadings.Location = new System.Drawing.Point(18, 577);
+            this.btn_IRC_Loadings.Name = "btn_IRC_Loadings";
+            this.btn_IRC_Loadings.Size = new System.Drawing.Size(204, 29);
+            this.btn_IRC_Loadings.TabIndex = 82;
+            this.btn_IRC_Loadings.Text = "IRC Live Load Combinations";
+            this.btn_IRC_Loadings.UseVisualStyleBackColor = true;
+            this.btn_IRC_Loadings.Click += new System.EventHandler(this.btn_IRC_Loadings_Click);
+            // 
             // btn_edit_load_combs
             // 
-            this.btn_edit_load_combs.Location = new System.Drawing.Point(87, 575);
+            this.btn_edit_load_combs.Location = new System.Drawing.Point(246, 577);
             this.btn_edit_load_combs.Name = "btn_edit_load_combs";
-            this.btn_edit_load_combs.Size = new System.Drawing.Size(214, 29);
+            this.btn_edit_load_combs.Size = new System.Drawing.Size(175, 29);
             this.btn_edit_load_combs.TabIndex = 82;
             this.btn_edit_load_combs.Text = "Edit Load Combinations";
             this.btn_edit_load_combs.UseVisualStyleBackColor = true;
@@ -5585,7 +5602,12 @@
             this.dataGridViewTextBoxColumn33,
             this.dataGridViewTextBoxColumn34,
             this.dataGridViewTextBoxColumn35,
-            this.dataGridViewTextBoxColumn36});
+            this.dataGridViewTextBoxColumn36,
+            this.Column2,
+            this.Column23,
+            this.Column24,
+            this.Column25,
+            this.Column26});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5600,45 +5622,6 @@
             this.dgv_long_loads.RowHeadersWidth = 21;
             this.dgv_long_loads.Size = new System.Drawing.Size(272, 510);
             this.dgv_long_loads.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
-            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            this.dataGridViewTextBoxColumn31.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.HeaderText = "1";
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            this.dataGridViewTextBoxColumn32.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.HeaderText = "2";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            this.dataGridViewTextBoxColumn33.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.HeaderText = "3";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.HeaderText = "4";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            this.dataGridViewTextBoxColumn36.HeaderText = "5";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            this.dataGridViewTextBoxColumn36.Width = 50;
             // 
             // label8
             // 
@@ -5688,9 +5671,9 @@
             // 
             // btn_long_restore_ll
             // 
-            this.btn_long_restore_ll.Location = new System.Drawing.Point(313, 575);
+            this.btn_long_restore_ll.Location = new System.Drawing.Point(427, 577);
             this.btn_long_restore_ll.Name = "btn_long_restore_ll";
-            this.btn_long_restore_ll.Size = new System.Drawing.Size(214, 29);
+            this.btn_long_restore_ll.Size = new System.Drawing.Size(175, 29);
             this.btn_long_restore_ll.TabIndex = 8;
             this.btn_long_restore_ll.Text = "Restore Default Values";
             this.btn_long_restore_ll.UseVisualStyleBackColor = true;
@@ -10109,64 +10092,6 @@
             this.tab_deck_slab_BS.Text = "Deck Slab [BS 5400]";
             this.tab_deck_slab_BS.UseVisualStyleBackColor = true;
             // 
-            // uC_Deckslab_BS1
-            // 
-            this.uC_Deckslab_BS1.axle_unit = 10D;
-            this.uC_Deckslab_BS1.b = 12D;
-            this.uC_Deckslab_BS1.b1 = 1.874D;
-            this.uC_Deckslab_BS1.b2 = 0.845D;
-            this.uC_Deckslab_BS1.bar_dia = 16D;
-            this.uC_Deckslab_BS1.bar_no = 7D;
-            this.uC_Deckslab_BS1.bar_spacing = 150D;
-            this.uC_Deckslab_BS1.c_span = 0.815D;
-            this.uC_Deckslab_BS1.cl = 1.315D;
-            this.uC_Deckslab_BS1.cover = 55D;
-            this.uC_Deckslab_BS1.cr = 1.315D;
-            this.uC_Deckslab_BS1.d = 117D;
-            this.uC_Deckslab_BS1.d_total = 205D;
-            this.uC_Deckslab_BS1.d_YD = 0.18D;
-            this.uC_Deckslab_BS1.d1 = 25D;
-            this.uC_Deckslab_BS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Deckslab_BS1.Fck = 50D;
-            this.uC_Deckslab_BS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_Deckslab_BS1.Fy = 500D;
-            this.uC_Deckslab_BS1.gf1_sls_Mhog = 1.1D;
-            this.uC_Deckslab_BS1.gf1_sls_sur = 1.2D;
-            this.uC_Deckslab_BS1.gf1_sls_swt = 1D;
-            this.uC_Deckslab_BS1.gf1_uls_Mhog = 1.3D;
-            this.uC_Deckslab_BS1.gf1_uls_sur = 1.75D;
-            this.uC_Deckslab_BS1.gf1_uls_swt = 1.15D;
-            this.uC_Deckslab_BS1.gf3_sls_Mhog = 1D;
-            this.uC_Deckslab_BS1.gf3_sls_sur = 1D;
-            this.uC_Deckslab_BS1.gf3_sls_swt = 1D;
-            this.uC_Deckslab_BS1.gf3_uls_Mhog = 1.1D;
-            this.uC_Deckslab_BS1.gf3_uls_sur = 1.1D;
-            this.uC_Deckslab_BS1.gf3_uls_swt = 1.1D;
-            this.uC_Deckslab_BS1.girder_no = 4D;
-            this.uC_Deckslab_BS1.h = 180D;
-            this.uC_Deckslab_BS1.load_wheel = 2.5D;
-            this.uC_Deckslab_BS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Deckslab_BS1.Mhog = 0D;
-            this.uC_Deckslab_BS1.Msag = 0D;
-            this.uC_Deckslab_BS1.Name = "uC_Deckslab_BS1";
-            this.uC_Deckslab_BS1.Size = new System.Drawing.Size(948, 668);
-            this.uC_Deckslab_BS1.span_deckslab = 0.962D;
-            this.uC_Deckslab_BS1.TabIndex = 0;
-            this.uC_Deckslab_BS1.thickness_surfacing = 150D;
-            this.uC_Deckslab_BS1.unitwt_concrete = 24D;
-            this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
-            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
-            this.uC_Deckslab_BS1.V = 0D;
-            this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
-            this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
-            this.uC_Deckslab_BS1.width_girderflange = 1.029D;
-            this.uC_Deckslab_BS1.width_girderweb = 0.325D;
-            this.uC_Deckslab_BS1.wload_unit = 30D;
-            this.uC_Deckslab_BS1.YD = "0.18";
-            this.uC_Deckslab_BS1.ZD = "1.0";
-            this.uC_Deckslab_BS1.OnButtonClick += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.ButtonClick(this.uC_Deckslab_BS1_OnButtonClick);
-            this.uC_Deckslab_BS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.CreateData(this.uC_Deckslab_BS1_OnCreateData);
-            // 
             // tab_deck_slab_IS
             // 
             this.tab_deck_slab_IS.Controls.Add(this.uC_Deckslab_IS1);
@@ -10177,30 +10102,6 @@
             this.tab_deck_slab_IS.TabIndex = 7;
             this.tab_deck_slab_IS.Text = "Deckslab [IRC-112]";
             this.tab_deck_slab_IS.UseVisualStyleBackColor = true;
-            // 
-            // uC_Deckslab_IS1
-            // 
-            this.uC_Deckslab_IS1.B = 0D;
-            this.uC_Deckslab_IS1.Deff = 0D;
-            this.uC_Deckslab_IS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Deckslab_IS1.Dw = 0D;
-            this.uC_Deckslab_IS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_Deckslab_IS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Deckslab_IS1.Name = "uC_Deckslab_IS1";
-            this.uC_Deckslab_IS1.Number_Of_Cross_Girder = 0;
-            this.uC_Deckslab_IS1.Number_Of_Long_Girder = 0;
-            this.uC_Deckslab_IS1.Result = null;
-            this.uC_Deckslab_IS1.Size = new System.Drawing.Size(948, 668);
-            this.uC_Deckslab_IS1.Skew_Angle = 0D;
-            this.uC_Deckslab_IS1.SMG = 0D;
-            this.uC_Deckslab_IS1.TabIndex = 0;
-            this.uC_Deckslab_IS1.user_path = null;
-            this.uC_Deckslab_IS1.Wc = 0D;
-            this.uC_Deckslab_IS1.Wf = 0D;
-            this.uC_Deckslab_IS1.Width_LeftCantilever = 0D;
-            this.uC_Deckslab_IS1.Width_RightCantilever = 0D;
-            this.uC_Deckslab_IS1.WidthBridge = 0D;
-            this.uC_Deckslab_IS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_IS.CreateData(this.uC_Deckslab_IS1_OnCreateData);
             // 
             // tab_abutment
             // 
@@ -11491,6 +11392,8 @@
             this.uC_AbutmentPileLS1.Crash_Barrier = "0.5";
             this.uC_AbutmentPileLS1.Crash_Barrier_weight = "0.8";
             this.uC_AbutmentPileLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentPileLS1.DL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.DL_MTT = "-458.64";
             this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_AbutmentPileLS1.Exp_Gap = "50";
             this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -11500,8 +11403,14 @@
             this.uC_AbutmentPileLS1.Girder_Nos = "4";
             this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
             this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentPileLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentPileLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentPileLS1.LL_MTT_Max = "-660.726";
+            this.uC_AbutmentPileLS1.LL_MTT_Min = "-165.47";
             this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentPileLS1.MAX_HOR_LOAD = "80.0";
             this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
+            this.uC_AbutmentPileLS1.MAX_VERT_LOAD = "433.0";
             this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
             this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
             this.uC_AbutmentPileLS1.Pile_Dia = "1.2";
@@ -11509,6 +11418,8 @@
             this.uC_AbutmentPileLS1.Railing_weight = "0.6";
             this.uC_AbutmentPileLS1.RCC_Density = "2.5";
             this.uC_AbutmentPileLS1.Show_Title = false;
+            this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
             this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(934, 636);
             this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentPileLS1.Span = "12.687";
@@ -14366,11 +14277,13 @@
             this.uC_PierOpenLS1.CrossGirderNos_Right = "2";
             this.uC_PierOpenLS1.CrossGirderWidth_Left = "0.45";
             this.uC_PierOpenLS1.CrossGirderWidth_Right = "0.45";
+            this.uC_PierOpenLS1.DL_Force = "3322.53";
             this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_PierOpenLS1.FootPathWidth_Left = "1.50";
             this.uC_PierOpenLS1.FootPathWidth_Nos = "2";
             this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
+            this.uC_PierOpenLS1.FPLL_Force = "310.08";
             this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
             this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
             this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
@@ -14380,10 +14293,12 @@
             this.uC_PierOpenLS1.RailingWidth_Nos = "2";
             this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
             this.uC_PierOpenLS1.Show_Title = false;
+            this.uC_PierOpenLS1.SIDL_Force = "723.52";
             this.uC_PierOpenLS1.Size = new System.Drawing.Size(940, 642);
             this.uC_PierOpenLS1.SkewAngle = "0.0";
             this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
             this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
+            this.uC_PierOpenLS1.Surface_Force = "723.52";
             this.uC_PierOpenLS1.TabIndex = 0;
             this.uC_PierOpenLS1.TopFlangeWidth_Left = "1.00";
             this.uC_PierOpenLS1.TopFlangeWidth_Right = "0.22";
@@ -14465,7 +14380,7 @@
             this.uC_PierPileLS1.RailingWidth_Left = "0.0";
             this.uC_PierPileLS1.RailingWidth_Nos = "0";
             this.uC_PierPileLS1.RailingWidth_Right = "0.0";
-            this.uC_PierPileLS1.Show_Title = true;
+            this.uC_PierPileLS1.Show_Title = false;
             this.uC_PierPileLS1.Size = new System.Drawing.Size(946, 648);
             this.uC_PierPileLS1.SkewAngle = "18.0";
             this.uC_PierPileLS1.SlabDepth_Left = "0.22";
@@ -14488,17 +14403,6 @@
             this.tab_bearing.TabIndex = 9;
             this.tab_bearing.Text = "Bearing";
             this.tab_bearing.UseVisualStyleBackColor = true;
-            // 
-            // uC_BRD1
-            // 
-            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
-            this.uC_BRD1.Name = "uC_BRD1";
-            this.uC_BRD1.Show_Forces = true;
-            this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
-            this.uC_BRD1.TabIndex = 1;
-            this.uC_BRD1.user_path = null;
             // 
             // button1
             // 
@@ -14736,6 +14640,179 @@
             this.label210.TabIndex = 12;
             this.label210.Text = "Drawings and Reports";
             this.label210.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uC_Deckslab_BS1
+            // 
+            this.uC_Deckslab_BS1.axle_unit = 10D;
+            this.uC_Deckslab_BS1.b = 12D;
+            this.uC_Deckslab_BS1.b1 = 1.874D;
+            this.uC_Deckslab_BS1.b2 = 0.845D;
+            this.uC_Deckslab_BS1.bar_dia = 16D;
+            this.uC_Deckslab_BS1.bar_no = 7D;
+            this.uC_Deckslab_BS1.bar_spacing = 150D;
+            this.uC_Deckslab_BS1.c_span = 0.815D;
+            this.uC_Deckslab_BS1.cl = 1.315D;
+            this.uC_Deckslab_BS1.cover = 55D;
+            this.uC_Deckslab_BS1.cr = 1.315D;
+            this.uC_Deckslab_BS1.d = 117D;
+            this.uC_Deckslab_BS1.d_total = 205D;
+            this.uC_Deckslab_BS1.d_YD = 0.18D;
+            this.uC_Deckslab_BS1.d1 = 25D;
+            this.uC_Deckslab_BS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Deckslab_BS1.Fck = 50D;
+            this.uC_Deckslab_BS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Deckslab_BS1.Fy = 500D;
+            this.uC_Deckslab_BS1.gf1_sls_Mhog = 1.1D;
+            this.uC_Deckslab_BS1.gf1_sls_sur = 1.2D;
+            this.uC_Deckslab_BS1.gf1_sls_swt = 1D;
+            this.uC_Deckslab_BS1.gf1_uls_Mhog = 1.3D;
+            this.uC_Deckslab_BS1.gf1_uls_sur = 1.75D;
+            this.uC_Deckslab_BS1.gf1_uls_swt = 1.15D;
+            this.uC_Deckslab_BS1.gf3_sls_Mhog = 1D;
+            this.uC_Deckslab_BS1.gf3_sls_sur = 1D;
+            this.uC_Deckslab_BS1.gf3_sls_swt = 1D;
+            this.uC_Deckslab_BS1.gf3_uls_Mhog = 1.1D;
+            this.uC_Deckslab_BS1.gf3_uls_sur = 1.1D;
+            this.uC_Deckslab_BS1.gf3_uls_swt = 1.1D;
+            this.uC_Deckslab_BS1.girder_no = 4D;
+            this.uC_Deckslab_BS1.h = 180D;
+            this.uC_Deckslab_BS1.load_wheel = 2.5D;
+            this.uC_Deckslab_BS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Deckslab_BS1.Mhog = 0D;
+            this.uC_Deckslab_BS1.Msag = 0D;
+            this.uC_Deckslab_BS1.Name = "uC_Deckslab_BS1";
+            this.uC_Deckslab_BS1.Size = new System.Drawing.Size(948, 668);
+            this.uC_Deckslab_BS1.span_deckslab = 0.962D;
+            this.uC_Deckslab_BS1.TabIndex = 0;
+            this.uC_Deckslab_BS1.thickness_surfacing = 150D;
+            this.uC_Deckslab_BS1.unitwt_concrete = 24D;
+            this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
+            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
+            this.uC_Deckslab_BS1.V = 0D;
+            this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
+            this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
+            this.uC_Deckslab_BS1.width_girderflange = 1.029D;
+            this.uC_Deckslab_BS1.width_girderweb = 0.325D;
+            this.uC_Deckslab_BS1.wload_unit = 30D;
+            this.uC_Deckslab_BS1.YD = "0.18";
+            this.uC_Deckslab_BS1.ZD = "1.0";
+            this.uC_Deckslab_BS1.OnButtonClick += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.ButtonClick(this.uC_Deckslab_BS1_OnButtonClick);
+            this.uC_Deckslab_BS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.CreateData(this.uC_Deckslab_BS1_OnCreateData);
+            // 
+            // uC_Deckslab_IS1
+            // 
+            this.uC_Deckslab_IS1.B = 0D;
+            this.uC_Deckslab_IS1.Deff = 0D;
+            this.uC_Deckslab_IS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Deckslab_IS1.Dw = 0D;
+            this.uC_Deckslab_IS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Deckslab_IS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Deckslab_IS1.Name = "uC_Deckslab_IS1";
+            this.uC_Deckslab_IS1.Number_Of_Cross_Girder = 0;
+            this.uC_Deckslab_IS1.Number_Of_Long_Girder = 0;
+            this.uC_Deckslab_IS1.Result = null;
+            this.uC_Deckslab_IS1.Size = new System.Drawing.Size(948, 668);
+            this.uC_Deckslab_IS1.Skew_Angle = 0D;
+            this.uC_Deckslab_IS1.SMG = 0D;
+            this.uC_Deckslab_IS1.TabIndex = 0;
+            this.uC_Deckslab_IS1.user_path = null;
+            this.uC_Deckslab_IS1.Wc = 0D;
+            this.uC_Deckslab_IS1.Wf = 0D;
+            this.uC_Deckslab_IS1.Width_LeftCantilever = 0D;
+            this.uC_Deckslab_IS1.Width_RightCantilever = 0D;
+            this.uC_Deckslab_IS1.WidthBridge = 0D;
+            this.uC_Deckslab_IS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_IS.CreateData(this.uC_Deckslab_IS1_OnCreateData);
+            // 
+            // uC_BRD1
+            // 
+            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
+            this.uC_BRD1.Name = "uC_BRD1";
+            this.uC_BRD1.Show_Forces = true;
+            this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
+            this.uC_BRD1.TabIndex = 1;
+            this.uC_BRD1.user_path = null;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn31.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "1";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn32.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.HeaderText = "2";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn33.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.HeaderText = "3";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn34.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.HeaderText = "4";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn35.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.HeaderText = "5";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn36.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "6";
+            this.Column2.Name = "Column2";
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.Width = 50;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "7";
+            this.Column23.Name = "Column23";
+            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column23.Width = 50;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "8";
+            this.Column24.Name = "Column24";
+            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column24.Width = 50;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "9";
+            this.Column25.Name = "Column25";
+            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column25.Width = 50;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "10";
+            this.Column26.Name = "Column26";
+            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column26.Width = 50;
             // 
             // frm_RCC_T_Girder_LS
             // 
@@ -15546,12 +15623,6 @@
         private System.Windows.Forms.Button btn_Deck_Create_Data;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.DataGridView dgv_long_loads;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
         private System.Windows.Forms.TabControl tab_deck;
         private System.Windows.Forms.TabPage tab_deck_ll_data;
         private System.Windows.Forms.TabPage tab_deck_user_data;
@@ -16195,6 +16266,18 @@
         private System.Windows.Forms.Button btn_dwg_open_pierPile;
         private System.Windows.Forms.Button btn_dwg_open_pierOpen;
         private System.Windows.Forms.Button btn_dwg_open_abutPile;
+        private System.Windows.Forms.Button btn_IRC_Loadings;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
 
     }
 }

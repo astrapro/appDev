@@ -28,6 +28,7 @@ using AstraAccess.SAP_Classes;
 
 namespace AstraAccess
 {
+
     public partial class frmSAP_Editor : Form
     {
         IApplication iApp;
@@ -4389,6 +4390,8 @@ namespace AstraAccess
         }
 
     }
+
+
     internal class CursorPosition
     {
         [System.Runtime.InteropServices.DllImport("user32")]
@@ -4432,5 +4435,4 @@ namespace AstraAccess
 
 
     }
-     
 }

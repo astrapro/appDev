@@ -556,7 +556,7 @@ namespace LimitStateMethod.PSC_I_Girder
             #region TechSOFT Banner
             list.Add("\t\t***********************************************");
             list.Add("\t\t*                                             *");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            list.Add("\t\t*                 ASTRA Pro                  *");
             list.Add("\t\t*        TechSOFT Engineering Services        *");
             list.Add("\t\t*                                             *");
             list.Add("\t\t*   DESIGN  OF PRE STRESSED CONCRETE (PSC)    *");

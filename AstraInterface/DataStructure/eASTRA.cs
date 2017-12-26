@@ -67,6 +67,11 @@
 
         BOX_CULVERT_LSM = 54,
 
+
+        Structural_Analysis = 55,
+        Structural_Analysis_SAP = 56,
+
+
     }
 
     public enum eSLAB

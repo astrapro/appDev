@@ -38,7 +38,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.mns_ASTRA_menues = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_file = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_newAnalysisTXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_newAnalysisSAPDataFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_newAnalysisDWGDataFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +50,7 @@
             this.tsmi_openSAPDataFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_openStructureModelDrawingFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_openAnalysisExampleTXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_structure_text = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_openStageAnalysisTEXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -274,6 +275,7 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.btn_SendMail = new System.Windows.Forms.Button();
+            this.tsmi_structure_sap = new System.Windows.Forms.ToolStripMenuItem();
             this.mns_ASTRA_menues.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -283,7 +285,7 @@
             // 
             this.mns_ASTRA_menues.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.mns_ASTRA_menues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
+            this.tsmi_file,
             this.tsmi_process_analysis,
             this.viewToolStripMenuItem,
             this.processAstFileToolStripMenuItem,
@@ -299,9 +301,9 @@
             this.mns_ASTRA_menues.TabIndex = 0;
             this.mns_ASTRA_menues.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // tsmi_file
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_newAnalysisTXTDataFile,
             this.tsmi_newAnalysisSAPDataFile,
             this.tsmi_newAnalysisDWGDataFile,
@@ -313,6 +315,8 @@
             this.tsmi_openSAPDataFile,
             this.tsmi_openStructureModelDrawingFile,
             this.tsmi_openAnalysisExampleTXTDataFile,
+            this.tsmi_structure_text,
+            this.tsmi_structure_sap,
             this.toolStripSeparator22,
             this.tsmi_openStageAnalysisTEXTDataFile,
             this.toolStripSeparator3,
@@ -331,9 +335,9 @@
             this.tsmi_license,
             this.toolStripSeparator9,
             this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "&File";
+            this.tsmi_file.Name = "tsmi_file";
+            this.tsmi_file.Size = new System.Drawing.Size(37, 20);
+            this.tsmi_file.Text = "&File";
             // 
             // tsmi_newAnalysisTXTDataFile
             // 
@@ -412,6 +416,12 @@
             this.tsmi_openAnalysisExampleTXTDataFile.Size = new System.Drawing.Size(268, 22);
             this.tsmi_openAnalysisExampleTXTDataFile.Text = "Open Analysis Example Data File";
             this.tsmi_openAnalysisExampleTXTDataFile.Click += new System.EventHandler(this.tsmi_newAnalysisDataFile_Click);
+            // 
+            // tsmi_structure_text
+            // 
+            this.tsmi_structure_text.Name = "tsmi_structure_text";
+            this.tsmi_structure_text.Size = new System.Drawing.Size(268, 22);
+            this.tsmi_structure_text.Text = "Structural Analysis";
             // 
             // toolStripSeparator22
             // 
@@ -688,7 +698,6 @@
             this.tsmi_workingFolder.Name = "tsmi_workingFolder";
             this.tsmi_workingFolder.Size = new System.Drawing.Size(252, 22);
             this.tsmi_workingFolder.Text = "Select Working Folder";
-            this.tsmi_workingFolder.Visible = false;
             this.tsmi_workingFolder.Click += new System.EventHandler(this.tsmi_newAnalysisDataFile_Click);
             // 
             // tsmi_ana_text_file
@@ -2192,6 +2201,13 @@
             this.btn_SendMail.UseVisualStyleBackColor = true;
             this.btn_SendMail.Click += new System.EventHandler(this.btn_SendMail_Click);
             // 
+            // tsmi_structure_sap
+            // 
+            this.tsmi_structure_sap.Name = "tsmi_structure_sap";
+            this.tsmi_structure_sap.Size = new System.Drawing.Size(268, 22);
+            this.tsmi_structure_sap.Text = "Structural Analysis SAP Data";
+            this.tsmi_structure_sap.Visible = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2232,7 +2248,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mns_ASTRA_menues;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_file;
         private System.Windows.Forms.ToolStripMenuItem tsmi_process_analysis;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem utilityToolStripMenuItem;
@@ -2468,6 +2484,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_Culverts_LS;
         private System.Windows.Forms.ToolStripMenuItem tsmi_RCC_Culverts_WS;
         private System.Windows.Forms.ToolStripMenuItem hydraulicCalculationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_structure_text;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_structure_sap;
     }
 }
 

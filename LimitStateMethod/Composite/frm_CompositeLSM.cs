@@ -151,9 +151,11 @@ namespace LimitStateMethod.Composite
             Bridge_Analysis.MemColls = new MemberCollection();
             Button_Enable_Disable();
 
-            dgv_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 2.75, 0.2, 1.179);
-            dgv_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 6.25, 0.2, 1.179);
-            dgv_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 9.75, 0.2, 1.179);
+            //dgv_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 2.75, 0.2, 1.179);
+            //dgv_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 6.25, 0.2, 1.179);
+            //dgv_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 9.75, 0.2, 1.179);
+
+
         }
 
         //Chiranjit [2013 06 26]
@@ -256,26 +258,14 @@ namespace LimitStateMethod.Composite
                 Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
                 Bridge_Analysis.Start_Support = Start_Support_Text;
                 Bridge_Analysis.End_Support = END_Support_Text;
-                if (iApp.DesignStandard == eDesignStandard.IndianStandard ||
-                    iApp.DesignStandard == eDesignStandard.LRFDStandard
-                    )
+                if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
                 {
-
-                    #region Write Straight Input File
-                    #endregion  Composite Analysis Form Events
-
-
+                    LONG_GIRDER_LL_TXT();
                     if (Curve_Radius > 0)
                     {
-
                         Bridge_Analysis.CreateData_Straight_Indian();
 
-
-
-
                         //Bridge_Analysis.WriteData_Orthotropic_Analysis("", false);
-
-
 
                         #region Chiranjit [2014 09 08] Indian Standard
 
@@ -297,6 +287,26 @@ namespace LimitStateMethod.Composite
 
                         Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
                         Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
+
+                        #region Chiranjit [2014 10 2]
+
+                        if (long_ll.Count > 0)
+                        {
+                            //Bridge_Analysis.Live_Load_List = long_ll;
+                            Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
+                        }
+                        for (int i = 0; i < all_loads.Count; i++)
+                        {
+                            Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
+                            //Ana_Write_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false);
+                            //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i+1);
+                            //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                        }
+                      
+                        #endregion Chiranjit [2014 10 2]
+
+
 
 
                         #endregion
@@ -338,6 +348,23 @@ namespace LimitStateMethod.Composite
                     Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
                     Ana_Write_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false);
                     Ana_Write_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true);
+
+
+
+
+                    #region Chiranjit [2014 10 2]
+                    for (int i = 0; i < all_loads.Count; i++)
+                    {
+                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
+                        //Ana_Write_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), true, false);
+                        //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, false), true, false, i + 1);
+                    }
+                    #endregion Chiranjit [2014 10 2]
+
+
+
+
 
                     Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
 
@@ -1154,6 +1181,10 @@ namespace LimitStateMethod.Composite
                 {
                     LONG_GIRDER_BRITISH_LL_TXT();
                 }
+                else
+                {
+                    LONG_GIRDER_LL_TXT();
+                }
                 ProcessCollection pcol = new ProcessCollection();
 
                 ProcessData pd = new ProcessData();
@@ -1428,14 +1459,7 @@ namespace LimitStateMethod.Composite
 
         }
 
-        private void btn_Ana_add_load_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dgv_live_load.Rows.Add(cmb_Ana_load_type.Text, txt_Ana_X.Text, txt_Y.Text, txt_Z.Text, txt_XINCR.Text, txt_Load_Impact.Text);
-            }
-            catch (Exception ex) { }
-        }
+      
         void Ana_Write_Load_Data(string file_name, bool add_LiveLoad, bool add_DeadLoad)
         {
             //string file_name = Bridge_Analysis.Input_File;
@@ -1487,14 +1511,14 @@ namespace LimitStateMethod.Composite
             {
                 load_lst.AddRange(txt_Ana_member_load.Lines);
 
-                if (dgv_live_load.RowCount != 0)
-                {
-                    if (!File.Exists(Bridge_Analysis.LiveLoad_File))
-                    {
-                        //MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + Path.GetDirectoryName(file_name));
-                    }
+                //if (dgv_live_load.RowCount != 0)
+                //{
+                //    if (!File.Exists(Bridge_Analysis.LiveLoad_File))
+                //    {
+                //        //MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + Path.GetDirectoryName(file_name));
+                //    }
 
-                }
+                //}
             }
             else
             {
@@ -1517,8 +1541,8 @@ namespace LimitStateMethod.Composite
             Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(file_name), "ll.txt"));
             if (add_LiveLoad)
             {
-                if (dgv_live_load.RowCount != 0)
-                    load_lst.AddRange(Get_MovingLoad_Data(Bridge_Analysis.Live_Load_List));
+                //if (dgv_live_load.RowCount != 0)
+                //    load_lst.AddRange(Get_MovingLoad_Data(Bridge_Analysis.Live_Load_List));
             }
             inp_file_cont.InsertRange(indx, load_lst);
             //inp_file_cont.InsertRange(indx, );
@@ -1586,14 +1610,14 @@ namespace LimitStateMethod.Composite
             {
                 load_lst.AddRange(txt_Ana_member_load.Lines);
 
-                if (dgv_live_load.RowCount != 0)
-                {
-                    if (!File.Exists(Bridge_Analysis.LiveLoad_File))
-                    {
-                        MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + user_path);
-                    }
-                    //Bridge_Analysis.LoadReadFromGrid(dgv_Ana_live_load);
-                }
+                //if (dgv_live_load.RowCount != 0)
+                //{
+                //    if (!File.Exists(Bridge_Analysis.LiveLoad_File))
+                //    {
+                //        MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + user_path);
+                //    }
+                //    //Bridge_Analysis.LoadReadFromGrid(dgv_Ana_live_load);
+                //}
             }
             else
             {
@@ -1602,8 +1626,8 @@ namespace LimitStateMethod.Composite
             //Chiranjit [2011 09 23]
             //Do not write Moving Load Data wheather user Remove all the data from the Data Grid Box
             Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(file_name), "ll.txt"));
-            if (dgv_live_load.RowCount != 0)
-                load_lst.AddRange(Get_MovingLoad_Data(Bridge_Analysis.Live_Load_List));
+            //if (dgv_live_load.RowCount != 0)
+            load_lst.AddRange(Get_MovingLoad_Data(Bridge_Analysis.Live_Load_List));
             inp_file_cont.InsertRange(indx, load_lst);
             //inp_file_cont.InsertRange(indx, );
             File.WriteAllLines(file_name, inp_file_cont.ToArray());
@@ -1638,7 +1662,7 @@ namespace LimitStateMethod.Composite
                     is_def_load = false;
                     isMoving_load = true;
                     if (mlist.Count == 3) txt_LL_load_gen.Text = mlist.StringList[2];
-                    dgv_live_load.Rows.Clear();
+                    //dgv_live_load.Rows.Clear();
                     continue;
                 }
 
@@ -1683,8 +1707,8 @@ namespace LimitStateMethod.Composite
                             ld.ImpactFactor = (double)ht_impact[ld.Code];
                         }
                         catch (Exception ex) { }
-                        dgv_live_load.Rows.Add(ld.TypeNo + " : " + ld.Code,
-                            ld.X.ToString("0.000"), ld.Y.ToString("0.000"), ld.Z.ToString("0.000"), ld.XINC.ToString("0.000"), ld.ImpactFactor.ToString("0.000"));
+                        //dgv_live_load.Rows.Add(ld.TypeNo + " : " + ld.Code,
+                        //    ld.X.ToString("0.000"), ld.Y.ToString("0.000"), ld.Z.ToString("0.000"), ld.XINC.ToString("0.000"), ld.ImpactFactor.ToString("0.000"));
 
                     }
                     catch (Exception ex) { }
@@ -1760,7 +1784,7 @@ namespace LimitStateMethod.Composite
                         Deck_Load_Analysis_Data();
                         Deck_Initialize_InputData();
                         //txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
-                        iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+                        //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
                         Read_All_Data();
 
                         //Chiranjit [2013 04 26]
@@ -1792,14 +1816,14 @@ namespace LimitStateMethod.Composite
         {
             try
             {
-                dgv_live_load.Rows.RemoveAt(dgv_live_load.CurrentRow.Index);
+                //dgv_live_load.Rows.RemoveAt(dgv_live_load.CurrentRow.Index);
                 //chk_ana_active_LL.Checked = (dgv_Ana_live_load.Rows.Count != 0);
             }
             catch (Exception ex) { }
         }
         private void btn_Ana_live_load_remove_all_Click(object sender, EventArgs e)
         {
-            dgv_live_load.Rows.Clear();
+            //dgv_live_load.Rows.Clear();
             //chk_ana_active_LL.Checked = (dgv_Ana_live_load.Rows.Count != 0);
 
         }
@@ -1812,7 +1836,7 @@ namespace LimitStateMethod.Composite
 
         private void chk_Ana_CheckedChanged(object sender, EventArgs e)
         {
-            grb_LL.Enabled = true;
+            //grb_LL.Enabled = true;
             //grb_SIDL.Enabled = chk_Ana_active_SIDL.Checked;
         }
         #region Composite Methods
@@ -3212,7 +3236,7 @@ namespace LimitStateMethod.Composite
                     }
                 }
                 txt_Ana_L.Text = Bridge_Analysis.Structure.Analysis.Length.ToString();
-                txt_Ana_X.Text = "-" + txt_Ana_L.Text;
+                //txt_Ana_X.Text = "-" + txt_Ana_L.Text;
                 txt_Ana_B.Text = Bridge_Analysis.Structure.Analysis.Width.ToString();
                 //txt_gd_np.Text = (Bridge_Analysis.Truss_Analysis.Analysis.NoOfPanels - 1).ToString("0");
                 txt_Ana_analysis_file.Visible = true;
@@ -3404,7 +3428,7 @@ namespace LimitStateMethod.Composite
                     }
 
                     txt_Ana_L.Text = Bridge_Analysis.Structure.Analysis.Length.ToString();
-                    txt_Ana_X.Text = "-" + txt_Ana_L.Text;
+                    //txt_Ana_X.Text = "-" + txt_Ana_L.Text;
                     txt_Ana_B.Text = Bridge_Analysis.Structure.Analysis.Width.ToString();
 
                     //txt_Ana_Deff.Text = Bridge_Analysis.Truss_Analysis.Analysis.Effective_Depth.ToString();
@@ -3467,7 +3491,7 @@ namespace LimitStateMethod.Composite
                 //load_lst.Add("TYPE 6 IRC24RTRACK 1.188");
                 //load_lst.Add("TYPE 7 RAILBG 1.25");
 
-                Bridge_Analysis.LoadReadFromGrid(dgv_live_load);
+                //Bridge_Analysis.LoadReadFromGrid(dgv_live_load);
                 load_lst.Add("DEFINE MOVING LOAD FILE LL.TXT");
                 foreach (LoadData ld in Bridge_Analysis.LoadList)
                 {
@@ -4155,7 +4179,6 @@ namespace LimitStateMethod.Composite
                 cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
                 cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
-                grb_ll_indian.Visible = false;
                 pic_diagram.Size = new Size(pic_diagram.Size.Width, 280);
 
                 cmb_HB.SelectedIndex = 2;
@@ -4165,6 +4188,8 @@ namespace LimitStateMethod.Composite
                 txt_Ana_NMG.SelectedIndex = 0;
 
                 tabControl1.TabPages.Remove(tab_deckslab_IS);
+
+                tbc_girder.TabPages.Remove(tab_LL_IRC);
 
             }
             else
@@ -4188,6 +4213,12 @@ namespace LimitStateMethod.Composite
 
 
             #region Default Deck slab Limit State Analysis Data
+            Default_Moving_LoadData(dgv_long_liveloads);
+
+            Default_Moving_Type_LoadData(dgv_long_loads);
+
+
+
             Default_Moving_LoadData(dgv_deck_liveloads);
             Default_Moving_Type_LoadData(dgv_deck_loads);
             Deckslab_User_Input();
@@ -4211,14 +4242,14 @@ namespace LimitStateMethod.Composite
             //dgv_Ana_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 2.75, 0.2);
             //dgv_Ana_live_load.Rows.Add("TYPE 1 : IRCCLASSA", -18.8, 0, 6.25, 0.2);
 
-            iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
-            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
-            {
-                cmb_Ana_load_type.SelectedIndex = 6;
-            }
+            //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+            //if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            //{
+            //    cmb_Ana_load_type.SelectedIndex = 6;
+            //}
 
-            dgv_live_load.Rows.Add(cmb_Ana_load_type.Text, txt_Ana_X.Text, txt_Y.Text, "1.50", txt_XINCR.Text, txt_Load_Impact.Text);
-            dgv_live_load.Rows.Add(cmb_Ana_load_type.Text, txt_Ana_X.Text, txt_Y.Text, "4.50", txt_XINCR.Text, txt_Load_Impact.Text);
+            //dgv_live_load.Rows.Add(cmb_Ana_load_type.Text, txt_Ana_X.Text, txt_Y.Text, "1.50", txt_XINCR.Text, txt_Load_Impact.Text);
+            //dgv_live_load.Rows.Add(cmb_Ana_load_type.Text, txt_Ana_X.Text, txt_Y.Text, "4.50", txt_XINCR.Text, txt_Load_Impact.Text);
             //dgv_live_load.Rows.Add(cmb_Ana_load_type.Text, txt_Ana_X.Text, txt_Y.Text, "7.50", txt_XINCR.Text, txt_Load_Impact.Text);
 
 
@@ -4417,7 +4448,7 @@ namespace LimitStateMethod.Composite
                     Deck_Load_Analysis_Data();
                     Deck_Initialize_InputData();
                     //txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
-                    iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+                    //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
                     Read_All_Data();
 
                     //Chiranjit [2013 10 10]
@@ -4915,14 +4946,6 @@ namespace LimitStateMethod.Composite
 
         }
 
-        private void cmb_Ana_load_type_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (iApp.LiveLoads.Count > 0)
-            {
-                txt_Ana_X.Text = iApp.LiveLoads[cmb_Ana_load_type.SelectedIndex].Distance.ToString("f4"); // Chiranjit [2013 05 28] Kolkata
-                txt_Load_Impact.Text = iApp.LiveLoads[cmb_Ana_load_type.SelectedIndex].ImpactFactor.ToString("f3");
-            }
-        }
 
         #region Chiranjit [2012 02 08]
         public ReadForceType GetForceType()
@@ -5481,7 +5504,8 @@ namespace LimitStateMethod.Composite
             //txt_Deck_SCG.Text = SCG.ToString("f3");
 
             double x_incr = MyList.StringToDouble(txt_XINCR.Text, 0.2);
-            double x_dim = Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.2));
+            //double x_dim = Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.2));
+            double x_dim = 0.0;
 
             txt_LL_load_gen.Text = ((L + x_dim) / x_incr).ToString("f0");
 
@@ -5623,18 +5647,12 @@ namespace LimitStateMethod.Composite
 
             uC_Deckslab_BS1.h = Ds * 1000;
 
-
-
-
             uC_RCC_Abut1.Length = L;
             uC_RCC_Abut1.Width = B;
-
 
             uC_PierDesignLSM1.Left_Span = L.ToString();
             uC_PierDesignLSM1.Right_Span = L.ToString();
             //uC_Abut1.Overhang = og;
-
-
 
 
             #region Chiranjit [2017 09 18]
@@ -5867,11 +5885,11 @@ namespace LimitStateMethod.Composite
                     CW = B - 1.0;
 
 
-                for (int i = 0; i < dgv_live_load.RowCount; i++)
-                {
-                    dgv_live_load[4, i].Value = txt_XINCR.Text;
-                    //dgv_live_load[1, i].Value = txt_Ana_X.Text; // Chiranjit [2013 05 30]
-                }
+                //for (int i = 0; i < dgv_live_load.RowCount; i++)
+                //{
+                //    dgv_live_load[4, i].Value = txt_XINCR.Text;
+                //    //dgv_live_load[1, i].Value = txt_Ana_X.Text; // Chiranjit [2013 05 30]
+                //}
             }
             catch (Exception ex) { }
             Show_Steel_SectionProperties();
@@ -6802,7 +6820,8 @@ namespace LimitStateMethod.Composite
                 //{
                     if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                     {
-                        Bridge_Analysis.Live_Load_List = new List<LoadData>(iApp.LiveLoads.ToArray());
+                        //Bridge_Analysis.Live_Load_List = new List<LoadData>(iApp.LiveLoads.ToArray());
+                        Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
                     }
                     else
                     {
@@ -6814,8 +6833,11 @@ namespace LimitStateMethod.Composite
                 double dd = 0.0;
                 List<double> max_lds = new List<double>();
 
-                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-                {
+                //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+
+
+                    if (true)
+                    {
 
                     foreach (var item in all_loads)
                     {
@@ -6853,7 +6875,7 @@ namespace LimitStateMethod.Composite
                 }
                 else
                 {
-                    Bridge_Analysis.LoadReadFromGrid(dgv_live_load);
+                    //Bridge_Analysis.LoadReadFromGrid(dgv_live_load);
 
                     foreach (var item in Bridge_Analysis.LoadList)
                     {
@@ -9183,9 +9205,9 @@ namespace LimitStateMethod.Composite
                 {
                     if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                     {
-                        dgv_live_load.Rows.Clear();
-                        dgv_live_load.Rows.Add(cmb_Ana_load_type.Items[1], txt_Ana_X.Text, txt_Y.Text, "1.50", txt_XINCR.Text, txt_Load_Impact.Text);
-                        dgv_live_load.Rows.Add(cmb_Ana_load_type.Items[1], txt_Ana_X.Text, txt_Y.Text, "4.50", txt_XINCR.Text, txt_Load_Impact.Text);
+                        //dgv_live_load.Rows.Clear();
+                        //dgv_live_load.Rows.Add(cmb_Ana_load_type.Items[1], txt_Ana_X.Text, txt_Y.Text, "1.50", txt_XINCR.Text, txt_Load_Impact.Text);
+                        //dgv_live_load.Rows.Add(cmb_Ana_load_type.Items[1], txt_Ana_X.Text, txt_Y.Text, "4.50", txt_XINCR.Text, txt_Load_Impact.Text);
                     }
 
                     #region Chiranjit [2013 07 08] Defaulf Data for Plate Girders
@@ -9331,6 +9353,217 @@ namespace LimitStateMethod.Composite
             dgv_live_load.Rows.Clear();
             int i = 0;
             list.Clear();
+            if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                list.Add(string.Format("TYPE 1, LRFD_HTL57"));
+                list.Add(string.Format("AXLE LOAD IN TONS,10.5,10.5,10.5,10.5,10.5,4.5 "));
+                list.Add(string.Format("AXLE SPACING IN METRES,1.6,4.572,4.572,1.6,4.572"));
+                list.Add(string.Format("AXLE WIDTH IN METRES,1.800"));
+                list.Add(string.Format("IMPACT FACTOR,1.10"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 2, LRFD_HL93_HS20"));
+                list.Add(string.Format("AXLE LOAD IN TONS,4.0,16.0,16.0"));
+                list.Add(string.Format("AXLE SPACING IN METRES,4.2672,4.2672 "));
+                list.Add(string.Format("AXLE WIDTH IN METRES,1.800"));
+                list.Add(string.Format("IMPACT FACTOR,1.10"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 3, LRFD_HL93_H20"));
+                list.Add(string.Format("AXLE LOAD IN TONS,4.0,16.0 "));
+                list.Add(string.Format("AXLE SPACING IN METRES,4.2672 "));
+                list.Add(string.Format("AXLE WIDTH IN METRES,1.800"));
+                list.Add(string.Format("IMPACT FACTOR,1.10"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 4, LRFD_H30S24"));
+                list.Add(string.Format("AXLE LOAD IN TONS,6.0,24.0,24.0"));
+                list.Add(string.Format("AXLE SPACING IN METRES,4.25,8.0"));
+                list.Add(string.Format("AXLE WIDTH IN METRES,1.800"));
+                list.Add(string.Format("IMPACT FACTOR,1.10"));
+                list.Add(string.Format(""));
+            }
+            else
+            {
+                list.Add(string.Format("TYPE 1, IRCCLASSA"));
+                list.Add(string.Format("AXLE LOAD IN TONS , 2.7,2.7,11.4,11.4,6.8,6.8,6.8,6.8"));
+                list.Add(string.Format("AXLE SPACING IN METRES, 1.10,3.20,1.20,4.30,3.00,3.00,3.00"));
+                list.Add(string.Format("AXLE WIDTH IN METRES, 1.800"));
+                list.Add(string.Format("IMPACT FACTOR, 1.179"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 2, IRC70RTRACK"));
+                list.Add(string.Format("AXLE LOAD IN TONS, 7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0,7.0"));
+                list.Add(string.Format("AXLE SPACING IN METRES, 0.457,0.457,0.457,0.457,0.457,0.457,0.457,0.457,0.457"));
+                list.Add(string.Format("AXLE WIDTH IN METRES, 2.900"));
+                list.Add(string.Format("IMPACT FACTOR, 1.25"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 3, IRC70RWHEEL"));
+                list.Add(string.Format("AXLE LOAD IN TONS,17.0,17.0,17.0,17.0,12.0,12.0,8.0"));
+                list.Add(string.Format("AXLE SPACING IN METRES,1.37,3.05,1.37,2.13,1.52,3.96"));
+                list.Add(string.Format("AXLE WIDTH IN METRES,2.900"));
+                list.Add(string.Format("IMPACT FACTOR, 1.25"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 4, IRC70RW40TBL"));
+                list.Add(string.Format("AXLE LOAD IN TONS,10.0,10.0"));
+                list.Add(string.Format("AXLE SPACING IN METRES,1.93"));
+                list.Add(string.Format("AXLE WIDTH IN METRES,2.790"));
+                list.Add(string.Format("IMPACT FACTOR, 1.10"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("TYPE 5, IRC70RW40TBM"));
+                list.Add(string.Format("AXLE LOAD IN TONS,5.0,5.0,5.0,5.0"));
+                list.Add(string.Format("AXLE SPACING IN METRES,0.795,0.38,0.795"));
+                list.Add(string.Format("AXLE WIDTH IN METRES,2.790"));
+                list.Add(string.Format("IMPACT FACTOR, 1.10"));
+                list.Add(string.Format(""));
+
+            }
+            for (i = 0; i < dgv_live_load.ColumnCount; i++)
+            {
+                lst_spc.Add("");
+            }
+            for (i = 0; i < list.Count; i++)
+            {
+                dgv_live_load.Rows.Add(lst_spc.ToArray());
+            }
+
+            MyList mlist = null;
+            for (i = 0; i < list.Count; i++)
+            {
+                mlist = new MyList(list[i], ',');
+
+                if (list[i] == "")
+                {
+                    dgv_live_load.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                }
+                for (int j = 0; j < mlist.Count; j++)
+                {
+                    dgv_live_load[j, i].Value = mlist[j];
+                }
+            }
+        }
+
+        public void Default_Moving_Type_LoadData(DataGridView dgv_live_load)
+        {
+            List<string> list = new List<string>();
+
+            if (dgv_live_load.Name == dgv_long_loads.Name)
+            {
+                if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                {
+                    #region Long Girder
+                    list.Clear();
+                    list.Add(string.Format("LOAD 1,TYPE 3"));
+                    list.Add(string.Format("X,-13.4"));
+                    list.Add(string.Format("Z,1.5"));
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("LOAD 2,TYPE 1"));
+                    list.Add(string.Format("X,-18.8"));
+                    list.Add(string.Format("Z,1.5"));
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("LOAD 3,TYPE 1,TYPE 1"));
+                    list.Add(string.Format("X,-18.8,-18.8"));
+                    list.Add(string.Format("Z,1.5,4.5"));
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("LOAD 4,TYPE 1,TYPE 1,TYPE 1"));
+                    list.Add(string.Format("X,-18.8,-18.8,-18.8"));
+                    list.Add(string.Format("Z,1.5,4.5,7.5"));
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("LOAD 5,TYPE 1,TYPE 3"));
+                    list.Add(string.Format("X,-18.8,-13.4"));
+                    list.Add(string.Format("Z,1.5,4.5"));
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("LOAD 6,TYPE 3,TYPE 1"));
+                    list.Add(string.Format("X,-13.4,-18.8"));
+                    list.Add(string.Format("Z,1.5,4.5"));
+                    list.Add(string.Format(""));
+                    //list.Add(string.Format("TOTAL LOAD,TYPE 1,TYPE 1,TYPE 1"));
+                    //list.Add(string.Format("X,-18.8,-18.8,-18.8"));
+                    //list.Add(string.Format("Z,1.5,4.5,7.5"));
+                    //list.Add(string.Format(""));
+                    #endregion
+                }
+                else
+                {
+                    #region Long Girder
+                    list.Add(string.Format("LOAD 1,TYPE 4"));
+                    list.Add(string.Format("X,0"));
+                    list.Add(string.Format("Z,1.5"));
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("LOAD 2,TYPE 4,TYPE 4,"));
+                    list.Add(string.Format("X,0,0,"));
+                    list.Add(string.Format("Z,1.5,4.5,"));
+                    list.Add(string.Format(""));
+                    #endregion
+                }
+            }
+            else if (dgv_live_load.Name == dgv_deck_loads.Name)
+            {
+                #region Deck Slab
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 1"));
+                list.Add(string.Format("X,0"));
+                list.Add(string.Format("Z,1.5 "));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 2,TYPE 1,TYPE 1"));
+                list.Add(string.Format("X,0,5.0"));
+                list.Add(string.Format("z,1.5,1.5"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 3,TYPE 4"));
+                list.Add(string.Format("X,0.0"));
+                list.Add(string.Format("Z,1.5"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 4,TYPE 5"));
+                list.Add(string.Format("X,0.0"));
+                list.Add(string.Format("Z,1.5"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 5,TYPE 2"));
+                list.Add(string.Format("X,0.0"));
+                list.Add(string.Format("Z,1.5"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 6,TYPE 3,TYPE 1"));
+                list.Add(string.Format("X,0.0,5.0"));
+                list.Add(string.Format("Z,1.5,1.5"));
+                list.Add(string.Format(""));
+                #endregion
+            }
+
+            Default_Moving_Type_LoadData(dgv_live_load, list);
+        }
+        public void Default_Moving_Type_LoadData(DataGridView dgv_live_load, List<string> list)
+        {
+            List<string> lst_spcs = new List<string>();
+            dgv_live_load.Rows.Clear();
+            int i = 0;
+            for (i = 0; i < dgv_live_load.ColumnCount; i++)
+            {
+                lst_spcs.Add("");
+            }
+            for (i = 0; i < list.Count; i++)
+            {
+                dgv_live_load.Rows.Add(lst_spcs.ToArray());
+            }
+
+            MyList mlist = null;
+            for (i = 0; i < list.Count; i++)
+            {
+                mlist = new MyList(list[i], ',');
+
+                if (list[i] == "")
+                {
+                    dgv_live_load.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                }
+                for (int j = 0; j < mlist.Count; j++)
+                {
+                    dgv_live_load[j, i].Value = mlist[j];
+                }
+            }
+        }
+
+
+        public void Default_Moving_LoadData1(DataGridView dgv_live_load)
+        {
+            List<string> list = new List<string>();
+            List<string> lst_spc = new List<string>();
+            dgv_live_load.Rows.Clear();
+            int i = 0;
+            list.Clear();
             list.Add(string.Format("TYPE 1, IRCCLASSA"));
             list.Add(string.Format("AXLE LOAD IN TONS , 2.7,2.7,11.4,11.4,6.8,6.8,6.8,6.8"));
             list.Add(string.Format("AXLE SPACING IN METRES, 1.10,3.20,1.20,4.30,3.00,3.00,3.00"));
@@ -9379,7 +9612,7 @@ namespace LimitStateMethod.Composite
             }
         }
 
-        public void Default_Moving_Type_LoadData(DataGridView dgv_live_load)
+        public void Default_Moving_Type_LoadData1(DataGridView dgv_live_load)
         {
             List<string> lst_spcs = new List<string>();
             dgv_live_load.Rows.Clear();
@@ -13435,7 +13668,7 @@ namespace LimitStateMethod.Composite
         private void btn_def_mov_load_Click(object sender, EventArgs e)
         {
             iApp.Show_LL_Dialog();
-            iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+            //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
         }
 
         #region British Standard Loading
@@ -14104,6 +14337,311 @@ namespace LimitStateMethod.Composite
         List<string> long_ll = new List<string>();
         List<string> long_ll_types = new List<string>();
         List<List<string>> all_loads = new List<List<string>>();
+
+        List<string> ll_comb = new List<string>();
+
+        public void Store_LL_Combinations(DataGridView dgv_live_loads, DataGridView dgv_loads)
+        {
+            ll_comb.Clear();
+            List<string> com = new List<string>();
+            Hashtable ht_cmb = new Hashtable();
+
+            string kStr = "";
+            string txt = "";
+            int i = 0;
+            for (i = 0; i < dgv_live_loads.RowCount; i++)
+            {
+                kStr = dgv_live_loads[0, i].Value.ToString();
+                txt = dgv_live_loads[1, i].Value.ToString();
+
+                if (kStr.StartsWith("TYPE"))
+                {
+                    try
+                    {
+                        ht_cmb.Add(kStr, txt);
+                    }
+                    catch (Exception exx) { }
+                }
+            }
+
+            dgv_live_loads.Tag = ht_cmb;
+
+
+            com.Clear();
+
+
+            for (i = 0; i < dgv_loads.RowCount; i++)
+            {
+
+                kStr = dgv_loads[0, i].Value.ToString();
+
+
+                if (kStr.StartsWith("LOAD"))
+                {
+                    com.Clear();
+
+                    for (int c = 1; c < dgv_loads.ColumnCount; c++)
+                    {
+                        txt = dgv_loads[c, i].Value.ToString();
+
+                        if (txt == "") break;
+                        kStr = ht_cmb[txt] as string;
+                        com.Add(kStr);
+                    }
+
+                    //List<string> lst_lane1 = new List<string>();
+                    //List<string> lst_lane2 = new List<string>();
+
+
+                    //lst_lane1.AddRange(com);
+
+
+                    //lst_lane2.Add(lst_lane1[0]);
+
+
+                    //lst_lane1.RemoveAt(0);
+
+
+                    //for(int k = 0; )
+
+
+
+
+                    if (com.Count > 0)
+                    {
+                        txt = com[0];
+
+                        int lane = 1;
+
+                        for (int j = 1; j < com.Count; j++)
+                        {
+                            if (txt == com[j]) lane++;
+                        }
+                        if (lane > 1)
+                        {
+                            txt = lane + " Lane " + txt;
+                        }
+                        else
+                        {
+                            txt = lane + " Lane " + txt;
+
+                            for (int j = 1; j < com.Count; j++)
+                            {
+                                txt += " + 1 Lane " + com[j];
+                            }
+                        }
+                        ll_comb.Add(txt);
+                    }
+
+                }
+            }
+            dgv_loads.Tag = ll_comb;
+        }
+
+
+        public void LONG_GIRDER_LL_TXT()
+        {
+
+
+            Store_LL_Combinations(dgv_long_liveloads, dgv_long_loads);
+
+            int i = 0;
+            int c = 0;
+            string kStr = "";
+            string txt = "";
+            long_ll.Clear();
+            long_ll_types.Clear();
+            all_loads.Clear();
+            List<string> long_ll_impact = new List<string>();
+
+            bool flag = false;
+            for (i = 0; i < dgv_long_liveloads.RowCount; i++)
+            {
+                txt = "";
+
+                for (c = 0; c < dgv_long_liveloads.ColumnCount; c++)
+                {
+                    kStr = dgv_long_liveloads[c, i].Value.ToString();
+
+
+                    //if (kStr != "" && kStr.StartsWith("TYPE"))
+                    //{
+                    //    long_ll_types.Add(kStr);
+                    //}
+
+                    if (flag)
+                    {
+                        //if (long_ll_impact.Contains(kStr) == false)
+                        long_ll_impact.Add(kStr);
+
+                        flag = false;
+                        txt = "";
+                        kStr = "";
+                        continue;
+                    }
+                    if (kStr.ToUpper().StartsWith("IMPACT"))
+                    {
+                        flag = true;
+                        continue;
+                    }
+                    else if (kStr != "" && !kStr.StartsWith("AXLE"))
+                    {
+                        txt += kStr + " ";
+                    }
+                }
+
+                if (txt != "" && txt.StartsWith("TYPE"))
+                {
+                    long_ll_types.Add(txt);
+                }
+                long_ll.Add(txt);
+            }
+            long_ll.Add(string.Format(""));
+            //long_ll.Add(string.Format("TYPE 6 IRC40RWHEEL"));
+            //long_ll.Add(string.Format("12.0 12.0 12.0 7.0 7.0 5.0 "));
+            //long_ll.Add(string.Format("1.07 4.27 3.05 1.22 3.66 "));
+            //long_ll.Add(string.Format("2.740"));
+            i = 0;
+
+            List<string> list = new List<string>();
+
+            List<string> def_load = new List<string>();
+            List<double> def_x = new List<double>();
+            List<double> def_z = new List<double>();
+
+
+            List<string> files = new List<string>();
+
+
+            List<string> load_list_1 = new List<string>();
+            List<string> load_list_2 = new List<string>();
+            List<string> load_list_3 = new List<string>();
+            List<string> load_list_4 = new List<string>();
+            List<string> load_list_5 = new List<string>();
+            List<string> load_list_6 = new List<string>();
+            List<string> load_total_7 = new List<string>();
+
+
+            int fl = 0;
+            double xinc = MyList.StringToDouble(txt_XINCR.Text, 0.0);
+
+            double imp_fact = 1.179;
+
+            int count = 0;
+            for (i = 0; i < dgv_long_loads.RowCount; i++)
+            {
+                txt = "";
+                fl = 0;
+                kStr = dgv_long_loads[0, i].Value.ToString();
+
+                if (kStr == "")
+                {
+                    list = new List<string>();
+                    count++;
+                    for (int j = 0; j < def_load.Count; j++)
+                    {
+                        for (int f = 0; f < long_ll_types.Count; f++)
+                        {
+                            if (long_ll_types[f].StartsWith(def_load[j]))
+                            {
+                                //txt = string.Format("{0} {1:f3}", long_ll_types[f], imp_fact);
+                                txt = string.Format("{0} {1:f3}", long_ll_types[f], long_ll_impact[f]);
+                                break;
+                            }
+                        }
+                        if (!list.Contains(txt))
+                            list.Add(txt);
+                    }
+                    list.Add("LOAD GENERATION " + txt_LL_load_gen.Text);
+
+                    string fn = "";
+                    for (int j = 0; j < def_load.Count; j++)
+                    {
+                        txt = string.Format("{0} {1:f3} 0 {2:f3} XINC {3}", def_load[j], def_x[j], def_z[j], xinc);
+                        list.Add(txt);
+
+                        fn = fn + " " + def_load[j];
+                    }
+                    def_load.Clear();
+                    def_x.Clear();
+                    def_z.Clear();
+
+                    all_loads.Add(list);
+                    if (count == 1)
+                    {
+                        load_list_1.Clear();
+                        load_list_1.AddRange(list.ToArray());
+                    }
+                    else if (count == 2)
+                    {
+
+                        load_list_2.Clear();
+                        load_list_2.AddRange(list.ToArray());
+                    }
+                    else if (count == 3)
+                    {
+                        load_list_3.Clear();
+                        load_list_3.AddRange(list.ToArray());
+                    }
+                    else if (count == 4)
+                    {
+
+                        load_list_4.Clear();
+                        load_list_4.AddRange(list.ToArray());
+                    }
+                    else if (count == 5)
+                    {
+
+                        load_list_5.Clear();
+                        load_list_5.AddRange(list.ToArray());
+                    }
+                    else if (count == 6)
+                    {
+
+                        load_list_6.Clear();
+                        load_list_6.AddRange(list.ToArray());
+
+                    }
+                    else if (count == 7)
+                    {
+                        load_total_7.Clear();
+                        load_total_7.AddRange(list.ToArray());
+                    }
+                }
+
+                if (kStr != "" && (kStr.StartsWith("LOAD") || kStr.StartsWith("TOTAL")))
+                {
+                    fl = 1; //continue;
+                }
+                else if (kStr != "" && kStr.StartsWith("X"))
+                {
+                    fl = 2; //continue;
+                }
+                else if (kStr != "" && kStr.StartsWith("Z"))
+                {
+                    fl = 3; //continue;
+                }
+                else
+                    continue;
+                for (c = 1; c < dgv_long_loads.ColumnCount; c++)
+                {
+                    kStr = dgv_long_loads[c, i].Value.ToString();
+
+                    if (kStr == "") continue;
+                    if (fl == 1)
+                        def_load.Add(kStr);
+                    else if (fl == 2)
+                        def_x.Add(MyList.StringToDouble(kStr, 0.0));
+                    else if (fl == 3)
+                        def_z.Add(MyList.StringToDouble(kStr, 0.0));
+                }
+                //def_load.Add(txt);
+            }
+
+            fl = 3;
+
+            //Long_Girder_Analysis.LoadList_1 = 
+        }
 
         public void LONG_GIRDER_BRITISH_LL_TXT()
         {
@@ -14819,7 +15357,7 @@ namespace LimitStateMethod.Composite
                     Deck_Load_Analysis_Data();
                     Deck_Initialize_InputData();
                     //txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
-                    iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+                    //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
                     //Chiranjit [2013 10 10]
                   
 
@@ -15393,6 +15931,21 @@ namespace LimitStateMethod.Composite
             }
 
 
+        }
+
+        private void btn_IRC_Loadings_Click(object sender, EventArgs e)
+        {
+            Default_Moving_Type_LoadData(dgv_long_loads, iApp.IRC_6_2014_Load_Combinations(CW));
+        }
+
+        private void txt_Ana_length_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //txt_Ana_X.Text = "-" + txt_Ana_L.Text; //Chiranjit [2013 05 29]
+                Text_Changed();
+            }
+            catch (Exception ex) { }
         }
 
     }

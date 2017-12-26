@@ -164,7 +164,8 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            //list.Add("\t\t*                 ASTRA Pro                  *");
+            list.Add("\t\t*                 ASTRA Pro                  *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*    DESIGN OF RE (REINFORCED EARTH)  WALL   *");
@@ -1345,7 +1346,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             list.Add(string.Format(""));
             list.Add("\t\t**********************************************");
-            list.Add("\t\t*            ASTRA Pro Release 22            *");
+            list.Add("\t\t*                 ASTRA Pro                  *");
             list.Add("\t\t*        TechSOFT Engineering Services       *");
             list.Add("\t\t*                                            *");
             list.Add("\t\t*    DESIGN OF RE (REINFORCED EARTH)  WALL   *");
@@ -1358,7 +1359,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             _table_list.Add(string.Format(""));
             _table_list.Add("\t\t**********************************************");
-            _table_list.Add("\t\t*            ASTRA Pro Release 22            *");
+            _table_list.Add("\t\t*                 ASTRA Pro                  *");
             _table_list.Add("\t\t*        TechSOFT Engineering Services       *");
             _table_list.Add("\t\t*                                            *");
             _table_list.Add("\t\t*    DESIGN OF RE (REINFORCED EARTH)  WALL   *");

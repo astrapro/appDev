@@ -109,6 +109,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAnalysisExamples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnalysisExamples.Designer.cs">
+      <DependentUpon>frmAnalysisExamples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnalysisWorkspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnalysisWorkspace.Designer.cs">
+      <DependentUpon>frmAnalysisWorkspace.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCableCarTower.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,12 @@
     <Compile Include="VehicleLoad.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnalysisExamples.resx">
+      <DependentUpon>frmAnalysisExamples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnalysisWorkspace.resx">
+      <DependentUpon>frmAnalysisWorkspace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCableCarTower.resx">
       <DependentUpon>frmCableCarTower.cs</DependentUpon>
@@ -214,6 +232,24 @@
       <Project>{ebbab6bd-2680-47c5-9e76-087a0d0dc9f7}</Project>
       <Name>BridgeAnalysisDesign</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\techsoft_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenFile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HdViewerApp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveFile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printFile.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xrefs.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

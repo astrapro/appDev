@@ -159,6 +159,9 @@ namespace AstraInterface.Interface
          void Open_Excel_Macro_Notes();
 
          void Write_Data_to_File(string fname, string sap_path);
+
+         List<string> IRC_6_2014_Load_Combinations(double CW);
+
     }
 
 }

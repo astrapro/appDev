@@ -689,7 +689,7 @@ namespace LimitStateMethod.Extradossed
             Results.Add("");
             Results.Add("");
             Results.Add("\t\t**********************************************");
-            Results.Add("\t\t*            ASTRA Pro Release 22            *");
+            Results.Add("\t\t*                 ASTRA Pro                  *");
             Results.Add("\t\t*        TechSOFT Engineering Services       *");
             Results.Add("\t\t*                                            *");
             Results.Add("\t\t*        DESIGN OF STAY CABLE MEMBERS        *");

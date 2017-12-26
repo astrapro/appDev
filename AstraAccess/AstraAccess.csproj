@@ -157,6 +157,12 @@
     <Compile Include="frmOrthotropicEditor.Designer.cs">
       <DependentUpon>frmOrthotropicEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSAPWorkspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSAPWorkspace.Designer.cs">
+      <DependentUpon>frmSAPWorkspace.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -322,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrthotropicEditor.resx">
       <DependentUpon>frmOrthotropicEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSAPWorkspace.resx">
+      <DependentUpon>frmSAPWorkspace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSAP_Editor.resx">
       <DependentUpon>frmSAP_Editor.cs</DependentUpon>

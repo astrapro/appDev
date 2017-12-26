@@ -86,6 +86,11 @@
             this.txt_RE_L = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_new_design = new System.Windows.Forms.Button();
+            this.btn_browse_design = new System.Windows.Forms.Button();
+            this.txt_project_name = new System.Windows.Forms.TextBox();
+            this.label830 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.grb_select_analysis = new System.Windows.Forms.GroupBox();
             this.btn_RE_browse = new System.Windows.Forms.Button();
@@ -203,13 +208,9 @@
             this.btn_drawing_GAD_1 = new System.Windows.Forms.Button();
             this.btn_drawing_GAD_LHS = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btn_new_design = new System.Windows.Forms.Button();
-            this.btn_browse_design = new System.Windows.Forms.Button();
-            this.txt_project_name = new System.Windows.Forms.TextBox();
-            this.label830 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.grb_select_analysis.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -233,7 +234,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tab_drawings.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -677,6 +677,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(886, 594);
             this.panel1.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btn_new_design);
+            this.panel5.Controls.Add(this.btn_browse_design);
+            this.panel5.Controls.Add(this.txt_project_name);
+            this.panel5.Controls.Add(this.label830);
+            this.panel5.Location = new System.Drawing.Point(11, 7);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(394, 56);
+            this.panel5.TabIndex = 183;
+            // 
+            // btn_new_design
+            // 
+            this.btn_new_design.Location = new System.Drawing.Point(104, 4);
+            this.btn_new_design.Name = "btn_new_design";
+            this.btn_new_design.Size = new System.Drawing.Size(121, 24);
+            this.btn_new_design.TabIndex = 188;
+            this.btn_new_design.Text = "New Design";
+            this.btn_new_design.UseVisualStyleBackColor = true;
+            this.btn_new_design.Click += new System.EventHandler(this.btn_new_design_Click);
+            // 
+            // btn_browse_design
+            // 
+            this.btn_browse_design.Location = new System.Drawing.Point(242, 4);
+            this.btn_browse_design.Name = "btn_browse_design";
+            this.btn_browse_design.Size = new System.Drawing.Size(121, 24);
+            this.btn_browse_design.TabIndex = 189;
+            this.btn_browse_design.Text = "Open Design";
+            this.btn_browse_design.UseVisualStyleBackColor = true;
+            this.btn_browse_design.Click += new System.EventHandler(this.btn_new_design_Click);
+            // 
+            // txt_project_name
+            // 
+            this.txt_project_name.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_project_name.Location = new System.Drawing.Point(104, 30);
+            this.txt_project_name.Name = "txt_project_name";
+            this.txt_project_name.Size = new System.Drawing.Size(258, 22);
+            this.txt_project_name.TabIndex = 186;
+            // 
+            // label830
+            // 
+            this.label830.AutoSize = true;
+            this.label830.Location = new System.Drawing.Point(5, 34);
+            this.label830.Name = "label830";
+            this.label830.Size = new System.Drawing.Size(93, 13);
+            this.label830.TabIndex = 187;
+            this.label830.Text = "Project Name :";
             // 
             // groupBox12
             // 
@@ -1574,7 +1622,7 @@
             this.txt_RE_Heights.Multiline = true;
             this.txt_RE_Heights.Name = "txt_RE_Heights";
             this.txt_RE_Heights.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_RE_Heights.Size = new System.Drawing.Size(114, 253);
+            this.txt_RE_Heights.Size = new System.Drawing.Size(114, 541);
             this.txt_RE_Heights.TabIndex = 177;
             this.txt_RE_Heights.Text = "2.010";
             this.txt_RE_Heights.Visible = false;
@@ -1936,54 +1984,6 @@
             this.panel2.Size = new System.Drawing.Size(900, 28);
             this.panel2.TabIndex = 111;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btn_new_design);
-            this.panel5.Controls.Add(this.btn_browse_design);
-            this.panel5.Controls.Add(this.txt_project_name);
-            this.panel5.Controls.Add(this.label830);
-            this.panel5.Location = new System.Drawing.Point(11, 7);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(394, 56);
-            this.panel5.TabIndex = 183;
-            // 
-            // btn_new_design
-            // 
-            this.btn_new_design.Location = new System.Drawing.Point(104, 4);
-            this.btn_new_design.Name = "btn_new_design";
-            this.btn_new_design.Size = new System.Drawing.Size(121, 24);
-            this.btn_new_design.TabIndex = 188;
-            this.btn_new_design.Text = "New Design";
-            this.btn_new_design.UseVisualStyleBackColor = true;
-            this.btn_new_design.Click += new System.EventHandler(this.btn_new_design_Click);
-            // 
-            // btn_browse_design
-            // 
-            this.btn_browse_design.Location = new System.Drawing.Point(242, 4);
-            this.btn_browse_design.Name = "btn_browse_design";
-            this.btn_browse_design.Size = new System.Drawing.Size(121, 24);
-            this.btn_browse_design.TabIndex = 189;
-            this.btn_browse_design.Text = "Open Design";
-            this.btn_browse_design.UseVisualStyleBackColor = true;
-            this.btn_browse_design.Click += new System.EventHandler(this.btn_new_design_Click);
-            // 
-            // txt_project_name
-            // 
-            this.txt_project_name.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_project_name.Location = new System.Drawing.Point(104, 30);
-            this.txt_project_name.Name = "txt_project_name";
-            this.txt_project_name.Size = new System.Drawing.Size(258, 22);
-            this.txt_project_name.TabIndex = 186;
-            // 
-            // label830
-            // 
-            this.label830.AutoSize = true;
-            this.label830.Location = new System.Drawing.Point(5, 34);
-            this.label830.Name = "label830";
-            this.label830.Size = new System.Drawing.Size(93, 13);
-            this.label830.TabIndex = 187;
-            this.label830.Text = "Project Name :";
-            // 
             // frm_RE_Wall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2000,6 +2000,8 @@
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.grb_select_analysis.ResumeLayout(false);
@@ -2031,8 +2033,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tab_drawings.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -50,6 +50,8 @@ using LimitStateMethod.JettyDesign;
 
 //using AstraAccess;
 
+using ASTRAStructures;
+
 
 namespace AstraFunctionOne
 {
@@ -591,7 +593,6 @@ namespace AstraFunctionOne
 
 
 
-
                 //tsmi_streamHydrology
                 if (true)//true if ASTRA Pro Version 22 V1, false  if ASTRA Pro Version 22 V2
                 {
@@ -640,6 +641,7 @@ namespace AstraFunctionOne
                 //    LiveLoads = new LiveLoadCollections(ll_txt_file);
                 //}
                 Set_Bridge_Design_Menu();
+                Load_ASTRA_R22_Menu();
                 helpProvider1.HelpNamespace = Path.Combine(Application.StartupPath, "ASTRAHelp\\AstraPro.chm");
                 //TechSOFT_Demo();
                 try
@@ -776,10 +778,8 @@ namespace AstraFunctionOne
                     {
                         Last_version = eVersionType.Low_Value_Version;
                         this.BackgroundImage = Properties.Resources.ASTRA_Professional;
-
                     }
                 }
-
             }
             catch (Exception ex) { }
         }
@@ -2474,6 +2474,17 @@ namespace AstraFunctionOne
 
         private void Set_Bridge_Design_Menu()
         {
+            tsmi_selectDesignStandard.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+
+            tsmi_Bridge_Design.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+            tsmi_RCC_Structural_Design.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+            tsmi_structure_text.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+            tsmi_structure_sap.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+            tsmi_research_Studies.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+            tsmi_structureModeling.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+
+
+            return;
             //Chiranjit [2012 02 23]
             //foreach (var item in tsmi_Bridge_Design.DropDownItems)
             //{
@@ -2481,8 +2492,10 @@ namespace AstraFunctionOne
             //        ((ToolStripMenuItem)item).Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             //}
 
-
+            //Load_Structure_Analysis_Menu();
+            //tsmi_file_2.Visible = false;
             foreach (var item in tsmi_Process_Design.DropDownItems)
+            //foreach (var item in tsmi_file.DropDownItems)
             {
                 try
                 {
@@ -2491,6 +2504,8 @@ namespace AstraFunctionOne
                 }
                 catch (Exception ex) { }
             }
+
+
 
 
             foreach (var item in tsmi_Bridge_Design.DropDownItems)
@@ -2521,8 +2536,6 @@ namespace AstraFunctionOne
                 }
                 catch (Exception ex) { }
             }
-
-
 
             foreach (var item in tsmi_research_Studies.DropDownItems)
             {
@@ -5706,6 +5719,305 @@ namespace AstraFunctionOne
         }
 
         #endregion
+
+        public void Default_Moving_Type_LoadData(DataGridView dgv_live_load, List<string> list)
+        {
+            List<string> lst_spcs = new List<string>();
+            dgv_live_load.Rows.Clear();
+            int i = 0;
+            for (i = 0; i < dgv_live_load.ColumnCount; i++)
+            {
+                lst_spcs.Add("");
+            }
+            for (i = 0; i < list.Count; i++)
+            {
+                dgv_live_load.Rows.Add(lst_spcs.ToArray());
+            }
+
+            MyList mlist = null;
+            for (i = 0; i < list.Count; i++)
+            {
+                mlist = new MyList(list[i], ',');
+
+                if (list[i] == "")
+                {
+                    dgv_live_load.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                }
+                for (int j = 0; j < mlist.Count; j++)
+                {
+                    dgv_live_load[j, i].Value = mlist[j];
+                }
+            }
+        }
+
+        public List<string> IRC_6_2014_Load_Combinations(double CW)
+        {
+            List<string> list = new List<string>();
+
+
+
+            double CL = 1.5;
+            double min_class_A = 0.15;
+            double min_70RW = 1.2;
+            double clear_dist = 1.2;
+            double wheel_wd = 0.5;
+
+            double wd_class_A = 1.8;
+            double Wd_70RW = 2.9;
+
+
+            //if (CW >= 4.25 && CW < 5.3) // 1 Lane
+            if (CW < 5.3) // 1 Lane
+            {
+                #region 1 Lanes
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 1"));
+                list.Add(string.Format("X,-18.8"));
+                list.Add(string.Format("Z,1.65"));
+                //list.Add(string.Format("Z,{0:f3}", CL + min_class_A));
+                list.Add(string.Format(""));
+                #endregion
+            }
+            else if (CW >= 5.3 && CW < 9.6) // 2 Lanes
+            {
+                #region 2 Lanes
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 3"));
+                list.Add(string.Format("X,-13.4"));
+                list.Add(string.Format("Z,2.7"));
+                //list.Add(string.Format("Z,{0:f3}", CL + min_70RW));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 2,TYPE 1,TYPE 1"));
+                list.Add(string.Format("X,-18.8,-18.8"));
+                list.Add(string.Format("Z,1.65,5.15"));
+                //list.Add(string.Format("Z,{0:f3}", CL + min_class_A, CL + min_class_A + wd_class_A+ clear_dist))l
+                list.Add(string.Format(""));
+                #endregion
+            }
+            else if (CW >= 9.6 && CW < 13.1) // 3 Lanes
+            {
+                #region 3 Lanes
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 1,TYPE 1,TYPE 1"));
+                list.Add(string.Format("X,-18.8,-18.8,-18.8"));
+                list.Add(string.Format("Z,1.65,5.15,8.65"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 2,TYPE 1,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-13.4"));
+                list.Add(string.Format("Z,1.65,5.15"));
+                list.Add(string.Format(""));
+                #endregion
+            }
+            else if (CW >= 13.1 && CW < 16.6) // 4 Lanes
+            {
+                #region 4 Lanes
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 1,TYPE 1,TYPE 1,TYPE 1"));
+                list.Add(string.Format("X,-18.8,-18.8,-18.8,-18.8"));
+                list.Add(string.Format("Z,1.65,5.15,8.65,12.15"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 2,TYPE 1,TYPE 1,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-18.8,-13.4"));
+                list.Add(string.Format("Z,1.65,5.15,8.65"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 3,TYPE 3,TYPE 3"));
+                list.Add(string.Format("X,-13.4,-13.4"));
+                list.Add(string.Format("Z,2.7,6.8"));
+                list.Add(string.Format(""));
+                #endregion
+            }
+            else if (CW >= 16.6 && CW < 20.1) // 5 Lanes
+            {
+                #region 5 Lanes
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 1,TYPE 1,TYPE 1,TYPE 1,TYPE 1"));
+                list.Add(string.Format("X,-18.8,-18.8,-18.8,-18.8,-18.8"));
+                list.Add(string.Format("Z,1.65,5.15,8.65,12.15,15.65"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 2,TYPE 1,TYPE 1,TYPE 1,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-18.8,-18.8,-13.4"));
+                list.Add(string.Format("Z,1.65,5.15,8.65,12.15"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 3,TYPE 3,TYPE 1,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-13.4,-13.4"));
+                list.Add(string.Format("Z,2.7,6.8,10.3"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 4,TYPE 1,TYPE 3,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-13.4,-13.4"));
+                list.Add(string.Format("Z,1.65,5.15,9.25"));
+                #endregion
+            }
+            //else if (CW >= 20.1 && CW < 23.6) // 6 Lanes
+            else if (CW >= 20.1) // 6 Lanes
+            {
+                #region 6 Lanes
+                list.Clear();
+                list.Add(string.Format("LOAD 1,TYPE 1,TYPE 1,TYPE 1,TYPE 1,TYPE 1,TYPE 1"));
+                list.Add(string.Format("X,-18.8,-18.8,-18.8,-18.8,-18.8,-18.8"));
+                list.Add(string.Format("Z,1.65,5.15,8.65,12.15,15.65,19.15"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 2,TYPE 1,TYPE 1,TYPE 1,TYPE 1,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-18.8,-18.8,-18.8,-13.4"));
+                list.Add(string.Format("Z,1.65,5.15,8.65,12.15,15.65"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 3,TYPE 1,TYPE 1,TYPE 3,TYPE 3"));
+                list.Add(string.Format("X,-18.8,-18.8,-13.4,-13.4"));
+                list.Add(string.Format("Z,1.65,5.15,8.65,12.75"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("LOAD 4,TYPE 3,TYPE 1,TYPE 1,TYPE 3"));
+                list.Add(string.Format("X,-13.4,-18.8,-18.8,-13.4"));
+                list.Add(string.Format("Z,2.7,6.8,10.30,13.80"));
+                #endregion
+            }
+            return list;
+        }
+
+        public void Load_ASTRA_R22_Menu()
+        {
+
+            tsmi_newAnalysisTXTDataFile.Visible = false;
+            tsmi_newAnalysisSAPDataFile.Visible = false;
+            tsmi_newAnalysisDWGDataFile.Visible = false;
+            tsmi_openAnalysisTXTDataFile.Visible = false;
+            tsmi_openSAPDataFile.Visible = false;
+            tsmi_openStructureModelDrawingFile.Visible = false;
+            tsmi_openAnalysisExampleTXTDataFile.Visible = false;
+            tsmi_structure_text.Enabled = false;
+            tsmi_Process_Design.Visible = false;
+
+
+            tsmi_Process_Design.DropDownItems.Remove(tsmi_selectWorkingFolder);
+            tsmi_Process_Design.DropDownItems.Remove(tsmi_selectDesignStandard);
+            tsmi_Process_Design.DropDownItems.Remove(tsmi_Bridge_Design);
+            tsmi_Process_Design.DropDownItems.Remove(tsmi_RCC_Structural_Design);
+            tsmi_Process_Design.DropDownItems.Remove(tsmi_research_Studies);
+            tsmi_process_analysis.DropDownItems.Remove(tsmi_structureModeling);
+
+            tsmi_process_analysis.Visible = false;
+
+            tsmi_file.DropDownItems.Insert(0, tsmi_selectWorkingFolder);
+            tsmi_file.DropDownItems.Insert(1, tsmi_selectDesignStandard);
+
+
+            tsmi_file.DropDownItems.Insert(10, tsmi_research_Studies);
+            tsmi_file.DropDownItems.Insert(10, tsmi_RCC_Structural_Design);
+            tsmi_file.DropDownItems.Insert(10, tsmi_Bridge_Design);
+
+
+
+            tsmi_file.DropDownItems.Insert(tsmi_file.DropDownItems.IndexOf(tsmi_structure_sap) + 1, tsmi_structureModeling);
+
+            //tsmi_file.DropDownItems.Add(tsmi_Bridge_Design);
+            //tsmi_file.DropDownItems.Add(tsmi_RCC_Structural_Design);
+            //tsmi_file.DropDownItems.Add(tsmi_research_Studies);
+
+
+            #region Set Structure Analysis Menu
+            string example_path = Path.Combine(Application.StartupPath, @"ASTRA Pro Analysis Examples\01 Analysis with Text Data File");
+
+            List<string> lst_dir = new List<string>(Directory.GetDirectories(example_path));
+
+            List<string> list = new List<string>();
+
+            list.Add("Static Analysis of Frame with Beam Members");
+            list.Add("Static Analysis with Springs at Supports");
+            list.Add("Static Analysis of Truss Tower");
+            list.Add("Static Analysis with Beam & Truss Members");
+            list.Add("Static Analysis with Area Load & Node Gap");
+            list.Add("Static Analysis with Repeat Load");
+            list.Add("Static Analysis with Plate Elements");
+            list.Add("Static Analysis with Sinking_Supports");
+            list.Add("Static Analysis with Temperature Load");
+            list.Add("Dynamic Analysis for Eigen Value Vector");
+            list.Add("Dynamic Analysis for Response Spectrum");
+            list.Add("Dynamic Analysis for Time History");
+            list.Add("Moving Load Analysis of Bridge Deck");
+            list.Add("Moving & Fixed Load Analysis of Bridge Deck");
+            list.Add("Analysis for Truss Groups in Bridge");
+            list.Add("Analysis for Cable Groups in Bridge");
+            list.Add("DL+SIDL+Moving Load Analysis for Pier");
+            list.Add("Transverse Load Analysis for Deck Slab");
+            list.Add("Analysis for Multistoreyed Building");
+            list.Add("Large Frame Analysis with Beam & Plate");
+
+            //[0] = "D:\\Software Development\\ASTRA Pro Main Screen Professional\\ASTRA\\bin\\x86\\Debug\\ASTRA Pro Analysis Examples\\01 Analysis with Text Data File"
+            tsmi_structure_text.DropDownItems.Clear();
+
+            ToolStripItem tsi = null;
+
+            int anaCount = 1;
+            foreach (var item in list)
+            {
+                tsi = tsmi_structure_text.DropDownItems.Add(item);
+                tsi.Name = "analysis_" + anaCount++;
+                tsi.Click += new EventHandler(tsi_Click);
+            }
+
+            #endregion Set Structure Analysis Menu
+
+
+
+            #region Set Structure Analysis Menu
+             example_path = Path.Combine(Application.StartupPath, @"ASTRA Pro Analysis Examples\03 Analysis with SAP Data File");
+
+            lst_dir = new List<string>(Directory.GetDirectories(example_path));
+
+            list = new List<string>();
+
+            list.Add(string.Format("Static Analysis of Frame with Beam Members"));
+            list.Add(string.Format("Static Analysis with Springs at Supports"));
+            list.Add(string.Format("Static Analysis of Truss Tower"));
+            list.Add(string.Format("Static Analysis with Beam & Truss Members"));
+            list.Add(string.Format("Static Analysis with Area Load & Node Gap"));
+            list.Add(string.Format("Static Analysis with Repeat Load"));
+            list.Add(string.Format("Static Analysis with Plate Elements"));
+            list.Add(string.Format("Static Analysis with Sinking_Supports"));
+            list.Add(string.Format("Static Analysis with Temperature Load"));
+            list.Add(string.Format("Dynamic Analysis for Eigen Value_Vector"));
+            list.Add(string.Format("Dynamic Analysis for Response Spectrum"));
+            list.Add(string.Format("Dynamic Analysis for Time History"));
+            list.Add(string.Format("Static Analysis with Solid Elements"));
+            list.Add(string.Format("Dynamic Analysis with Solid Elements"));
+
+            //[0] = "D:\\Software Development\\ASTRA Pro Main Screen Professional\\ASTRA\\bin\\x86\\Debug\\ASTRA Pro Analysis Examples\\01 Analysis with Text Data File"
+            tsmi_structure_sap.DropDownItems.Clear();
+
+             //tsi = null;
+
+            anaCount = 1;
+            foreach (var item in list)
+            {
+                tsi = tsmi_structure_sap.DropDownItems.Add(item);
+                tsi.Name = "sap_" + anaCount++;
+                tsi.Click += new EventHandler(tsi_Click);
+            }
+
+            #endregion Set Structure Analysis Menu
+
+        }
+
+        void tsi_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+            //MessageBox.Show(tsmi.Name + " : " + tsmi.Text);
+
+            if (tsmi.Name.StartsWith("sap"))
+            {
+                AstraAccess.frmSAPWorkspace frm = new AstraAccess.frmSAPWorkspace(this, tsmi.Name + " : " + tsmi.Text, true);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else
+            {
+                frmAnalysisWorkspace frm = new frmAnalysisWorkspace(this, tsmi.Name + " : " + tsmi.Text);
+                frm.Owner = this;
+                frm.Show();
+            }
+
+            //throw new NotImplementedException();
+        }
+
+
     }
 
 }

@@ -10211,39 +10211,43 @@ namespace ASTRAStructures
         Hashtable ht_Lst_X = new Hashtable();
         Hashtable ht_Lst_Z = new Hashtable();
 
+
+        public gPoint insPnt
+        {
+            get
+            {
+                return new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
+            }
+        }
         public void Draw_Curve(vdDocument vdoc, bool IsGrid, double Curve_Radius, double length, double z, double hgt, Color c)
         {
 
-
-            gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
+            
+            //gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
             //int _Columns = 100;
 
+            //MyList spans = new MyList(txt_multiSpan.Text, ',');
 
-
-            MyList spans = new MyList(txt_multiSpan.Text, ',');
-
-
-
-
-            int _Columns = MyList.StringToInt(txt_Ana_NCG.Text, 10);
+            int _Columns = MyList.StringToInt(txt_Y_Increment.Text, 10);
 
 
 
-            if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
 
 
+
+
+
+
+            //if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
 
-
             double start_ang = MyList.StringToDouble(txt_Start_Angle);
             double end_ang = MyList.StringToDouble(txt_End_Angle);
 
-
             start_ang = MyList.Convert_Degree_To_Radian(start_ang);
             end_ang = MyList.Convert_Degree_To_Radian(end_ang);
-
 
             double ang_div = MyList.StringToDouble(txt_curve_divs);
             double ang_ncr = MyList.StringToDouble(txt_curve_ang_incr);
@@ -10256,10 +10260,20 @@ namespace ASTRAStructures
                 _Columns = (int)((end_ang - start_ang) / ang_ncr) + 1;
                 var ang = start_ang;
                 var _r = Curve_Radius - z;
-
+                if(chk_center_point.Checked)
+                {
+                    _r = z;
+                }
                 for (int iCols = 0; iCols <= _Columns; iCols++)
                 {
-                    lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                    if (!chk_center_point.Checked)
+                        lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                    else
+                        lst_z.Add(_r * Math.Cos(ang));
+
+
+                    //lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+
                     lst_x.Add(_r * Math.Sin(ang));
                     ang += ang_ncr;
                 }
@@ -10274,9 +10288,20 @@ namespace ASTRAStructures
                     //lst_z.Add(Curve_Radius - _r * Math.Cos(ang_incr));
                     //lst_x.Add(_r * Math.Sin(ang_incr));
 
-                    ang += start_ang;
-                    lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
-                    lst_x.Add(_r * Math.Sin(ang));
+                    if (chk_center_point.Checked)
+                    {
+                        _r = z;
+                        ang += start_ang;
+                        lst_z.Add(_r * Math.Cos(ang));
+                        lst_x.Add(_r * Math.Sin(ang));
+                    }
+                    else
+                    {
+                        ang += start_ang;
+                        lst_z.Add(Curve_Radius - _r * Math.Cos(ang));
+                        lst_x.Add(_r * Math.Sin(ang));
+                    }
+
                 }
             }
             try
@@ -10305,7 +10330,6 @@ namespace ASTRAStructures
                     pnt1 = new gPoint(hgt, lst_x[iCols - 1], lst_z[iCols - 1]);
                     pnt2 = new gPoint( hgt, lst_x[iCols],lst_z[iCols]);
                 }
-
 
                 pnt1.x += insPnt.x;
                 pnt1.y += insPnt.y;
@@ -10344,9 +10368,7 @@ namespace ASTRAStructures
                 }
             }
 
-
             doc_grid.Redraw(true);
-
 
             VDRAW.vdCommandAction.ZoomE_Ex(doc_grid);
 
@@ -10355,22 +10377,24 @@ namespace ASTRAStructures
             #endregion Web Section
         }
 
-
-
+        private void txt_multiSpan_TextChanged(object sender, System.EventArgs e)
+        {
+            //throw new System.NotImplementedException();
+        }
         public void Draw_Straight(vdDocument vdoc, bool IsGrid, double length, double z, double hgt, Color c)
         {
 
             gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
             //int _Columns = 100;
 
-            MyList spans = new MyList(txt_multiSpan.Text, ',');
+            //MyList spans = new MyList(txt_multiSpan.Text, ',');
 
 
-            int _Columns = MyList.StringToInt(txt_Ana_NCG.Text, 10);
+            int _Columns = MyList.StringToInt(txt_Y_Increment.Text, 10);
 
 
 
-            if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
+            //if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
 
 
 
@@ -10464,16 +10488,15 @@ namespace ASTRAStructures
             //int _Columns = 100;
 
 
-            MyList spans = new MyList(txt_multiSpan.Text, ',');
+            //MyList spans = new MyList(txt_multiSpan.Text, ',');
 
 
 
-
-            int _Columns = MyList.StringToInt(txt_Ana_NCG.Text, 10);
-
+            int _Columns = MyList.StringToInt(txt_Y_Increment.Text, 10);
 
 
-            if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
+
+            //if (rbtn_multiSpan.Checked) _Columns = _Columns * spans.Count;
 
 
 
@@ -10592,42 +10615,140 @@ namespace ASTRAStructures
             #endregion Web Section
         }
 
+        public double Length_X
+        {
+            get
+            {
+                return MyList.StringToDouble(txt_Length_X);
+            }
+        }
+        public double X_Increment
+        {
+            get
+            {
+                return MyList.StringToDouble(txt_X_Increment);
+            }
+        }
+        public double Height_Y
+        {
+            get
+            {
+                return MyList.StringToDouble(txt_Height_Y);
+            }
+        }
+        public double Y_Increment
+        {
+            get
+            {
+                return MyList.StringToDouble(txt_Y_Increment);
+            }
+        }
+        public double Width_Z
+        {
+            get
+            {
+                return MyList.StringToDouble(txt_Width_Z);
+            }
+        }
+        public double Z_Increment
+        {
+            get
+            {
+                return MyList.StringToDouble(txt_Z_Increment);
+            }
+        }
         private void btn_gen_grid_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
             bool IsGrid = true;
 
-            if (btn == btn_set_model) IsGrid = false; 
+            if (btn == btn_set_model)
+            {
+                IsGrid = false;
 
+                if (chk_withAll.Checked)
+                {
+                    Draw_All_Grid();
+                    return;
+                }
+            }
 
-            double B = MyList.StringToDouble(txt_Ana_B);
-            double CL = MyList.StringToDouble(txt_Ana_CL);
-            double CR = MyList.StringToDouble(txt_Ana_CR);
-            double NMG = MyList.StringToDouble(txt_Ana_NMG);
-            double NCG = MyList.StringToDouble(txt_Ana_NCG);
+            //double B = MyList.StringToDouble(txt_Width_Z);
+            //double CL = MyList.StringToDouble(txt_Height_Y);
+            //double CR = MyList.StringToDouble(txt_X_Increment);
+            //double NMG = MyList.StringToDouble(txt_Z_Increment);
+            //double NCG = MyList.StringToDouble(txt_Y_Increment);
             double R = MyList.StringToDouble(txt_curve_radius);
-
 
             double hgt = MyList.StringToDouble(cmb_grid_level_val.Text);
 
-            
-
             List<double> list_z = new List<double>();
 
-            list_z.Add(0.0);
-            //list_z.Add(CL);
-            //list_z.Add(B - CR);
-            list_z.Add(B);
+            //list_z.Add(0.0);
+            //list_z.Add(B);
 
-            double _b = CL;
+            //double _b = CL;
 
-            while (_b <= (B-CR))
+            //while (_b <= (B-CR))
+            //{
+            //    list_z.Add(_b);
+            //    _b += (B - CL - CR) / (NMG-1);
+            //}
+
+
+            //list_z.Add(0.0);
+            //list_z.Add(B);
+            cmb_grid_level_val.Items.Clear();
+
+            double _b = 0.0;
+            double _l = 0.0;
+            if (cmb_grid_plane.SelectedIndex == 0) // X-Y PLANE
             {
-                list_z.Add(_b);
-                _b += (B - CL - CR) / (NMG-1);
+                _l = Length_X;
+                while (_b <= Height_Y)
+                {
+                    list_z.Add(_b);
+                    _b += Y_Increment;
+                }
+
+                _b = 0.0;
+                while (_b <= Width_Z)
+                {
+                    cmb_grid_level_val.Items.Add(_b.ToString("f2"));
+                    _b += Z_Increment;
+                }
+
             }
-
-
+            else if (cmb_grid_plane.SelectedIndex == 1) // X-Z PLANE
+            {
+                _l = Length_X;
+                while (_b <= Width_Z)
+                {
+                    list_z.Add(_b);
+                    _b += Z_Increment;
+                }
+                _b = 0.0;
+                while (_b <= Height_Y)
+                {
+                    cmb_grid_level_val.Items.Add(_b.ToString("f2"));
+                    _b += Y_Increment;
+                }
+            }
+            else // Y-Z PLANE
+            {
+                _l = Height_Y;
+                while (_b <= Width_Z)
+                {
+                    list_z.Add(_b);
+                    _b += X_Increment;
+                }
+                _b = 0.0;
+                while (_b <= Length_X)
+                {
+                    cmb_grid_level_val.Items.Add(_b.ToString("f2"));
+                    _b += X_Increment;
+                }
+            }
             list_z.Sort();
             
             //Draw_Curve(doc_grid, "LOL", 
@@ -10642,19 +10763,21 @@ namespace ASTRAStructures
 
             foreach (var item in list_z)
             {
-                if (R == 0.0)
+                if (R == 0.0 || !chk_curve.Checked)
                 {
-                    Draw_Straight(doc_grid, IsGrid, MyList.StringToDouble(txt_Ana_L), item, hgt, Color.Red);
+                    //Draw_Straight(doc_grid, IsGrid, MyList.StringToDouble(txt_Length_X), item, hgt, Color.Red);
+                    Draw_Straight(doc_grid, IsGrid, _l, item, hgt, Color.Red);
                 }
                 else
                 {
-                    Draw_Curve(doc_grid, IsGrid, R, MyList.StringToDouble(txt_Ana_L), item, hgt, Color.Red);
+                    //Draw_Curve(doc_grid, IsGrid, R, MyList.StringToDouble(txt_Length_X), item, hgt, Color.Red);
+                    Draw_Curve(doc_grid, IsGrid, R, _l, item, hgt, Color.Red);
                 }
             }
 
-            gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
+            //gPoint insPnt = new gPoint(MyList.StringToDouble(txt_X), MyList.StringToDouble(txt_Y), MyList.StringToDouble(txt_Z));
 
-
+            //insPnt
 
 
             for (int i = 1; i < list_z.Count;i++)
@@ -10672,9 +10795,6 @@ namespace ASTRAStructures
 
                 for (int iCols = 0; iCols < lst_X1.Count; iCols++)
                 {
-
-
-
                     var pnt1 = new gPoint(lst_X1[iCols], hgt, lst_Z1[iCols]);
                     var pnt2 = new gPoint(lst_X2[iCols], hgt, lst_Z2[iCols]);
 
@@ -10688,7 +10808,6 @@ namespace ASTRAStructures
                         pnt1 = new gPoint(hgt, lst_X1[iCols], lst_Z1[iCols]);
                         pnt2 = new gPoint(hgt, lst_X2[iCols], lst_Z2[iCols]);
                     }
-
 
                     pnt1.x += insPnt.x;
                     pnt1.y += insPnt.y;
@@ -10977,7 +11096,39 @@ namespace ASTRAStructures
 
             VDRAW.vdCommandAction.LineEx(doc_grid);
         }
+        public void Draw_All_Grid()
+        {
 
+            List<vdLine> lines = new List<vdLine>();
+
+            vdDocument dc = uC_CAD_Model.VDoc;
+            for (int i = 0; i < dc.ActiveLayOut.Entities.Count; i++)
+            {
+                vdLine ln = dc.ActiveLayOut.Entities[i] as vdLine;
+                if(ln != null)
+                {
+                    if(ln.Layer == GRID_LAYER)
+                    {
+                        lines.Add(ln);
+                    }
+                }
+            }
+
+            for (int i = 0; i < lines.Count; i++)
+            {
+                vdLine lne = new vdLine(dc);
+                lne.setDocumentDefaults();
+
+                lne.StartPoint = lines[i].StartPoint;
+                lne.EndPoint = lines[i].EndPoint;
+                lne.Layer = MODEL_LAYER;
+                dc.ActiveLayOut.Entities.AddItem(lne);
+            }
+
+
+            dc.Redraw(true);
+
+        }
 
         vdDocument doc_model { get { return uC_CAD_Model.VDoc; } }
         vdDocument doc_grid { get { return uC_CAD_Model.VDoc; } }
@@ -11071,13 +11222,9 @@ namespace ASTRAStructures
 
             if (R != 0)
             {
-                double theta = MyList.StringToDouble(txt_Ana_L) * 180 / (R * Math.PI);
-
-
-
+                double theta = MyList.StringToDouble(txt_Length_X) * 180 / (R * Math.PI);
 
                 txt_curve_angle.Text = theta.ToString("f2");
-
 
                 theta = (MyList.StringToDouble(txt_End_Angle) - MyList.StringToDouble(txt_Start_Angle)); 
 
@@ -11086,40 +11233,21 @@ namespace ASTRAStructures
                 txt_curve_ang_incr.Text = (theta / dvs).ToString("f2");
 
 
-                double V = MyList.StringToDouble(txt_curve_des_spd_kph.Text, 0.0);
+                //double V = MyList.StringToDouble(txt_curve_des_spd_kph.Text, 0.0);
 
-                txt_curve_des_spd_mps.Text = (V * 1000 / (60.0 * 60.0)).ToString("f3");
+                //txt_curve_des_spd_mps.Text = (V * 1000 / (60.0 * 60.0)).ToString("f3");
             }
             else
             {
                 txt_curve_angle.Text = "0.0";
                 txt_curve_ang_incr.Text = "0.0";
-                txt_curve_des_spd_mps.Text = "0.0";
+                //txt_curve_des_spd_mps.Text = "0.0";
             }
             #endregion
         }
 
-        private void rbtn_singleSpan_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbtn_singleSpan.Checked)
-            {
+      
 
-            }
-            else if (rbtn_multiSpan.Checked)
-            {
-                MyList ml = new MyList(txt_multiSpan.Text, ',');
-                txt_Ana_L.Text = ml.SUM.ToString("f3");
-            }
-        }
-
-        private void txt_multiSpan_TextChanged(object sender, EventArgs e)
-        {
-            if (rbtn_multiSpan.Checked)
-            {
-                MyList ml = new MyList(txt_multiSpan.Text.Replace(",", " "), ' ');
-                txt_Ana_L.Text = ml.SUM.ToString("f3");
-            }
-        }
         public gPoint Get_Straight_Coordinates(double x,double y, double z)
         {
             double R = MyList.StringToDouble(txt_curve_radius);
@@ -11176,6 +11304,11 @@ namespace ASTRAStructures
 
 
         public double Curve_Radius { get { return MyList.StringToDouble(txt_curve_radius); } }
+
+        private void chk_ang_dtls_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
    
  

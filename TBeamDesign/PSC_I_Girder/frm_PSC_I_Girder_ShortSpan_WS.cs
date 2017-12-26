@@ -7235,7 +7235,7 @@ namespace BridgeAnalysisDesign.PSC_I_Girder
             List<string> ll = new List<string>();
 
             ll.Add("\t\t***********************************************");
-            ll.Add("\t\t*            ASTRA Pro Release 22             *");
+            ll.Add("\t\t*                  ASTRA Pro                  *");
             ll.Add("\t\t*        TechSOFT Engineering Services        *");
             ll.Add("\t\t*                                             *");
             ll.Add("\t\t*          POST TENSIONED MAIN GIRDER         *");
