@@ -161,6 +161,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
         private void btn_RE_process_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
             try
             {
                 if (!Check_Project_Folder()) return;
@@ -175,6 +176,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
                 Set_Input_Data();
 
+                Update_Layer_Sections();
 
                 for (int i = 0; i < re_des.Layout_Sections.Count; i++)
                 {
@@ -186,7 +188,10 @@ namespace BridgeAnalysisDesign.RE_Wall
                 }
             
                 //re_des.Calculate_Program();
-                re_des.Loop_Program();
+                if (btn == btn_RE_process_current)
+                    re_des.Loop_Program(true);
+                else
+                    re_des.Loop_Program(false);
 
 
                 MessageBox.Show(this, "Report file created in " + re_des.Report_File + "\n\n and\n\n" + re_des.Report_Table_File, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -418,9 +423,16 @@ namespace BridgeAnalysisDesign.RE_Wall
 
         private void txt_RE_H_TextChanged(object sender, EventArgs e)
         {
+            TextBox txt = sender as TextBox;
+            chk_L_apply.Checked = false;
+            Calculate_Height(txt);
+        }
+
+        private void Calculate_Height(TextBox txt)
+        {
+
             txt_RE_Hf.Text = txt_RE_H.Text;
 
-            TextBox txt = sender as TextBox;
 
             Set_Input_Data();
 
@@ -429,7 +441,6 @@ namespace BridgeAnalysisDesign.RE_Wall
             if (txt.Name == txt_RE_L.Name)
             {
                 re_des.Set_Design_Input_Data(true);
-
             }
             else
             {
@@ -475,6 +486,13 @@ namespace BridgeAnalysisDesign.RE_Wall
 
         private void btn_chng_layout_Click(object sender, EventArgs e)
         {
+            Update_Layer_Sections();
+
+            MessageBox.Show("Data modified.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Update_Layer_Sections()
+        {
 
             Reinforcement_Layout_Section sec = new Reinforcement_Layout_Section();
             Reinforcement_Layout lay = null;
@@ -493,8 +511,6 @@ namespace BridgeAnalysisDesign.RE_Wall
                 sec.Layers.Add(lay);
             }
             re_des.Layout_Sections[cmb_section_height.SelectedIndex] = sec;
-
-            MessageBox.Show("Data modified.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgv_layout_sections_CellLeave(object sender, DataGridViewCellEventArgs e)
@@ -613,10 +629,10 @@ namespace BridgeAnalysisDesign.RE_Wall
             {
                 iApp.RunViewer(Path.Combine(Drawing_Folder, "General Arrangement Drawings 4"), "RE_WALL_GAD_4");
             }
-            else if (btn.Name == btn_drawing_Nomenclature.Name)
-            {
-                iApp.RunViewer(Path.Combine(Drawing_Folder, "NOMENCLATURE"), "RE_WALL_NOMENCLATURE");
-            }
+            //else if (btn.Name == btn_drawing_Nomenclature.Name)
+            //{
+            //    //iApp.RunViewer(Path.Combine(Drawing_Folder, "NOMENCLATURE"), "RE_WALL_NOMENCLATURE");
+            //}
             else if (btn.Name == btn_drawing_structural_details.Name)
             {
                 iApp.RunViewer(Path.Combine(Drawing_Folder, "Structural Details"), "RE_WALL_STRUCTURAL");
@@ -767,6 +783,25 @@ namespace BridgeAnalysisDesign.RE_Wall
         }
 
         #endregion Chiranjit [2016 09 07]
+
+        private void chk_L_apply_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chk_L_apply.Checked)
+            {
+                for (int i = 0; i < dgv_layout_sections.RowCount; i++)
+                {
+                    dgv_layout_sections[4, i].Value = txt_RE_L.Text;
+                }
+            }
+            else
+            {
+                //Calculate_Height(txt_RE_start_H1);
+
+                Calculate_Height(txt_RE_L);
+
+            }
+            Update_Layer_Sections();
+        }
 
 
     }

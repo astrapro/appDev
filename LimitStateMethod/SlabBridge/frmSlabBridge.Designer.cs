@@ -74,9 +74,11 @@
             this.rtb_results = new System.Windows.Forms.RichTextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.uC_AbutmentWallType1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentWallType();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_drawings = new System.Windows.Forms.Button();
+            this.uC_PierWallType1 = new BridgeAnalysisDesign.Pier.UC_PierWallType();
             this.panel1.SuspendLayout();
             this.grb_Analysis.SuspendLayout();
             this.grb_Design.SuspendLayout();
@@ -95,6 +97,7 @@
             this.groupBox1.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -320,6 +323,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -557,6 +561,17 @@
             this.uC_AbutmentWallType1.Size = new System.Drawing.Size(699, 524);
             this.uC_AbutmentWallType1.TabIndex = 0;
             // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.uC_PierWallType1);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(705, 530);
+            this.tabPage8.TabIndex = 3;
+            this.tabPage8.Text = "Wall Type Pier";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label1);
@@ -589,6 +604,14 @@
             this.btn_drawings.UseVisualStyleBackColor = true;
             this.btn_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
             // 
+            // uC_PierWallType1
+            // 
+            this.uC_PierWallType1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierWallType1.Location = new System.Drawing.Point(30, 6);
+            this.uC_PierWallType1.Name = "uC_PierWallType1";
+            this.uC_PierWallType1.Size = new System.Drawing.Size(564, 516);
+            this.uC_PierWallType1.TabIndex = 0;
+            // 
             // frmSlabBridge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -620,6 +643,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
@@ -674,5 +698,7 @@
         private System.Windows.Forms.RichTextBox rtb_LL_1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RichTextBox rtb_LL_TXT;
+        private System.Windows.Forms.TabPage tabPage8;
+        private BridgeAnalysisDesign.Pier.UC_PierWallType uC_PierWallType1;
     }
 }

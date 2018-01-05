@@ -1371,6 +1371,23 @@ namespace AstraInterface.DataStructure
             }
             return list;
         }
+        public static void releaseObject(object obj)
+        {
+            try
+            {
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(obj);
+                obj = null;
+            }
+            catch (Exception ex)
+            {
+                obj = null;
+                MessageBox.Show("Exception Occured while releasing object " + ex.ToString());
+            }
+            finally
+            {
+                GC.Collect();
+            }
+        }
 
     }
 
@@ -1727,6 +1744,13 @@ namespace AstraInterface.DataStructure
         }
         public AstraMember Get_User_Member_Number(int astra_mem_no)
         {
+            if (ASTRA_USER_Member_table.Count == 0)
+            {
+                var am = new AstraMember();
+                am.AstraMemberNo = astra_mem_no;
+                am.UserNo = astra_mem_no;
+                return am;
+            }
             foreach (var item in ASTRA_USER_Member_table)
             {
                 if (item.AstraMemberNo == astra_mem_no && item.AstraMemberType == eAstraMemberType.BEAM)
@@ -1861,38 +1885,40 @@ namespace AstraInterface.DataStructure
 
                     try
                     {
-                    double supp_x_coor = structure.Supports.Count > 0 ? structure.Supports[0].X : 0.0;
-
-                    supp_x_coor = (supp_x_coor - Math.Tan(structure.Skew_Angle * Math.PI / 180.0) * structure.Supports[0].Z);
-
-
-                    supp_x_coor = MyList.StringToDouble(supp_x_coor.ToString("0.000"), 0.0);
-
-                    structure.Support_Distance = supp_x_coor;
-
-                    List<double> _X_joints = new List<double>();
-                    List<double> _Z_joints = new List<double>();
-
-                    for (int i = 0; i < jn_col.Count; i++)
-                    {
-                        //if (_X_joints.Contains(jn_col[i].X) == false) _X_joints.Add(jn_col[i].X);
-                        if (_Z_joints.Contains(jn_col[i].Z) == false) _Z_joints.Add(jn_col[i].Z);
-                    }
-
-                    _X_joints.Clear();
-
-
-                    for (int i = 0; i < jn_col.Count; i++)
-                    {
-                        if (_Z_joints[0] == jn_col[i].Z)
+                        double supp_x_coor = structure.Supports.Count > 0 ? structure.Supports[0].X : 0.0;
+                        if (structure.Supports.Count > 0)
                         {
-                            _X_joints.Add(jn_col[i].X);
+                            supp_x_coor = (supp_x_coor - Math.Tan(structure.Skew_Angle * Math.PI / 180.0) * structure.Supports[0].Z);
+
+
+                            supp_x_coor = MyList.StringToDouble(supp_x_coor.ToString("0.000"), 0.0);
+
+                            structure.Support_Distance = supp_x_coor;
+
+                            List<double> _X_joints = new List<double>();
+                            List<double> _Z_joints = new List<double>();
+
+                            for (int i = 0; i < jn_col.Count; i++)
+                            {
+                                //if (_X_joints.Contains(jn_col[i].X) == false) _X_joints.Add(jn_col[i].X);
+                                if (_Z_joints.Contains(jn_col[i].Z) == false) _Z_joints.Add(jn_col[i].Z);
+                            }
+
+                            _X_joints.Clear();
+
+
+                            for (int i = 0; i < jn_col.Count; i++)
+                            {
+                                if (_Z_joints[0] == jn_col[i].Z)
+                                {
+                                    _X_joints.Add(jn_col[i].X);
+                                }
+                            }
+
+
+                            structure.Effective_Depth = _X_joints.Count > 1 ? _X_joints[_X_joints.IndexOf(supp_x_coor) + 1] : 0.0;
+                            structure.Width_Cantilever = _Z_joints.Count > 1 ? _Z_joints[2] : 0.0;
                         }
-                    }
-
-
-                        structure.Effective_Depth = _X_joints.Count > 1 ? _X_joints[_X_joints.IndexOf(supp_x_coor) + 1] : 0.0;
-                        structure.Width_Cantilever = _Z_joints.Count > 1 ? _Z_joints[2] : 0.0;
                     }
                     catch (Exception ex)
                     {
@@ -1915,7 +1941,7 @@ namespace AstraInterface.DataStructure
                             {
 
                                 var dd = Get_User_Member_Number(list_beams[j].BeamNo);
-
+                                
                                 //if (list_beams[j].BeamNo == structure.Members[i].MemberNo)
                                 if (dd.UserNo == structure.Members[i].MemberNo)
                                 {

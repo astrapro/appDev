@@ -613,6 +613,10 @@ namespace ASTRAStructures
                 this.Text = Title;
                 Set_Project_Name();
 
+                UC_SAP.SetIApplication(iApp);
+                tc_parrent.TabPages.Remove(tab_pre_process_sap);
+                ucSapPostProcess1.SetIApplication(iApp, UC_SAP);
+                tc_parrent.TabPages.Remove(tab_post_procees_sap);
 
                 vdScrollableControl1.BaseControl.KeyUp += new KeyEventHandler(BaseControl_KeyUp);
 
@@ -622,12 +626,40 @@ namespace ASTRAStructures
                     cmb_pp_text_size.Items.Add(i.ToString());
                 }
 
-                cmb_text_size.SelectedIndex = 0;
-                cmb_pp_text_size.SelectedIndex = 0;
 
 
                 Load_Initials();
 
+
+               var ml = new MyList(analysis_type, '_');
+
+
+                int anaType = ml.GetInt(1);
+
+
+                rbtn_TEXT.Enabled = true;
+                rbtn_3D_Drawing.Enabled = true;
+                rbtn_SAP.Enabled = true;
+
+                if (anaType > 12 && anaType < 20)
+                {
+                    rbtn_SAP.Enabled = false;
+
+                }
+                else if (anaType == 21)
+                {
+                    rbtn_TEXT.Enabled = false;
+                    rbtn_3D_Drawing.Enabled = false;
+
+                    rbtn_SAP.Checked = true;
+                }
+
+
+                cmb_text_size.SelectedIndex = 0;
+                cmb_pp_text_size.SelectedIndex = 0;
+
+
+                //if(ana)
             }
             catch (Exception exx) { }
         }
@@ -725,12 +757,11 @@ namespace ASTRAStructures
 
         private void Open_Drawing_File()
         {
-
+            if (VDoc == null) return;
             if (File.Exists(Drawing_File))
             {
-
-                if (!VDoc.Open(Drawing_File))
-                    MessageBox.Show(Drawing_File + " could not be opened.");
+              
+                 VDoc.Open(Drawing_File);
 
                 //VDoc.Palette.Background = Color.White;
 
@@ -893,6 +924,41 @@ namespace ASTRAStructures
                     IsFlag = true;
                 }
             }
+            else if (tc_parrent.SelectedTab == tab_pre_process_sap)
+            {
+
+                if (!IsFlag)
+                {
+                    //UC_SAP.Load_Initials();
+                    //UC_SAP.Load_Initials();
+                    UC_SAP.Load_SAP_Events();
+
+
+                    UC_SAP.Open_Data_File(File_Name);
+                    IsFlag = true;
+                }
+                UC_SAP.Tab_Selection();
+            }
+            else if (tc_parrent.SelectedTab == tab_post_procees_sap)
+            {
+
+                if (!IsFlag)
+                {
+                    //UC_SAP.Load_Initials();
+                    //UC_SAP.Load_Initials();
+                    //ucSapPostProcess1.Load_SAP_Events();
+
+
+                    UC_SAP.Open_Data_File(File_Name);
+                    IsFlag = true;
+                }
+                ucSapPostProcess1.DataFileName = File_Name;
+                ucSapPostProcess1.UCSapPostProcess_Load(sender, e);
+                ucSapPostProcess1.Tab_Post_Selection();
+            }
+
+
+
 
             Tab_Selection();
         }
@@ -3131,8 +3197,44 @@ namespace ASTRAStructures
         {
             Save_Data();
         }
+        public bool Save_Data(bool msg)
+        {
 
-        private void Save_Data()
+            if (txt_input_file.Text == "") return true;
+
+            System.Windows.Forms.DialogResult erd = System.Windows.Forms.DialogResult.Yes;
+
+            if (msg)
+            {
+                erd = (MessageBox.Show("Do you want to Save Input Data file ?", "HEADS", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question));
+
+            }
+            if (erd == System.Windows.Forms.DialogResult.Cancel) return false;
+
+
+            if (msg)
+            {
+                if (txt_input_file.Text != "")
+                {
+                    if (erd == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        if (rbtn_SAP.Checked)
+                        {
+                            UC_SAP.Save_Data();
+                        }
+                        else
+                        {
+                            Save_Data();
+                        }
+                    }
+                }
+            }
+            //MyList.
+            Write_All_Data();
+            return true;
+        }
+
+        private bool Save_Data()
         {
 
             //string fname = Path.Combine(Path.GetDirectoryName(txt_file_name.Text),
@@ -3150,7 +3252,7 @@ namespace ASTRAStructures
                     if (sfd.ShowDialog() != DialogResult.Cancel)
                         File_Name = sfd.FileName;
                     else
-                        return;
+                        return false;
                 }
             }
 
@@ -3169,7 +3271,7 @@ namespace ASTRAStructures
 
 
 
-            return;
+            return true;
 
             //using (SaveFileDialog sfd = new SaveFileDialog())
             //{
@@ -3525,11 +3627,20 @@ namespace ASTRAStructures
         List<string> Seismic_Load = new List<string>();
         List<string> Seismic_Combinations = new List<string>();
         bool IsSavedData = false;
-        private void Save_Data(string fname)
+        private bool Save_Data(string fname)
         {
-            Save_Data(fname, false);
+            if (rbtn_SAP.Checked)
+            {
+                UC_SAP.DataFileName = fname;
+                UC_SAP.Save_Data();
+            }
+            else
+            {
+                return Save_Data(fname, false);
+            }
+            return true;
         }
-        private void Save_Data(string fname, bool IsCurve)
+        private bool Save_Data(string fname, bool IsCurve)
         {
 
             //string fname = Path.Combine(Path.GetDirectoryName(txt_file_name.Text),
@@ -3936,6 +4047,7 @@ namespace ASTRAStructures
                     //System.Diagnostics.Process.Start(fname);
                 }
             }
+            return true;
         }
 
         public bool Run_Data2(string flPath)
@@ -5827,6 +5939,12 @@ namespace ASTRAStructures
         {
             get
             {
+
+                if(rbtn_SAP.Checked)
+                {
+                    if (!File.Exists(UC_SAP.DataFileName)) return "";
+                    return UC_SAP.ReportFileName;
+                }
                 if (!File.Exists(File_Name)) return "";
                 return Path.Combine(Path.GetDirectoryName(File_Name), "ANALYSIS_REP.TXT");
             }
@@ -5972,21 +6090,42 @@ namespace ASTRAStructures
             }
             else
             {
-                RunAnalysis();
+                if (rbtn_SAP.Checked)
+                {
+                    UC_SAP.ProcessAnalysis();
+                }
+                else
+                {
+                    RunAnalysis();
+                }
             }
-            AST_DOC = new ASTRADoc(DataFileName);
-            AST_DOC_ORG = new ASTRADoc(DataFileName);
-            //Load_ASTRA_Data();
 
-            Open_Analysis_Report();
-            Open_Data_File(DataFileName);
-
-            if (SeismicLoads == null) SeismicLoads = new List<string>();
-
-            if (Seismic_Coeeficient != 0)
+            if (rbtn_SAP.Checked)
             {
-                if (!File.Exists(AST_DOC.AnalysisFileName)) return;
-                //Run_Seismic_Analysis();
+                if (File.Exists(UC_SAP.ReportFileName))
+                {
+                    rtb_ana_rep.Lines = File.ReadAllLines(UC_SAP.ReportFileName);
+                    StructureAnalysis = null;
+                    ld = null;
+                    Select_Steps();
+                }
+            }
+            else
+            {
+                AST_DOC = new ASTRADoc(DataFileName);
+                AST_DOC_ORG = new ASTRADoc(DataFileName);
+                //Load_ASTRA_Data();
+
+                Open_Analysis_Report();
+                Open_Data_File(DataFileName);
+
+                if (SeismicLoads == null) SeismicLoads = new List<string>();
+
+                if (Seismic_Coeeficient != 0)
+                {
+                    if (!File.Exists(AST_DOC.AnalysisFileName)) return;
+                    //Run_Seismic_Analysis();
+                }
             }
         }
         public void Write_Seismic_Data(List<string> LoadData, List<string> Load_Comb, string file_name)
@@ -6364,9 +6503,17 @@ namespace ASTRAStructures
                 MessageBox.Show("Process Analysis not done. This Panel enabled after Process Analysis.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 //MessageBox.Show("Process Analysis not done. \"ANALYSIS_REP.TXT\"   file not found.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 if (File.Exists(File_Name))
+                {
                     tc_parrent.SelectedTab = tab_procees;
+                }
                 else
-                    tc_parrent.SelectedTab = tab_pre_process;
+                {
+
+                    if (rbtn_SAP.Checked)
+                        tc_parrent.SelectedTab = tab_pre_process_sap;
+                    else
+                        tc_parrent.SelectedTab = tab_pre_process;
+                }
                 return;
             }
 
@@ -6559,6 +6706,8 @@ namespace ASTRAStructures
 
                 if (tc_parrent.SelectedTab == tab_pre_process)
                     return VDoc;
+                //if (tc_parrent.SelectedTab == tab_pre_process_sap)
+                //    return UC_SAP.vdoc
                 if (tc_docs.SelectedTab == tab_frcs_doc)
                     return frcsDoc;
                 else if (tc_docs.SelectedTab == tab_defl_doc)
@@ -6605,6 +6754,12 @@ namespace ASTRAStructures
                 txt_input_file.Text = value;
                 this.Text = "Analysis Process & Results [" + MyStrings.Get_Modified_Path(value) + "]";
                 file_name = value;
+
+                if (rbtn_SAP.Checked)
+                {
+                    UC_SAP.DataFileName = file_name;
+                    ucSapPostProcess1.DataFileName = file_name;
+                }
             }
         }
 
@@ -7268,9 +7423,13 @@ namespace ASTRAStructures
 
         private void PP_Tab_Selection()
         {
-
             if (tc_pp_main.SelectedTab == tab_load_deflection)
             {
+                if (StructureAnalysis == null)
+                {
+                    //StructureAnalysis = new MovingLoadAnalysis.StructureMemberAnalysis(AST_DOC.AnalysisFileName);
+                    StructureAnalysis = new MovingLoadAnalysis.StructureMemberAnalysis(Analysis_File_Name);
+                }
                 if (ld == null || dgv_node_disp.RowCount == 0)
                 {
                     AstrA_LOAD_Deflection();
@@ -7393,13 +7552,18 @@ namespace ASTRAStructures
             else if (tc_pp_main.SelectedTab == tab_envelop)
             {
                 if (StructureAnalysis == null)
+                {
                     StructureAnalysis = new MovingLoadAnalysis.StructureMemberAnalysis(AST_DOC.AnalysisFileName);
+                }
                 //tc4.SelectedIndex = 2;
             }
             else if (tc_pp_main.SelectedTab == tab_diagram)
             {
                 if (StructureAnalysis == null)
+                {
                     StructureAnalysis = new MovingLoadAnalysis.StructureMemberAnalysis(AST_DOC.AnalysisFileName);
+                    //StructureAnalysis = new MovingLoadAnalysis.StructureMemberAnalysis(Analysis_File_Name);
+                }
 
 
                 if (cmb_diag_ld_no.Items.Count > 0)
@@ -9531,7 +9695,21 @@ namespace ASTRAStructures
 
         private void btn_update_data_Click(object sender, EventArgs e)
         {
-            Save_Data();
+            if (rbtn_SAP.Checked)
+            {
+                UC_SAP.Save_Data();
+                txt_input_file.Text = UC_SAP.DataFileName;
+
+                if (MessageBox.Show("SAP Data file created as \n\r" + txt_input_file.Text, "ASTRA", MessageBoxButtons.OK) == DialogResult.OK)
+                {
+                    //System.Diagnostics.Process.Start(fname);
+                }
+            }
+            else
+            {
+                Save_Data();
+            }
+            Write_All_Data();
         }
         #endregion Chiranjit [2016 04 29]
 
@@ -10074,6 +10252,17 @@ namespace ASTRAStructures
                     txt_Project_Name2.Text = Path.GetFileName(frm.Example_Path);
 
                     File_Name = txt_input_file.Text;
+
+
+                    if(rbtn_SAP.Checked)
+                    {
+                        UC_SAP.DataFileName = File_Name;
+                        if(File.Exists(UC_SAP.ReportFileName))
+                        {
+                            rtb_ana_rep.Lines = File.ReadAllLines(UC_SAP.ReportFileName);
+                            Select_Steps();
+                        }
+                    }
                     IsFlag = false;
                     //Write_All_Data();
 
@@ -10211,7 +10400,13 @@ namespace ASTRAStructures
         private void btn_tutorial_example_Click(object sender, EventArgs e)
         {
             txt_project_name.Text = "";
-            Project_Name = "Tutorial for " + analysis_title;
+
+            if(rbtn_3D_Drawing.Checked)
+                Project_Name = "Drawing Tutorial for " + analysis_title;
+            else if (rbtn_SAP.Checked)
+                Project_Name = "SAP Tutorial for " + analysis_title;
+            else
+                Project_Name = "Tutorial for " + analysis_title;
 
             Create_Project();
             Load_Input_Examples();
@@ -10226,13 +10421,24 @@ namespace ASTRAStructures
 
             int example_index = -1;
 
-
+            if (rbtn_SAP.Checked)
+            {
+                if (anaType == 20) anaType = 13;
+                else if (anaType == 21) anaType = 14;
+            }
 
 
             string example_path = Path.Combine(Application.StartupPath, @"ASTRA Pro Analysis Examples\01 Analysis with Text Data File");
 
-            if(rbtn_3D_Drawing.Checked)
+            if (rbtn_3D_Drawing.Checked)
+            {
                 example_path = Path.Combine(Application.StartupPath, @"ASTRA Pro Analysis Examples\02 Analysis with Drawing File");
+            }
+            else if (rbtn_SAP.Checked)
+            {
+                example_path = Path.Combine(Application.StartupPath, @"ASTRA Pro Analysis Examples\03 Analysis with SAP Data File");
+            }
+
 
 
             List<string> lst_dir = new List<string>(Directory.GetDirectories(example_path));
@@ -10261,9 +10467,18 @@ namespace ASTRAStructures
 
             }
 
+            if (rbtn_SAP.Checked)
+            {
+                var dsa = Directory.GetDirectories(src_path);
+                //src_path = Path.Combine(src_path, "Analysis Input Data");
 
-            src_path = Path.Combine(src_path, "Analysis Input Data");
+                src_path = Path.Combine(src_path, dsa[0]);
 
+            }
+            else
+            {
+                src_path = Path.Combine(src_path, "Analysis Input Data");
+            }
 
             string copy_path =  user_path;
             DirectoryCopy(src_path, copy_path, true);
@@ -10275,10 +10490,21 @@ namespace ASTRAStructures
 
             foreach (var item in lst_dir)
             {
-                if(Path.GetFileName(item).ToUpper().StartsWith("INPUT"))
+                if (rbtn_SAP.Checked)
                 {
-                    File_Name = item;
-                    break;
+                    if (Path.GetFileName(item).ToUpper().Contains("SAP") && !Path.GetFileName(item).ToUpper().Contains("REP"))
+                    {
+                        File_Name = item;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (Path.GetFileName(item).ToUpper().StartsWith("INPUT"))
+                    {
+                        File_Name = item;
+                        break;
+                    }
                 }
             }
             txt_input_file.Text = File_Name;
@@ -10286,6 +10512,11 @@ namespace ASTRAStructures
             //File_Name = Path.Combine()
 
 
+
+            if(rbtn_SAP.Checked)
+            {
+                UC_SAP.DataFileName = File_Name;
+            }
 
             string drg_file = Path.Combine(user_path, "Structure_Model.vdml");
 
@@ -10376,21 +10607,127 @@ namespace ASTRAStructures
             string flName = "";
             using(OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "All Text Data File (*.txt)|*.txt";
-                if(ofd.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+                if (rbtn_3D_Drawing.Checked)
                 {
-                    flName = Path.Combine(user_path, Path.GetFileName(ofd.FileName));
-                    File.Copy(ofd.FileName, flName, true);
-                    File_Name = flName;
-                    IsFlag = false;
-                    Clear_All();
+                    ofd.Filter = "All Drawing Files (*.vdml,*.dxf,*.dwg)|*.vdml;*.dxf;*.dwg";
+                    if (ofd.ShowDialog() != DialogResult.Cancel)
+                    {
+
+                        Drawing_File = ofd.FileName;
+                        if (!uC_CAD_Model.VDoc.Open(Drawing_File))
+                        {
+                            MessageBox.Show(Drawing_File + " could not be opened."); return;
+                        }
+
+                        uC_CAD_Model.View_Buttons = true;
+                        VDRAW.vdCommandAction.View3D_VTop(uC_CAD_Model.VDoc);
+                        IsDrawingFileOpen = true;
+                        this.Text = "Analysis Input Data File [" + MyStrings.Get_Modified_Path(Drawing_File) + "]";
+
+                        File_Name = Path.Combine(Path.GetDirectoryName(Drawing_File), Path.GetFileNameWithoutExtension(Drawing_File) + ".txt");
+
+
+                        txt_input_file.Text = File_Name;
+                        if (File.Exists(File_Name))
+                        {
+                            Open_Data_File(File_Name);
+                        }
+                        else
+                            Open_Drawing_File();
+
+
+
+                    }
+                }
+                else
+                {
+                    ofd.Filter = "All Text Data File (*.txt)|*.txt";
+                    if (ofd.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+                    {
+                        flName = Path.Combine(user_path, Path.GetFileName(ofd.FileName));
+                        File.Copy(ofd.FileName, flName, true);
+                        File_Name = flName;
+                        IsFlag = false;
+                        Clear_All();
+
+                        if (rbtn_SAP.Checked)
+                            UC_SAP.DataFileName = File_Name;
+
+                        //if (rbtn_SAP.Checked)
+                        //    UC_SAP.Open_Data_File(File_Name);
+                    }
                 }
             }
+
+
         }
 
         private void rbtn_3D_Drawing_CheckedChanged(object sender, EventArgs e)
         {
             uC_CAD_Model.Visible = rbtn_3D_Drawing.Checked;
+
+            if (rbtn_SAP.Checked)
+            {
+                //tc_parrent.TabPages.Remove(tab_pre_process);
+                //tc_parrent.TabPages.Remove(tab_pre_process_sap);
+
+
+                //tc_parrent.TabPages.Remove(tab_post_procees);
+                //tc_parrent.TabPages.Remove(tab_post_procees_sap);
+
+
+                //tc_parrent.TabPages.Insert(1, tab_pre_process_sap);
+
+
+                if (tc_parrent.TabPages.Contains(tab_pre_process))
+                {
+                    tc_parrent.TabPages.Remove(tab_pre_process);
+                    tc_parrent.TabPages.Remove(tab_post_procees);
+                }
+
+                if (!tc_parrent.TabPages.Contains(tab_pre_process_sap))
+                {
+                    tc_parrent.TabPages.Insert(1, tab_pre_process_sap);
+                    tc_parrent.TabPages.Insert(3, tab_post_procees_sap);
+                }
+            }
+            else
+            {
+                if (tc_parrent.TabPages.Contains(tab_pre_process_sap))
+                {
+                    tc_parrent.TabPages.Remove(tab_pre_process_sap);
+                    tc_parrent.TabPages.Remove(tab_post_procees_sap);
+                }
+
+                if (!tc_parrent.TabPages.Contains(tab_pre_process))
+                {
+                    tc_parrent.TabPages.Insert(1, tab_pre_process);
+                    tc_parrent.TabPages.Insert(3, tab_post_procees);
+                }
+
+            }
+        }
+
+        private void frmAnalysisWorkspace_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DisposeDoc(VDoc);
+            DisposeDoc(uC_CAD_Model.VDoc);
+            
+            DisposeDoc(movDoc);
+            DisposeDoc(maxDoc);
+            DisposeDoc(envDoc);
+            DisposeDoc(frcsDoc);
+
+        
+        }
+        public void DisposeDoc(vdDocument dc)
+        {
+
+            try
+            {
+                dc.Dispose();
+            }
+            catch (Exception ex) { }
         }
 
 

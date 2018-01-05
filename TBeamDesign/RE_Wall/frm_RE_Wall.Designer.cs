@@ -169,6 +169,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_RE_Design = new System.Windows.Forms.TabPage();
             this.tab_Reinf_layout_sec = new System.Windows.Forms.TabPage();
+            this.chk_L_apply = new System.Windows.Forms.CheckBox();
             this.dgv_RE_height_embedment = new System.Windows.Forms.DataGridView();
             this.col_def_height = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_def_emb = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -204,10 +205,10 @@
             this.btn_drawing_GAD_2 = new System.Windows.Forms.Button();
             this.btn_drawing_GAD_RHS = new System.Windows.Forms.Button();
             this.btn_drawing_GAD_3 = new System.Windows.Forms.Button();
-            this.btn_drawing_Nomenclature = new System.Windows.Forms.Button();
             this.btn_drawing_GAD_1 = new System.Windows.Forms.Button();
             this.btn_drawing_GAD_LHS = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_RE_process_current = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -1452,11 +1453,11 @@
             // 
             // btn_RE_report
             // 
-            this.btn_RE_report.Location = new System.Drawing.Point(471, 2);
+            this.btn_RE_report.Location = new System.Drawing.Point(571, 2);
             this.btn_RE_report.Name = "btn_RE_report";
-            this.btn_RE_report.Size = new System.Drawing.Size(108, 25);
+            this.btn_RE_report.Size = new System.Drawing.Size(196, 25);
             this.btn_RE_report.TabIndex = 2;
-            this.btn_RE_report.Text = "Report";
+            this.btn_RE_report.Text = "View Report";
             this.btn_RE_report.UseVisualStyleBackColor = true;
             this.btn_RE_report.Click += new System.EventHandler(this.btn_RE_report_Click);
             // 
@@ -1471,11 +1472,11 @@
             // 
             // btn_RE_process
             // 
-            this.btn_RE_process.Location = new System.Drawing.Point(338, 2);
+            this.btn_RE_process.Location = new System.Drawing.Point(364, 2);
             this.btn_RE_process.Name = "btn_RE_process";
-            this.btn_RE_process.Size = new System.Drawing.Size(108, 25);
+            this.btn_RE_process.Size = new System.Drawing.Size(196, 25);
             this.btn_RE_process.TabIndex = 2;
-            this.btn_RE_process.Text = "Process";
+            this.btn_RE_process.Text = "Full Process";
             this.btn_RE_process.UseVisualStyleBackColor = true;
             this.btn_RE_process.Click += new System.EventHandler(this.btn_RE_process_Click);
             // 
@@ -1517,6 +1518,7 @@
             // 
             // tab_Reinf_layout_sec
             // 
+            this.tab_Reinf_layout_sec.Controls.Add(this.chk_L_apply);
             this.tab_Reinf_layout_sec.Controls.Add(this.dgv_RE_height_embedment);
             this.tab_Reinf_layout_sec.Controls.Add(this.label64);
             this.tab_Reinf_layout_sec.Controls.Add(this.label57);
@@ -1549,6 +1551,16 @@
             this.tab_Reinf_layout_sec.TabIndex = 4;
             this.tab_Reinf_layout_sec.Text = "Strip Layout Sections";
             this.tab_Reinf_layout_sec.UseVisualStyleBackColor = true;
+            // 
+            // chk_L_apply
+            // 
+            this.chk_L_apply.AutoSize = true;
+            this.chk_L_apply.Location = new System.Drawing.Point(635, 38);
+            this.chk_L_apply.Name = "chk_L_apply";
+            this.chk_L_apply.Size = new System.Drawing.Size(15, 14);
+            this.chk_L_apply.TabIndex = 181;
+            this.chk_L_apply.UseVisualStyleBackColor = true;
+            this.chk_L_apply.CheckedChanged += new System.EventHandler(this.chk_L_apply_CheckedChanged);
             // 
             // dgv_RE_height_embedment
             // 
@@ -1880,7 +1892,6 @@
             this.tab_drawings.Controls.Add(this.btn_drawing_GAD_2);
             this.tab_drawings.Controls.Add(this.btn_drawing_GAD_RHS);
             this.tab_drawings.Controls.Add(this.btn_drawing_GAD_3);
-            this.tab_drawings.Controls.Add(this.btn_drawing_Nomenclature);
             this.tab_drawings.Controls.Add(this.btn_drawing_GAD_1);
             this.tab_drawings.Controls.Add(this.btn_drawing_GAD_LHS);
             this.tab_drawings.Location = new System.Drawing.Point(4, 22);
@@ -1893,7 +1904,7 @@
             // 
             // btn_drawing_structural_details
             // 
-            this.btn_drawing_structural_details.Location = new System.Drawing.Point(247, 418);
+            this.btn_drawing_structural_details.Location = new System.Drawing.Point(247, 362);
             this.btn_drawing_structural_details.Name = "btn_drawing_structural_details";
             this.btn_drawing_structural_details.Size = new System.Drawing.Size(328, 45);
             this.btn_drawing_structural_details.TabIndex = 0;
@@ -1903,7 +1914,7 @@
             // 
             // btn_drawing_GAD_4
             // 
-            this.btn_drawing_GAD_4.Location = new System.Drawing.Point(247, 355);
+            this.btn_drawing_GAD_4.Location = new System.Drawing.Point(247, 299);
             this.btn_drawing_GAD_4.Name = "btn_drawing_GAD_4";
             this.btn_drawing_GAD_4.Size = new System.Drawing.Size(328, 45);
             this.btn_drawing_GAD_4.TabIndex = 0;
@@ -1913,7 +1924,7 @@
             // 
             // btn_drawing_GAD_2
             // 
-            this.btn_drawing_GAD_2.Location = new System.Drawing.Point(247, 253);
+            this.btn_drawing_GAD_2.Location = new System.Drawing.Point(247, 197);
             this.btn_drawing_GAD_2.Name = "btn_drawing_GAD_2";
             this.btn_drawing_GAD_2.Size = new System.Drawing.Size(328, 45);
             this.btn_drawing_GAD_2.TabIndex = 0;
@@ -1934,7 +1945,7 @@
             // 
             // btn_drawing_GAD_3
             // 
-            this.btn_drawing_GAD_3.Location = new System.Drawing.Point(247, 304);
+            this.btn_drawing_GAD_3.Location = new System.Drawing.Point(247, 248);
             this.btn_drawing_GAD_3.Name = "btn_drawing_GAD_3";
             this.btn_drawing_GAD_3.Size = new System.Drawing.Size(328, 45);
             this.btn_drawing_GAD_3.TabIndex = 0;
@@ -1942,19 +1953,9 @@
             this.btn_drawing_GAD_3.UseVisualStyleBackColor = true;
             this.btn_drawing_GAD_3.Click += new System.EventHandler(this.btn_drawing_GAD_LHS_Click);
             // 
-            // btn_drawing_Nomenclature
-            // 
-            this.btn_drawing_Nomenclature.Location = new System.Drawing.Point(247, 138);
-            this.btn_drawing_Nomenclature.Name = "btn_drawing_Nomenclature";
-            this.btn_drawing_Nomenclature.Size = new System.Drawing.Size(328, 45);
-            this.btn_drawing_Nomenclature.TabIndex = 0;
-            this.btn_drawing_Nomenclature.Text = "Nomenclature";
-            this.btn_drawing_Nomenclature.UseVisualStyleBackColor = true;
-            this.btn_drawing_Nomenclature.Click += new System.EventHandler(this.btn_drawing_GAD_LHS_Click);
-            // 
             // btn_drawing_GAD_1
             // 
-            this.btn_drawing_GAD_1.Location = new System.Drawing.Point(247, 202);
+            this.btn_drawing_GAD_1.Location = new System.Drawing.Point(247, 146);
             this.btn_drawing_GAD_1.Name = "btn_drawing_GAD_1";
             this.btn_drawing_GAD_1.Size = new System.Drawing.Size(328, 45);
             this.btn_drawing_GAD_1.TabIndex = 0;
@@ -1975,6 +1976,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btn_RE_process_current);
             this.panel2.Controls.Add(this.btn_RE_process);
             this.panel2.Controls.Add(this.btn_RE_report);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1983,6 +1985,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(900, 28);
             this.panel2.TabIndex = 111;
+            // 
+            // btn_RE_process_current
+            // 
+            this.btn_RE_process_current.Location = new System.Drawing.Point(134, 2);
+            this.btn_RE_process_current.Name = "btn_RE_process_current";
+            this.btn_RE_process_current.Size = new System.Drawing.Size(219, 25);
+            this.btn_RE_process_current.TabIndex = 2;
+            this.btn_RE_process_current.Text = "Process for Current Height (H1)";
+            this.btn_RE_process_current.UseVisualStyleBackColor = true;
+            this.btn_RE_process_current.Click += new System.EventHandler(this.btn_RE_process_Click);
             // 
             // frm_RE_Wall
             // 
@@ -2196,7 +2208,6 @@
         private System.Windows.Forms.Button btn_drawing_GAD_4;
         private System.Windows.Forms.Button btn_drawing_GAD_2;
         private System.Windows.Forms.Button btn_drawing_GAD_3;
-        private System.Windows.Forms.Button btn_drawing_Nomenclature;
         private System.Windows.Forms.Button btn_drawing_GAD_1;
         private System.Windows.Forms.Button btn_drawing_structural_details;
         private System.Windows.Forms.Panel panel5;
@@ -2204,5 +2215,7 @@
         private System.Windows.Forms.Button btn_browse_design;
         private System.Windows.Forms.TextBox txt_project_name;
         private System.Windows.Forms.Label label830;
+        private System.Windows.Forms.Button btn_RE_process_current;
+        private System.Windows.Forms.CheckBox chk_L_apply;
     }
 }

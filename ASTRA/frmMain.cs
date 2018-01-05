@@ -641,6 +641,8 @@ namespace AstraFunctionOne
                 //    LiveLoads = new LiveLoadCollections(ll_txt_file);
                 //}
                 Set_Bridge_Design_Menu();
+                //If visible set to false then menu will be R21
+                //tsmi_structure_text.Visible = false;
                 Load_ASTRA_R22_Menu();
                 helpProvider1.HelpNamespace = Path.Combine(Application.StartupPath, "ASTRAHelp\\AstraPro.chm");
                 //TechSOFT_Demo();
@@ -4743,6 +4745,11 @@ namespace AstraFunctionOne
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
 
+            frmSAPApplication sapFrm = new frmSAPApplication(this);
+            sapFrm.Owner = this;
+            sapFrm.ShowDialog();
+
+
             if (tsmi.Name == tsmi_newAnalysisTXTDataFile.Name)
             {
                 #region New Text Data File
@@ -5939,7 +5946,8 @@ namespace AstraFunctionOne
             list.Add("Transverse Load Analysis for Deck Slab");
             list.Add("Analysis for Multistoreyed Building");
             list.Add("Large Frame Analysis with Beam & Plate");
-
+            list.Add("Dynamic Analysis with Solid Elements");
+            
             //[0] = "D:\\Software Development\\ASTRA Pro Main Screen Professional\\ASTRA\\bin\\x86\\Debug\\ASTRA Pro Analysis Examples\\01 Analysis with Text Data File"
             tsmi_structure_text.DropDownItems.Clear();
 

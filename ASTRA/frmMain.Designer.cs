@@ -51,6 +51,7 @@
             this.tsmi_openStructureModelDrawingFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_openAnalysisExampleTXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_structure_text = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_structure_sap = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_openStageAnalysisTEXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -275,7 +276,6 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.btn_SendMail = new System.Windows.Forms.Button();
-            this.tsmi_structure_sap = new System.Windows.Forms.ToolStripMenuItem();
             this.mns_ASTRA_menues.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -422,6 +422,13 @@
             this.tsmi_structure_text.Name = "tsmi_structure_text";
             this.tsmi_structure_text.Size = new System.Drawing.Size(268, 22);
             this.tsmi_structure_text.Text = "Structural Analysis";
+            // 
+            // tsmi_structure_sap
+            // 
+            this.tsmi_structure_sap.Name = "tsmi_structure_sap";
+            this.tsmi_structure_sap.Size = new System.Drawing.Size(268, 22);
+            this.tsmi_structure_sap.Text = "Structural Analysis SAP Data";
+            this.tsmi_structure_sap.Visible = false;
             // 
             // toolStripSeparator22
             // 
@@ -1718,13 +1725,13 @@
             this.tsmi_PDelta,
             this.tsmi_streamHydrologyResearch});
             this.tsmi_research_Studies.Name = "tsmi_research_Studies";
-            this.tsmi_research_Studies.Size = new System.Drawing.Size(164, 20);
-            this.tsmi_research_Studies.Text = "Research Studies (Optional)";
+            this.tsmi_research_Studies.Size = new System.Drawing.Size(107, 20);
+            this.tsmi_research_Studies.Text = "Research Studies";
             // 
             // tsmi_selectWorkingFolderResearch
             // 
             this.tsmi_selectWorkingFolderResearch.Name = "tsmi_selectWorkingFolderResearch";
-            this.tsmi_selectWorkingFolderResearch.Size = new System.Drawing.Size(280, 22);
+            this.tsmi_selectWorkingFolderResearch.Size = new System.Drawing.Size(353, 22);
             this.tsmi_selectWorkingFolderResearch.Text = "Select Working Folder";
             this.tsmi_selectWorkingFolderResearch.Visible = false;
             this.tsmi_selectWorkingFolderResearch.Click += new System.EventHandler(this.tsmi_Working_Folder_Click);
@@ -1732,8 +1739,8 @@
             // tsmi_HSTBD
             // 
             this.tsmi_HSTBD.Name = "tsmi_HSTBD";
-            this.tsmi_HSTBD.Size = new System.Drawing.Size(280, 22);
-            this.tsmi_HSTBD.Text = "High Speed Train and Bridge Dynamics";
+            this.tsmi_HSTBD.Size = new System.Drawing.Size(353, 22);
+            this.tsmi_HSTBD.Text = "High Speed Train and Bridge Dynamics (Conditional)";
             this.tsmi_HSTBD.Click += new System.EventHandler(this.tsmi_HSTBD_Click);
             // 
             // tsmi_dynamicAnalysis
@@ -1743,7 +1750,7 @@
             this.tsmi_timeHistory,
             this.tsmi_responseSpectrum});
             this.tsmi_dynamicAnalysis.Name = "tsmi_dynamicAnalysis";
-            this.tsmi_dynamicAnalysis.Size = new System.Drawing.Size(280, 22);
+            this.tsmi_dynamicAnalysis.Size = new System.Drawing.Size(353, 22);
             this.tsmi_dynamicAnalysis.Text = "Dynamic Analysis";
             // 
             // tsmi_eigenValue
@@ -1770,14 +1777,14 @@
             // tsmi_PDelta
             // 
             this.tsmi_PDelta.Name = "tsmi_PDelta";
-            this.tsmi_PDelta.Size = new System.Drawing.Size(280, 22);
+            this.tsmi_PDelta.Size = new System.Drawing.Size(353, 22);
             this.tsmi_PDelta.Text = "Non Linear Stage (P-Delta) Analysis";
             this.tsmi_PDelta.Click += new System.EventHandler(this.pDeltaAnalysisToolStripMenuItem_Click);
             // 
             // tsmi_streamHydrologyResearch
             // 
             this.tsmi_streamHydrologyResearch.Name = "tsmi_streamHydrologyResearch";
-            this.tsmi_streamHydrologyResearch.Size = new System.Drawing.Size(280, 22);
+            this.tsmi_streamHydrologyResearch.Size = new System.Drawing.Size(353, 22);
             this.tsmi_streamHydrologyResearch.Text = "Stream Hydrology";
             this.tsmi_streamHydrologyResearch.Click += new System.EventHandler(this.tsmi_streamHydrology_Click);
             // 
@@ -2200,13 +2207,6 @@
             this.btn_SendMail.Text = "Send Mail";
             this.btn_SendMail.UseVisualStyleBackColor = true;
             this.btn_SendMail.Click += new System.EventHandler(this.btn_SendMail_Click);
-            // 
-            // tsmi_structure_sap
-            // 
-            this.tsmi_structure_sap.Name = "tsmi_structure_sap";
-            this.tsmi_structure_sap.Size = new System.Drawing.Size(268, 22);
-            this.tsmi_structure_sap.Text = "Structural Analysis SAP Data";
-            this.tsmi_structure_sap.Visible = false;
             // 
             // frmMain
             // 

@@ -503,7 +503,7 @@
             this.label11.Size = new System.Drawing.Size(327, 39);
             this.label11.TabIndex = 13;
             this.label11.Text = "* Node \'K\' will not be in the same line of the member\r\n axis but in the Plane pas" +
-    "sing through the member axis \r\nto defint the plane of Bending";
+    "sing through the member axis \r\nto define the plane of Bending";
             // 
             // frm_Beam_Elements
             // 

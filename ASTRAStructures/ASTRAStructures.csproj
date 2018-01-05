@@ -109,6 +109,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAnalysisExamples.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +138,12 @@
     </Compile>
     <Compile Include="frmMicrowaveTower.Designer.cs">
       <DependentUpon>frmMicrowaveTower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSAPApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSAPApplication.Designer.cs">
+      <DependentUpon>frmSAPApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="frmStructureModeling.cs">
       <SubType>Form</SubType>
@@ -159,9 +171,24 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransmissionTower.cs" />
+    <Compile Include="UCSapPostProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCSapPostProcess.Designer.cs">
+      <DependentUpon>UCSapPostProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCSapPreProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCSapPreProcess.Designer.cs">
+      <DependentUpon>UCSapPreProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="VehicleLoad.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAnalysisExamples.resx">
       <DependentUpon>frmAnalysisExamples.cs</DependentUpon>
@@ -174,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMicrowaveTower.resx">
       <DependentUpon>frmMicrowaveTower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSAPApplication.resx">
+      <DependentUpon>frmSAPApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmStructureModeling.resx">
       <DependentUpon>frmStructureModeling.cs</DependentUpon>
@@ -198,6 +228,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCSapPostProcess.resx">
+      <DependentUpon>UCSapPostProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCSapPreProcess.resx">
+      <DependentUpon>UCSapPreProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -250,6 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\xrefs.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NewFile.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

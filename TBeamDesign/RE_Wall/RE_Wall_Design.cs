@@ -18,6 +18,7 @@ namespace BridgeAnalysisDesign.RE_Wall
 
         public List<double> Total_Sections { get; set; }
 
+
         public double H1
         {
             get
@@ -1324,6 +1325,10 @@ namespace BridgeAnalysisDesign.RE_Wall
 
         public void Loop_Program()
         {
+            Loop_Program(false);
+        }
+        public void Loop_Program(bool Is_Current_Height)
+        {
             List<string> list = new List<string>();
 
 
@@ -1468,6 +1473,11 @@ namespace BridgeAnalysisDesign.RE_Wall
 
             for (int i = 0; i < Layout_Sections.Count; i++)
             {
+                if (i > 0 && Is_Current_Height)
+                {
+                    break;
+                }
+
                 for (int j = 0; j < Layout_Sections[i].Layers.Count; j++)
                 {
                     H1 = Total_Sections[i];
@@ -2776,7 +2786,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
             double Tf_by_Tmax = (Tf / Tmax);
-            list.Add(string.Format("Tf / Tmax = ({0:f3} / {1:f3}) = {2:f3}", Tf, Tmax, Tf_by_Tmax));
+            list.Add(string.Format("Factor of Safety  FOS   =  Tf / Tmax = ({0:f3} / {1:f3}) = {2:f3}", Tf, Tmax, Tf_by_Tmax));
 
 
             File.WriteAllLines(Report_File, list.ToArray());
@@ -5311,7 +5321,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
             double Tf_by_Tmax = (Tf / Tmax);
-            list.Add(string.Format("Tf / Tmax = ({0:f3} / {1:f3}) = {2:f3}", Tf, Tmax, Tf_by_Tmax));
+            list.Add(string.Format("Factor of Safety (FoS) = Tf / Tmax = ({0:f3} / {1:f3}) = {2:f3}", Tf, Tmax, Tf_by_Tmax));
             strip_sec.Tf_by_Tm.Add(Tf_by_Tmax);
 
 
@@ -5704,7 +5714,7 @@ namespace BridgeAnalysisDesign.RE_Wall
             list.Add(string.Format(""));
 
             Tf_by_Tmax = (Tf / Tmax);
-            list.Add(string.Format("Tf / Tmax = ({0:f3} / {1:f3}) = {2:f3}", Tf, Tmax, Tf_by_Tmax));
+            list.Add(string.Format("Factor of Safety (FoS) = Tf / Tmax = ({0:f3} / {1:f3}) = {2:f3}", Tf, Tmax, Tf_by_Tmax));
             strip_sec.Tf_by_Tm.Add(Tf_by_Tmax);
 
 

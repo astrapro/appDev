@@ -182,6 +182,26 @@ namespace AstraFunctionOne
 
                     MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R21.UpgradeCode_Professional_Bridge_SP) // Special Code generated for Rahul Malviya
+                {
+                    int actvContrl = LockProgram.Get_Activation_Control_No();
+
+                    if (actvContrl == 2)
+                    {
+                        LockProgram.Write_ASTRA_Code_21();
+                        LockProgram.Write_ASTRA_AuthorisedCode_21();
+                        LockProgram.Write_ASTRA_Bridge_Code_21();
+                        LockProgram.Write_ASTRA_Professional_Code_21();
+
+                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        //MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(this, "Sorry! Bridge Authorization Code is not valid." + "\n\nPlease Contact: techsoft@consultant.com, dataflow@mail.com", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
                 else if (txt_Auth_code_Bridge.Text == "")
                 {
                 }
@@ -344,6 +364,33 @@ namespace AstraFunctionOne
 
 
                     MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                else if (txt_Auth_code_Building.Text == ASTRA_R21.UpgradeCode_Professional_Structure_SP)
+                {
+                    //LockProgram.Write_ASTRA_Code_19();
+                    //LockProgram.Write_ASTRA_AuthorisedCode_19();
+                    //LockProgram.Write_ASTRA_Structure_Code_19();
+                    //LockProgram.Write_ASTRA_Professional_Code_19();
+
+
+                    //LockProgram.Write_ASTRA_Code_20();
+                    //LockProgram.Write_ASTRA_AuthorisedCode_20();
+                    //LockProgram.Write_ASTRA_Structure_Code_20();
+                    //LockProgram.Write_ASTRA_Professional_Code_20();
+
+                    if (LockProgram.Get_Activation_Control_No() == 2)
+                    {
+                        LockProgram.Write_ASTRA_Code_21();
+                        LockProgram.Write_ASTRA_AuthorisedCode_21();
+                        LockProgram.Write_ASTRA_Structure_Code_21();
+                        LockProgram.Write_ASTRA_Professional_Code_21();
+                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(this, "Sorry! RCC Framed Building Authorization Code is not valid." + "\n\nPlease Contact: techsoft@consultant.com, dataflow@mail.com", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else if (txt_Auth_code_Building.Text == "")
                 {
@@ -2340,6 +2387,53 @@ namespace AstraFunctionOne
         }
 
 
+        public static int Get_Activation_Control_No()
+        {
+            LptNum = 0;
+
+            /**/
+            // Memo Lock
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            //                Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 50;
+            //p2 == 23
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+
+            if (p2 > 60000) return 0;
+            return p2;
+        }
+
+
         public static void Set_Activation_ASTRA_R21(int actv)
         {
             WriteToLock(6, actv);
@@ -2405,9 +2499,6 @@ namespace AstraFunctionOne
         }
 
         #endregion ASTRA_Pro R 21
-
-
-
 
 
         #region Common Functions
@@ -2533,16 +2624,16 @@ namespace AstraFunctionOne
 
             return (p2 == 1);
         }
-         public static int Get_Activation()
+        public static int Get_Activation()
         {
             return Get_Activation_ASTRA_R21();
         }
-         public static void Set_Activation(int actv)
-         {
-             //WriteToLock(53, actv);
-             //Set_Activation_ASTRA_R20(actv);
-             Set_Activation_ASTRA_R21(actv);
-         }
+        public static void Set_Activation(int actv)
+        {
+            //WriteToLock(53, actv);
+            //Set_Activation_ASTRA_R20(actv);
+            Set_Activation_ASTRA_R21(actv);
+        }
         public static bool WriteToLock(int p1Val, int p2Val)
         {
             int service, seed, lptnum, passw1, passw2, p1, p2, p3, p4;
@@ -2678,7 +2769,16 @@ namespace AstraFunctionOne
         public static string UpgradeCode_Enterprise_Bridge = "597g5488r031011f";
         public static string UpgradeCode_Enterprise_Structure = "845s6984e012987t";
 
+
+
+
         public static string UpgradeCode_Professional_Bridge = "326e6881w323748q";
         public static string UpgradeCode_Professional_Structure = "421z7958t041022e";
+
+
+
+        //Special Code for Rahul Malviya
+        public static string UpgradeCode_Professional_Bridge_SP = "716e5478t985236w";
+        public static string UpgradeCode_Professional_Structure_SP = "254s9659q965342p";
     }
 }

@@ -3005,6 +3005,7 @@ namespace LimitStateMethod.SlabBridge
             Set_Project_Name();
 
             uC_AbutmentWallType1.SetIApplication(iApp);
+            uC_PierWallType1.SetIApplication(iApp);
         }
 
         public void Load_LL()

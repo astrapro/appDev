@@ -25,9 +25,9 @@ using AstraInterface.DataStructure;
 using AstraAccess.SAP_Classes;
 
 
-namespace AstraAccess
+namespace ASTRAStructures
 {
-    public partial class frmSAPWorkspace : Form
+    public partial class UCSapPreProcess : UserControl
     {
         IApplication iApp;
         public string DataFileName { get; set; }
@@ -36,7 +36,7 @@ namespace AstraAccess
         {
             get
             {
-                if(File.Exists(DataFileName))
+                if (File.Exists(DataFileName))
                 {
                     return Path.Combine(Path.GetDirectoryName(DataFileName), "SAP_ANALYSIS_REP.TXT");
                 }
@@ -48,7 +48,7 @@ namespace AstraAccess
 
         AstraInterface.DataStructure.BridgeMemberAnalysis StructureAnalysis { get; set; }
 
-        public ASTRADoc AST_DOC_ORG { get; set; }
+        ASTRADoc AST_DOC_ORG { get; set; }
 
         bool bIsNext = true;
         LoadDeflection ld = null;
@@ -59,50 +59,23 @@ namespace AstraAccess
         int lastId = -1;
 
 
-        public frmSAPWorkspace(IApplication app)
+        public UCSapPreProcess()
         {
             //frmSAPWorkspace();
             InitializeComponent();
-            iApp = app;
-            DataFileName = iApp.SAP_File;
-            SAP_DOC = new SAP_Document();
+          
         }
-        public frmSAPWorkspace(IApplication app, string file_name)
+
+        public void SetIApplication(IApplication app)
         {
-            //frmSAPWorkspace();
-            InitializeComponent();
             iApp = app;
-            DataFileName = file_name;
+            //DataFileName = iApp.SAP_File;
+            //SAP_DOC = new SAP_Document();
+            //InitializeComponent();
+            DataFileName = "";
             SAP_DOC = new SAP_Document();
+            Load_SAP_Events();
         }
-
-        public frmSAPWorkspace(IApplication app, string menu_name, bool flag)
-        {
-         
-            try
-            {
-
-                //Project_Type = eASTRADesignType.Structural_Analysis_SAP;
-
-
-
-                InitializeComponent();
-                iApp = app;
-                //DataFileName = file_name;
-                SAP_DOC = new SAP_Document();
-
-                MyList ml = new MyList(menu_name, ':');
-
-                lbl_Title.Text = ml.StringList[1].ToUpper();
-
-                //analysis_type = ml.StringList[0].ToUpper();
-
-
-            }
-            catch (Exception ex) { }
-
-        }
-
 
         #region CAD Methods
         void BaseControl_vdMouseDown(MouseEventArgs e, ref bool cancel)
@@ -147,8 +120,6 @@ namespace AstraAccess
 
             vdDocument VD = VDoc;
 
-            if (tcParrent.SelectedTab == tab_post_process)
-                VD = PP_ActiveDoc;
 
             string selsetname = "VDGRIPSET_" + VD.ActiveLayOut.Handle.ToStringValue() + (VD.ActiveLayOut.ActiveViewPort != null ? VD.ActiveLayOut.ActiveViewPort.Handle.ToStringValue() : "");
             gripset = VD.ActiveLayOut.Document.Selections.FindName(selsetname);
@@ -169,11 +140,9 @@ namespace AstraAccess
 
 
                 vdSelection gripset = GetGripSelection(false);
-              
+
                 vdDocument VD = VDoc;
 
-                if (tcParrent.SelectedTab == tab_post_process)
-                    VD = PP_ActiveDoc;
 
                 Deselect_All_Element(VD);
 
@@ -184,16 +153,15 @@ namespace AstraAccess
                     if (fig is vdText)
                     {
                         vdText obj = fig as vdText;
-                        if(obj.ToolTip.StartsWith("Node"))
+                        if (obj.ToolTip.StartsWith("Node"))
                         {
-                            if (tcParrent.SelectedTab != tab_pre_process) continue;
 
                             MyList ms = obj.TextString;
                             int nd_no = ms.GetInt(0);
 
                             for (int i = 0; i < dgv_joints.RowCount; i++)
                             {
-                                if(MyList.StringToInt(dgv_joints[0,i].Value.ToString(), -1) == nd_no)
+                                if (MyList.StringToInt(dgv_joints[0, i].Value.ToString(), -1) == nd_no)
                                 {
                                     dgv_joints[0, i].Selected = true;
                                     dgv_joints.FirstDisplayedScrollingRowIndex = i;
@@ -278,7 +246,7 @@ namespace AstraAccess
                         nodes.Add(mll.GetInt(3));
                     }
                 }
-               
+
             }
             //VD.Update();
             //VD.Redraw(true);
@@ -330,8 +298,6 @@ namespace AstraAccess
 
                 vdDocument VD = VDoc;
 
-                if (tcParrent.SelectedTab == tab_post_process)
-                    VD = PP_ActiveDoc;
 
                 Deselect_All_Element(VD);
 
@@ -408,52 +374,10 @@ namespace AstraAccess
             }
         }
 
-        public vdDocument defDoc
-        {
-            get
-            {
-                return vdSC_ldef.BaseControl.ActiveDocument;
-            }
-        }
-        public vdDocument envDoc
-        {
-            get
-            {
-                return vdSC_env.BaseControl.ActiveDocument;
-            }
-        }
-        public vdDocument diagDoc
-        {
-            get
-            {
-                return vdSC_diag.BaseControl.ActiveDocument;
-            }
-        }
-        public vdDocument maxDoc
-        {
-            get
-            {
-                return vdSC_mfrc.BaseControl.ActiveDocument;
-            }
-        }
+      
 
 
-        public vdDocument PP_ActiveDoc
-        {
-            get
-            {
-                if (tc4.SelectedTab == tab_defl_doc)
-                    return defDoc;
-                else if (tc4.SelectedTab == tab_max_doc)
-                    return maxDoc;
-                else if (tc4.SelectedTab == tab_evlp_doc)
-                    return envDoc;
-                else if (tc4.SelectedTab == tab_diag_doc)
-                    return diagDoc;
-
-                return defDoc;
-            }
-        }
+       
 
         vdLayer selectLay { get; set; }
         vdLayer nodesLay { get; set; }
@@ -462,37 +386,18 @@ namespace AstraAccess
         vdLayer trussesLay { get; set; }
         vdLayer solidsLay { get; set; }
 
-        public ASTRADoc AST_DOC { set; get; }
-        public SAP_Document SAP_DOC { set; get; }
+        ASTRADoc AST_DOC;
+        SAP_Document SAP_DOC;
 
 
-        public frmSAPWorkspace()
-        {
-            InitializeComponent();
-            DataFileName = "";
-            SAP_DOC = new SAP_Document();
-        }
-        
-        private void frmSAPWorkspace_Load(object sender, EventArgs e)
+
+        public void Load_SAP_Events()
         {
             //vdScrollableControl1.BaseControl.vdMouseDown += new VectorDraw.Professional.Control.MouseDownEventHandler(BaseControl_vdMouseDown);
             vdScrollableControl1.BaseControl.vdMouseUp += new VectorDraw.Professional.Control.MouseUpEventHandler(BaseControl_vdMouseUp);
             vdScrollableControl1.BaseControl.vdKeyUp += new VectorDraw.Professional.Control.KeyUpEventHandler(BaseControl_vdKeyUp);
 
-
-            vdSC_ldef.BaseControl.vdMouseUp += new VectorDraw.Professional.Control.MouseUpEventHandler(BaseControl_vdMouseUp);
-            vdSC_ldef.BaseControl.vdKeyUp += new VectorDraw.Professional.Control.KeyUpEventHandler(BaseControl_vdKeyUp);
-
-
-            vdSC_mfrc.BaseControl.vdMouseUp += new VectorDraw.Professional.Control.MouseUpEventHandler(BaseControl_vdMouseUp);
-            vdSC_mfrc.BaseControl.vdKeyUp += new VectorDraw.Professional.Control.KeyUpEventHandler(BaseControl_vdKeyUp);   
-        
-
-            tc1.TabPages.Remove(tab_mov_load);
-            tc1.TabPages.Remove(tab_constants);
             tc1.TabPages.Remove(tab_ana_spec);
-
-
 
             Load_Deflections = new Hashtable();
 
@@ -502,19 +407,14 @@ namespace AstraAccess
             for (int i = 1; i < 100; i++)
             {
                 cmb_text_size.Items.Add(i.ToString());
-                cmb_pp_text_size.Items.Add(i.ToString());
             }
 
-
             cmb_text_size.SelectedIndex = 5;
-            cmb_pp_text_size.SelectedIndex = 5;
 
-
-            Open_Data_File(DataFileName);
+            
+            //Open_Data_File(DataFileName);
 
             tc1.SelectedTab = tab_file_open;
-            cmbInterval.SelectedIndex = 9;
-            timer1.Start();
         }
 
         void Delete_Layer_Objects(vdLayer lay, vdDocument doc)
@@ -612,10 +512,11 @@ namespace AstraAccess
 
         }
 
-        private void Open_Data_File(string file_name)
+        public void Open_Data_File(string file_name)
         {
             DataFileName = file_name;
 
+            SetLayers(VDoc);
             this.Text = "SAP ANALYSIS [" + MyList.Get_Modified_Path(file_name) + "]";
             if (AST_DOC == null)
                 AST_DOC = new ASTRADoc();
@@ -646,18 +547,12 @@ namespace AstraAccess
 
             VDoc.Redraw(true);
 
-            if (maxDoc != null) maxDoc.ActiveLayOut.Entities.EraseAll();
-            if (defDoc != null) defDoc.ActiveLayOut.Entities.EraseAll();
-            if (envDoc != null) envDoc.ActiveLayOut.Entities.EraseAll();
-            rtb_results.Text = "";
-            lsv_steps.Items.Clear();
-
-            //Tab_Post_Selection();
+           
 
 
-            if(SAP_DOC.MasterControl.NF >= 1)
+            if (SAP_DOC.MasterControl.NF >= 1)
             {
-                SAP_DOC.DynamicAnalysis.AnalysisType =(eSAP_AnalysisType) (int) (SAP_DOC.MasterControl.NYDN);
+                SAP_DOC.DynamicAnalysis.AnalysisType = (eSAP_AnalysisType)(int)(SAP_DOC.MasterControl.NYDN);
                 SAP_DOC.DynamicAnalysis.FREQUENCIES = (SAP_DOC.MasterControl.NF);
 
                 chk_dynamic_analysis.Checked = true;
@@ -678,7 +573,7 @@ namespace AstraAccess
                     txtScaleFactor.Text = SAP_DOC.DynamicAnalysis.Response_spectrum.SCALE_FACTOR.ToString();
 
                     dgv_acceleration.Rows.Clear();
-                    for(int i = 0; i < SAP_DOC.DynamicAnalysis.Response_spectrum.Periods.Count; i++)
+                    for (int i = 0; i < SAP_DOC.DynamicAnalysis.Response_spectrum.Periods.Count; i++)
                     {
                         dgv_acceleration.Rows.Add(SAP_DOC.DynamicAnalysis.Response_spectrum.Periods[i],
                             SAP_DOC.DynamicAnalysis.Response_spectrum.Values[i]);
@@ -731,7 +626,7 @@ namespace AstraAccess
                         dgv_time_mbr_strs.Rows.Add(item.NodeNo, item.TEXT);
                     }
 
-                  
+
                 }
             }
 
@@ -894,7 +789,7 @@ namespace AstraAccess
                     item.Elasticity.Cxs,
                     item.Elasticity.Cyy,
                     item.Elasticity.Cys,
-                    item.Elasticity.Gxy );
+                    item.Elasticity.Gxy);
             }
 
             dgv_joint_loads.Rows.Clear();
@@ -923,7 +818,7 @@ namespace AstraAccess
                     item.Y,
                     item.Element_Face_No);
             }
-
+          
 
             Draw_Joints(dgv_joints);
             Draw_Members();
@@ -932,7 +827,7 @@ namespace AstraAccess
 
             cmb_text_size.SelectedIndex = 5;
         }
-        
+
         public void Draw_Joints(DataGridView DGV)
         {
             Draw_Joints(VDoc);
@@ -992,7 +887,7 @@ namespace AstraAccess
                 sp.MY = MY;
                 sp.MZ = MZ;
 
-                if(FX && FY && FZ && MX && MY && MZ)
+                if (FX && FY && FZ && MX && MY && MZ)
                 {
                     sp.Option = Support.SupportOption.FIXED;
                     sp.Node = jn;
@@ -1056,7 +951,7 @@ namespace AstraAccess
         }
 
 
-        public void Draw_Joints(JointCoordinateCollection list,  vdDocument doc)
+        public void Draw_Joints(JointCoordinateCollection list, vdDocument doc)
         {
             //= VDoc;
             doc.Palette.Background = Color.White;
@@ -1268,7 +1163,7 @@ namespace AstraAccess
             doc.ActionLayout.Entities.AddItem(line);
 
             length = line.Length();
-           
+
 
             vtxtMemberNo.TextString = mi.MemberNo.ToString();
             vtxtMemberNo.Layer = trussesLay;
@@ -1367,7 +1262,7 @@ namespace AstraAccess
                 AST_DOC.Members.Add(mi);
             }
 
-            Delete_Layer_Objects( trussesLay, doc);
+            Delete_Layer_Objects(trussesLay, doc);
 
 
             AST_DOC.Members.CopyJointCoordinates(jcols);
@@ -1395,7 +1290,7 @@ namespace AstraAccess
             Delete_Layer_Objects(beamsLay, doc);
             Draw_Trusses(jcols, doc);
             Draw_Beams(jcols, doc);
-          
+
             VDoc.Redraw(true);
         }
 
@@ -1485,7 +1380,7 @@ namespace AstraAccess
         {
             foreach (var item in doc.ActiveLayOut.Entities)
             {
-                if(item is vdPolyface)
+                if (item is vdPolyface)
                 {
                     vdPolyface vpf = item as vdPolyface;
                     kString st = vpf.ToolTip;
@@ -1495,11 +1390,11 @@ namespace AstraAccess
                     {
 
                         int el = mll.GetInt(2);
-                        if(el == elment_no)
+                        if (el == elment_no)
                         {
                             vpf.LineWeight = VectorDraw.Professional.Constants.VdConstLineWeight.LW_100;
                         }
-                        
+
                     }
                 }
             }
@@ -1560,7 +1455,33 @@ namespace AstraAccess
             doc.Update();
             doc.Redraw(true);
         }
+        void Show_Beam_Element(vdDocument doc, string elment_no_range)
+        {
+            var mems = MyList.Get_Array_Intiger(elment_no_range);
+            foreach (var item in doc.ActiveLayOut.Entities)
+            {
+                if (item is vdLine)
+                {
+                    vdLine vpf = item as vdLine;
+                    kString st = vpf.ToolTip;
+                    vpf.LineWeight = VectorDraw.Professional.Constants.VdConstLineWeight.LW_BYLAYER;
+                    MyList mll = vpf.ToolTip;
+                    if (mll[0].StartsWith("Beam"))
+                    {
 
+                        int el = mll.GetInt(3);
+                        if (mems.Contains(el))
+                        {
+                            vpf.LineWeight = VectorDraw.Professional.Constants.VdConstLineWeight.LW_100;
+                        }
+
+                    }
+                }
+            }
+
+            doc.Update();
+            doc.Redraw(true);
+        }
         void Show_Truss_Element(vdDocument doc, int elment_no)
         {
             foreach (var item in doc.ActiveLayOut.Entities)
@@ -1668,7 +1589,7 @@ namespace AstraAccess
         }
         public void Draw_Solids(JointCoordinateCollection jcols, vdDocument doc, Solid_Element elmt)
         {
-            
+
             //solidsLay
             //vdLayer elementLay = new vdLayer();
             //elementLay.Name = "Elements";
@@ -1681,7 +1602,7 @@ namespace AstraAccess
             //solidsLay.PenColor = new vdColor(Color.OrangeRed);
             //solidsLay.PenColor = new vdColor(Color.FromArgb(128, 128, 128));
             solidsLay.PenColor = new vdColor(Color.FromArgb(0, 204, 204));
-            
+
             int indx = -1;
 
 
@@ -1808,7 +1729,7 @@ namespace AstraAccess
             //}
         }
 
-        private void Tab_Selection()
+        public void Tab_Selection()
         {
             //sc2.Panel2Collapsed = true;
             sc2.Panel2Collapsed = (tc1.SelectedTab == tab_file_open);
@@ -1832,62 +1753,26 @@ namespace AstraAccess
 
 
             if (tc1.SelectedTab == tab_geom)
+            {
                 Show_Panel(tab1_geom);
+                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(VDoc);
+            }
             else if (tc1.SelectedTab == tab_props)
                 Show_Panel(tab1_props);
             else if (tc1.SelectedTab == tab_elements)
                 Show_Panel(tab1_elements);
-            else if (tc1.SelectedTab == tab_constants)
-                Show_Panel(tab1_const);
+            //else if (tc1.SelectedTab == tab_constants)
+            //    Show_Panel(tab1_const);
             else if (tc1.SelectedTab == tab_supports)
                 Show_Panel(tab1_supports);
             else if (tc1.SelectedTab == tab_loads)
                 Show_Panel(tab1_loads);
-            else if (tc1.SelectedTab == tab_mov_load)
-                Show_Panel(tab1_moving);
+            //else if (tc1.SelectedTab == tab_mov_load)
+            //    Show_Panel(tab1_moving);
             else if (tc1.SelectedTab == tab_dynamic)
                 Show_Panel(tab1_dynamic);
             else if (tc1.SelectedTab == tab_ana_spec)
                 Show_Panel(tab1_ana_spec);
-
-
-            #region Post Process Tabs
-
-
-            tab_pp_1.TabPages.Clear();
-            tc4.TabPages.Clear();
-
-            if (tc_pp_main.SelectedTab == tab_forces)
-            {
-                tab_pp_1.TabPages.Add(tab1_forces);
-                tc4.TabPages.Add(tab_max_doc);
-            }
-            else if (tc_pp_main.SelectedTab == tab_load_deflection)
-            {
-                tab_pp_1.TabPages.Add(tab1_load_deflection);
-                tc4.TabPages.Add(tab_defl_doc);
-
-            }
-            else if (tc_pp_main.SelectedTab == tab_max_force)
-            {
-                tab_pp_1.TabPages.Add(tab1_max_force);
-                tc4.TabPages.Add(tab_max_doc);
-            }
-            else if (tc_pp_main.SelectedTab == tab_envelop)
-            {
-                tab_pp_1.TabPages.Add(tab1_truss_env);
-                //tc4.SelectedTab = tab_evlp_doc;
-                tc4.TabPages.Add(tab_evlp_doc);
-            }
-            else if (tc_pp_main.SelectedTab == tab_diagram)
-            {
-                tab_pp_1.TabPages.Add(tab1_diagram);
-                //tc4.SelectedTab = tab_evlp_doc;
-                tc4.TabPages.Add(tab_diag_doc);
-            }
-
-            #endregion Post Process Tabs
-
 
         }
         public void Show_Panel(TabPage tp)
@@ -1923,7 +1808,7 @@ namespace AstraAccess
             }
             return list;
         }
-        private void Save_Data()
+        public void Save_Data()
         {
 
             //string fname = Path.Combine(Path.GetDirectoryName(txt_file_name.Text),
@@ -2116,7 +2001,7 @@ namespace AstraAccess
             DGV = dgv_solid_elements;
             #region Solid  Elements
 
-            
+
             for (i = 0; i < DGV.RowCount; i++)
             {
                 Solid_Element se = new Solid_Element();
@@ -2413,12 +2298,10 @@ namespace AstraAccess
             {
             }
         }
-        public double Text_Size
+         double Text_Size
         {
             get
             {
-                if(tcParrent.SelectedTab == tab_post_process)
-                    return (cmb_pp_text_size.SelectedIndex + 1) * 0.01;
                 return (cmb_text_size.SelectedIndex + 1) * 0.01;
             }
         }
@@ -2448,12 +2331,10 @@ namespace AstraAccess
 
         }
 
-     
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            timer1.Stop();
-            VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(VDoc);
-            VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Vrot(VDoc);
+            
         }
         private void toolStripButtons_Click(object sender, EventArgs e)
         {
@@ -2463,7 +2344,7 @@ namespace AstraAccess
             //if (tc4.SelectedIndex == 1) VD = defDoc;
 
             ToolStripButton tsb = sender as ToolStripButton;
-            if (tsb.Name == tsb_3D_rotate.Name )
+            if (tsb.Name == tsb_3D_rotate.Name)
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Vrot(VD);
             else if (tsb.Name == tsb_VTop.Name)
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(VD);
@@ -2506,7 +2387,7 @@ namespace AstraAccess
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_ShadeOn(VD);
             else if (tsb.Name == tsb_Wire.Name)
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire2d(VD);
-                //VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire(VD);
+            //VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire(VD);
             else if (tsb.Name == tsb_Save.Name)
             {
                 using (SaveFileDialog sfd = new SaveFileDialog())
@@ -2580,7 +2461,7 @@ namespace AstraAccess
         }
         private void btn_process_analysis_Click(object sender, EventArgs e)
         {
-            if(iApp.IsDemo)
+            if (iApp.IsDemo)
             {
                 if (!iApp.Check_Coordinate(dgv_joints.RowCount, (dgv_beam_elements.RowCount + dgv_truss_elements.RowCount)))
                 {
@@ -2590,8 +2471,8 @@ namespace AstraAccess
                     str += "This Version can Process the Analysis Input Data from the Example Only. User has to select the input data file by using the menu option\n";
                     str += "\n \"File>>Open Analysis Example Data File\", and next can Process the Analysis file by using the menu option ";
                     str += "\"Process Analysis>>Analysis by Example Data File\" for Text Data, SAP Data and Drawings Files.\n\n";
-                   
-                    
+
+
                     str += "For Professional Version of ASTRA Pro please contact : \n\n";
                     str += "Email at : techsoft@consultant.com, dataflow@mail.com\n\n";
                     str += "Website : http://www.techsoftglobal.com, http://www.headsview.com\n\n";
@@ -2608,7 +2489,7 @@ namespace AstraAccess
             RunAnalysis();
 
             string res_file = Path.Combine(Path.GetDirectoryName(DataFileName), "RES001.tmp");
-            if(File.Exists(res_file))
+            if (File.Exists(res_file))
             {
                 List<string> file_cont = new List<string>(File.ReadAllLines(res_file));
 
@@ -2623,8 +2504,7 @@ namespace AstraAccess
                 list.Add(string.Format("                                *****************************************************"));
                 list.Add(string.Format("                                *                                                   *"));
                 list.Add(string.Format("                                *                                                   *"));
-                //list.Add(string.Format("                                *           ASTRA Pro Release 15 Version 00         *"));
-                list.Add(string.Format("                                *                      ASTRA Pro                    *"));
+                list.Add(string.Format("                                *           ASTRA Pro Release 15 Version 00         *"));
                 list.Add(string.Format("                                *        APPLICATIONS ON STRUCTURAL ANALYSIS        *"));
                 list.Add(string.Format("                                *                                                   *"));
                 list.Add(string.Format("                                *                                                   *"));
@@ -2650,27 +2530,27 @@ namespace AstraAccess
                 file_cont.Add(string.Format("******************************************************************************************************************************"));
 
 
-                rtb_results.Lines = file_cont.ToArray();
+                //rtb_results.Lines = file_cont.ToArray();
 
                 res_file = Path.Combine(Path.GetDirectoryName(res_file), "SAP_ANALYSIS_REP.TXT");
-                File.WriteAllLines(res_file, rtb_results.Lines);
+                //File.WriteAllLines(res_file, rtb_results.Lines);
+
+                File.WriteAllLines(res_file, file_cont.ToArray());
+
+
                 iApp.Delete_Temporary_Files(DataFileName);
                 MessageBox.Show(this, "Analysis Results are written in file 'SAP_ANALYSIS_REP.TXT'.\n\nFile Path:\n\n" + res_file, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //MessageBox.Show(this, "Analysis Results are written in file 'SAP_ANALYSIS_REP.TXT'.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //if (MessageBox.Show(this, "Analysis Results are written in file 'SAP_ANALYSIS_REP.TXT'.\n\n Do you want to open the File ?", "ASTRA", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
-                    //iApp.View_Result(res_file);
+                //iApp.View_Result(res_file);
 
                 Select_Steps();
                 //StructureAnalysis = new AstraInterface.DataStructure.BridgeMemberAnalysis(iApp, ReportFileName);
                 StructureAnalysis = null;
 
 
-                if (maxDoc != null) maxDoc.ActiveLayOut.Entities.RemoveAll();
-                if (defDoc != null) defDoc.ActiveLayOut.Entities.RemoveAll();
-                if (envDoc != null) envDoc.ActiveLayOut.Entities.RemoveAll();
-                if (diagDoc != null) diagDoc.ActiveLayOut.Entities.RemoveAll();
-
+               
                 //Tab_Post_Selection();
 
             }
@@ -2679,180 +2559,13 @@ namespace AstraAccess
         }
         public void Select_Steps()
         {
-            List<int> Step_Lines = new List<int>();
-            Hashtable hash_index = new Hashtable();
-            //Items.Clear();
-            //Items.Add("Select...Step.....");
-
-            List<string> Items = new List<string>();
-
-            List<string> analysis_list = new List<string>();
-            #region analysis result list
-            analysis_list.Add(string.Format("User's data"));
-            analysis_list.Add(string.Format("JOINT COORDINATE"));
-            analysis_list.Add(string.Format("MEMBER INCIDENCES"));
-            analysis_list.Add(string.Format("JOINT COORD"));
-            analysis_list.Add(string.Format("MEMBER INCI"));
-            analysis_list.Add(string.Format("MEMB INCI"));
-            analysis_list.Add(string.Format("START GROUP DEFINITION"));
-            analysis_list.Add(string.Format("MEMBER PROPERTY"));
-            analysis_list.Add(string.Format("CONSTANT"));
-            analysis_list.Add(string.Format("SUPPORT"));
-            //analysis_list.Add(string.Format("LOAD"));
-            analysis_list.Add(string.Format("DEFINE MOVING LOAD FILE LL.TXT"));
-            analysis_list.Add(string.Format("LOAD GENERATION"));
-            analysis_list.Add(string.Format("C O N T R O L   I N F O R M A T I O N"));
-            analysis_list.Add(string.Format("NODAL POINT INPUT DATA"));
-            analysis_list.Add(string.Format("GENERATED NODAL DATA"));
-            analysis_list.Add(string.Format("EQUATION NUMBERS"));
-            analysis_list.Add(string.Format("ELEMENT LOAD MULTIPLIERS"));
-            analysis_list.Add(string.Format("TRUSS ELEMENT DATA"));
-            analysis_list.Add(string.Format("3 / D   B E A M   E L E M E N T S"));
-            analysis_list.Add(string.Format("MATERIAL PROPERTIES"));
-            analysis_list.Add(string.Format("BEAM GEOMETRIC PROPERTIES"));
-            analysis_list.Add(string.Format("ELEMENT LOAD MULTIPLIERS"));
-            analysis_list.Add(string.Format("3/D BEAM ELEMENT DATA"));
-            analysis_list.Add(string.Format("E Q U A T I O N   P A R A M E T E R S"));
-            analysis_list.Add(string.Format("N O D A L   L O A D S   (S T A T I C)   O R   M A S S E S   (D Y N A M I C)"));
-            analysis_list.Add(string.Format("N O D E   D I S P L A C E M E N T S / R O T A T I O N S"));
-            analysis_list.Add(string.Format("TRUSS MEMBER ACTIONS"));
-            analysis_list.Add(string.Format(".....BEAM FORCES AND MOMENTS"));
-            analysis_list.Add(string.Format("  SHELL ELEMENT STRESSES"));
-            analysis_list.Add(string.Format("....8 NODE SOLID ELEMENT DATA"));
-            analysis_list.Add(string.Format("  .....8-NODE SOLID ELEMENT STRESSES"));
-         
-            analysis_list.Add(string.Format(" THIN  PLATE/SHELL  ELEMENT DATA"));
-            analysis_list.Add(string.Format(" T H I N   P L A T E / S H E L L   E L E M E N T S"));
-            analysis_list.Add(string.Format("S T A T I C   S O L U T I O N   T I M E   L O G"));
-            analysis_list.Add(string.Format("O V E R A L L   T I M E   L O G"));
-            analysis_list.Add(string.Format("SUMMARY OF MAXIMUM SUPPORT FORCES"));
-
-
-
-            analysis_list.Add(string.Format("WEIGHT CALCULATION OF SUPER IMPOSED DEAD LOAD"));
-            analysis_list.Add(string.Format("WEIGHT CALCULATION OF STEEL STRUCTURE LOAD"));
-
-            analysis_list.Add(string.Format("T I M E   H I S T O R Y   R E S P O N S E"));
-            analysis_list.Add(string.Format("D I S P L A C E M E N T   T I M E   H I S T O R Y"));
-            analysis_list.Add(string.Format("F O R C E D   R E S P O N S E   A N A L Y S I S"));
-            analysis_list.Add(string.Format("E I G E N V A L U E   A N A L Y S I S"));
-
-            analysis_list.Add(string.Format("STRINGER BEAM"));
-            analysis_list.Add(string.Format("CROSS GIRDER"));
-            analysis_list.Add(string.Format("BOTTOM CHORD"));
-            analysis_list.Add(string.Format("TOP CHORD"));
-            analysis_list.Add(string.Format("END RAKERS"));
-            analysis_list.Add(string.Format("DIAGONAL MEMBER"));
-            analysis_list.Add(string.Format("VERTICAL MEMBER"));
-            analysis_list.Add(string.Format("TOP CHORD BRACINGS"));
-            analysis_list.Add(string.Format("BOTTOM CHORD BRACINGS"));
-            analysis_list.Add(string.Format("CANTILEVER BRACKETS"));
-            analysis_list.Add(string.Format("SHORT VERTICAL MEMBER"));
-            analysis_list.Add(string.Format("TOP DIAGONAL MEMBER"));
-            analysis_list.Add(string.Format("BOTTOM DIAGONAL MEMBER"));
-            analysis_list.Add(string.Format("TOP VERTICAL MEMBER"));
-            analysis_list.Add(string.Format("BOTTOM VERTICAL MEMBER"));
-            analysis_list.Add(string.Format("SHORT DIAGONAL MEMBER"));
-            analysis_list.Add(string.Format("ARCH MEMBERS"));
-            analysis_list.Add(string.Format("SUSPENSION CABLES"));
-            analysis_list.Add(string.Format("TRANSVERSE MEMBER"));
-
-            analysis_list.Add(string.Format("MEMBER GROUP"));
-
-
-
-            #endregion
-
-
-            List<string> list = new List<string>(rtb_results.Lines);
-            //list.Sort();
-            int indx = 0;
-
-            for (int i = 0; i < list.Count; i++)
-            {
-                var item = list[i];
-                //indx += item.Length + 1;
-                indx += item.Length;
-                if (item.ToUpper().StartsWith("STEP") ||
-                   item.ToUpper().StartsWith("TABLE") ||
-                   item.ToUpper().StartsWith("STAGE") ||
-                    //item.ToUpper().StartsWith("DESIGN") ||
-                    item.ToUpper().StartsWith("USER"))
-                {
-                    if (!Items.Contains(item))
-                    {
-                        Step_Lines.Add(i);
-                        Items.Add(item);
-                        hash_index.Add(Items.Count - 1, indx);
-                    }
-                }
-                else
-                {
-                    foreach (var l in analysis_list)
-                    {
-                        //if (item.ToUpper().Contains(l.ToUpper()))
-                        if (item.Contains(l.ToUpper()))
-                        {
-                            if (!Items.Contains(item))
-                            {
-                                Step_Lines.Add(i);
-                                Items.Add(item);
-                                hash_index.Add(Items.Count - 1, indx);
-                            }
-                        }
-                    }
-                }
-            }
-            list.Clear();
-            lsv_steps.Items.Clear();
-            foreach (var item in Items)
-            {
-                lsv_steps.Items.Add(item.Trim().TrimStart().ToString());
-            }
-            //if (lsv_steps.Items.Count > 0)
-            //{
-            //    lsv_steps.Items.RemoveAt(0);
-            //    //cmb_step.SelectedIndex = 0;
-            //}
         }
         private void select_text(string txt)
         {
-            try
-            {
-                RichTextBox rtbData = rtb_results;
-                int indx = rtbData.Find(txt);
-                //if (hash_index[cmb_step.SelectedIndex] != null)
-                if (indx != -1)
-                {
-                    //rtbData.SelectedText = cmb_step.Text;
-                    //rtbData.Select((int)hash_index[cmb_step.SelectedIndex], cmb_step.Text.Length);
-                    rtbData.Select(indx, txt.Length);
-                    rtbData.ScrollToCaret();
-                    //rtbData.SelectionBackColor = Color.Red;
-                    rtbData.SelectionBackColor = Color.YellowGreen;
-
-                    //rtbData.SelectionLength = cmb_step.Text.Length;
-
-                    //Lines.Remove(cmb_step.Items[0].ToString());
-                    //if (Lines.Contains(txt)) Lines.Remove(txt);
-                    //Lines.Add(txt);
-                    //Show_Next_Previous_Text();
-                }
-            }
-            catch (Exception ex) { }
-        }
-        private void lstb_steps_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lsv_steps.SelectedItems.Count > 0)
-            {
-                select_text(lsv_steps.SelectedItems[0].Text.ToString());
-                //CurrentPosition = Lines.Count - 1;
-            }
         }
 
         private void tsb_print_Click(object sender, EventArgs e)
         {
-
             if (iApp.IsDemo)
             {
                 MessageBox.Show("This feature is not available in demo version.", this.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -2881,7 +2594,7 @@ namespace AstraAccess
 
                         DataFileName = sfd.FileName;
 
-                        if(File.Exists(DataFileName) == false)
+                        if (File.Exists(DataFileName) == false)
                         {
                             File.WriteAllText(DataFileName, "");
                         }
@@ -2903,10 +2616,8 @@ namespace AstraAccess
             //else
             //cmb_pp_text_size.SelectedIndex = cmb_text_size.SelectedIndex;
 
-            if(cmb.Name == cmb_pp_text_size.Name)
-                SetTextSize(PP_ActiveDoc);
-            else
-                SetTextSize(VDoc);
+
+            SetTextSize(VDoc);
         }
 
         private void SetTextSize(vdDocument doc)
@@ -3264,235 +2975,13 @@ namespace AstraAccess
         private void tc_pp_main_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (tcParrent.SelectedTab != tab_post_process) return;
-
-            if (!File.Exists(ReportFileName))
-            {
-                MessageBox.Show("Process Analysis not done. This Panel enabled after Process Analysis.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                //MessageBox.Show("Process Analysis not done. \"ANALYSIS_REP.TXT\"   file not found.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                if (File.Exists(DataFileName))
-                    tcParrent.SelectedTab = tab_process;
-                else
-                    tcParrent.SelectedTab = tab_pre_process;
-                return;
-            }
-
-            Tab_Selection();
-
-            if (cmb_pp_text_size.SelectedIndex == -1)
-                cmb_pp_text_size.SelectedIndex = 5;
-
-            if (tc_pp_main.SelectedTab != tab_diag_doc)
-                Tab_Post_Selection();
-
-
-            if (PP_ActiveDoc != null)
-            {
-                //if (PP_ActiveDoc.ActiveLayOut.Entities.Count == 0)
-                //{
-
-                if (tc_pp_main.SelectedTab == tab_load_deflection)
-                {
-                    Set_Load_Deflection_Init();
-                }
-                else if (tc_pp_main.SelectedTab == tab_envelop)
-                {
-                    //Set_Load_Deflection_Init();
-
-                }
-                else if (tc_pp_main.SelectedTab == tab_diagram)
-                {
-
-                    //Set_Load_Deflection_Init();
-
-                }
-                else
-                {
-                    SetLayers(PP_ActiveDoc);
-                    Draw_Joints(PP_ActiveDoc);
-                    Draw_Plates(PP_ActiveDoc);
-                    Draw_Solids(PP_ActiveDoc);
-                }
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(PP_ActiveDoc);
-
-            }
         }
 
         private void Tab_Post_Selection()
         {
-            if (!File.Exists(ReportFileName))
-            {
-                rtb_results.Text = "";
-                dgv_beam_frcs.Rows.Clear();
-                dgv_truss_frcs.Rows.Clear();
-                dgv_plate_frcs.Rows.Clear();
-                dgv_solid_frcs.Rows.Clear();
-                dgv_max_frc.Rows.Clear();
-                dgv_node_disp.Rows.Clear();
-
-
-                return;
-            }
-
-            if (StructureAnalysis == null)
-            {
-                StructureAnalysis = new AstraInterface.DataStructure.BridgeMemberAnalysis(iApp, ReportFileName);
-                if (PP_ActiveDoc != null)
-                    PP_ActiveDoc.ActiveLayOut.Entities.EraseAll();
-            }
-
-
-
-            dgv_plate_frcs.Rows.Clear();
-            dgv_beam_frcs.Rows.Clear();
-            dgv_solid_frcs.Rows.Clear();
-            cmb_diag_mem_no.Items.Clear();
-            cmb_diag_ld_no.Items.Clear();
-            foreach (var item in StructureAnalysis.Beams_Forces)
-            {
-                if (!cmb_diag_ld_no.Items.Contains(item.LoadNo))
-                {
-                    cmb_diag_ld_no.Items.Add(item.LoadNo);
-                    //cmb_diag_mem_no.Items.Add(item.BeamNo);
-                }
-                if (!cmb_diag_mem_no.Items.Contains(item.BeamNo))
-                {
-                    //cmb_diag_ld_no.Items.Add(item.LoadNo);
-                    cmb_diag_mem_no.Items.Add(item.BeamNo);
-                }
-                dgv_beam_frcs.Rows.Add(item.BeamNo, item.LoadNo,
-                    item.StartNodeForce.JointNo,
-                    item.StartNodeForce.R1_Axial,
-                    item.StartNodeForce.R2_Shear,
-                    item.StartNodeForce.R3_Shear,
-                    item.StartNodeForce.M1_Torsion,
-                    item.StartNodeForce.M2_Bending,
-                    item.StartNodeForce.M3_Bending);
-
-                dgv_beam_frcs.Rows.Add("", "",
-                    item.EndNodeForce.JointNo,
-                    item.EndNodeForce.R1_Axial,
-                    item.EndNodeForce.R2_Shear,
-                    item.EndNodeForce.R3_Shear,
-                    item.EndNodeForce.M1_Torsion,
-                    item.EndNodeForce.M2_Bending,
-                    item.EndNodeForce.M3_Bending);
-            }
-            dgv_truss_frcs.Rows.Clear();
-            foreach (var item in StructureAnalysis.Trusses_Forces)
-            {
-                dgv_truss_frcs.Rows.Add(item.TrussMemberNo, item.LoadNo,
-                    item.Stress,
-                    item.Force);
-            }
-            foreach (var item in StructureAnalysis.Cables_Forces)
-            {
-                dgv_truss_frcs.Rows.Add(item.TrussMemberNo, item.LoadNo,
-                    item.Stress,
-                    item.Force);
-            }
-
-            dgv_plate_frcs.Rows.Clear();
-            foreach (var item in StructureAnalysis.Plates_Forces)
-            {
-                dgv_plate_frcs.Rows.Add(item.PlateNo, item.LoadNo,
-                    item.SXX.ToString("f4"),
-                    item.SYY.ToString("f4"),
-                    item.SXY.ToString("f4"),
-                    item.MXX.ToString("f4"),
-                    item.MXY.ToString("f4"),
-                    item.MXY.ToString("f4"));
-            }
-
-            dgv_solid_frcs.Rows.Clear();
-            foreach (var item in StructureAnalysis.Solids_Forces)
-            {
-                //dgv_solid_frcs.Rows.Add(item.ElementNo, item.LoadNo, item.Face,
-                //    item.SIG_XX.ToString("f4"),
-                //    item.SIG_YY.ToString("f4"),
-                //    item.SIG_ZZ.ToString("f4"),
-                //    item.SIG_XY.ToString("f4"),
-                //    item.SIG_YZ.ToString("f4"),
-                //    item.SIG_ZX.ToString("f4"),
-                //    item.SIG_MAX.ToString("f4"),
-                //    item.SIG_MIN.ToString("f4"),
-                //    item.S2_Angle.ToString("f4"));
-                dgv_solid_frcs.Rows.Add(item.ElementNo, item.LoadNo, item.Face,
-                    item.SIG_XX,
-                    item.SIG_YY,
-                    item.SIG_ZZ,
-                    item.SIG_XY,
-                    item.SIG_YZ,
-                    item.SIG_ZX,
-                    item.SIG_MAX,
-                    item.SIG_MIN,
-                    item.S2_Angle);
-            }
-            //foreach (var item in StructureAnalysis.Cables_Forces)
-            //{
-            //    dgv_joint_frcs.Rows.Add(item.TrussMemberNo, item.LoadNo,
-            //        item.Stress,
-            //        item.Force);
-            //}
-
-            dgv_max_frc.Rows.Clear();
-            if (StructureAnalysis.Analysis_Forces != null)
-            {
-                foreach (var item in StructureAnalysis.Analysis_Forces)
-                {
-                    dgv_max_frc.Rows.Add(item.AstraMemberNo, item.AstraMemberType,
-                                item.CompressionForce,
-                                item.TensileForce,
-                        item.MaxAxialForce,
-                        item.MaxTorsion,
-                        item.MaxBendingMoment,
-                        item.MaxShearForce);
-                }
-            }
-
-
-            double max_def = 0.0;
-            int load_no = 0;
-            int node_no = 0;
-
-
-            dgv_node_disp.Rows.Clear();
-            if (StructureAnalysis.Node_Displacements != null)
-            {
-                foreach (var item in StructureAnalysis.Node_Displacements)
-                {
-                    //dgv_node_disp.Rows.Add(nd.Node.NodeNo, nd.LoadCase, nd.Tx, nd.Ty, nd.Tz, nd.Rx, nd.Ry, nd.Rz);
-                    dgv_node_disp.Rows.Add(item.NodeNo, item.LoadCase, item.X_Translation, item.Y_Translation
-                        , item.Z_Translation, item.X_Rotation, item.Y_Rotation, item.Z_Rotation);
-
-
-                    if (Math.Abs(item.Y_Translation) > Math.Abs(max_def))
-                    {
-                        max_def = item.Y_Translation;
-                        load_no = item.LoadCase;
-                        node_no = item.NodeNo;
-                    }
-
-                }
-                txt_max_deflection.Text = max_def.ToString();
-                txt_max_deflection_load.Text = load_no.ToString();
-                txt_max_deflection_node.Text = node_no.ToString();
-
-                txtDefFactor.Text = Math.Abs(1 / max_def).ToString("f3");
-                if (SAP_DOC.DynamicAnalysis.FREQUENCIES > 0)
-                {
-                    lblLoadCase.Text = "Frequencies : Mode Shapes";
-                }
-                else
-                {
-                    lblLoadCase.Text = "LOAD CASE";
-                }
-
-            }
-
         }
 
-        
+
 
         public void Set_Load_Deflection_Init()
         {
@@ -3510,19 +2999,7 @@ namespace AstraAccess
 
             //if (cmbLoadCase.Items.Count > 0) return;
 
-            cmbLoadCase.Items.Clear();
-            Load_Deflections.Clear();
-            cmbLoadCase.Items.Add(0);
-
-            foreach (var item in LoadCases)
-            {
-                Load_Deflections.Add(item, StructureAnalysis.Node_Displacements.Get_NodeResults(item));
-                //NodeResults.Add();
-                cmbLoadCase.Items.Add(item);
-            }
-
-            cmbLoadCase.SelectedIndex = 0;
-
+            
             return;
 
 
@@ -3549,7 +3026,7 @@ namespace AstraAccess
 
                 for (int i = 0; i < item.Count; i++)
                 {
-                    if(i == 0)
+                    if (i == 0)
                     {
                         Load_Deflections.Add(item[i].LoadCase, jcols);
                     }
@@ -3563,8 +3040,8 @@ namespace AstraAccess
                     jn.Point.x = item[i].X_Translation;
                     jn.Point.y = item[i].Y_Translation;
                     jn.Point.z = item[i].Z_Translation;
-                  
-                    
+
+
                     jcols.Add(jn);
 
                     //dgv_node_disp.Rows.Add(item[i].NodeNo,
@@ -3584,183 +3061,22 @@ namespace AstraAccess
                     //}
                 }
             }
-            txt_max_deflection.Text = max_def.ToString();
-            txt_max_deflection_load.Text = load_no.ToString();
-            txt_max_deflection_node.Text = node_no.ToString();
-
-
-            cmbLoadCase.SelectedIndex = 0;
-
-            //SetLoadIndex(1);
-
-
-            //if (AST_DOC_ORG.IsDynamicLoad)
-            //{
-            //    AST_DOC_ORG.DrawMemberDetails(MainDoc, 1);
-            //}
+         
         }
 
 
-        public JointCoordinateCollection Get_Deflected_Joints(int loadcase)
-        {
-            double fact = MyList.StringToDouble(txtDefFactor.Text, 1.0);
-
-            AstraInterface.DataStructure.NodeResults NodeResult = Load_Deflections[loadcase] as AstraInterface.DataStructure.NodeResults;
-
-            JointCoordinateCollection jcols = new JointCoordinateCollection();
-
-
-            JointCoordinate jn = new JointCoordinate();
-            if(jcols != null)
-            {
-                for (int i = 0; i < AST_DOC.Joints.Count; i++)
-                {
-                    jn = new JointCoordinate();
-
-                    jn.NodeNo = AST_DOC.Joints[i].NodeNo;
-
-                    //try
-                    //{
-
-                    //    jn.Point.x = AST_DOC.Joints[i].Point.x + NodeResult[i].X_Translation * fact;
-                    //    jn.Point.y = AST_DOC.Joints[i].Point.y + NodeResult[i].Y_Translation * fact;
-                    //    jn.Point.z = AST_DOC.Joints[i].Point.z + NodeResult[i].Z_Translation * fact;
-                    //}
-                    //catch(Exception exx)
-                    //{
-
-                    //    jn.Point.x = AST_DOC.Joints[i].Point.x;
-                    //    jn.Point.y = AST_DOC.Joints[i].Point.y;
-                    //    jn.Point.z = AST_DOC.Joints[i].Point.z;
-                    //}
-                    if (NodeResult == null || NodeResult.Count != AST_DOC.Joints.Count)
-                    {
-                        jn.Point.x = AST_DOC.Joints[i].Point.x;
-                        jn.Point.y = AST_DOC.Joints[i].Point.y;
-                        jn.Point.z = AST_DOC.Joints[i].Point.z;
-
-                    }
-                    else
-                    {
-                        jn.Point.x = AST_DOC.Joints[i].Point.x + NodeResult[i].X_Translation * fact;
-                        jn.Point.y = AST_DOC.Joints[i].Point.y + NodeResult[i].Y_Translation * fact;
-                        jn.Point.z = AST_DOC.Joints[i].Point.z + NodeResult[i].Z_Translation * fact;
-                    }
-                    jcols.Add(jn);
-                }
-
-
-            }
-
-
-
-            return jcols;
-        }
+       
 
         private void dgv_max_frc_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
 
-            try
-            {
-                bool flag = (dgv_max_frc[1, dgv_max_frc.SelectedCells[0].RowIndex].Value.ToString() == "BEAM");
-
-                if (flag)
-                {
-                    col_cmf.Width = 0;
-                    col_tf.Width = 0;
-                    col_tor.Width = 99;
-                    col_af.Width = 99;
-                    col_bm.Width = 99;
-                    col_sf.Width = 99;
-                }
-                else
-                {
-                    col_cmf.Width = 99;
-                    col_tf.Width = 99;
-                    col_tor.Width = 0;
-                    col_af.Width = 0;
-                    col_bm.Width = 0;
-                    col_sf.Width = 0;
-                }
-            }
-            catch (Exception ex) { }
+            
         }
 
         private void tsb_pp_rot3D_Click(object sender, EventArgs e)
         {
-
-            vdDocument VD = PP_ActiveDoc;
-
-            //if (tc4.SelectedIndex == 1) VD = defDoc;
-            //if (tc4.SelectedIndex == 1) VD = defDoc;
-
             ToolStripButton tsb = sender as ToolStripButton;
-            if (tsb.Name == tsb_pp_rot3D.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Vrot(VD);
-            else if (tsb.Name == tsb_pp_VTop.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(VD);
-            else if (tsb.Name == tsb_pp_VBottom.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VBottom(VD);
-            else if (tsb.Name == tsb_pp_VLeft.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VLeft(VD);
-            else if (tsb.Name == tsb_pp_VRight.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VRight(VD);
-            else if (tsb.Name == tsb_pp_VFront.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VFront(VD);
-            else if (tsb.Name == tsb_pp_VBack.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VBack(VD);
-            else if (tsb.Name == tsb_pp_VNE.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VINE(VD);
-            else if (tsb.Name == tsb_pp_VNW.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VINW(VD);
-            else if (tsb.Name == tsb_pp_VSE.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VISE(VD);
-            else if (tsb.Name == tsb_pp_VSW.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VISW(VD);
-            else if (tsb.Name == tsb_pp_ZoomAll.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomA_Ex(VD);
-            else if (tsb.Name == tsb_pp_ZomExtent.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomE_Ex(VD);
-            else if (tsb.Name == tsb_pp_ZomPrev.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomP_Ex(VD);
-
-            else if (tsb.Name == tsb_pp_ZomWindow.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomW_Ex(VD);
-
-            else if (tsb.Name == tsb_pp_ZoomIn.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomIn_Ex(VD);
-            else if (tsb.Name == tsb_pp_ZoomOut.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.ZoomOut_Ex(VD);
-
-            else if (tsb.Name == tsb_pp_Pan.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.PanEx(VD);
-            else if (tsb.Name == tsb_pp_ShadeOn.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_ShadeOn(VD);
-            else if (tsb.Name == tsb_pp_Wire2D.Name)
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire2d(VD);
-            //VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire(VD);
-            else if (tsb.Name == tsb_pp_Save.Name)
-            {
-                using (SaveFileDialog sfd = new SaveFileDialog())
-                {
-                    sfd.Filter = "VDML File (*.vdml)|*.vdml|DXF File (*.dxf)|*.dxf|DWG File (*.dwg)|*.dwg";
-                    if (sfd.ShowDialog() != DialogResult.Cancel)
-                    {
-                        if (iApp.IsDemo)
-                        {
-                            MessageBox.Show("This function is not available in Demo version.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        }
-                        else
-                        {
-                            if (VD.SaveAs(sfd.FileName))
-                            {
-                                MessageBox.Show("File Saved successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                    }
-                }
-            }
+           
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -3770,107 +3086,23 @@ namespace AstraAccess
 
         private void cmbLoadCase_SelectedIndexChanged(object sender, EventArgs e)
         {
-            JointCoordinateCollection jcol = Get_Deflected_Joints(cmbLoadCase.SelectedIndex);
-
-            if (jcol == null)
-                jcol = AST_DOC.Joints;
-
-            if (jcol != null)
-            {
-                PP_ActiveDoc.ActionLayout.Entities.EraseAll();
-                Draw_Joints(jcol, PP_ActiveDoc);
-                Draw_Members(jcol, PP_ActiveDoc);
-                Draw_Plates(jcol, PP_ActiveDoc);
-                Draw_Solids(jcol, PP_ActiveDoc);
-
-
-            }
         }
 
 
         void Set_Load_Index(int loadcase)
         {
 
-            //if (bIsNext)
-            //{
-            //iLoadCase++;
-            if (iLoadCase > cmbLoadCase.Items.Count - 1)
-                iLoadCase = 0;
-            //}
-            //else
-            //{
-            //iLoadCase--;
-            if (iLoadCase < 0)
-                iLoadCase = cmbLoadCase.Items.Count - 1;
-            //}
-
-            cmbLoadCase.SelectedIndex = iLoadCase;
+          
         }
 
         private void tmr_ldef_Tick(object sender, EventArgs e)
         {
-            tmr_ldef.Interval = (int)(MyList.StringToDouble(cmbInterval.Text.Replace(" Sec", ""), 1.0) * 1000);
-            if (tmr_ldef.Interval == 0)
-                tmr_ldef.Interval = 1000;
-             
-
-            if (bIsNext)
-            {
-                iLoadCase++;
-            }
-            else
-            {
-                iLoadCase--;
-            }
-            Set_Load_Index(iLoadCase);
+           
         }
 
         private void btnPause_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
-
-
-            int tm = (int) (MyList.StringToDouble(cmbInterval.Text.Replace(" Sec", ""), 1.0) * 1000);
-            if (tm == 0)
-                tm = 1000;
-            tmr_ldef.Interval = tm;
-            if (btn.Name == btnAutoNext.Name)
-            {
-                bIsNext = true;
-                tmr_ldef.Start();
-            }
-            else if (btn.Name == btnAutoPrev.Name)
-            {
-                bIsNext = false;
-                tmr_ldef.Start();
-
-            }
-            else if (btn.Name == btnPrev.Name)
-            {
-                iLoadCase--;
-                Set_Load_Index(iLoadCase);
-
-            }
-            else if (btn.Name == btnNext.Name)
-            {
-
-                iLoadCase++;
-                Set_Load_Index(iLoadCase);
-            }
-            else if (btn.Name == btnStop.Name)
-            {
-                tmr_ldef.Stop();
-                cmbLoadCase.SelectedIndex = 0;
-            }
-            else if (btn.Name == btnPause.Name)
-            {
-                tmr_ldef.Stop();
-
-            }
-            //else if (btn.Name == btn.Name)
-            //{
-
-            //}
 
         }
 
@@ -3885,8 +3117,8 @@ namespace AstraAccess
 
                 vdDocument VD = VDoc;
 
-                if (tcParrent.SelectedTab == tab_post_process)
-                    VD = PP_ActiveDoc;
+                //if (tcParrent.SelectedTab == tab_post_process)
+                //    VD = PP_ActiveDoc;
 
                 string lay_name = chk.Text.Substring(0, 4).ToLower();
                 //if (tc4.SelectedIndex == 1)
@@ -3894,7 +3126,7 @@ namespace AstraAccess
                 if (lay_name.StartsWith("plat"))
                 {
                     lay_name = "elem";
-                    if(chk.Checked)
+                    if (chk.Checked)
                         VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_ShadeOn(VD);
                     else
                         VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire2d(VD);
@@ -3937,200 +3169,10 @@ namespace AstraAccess
         public void Select_Diagram()
         {
 
-            int memNo = MyList.StringToInt(cmb_diag_mem_no.Text, 0);
-            int loadNo = MyList.StringToInt(cmb_diag_ld_no.Text, 0);
-
-            BeamForceMoment bfm = new BeamForceMoment();
-            BeamForceMomentCollection bfc = new BeamForceMomentCollection();
-
-            PP_ActiveDoc.Palette.Background = Color.White;
-            if (StructureAnalysis != null)
-            {
-                AstraInterface.DataStructure.AstraBeamMember bm = null;
-                if (memNo != 0 && loadNo != 0)
-                {
-                    bm = StructureAnalysis.Get_BeamMember_Force(memNo, loadNo);
-
-                    bfm.Member.MemberNo = bm.BeamNo;
-                    bfm.LoadCase = loadNo;
-
-                    bfm.StartForceMoment.R1 = bm.StartNodeForce.R1_Axial;
-                    bfm.StartForceMoment.R2 = bm.StartNodeForce.R2_Shear;
-                    bfm.StartForceMoment.R3 = bm.StartNodeForce.R3_Shear;
-
-
-                    bfm.StartForceMoment.M1 = bm.StartNodeForce.M1_Torsion;
-                    bfm.StartForceMoment.M2 = bm.StartNodeForce.M2_Bending;
-                    bfm.StartForceMoment.M3 = bm.StartNodeForce.M3_Bending;
-
-
-                    bfm.EndForceMoment.R1 = bm.EndNodeForce.R1_Axial;
-                    bfm.EndForceMoment.R2 = bm.EndNodeForce.R2_Shear;
-                    bfm.EndForceMoment.R3 = bm.EndNodeForce.R3_Shear;
-
-
-                    bfm.EndForceMoment.M1 = bm.EndNodeForce.M1_Torsion;
-                    bfm.EndForceMoment.M2 = bm.EndNodeForce.M2_Bending;
-                    bfm.EndForceMoment.M3 = bm.EndNodeForce.M3_Bending;
-
-                    bfc.Add(bfm);
-
-                    grb_diag_start.Text = "START NODE : " + bm.StartNodeForce.JointNo;
-                    txt_diag_start_FX.Text = bm.StartNodeForce.R1_Axial.ToString("f3");
-                    txt_diag_start_FY.Text = bm.StartNodeForce.R2_Shear.ToString("f3");
-                    txt_diag_start_FZ.Text = bm.StartNodeForce.R3_Shear.ToString("f3");
-                    txt_diag_start_MX.Text = bm.StartNodeForce.M1_Torsion.ToString("f3");
-                    txt_diag_start_MY.Text = bm.StartNodeForce.M2_Bending.ToString("f3");
-                    txt_diag_start_MZ.Text = bm.StartNodeForce.M3_Bending.ToString("f3");
-
-
-
-                    grb_diag_end.Text = "END NODE : " + bm.EndNodeForce.JointNo;
-                    txt_diag_end_FX.Text = bm.EndNodeForce.R1_Axial.ToString("f3");
-                    txt_diag_end_FY.Text = bm.EndNodeForce.R2_Shear.ToString("f3");
-                    txt_diag_end_FZ.Text = bm.EndNodeForce.R3_Shear.ToString("f3");
-                    txt_diag_end_MX.Text = bm.EndNodeForce.M1_Torsion.ToString("f3");
-                    txt_diag_end_MY.Text = bm.EndNodeForce.M2_Bending.ToString("f3");
-                    txt_diag_end_MZ.Text = bm.EndNodeForce.M3_Bending.ToString("f3");
-
-
-                    bfc.CopyMembers(AST_DOC.Members);
-
-
-                    BeamForceMomentCollection.eForce fc = BeamForceMomentCollection.eForce.M1;
-                    if (rbtn_diag_MX.Checked)
-                    {
-                        //bfc.DrawBeamForceMoment_M1(PP_ActiveDoc, 0);
-                        //fc = BeamForceMomentCollection.eForce.R1;
-                        fc = BeamForceMomentCollection.eForce.M1;
-                    }
-                    if (rbtn_diag_MY.Checked)
-                    {
-                        //bfc.DrawBeamForceMoment_M2(PP_ActiveDoc, 0);
-                        fc = BeamForceMomentCollection.eForce.M2;
-                    }
-                    if (rbtn_diag_MZ.Checked)
-                    {
-                        //bfc.DrawBeamForceMoment_M3(PP_ActiveDoc, 0);
-                        fc = BeamForceMomentCollection.eForce.M3;
-                    }
-
-                    if (rbtn_diag_FX.Checked)
-                    {
-                        //bfc.DrawBeamForceMoment_R1(PP_ActiveDoc, 0);
-                        fc = BeamForceMomentCollection.eForce.R1;
-                    }
-                    if (rbtn_diag_FY.Checked)
-                    {
-                        //bfc.DrawBeamForceMoment_R2(PP_ActiveDoc, 0);
-                        fc = BeamForceMomentCollection.eForce.R2;
-                    }
-                    if (rbtn_diag_FZ.Checked)
-                    {
-                        //bfc.DrawBeamForceMoment_R3(PP_ActiveDoc, 0);
-                        fc = BeamForceMomentCollection.eForce.R3;
-                    }
-
-                    //bfc.DrawBeamForceMoment_Bending(PP_ActiveDoc, memNo, loadNo, BeamForceMomentCollection.eForce.M1, )
-
-                    bfc.DrawBeamForceMoment(PP_ActiveDoc, memNo, fc, loadNo);
-                    
-
-
-                }
-
-            }
         }
 
         private void btn_env_show_Click(object sender, EventArgs e)
         {
-            //List<int> mem_list = MyList.Get_Array_Intiger(txt_env_mnos.Text);
-            List<int> mem_list = new List<int>();
-
-            List<AnalysisData> data = new List<AnalysisData>();
-            List<double> tensile_forces = new List<double>();
-            List<double> compressive_forces = new List<double>();
-
-
-
-
-            List<int> top_chords = new List<int>();
-            List<int> bottom_chords = new List<int>();
-
-            AST_DOC.Members.Clear();
-
-            for (int i = 0; i < dgv_truss_elements.Rows.Count; i++)
-            {
-                MemberIncidence mi = new MemberIncidence();
-
-                dgv_truss_elements[0, i].Value = i + 1;
-
-                //jn.NodeNo = MyList.StringToInt(DGV[0, i].Value.ToString(), 0);
-                mi.MemberNo = MyList.StringToInt(dgv_truss_elements[0, i].Value.ToString(), 0);
-                mi.StartNode.NodeNo = MyList.StringToInt(dgv_truss_elements[1, i].Value.ToString(), 0);
-                mi.EndNode.NodeNo = MyList.StringToInt(dgv_truss_elements[2, i].Value.ToString(), 0);
-
-
-                AST_DOC.Members.Add(mi);
-            }
-            AST_DOC.Members.CopyJointCoordinates(AST_DOC.Joints);
-
-
-            foreach (var item in StructureAnalysis.Analysis.Members)
-            {
-                if (item.StartNode.Z == 0.0 &&
-                    item.EndNode.Z == 0.0 &&
-                    item.EndNode.Y == AST_DOC.Joints.Max_Y_Positive &&
-                    item.StartNode.Y == AST_DOC.Joints.Max_Y_Positive)
-                    top_chords.Add(item.MemberNo);
-
-                else if (item.StartNode.Z == 0.0 &&
-                    item.EndNode.Z == 0.0 &&
-                    item.EndNode.Y == AST_DOC.Joints.Max_Y_Negative &&
-                    item.StartNode.Y == AST_DOC.Joints.Max_Y_Negative)
-                    bottom_chords.Add(item.MemberNo);
-            }
-
-            AnalysisData ad = null;
-
-
-
-            if (rbtn_env_top.Checked)
-                mem_list = top_chords;
-            if (rbtn_env_bottom.Checked)
-                mem_list = bottom_chords;
-
-            for (int i = 0; i < mem_list.Count; i++)
-            {
-                ad = (AnalysisData)StructureAnalysis.MemberAnalysis[mem_list[i]];
-                if (ad != null)
-                {
-                    data.Add(ad);
-                    if (ad.TensileForce != 0.0)
-                        tensile_forces.Add(-ad.TensileForce);
-                    else if (ad.CompressionForce != 0.0)
-                        tensile_forces.Add(-ad.CompressionForce);
-                }
-            }
-
-
-            try
-            {
-
-               
-
-                Envelope env = new Envelope(tensile_forces, AST_DOC);
-                env.MembersNos = mem_list;
-
-                envDoc.ActiveLayOut.Entities.RemoveAll();
-                env.DrawEnvelop(envDoc);
-
-                envDoc.Redraw(true);
-                VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(envDoc);
-            }
-            catch (Exception ex)
-            { }
-            
         }
 
         private void cmb_structure_type_SelectedIndexChanged(object sender, EventArgs e)
@@ -4154,8 +3196,6 @@ namespace AstraAccess
                     {
                         vdDocument VD = VDoc;
 
-                        if (tcParrent.SelectedTab == tab_post_process)
-                            VD = PP_ActiveDoc;
 
                         VD.SaveAs(sfd.FileName);
                         //Drawing_File = sfd.FileName;
@@ -4179,7 +3219,6 @@ namespace AstraAccess
 
         private void chk_show_steps_CheckedChanged(object sender, EventArgs e)
         {
-            spc_results.Panel1Collapsed = !chk_show_steps.Checked;
         }
 
         private void btn_sload_add_Click(object sender, EventArgs e)
@@ -4207,7 +3246,7 @@ namespace AstraAccess
 
         private void btn_view_analysis_Click(object sender, EventArgs e)
         {
-            if(File.Exists(ReportFileName))
+            if (File.Exists(ReportFileName))
             {
                 System.Diagnostics.Process.Start(ReportFileName);
             }
@@ -4409,7 +3448,7 @@ namespace AstraAccess
             //MessageBox.Show(this, msg, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             frm_Solid_Note fn = new frm_Solid_Note();
-            fn.Owner = this;
+            //fn.Owner = this;
             fn.ShowDialog();
         }
 
@@ -4418,6 +3457,152 @@ namespace AstraAccess
             this.Refresh();
         }
 
+        private void UCSapPreProcess_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            vdScrollableControl1.Dispose();
+            //MyList.releaseObject(vdScrollableControl1);
+
+
+        }
+
+       public void ProcessAnalysis()
+        {
+
+            if (iApp.IsDemo)
+            {
+                if (!iApp.Check_Coordinate(dgv_joints.RowCount, (dgv_beam_elements.RowCount + dgv_truss_elements.RowCount)))
+                {
+                    //Chiranjit [2012 11 13]
+                    string str = "This Facility is restricted in the Demo Version of ASTRA Pro.\n\nASTRA Pro USB Dongle not found at any port.\n\n";
+
+                    str += "This Version can Process the Analysis Input Data from the Example Only. User has to select the input data file by using the menu option\n";
+                    str += "\n \"File>>Open Analysis Example Data File\", and next can Process the Analysis file by using the menu option ";
+                    str += "\"Process Analysis>>Analysis by Example Data File\" for Text Data, SAP Data and Drawings Files.\n\n";
+
+
+                    str += "For Professional Version of ASTRA Pro please contact : \n\n";
+                    str += "Email at : techsoft@consultant.com, dataflow@mail.com\n\n";
+                    str += "Website : http://www.techsoftglobal.com, http://www.headsview.com\n\n";
+                    str += "Tel. No  : +91 33 4008 3349,  +91 33 6526 1190\n\n";
+                    str += "\nTechSOFT Engineering Services\n\n";
+                    //MessageBox.Show(this, str, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show(str, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    iApp.Check_Demo_Version(true);
+                    //return;
+                }
+            }
+
+            RunAnalysis();
+
+            string res_file = Path.Combine(Path.GetDirectoryName(DataFileName), "RES001.tmp");
+            if (File.Exists(res_file))
+            {
+                List<string> file_cont = new List<string>(File.ReadAllLines(res_file));
+
+                List<string> list = new List<string>();
+
+                file_cont.RemoveRange(0, 42);
+                file_cont.RemoveRange(file_cont.Count - 9, 8);
+
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("                                *****************************************************"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *                                                   *"));
+                //list.Add(string.Format("                                *           ASTRA Pro Release 15 Version 00         *"));
+                list.Add(string.Format("                                *                      ASTRA Pro                    *"));
+                list.Add(string.Format("                                *        APPLICATIONS ON STRUCTURAL ANALYSIS        *"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *   ENGINEERING ANALYSIS FOR BRIDGES AND STRUCTURES *"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *                   INTRODUCED BY                   *"));
+                list.Add(string.Format("                                *          TECHSOFT ENGINEERING SERVICES            *"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *                                                   *"));
+                list.Add(string.Format("                                *****************************************************"));
+                //list.Add(string.Format("                                THIS RESULT CREATED ON " + System.DateTime.Now.ToString("dd.MM.yyyy  AT HH:mm:ss")));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+
+
+                file_cont.InsertRange(0, list.ToArray());
+                file_cont.Add(string.Format(""));
+                file_cont.Add(string.Format(""));
+                file_cont.Add(string.Format(""));
+                file_cont.Add(string.Format("******************************************************************************************************************************"));
+                file_cont.Add(string.Format("                                                 END OF ANALYSIS REPORT              "));
+                file_cont.Add(string.Format("******************************************************************************************************************************"));
+
+
+                //rtb_results.Lines = file_cont.ToArray();
+
+                res_file = Path.Combine(Path.GetDirectoryName(res_file), "SAP_ANALYSIS_REP.TXT");
+                //File.WriteAllLines(res_file, rtb_results.Lines);
+                File.WriteAllLines(res_file, file_cont.ToArray());
+                iApp.Delete_Temporary_Files(DataFileName);
+                MessageBox.Show(this, "Analysis Results are written in file 'SAP_ANALYSIS_REP.TXT'.\n\nFile Path:\n\n" + res_file, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(this, "Analysis Results are written in file 'SAP_ANALYSIS_REP.TXT'.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //if (MessageBox.Show(this, "Analysis Results are written in file 'SAP_ANALYSIS_REP.TXT'.\n\n Do you want to open the File ?", "ASTRA", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.Yes)
+                //iApp.View_Result(res_file);
+
+                Select_Steps();
+                //StructureAnalysis = new AstraInterface.DataStructure.BridgeMemberAnalysis(iApp, ReportFileName);
+                StructureAnalysis = null;
+            }
+
+        }
+
+       private void dgv_beams_mat_props_CellEnter(object sender, DataGridViewCellEventArgs e)
+       {
+           int i = 0;
+           int row_index = -1;
+           string mat_no = "";
+           string mem_nos = "";
+
+           DataGridView dgv = sender as DataGridView;
+
+
+           if (dgv.SelectedCells.Count > 0)
+           {
+               row_index = dgv.SelectedCells[0].RowIndex;
+           }
+           if (row_index == -1) return;
+
+
+           if (dgv == dgv_beams_mat_props)
+           {
+               mat_no = dgv[0, row_index].Value.ToString();
+               for (i = 0; i < dgv_beam_elements.RowCount; i++)
+               {
+                   if (dgv_beam_elements[4, i].Value.ToString() == mat_no)
+                   {
+                       mem_nos += " " + dgv_beam_elements[0, i].Value.ToString();
+                   }
+               }
+           }
+           if (dgv == dgv_beams_sect_props)
+           {
+
+               mat_no = dgv[0, row_index].Value.ToString();
+               for (i = 0; i < dgv_beam_elements.RowCount; i++)
+               {
+                   if (dgv_beam_elements[5, i].Value.ToString() == mat_no)
+                   {
+                       mem_nos += " " + dgv_beam_elements[0, i].Value.ToString();
+                   }
+               }
+           }
+
+           Show_Beam_Element(VDoc, mem_nos);
+       }
+
+
     }
+
 
 }

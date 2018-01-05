@@ -298,6 +298,12 @@
     <Compile Include="Pier\UC_PierPileLS.Designer.cs">
       <DependentUpon>UC_PierPileLS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pier\UC_PierWallType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pier\UC_PierWallType.Designer.cs">
+      <DependentUpon>UC_PierWallType.cs</DependentUpon>
+    </Compile>
     <Compile Include="PSC_BoxGirder\Continuous_Box_Girder_Analysis.cs" />
     <Compile Include="PSC_BoxGirder\Continuous_Box_Girder_Design.cs" />
     <Compile Include="PSC_BoxGirder\Continuous_Box_Girder_Excel_Program.cs" />
@@ -638,6 +644,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pier\UC_PierPileLS.resx">
       <DependentUpon>UC_PierPileLS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pier\UC_PierWallType.resx">
+      <DependentUpon>UC_PierWallType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSC_BoxGirder\frm_BoxGirder_Msg.resx">
       <DependentUpon>frm_BoxGirder_Msg.cs</DependentUpon>

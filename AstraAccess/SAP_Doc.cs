@@ -23,7 +23,8 @@ namespace AstraAccess.SAP_Classes
 
         public List<Truss_Material_Property> Truss_Mat_Properties { get; set; }
         public List<Load_Factors> Truss_Load_Factors { get; set; }
-        public List<Truss_Element> Trusses { get; set; }
+        //public List<Truss_Element> Trusses { get; set; }
+        public List<Truss_Element> Trusses;
 
 
         public Card_Beam_Control BeamControl { get; set; }
@@ -1709,6 +1710,7 @@ namespace AstraAccess.SAP_Classes
 
 
     }
+    [Serializable]
     public class Truss_Element
     {
         public int Element_No { get; set; }
