@@ -6109,9 +6109,6 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
                     iApp.Read_Form_Record(this, frm.Example_Path);
                     txt_project_name.Text = Path.GetFileName(frm.Example_Path);
                     //Open_Project();
-
-
-
                     #region Save As
                     if (frm.SaveAs_Path != "")
                     {
@@ -6137,6 +6134,8 @@ namespace BridgeAnalysisDesign.RCC_T_Girder
                 Create_Project();
             }
             Button_Enable_Disable();
+
+
         }
 
       

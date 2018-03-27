@@ -187,6 +187,8 @@ namespace LimitStateMethod.Composite
                 Bridge_Analysis.Steel_Section = Comp_sections;
 
 
+
+
                 Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
                     Bridge_Analysis.Inner_Girders_as_String,
                     Bridge_Analysis.joints_list_for_load);
@@ -222,7 +224,318 @@ namespace LimitStateMethod.Composite
             return true;
 
         }
+        void Create_Data()
+        {
+            Analysis_Initialize_InputData();
 
+            Write_All_Data(false);
+
+            string inp_file = Path.Combine(user_path, "INPUT_DATA.TXT");
+
+            string usp = Path.Combine(user_path, "Steel Girder Analysis");
+
+            if (!Directory.Exists(usp))
+                Directory.CreateDirectory(usp);
+
+
+            //Calculate_Load_Computation();
+            Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+            Bridge_Analysis.Start_Support = Start_Support_Text;
+            Bridge_Analysis.End_Support = END_Support_Text;
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                LONG_GIRDER_LL_TXT();
+                if (Curve_Radius > 0)
+                {
+                    Bridge_Analysis.CreateData_Straight_Indian();
+
+                    //Bridge_Analysis.WriteData_Orthotropic_Analysis("", false);
+
+                    #region Chiranjit [2014 09 08] Indian Standard
+
+
+                    Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                    Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                        Bridge_Analysis.Inner_Girders_as_String,
+                        Bridge_Analysis.joints_list_for_load);
+
+                    Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+
+
+                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
+
+                    #region Chiranjit [2014 10 2]
+
+                    if (long_ll.Count > 0)
+                    {
+                        //Bridge_Analysis.Live_Load_List = long_ll;
+                        Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
+                    }
+                    for (int i = 0; i < all_loads.Count; i++)
+                    {
+                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
+                        //Ana_Write_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false);
+                        //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i+1);
+                        //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                    }
+
+                    #endregion Chiranjit [2014 10 2]
+
+
+
+
+                    #endregion
+
+                    Bridge_Analysis.CreateData_Indian();
+                }
+                else
+                {
+                    Bridge_Analysis.CreateData_Straight_Indian();
+                }
+
+                #region Chiranjit [2014 09 08] Indian Standard
+
+                Bridge_Analysis.WriteData(inp_file);
+                Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
+
+                //Ana_Write_Load_Data();
+                txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
+
+                Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                    Bridge_Analysis.Inner_Girders_as_String,
+                    Bridge_Analysis.joints_list_for_load);
+
+
+                Bridge_Analysis.WriteData_Total_Analysis(inp_file);
+                Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File);
+
+                Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File);
+                Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File);
+                Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
+
+
+
+
+                Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
+                Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
+                Ana_Write_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false);
+                Ana_Write_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true);
+
+
+
+                Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, false, 1);
+                Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
+
+                cmb_long_open_file.Items.Clear();
+                cmb_long_open_file.Items.Add("DEAD LOAD ANALYSIS");
+
+                #region Chiranjit [2014 10 2]
+                for (int i = 0; i < all_loads.Count; i++)
+                {
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
+                    //Ana_Write_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), true, false);
+                    //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, false), true, false, i + 1);
+
+
+                    if (ll_comb.Count == all_loads.Count)
+                    {
+                        cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS (" + ll_comb[i] + ")");
+
+                    }
+                    else
+                        cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS " + (i + 1));
+                }
+
+                //cmb_long_open_file.Items.Add("GIRDER ANALYSIS RESULTS");
+                cmb_long_open_file.Items.Add("DL + LL ANALYSIS");
+
+                #endregion Chiranjit [2014 10 2]
+
+
+
+
+
+                Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
+
+                string ll_txt = Bridge_Analysis.LiveLoad_File;
+
+                Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
+
+                if (Bridge_Analysis.Live_Load_List == null) return;
+
+                Button_Enable_Disable();
+
+                //MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                #endregion Chiranjit [2014 09 08]
+
+            }
+            else
+            {
+                #region Chiranjit [2014 09 08] British Standard
+
+                Bridge_Analysis.HA_Lanes = HA_Lanes;
+                LONG_GIRDER_BRITISH_LL_TXT();
+
+
+
+                //Bridge_Analysis.CreateData_British();
+
+
+
+                if (Curve_Radius > 0)
+                {
+
+                    Bridge_Analysis.CreateData_StraightBritish();
+
+                    #region Chiranjit [2014 09 08] Indian Standard
+
+
+                    Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                    Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                        Bridge_Analysis.Inner_Girders_as_String,
+                        Bridge_Analysis.joints_list_for_load);
+
+                    Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+
+
+                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                    Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
+
+
+
+
+
+
+                    if (rbtn_HA.Checked)
+                    {
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 0);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 0);
+
+                    }
+                    else
+                    {
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 1);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 1);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 1);
+                    }
+
+
+                    for (int i = 0; i < all_loads.Count; i++)
+                    {
+                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
+                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                    }
+                    #endregion
+
+                    Bridge_Analysis.CreateData_British();
+                }
+                else
+                {
+                    Bridge_Analysis.CreateData_StraightBritish();
+                }
+
+                Bridge_Analysis.WriteData(inp_file);
+                //Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
+                Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, true, long_ll);
+
+                //Ana_Write_Load_Data();
+                txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
+
+                Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                    Bridge_Analysis.Inner_Girders_as_String,
+                    Bridge_Analysis.joints_list_for_load);
+
+
+                Bridge_Analysis.WriteData_Total_Analysis(inp_file, false, true);
+                Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, false, false);
+
+                Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File, true, long_ll);
+                Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File, long_ll);
+                Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
+
+                Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
+
+
+
+                //Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
+                //Ana_Write_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false);
+                //Ana_Write_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true);
+
+
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 1);
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
+
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, false, true 1);
+
+
+
+                if (rbtn_HA.Checked)
+                {
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, 0);
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 0);
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 0);
+
+                }
+                else
+                {
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 1);
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
+                }
+
+
+                for (int i = 0; i < all_loads.Count; i++)
+                {
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
+                    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), true, false, i + 1);
+                }
+                Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
+
+                string ll_txt = Bridge_Analysis.LiveLoad_File;
+
+                Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
+
+                if (Bridge_Analysis.Live_Load_List == null) return;
+
+                Button_Enable_Disable();
+
+
+                #endregion Chiranjit [2014 09 08] British Standard
+
+            }
+            cmb_long_open_file.SelectedIndex = 0;
+
+            //Create Orthotropic Data
+            Bridge_Analysis.CreateData_Orthotropic();
+            Bridge_Analysis.WriteData_Orthotropic_Analysis(Bridge_Analysis.Orthotropic_Input_File);
+            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Orthotropic_Input_File, true, true, 1);
+
+        }
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
             if (!Check_Project_Folder()) return;
@@ -244,291 +557,8 @@ namespace LimitStateMethod.Composite
                 if (!Directory.Exists(user_path))
                     Directory.CreateDirectory(user_path);
 
-                Write_All_Data();
-
-                string inp_file = Path.Combine(user_path, "INPUT_DATA.TXT");
-
-                string usp = Path.Combine(user_path, "Steel Girder Analysis");
-
-                if (!Directory.Exists(usp))
-                    Directory.CreateDirectory(usp);
-
-
-                //Calculate_Load_Computation();
-                Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
-                Bridge_Analysis.Start_Support = Start_Support_Text;
-                Bridge_Analysis.End_Support = END_Support_Text;
-                if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                {
-                    LONG_GIRDER_LL_TXT();
-                    if (Curve_Radius > 0)
-                    {
-                        Bridge_Analysis.CreateData_Straight_Indian();
-
-                        //Bridge_Analysis.WriteData_Orthotropic_Analysis("", false);
-
-                        #region Chiranjit [2014 09 08] Indian Standard
-
-
-                        Bridge_Analysis.Steel_Section = Comp_sections;
-
-
-                        Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
-                            Bridge_Analysis.Inner_Girders_as_String,
-                            Bridge_Analysis.joints_list_for_load);
-
-                        Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
-                        Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
-
-
-                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
-                        Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
-
-
-                        Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
-                        Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
-
-                        #region Chiranjit [2014 10 2]
-
-                        if (long_ll.Count > 0)
-                        {
-                            //Bridge_Analysis.Live_Load_List = long_ll;
-                            Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
-                        }
-                        for (int i = 0; i < all_loads.Count; i++)
-                        {
-                            Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
-                            //Ana_Write_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false);
-                            //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i+1);
-                            //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
-                        }
-                      
-                        #endregion Chiranjit [2014 10 2]
-
-
-
-
-                        #endregion
-
-                        Bridge_Analysis.CreateData_Indian();
-                    }
-                    else
-                    {
-                        Bridge_Analysis.CreateData_Straight_Indian();
-                    }
-
-                    #region Chiranjit [2014 09 08] Indian Standard
-
-                    Bridge_Analysis.WriteData(inp_file);
-                    Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
-
-                    //Ana_Write_Load_Data();
-                    txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
-
-                    Bridge_Analysis.Steel_Section = Comp_sections;
-
-
-                    Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
-                        Bridge_Analysis.Inner_Girders_as_String,
-                        Bridge_Analysis.joints_list_for_load);
-
-
-                    Bridge_Analysis.WriteData_Total_Analysis(inp_file);
-                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File);
-
-                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File);
-                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File);
-                    Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
-
-
-
-
-                    Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
-                    Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
-                    Ana_Write_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false);
-                    Ana_Write_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true);
-
-
-
-
-                    #region Chiranjit [2014 10 2]
-                    for (int i = 0; i < all_loads.Count; i++)
-                    {
-                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
-                        //Ana_Write_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), true, false);
-                        //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, false), true, false, i + 1);
-                    }
-                    #endregion Chiranjit [2014 10 2]
-
-
-
-
-
-                    Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
-
-                    string ll_txt = Bridge_Analysis.LiveLoad_File;
-
-                    Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
-
-                    if (Bridge_Analysis.Live_Load_List == null) return;
-
-                    Button_Enable_Disable();
-
-                    MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    #endregion Chiranjit [2014 09 08]
-
-                }
-                else
-                {
-                    #region Chiranjit [2014 09 08] British Standard
-
-                    Bridge_Analysis.HA_Lanes = HA_Lanes;
-                    LONG_GIRDER_BRITISH_LL_TXT();
-
-
-
-                    //Bridge_Analysis.CreateData_British();
-
-
-
-                    if (Curve_Radius > 0)
-                    {
-
-                        Bridge_Analysis.CreateData_StraightBritish();
-
-                        #region Chiranjit [2014 09 08] Indian Standard
-
-
-                        Bridge_Analysis.Steel_Section = Comp_sections;
-
-
-                        Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
-                            Bridge_Analysis.Inner_Girders_as_String,
-                            Bridge_Analysis.joints_list_for_load);
-
-                        Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
-                        Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
-
-
-                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
-                        Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
-
-
-                        Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
-                        Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
-
-
-
-
-
-
-                        if (rbtn_HA.Checked)
-                        {
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 0);
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 0);
-
-                        }
-                        else
-                        {
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 1);
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 1);
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 1);
-                        }
-
-
-                        for (int i = 0; i < all_loads.Count; i++)
-                        {
-                            Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
-                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
-                        }
-                        #endregion
-
-                        Bridge_Analysis.CreateData_British();
-                    }
-                    else
-                    {
-                        Bridge_Analysis.CreateData_StraightBritish();
-                    }
-
-                    Bridge_Analysis.WriteData(inp_file);
-                    //Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
-                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, true, long_ll);
-
-                    //Ana_Write_Load_Data();
-                    txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
-
-                    Bridge_Analysis.Steel_Section = Comp_sections;
-
-
-                    Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
-                        Bridge_Analysis.Inner_Girders_as_String,
-                        Bridge_Analysis.joints_list_for_load);
-
-
-                    Bridge_Analysis.WriteData_Total_Analysis(inp_file, false, true);
-                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, false, false);
-
-                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File, true, long_ll);
-                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File, long_ll);
-                    Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
-
-                    Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
-
-
-
-                    //Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
-                    //Ana_Write_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false);
-                    //Ana_Write_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true);
-
-
-                    //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 1);
-                    //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
-
-                    //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, false, true 1);
-
-
-
-                    if (rbtn_HA.Checked)
-                    {
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, 0);
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 0);
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 0);
-
-                    }
-                    else
-                    {
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 1);
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
-                    }
-
-
-                    for (int i = 0; i < all_loads.Count; i++)
-                    {
-                        Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
-                        Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), true, false, i + 1);
-                    }
-                    Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
-
-                    string ll_txt = Bridge_Analysis.LiveLoad_File;
-
-                    Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
-
-                    if (Bridge_Analysis.Live_Load_List == null) return;
-
-                    Button_Enable_Disable();
-
-                    MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    #endregion Chiranjit [2014 09 08] British Standard
-
-                }
-                cmb_long_open_file.SelectedIndex = 0;
-
+                Create_Data();
+                MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -583,41 +613,49 @@ namespace LimitStateMethod.Composite
 
         private void btn_Ana_view_data_Click(object sender, EventArgs e)
         {
-
             string file_name = "";
             string ll_txt = "";
 
             Button btn = sender as Button;
 
             #region Set File Name
-            if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
                 file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
             }
             else
             {
-                //file_name = File_Long_Girder_Results;
+                if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                {
+                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                }
+                else
+                {
+                    file_name = Bridge_Analysis.TotalAnalysis_Input_File;
+                }
             }
             #endregion Set File Name
 
             string st_file = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex, true);
 
-            if (Curve_Radius > 0)
+            if (File.Exists(file_name))
             {
-                string rad_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
-                //Environment.SetEnvironmentVariable("MOVINGLOAD", Bridge_Analysis.Straight_LL_File);
-                Environment.SetEnvironmentVariable("MOVINGLOAD", st_file);
-                File.WriteAllText(rad_file, Curve_Radius.ToString());
-                //Environment.SetEnvironmentVariable("MOVINGLOAD", Bridge_Analysis.Straight_LL_File);
-                Environment.SetEnvironmentVariable("COMP_RAD", Curve_Radius.ToString());
-
-            }
-            else
-            {
-                string rad_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
-
-                if (File.Exists(rad_file)) File.Delete(rad_file);
-                Environment.SetEnvironmentVariable("COMP_RAD", "");
+                if (Curve_Radius > 0 && File.Exists(file_name))
+                {
+                    string rad_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
+                    //Environment.SetEnvironmentVariable("MOVINGLOAD", Bridge_Analysis.Straight_LL_File);
+                    Environment.SetEnvironmentVariable("MOVINGLOAD", st_file);
+                    File.WriteAllText(rad_file, Curve_Radius.ToString());
+                    //Environment.SetEnvironmentVariable("MOVINGLOAD", Bridge_Analysis.Straight_LL_File);
+                    Environment.SetEnvironmentVariable("COMP_RAD", Curve_Radius.ToString());
+                }
+                else
+                {
+                    string rad_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
+                    if (File.Exists(rad_file)) File.Delete(rad_file);
+                    Environment.SetEnvironmentVariable("COMP_RAD", "");
+                }
             }
             ll_txt = MyList.Get_LL_TXT_File(file_name);
             if (btn.Name == btn_view_data.Name)
@@ -650,6 +688,7 @@ namespace LimitStateMethod.Composite
                     }
                     f.Owner = this;
                     f.Show();
+                    btn_update_forces.Enabled = true;
                 }
 
             }
@@ -1167,6 +1206,7 @@ namespace LimitStateMethod.Composite
         }
         private void btn_Ana_process_analysis_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
             try
             {
                 if (!Check_Project_Folder()) return;
@@ -1274,8 +1314,10 @@ namespace LimitStateMethod.Composite
 
 
                 string ana_rep_file = Bridge_Analysis.Total_Analysis_Report;
-                if (iApp.Show_and_Run_Process_List(pcol))
-                    Read_Analysis_Results();
+                if(btn == btn_Ana_process_analysis) if (!iApp.Show_and_Run_Process_List(pcol)) return;
+
+
+                Read_Analysis_Results();
 
 
                 if(false)
@@ -1847,10 +1889,18 @@ namespace LimitStateMethod.Composite
             Bridge_Analysis.Spans = new List<double>();
             try
             {
-                MyList spans = new MyList(MyList.RemoveAllSpaces(txt_multiSpan.Text.Replace(',', ' ')), ' ');
-                for (int i = 0; i < spans.StringList.Count; i++)
+
+                if (rbtn_multiSpan.Checked)
                 {
-                    Bridge_Analysis.Spans.Add(spans.GetDouble(i));
+                    MyList spans = new MyList(MyList.RemoveAllSpaces(txt_multiSpan.Text.Replace(',', ' ')), ' ');
+                    for (int i = 0; i < spans.StringList.Count; i++)
+                    {
+                        Bridge_Analysis.Spans.Add(spans.GetDouble(i));
+                    }
+                }
+                else
+                {
+                    Bridge_Analysis.Spans.Add(L);
                 }
             }
             catch (Exception exx) { }
@@ -4177,7 +4227,7 @@ namespace LimitStateMethod.Composite
                 cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
                 cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
                 cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
-                cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                //cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
                 pic_diagram.Size = new Size(pic_diagram.Size.Width, 280);
 
@@ -4389,7 +4439,7 @@ namespace LimitStateMethod.Composite
             #endregion RCC Pier
 
 
-            tbc_girder.TabPages.Remove(tab_orthotropic);
+            //tbc_girder.TabPages.Remove(tab_orthotropic);
 
             txt_Ana_NMG.SelectedIndex = 0;
             txt_curve_des_spd_kph.Text = "50";
@@ -6826,7 +6876,10 @@ namespace LimitStateMethod.Composite
                     else
                     {
                         //Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(Bridge_Analysis.Straight_LL_File), "ll.txt"));
+                     
                         Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
+                        LONG_GIRDER_BRITISH_LL_TXT();
+                    
                     }
                 //}
 
@@ -7340,7 +7393,7 @@ namespace LimitStateMethod.Composite
             #endregion Calculate Bearing Forces
 
 
-            if (chk_curve.Checked)
+            //if (chk_curve.Checked)
             {
                 //txt_max_vert_reac
                 //txt_brg_max_VR_kN.Text = txt_max_vert_reac.Text;
@@ -9057,6 +9110,12 @@ namespace LimitStateMethod.Composite
                 txt_sec_cross_S.Enabled = false;
 
 
+
+                if (rbtn_singleSpan.Checked)
+                    txt_multiSpan.Text = "36";
+                else
+                    txt_multiSpan.Text = "22,22,22";
+
                 if (IsCreate_Data)
                 {
                     #region Chiranjit [2013 07 08] Defaulf Data for Plate Girders
@@ -9070,7 +9129,6 @@ namespace LimitStateMethod.Composite
                     //txt_Ana_ang.Text = "26";
 
 
-                    txt_Ana_L.Text = "36.0";
                     txt_Ana_B.Text = "11.85";
                     txt_Ana_CL.Text = "1.5";
                     txt_Ana_CR.Text = "1.5";
@@ -9169,12 +9227,15 @@ namespace LimitStateMethod.Composite
             }
             else
             {
-
                 if (tc_steel.TabPages.Contains(tab_SteelWorksheet))
                     tc_steel.TabPages.Remove(tab_SteelWorksheet);
 
-
                 pic_section.BackgroundImage = Properties.Resources.Steel_Box_Section;
+
+                if (rbtn_singleSpan.Checked)
+                    txt_multiSpan.Text = "46";
+                else
+                    txt_multiSpan.Text = "22,22,22";
 
                 txt_sec_Nb.Text = "2";
                 txt_sec_end_Nb.Text = "2";
@@ -9192,14 +9253,8 @@ namespace LimitStateMethod.Composite
                 txt_sec_L2_S.Enabled = true;
                 txt_sec_cross_S.Enabled = true;
 
-
-
                 double s = MyList.StringToDouble(txt_sec_end_S.Text, 0.0);
                 double bft = MyList.StringToDouble(txt_sec_end_Bft.Text, 0.0);
-
-
-
-
 
                 if (IsCreate_Data)
                 {
@@ -9315,6 +9370,7 @@ namespace LimitStateMethod.Composite
                     #endregion Chiranjit [2013 07 08]
                 }
             }
+            txt_multiSpan_TextChanged(sender, e);
         }
 
         frmCompositeDiagram fcom;
@@ -15230,13 +15286,28 @@ namespace LimitStateMethod.Composite
             string file_name = "";
             if (Bridge_Analysis != null)
             {
-                if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                 {
-                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    {
+                        file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                    }
+                    else
+                    {
+                        file_name = Bridge_Analysis.TotalAnalysis_Input_File;
+                    }
                 }
                 else
                 {
-                    file_name = Result_Report;
+                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                    //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    //{
+                    //    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                    //}
+                    //else
+                    //{
+                    //    file_name = Result_Report;
+                    //}
                 }
             }
 
@@ -15244,7 +15315,8 @@ namespace LimitStateMethod.Composite
 
             btn_view_data.Enabled = File.Exists(file_name);
             btn_View_Moving_Load.Enabled = File.Exists(MyList.Get_LL_TXT_File(file_name)) && File.Exists(MyList.Get_Analysis_Report_File(file_name));
-            btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
+            //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
+            btn_view_structure.Enabled = File.Exists(file_name);
             btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
         }
 
@@ -15253,7 +15325,7 @@ namespace LimitStateMethod.Composite
         private void uC_Deckslab_IS1_OnCreateData(object sender, EventArgs e)
         {
 
-            Write_All_Data(true);
+            Write_All_Data(false);
 
             uC_Deckslab_IS1.iApp = iApp;
 
@@ -15344,6 +15416,9 @@ namespace LimitStateMethod.Composite
                     iApp.Read_Form_Record(this, user_path);
                     IsRead = false;
 
+
+                    Analysis_Initialize_InputData();
+                    Create_Data();
                     uC_BRD1.user_path = user_path;
                     uC_BRD1.Set_VBAB_Input_Data();
                     uC_BRD1.Set_VFB_Input_Data();
@@ -15372,6 +15447,8 @@ namespace LimitStateMethod.Composite
                         chk_HA_2L.Checked = true;
                         chk_HB_3L.Checked = true;
                     }
+
+                    //dgv_british_loads
 
                     rbtn_ana_select_analysis_file.Checked = true; //Chiranjit [2013 06 25]
                     Open_Create_Data();//Chiranjit [2013 06 25]
@@ -15666,13 +15743,23 @@ namespace LimitStateMethod.Composite
         {
             if (rbtn_singleSpan.Checked)
             {
-                //txt_multiSpan.Text = txt_Ana_L.Text;
+                if(rbtn_sec_box.Checked)
+                    txt_Ana_L.Text = "46";
+                else
+                    txt_Ana_L.Text = "36";
+                txt_multiSpan.Text = txt_Ana_L.Text;
+                txt_Ana_NMG.SelectedIndex = 1;
             }
             else if (rbtn_multiSpan.Checked)
             {
+                txt_Ana_NMG.SelectedIndex = 0;
+
+                txt_multiSpan.Text = "22,22,22";
+
                 MyList ml = new MyList(txt_multiSpan.Text, ',');
 
-                txt_Ana_L.Text = ml.SUM.ToString("f3");
+                //txt_Ana_L.Text = ml.SUM.ToString("f3");
+                txt_Ana_L.Text = ml.SUM.ToString();
 
                 if(iApp.DesignStandard == eDesignStandard.BritishStandard)
                 {
@@ -15686,10 +15773,10 @@ namespace LimitStateMethod.Composite
 
         private void txt_multiSpan_TextChanged(object sender, EventArgs e)
         {
-            if (rbtn_multiSpan.Checked)
+            //if (rbtn_multiSpan.Checked)
             {
                 MyList ml = new MyList(txt_multiSpan.Text.Replace(","," "), ' ');
-                txt_Ana_L.Text = ml.SUM.ToString("f3");
+                txt_Ana_L.Text = ml.SUM.ToString();
             }
         }
 
@@ -15705,117 +15792,161 @@ namespace LimitStateMethod.Composite
         private void uC_Orthotropic1_OnDraw_Click(object sender, EventArgs e)
         {
             SectionElement elmt = new SectionElement();
-
-            #region Draw Pen Ultimate Span
-
-
             var ES = Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span;
 
-            elmt.Curve_Radius = Curve_Radius;
-            elmt.L = L;
-            elmt.Z = CL;
-            elmt.Web_Thickness = ES.Bw / 1000;
-            elmt.Web_Depth = ES.Dw / 1000;
-
-            elmt.TF_THK = ES.Dft / 1000;
-            elmt.TF_WD = ES.Bft / 1000;
-            elmt.BF_THK = ES.Dfb / 1000;
-            elmt.BF_WD = ES.Bfb / 1000;
-
-            elmt.Lat_Spacing = ES.S / 1000;
+            var cgrds = (int)(Bridge_Analysis.Spans.Count * NCG - 3);
 
 
-            elmt.TP_WD = ES.Bt / 1000;
-            elmt.TP_THK = ES.Dt / 1000;
+            if (false)
+            {
+                #region Draw Pen Ultimate Span
+                elmt.Curve_Radius = Curve_Radius;
+                elmt.L = L;
+                elmt.Z = CL;
+                elmt.Web_Thickness = ES.Bw / 1000;
+                elmt.Web_Depth = ES.Dw / 1000;
 
-            elmt.BP_WD = ES.Bb / 1000;
-            elmt.BP_THK = ES.Db / 1000;
+                elmt.TF_THK = ES.Dft / 1000;
+                elmt.TF_WD = ES.Bft / 1000;
+                elmt.BF_THK = ES.Dfb / 1000;
+                elmt.BF_WD = ES.Bfb / 1000;
 
-            elmt.SP_1_THK = ES.Bs1 / 1000;
-            elmt.SP_2_THK = ES.Bs2 / 1000;
-            elmt.SP_3_THK = ES.Bs3 / 1000;
-            elmt.SP_4_THK = ES.Bs4 / 1000;
-
-            elmt.SP_1_WD = ES.Ds1 / 1000;
-            elmt.SP_2_WD = ES.Ds2 / 1000;
-            elmt.SP_3_WD = ES.Ds3 / 1000;
-            elmt.SP_4_WD = ES.Ds4 / 1000;
-
-
-
-            uC_Orthotropic1.DrawElement(elmt);
-
-            //return;
+                elmt.Lat_Spacing = ES.S / 1000;
 
 
+                elmt.TP_WD = ES.Bt / 1000;
+                elmt.TP_THK = ES.Dt / 1000;
 
-            elmt.Z = CL + SMG;
+                elmt.BP_WD = ES.Bb / 1000;
+                elmt.BP_THK = ES.Db / 1000;
 
+                elmt.SP_1_THK = ES.Bs1 / 1000;
+                elmt.SP_2_THK = ES.Bs2 / 1000;
+                elmt.SP_3_THK = ES.Bs3 / 1000;
+                elmt.SP_4_THK = ES.Bs4 / 1000;
 
-            elmt.L = L;
-            elmt.Web_Thickness = ES.Bw / 1000;
-            elmt.Web_Depth = ES.Dw / 1000;
-
-            elmt.TF_THK = ES.Dft / 1000;
-            elmt.TF_WD = ES.Bft / 1000;
-            elmt.BF_THK = ES.Dfb / 1000;
-            elmt.BF_WD = ES.Bfb / 1000;
-
-            elmt.Lat_Spacing = ES.S / 1000;
-
-
-            elmt.SP_1_THK = ES.Bs1 / 1000;
-            elmt.SP_2_THK = ES.Bs2 / 1000;
-            elmt.SP_3_THK = ES.Bs3 / 1000;
-            elmt.SP_4_THK = ES.Bs4 / 1000;
-
-            elmt.SP_1_WD = ES.Ds1 / 1000;
-            elmt.SP_2_WD = ES.Ds2 / 1000;
-            elmt.SP_3_WD = ES.Ds3 / 1000;
-            elmt.SP_4_WD = ES.Ds4 / 1000;
+                elmt.SP_1_WD = ES.Ds1 / 1000;
+                elmt.SP_2_WD = ES.Ds2 / 1000;
+                elmt.SP_3_WD = ES.Ds3 / 1000;
+                elmt.SP_4_WD = ES.Ds4 / 1000;
 
 
 
+                uC_Orthotropic1.DrawElement(elmt);
+
+                //return;
 
 
-            uC_Orthotropic1.DrawElement(elmt);
+
+                elmt.Z = CL + SMG;
+
+
+                elmt.L = L;
+                elmt.Web_Thickness = ES.Bw / 1000;
+                elmt.Web_Depth = ES.Dw / 1000;
+
+                elmt.TF_THK = ES.Dft / 1000;
+                elmt.TF_WD = ES.Bft / 1000;
+                elmt.BF_THK = ES.Dfb / 1000;
+                elmt.BF_WD = ES.Bfb / 1000;
+
+                elmt.Lat_Spacing = ES.S / 1000;
+
+
+                elmt.SP_1_THK = ES.Bs1 / 1000;
+                elmt.SP_2_THK = ES.Bs2 / 1000;
+                elmt.SP_3_THK = ES.Bs3 / 1000;
+                elmt.SP_4_THK = ES.Bs4 / 1000;
+
+                elmt.SP_1_WD = ES.Ds1 / 1000;
+                elmt.SP_2_WD = ES.Ds2 / 1000;
+                elmt.SP_3_WD = ES.Ds3 / 1000;
+                elmt.SP_4_WD = ES.Ds4 / 1000;
 
 
 
 
-            elmt.X = 0;
-            elmt.Y = 0;
-            elmt.Z = CL + SMG * 2;
+
+                uC_Orthotropic1.DrawElement(elmt);
 
 
-            elmt.L = L;
-            elmt.Web_Thickness = ES.Bw / 1000;
-            elmt.Web_Depth = ES.Dw / 1000;
-
-            elmt.TF_THK = ES.Dft / 1000;
-            elmt.TF_WD = ES.Bft / 1000;
-            elmt.BF_THK = ES.Dfb / 1000;
-            elmt.BF_WD = ES.Bfb / 1000;
-
-            elmt.Lat_Spacing = ES.S / 1000;
 
 
-            elmt.SP_1_THK = ES.Bs1 / 1000;
-            elmt.SP_2_THK = ES.Bs2 / 1000;
-            elmt.SP_3_THK = ES.Bs3 / 1000;
-            elmt.SP_4_THK = ES.Bs4 / 1000;
-
-            elmt.SP_1_WD = ES.Ds1 / 1000;
-            elmt.SP_2_WD = ES.Ds2 / 1000;
-            elmt.SP_3_WD = ES.Ds3 / 1000;
-            elmt.SP_4_WD = ES.Ds4 / 1000;
+                elmt.X = 0;
+                elmt.Y = 0;
+                elmt.Z = CL + SMG * 2;
 
 
-            uC_Orthotropic1.DrawElement(elmt);
+                elmt.L = L;
+                elmt.Web_Thickness = ES.Bw / 1000;
+                elmt.Web_Depth = ES.Dw / 1000;
+
+                elmt.TF_THK = ES.Dft / 1000;
+                elmt.TF_WD = ES.Bft / 1000;
+                elmt.BF_THK = ES.Dfb / 1000;
+                elmt.BF_WD = ES.Bfb / 1000;
+
+                elmt.Lat_Spacing = ES.S / 1000;
 
 
-            #endregion Draw Pen Ultimate Span
+                elmt.SP_1_THK = ES.Bs1 / 1000;
+                elmt.SP_2_THK = ES.Bs2 / 1000;
+                elmt.SP_3_THK = ES.Bs3 / 1000;
+                elmt.SP_4_THK = ES.Bs4 / 1000;
 
+                elmt.SP_1_WD = ES.Ds1 / 1000;
+                elmt.SP_2_WD = ES.Ds2 / 1000;
+                elmt.SP_3_WD = ES.Ds3 / 1000;
+                elmt.SP_4_WD = ES.Ds4 / 1000;
+
+
+                uC_Orthotropic1.DrawElement(elmt);
+
+
+                #endregion Draw Pen Ultimate Span
+            }
+
+            for (int r = 0; r < (int) NMG; r++)
+            {
+
+
+                elmt.Curve_Radius = Curve_Radius;
+                elmt.L = L;
+                elmt.Z = CL + SMG * r;
+
+
+                elmt._Columns = cgrds;
+
+                elmt.Web_Thickness = ES.Bw / 1000;
+                elmt.Web_Depth = ES.Dw / 1000;
+
+                elmt.TF_THK = ES.Dft / 1000;
+                elmt.TF_WD = ES.Bft / 1000;
+                elmt.BF_THK = ES.Dfb / 1000;
+                elmt.BF_WD = ES.Bfb / 1000;
+
+                elmt.Lat_Spacing = ES.S / 1000;
+
+
+                elmt.TP_WD = ES.Bt / 1000;
+                elmt.TP_THK = ES.Dt / 1000;
+
+                elmt.BP_WD = ES.Bb / 1000;
+                elmt.BP_THK = ES.Db / 1000;
+
+                elmt.SP_1_THK = ES.Bs1 / 1000;
+                elmt.SP_2_THK = ES.Bs2 / 1000;
+                elmt.SP_3_THK = ES.Bs3 / 1000;
+                elmt.SP_4_THK = ES.Bs4 / 1000;
+
+                elmt.SP_1_WD = ES.Ds1 / 1000;
+                elmt.SP_2_WD = ES.Ds2 / 1000;
+                elmt.SP_3_WD = ES.Ds3 / 1000;
+                elmt.SP_4_WD = ES.Ds4 / 1000;
+
+                uC_Orthotropic1.DrawElement(elmt);
+
+            }
 
             if (true)
             {
@@ -15834,12 +15965,13 @@ namespace LimitStateMethod.Composite
                 elmt.Web_Depth = Ds;
 
                 elmt.Color_Web_Plate = Color.White;
+                elmt._Columns = cgrds;
                 uC_Orthotropic1.DrawElement(elmt);
 
                 #endregion Deckslab
                 ES = Bridge_Analysis.Steel_Section.Section_Cross_Girder;
-
-                for (int i = 0; i <= 10; i++)
+                //for (int i = 0; i <= 10; i++)
+                for (int i = 0; i <= cgrds; i++)
                 {
                     #region Cross Girder
                     if (i == 0)
@@ -15848,13 +15980,13 @@ namespace LimitStateMethod.Composite
                         //elmt.X = L - (ES.Bfb + ES.Dw / 2) / 1000;
                         elmt.X = L - (ES.Bfb / 2 + ES.Bw) / 1000;
                     }
-                    else if (i == 10)
+                    else if (i == cgrds)
                     {
                         elmt.X = (ES.Bfb / 2) / 1000;
                     }
                     else
                     {
-                        elmt.X = L - (L / 10) * i;
+                        elmt.X = L - (L / cgrds) * i;
                     }
                     //elmt.Y = ((Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span.Dw - ES.Dw) / 2) / 1000;
 
@@ -15864,7 +15996,7 @@ namespace LimitStateMethod.Composite
 
                     if (rbtn_sec_box.Checked)
                     {
-                        elmt.Z = CL - (Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span.S / 2)/1000;
+                        elmt.Z = CL - (Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span.S / 2) / 1000;
                     }
                     else
                         elmt.Z = CL;
@@ -15912,11 +16044,10 @@ namespace LimitStateMethod.Composite
                     uC_Orthotropic1.DrawElement(elmt);
 
                     #endregion
-
                 }
             }
 
-
+            //Orthotropic_Initialize_InputData();
         }
 
         private void rbtn_steel_deck_CheckedChanged(object sender, EventArgs e)
@@ -15946,6 +16077,77 @@ namespace LimitStateMethod.Composite
                 Text_Changed();
             }
             catch (Exception ex) { }
+        }
+
+
+        Composite_Orthotropic_Analysis Ortho_Analysis;
+
+        void Orthotropic_Initialize_InputData()
+        {
+
+            Ortho_Analysis = new Composite_Orthotropic_Analysis(iApp);
+
+            Ortho_Analysis.Length = L;
+
+            Ortho_Analysis.Spans = new List<double>();
+            try
+            {
+
+                if (rbtn_multiSpan.Checked)
+                {
+                    MyList spans = new MyList(MyList.RemoveAllSpaces(txt_multiSpan.Text.Replace(',', ' ')), ' ');
+                    for (int i = 0; i < spans.StringList.Count; i++)
+                    {
+                        Ortho_Analysis.Spans.Add(spans.GetDouble(i));
+                    }
+                }
+                else
+                {
+                    Ortho_Analysis.Spans.Add(L);
+                }
+            }
+            catch (Exception exx) { }
+            Ortho_Analysis.Length = Bridge_Analysis.Total_Length;
+            Ortho_Analysis.WidthBridge = B;
+            Ortho_Analysis.Width_LeftCantilever = CL;
+            Ortho_Analysis.Width_RightCantilever = CR;
+            Ortho_Analysis.Skew_Angle = Ang;
+            Ortho_Analysis.Effective_Depth = Deff;
+            Ortho_Analysis.NMG = NMG;
+            Ortho_Analysis.NCG = NCG;
+            Ortho_Analysis.Ds = Ds;
+
+            Ortho_Analysis.Radius = MyList.StringToDouble(txt_curve_radius.Text, 0.0);
+
+            if (!chk_curve.Checked) Ortho_Analysis.Radius = 0;
+
+
+            Ortho_Analysis.Input_File = Bridge_Analysis.Input_File;
+
+
+            Ortho_Analysis.Start_Support = Start_Support_Text;
+            Ortho_Analysis.End_Support = END_Support_Text;
+
+            Ortho_Analysis.Steel_Section = Bridge_Analysis.Steel_Section;
+            //Create Orthotropic Data
+            Ortho_Analysis.CreateData_Orthotropic();
+            Ortho_Analysis.WriteData_Orthotropic_Analysis(Ortho_Analysis.Orthotropic_Input_File);
+            //Ana_Write_Long_Girder_Load_Data(Ortho_Analysis.Orthotropic_Input_File, false, true, 1);
+
+            uC_Orthotropic1.Input_Data_File = Ortho_Analysis.Orthotropic_Input_File;
+
+            MessageBox.Show("Orthotropic Input Data created as \n\n" + Ortho_Analysis.Orthotropic_Input_File, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void uC_Orthotropic1_OnRunAnalysis_Click(object sender, EventArgs e)
+        {
+
+            uC_Orthotropic1.Input_Data_File = Bridge_Analysis.Orthotropic_Input_File;
+        }
+
+        private void uC_Orthotropic1_OnCreateData_Click(object sender, EventArgs e)
+        {
+            Orthotropic_Initialize_InputData();
         }
 
     }

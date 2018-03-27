@@ -1,6 +1,8 @@
 ﻿namespace BridgeAnalysisDesign
 {
-      partial class frm_Open_Project
+
+
+    partial class frm_Open_Project
     {
         /// <summary>
         /// Required designer variable.
@@ -170,4 +172,6 @@
         private System.Windows.Forms.TextBox txt_save_as;
         private System.Windows.Forms.Button btn_save_as;
     }
+
+
 }

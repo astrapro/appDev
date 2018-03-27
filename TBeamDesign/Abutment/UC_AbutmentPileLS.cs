@@ -43,6 +43,8 @@ namespace BridgeAnalysisDesign.Abutment
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
             {
                 tc_content.TabPages.Remove(tabPage9);
+                lbl_9.Visible = false;
+                grb_9.Visible = false;
                 rbtn_value_worksheet.Checked = true;
             }
             else

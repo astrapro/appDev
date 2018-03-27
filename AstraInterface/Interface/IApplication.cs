@@ -162,6 +162,9 @@ namespace AstraInterface.Interface
 
          List<string> IRC_6_2014_Load_Combinations(double CW);
 
+
+         void View_Plan_Moving_Load(string inputFile, double skewAngle);
+
     }
 
 }

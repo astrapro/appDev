@@ -1035,6 +1035,12 @@
             this.txt_RCC_Pier_NP = new System.Windows.Forms.TextBox();
             this.label369 = new System.Windows.Forms.Label();
             this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.label289 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.txt_RCC_Pier_tdia = new System.Windows.Forms.TextBox();
+            this.txt_RCC_Pier_rdia = new System.Windows.Forms.TextBox();
+            this.label291 = new System.Windows.Forms.Label();
+            this.label292 = new System.Windows.Forms.Label();
             this.label372 = new System.Windows.Forms.Label();
             this.txt_RCC_Pier_fck_2 = new System.Windows.Forms.TextBox();
             this.label373 = new System.Windows.Forms.Label();
@@ -1242,12 +1248,6 @@
             this.label157 = new System.Windows.Forms.Label();
             this.btn_dwg_pier = new System.Windows.Forms.Button();
             this.btn_dwg_box = new System.Windows.Forms.Button();
-            this.label289 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_tdia = new System.Windows.Forms.TextBox();
-            this.txt_RCC_Pier_rdia = new System.Windows.Forms.TextBox();
-            this.label291 = new System.Windows.Forms.Label();
-            this.label292 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_Analysis_DL.SuspendLayout();
             this.tabControl4.SuspendLayout();
@@ -7534,7 +7534,7 @@
             this.btn_Ana_LL_view_structure.Name = "btn_Ana_LL_view_structure";
             this.btn_Ana_LL_view_structure.Size = new System.Drawing.Size(157, 29);
             this.btn_Ana_LL_view_structure.TabIndex = 105;
-            this.btn_Ana_LL_view_structure.Text = "View Structure";
+            this.btn_Ana_LL_view_structure.Text = "View Structure (GUI)";
             this.btn_Ana_LL_view_structure.UseVisualStyleBackColor = true;
             this.btn_Ana_LL_view_structure.Click += new System.EventHandler(this.btn_Ana_LL_view_data_Click);
             // 
@@ -9743,11 +9743,12 @@
             // 
             // uC_RCC_Abut1
             // 
+            this.uC_RCC_Abut1.Deadload_Reaction = "";
             this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_RCC_Abut1.iApp = null;
             this.uC_RCC_Abut1.Is_Individual = true;
-            this.uC_RCC_Abut1.Is_Limit_State = false;
+            this.uC_RCC_Abut1.Is_Limit_State = true;
             this.uC_RCC_Abut1.IsBoxType = true;
             this.uC_RCC_Abut1.Length = 60D;
             this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
@@ -10434,6 +10435,64 @@
             this.groupBox40.TabIndex = 90;
             this.groupBox40.TabStop = false;
             this.groupBox40.Text = "Steel Reinforcements";
+            // 
+            // label289
+            // 
+            this.label289.AutoSize = true;
+            this.label289.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label289.Location = new System.Drawing.Point(292, 170);
+            this.label289.Name = "label289";
+            this.label289.Size = new System.Drawing.Size(31, 13);
+            this.label289.TabIndex = 101;
+            this.label289.Text = "mm";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(292, 143);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(31, 13);
+            this.label67.TabIndex = 102;
+            this.label67.Text = "mm";
+            // 
+            // txt_RCC_Pier_tdia
+            // 
+            this.txt_RCC_Pier_tdia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_RCC_Pier_tdia.Location = new System.Drawing.Point(234, 167);
+            this.txt_RCC_Pier_tdia.Name = "txt_RCC_Pier_tdia";
+            this.txt_RCC_Pier_tdia.Size = new System.Drawing.Size(52, 20);
+            this.txt_RCC_Pier_tdia.TabIndex = 99;
+            this.txt_RCC_Pier_tdia.Text = "12";
+            this.txt_RCC_Pier_tdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_RCC_Pier_rdia
+            // 
+            this.txt_RCC_Pier_rdia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_RCC_Pier_rdia.Location = new System.Drawing.Point(234, 140);
+            this.txt_RCC_Pier_rdia.Name = "txt_RCC_Pier_rdia";
+            this.txt_RCC_Pier_rdia.Size = new System.Drawing.Size(52, 20);
+            this.txt_RCC_Pier_rdia.TabIndex = 100;
+            this.txt_RCC_Pier_rdia.Text = "32";
+            this.txt_RCC_Pier_rdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label291
+            // 
+            this.label291.AutoSize = true;
+            this.label291.Location = new System.Drawing.Point(8, 170);
+            this.label291.Name = "label291";
+            this.label291.Size = new System.Drawing.Size(147, 13);
+            this.label291.TabIndex = 103;
+            this.label291.Text = "Lateral Tie Bar Diameter [tdia]";
+            // 
+            // label292
+            // 
+            this.label292.AutoSize = true;
+            this.label292.Location = new System.Drawing.Point(8, 143);
+            this.label292.Name = "label292";
+            this.label292.Size = new System.Drawing.Size(166, 13);
+            this.label292.TabIndex = 104;
+            this.label292.Text = "Reinforcement Bar Diameter [rdia]";
             // 
             // label372
             // 
@@ -12547,64 +12606,6 @@
             this.btn_dwg_box.Text = "Continuous PSC Box Girder Drawings";
             this.btn_dwg_box.UseVisualStyleBackColor = true;
             this.btn_dwg_box.Click += new System.EventHandler(this.btn_open_cpsc_box_drawings_Click);
-            // 
-            // label289
-            // 
-            this.label289.AutoSize = true;
-            this.label289.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label289.Location = new System.Drawing.Point(292, 170);
-            this.label289.Name = "label289";
-            this.label289.Size = new System.Drawing.Size(31, 13);
-            this.label289.TabIndex = 101;
-            this.label289.Text = "mm";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(292, 143);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(31, 13);
-            this.label67.TabIndex = 102;
-            this.label67.Text = "mm";
-            // 
-            // txt_RCC_Pier_tdia
-            // 
-            this.txt_RCC_Pier_tdia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_tdia.Location = new System.Drawing.Point(234, 167);
-            this.txt_RCC_Pier_tdia.Name = "txt_RCC_Pier_tdia";
-            this.txt_RCC_Pier_tdia.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_tdia.TabIndex = 99;
-            this.txt_RCC_Pier_tdia.Text = "12";
-            this.txt_RCC_Pier_tdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_RCC_Pier_rdia
-            // 
-            this.txt_RCC_Pier_rdia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_rdia.Location = new System.Drawing.Point(234, 140);
-            this.txt_RCC_Pier_rdia.Name = "txt_RCC_Pier_rdia";
-            this.txt_RCC_Pier_rdia.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_rdia.TabIndex = 100;
-            this.txt_RCC_Pier_rdia.Text = "32";
-            this.txt_RCC_Pier_rdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label291
-            // 
-            this.label291.AutoSize = true;
-            this.label291.Location = new System.Drawing.Point(8, 170);
-            this.label291.Name = "label291";
-            this.label291.Size = new System.Drawing.Size(147, 13);
-            this.label291.TabIndex = 103;
-            this.label291.Text = "Lateral Tie Bar Diameter [tdia]";
-            // 
-            // label292
-            // 
-            this.label292.AutoSize = true;
-            this.label292.Location = new System.Drawing.Point(8, 143);
-            this.label292.Name = "label292";
-            this.label292.Size = new System.Drawing.Size(166, 13);
-            this.label292.TabIndex = 104;
-            this.label292.Text = "Reinforcement Bar Diameter [rdia]";
             // 
             // frm_Continuous_Box_Girder
             // 

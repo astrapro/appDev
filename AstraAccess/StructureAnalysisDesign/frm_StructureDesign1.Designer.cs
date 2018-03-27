@@ -5793,7 +5793,7 @@
             // 
             this.txt_env_mnos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_env_mnos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_env_mnos.Location = new System.Drawing.Point(-10, 26);
+            this.txt_env_mnos.Location = new System.Drawing.Point(-9, 26);
             this.txt_env_mnos.Name = "txt_env_mnos";
             this.txt_env_mnos.Size = new System.Drawing.Size(211, 21);
             this.txt_env_mnos.TabIndex = 2;
@@ -5836,7 +5836,7 @@
             // btn_env_show
             // 
             this.btn_env_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_env_show.Location = new System.Drawing.Point(24, 97);
+            this.btn_env_show.Location = new System.Drawing.Point(25, 97);
             this.btn_env_show.Name = "btn_env_show";
             this.btn_env_show.Size = new System.Drawing.Size(121, 23);
             this.btn_env_show.TabIndex = 0;

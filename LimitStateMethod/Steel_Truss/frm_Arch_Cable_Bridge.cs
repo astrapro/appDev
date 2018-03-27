@@ -13718,6 +13718,7 @@ namespace LimitStateMethod.Steel_Truss
 
 
                     Open_Project();
+                    iApp.user_path = user_path;
 
                     txt_project_name.Text = Path.GetFileName(user_path);
 

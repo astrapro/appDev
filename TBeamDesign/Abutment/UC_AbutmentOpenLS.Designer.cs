@@ -546,7 +546,7 @@
             this.lbl_Title.ForeColor = System.Drawing.Color.Red;
             this.lbl_Title.Location = new System.Drawing.Point(0, 27);
             this.lbl_Title.Name = "lbl_Title";
-            this.lbl_Title.Size = new System.Drawing.Size(816, 27);
+            this.lbl_Title.Size = new System.Drawing.Size(816, 43);
             this.lbl_Title.TabIndex = 10;
             this.lbl_Title.Text = "Note : Use side scroll bar to view full data.";
             this.lbl_Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -563,10 +563,10 @@
             this.tc_content.Controls.Add(this.tabPage7);
             this.tc_content.Controls.Add(this.tabPage9);
             this.tc_content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_content.Location = new System.Drawing.Point(0, 54);
+            this.tc_content.Location = new System.Drawing.Point(0, 70);
             this.tc_content.Name = "tc_content";
             this.tc_content.SelectedIndex = 0;
-            this.tc_content.Size = new System.Drawing.Size(816, 362);
+            this.tc_content.Size = new System.Drawing.Size(816, 346);
             this.tc_content.TabIndex = 11;
             // 
             // tabPage8
@@ -576,7 +576,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(808, 336);
+            this.tabPage8.Size = new System.Drawing.Size(808, 320);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "DESIGN DATA 1";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -910,7 +910,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(808, 336);
+            this.tabPage1.Size = new System.Drawing.Size(808, 320);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "DESIGN DATA 2";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1129,7 +1129,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(808, 336);
+            this.tabPage2.Size = new System.Drawing.Size(808, 320);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DESIGN DATA 3";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1142,7 +1142,7 @@
             this.pnl_2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_2.Location = new System.Drawing.Point(3, 3);
             this.pnl_2.Name = "pnl_2";
-            this.pnl_2.Size = new System.Drawing.Size(802, 330);
+            this.pnl_2.Size = new System.Drawing.Size(802, 314);
             this.pnl_2.TabIndex = 13;
             // 
             // pictureBox5

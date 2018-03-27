@@ -1454,6 +1454,8 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void btn_Ana_process_analysis_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+
             try
             {
                 if (!Check_Project_Folder()) return;
@@ -1513,11 +1515,13 @@ namespace LimitStateMethod.PSC_I_Girder
                 //    iApp.Progress_Works.Clear();
                 //    return;
                 //}
-
-                if (!iApp.Show_and_Run_Process_List(pcol))
+                if (btn == btn_Ana_process_analysis)
                 {
-                    iApp.Progress_Works.Clear();
-                    return;
+                    if (!iApp.Show_and_Run_Process_List(pcol))
+                    {
+                        iApp.Progress_Works.Clear();
+                        return;
+                    }
                 }
 
                 
@@ -9744,7 +9748,10 @@ namespace LimitStateMethod.PSC_I_Girder
             else if (btn.Name == btn_view_structure.Name)
             {
                 if (File.Exists(file_name))
+                {
                     iApp.OpenWork(file_name, false);
+                    btn_update_forces.Enabled = true;
+                }
             }
             else if (btn.Name == btn_view_report.Name)
             {

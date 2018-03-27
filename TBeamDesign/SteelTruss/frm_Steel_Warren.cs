@@ -208,6 +208,8 @@ namespace BridgeAnalysisDesign.SteelTruss
                 return iApp.Tables.IS_SteelAngles;
             }
         }
+
+
         public frm_Steel_Warren(IApplication app)
         {
             InitializeComponent();
@@ -16090,7 +16092,6 @@ namespace BridgeAnalysisDesign.SteelTruss
             int ty = (int)Project_Type;
             File.WriteAllText(fname, ty.ToString());
             user_path = Path.Combine(user_path, Project_Name);
-
             if (Directory.Exists(user_path))
             {
                 switch (MessageBox.Show(Project_Name + " is already exist. Do you want overwrite ?",
@@ -16109,6 +16110,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 Directory.CreateDirectory(user_path);
             }
             Write_All_Data();
+            iApp.user_path = user_path;
 
             MessageBox.Show(Project_Name + " is Created.", "ASTRA", MessageBoxButtons.OK);
         }
@@ -16178,7 +16180,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                     }
                     #endregion Save As
 
-
+                    iApp.user_path = user_path;
 
                     Open_Project();
 

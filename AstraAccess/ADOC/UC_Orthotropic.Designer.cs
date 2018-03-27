@@ -71,6 +71,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.btn_gen_members = new System.Windows.Forms.Button();
+            this.btn_open_report = new System.Windows.Forms.Button();
+            this.btn_run_analysis = new System.Windows.Forms.Button();
             this.btn_draw = new System.Windows.Forms.Button();
             this.uC_CAD1 = new AstraAccess.ADOC.UC_CAD();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -128,9 +130,11 @@
             this.splitContainer2.Panel2.Controls.Add(this.chk_DS);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer2.Panel2.Controls.Add(this.btn_gen_members);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_open_report);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_run_analysis);
             this.splitContainer2.Panel2.Controls.Add(this.btn_draw);
             this.splitContainer2.Size = new System.Drawing.Size(210, 468);
-            this.splitContainer2.SplitterDistance = 231;
+            this.splitContainer2.SplitterDistance = 135;
             this.splitContainer2.TabIndex = 4;
             // 
             // vdPropertyGrid1
@@ -147,9 +151,15 @@
                                         ((object)(new object[] {
                                                 ((object)(new object[] {
                                                         ((object)(new object[] {
-                                                                ((object)(new object[0]))}))}))}))}))}))}))}))};
+                                                                ((object)(new object[] {
+                                                                        ((object)(new object[] {
+                                                                                ((object)(new object[] {
+                                                                                        ((object)(new object[] {
+                                                                                                ((object)(new object[] {
+                                                                                                        ((object)(new object[] {
+                                                                                                                ((object)(new object[0]))}))}))}))}))}))}))}))}))}))}))}))}))}))};
             this.vdPropertyGrid1.ShowSelectedItemComboBox = true;
-            this.vdPropertyGrid1.Size = new System.Drawing.Size(208, 229);
+            this.vdPropertyGrid1.Size = new System.Drawing.Size(208, 133);
             this.vdPropertyGrid1.TabIndex = 0;
             this.vdPropertyGrid1.UseGroupItems = true;
             // 
@@ -171,7 +181,7 @@
             this.checkBox3.AutoSize = true;
             this.checkBox3.Checked = true;
             this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(104, 136);
+            this.checkBox3.Location = new System.Drawing.Point(105, 136);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(94, 17);
             this.checkBox3.TabIndex = 4;
@@ -197,7 +207,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(4, 136);
+            this.checkBox2.Location = new System.Drawing.Point(2, 136);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(94, 17);
             this.checkBox2.TabIndex = 4;
@@ -210,7 +220,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(104, 116);
+            this.checkBox1.Location = new System.Drawing.Point(105, 116);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(94, 17);
             this.checkBox1.TabIndex = 4;
@@ -223,7 +233,7 @@
             this.chk_SP.AutoSize = true;
             this.chk_SP.Checked = true;
             this.chk_SP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_SP.Location = new System.Drawing.Point(4, 116);
+            this.chk_SP.Location = new System.Drawing.Point(2, 116);
             this.chk_SP.Name = "chk_SP";
             this.chk_SP.Size = new System.Drawing.Size(94, 17);
             this.chk_SP.TabIndex = 4;
@@ -236,7 +246,7 @@
             this.chk_BP.AutoSize = true;
             this.chk_BP.Checked = true;
             this.chk_BP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_BP.Location = new System.Drawing.Point(4, 93);
+            this.chk_BP.Location = new System.Drawing.Point(2, 93);
             this.chk_BP.Name = "chk_BP";
             this.chk_BP.Size = new System.Drawing.Size(99, 17);
             this.chk_BP.TabIndex = 4;
@@ -262,7 +272,7 @@
             this.chk_TP.AutoSize = true;
             this.chk_TP.Checked = true;
             this.chk_TP.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_TP.Location = new System.Drawing.Point(4, 70);
+            this.chk_TP.Location = new System.Drawing.Point(2, 70);
             this.chk_TP.Name = "chk_TP";
             this.chk_TP.Size = new System.Drawing.Size(78, 17);
             this.chk_TP.TabIndex = 4;
@@ -288,7 +298,7 @@
             this.chk_DS.AutoSize = true;
             this.chk_DS.Checked = true;
             this.chk_DS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_DS.Location = new System.Drawing.Point(3, 47);
+            this.chk_DS.Location = new System.Drawing.Point(2, 47);
             this.chk_DS.Name = "chk_DS";
             this.chk_DS.Size = new System.Drawing.Size(78, 17);
             this.chk_DS.TabIndex = 4;
@@ -576,20 +586,39 @@
             // 
             this.btn_gen_members.Location = new System.Drawing.Point(3, 191);
             this.btn_gen_members.Name = "btn_gen_members";
-            this.btn_gen_members.Size = new System.Drawing.Size(202, 28);
+            this.btn_gen_members.Size = new System.Drawing.Size(196, 28);
             this.btn_gen_members.TabIndex = 0;
-            this.btn_gen_members.Text = "Generate Members";
+            this.btn_gen_members.Text = "Create Input Data File";
             this.btn_gen_members.UseVisualStyleBackColor = true;
-            this.btn_gen_members.Visible = false;
             this.btn_gen_members.Click += new System.EventHandler(this.btn_gen_members_Click);
+            // 
+            // btn_open_report
+            // 
+            this.btn_open_report.Location = new System.Drawing.Point(3, 225);
+            this.btn_open_report.Name = "btn_open_report";
+            this.btn_open_report.Size = new System.Drawing.Size(196, 28);
+            this.btn_open_report.TabIndex = 0;
+            this.btn_open_report.Text = "Open Input Data File";
+            this.btn_open_report.UseVisualStyleBackColor = true;
+            this.btn_open_report.Click += new System.EventHandler(this.btn_draw_Click);
+            // 
+            // btn_run_analysis
+            // 
+            this.btn_run_analysis.Location = new System.Drawing.Point(3, 259);
+            this.btn_run_analysis.Name = "btn_run_analysis";
+            this.btn_run_analysis.Size = new System.Drawing.Size(196, 28);
+            this.btn_run_analysis.TabIndex = 0;
+            this.btn_run_analysis.Text = "Process Analysis";
+            this.btn_run_analysis.UseVisualStyleBackColor = true;
+            this.btn_run_analysis.Click += new System.EventHandler(this.btn_draw_Click);
             // 
             // btn_draw
             // 
             this.btn_draw.Location = new System.Drawing.Point(3, 13);
             this.btn_draw.Name = "btn_draw";
-            this.btn_draw.Size = new System.Drawing.Size(202, 28);
+            this.btn_draw.Size = new System.Drawing.Size(196, 28);
             this.btn_draw.TabIndex = 0;
-            this.btn_draw.Text = "Draw";
+            this.btn_draw.Text = "Draw Model";
             this.btn_draw.UseVisualStyleBackColor = true;
             this.btn_draw.Click += new System.EventHandler(this.btn_draw_Click);
             // 
@@ -670,5 +699,7 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.Button btn_gen_members;
+        private System.Windows.Forms.Button btn_open_report;
+        private System.Windows.Forms.Button btn_run_analysis;
     }
 }

@@ -102,15 +102,15 @@ namespace AstraFunctionOne
             // 
             // lbl_release
             // 
-            this.lbl_release.AutoSize = true;
-            this.lbl_release.BackColor = System.Drawing.Color.MidnightBlue;
+            this.lbl_release.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.lbl_release.Font = new System.Drawing.Font("Verdana", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_release.ForeColor = System.Drawing.Color.White;
-            this.lbl_release.Location = new System.Drawing.Point(253, 179);
+            this.lbl_release.Location = new System.Drawing.Point(182, 176);
             this.lbl_release.Name = "lbl_release";
-            this.lbl_release.Size = new System.Drawing.Size(92, 13);
+            this.lbl_release.Size = new System.Drawing.Size(163, 16);
             this.lbl_release.TabIndex = 9;
-            this.lbl_release.Text = "21  Version 1";
+            this.lbl_release.Text = "RELEASE 22";
+            this.lbl_release.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAstraHelpAbout
             // 
@@ -133,6 +133,7 @@ namespace AstraFunctionOne
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About ASTRA";
+            this.Load += new System.EventHandler(this.frmAstraHelpAbout_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

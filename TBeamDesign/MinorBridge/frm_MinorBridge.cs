@@ -1232,9 +1232,9 @@ namespace BridgeAnalysisDesign.MinorBridge
             //uC_Abut1.Is_Box_Type = false;
             Load_Abutment_Inputs();
             //iApp.user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            uC_Abut_Cant1.iApp = iApp;
+            //uC_Abut_Cant1.iApp = iApp;
 
-
+            uC_Abut_Cant1.SetIApplication(iApp);
 
             #region RCC Pier
             rcc_pier = new RccPier(iApp);

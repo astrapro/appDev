@@ -4676,11 +4676,13 @@ namespace LimitStateMethod.Extradossed
 
         private void frm_Extradosed_Load(object sender, EventArgs e)
         {
-            
+
+            tc_abutment.TabPages.Remove(tab_AbutmentOpenLSM);
+
+
             
             tc_main.TabPages.Remove(tab_Segment);
             tc_bridge_deck.TabPages.Add(tab_Segment);
-
             if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
                 cmb_long_open_file.Items.Clear();
@@ -7310,7 +7312,8 @@ namespace LimitStateMethod.Extradossed
                 }
                 else
                 {
-                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                        if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
                     {
                         if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                         {
@@ -7341,8 +7344,8 @@ namespace LimitStateMethod.Extradossed
 
                                 if (cmb_long_open_file.SelectedIndex == 0)
                                     file_name = Extradosed.DeadLoadAnalysis_Input_File;
-                                //else if (cmb_long_open_file.SelectedIndex == cmb_long_open_file.Items.Count - 1)
-                                //    file_name = Extradosed.TotalAnalysis_Input_File;
+                                else if (cmb_long_open_file.SelectedIndex == cmb_long_open_file.Items.Count - 1)
+                                    file_name = Extradosed.TotalAnalysis_Input_File;
                                 else
                                     file_name = Get_Live_Load_Analysis_Input_File(cmb_long_open_file.SelectedIndex);
                             }
@@ -7384,7 +7387,8 @@ namespace LimitStateMethod.Extradossed
             }
             else
             {
-                btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
+                //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
+                btn_view_structure.Enabled = File.Exists(file_name) ;
             }
             btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
 
@@ -7798,7 +7802,8 @@ namespace LimitStateMethod.Extradossed
             else
             {
                 #region Set File Name
-                if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
                 {
                     if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                     {
@@ -7819,6 +7824,8 @@ namespace LimitStateMethod.Extradossed
 
                         if (cmb_long_open_file.SelectedIndex == 0)
                             file_name = Extradosed.DeadLoadAnalysis_Input_File;
+                        if (cmb_long_open_file.SelectedIndex == cmb_long_open_file.Items.Count - 1)
+                            file_name = Extradosed.TotalAnalysis_Input_File;
                         //else if (cmb_long_open_file.SelectedIndex == 1)
                         //    file_name = Input_File_LL;
                         //else if (cmb_long_open_file.SelectedIndex == 2)
@@ -7829,9 +7836,6 @@ namespace LimitStateMethod.Extradossed
                         //    file_name = Extradosed.LiveLoadAnalysis_Input_File;
                         else
                             file_name = Get_Live_Load_Analysis_Input_File(cmb_long_open_file.SelectedIndex);
-
-
-
 
 
                     }
@@ -7955,7 +7959,7 @@ namespace LimitStateMethod.Extradossed
 
 
                     Open_Project();
-
+                    iApp.user_path = user_path;
                     txt_project_name.Text = Path.GetFileName(user_path);
 
                     //Write_All_Data();

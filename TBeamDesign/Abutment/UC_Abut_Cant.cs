@@ -23,6 +23,13 @@ namespace BridgeAnalysisDesign.Abutment
             InitializeComponent();
         }
 
+        public void SetIApplication(IApplication app)
+        {
+            iApp = app;
+            Load_Abutment_Inputs();
+            Load_Live_Loads();
+        }
+
         public string Dead_Load_Reactions
         {
             get

@@ -210,8 +210,6 @@ namespace BridgeAnalysisDesign
         }
 
     }
-
-
 }
 
 

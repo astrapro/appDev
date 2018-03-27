@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
@@ -23,6 +24,8 @@ namespace AstraAccess.ADOC
     public partial class UC_Orthotropic : UserControl
     {
         IApplication iApp;
+
+
         public UC_Orthotropic()
         {
             InitializeComponent();
@@ -34,22 +37,90 @@ namespace AstraAccess.ADOC
             uC_CAD1.iApp = app;
             uC_CAD1.PropertyGrid = vdPropertyGrid1;
             uC_CAD1.iApp = iApp;
-
+            Button_Enable_Disable();
         }
 
         public event EventHandler OnDraw_Click;
         private void btn_draw_Click(object sender, EventArgs e)
         {
-            if(OnDraw_Click != null)
+            Button btn = sender as Button;
+
+
+            if (btn == btn_draw)
             {
-                uC_CAD1.VDoc.ActiveLayOut.Entities.RemoveAll();
-                OnDraw_Click(sender, e);
+                if (OnDraw_Click != null)
+                {
+                    uC_CAD1.VDoc.ActiveLayOut.Entities.RemoveAll();
+                    OnDraw_Click(sender, e);
+                    VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_ShadeOn(uC_CAD1.VDoc);
+                    VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_VTop(uC_CAD1.VDoc);
+                    VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Vrot(uC_CAD1.VDoc);
+                }
+                else
+                {
+                    Draw();
+                }
             }
-            else
+            else if (btn == btn_run_analysis)
             {
-                Draw();
+                if (OnRunAnalysis_Click != null) OnRunAnalysis_Click(sender, e);
+                Run_Analysis();
+            }
+            else if (btn == btn_open_report)
+            {
+                if (OnRunAnalysis_Click != null) OnRunAnalysis_Click(sender, e);
+                Open_Report();
+            }
+            Button_Enable_Disable();
+        }
+
+        void Button_Enable_Disable()
+        {
+            btn_open_report.Enabled = File.Exists(Input_Data_File);
+            btn_run_analysis.Enabled = File.Exists(Input_Data_File);
+        }
+
+
+        public void Open_Report()
+        {
+            if (File.Exists(Input_Data_File))
+            {
+                iApp.RunExe(Input_Data_File);
             }
         }
+        public string Input_Data_File { get; set; }
+        public event EventHandler OnRunAnalysis_Click;
+        public void Run_Analysis()
+        {
+            if(File.Exists(Input_Data_File))
+            {
+                //if (Curve_Radius > 0 && File.Exists(file_name))
+                //{
+                //    string rad_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
+                //    //Environment.SetEnvironmentVariable("MOVINGLOAD", Bridge_Analysis.Straight_LL_File);
+                Environment.SetEnvironmentVariable("MOVINGLOAD", "");
+                //    File.WriteAllText(rad_file, Curve_Radius.ToString());
+                //    //Environment.SetEnvironmentVariable("MOVINGLOAD", Bridge_Analysis.Straight_LL_File);
+                //    Environment.SetEnvironmentVariable("COMP_RAD", Curve_Radius.ToString());
+                //}
+                //else
+                //{
+                //    string rad_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
+                //    if (File.Exists(rad_file)) File.Delete(rad_file);
+                Environment.SetEnvironmentVariable("COMP_RAD", "");
+                //}
+
+
+                //iApp.RunAnalysis(Input_Data_File);
+
+                //iApp.View_Input_File(Input_Data_File);
+
+                iApp.Form_ASTRA_TEXT_Data(Input_Data_File, false).Show();
+
+
+            }
+        }
+
 
         public void Draw()
         {
@@ -392,9 +463,17 @@ namespace AstraAccess.ADOC
             uC_CAD1.VDoc.Redraw(true);
         }
 
+
+        public event EventHandler OnCreateData_Click;
+
         private void btn_gen_members_Click(object sender, EventArgs e)
         {
-            Generate_Members();
+            if (OnCreateData_Click != null)
+                OnCreateData_Click(sender, e);
+            else
+                Generate_Members();
+
+            Button_Enable_Disable();
         }
 
         public void Generate_Members()
@@ -466,12 +545,12 @@ namespace AstraAccess.ADOC
             //list.Add(string.Format("1 1 3 ; 2 2 4 ; 3 9 11 ; 4 10 12"));
             //list.Add(string.Format("5 3 7 ; 6 7 11 ; 7 4 8 ; 8 8 12"));
             //list.Add(string.Format("9 3 4 ; 10 7 8 ; 11 11 12"));
-            list.Add(string.Format("ELEMENT CONNECTIVITY"));
-            foreach (var itm in list_plates)
-            {
-                itm.PlateNo = c++;
-                list.Add(string.Format("{0} {1} {2} {3} {4}", itm.PlateNo, itm.Node1.NodeNo, itm.Node2.NodeNo, itm.Node3.NodeNo, itm.Node4.NodeNo));
-            }
+            //list.Add(string.Format("ELEMENT CONNECTIVITY"));
+            //foreach (var itm in list_plates)
+            //{
+            //    itm.PlateNo = c++;
+            //    list.Add(string.Format("{0} {1} {2} {3} {4}", itm.PlateNo, itm.Node1.NodeNo, itm.Node2.NodeNo, itm.Node3.NodeNo, itm.Node4.NodeNo));
+            //}
             //list.Add(string.Format("1 5 6 8 7"));
             //list.Add(string.Format("2 3 4 8 7"));
             //list.Add(string.Format("3 7 8 12 11"));
@@ -483,9 +562,13 @@ namespace AstraAccess.ADOC
 
             file_ortho = System.IO.Path.Combine(file_ortho, "Orthotropic_Input.txt");
 
+            Input_Data_File = file_ortho;
+
             System.IO.File.WriteAllLines(file_ortho, list.ToArray());
 
             System.Diagnostics.Process.Start(file_ortho);
+
+
         }
         JointNodeCollection jntCol = new JointNodeCollection();
         List<BeamElement> beamCol = new List<BeamElement>();
@@ -565,6 +648,20 @@ namespace AstraAccess.ADOC
                 Node2 = new JointNode(pf.VertexList[4].x, pf.VertexList[4].y, pf.VertexList[4].z);
                 Node3 = new JointNode(pf.VertexList[7].x, pf.VertexList[7].y, pf.VertexList[7].z);
                 Node4 = new JointNode(pf.VertexList[3].x, pf.VertexList[3].y, pf.VertexList[3].z);
+            }
+            else if (pf.Layer.Name.ToUpper().StartsWith("CROSS"))
+            {
+                //Node1 = new JointNode(pf.VertexList[0].x, pf.VertexList[0].y, pf.VertexList[0].z);
+                //Node2 = new JointNode(pf.VertexList[4].x, pf.VertexList[4].y, pf.VertexList[4].z);
+                //Node3 = new JointNode(pf.VertexList[7].x, pf.VertexList[7].y, pf.VertexList[7].z);
+                //Node4 = new JointNode(pf.VertexList[3].x, pf.VertexList[3].y, pf.VertexList[3].z);
+
+
+
+                Node1 = new JointNode(pf.VertexList[4].x, pf.VertexList[4].y, pf.VertexList[4].z);
+                Node2 = new JointNode(pf.VertexList[5].x, pf.VertexList[5].y, pf.VertexList[5].z);
+                Node3 = new JointNode(pf.VertexList[6].x, pf.VertexList[6].y, pf.VertexList[6].z);
+                Node4 = new JointNode(pf.VertexList[7].x, pf.VertexList[7].y, pf.VertexList[7].z);
             }
             else
             {
@@ -2411,7 +2508,7 @@ namespace AstraAccess.ADOC
 
             if (Thickness == 0.0 || depth == 0.0) return;
 
-            int _Columns = 100;
+            //int _Columns = 100;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
@@ -2463,6 +2560,8 @@ namespace AstraAccess.ADOC
             #endregion Web Section
         }
 
+       //public int _Columns = 10;
+
         public void Draw_Curve(vdDocument vdoc, string sectionName, double Thickness, double depth, double length, double z, double hgt, Color c)
         {
 
@@ -2481,7 +2580,6 @@ namespace AstraAccess.ADOC
 
 
             //int _Columns = 100;
-            int _Columns = 10;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
@@ -2689,46 +2787,104 @@ namespace AstraAccess.ADOC
             }
             else
             {
-                #region Draw Section
+                if (Lat_Spacing > 0)
+                {
+                    #region Draw Section
 
-                // Draw Web Section
-                if (TP_WD == 0.0 && BP_WD == 0.0 && TF_WD == 0.0 && BF_WD == 0.0)
-                    Draw(vdoc, "Deckslab", Web_Thickness, Web_Depth, L, Z, Y + BP_THK + BF_THK, Color_Web_Plate);
+                    // Draw Web Section
+                    if (TP_WD == 0.0 && BP_WD == 0.0 && TF_WD == 0.0 && BF_WD == 0.0)
+                        Draw(vdoc, "Deckslab", Web_Thickness, Web_Depth, Y, Color_Web_Plate);
+                    else
+                    {
+                        Draw(vdoc, "Web Plate", Web_Thickness, Web_Depth, L, Z - Lat_Spacing / 2, Y + BP_THK + BF_THK, Color_Web_Plate);
+
+                        Draw(vdoc, "Web Plate", Web_Thickness, Web_Depth, L, Z + Lat_Spacing / 2, Y + BP_THK + BF_THK, Color_Web_Plate);
+                    }
+
+                    // Draw Top Plate Section
+                    Draw(vdoc, "Top Plate", TP_WD, TP_THK, Y + Web_Depth + BP_THK + BF_THK + TP_THK, Color_Top_Plate);
+                    // Draw Top Flange Section
+                    Draw(vdoc, "Top Flange", TF_WD, TF_THK, L, Z - Lat_Spacing / 2, Y + Web_Depth + BP_THK + BF_THK, Color_Top_Flange);
+                    Draw(vdoc, "Top Flange", TF_WD, TF_THK, L, Z + Lat_Spacing / 2, Y + Web_Depth + BP_THK + BF_THK, Color_Top_Flange);
+
+                    // Draw Bottom Plate Section
+                    Draw(vdoc, "Bottom Plate", BP_WD, BP_THK, Y, Color_Bottom_Plate);
+                    // Draw Bottom Flange Section
+                    Draw(vdoc, "Bottom Flange", BF_WD, BF_THK, L, Z - Lat_Spacing / 2, Y + BP_THK, Color_Bottom_Flange);
+                    Draw(vdoc, "Bottom Flange", BF_WD, BF_THK, L, Z + Lat_Spacing / 2, Y + BP_THK, Color_Bottom_Flange);
+
+
+
+                    double hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_1_WD) / 2;
+
+
+                    // Draw Side Plate 1 Section
+                    Draw(vdoc, "Side Plate 1", SP_1_THK, SP_1_WD, L, Z - Web_Thickness - Lat_Spacing / 2, Y + hgt, Color_Side_Plate_1);
+
+
+                    hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_2_WD) / 2;
+                    // Draw Side Plate 2 Section
+                    //Draw_Curve(vdoc, "Side Plate 2", SP_2_THK, SP_2_WD, L, Z - Web_Thickness - SP_1_THK - Lat_Spacing / 2, Y + hgt, Color_Side_Plate_2);
+                    Draw(vdoc, "Side Plate 2", SP_1_THK, SP_1_WD, L, Z + Web_Thickness - Lat_Spacing / 2, Y + hgt, Color_Side_Plate_1);
+
+
+                    hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_3_WD) / 2;
+                    // Draw Side Plate 3 Section
+                    Draw(vdoc, "Side Plate 3", SP_3_THK, SP_3_WD, L, Z - Web_Thickness + Lat_Spacing / 2, Y + hgt, Color_Side_Plate_3);
+
+
+                    hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_4_WD) / 2;
+                    // Draw Side Plate 4 Section
+                    //Draw_Curve(vdoc, "Side Plate 4", SP_4_THK, SP_4_WD, L, Z + Web_Thickness + SP_3_THK, Y + hgt, Color_Side_Plate_4);
+                    Draw(vdoc, "Side Plate 4", SP_4_THK, SP_4_WD, L, Z + Web_Thickness + Lat_Spacing / 2, Y + hgt, Color_Side_Plate_4);
+
+                    #endregion Web Section
+                }
                 else
-                    Draw(vdoc, "Web Plate", Web_Thickness, Web_Depth, L, Z, Y + BP_THK + BF_THK, Color_Web_Plate);
+                {
 
-                // Draw Top Plate Section
-                Draw(vdoc, "Top Plate", TP_WD, TP_THK, Y + Web_Depth + BP_THK + BF_THK + TP_THK, Color_Top_Plate);
-                // Draw Top Flange Section
-                Draw(vdoc, "Top Flange", TF_WD, TF_THK, Y + Web_Depth + BP_THK + BF_THK, Color_Top_Flange);
+                    #region Draw Section
 
-                // Draw Bottom Plate Section
-                Draw(vdoc, "Bottom Plate", BP_WD, BP_THK, Y, Color_Bottom_Plate);
-                // Draw Bottom Flange Section
-                Draw(vdoc, "Bottom Flange", BF_WD, BF_THK, Y + BP_THK, Color_Bottom_Flange);
+                    // Draw Web Section
+                    if (TP_WD == 0.0 && BP_WD == 0.0 && TF_WD == 0.0 && BF_WD == 0.0)
+                        Draw(vdoc, "Deckslab", Web_Thickness, Web_Depth, L, Z, Y + BP_THK + BF_THK, Color_Web_Plate);
+                    else
+                        Draw(vdoc, "Web Plate", Web_Thickness, Web_Depth, L, Z, Y + BP_THK + BF_THK, Color_Web_Plate);
 
+                    // Draw Top Plate Section
+                    Draw(vdoc, "Top Plate", TP_WD, TP_THK, Y + Web_Depth + BP_THK + BF_THK + TP_THK, Color_Top_Plate);
+                    // Draw Top Flange Section
+                    Draw(vdoc, "Top Flange", TF_WD, TF_THK, Y + Web_Depth + BP_THK + BF_THK, Color_Top_Flange);
 
-
-                double hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_1_WD) / 2;
-                // Draw Side Plate 1 Section
-                Draw(vdoc, "Side Plate 1", SP_1_THK, SP_1_WD, L, Z - Web_Thickness, Y + hgt, Color_Side_Plate_1);
-
-
-                hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_2_WD) / 2;
-                // Draw Side Plate 2 Section
-                Draw(vdoc, "Side Plate 2", SP_2_THK, SP_2_WD, L, Z - Web_Thickness - SP_1_THK, Y + hgt, Color_Side_Plate_2);
+                    // Draw Bottom Plate Section
+                    Draw(vdoc, "Bottom Plate", BP_WD, BP_THK, Y, Color_Bottom_Plate);
+                    // Draw Bottom Flange Section
+                    Draw(vdoc, "Bottom Flange", BF_WD, BF_THK, Y + BP_THK, Color_Bottom_Flange);
 
 
-                hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_3_WD) / 2;
-                // Draw Side Plate 3 Section
-                Draw(vdoc, "Side Plate 3", SP_3_THK, SP_3_WD, L, Z + Web_Thickness, Y + hgt, Color_Side_Plate_3);
+
+                    double hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_1_WD) / 2;
+                    // Draw Side Plate 1 Section
+                    Draw(vdoc, "Side Plate 1", SP_1_THK, SP_1_WD, L, Z - Web_Thickness, Y + hgt, Color_Side_Plate_1);
 
 
-                hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_4_WD) / 2;
-                // Draw Side Plate 4 Section
-                Draw(vdoc, "Side Plate 4", SP_4_THK, SP_4_WD, L, Z + Web_Thickness + SP_3_THK, Y + hgt, Color_Side_Plate_4);
+                    hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_2_WD) / 2;
+                    // Draw Side Plate 2 Section
+                    Draw(vdoc, "Side Plate 2", SP_2_THK, SP_2_WD, L, Z - Web_Thickness - SP_1_THK, Y + hgt, Color_Side_Plate_2);
 
-                #endregion Web Section
+
+                    hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_3_WD) / 2;
+                    // Draw Side Plate 3 Section
+                    Draw(vdoc, "Side Plate 3", SP_3_THK, SP_3_WD, L, Z + Web_Thickness, Y + hgt, Color_Side_Plate_3);
+
+
+                    hgt = (BP_THK + BF_THK + Web_Depth + TP_THK + TF_THK - SP_4_WD) / 2;
+                    // Draw Side Plate 4 Section
+                    Draw(vdoc, "Side Plate 4", SP_4_THK, SP_4_WD, L, Z + Web_Thickness + SP_3_THK, Y + hgt, Color_Side_Plate_4);
+
+                    #endregion Web Section
+
+                }
             }
         }
 
@@ -2736,6 +2892,8 @@ namespace AstraAccess.ADOC
         {
             Draw(vdoc, sectionName, Thickness, depth, L, Z, hgt, c);
         }
+
+        public int _Columns = 10;
 
         public void Draw(vdDocument vdoc, string sectionName, double thickness, double depth, double length, double z, double hgt, Color c)
         {
@@ -2751,7 +2909,7 @@ namespace AstraAccess.ADOC
             //gPoint insPnt = new gPoint(X, Y, Z);
             //gPoint endPnt = new gPoint(X + L, Y, Z);
 
-            int _Columns = 100;
+            //int _Columns = 100;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();
@@ -2760,7 +2918,7 @@ namespace AstraAccess.ADOC
             List<double> lst_x2 = new List<double>();
             List<double> lst_z2 = new List<double>();
 
-            for (int iCols = 0; iCols < _Columns; iCols++)
+            for (int iCols = 0; iCols <= _Columns; iCols++)
             {
                 lst_x.Add(((length / _Columns) * iCols));
                 lst_z.Add((z - thickness / 2));
@@ -2808,7 +2966,7 @@ namespace AstraAccess.ADOC
             //gPoint insPnt = new gPoint(X, Y, Z);
             //gPoint endPnt = new gPoint(X + L, Y, Z);
 
-            int _Columns = 10;
+            //int _Columns = 10;
 
             List<double> lst_x = new List<double>();
             List<double> lst_z = new List<double>();

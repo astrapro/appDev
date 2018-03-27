@@ -106,6 +106,9 @@
             this.label1121 = new System.Windows.Forms.Label();
             this.label1122 = new System.Windows.Forms.Label();
             this.label1125 = new System.Windows.Forms.Label();
+            this.txt_Ana_L = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.chk_curve = new System.Windows.Forms.CheckBox();
             this.grb_curve = new System.Windows.Forms.GroupBox();
             this.txt_curve_ang_incr = new System.Windows.Forms.TextBox();
@@ -160,17 +163,15 @@
             this.label498 = new System.Windows.Forms.Label();
             this.txt_Ana_B = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txt_Ana_L = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pic_section = new System.Windows.Forms.PictureBox();
             this.pic_diagram = new System.Windows.Forms.PictureBox();
             this.groupBox70 = new System.Windows.Forms.GroupBox();
             this.label1095 = new System.Windows.Forms.Label();
             this.label1094 = new System.Windows.Forms.Label();
+            this.pic_section = new System.Windows.Forms.PictureBox();
             this.rbtn_sec_plate = new System.Windows.Forms.RadioButton();
             this.rbtn_sec_box = new System.Windows.Forms.RadioButton();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.txt_Ana_member_load = new System.Windows.Forms.TextBox();
             this.groupBox39 = new System.Windows.Forms.GroupBox();
             this.rbtn_crash_barrier = new System.Windows.Forms.RadioButton();
             this.rbtn_footpath = new System.Windows.Forms.RadioButton();
@@ -774,6 +775,12 @@
             this.txt_sec_Ixb = new System.Windows.Forms.TextBox();
             this.label544 = new System.Windows.Forms.Label();
             this.tab_LL_IRC = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
+            this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
+            this.txt_XINCR = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.btn_IRC_Loadings = new System.Windows.Forms.Button();
             this.btn_edit_load_combs = new System.Windows.Forms.Button();
             this.groupBox117 = new System.Windows.Forms.GroupBox();
@@ -958,6 +965,8 @@
             this.btn_Ana_process_analysis = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_update_forces = new System.Windows.Forms.Button();
             this.pnl_2 = new System.Windows.Forms.Panel();
             this.txt_SUMM_N81 = new System.Windows.Forms.TextBox();
             this.txt_SUMM_N21 = new System.Windows.Forms.TextBox();
@@ -1342,6 +1351,7 @@
             this.label1110 = new System.Windows.Forms.Label();
             this.label1111 = new System.Windows.Forms.Label();
             this.tab_orthotropic = new System.Windows.Forms.TabPage();
+            this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
             this.lbl_orthotropic = new System.Windows.Forms.Label();
             this.tab_DeckSlab_Steel_Girder = new System.Windows.Forms.TabPage();
             this.tc_steel = new System.Windows.Forms.TabControl();
@@ -2052,8 +2062,11 @@
             this.tab_rcc_abutment = new System.Windows.Forms.TabPage();
             this.tc_abutment = new System.Windows.Forms.TabControl();
             this.tab_AbutmentLSM = new System.Windows.Forms.TabPage();
+            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
             this.tab_AbutmentOpenLSM = new System.Windows.Forms.TabPage();
+            this.uC_AbutmentOpenLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS();
             this.tab_AbutmentPileLSM = new System.Windows.Forms.TabPage();
+            this.uC_AbutmentPileLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS();
             this.tab_pier = new System.Windows.Forms.TabPage();
             this.tc_Pier = new System.Windows.Forms.TabControl();
             this.tab_PierWSM_Text = new System.Windows.Forms.TabPage();
@@ -2312,9 +2325,13 @@
             this.label144 = new System.Windows.Forms.Label();
             this.btn_RCC_Pier_Report = new System.Windows.Forms.Button();
             this.tab_PierWSM_Excel = new System.Windows.Forms.TabPage();
+            this.uC_PierDesignWSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignWSM();
             this.tab_PierOpenLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
             this.tab_PierLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
             this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
+            this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_Bearing = new System.Windows.Forms.TabPage();
             this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tab_Drawing = new System.Windows.Forms.TabPage();
@@ -2332,21 +2349,6 @@
             this.label50 = new System.Windows.Forms.Label();
             this.btn_dwg_deck_slab = new System.Windows.Forms.Button();
             this.btn_dwg_abutment = new System.Windows.Forms.Button();
-            this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
-            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
-            this.uC_AbutmentOpenLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentOpenLS();
-            this.uC_AbutmentPileLS1 = new BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS();
-            this.uC_PierDesignWSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignWSM();
-            this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
-            this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
-            this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
-            this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
-            this.txt_XINCR = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_Ana_member_load = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tab_Analysis.SuspendLayout();
             this.tbc_girder.SuspendLayout();
@@ -2358,9 +2360,9 @@
             this.groupBox37.SuspendLayout();
             this.groupBox116.SuspendLayout();
             this.grb_curve.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_section)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).BeginInit();
             this.groupBox70.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_section)).BeginInit();
             this.groupBox12.SuspendLayout();
             this.groupBox39.SuspendLayout();
             this.grb_ana_sw_fp.SuspendLayout();
@@ -2437,6 +2439,7 @@
             this.groupBox109.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.pnl_2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox25.SuspendLayout();
@@ -2621,7 +2624,6 @@
             // 
             this.tab_UID.Controls.Add(this.panel5);
             this.tab_UID.Controls.Add(this.grb_genData);
-            this.tab_UID.Controls.Add(this.pic_section);
             this.tab_UID.Controls.Add(this.pic_diagram);
             this.tab_UID.Controls.Add(this.groupBox70);
             this.tab_UID.Controls.Add(this.groupBox12);
@@ -2686,9 +2688,9 @@
             this.grb_genData.Controls.Add(this.panel7);
             this.grb_genData.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_genData.ForeColor = System.Drawing.Color.Black;
-            this.grb_genData.Location = new System.Drawing.Point(8, 140);
+            this.grb_genData.Location = new System.Drawing.Point(8, 264);
             this.grb_genData.Name = "grb_genData";
-            this.grb_genData.Size = new System.Drawing.Size(426, 339);
+            this.grb_genData.Size = new System.Drawing.Size(426, 375);
             this.grb_genData.TabIndex = 98;
             this.grb_genData.TabStop = false;
             // 
@@ -2699,7 +2701,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 17);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(420, 319);
+            this.panel7.Size = new System.Drawing.Size(420, 355);
             this.panel7.TabIndex = 2;
             // 
             // grb_create_input_data
@@ -2742,15 +2744,12 @@
             this.grb_create_input_data.Controls.Add(this.label498);
             this.grb_create_input_data.Controls.Add(this.txt_Ana_B);
             this.grb_create_input_data.Controls.Add(this.label4);
-            this.grb_create_input_data.Controls.Add(this.label2);
-            this.grb_create_input_data.Controls.Add(this.txt_Ana_L);
-            this.grb_create_input_data.Controls.Add(this.label1);
             this.grb_create_input_data.Dock = System.Windows.Forms.DockStyle.Top;
             this.grb_create_input_data.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_create_input_data.ForeColor = System.Drawing.Color.Blue;
             this.grb_create_input_data.Location = new System.Drawing.Point(0, 0);
             this.grb_create_input_data.Name = "grb_create_input_data";
-            this.grb_create_input_data.Size = new System.Drawing.Size(403, 660);
+            this.grb_create_input_data.Size = new System.Drawing.Size(403, 623);
             this.grb_create_input_data.TabIndex = 1;
             this.grb_create_input_data.TabStop = false;
             this.grb_create_input_data.Text = "GENERAL ARRANGEMENTS AND DEAD LOAD [DL]";
@@ -2762,7 +2761,7 @@
             this.groupBox37.Controls.Add(this.label32);
             this.groupBox37.Controls.Add(this.txt_Ana_Ds);
             this.groupBox37.Controls.Add(this.label33);
-            this.groupBox37.Location = new System.Drawing.Point(3, 449);
+            this.groupBox37.Location = new System.Drawing.Point(5, 398);
             this.groupBox37.Name = "groupBox37";
             this.groupBox37.Size = new System.Drawing.Size(391, 62);
             this.groupBox37.TabIndex = 129;
@@ -2804,7 +2803,7 @@
             // txt_Ana_Ds
             // 
             this.txt_Ana_Ds.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_Ds.Location = new System.Drawing.Point(290, 36);
+            this.txt_Ana_Ds.Location = new System.Drawing.Point(281, 36);
             this.txt_Ana_Ds.Name = "txt_Ana_Ds";
             this.txt_Ana_Ds.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Ds.TabIndex = 5;
@@ -2815,7 +2814,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(342, 39);
+            this.label33.Location = new System.Drawing.Point(333, 39);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(19, 13);
             this.label33.TabIndex = 18;
@@ -2834,9 +2833,12 @@
             this.groupBox116.Controls.Add(this.label1121);
             this.groupBox116.Controls.Add(this.label1122);
             this.groupBox116.Controls.Add(this.label1125);
-            this.groupBox116.Location = new System.Drawing.Point(0, 186);
+            this.groupBox116.Controls.Add(this.txt_Ana_L);
+            this.groupBox116.Controls.Add(this.label1);
+            this.groupBox116.Controls.Add(this.label2);
+            this.groupBox116.Location = new System.Drawing.Point(5, 39);
             this.groupBox116.Name = "groupBox116";
-            this.groupBox116.Size = new System.Drawing.Size(388, 96);
+            this.groupBox116.Size = new System.Drawing.Size(388, 88);
             this.groupBox116.TabIndex = 128;
             this.groupBox116.TabStop = false;
             this.groupBox116.Text = "Span Data";
@@ -2844,7 +2846,7 @@
             // rbtn_multiSpan
             // 
             this.rbtn_multiSpan.AutoSize = true;
-            this.rbtn_multiSpan.Location = new System.Drawing.Point(197, 56);
+            this.rbtn_multiSpan.Location = new System.Drawing.Point(188, 16);
             this.rbtn_multiSpan.Name = "rbtn_multiSpan";
             this.rbtn_multiSpan.Size = new System.Drawing.Size(187, 17);
             this.rbtn_multiSpan.TabIndex = 104;
@@ -2856,7 +2858,7 @@
             // 
             this.rbtn_singleSpan.AutoSize = true;
             this.rbtn_singleSpan.Checked = true;
-            this.rbtn_singleSpan.Location = new System.Drawing.Point(15, 56);
+            this.rbtn_singleSpan.Location = new System.Drawing.Point(6, 16);
             this.rbtn_singleSpan.Name = "rbtn_singleSpan";
             this.rbtn_singleSpan.Size = new System.Drawing.Size(176, 17);
             this.rbtn_singleSpan.TabIndex = 104;
@@ -2899,7 +2901,7 @@
             // txt_multiSpan
             // 
             this.txt_multiSpan.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_multiSpan.Location = new System.Drawing.Point(210, 16);
+            this.txt_multiSpan.Location = new System.Drawing.Point(206, 57);
             this.txt_multiSpan.Name = "txt_multiSpan";
             this.txt_multiSpan.Size = new System.Drawing.Size(134, 21);
             this.txt_multiSpan.TabIndex = 0;
@@ -2930,10 +2932,10 @@
             // label1121
             // 
             this.label1121.AutoSize = true;
-            this.label1121.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1121.Location = new System.Drawing.Point(349, 19);
+            this.label1121.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1121.Location = new System.Drawing.Point(342, 60);
             this.label1121.Name = "label1121";
-            this.label1121.Size = new System.Drawing.Size(18, 13);
+            this.label1121.Size = new System.Drawing.Size(19, 13);
             this.label1121.TabIndex = 103;
             this.label1121.Text = "m";
             // 
@@ -2951,16 +2953,46 @@
             // 
             this.label1125.AutoSize = true;
             this.label1125.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1125.Location = new System.Drawing.Point(12, 19);
+            this.label1125.Location = new System.Drawing.Point(8, 60);
             this.label1125.Name = "label1125";
             this.label1125.Size = new System.Drawing.Size(193, 13);
             this.label1125.TabIndex = 0;
             this.label1125.Text = "Spans (Separated by comma \',\')";
             // 
+            // txt_Ana_L
+            // 
+            this.txt_Ana_L.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Ana_L.Location = new System.Drawing.Point(290, 34);
+            this.txt_Ana_L.Name = "txt_Ana_L";
+            this.txt_Ana_L.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_L.TabIndex = 0;
+            this.txt_Ana_L.Text = "54";
+            this.txt_Ana_L.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_L.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(261, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Length of Deck Span (along X-direction)  [L]";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(342, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "m";
+            // 
             // chk_curve
             // 
             this.chk_curve.AutoSize = true;
-            this.chk_curve.Location = new System.Drawing.Point(8, 302);
+            this.chk_curve.Location = new System.Drawing.Point(11, 133);
             this.chk_curve.Name = "chk_curve";
             this.chk_curve.Size = new System.Drawing.Size(108, 17);
             this.chk_curve.TabIndex = 127;
@@ -2988,9 +3020,9 @@
             this.grb_curve.Controls.Add(this.label1104);
             this.grb_curve.Controls.Add(this.label1098);
             this.grb_curve.Controls.Add(this.label1097);
-            this.grb_curve.Location = new System.Drawing.Point(6, 319);
+            this.grb_curve.Location = new System.Drawing.Point(3, 148);
             this.grb_curve.Name = "grb_curve";
-            this.grb_curve.Size = new System.Drawing.Size(388, 73);
+            this.grb_curve.Size = new System.Drawing.Size(388, 70);
             this.grb_curve.TabIndex = 126;
             this.grb_curve.TabStop = false;
             // 
@@ -3192,7 +3224,7 @@
             "4",
             "5",
             "6"});
-            this.txt_Ana_NMG.Location = new System.Drawing.Point(293, 399);
+            this.txt_Ana_NMG.Location = new System.Drawing.Point(295, 222);
             this.txt_Ana_NMG.Name = "txt_Ana_NMG";
             this.txt_Ana_NMG.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_NMG.TabIndex = 125;
@@ -3200,7 +3232,7 @@
             // txt_Ana_NCG
             // 
             this.txt_Ana_NCG.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_NCG.Location = new System.Drawing.Point(293, 422);
+            this.txt_Ana_NCG.Location = new System.Drawing.Point(295, 245);
             this.txt_Ana_NCG.Name = "txt_Ana_NCG";
             this.txt_Ana_NCG.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_NCG.TabIndex = 0;
@@ -3211,7 +3243,7 @@
             // txt_Ana_m
             // 
             this.txt_Ana_m.Font = new System.Drawing.Font("Verdana", 8.25F);
-            this.txt_Ana_m.Location = new System.Drawing.Point(293, 626);
+            this.txt_Ana_m.Location = new System.Drawing.Point(287, 575);
             this.txt_Ana_m.Name = "txt_Ana_m";
             this.txt_Ana_m.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_m.TabIndex = 124;
@@ -3223,7 +3255,7 @@
             // 
             this.label519.AutoSize = true;
             this.label519.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label519.Location = new System.Drawing.Point(7, 405);
+            this.label519.Location = new System.Drawing.Point(9, 228);
             this.label519.Name = "label519";
             this.label519.Size = new System.Drawing.Size(246, 13);
             this.label519.TabIndex = 103;
@@ -3232,7 +3264,7 @@
             // label190
             // 
             this.label190.AutoSize = true;
-            this.label190.Location = new System.Drawing.Point(7, 626);
+            this.label190.Location = new System.Drawing.Point(9, 575);
             this.label190.Name = "label190";
             this.label190.Size = new System.Drawing.Size(124, 13);
             this.label190.TabIndex = 123;
@@ -3242,7 +3274,7 @@
             // 
             this.label509.AutoSize = true;
             this.label509.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label509.Location = new System.Drawing.Point(7, 425);
+            this.label509.Location = new System.Drawing.Point(9, 248);
             this.label509.Name = "label509";
             this.label509.Size = new System.Drawing.Size(218, 13);
             this.label509.TabIndex = 0;
@@ -3264,7 +3296,7 @@
             // 
             this.label207.AutoSize = true;
             this.label207.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label207.Location = new System.Drawing.Point(349, 405);
+            this.label207.Location = new System.Drawing.Point(351, 228);
             this.label207.Name = "label207";
             this.label207.Size = new System.Drawing.Size(27, 13);
             this.label207.TabIndex = 103;
@@ -3274,7 +3306,7 @@
             // 
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label69.Location = new System.Drawing.Point(350, 425);
+            this.label69.Location = new System.Drawing.Point(352, 248);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(27, 13);
             this.label69.TabIndex = 103;
@@ -3295,7 +3327,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(345, 524);
+            this.label11.Location = new System.Drawing.Point(339, 473);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 13);
             this.label11.TabIndex = 17;
@@ -3304,7 +3336,7 @@
             // txt_Ana_ang
             // 
             this.txt_Ana_ang.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_ang.Location = new System.Drawing.Point(292, 521);
+            this.txt_Ana_ang.Location = new System.Drawing.Point(286, 470);
             this.txt_Ana_ang.Name = "txt_Ana_ang";
             this.txt_Ana_ang.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_ang.TabIndex = 8;
@@ -3315,7 +3347,7 @@
             // label116
             // 
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(346, 599);
+            this.label116.Location = new System.Drawing.Point(340, 548);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(63, 13);
             this.label116.TabIndex = 18;
@@ -3324,7 +3356,7 @@
             // label1082
             // 
             this.label1082.AutoSize = true;
-            this.label1082.Location = new System.Drawing.Point(345, 575);
+            this.label1082.Location = new System.Drawing.Point(339, 524);
             this.label1082.Name = "label1082";
             this.label1082.Size = new System.Drawing.Size(63, 13);
             this.label1082.TabIndex = 18;
@@ -3333,7 +3365,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(345, 551);
+            this.label6.Location = new System.Drawing.Point(339, 500);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(63, 13);
             this.label6.TabIndex = 18;
@@ -3343,7 +3375,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(6, 521);
+            this.label10.Location = new System.Drawing.Point(8, 470);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(110, 13);
             this.label10.TabIndex = 15;
@@ -3353,7 +3385,7 @@
             // 
             this.label112.AutoSize = true;
             this.label112.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label112.Location = new System.Drawing.Point(7, 599);
+            this.label112.Location = new System.Drawing.Point(9, 548);
             this.label112.Name = "label112";
             this.label112.Size = new System.Drawing.Size(152, 13);
             this.label112.TabIndex = 54;
@@ -3363,7 +3395,7 @@
             // 
             this.label1081.AutoSize = true;
             this.label1081.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1081.Location = new System.Drawing.Point(6, 572);
+            this.label1081.Location = new System.Drawing.Point(8, 521);
             this.label1081.Name = "label1081";
             this.label1081.Size = new System.Drawing.Size(214, 13);
             this.label1081.TabIndex = 54;
@@ -3373,7 +3405,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(6, 548);
+            this.label5.Location = new System.Drawing.Point(8, 497);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(175, 13);
             this.label5.TabIndex = 54;
@@ -3382,7 +3414,7 @@
             // txt_Ana_gamma_s
             // 
             this.txt_Ana_gamma_s.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_gamma_s.Location = new System.Drawing.Point(293, 596);
+            this.txt_Ana_gamma_s.Location = new System.Drawing.Point(287, 545);
             this.txt_Ana_gamma_s.Name = "txt_Ana_gamma_s";
             this.txt_Ana_gamma_s.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_gamma_s.TabIndex = 7;
@@ -3393,7 +3425,7 @@
             // txt_Ana_gamma_c_green
             // 
             this.txt_Ana_gamma_c_green.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_gamma_c_green.Location = new System.Drawing.Point(293, 572);
+            this.txt_Ana_gamma_c_green.Location = new System.Drawing.Point(287, 521);
             this.txt_Ana_gamma_c_green.Name = "txt_Ana_gamma_c_green";
             this.txt_Ana_gamma_c_green.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_gamma_c_green.TabIndex = 6;
@@ -3404,7 +3436,7 @@
             // txt_Ana_gamma_c
             // 
             this.txt_Ana_gamma_c.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_gamma_c.Location = new System.Drawing.Point(293, 548);
+            this.txt_Ana_gamma_c.Location = new System.Drawing.Point(287, 497);
             this.txt_Ana_gamma_c.Name = "txt_Ana_gamma_c";
             this.txt_Ana_gamma_c.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_gamma_c.TabIndex = 6;
@@ -3415,7 +3447,7 @@
             // label503
             // 
             this.label503.AutoSize = true;
-            this.label503.Location = new System.Drawing.Point(344, 162);
+            this.label503.Location = new System.Drawing.Point(347, 374);
             this.label503.Name = "label503";
             this.label503.Size = new System.Drawing.Size(19, 13);
             this.label503.TabIndex = 5;
@@ -3424,7 +3456,7 @@
             // label501
             // 
             this.label501.AutoSize = true;
-            this.label501.Location = new System.Drawing.Point(344, 132);
+            this.label501.Location = new System.Drawing.Point(347, 344);
             this.label501.Name = "label501";
             this.label501.Size = new System.Drawing.Size(19, 13);
             this.label501.TabIndex = 5;
@@ -3433,7 +3465,7 @@
             // label499
             // 
             this.label499.AutoSize = true;
-            this.label499.Location = new System.Drawing.Point(344, 89);
+            this.label499.Location = new System.Drawing.Point(347, 301);
             this.label499.Name = "label499";
             this.label499.Size = new System.Drawing.Size(19, 13);
             this.label499.TabIndex = 5;
@@ -3442,7 +3474,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(344, 62);
+            this.label3.Location = new System.Drawing.Point(347, 274);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 5;
@@ -3451,7 +3483,7 @@
             // txt_Ana_CR
             // 
             this.txt_Ana_CR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_CR.Location = new System.Drawing.Point(292, 159);
+            this.txt_Ana_CR.Location = new System.Drawing.Point(295, 371);
             this.txt_Ana_CR.Name = "txt_Ana_CR";
             this.txt_Ana_CR.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_CR.TabIndex = 4;
@@ -3463,7 +3495,7 @@
             // 
             this.label502.AutoSize = true;
             this.label502.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label502.Location = new System.Drawing.Point(5, 151);
+            this.label502.Location = new System.Drawing.Point(8, 363);
             this.label502.Name = "label502";
             this.label502.Size = new System.Drawing.Size(285, 26);
             this.label502.TabIndex = 3;
@@ -3473,7 +3505,7 @@
             // txt_Ana_CL
             // 
             this.txt_Ana_CL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_CL.Location = new System.Drawing.Point(292, 126);
+            this.txt_Ana_CL.Location = new System.Drawing.Point(295, 338);
             this.txt_Ana_CL.Name = "txt_Ana_CL";
             this.txt_Ana_CL.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_CL.TabIndex = 3;
@@ -3485,7 +3517,7 @@
             // 
             this.label500.AutoSize = true;
             this.label500.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label500.Location = new System.Drawing.Point(4, 118);
+            this.label500.Location = new System.Drawing.Point(7, 330);
             this.label500.Name = "label500";
             this.label500.Size = new System.Drawing.Size(275, 26);
             this.label500.TabIndex = 3;
@@ -3495,7 +3527,7 @@
             // txt_Ana_CW
             // 
             this.txt_Ana_CW.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_CW.Location = new System.Drawing.Point(292, 86);
+            this.txt_Ana_CW.Location = new System.Drawing.Point(295, 298);
             this.txt_Ana_CW.Name = "txt_Ana_CW";
             this.txt_Ana_CW.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_CW.TabIndex = 2;
@@ -3507,7 +3539,7 @@
             // 
             this.label498.AutoSize = true;
             this.label498.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label498.Location = new System.Drawing.Point(4, 86);
+            this.label498.Location = new System.Drawing.Point(7, 298);
             this.label498.Name = "label498";
             this.label498.Size = new System.Drawing.Size(205, 26);
             this.label498.TabIndex = 3;
@@ -3516,7 +3548,7 @@
             // txt_Ana_B
             // 
             this.txt_Ana_B.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_B.Location = new System.Drawing.Point(292, 59);
+            this.txt_Ana_B.Location = new System.Drawing.Point(295, 271);
             this.txt_Ana_B.Name = "txt_Ana_B";
             this.txt_Ana_B.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_B.TabIndex = 1;
@@ -3528,52 +3560,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 62);
+            this.label4.Location = new System.Drawing.Point(6, 274);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(265, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Width of Bridge Deck  (along Z-direction) [B]";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(344, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "m";
-            // 
-            // txt_Ana_L
-            // 
-            this.txt_Ana_L.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_L.Location = new System.Drawing.Point(292, 36);
-            this.txt_Ana_L.Name = "txt_Ana_L";
-            this.txt_Ana_L.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_L.TabIndex = 0;
-            this.txt_Ana_L.Text = "54";
-            this.txt_Ana_L.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_L.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(5, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(261, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Length of Deck Span (along X-direction)  [L]";
-            // 
-            // pic_section
-            // 
-            this.pic_section.BackgroundImage = global::LimitStateMethod.Properties.Resources.Steel_Box_Section;
-            this.pic_section.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_section.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_section.Location = new System.Drawing.Point(66, 488);
-            this.pic_section.Name = "pic_section";
-            this.pic_section.Size = new System.Drawing.Size(328, 151);
-            this.pic_section.TabIndex = 6;
-            this.pic_section.TabStop = false;
             // 
             // pic_diagram
             // 
@@ -3589,11 +3580,12 @@
             // 
             this.groupBox70.Controls.Add(this.label1095);
             this.groupBox70.Controls.Add(this.label1094);
+            this.groupBox70.Controls.Add(this.pic_section);
             this.groupBox70.Controls.Add(this.rbtn_sec_plate);
             this.groupBox70.Controls.Add(this.rbtn_sec_box);
             this.groupBox70.Location = new System.Drawing.Point(8, 56);
             this.groupBox70.Name = "groupBox70";
-            this.groupBox70.Size = new System.Drawing.Size(426, 73);
+            this.groupBox70.Size = new System.Drawing.Size(426, 202);
             this.groupBox70.TabIndex = 101;
             this.groupBox70.TabStop = false;
             // 
@@ -3601,7 +3593,7 @@
             // 
             this.label1095.AutoSize = true;
             this.label1095.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1095.Location = new System.Drawing.Point(159, 47);
+            this.label1095.Location = new System.Drawing.Point(159, 36);
             this.label1095.Name = "label1095";
             this.label1095.Size = new System.Drawing.Size(180, 12);
             this.label1095.TabIndex = 3;
@@ -3616,6 +3608,17 @@
             this.label1094.Size = new System.Drawing.Size(257, 12);
             this.label1094.TabIndex = 3;
             this.label1094.Text = "(Available with Worksheet and Alternative Design)";
+            // 
+            // pic_section
+            // 
+            this.pic_section.BackgroundImage = global::LimitStateMethod.Properties.Resources.Steel_Box_Section;
+            this.pic_section.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_section.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_section.Location = new System.Drawing.Point(39, 51);
+            this.pic_section.Name = "pic_section";
+            this.pic_section.Size = new System.Drawing.Size(328, 151);
+            this.pic_section.TabIndex = 6;
+            this.pic_section.TabStop = false;
             // 
             // rbtn_sec_plate
             // 
@@ -3634,7 +3637,7 @@
             this.rbtn_sec_box.AutoSize = true;
             this.rbtn_sec_box.Checked = true;
             this.rbtn_sec_box.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_sec_box.Location = new System.Drawing.Point(6, 41);
+            this.rbtn_sec_box.Location = new System.Drawing.Point(6, 30);
             this.rbtn_sec_box.Name = "rbtn_sec_box";
             this.rbtn_sec_box.Size = new System.Drawing.Size(147, 22);
             this.rbtn_sec_box.TabIndex = 2;
@@ -3658,6 +3661,15 @@
             this.groupBox12.TabIndex = 96;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "SUPER IMPOSED DEAD LOAD [SIDL]";
+            // 
+            // txt_Ana_member_load
+            // 
+            this.txt_Ana_member_load.Location = new System.Drawing.Point(429, 77);
+            this.txt_Ana_member_load.Multiline = true;
+            this.txt_Ana_member_load.Name = "txt_Ana_member_load";
+            this.txt_Ana_member_load.Size = new System.Drawing.Size(52, 36);
+            this.txt_Ana_member_load.TabIndex = 101;
+            this.txt_Ana_member_load.Visible = false;
             // 
             // groupBox39
             // 
@@ -10062,6 +10074,69 @@
             this.tab_LL_IRC.Text = "Live Load Data (IRC)";
             this.tab_LL_IRC.UseVisualStyleBackColor = true;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(716, 611);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(170, 13);
+            this.label18.TabIndex = 97;
+            this.label18.Text = "DL + LL Combine Load No";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label75.Location = new System.Drawing.Point(778, 586);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(114, 13);
+            this.label75.TabIndex = 100;
+            this.label75.Text = "Load Generation";
+            // 
+            // txt_LL_load_gen
+            // 
+            this.txt_LL_load_gen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_LL_load_gen.Location = new System.Drawing.Point(898, 583);
+            this.txt_LL_load_gen.Name = "txt_LL_load_gen";
+            this.txt_LL_load_gen.Size = new System.Drawing.Size(39, 21);
+            this.txt_LL_load_gen.TabIndex = 99;
+            this.txt_LL_load_gen.Text = "191";
+            this.txt_LL_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_dl_ll_comb
+            // 
+            this.txt_dl_ll_comb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_dl_ll_comb.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_dl_ll_comb.Location = new System.Drawing.Point(898, 611);
+            this.txt_dl_ll_comb.Name = "txt_dl_ll_comb";
+            this.txt_dl_ll_comb.Size = new System.Drawing.Size(39, 18);
+            this.txt_dl_ll_comb.TabIndex = 95;
+            this.txt_dl_ll_comb.Text = "1";
+            this.txt_dl_ll_comb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_XINCR
+            // 
+            this.txt_XINCR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_XINCR.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_XINCR.Location = new System.Drawing.Point(719, 585);
+            this.txt_XINCR.Name = "txt_XINCR";
+            this.txt_XINCR.Size = new System.Drawing.Size(37, 18);
+            this.txt_XINCR.TabIndex = 96;
+            this.txt_XINCR.Text = "0.5";
+            this.txt_XINCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_XINCR.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(663, 586);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(50, 13);
+            this.label19.TabIndex = 98;
+            this.label19.Text = "X INCR";
+            // 
             // btn_IRC_Loadings
             // 
             this.btn_IRC_Loadings.Location = new System.Drawing.Point(18, 578);
@@ -11977,6 +12052,7 @@
             // tabPage3
             // 
             this.tabPage3.AutoScroll = true;
+            this.tabPage3.Controls.Add(this.panel8);
             this.tabPage3.Controls.Add(this.pnl_2);
             this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.groupBox35);
@@ -11987,6 +12063,27 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Analysis Result";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btn_update_forces);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.ForeColor = System.Drawing.Color.Black;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(899, 54);
+            this.panel8.TabIndex = 107;
+            // 
+            // btn_update_forces
+            // 
+            this.btn_update_forces.Enabled = false;
+            this.btn_update_forces.Location = new System.Drawing.Point(357, 10);
+            this.btn_update_forces.Name = "btn_update_forces";
+            this.btn_update_forces.Size = new System.Drawing.Size(208, 35);
+            this.btn_update_forces.TabIndex = 76;
+            this.btn_update_forces.Text = "Update Forces";
+            this.btn_update_forces.UseVisualStyleBackColor = true;
+            this.btn_update_forces.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
             // 
             // pnl_2
             // 
@@ -12075,7 +12172,7 @@
             this.pnl_2.Controls.Add(this.label1079);
             this.pnl_2.Controls.Add(this.label1080);
             this.pnl_2.ForeColor = System.Drawing.Color.Black;
-            this.pnl_2.Location = new System.Drawing.Point(71, 18);
+            this.pnl_2.Location = new System.Drawing.Point(63, 65);
             this.pnl_2.Name = "pnl_2";
             this.pnl_2.Size = new System.Drawing.Size(747, 419);
             this.pnl_2.TabIndex = 4;
@@ -12852,7 +12949,7 @@
             this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
-            this.groupBox1.Location = new System.Drawing.Point(9, 455);
+            this.groupBox1.Location = new System.Drawing.Point(6, 490);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(889, 451);
             this.groupBox1.TabIndex = 95;
@@ -15506,7 +15603,7 @@
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(922, 468);
             this.tabPage6.TabIndex = 2;
-            this.tabPage6.Text = "Support Reaction [WSM]";
+            this.tabPage6.Text = "Support Reaction [LL]";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // groupBox52
@@ -15520,7 +15617,7 @@
             this.groupBox52.Controls.Add(this.txt_live_vert_rec_Ton);
             this.groupBox52.Controls.Add(this.label401);
             this.groupBox52.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox52.Location = new System.Drawing.Point(530, 134);
+            this.groupBox52.Location = new System.Drawing.Point(313, 134);
             this.groupBox52.Name = "groupBox52";
             this.groupBox52.Size = new System.Drawing.Size(297, 241);
             this.groupBox52.TabIndex = 23;
@@ -15651,12 +15748,13 @@
             this.groupBox51.Controls.Add(this.dgv_left_end_design_forces);
             this.groupBox51.Controls.Add(this.txt_dead_vert_reac_ton);
             this.groupBox51.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox51.Location = new System.Drawing.Point(132, 134);
+            this.groupBox51.Location = new System.Drawing.Point(9, 134);
             this.groupBox51.Name = "groupBox51";
             this.groupBox51.Size = new System.Drawing.Size(297, 241);
             this.groupBox51.TabIndex = 22;
             this.groupBox51.TabStop = false;
             this.groupBox51.Text = "Support Reactions from Dead Load";
+            this.groupBox51.Visible = false;
             // 
             // label327
             // 
@@ -15784,6 +15882,7 @@
             this.groupBox36.Size = new System.Drawing.Size(695, 89);
             this.groupBox36.TabIndex = 105;
             this.groupBox36.TabStop = false;
+            this.groupBox36.Visible = false;
             // 
             // label136
             // 
@@ -16106,6 +16205,18 @@
             this.tab_orthotropic.Text = "Orthotropic Model Analysis";
             this.tab_orthotropic.UseVisualStyleBackColor = true;
             // 
+            // uC_Orthotropic1
+            // 
+            this.uC_Orthotropic1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Orthotropic1.Input_Data_File = null;
+            this.uC_Orthotropic1.Location = new System.Drawing.Point(3, 36);
+            this.uC_Orthotropic1.Name = "uC_Orthotropic1";
+            this.uC_Orthotropic1.Size = new System.Drawing.Size(934, 603);
+            this.uC_Orthotropic1.TabIndex = 1;
+            this.uC_Orthotropic1.OnDraw_Click += new System.EventHandler(this.uC_Orthotropic1_OnDraw_Click);
+            this.uC_Orthotropic1.OnRunAnalysis_Click += new System.EventHandler(this.uC_Orthotropic1_OnRunAnalysis_Click);
+            this.uC_Orthotropic1.OnCreateData_Click += new System.EventHandler(this.uC_Orthotropic1_OnCreateData_Click);
+            // 
             // lbl_orthotropic
             // 
             this.lbl_orthotropic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -16118,6 +16229,7 @@
             this.lbl_orthotropic.TabIndex = 0;
             this.lbl_orthotropic.Text = "The Module is not attached for large size.";
             this.lbl_orthotropic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_orthotropic.Visible = false;
             this.lbl_orthotropic.Click += new System.EventHandler(this.lbl_orthotropic_Click);
             // 
             // tab_DeckSlab_Steel_Girder
@@ -16172,7 +16284,7 @@
             this.tab_SteelAlternative.Location = new System.Drawing.Point(4, 22);
             this.tab_SteelAlternative.Name = "tab_SteelAlternative";
             this.tab_SteelAlternative.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_SteelAlternative.Size = new System.Drawing.Size(940, 642);
+            this.tab_SteelAlternative.Size = new System.Drawing.Size(178, 42);
             this.tab_SteelAlternative.TabIndex = 0;
             this.tab_SteelAlternative.Text = "Alternative Design";
             this.tab_SteelAlternative.UseVisualStyleBackColor = true;
@@ -16186,7 +16298,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(934, 601);
+            this.tabControl2.Size = new System.Drawing.Size(172, 1);
             this.tabControl2.TabIndex = 5;
             // 
             // tab_frc
@@ -16197,7 +16309,7 @@
             this.tab_frc.Location = new System.Drawing.Point(4, 22);
             this.tab_frc.Name = "tab_frc";
             this.tab_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_frc.Size = new System.Drawing.Size(926, 575);
+            this.tab_frc.Size = new System.Drawing.Size(164, 0);
             this.tab_frc.TabIndex = 0;
             this.tab_frc.Text = "Steel Girder Design Force Data";
             this.tab_frc.UseVisualStyleBackColor = true;
@@ -16223,7 +16335,7 @@
             this.groupBox13.Controls.Add(this.label7);
             this.groupBox13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.ForeColor = System.Drawing.Color.Red;
-            this.groupBox13.Location = new System.Drawing.Point(229, 159);
+            this.groupBox13.Location = new System.Drawing.Point(-152, -128);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(469, 364);
             this.groupBox13.TabIndex = 98;
@@ -21670,9 +21782,9 @@
             this.panel2.Controls.Add(this.btnReport);
             this.panel2.Controls.Add(this.btnProcess);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 604);
+            this.panel2.Location = new System.Drawing.Point(3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(934, 35);
+            this.panel2.Size = new System.Drawing.Size(172, 35);
             this.panel2.TabIndex = 6;
             // 
             // label140
@@ -21689,7 +21801,7 @@
             // btnReport
             // 
             this.btnReport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReport.Location = new System.Drawing.Point(479, 4);
+            this.btnReport.Location = new System.Drawing.Point(98, 4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(153, 27);
             this.btnReport.TabIndex = 4;
@@ -21700,7 +21812,7 @@
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProcess.Location = new System.Drawing.Point(303, 4);
+            this.btnProcess.Location = new System.Drawing.Point(-78, 4);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(153, 27);
             this.btnProcess.TabIndex = 3;
@@ -21796,7 +21908,7 @@
             this.tab_deck_ll_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_ll_data.Name = "tab_deck_ll_data";
             this.tab_deck_ll_data.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_deck_ll_data.Size = new System.Drawing.Size(940, 498);
+            this.tab_deck_ll_data.Size = new System.Drawing.Size(178, 0);
             this.tab_deck_ll_data.TabIndex = 0;
             this.tab_deck_ll_data.Text = "Deck Slab Live Load Data";
             this.tab_deck_ll_data.UseVisualStyleBackColor = true;
@@ -22186,7 +22298,7 @@
             this.tab_deck_des_data.Controls.Add(this.dgv_deck_design_input);
             this.tab_deck_des_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_des_data.Name = "tab_deck_des_data";
-            this.tab_deck_des_data.Size = new System.Drawing.Size(940, 498);
+            this.tab_deck_des_data.Size = new System.Drawing.Size(178, 0);
             this.tab_deck_des_data.TabIndex = 2;
             this.tab_deck_des_data.Text = "Design Data";
             this.tab_deck_des_data.UseVisualStyleBackColor = true;
@@ -23774,26 +23886,128 @@
             this.tab_AbutmentLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentLSM.UseVisualStyleBackColor = true;
             // 
+            // uC_RCC_Abut1
+            // 
+            this.uC_RCC_Abut1.Deadload_Reaction = "";
+            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_RCC_Abut1.iApp = null;
+            this.uC_RCC_Abut1.Is_Individual = true;
+            this.uC_RCC_Abut1.Is_Limit_State = true;
+            this.uC_RCC_Abut1.IsBoxType = false;
+            this.uC_RCC_Abut1.Length = 60D;
+            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
+            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
+            this.uC_RCC_Abut1.Overhang = 0.65D;
+            this.uC_RCC_Abut1.Size = new System.Drawing.Size(934, 636);
+            this.uC_RCC_Abut1.TabIndex = 0;
+            this.uC_RCC_Abut1.Width = 383D;
+            this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
+            this.uC_RCC_Abut1.Load += new System.EventHandler(this.uC_RCC_Abut1_Load);
+            // 
             // tab_AbutmentOpenLSM
             // 
             this.tab_AbutmentOpenLSM.Controls.Add(this.uC_AbutmentOpenLS1);
             this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
             this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentOpenLSM.TabIndex = 1;
             this.tab_AbutmentOpenLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_AbutmentOpenLS1
+            // 
+            this.uC_AbutmentOpenLS1.Bridge_Type = "RCC Girder with Deck Slab";
+            this.uC_AbutmentOpenLS1.Carriageway_width = "16";
+            this.uC_AbutmentOpenLS1.Concrete_Grade = "30";
+            this.uC_AbutmentOpenLS1.Concrete_Reinforcement = "500";
+            this.uC_AbutmentOpenLS1.Crash_Barrier = "0.5";
+            this.uC_AbutmentOpenLS1.Crash_Barrier_weight = "0.8";
+            this.uC_AbutmentOpenLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentOpenLS1.DL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.DL_MTT = "-2095.50";
+            this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentOpenLS1.Exp_Gap = "40";
+            this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentOpenLS1.Foot_path = "1.5";
+            this.uC_AbutmentOpenLS1.Foot_Path_Live_Load = "0.4";
+            this.uC_AbutmentOpenLS1.Girder_Depth = "2.0";
+            this.uC_AbutmentOpenLS1.Girder_Nos = "6";
+            this.uC_AbutmentOpenLS1.Girder_Spacing = "2.6";
+            this.uC_AbutmentOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentOpenLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentOpenLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentOpenLS1.LL_MTT_Max = "-660.72";
+            this.uC_AbutmentOpenLS1.LL_MTT_Min = "-165.473";
+            this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
+            this.uC_AbutmentOpenLS1.Railing = "0.5";
+            this.uC_AbutmentOpenLS1.Railing_weight = "0.6";
+            this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
+            this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(172, 36);
+            this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
+            this.uC_AbutmentOpenLS1.Span = "25.0";
+            this.uC_AbutmentOpenLS1.TabIndex = 0;
+            this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
+            this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
             // 
             // tab_AbutmentPileLSM
             // 
             this.tab_AbutmentPileLSM.Controls.Add(this.uC_AbutmentPileLS1);
             this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
-            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentPileLSM.TabIndex = 2;
             this.tab_AbutmentPileLSM.Text = "Abutment Design with Pile Foundation in LSM";
             this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_AbutmentPileLS1
+            // 
+            this.uC_AbutmentPileLS1.Abutment_Length = "13.0";
+            this.uC_AbutmentPileLS1.Bridge_Type = "PSC Girder with Deck Slab";
+            this.uC_AbutmentPileLS1.Carriageway_width = "13.0";
+            this.uC_AbutmentPileLS1.Concrete_Grade = "35";
+            this.uC_AbutmentPileLS1.Concrete_Reinforcement = "500";
+            this.uC_AbutmentPileLS1.Crash_Barrier = "0.5";
+            this.uC_AbutmentPileLS1.Crash_Barrier_weight = "0.8";
+            this.uC_AbutmentPileLS1.Cross_Camber = "0.025";
+            this.uC_AbutmentPileLS1.DL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.DL_MTT = "-458.64";
+            this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_AbutmentPileLS1.Exp_Gap = "50";
+            this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_AbutmentPileLS1.Foot_path = "0.0";
+            this.uC_AbutmentPileLS1.Foot_Path_Live_Load = "0.4";
+            this.uC_AbutmentPileLS1.Girder_Depth = "1.08";
+            this.uC_AbutmentPileLS1.Girder_Nos = "4";
+            this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
+            this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
+            this.uC_AbutmentPileLS1.LL_MLL_Max = "104.72";
+            this.uC_AbutmentPileLS1.LL_MLL_Min = "26.23";
+            this.uC_AbutmentPileLS1.LL_MTT_Max = "-660.726";
+            this.uC_AbutmentPileLS1.LL_MTT_Min = "-165.47";
+            this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_AbutmentPileLS1.MAX_HOR_LOAD = "80.0";
+            this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
+            this.uC_AbutmentPileLS1.MAX_VERT_LOAD = "433.0";
+            this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
+            this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
+            this.uC_AbutmentPileLS1.Pile_Dia = "1.2";
+            this.uC_AbutmentPileLS1.Railing = "0.0";
+            this.uC_AbutmentPileLS1.Railing_weight = "0.6";
+            this.uC_AbutmentPileLS1.RCC_Density = "2.5";
+            this.uC_AbutmentPileLS1.Show_Title = false;
+            this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
+            this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(178, 42);
+            this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
+            this.uC_AbutmentPileLS1.Span = "12.687";
+            this.uC_AbutmentPileLS1.TabIndex = 0;
+            this.uC_AbutmentPileLS1.Wearing_coat_load = "0.22";
+            this.uC_AbutmentPileLS1.Wearing_Coat_Thickness = "65";
             // 
             // tab_pier
             // 
@@ -25866,7 +26080,7 @@
             this.tab_des_form2.Location = new System.Drawing.Point(4, 22);
             this.tab_des_form2.Name = "tab_des_form2";
             this.tab_des_form2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form2.Size = new System.Drawing.Size(932, 573);
+            this.tab_des_form2.Size = new System.Drawing.Size(170, 0);
             this.tab_des_form2.TabIndex = 2;
             this.tab_des_form2.Text = "Design Input Data [Form2]";
             this.tab_des_form2.UseVisualStyleBackColor = true;
@@ -26528,7 +26742,7 @@
             this.tab_des_Diagram.Location = new System.Drawing.Point(4, 22);
             this.tab_des_Diagram.Name = "tab_des_Diagram";
             this.tab_des_Diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_Diagram.Size = new System.Drawing.Size(932, 573);
+            this.tab_des_Diagram.Size = new System.Drawing.Size(170, 0);
             this.tab_des_Diagram.TabIndex = 1;
             this.tab_des_Diagram.Text = "Diagram";
             this.tab_des_Diagram.UseVisualStyleBackColor = true;
@@ -26541,7 +26755,7 @@
             this.pic_pier_interactive_diagram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_pier_interactive_diagram.Location = new System.Drawing.Point(3, 3);
             this.pic_pier_interactive_diagram.Name = "pic_pier_interactive_diagram";
-            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(926, 567);
+            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(164, 0);
             this.pic_pier_interactive_diagram.TabIndex = 0;
             this.pic_pier_interactive_diagram.TabStop = false;
             // 
@@ -26594,20 +26808,80 @@
             this.tab_PierWSM_Excel.Controls.Add(this.uC_PierDesignWSM1);
             this.tab_PierWSM_Excel.Location = new System.Drawing.Point(4, 22);
             this.tab_PierWSM_Excel.Name = "tab_PierWSM_Excel";
-            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(184, 48);
             this.tab_PierWSM_Excel.TabIndex = 2;
             this.tab_PierWSM_Excel.Text = "Design of RCC Pier in Working Stress Method";
             this.tab_PierWSM_Excel.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierDesignWSM1
+            // 
+            this.uC_PierDesignWSM1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierDesignWSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierDesignWSM1.Left_Span_Force = "2600.0";
+            this.uC_PierDesignWSM1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierDesignWSM1.Name = "uC_PierDesignWSM1";
+            this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
+            this.uC_PierDesignWSM1.Show_Note = false;
+            this.uC_PierDesignWSM1.Show_Title = false;
+            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(184, 48);
+            this.uC_PierDesignWSM1.TabIndex = 0;
             // 
             // tab_PierOpenLSM
             // 
             this.tab_PierOpenLSM.Controls.Add(this.uC_PierOpenLS1);
             this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
-            this.tab_PierOpenLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierOpenLSM.TabIndex = 3;
             this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
             this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierOpenLS1
+            // 
+            this.uC_PierOpenLS1.CarriageWidth_Left = "11.00";
+            this.uC_PierOpenLS1.CarriageWidth_Right = "11.00";
+            this.uC_PierOpenLS1.CC_Exp_Gap_Left = "40";
+            this.uC_PierOpenLS1.CC_Exp_Gap_Right = "40";
+            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "0.42";
+            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "0.42";
+            this.uC_PierOpenLS1.CC_Exp_Joint_Left_Skew = "25.84";
+            this.uC_PierOpenLS1.CC_Exp_Joint_Right_Skew = "25.84";
+            this.uC_PierOpenLS1.CrashBarierHeight_Left = "1.10";
+            this.uC_PierOpenLS1.CrashBarierHeight_Right = "1.10";
+            this.uC_PierOpenLS1.CrashBarierWidth_Left = "0.50";
+            this.uC_PierOpenLS1.CrashBarierWidth_Nos = "2";
+            this.uC_PierOpenLS1.CrashBarierWidth_Right = "0.50";
+            this.uC_PierOpenLS1.CrossGirderNos_Left = "2";
+            this.uC_PierOpenLS1.CrossGirderNos_Right = "2";
+            this.uC_PierOpenLS1.CrossGirderWidth_Left = "0.45";
+            this.uC_PierOpenLS1.CrossGirderWidth_Right = "0.45";
+            this.uC_PierOpenLS1.DL_Force = "3322.53";
+            this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierOpenLS1.FootPathWidth_Left = "1.50";
+            this.uC_PierOpenLS1.FootPathWidth_Nos = "2";
+            this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
+            this.uC_PierOpenLS1.FPLL_Force = "310.08";
+            this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
+            this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
+            this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
+            this.uC_PierOpenLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
+            this.uC_PierOpenLS1.RailingWidth_Left = "0.50";
+            this.uC_PierOpenLS1.RailingWidth_Nos = "2";
+            this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
+            this.uC_PierOpenLS1.Show_Title = false;
+            this.uC_PierOpenLS1.SIDL_Force = "723.52";
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(184, 48);
+            this.uC_PierOpenLS1.SkewAngle = "0.0";
+            this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
+            this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
+            this.uC_PierOpenLS1.Surface_Force = "723.52";
+            this.uC_PierOpenLS1.TabIndex = 0;
+            this.uC_PierOpenLS1.TopFlangeWidth_Left = "1.00";
+            this.uC_PierOpenLS1.TopFlangeWidth_Right = "0.22";
+            this.uC_PierOpenLS1.WearingCoatThickness_Left = "65";
+            this.uC_PierOpenLS1.WearingCoatThickness_Right = "65";
             // 
             // tab_PierLSM
             // 
@@ -26615,20 +26889,85 @@
             this.tab_PierLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierLSM.Name = "tab_PierLSM";
             this.tab_PierLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierLSM.TabIndex = 1;
             this.tab_PierLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierDesignLSM1
+            // 
+            this.uC_PierDesignLSM1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierDesignLSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierDesignLSM1.iApp = null;
+            this.uC_PierDesignLSM1.Left_Span = "35";
+            this.uC_PierDesignLSM1.Left_Span_Moment_Mx = "0.0";
+            this.uC_PierDesignLSM1.Left_Span_Moment_Mz = "0.0";
+            this.uC_PierDesignLSM1.Left_Span_Vertical_Load = "42";
+            this.uC_PierDesignLSM1.Location = new System.Drawing.Point(3, 3);
+            this.uC_PierDesignLSM1.Name = "uC_PierDesignLSM1";
+            this.uC_PierDesignLSM1.Right_Span = "35";
+            this.uC_PierDesignLSM1.Right_Span_Moment_Mx = "0.0";
+            this.uC_PierDesignLSM1.Right_Span_Moment_Mz = "0.0";
+            this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
+            this.uC_PierDesignLSM1.Show_Note = false;
+            this.uC_PierDesignLSM1.Show_Title = false;
+            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(178, 42);
+            this.uC_PierDesignLSM1.TabIndex = 0;
+            this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
+            this.uC_PierDesignLSM1.OnProcess += new System.EventHandler(this.uC_PierDesignLSM1_OnProcess);
             // 
             // tab_PierPileLSM
             // 
             this.tab_PierPileLSM.Controls.Add(this.uC_PierPileLS1);
             this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierPileLSM.Name = "tab_PierPileLSM";
-            this.tab_PierPileLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierPileLSM.TabIndex = 4;
             this.tab_PierPileLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierPileLSM.UseVisualStyleBackColor = true;
+            // 
+            // uC_PierPileLS1
+            // 
+            this.uC_PierPileLS1.CarriageWidth_Left = "12.00";
+            this.uC_PierPileLS1.CarriageWidth_Right = "12.00";
+            this.uC_PierPileLS1.CC_Exp_Gap_Left = "50";
+            this.uC_PierPileLS1.CC_Exp_Gap_Right = "50";
+            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "1.157";
+            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "1.157";
+            this.uC_PierPileLS1.CC_Exp_Joint_Left_Skew = "15.00";
+            this.uC_PierPileLS1.CC_Exp_Joint_Right_Skew = "30.00";
+            this.uC_PierPileLS1.CrashBarierHeight_Left = "1.10";
+            this.uC_PierPileLS1.CrashBarierHeight_Right = "1.10";
+            this.uC_PierPileLS1.CrashBarierWidth_Left = "0.50";
+            this.uC_PierPileLS1.CrashBarierWidth_Nos = "2";
+            this.uC_PierPileLS1.CrashBarierWidth_Right = "0.50";
+            this.uC_PierPileLS1.CrossGirderNos_Left = "2";
+            this.uC_PierPileLS1.CrossGirderNos_Right = "2";
+            this.uC_PierPileLS1.CrossGirderWidth_Left = "0.50";
+            this.uC_PierPileLS1.CrossGirderWidth_Right = "0.50";
+            this.uC_PierPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_PierPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_PierPileLS1.FootPathWidth_Left = "0.0";
+            this.uC_PierPileLS1.FootPathWidth_Nos = "0";
+            this.uC_PierPileLS1.FootPathWidth_Right = "0.0";
+            this.uC_PierPileLS1.GirderDepth_Left = "1.08";
+            this.uC_PierPileLS1.GirderDepth_Right = "2.00";
+            this.uC_PierPileLS1.Is_Force_From_Analysis = true;
+            this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
+            this.uC_PierPileLS1.Name = "uC_PierPileLS1";
+            this.uC_PierPileLS1.RailingWidth_Left = "0.0";
+            this.uC_PierPileLS1.RailingWidth_Nos = "0";
+            this.uC_PierPileLS1.RailingWidth_Right = "0.0";
+            this.uC_PierPileLS1.Show_Title = false;
+            this.uC_PierPileLS1.Size = new System.Drawing.Size(184, 48);
+            this.uC_PierPileLS1.SkewAngle = "18.0";
+            this.uC_PierPileLS1.SlabDepth_Left = "0.22";
+            this.uC_PierPileLS1.SlabDepth_Right = "0.22";
+            this.uC_PierPileLS1.TabIndex = 0;
+            this.uC_PierPileLS1.TopFlangeWidth_Left = "0.80";
+            this.uC_PierPileLS1.TopFlangeWidth_Right = "0.22";
+            this.uC_PierPileLS1.WearingCoatThickness_Left = "65";
+            this.uC_PierPileLS1.WearingCoatThickness_Right = "65";
             // 
             // tab_Bearing
             // 
@@ -26816,314 +27155,6 @@
             this.btn_dwg_abutment.Visible = false;
             this.btn_dwg_abutment.Click += new System.EventHandler(this.btn_dwg_long_Click);
             // 
-            // uC_Orthotropic1
-            // 
-            this.uC_Orthotropic1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Orthotropic1.Location = new System.Drawing.Point(3, 36);
-            this.uC_Orthotropic1.Name = "uC_Orthotropic1";
-            this.uC_Orthotropic1.Size = new System.Drawing.Size(934, 603);
-            this.uC_Orthotropic1.TabIndex = 1;
-            this.uC_Orthotropic1.OnDraw_Click += new System.EventHandler(this.uC_Orthotropic1_OnDraw_Click);
-            // 
-            // uC_RCC_Abut1
-            // 
-            this.uC_RCC_Abut1.Deadload_Reaction = "";
-            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_RCC_Abut1.iApp = null;
-            this.uC_RCC_Abut1.Is_Individual = true;
-            this.uC_RCC_Abut1.Is_Limit_State = true;
-            this.uC_RCC_Abut1.IsBoxType = false;
-            this.uC_RCC_Abut1.Length = 60D;
-            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
-            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
-            this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(934, 636);
-            this.uC_RCC_Abut1.TabIndex = 0;
-            this.uC_RCC_Abut1.Width = 383D;
-            this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
-            this.uC_RCC_Abut1.Load += new System.EventHandler(this.uC_RCC_Abut1_Load);
-            // 
-            // uC_AbutmentOpenLS1
-            // 
-            this.uC_AbutmentOpenLS1.Bridge_Type = "RCC Girder with Deck Slab";
-            this.uC_AbutmentOpenLS1.Carriageway_width = "16";
-            this.uC_AbutmentOpenLS1.Concrete_Grade = "30";
-            this.uC_AbutmentOpenLS1.Concrete_Reinforcement = "500";
-            this.uC_AbutmentOpenLS1.Crash_Barrier = "0.5";
-            this.uC_AbutmentOpenLS1.Crash_Barrier_weight = "0.8";
-            this.uC_AbutmentOpenLS1.Cross_Camber = "0.025";
-            this.uC_AbutmentOpenLS1.DL_MLL = "0.0";
-            this.uC_AbutmentOpenLS1.DL_MTT = "-2095.50";
-            this.uC_AbutmentOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_AbutmentOpenLS1.Exp_Gap = "40";
-            this.uC_AbutmentOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_AbutmentOpenLS1.Foot_path = "1.5";
-            this.uC_AbutmentOpenLS1.Foot_Path_Live_Load = "0.4";
-            this.uC_AbutmentOpenLS1.Girder_Depth = "2.0";
-            this.uC_AbutmentOpenLS1.Girder_Nos = "6";
-            this.uC_AbutmentOpenLS1.Girder_Spacing = "2.6";
-            this.uC_AbutmentOpenLS1.Is_Force_From_Analysis = true;
-            this.uC_AbutmentOpenLS1.LL_MLL_Max = "104.72";
-            this.uC_AbutmentOpenLS1.LL_MLL_Min = "26.23";
-            this.uC_AbutmentOpenLS1.LL_MTT_Max = "-660.72";
-            this.uC_AbutmentOpenLS1.LL_MTT_Min = "-165.473";
-            this.uC_AbutmentOpenLS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_AbutmentOpenLS1.Name = "uC_AbutmentOpenLS1";
-            this.uC_AbutmentOpenLS1.Railing = "0.5";
-            this.uC_AbutmentOpenLS1.Railing_weight = "0.6";
-            this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
-            this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
-            this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
-            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
-            this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
-            this.uC_AbutmentOpenLS1.Span = "25.0";
-            this.uC_AbutmentOpenLS1.TabIndex = 0;
-            this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
-            this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
-            // 
-            // uC_AbutmentPileLS1
-            // 
-            this.uC_AbutmentPileLS1.Abutment_Length = "13.0";
-            this.uC_AbutmentPileLS1.Bridge_Type = "PSC Girder with Deck Slab";
-            this.uC_AbutmentPileLS1.Carriageway_width = "13.0";
-            this.uC_AbutmentPileLS1.Concrete_Grade = "35";
-            this.uC_AbutmentPileLS1.Concrete_Reinforcement = "500";
-            this.uC_AbutmentPileLS1.Crash_Barrier = "0.5";
-            this.uC_AbutmentPileLS1.Crash_Barrier_weight = "0.8";
-            this.uC_AbutmentPileLS1.Cross_Camber = "0.025";
-            this.uC_AbutmentPileLS1.DL_MLL = "0.0";
-            this.uC_AbutmentPileLS1.DL_MTT = "-458.64";
-            this.uC_AbutmentPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_AbutmentPileLS1.Exp_Gap = "50";
-            this.uC_AbutmentPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_AbutmentPileLS1.Foot_path = "0.0";
-            this.uC_AbutmentPileLS1.Foot_Path_Live_Load = "0.4";
-            this.uC_AbutmentPileLS1.Girder_Depth = "1.08";
-            this.uC_AbutmentPileLS1.Girder_Nos = "4";
-            this.uC_AbutmentPileLS1.Girder_Spacing = "3.25";
-            this.uC_AbutmentPileLS1.Is_Force_From_Analysis = true;
-            this.uC_AbutmentPileLS1.LL_MLL_Max = "104.72";
-            this.uC_AbutmentPileLS1.LL_MLL_Min = "26.23";
-            this.uC_AbutmentPileLS1.LL_MTT_Max = "-660.726";
-            this.uC_AbutmentPileLS1.LL_MTT_Min = "-165.47";
-            this.uC_AbutmentPileLS1.Location = new System.Drawing.Point(0, 0);
-            this.uC_AbutmentPileLS1.MAX_HOR_LOAD = "80.0";
-            this.uC_AbutmentPileLS1.Max_Horizontal_capacity = "80.0";
-            this.uC_AbutmentPileLS1.MAX_VERT_LOAD = "433.0";
-            this.uC_AbutmentPileLS1.Max_Vertical_capacity = "433.0";
-            this.uC_AbutmentPileLS1.Name = "uC_AbutmentPileLS1";
-            this.uC_AbutmentPileLS1.Pile_Dia = "1.2";
-            this.uC_AbutmentPileLS1.Railing = "0.0";
-            this.uC_AbutmentPileLS1.Railing_weight = "0.6";
-            this.uC_AbutmentPileLS1.RCC_Density = "2.5";
-            this.uC_AbutmentPileLS1.Show_Title = false;
-            this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
-            this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
-            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(940, 642);
-            this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
-            this.uC_AbutmentPileLS1.Span = "12.687";
-            this.uC_AbutmentPileLS1.TabIndex = 0;
-            this.uC_AbutmentPileLS1.Wearing_coat_load = "0.22";
-            this.uC_AbutmentPileLS1.Wearing_Coat_Thickness = "65";
-            // 
-            // uC_PierDesignWSM1
-            // 
-            this.uC_PierDesignWSM1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierDesignWSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierDesignWSM1.Left_Span_Force = "2600.0";
-            this.uC_PierDesignWSM1.Location = new System.Drawing.Point(0, 0);
-            this.uC_PierDesignWSM1.Name = "uC_PierDesignWSM1";
-            this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
-            this.uC_PierDesignWSM1.Show_Note = false;
-            this.uC_PierDesignWSM1.Show_Title = false;
-            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(946, 648);
-            this.uC_PierDesignWSM1.TabIndex = 0;
-            // 
-            // uC_PierOpenLS1
-            // 
-            this.uC_PierOpenLS1.CarriageWidth_Left = "11.00";
-            this.uC_PierOpenLS1.CarriageWidth_Right = "11.00";
-            this.uC_PierOpenLS1.CC_Exp_Gap_Left = "40";
-            this.uC_PierOpenLS1.CC_Exp_Gap_Right = "40";
-            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "0.42";
-            this.uC_PierOpenLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "0.42";
-            this.uC_PierOpenLS1.CC_Exp_Joint_Left_Skew = "25.84";
-            this.uC_PierOpenLS1.CC_Exp_Joint_Right_Skew = "25.84";
-            this.uC_PierOpenLS1.CrashBarierHeight_Left = "1.10";
-            this.uC_PierOpenLS1.CrashBarierHeight_Right = "1.10";
-            this.uC_PierOpenLS1.CrashBarierWidth_Left = "0.50";
-            this.uC_PierOpenLS1.CrashBarierWidth_Nos = "2";
-            this.uC_PierOpenLS1.CrashBarierWidth_Right = "0.50";
-            this.uC_PierOpenLS1.CrossGirderNos_Left = "2";
-            this.uC_PierOpenLS1.CrossGirderNos_Right = "2";
-            this.uC_PierOpenLS1.CrossGirderWidth_Left = "0.45";
-            this.uC_PierOpenLS1.CrossGirderWidth_Right = "0.45";
-            this.uC_PierOpenLS1.DL_Force = "3322.53";
-            this.uC_PierOpenLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierOpenLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierOpenLS1.FootPathWidth_Left = "1.50";
-            this.uC_PierOpenLS1.FootPathWidth_Nos = "2";
-            this.uC_PierOpenLS1.FootPathWidth_Right = "1.50";
-            this.uC_PierOpenLS1.FPLL_Force = "310.08";
-            this.uC_PierOpenLS1.GirderDepth_Left = "2.00";
-            this.uC_PierOpenLS1.GirderDepth_Right = "2.00";
-            this.uC_PierOpenLS1.Is_Force_From_Analysis = true;
-            this.uC_PierOpenLS1.Location = new System.Drawing.Point(0, 0);
-            this.uC_PierOpenLS1.Name = "uC_PierOpenLS1";
-            this.uC_PierOpenLS1.RailingWidth_Left = "0.50";
-            this.uC_PierOpenLS1.RailingWidth_Nos = "2";
-            this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
-            this.uC_PierOpenLS1.Show_Title = false;
-            this.uC_PierOpenLS1.SIDL_Force = "723.52";
-            this.uC_PierOpenLS1.Size = new System.Drawing.Size(946, 648);
-            this.uC_PierOpenLS1.SkewAngle = "0.0";
-            this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
-            this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
-            this.uC_PierOpenLS1.Surface_Force = "723.52";
-            this.uC_PierOpenLS1.TabIndex = 0;
-            this.uC_PierOpenLS1.TopFlangeWidth_Left = "1.00";
-            this.uC_PierOpenLS1.TopFlangeWidth_Right = "0.22";
-            this.uC_PierOpenLS1.WearingCoatThickness_Left = "65";
-            this.uC_PierOpenLS1.WearingCoatThickness_Right = "65";
-            // 
-            // uC_PierDesignLSM1
-            // 
-            this.uC_PierDesignLSM1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierDesignLSM1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierDesignLSM1.iApp = null;
-            this.uC_PierDesignLSM1.Left_Span = "35";
-            this.uC_PierDesignLSM1.Left_Span_Moment_Mx = "0.0";
-            this.uC_PierDesignLSM1.Left_Span_Moment_Mz = "0.0";
-            this.uC_PierDesignLSM1.Left_Span_Vertical_Load = "42";
-            this.uC_PierDesignLSM1.Location = new System.Drawing.Point(3, 3);
-            this.uC_PierDesignLSM1.Name = "uC_PierDesignLSM1";
-            this.uC_PierDesignLSM1.Right_Span = "35";
-            this.uC_PierDesignLSM1.Right_Span_Moment_Mx = "0.0";
-            this.uC_PierDesignLSM1.Right_Span_Moment_Mz = "0.0";
-            this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
-            this.uC_PierDesignLSM1.Show_Note = false;
-            this.uC_PierDesignLSM1.Show_Title = false;
-            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(940, 642);
-            this.uC_PierDesignLSM1.TabIndex = 0;
-            this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
-            this.uC_PierDesignLSM1.OnProcess += new System.EventHandler(this.uC_PierDesignLSM1_OnProcess);
-            // 
-            // uC_PierPileLS1
-            // 
-            this.uC_PierPileLS1.CarriageWidth_Left = "12.00";
-            this.uC_PierPileLS1.CarriageWidth_Right = "12.00";
-            this.uC_PierPileLS1.CC_Exp_Gap_Left = "50";
-            this.uC_PierPileLS1.CC_Exp_Gap_Right = "50";
-            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Left_Skew = "1.157";
-            this.uC_PierPileLS1.CC_Exp_Joint_CL_Brg_Right_Skew = "1.157";
-            this.uC_PierPileLS1.CC_Exp_Joint_Left_Skew = "15.00";
-            this.uC_PierPileLS1.CC_Exp_Joint_Right_Skew = "30.00";
-            this.uC_PierPileLS1.CrashBarierHeight_Left = "1.10";
-            this.uC_PierPileLS1.CrashBarierHeight_Right = "1.10";
-            this.uC_PierPileLS1.CrashBarierWidth_Left = "0.50";
-            this.uC_PierPileLS1.CrashBarierWidth_Nos = "2";
-            this.uC_PierPileLS1.CrashBarierWidth_Right = "0.50";
-            this.uC_PierPileLS1.CrossGirderNos_Left = "2";
-            this.uC_PierPileLS1.CrossGirderNos_Right = "2";
-            this.uC_PierPileLS1.CrossGirderWidth_Left = "0.50";
-            this.uC_PierPileLS1.CrossGirderWidth_Right = "0.50";
-            this.uC_PierPileLS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_PierPileLS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_PierPileLS1.FootPathWidth_Left = "0.0";
-            this.uC_PierPileLS1.FootPathWidth_Nos = "0";
-            this.uC_PierPileLS1.FootPathWidth_Right = "0.0";
-            this.uC_PierPileLS1.GirderDepth_Left = "1.08";
-            this.uC_PierPileLS1.GirderDepth_Right = "2.00";
-            this.uC_PierPileLS1.Is_Force_From_Analysis = true;
-            this.uC_PierPileLS1.Location = new System.Drawing.Point(0, 0);
-            this.uC_PierPileLS1.Name = "uC_PierPileLS1";
-            this.uC_PierPileLS1.RailingWidth_Left = "0.0";
-            this.uC_PierPileLS1.RailingWidth_Nos = "0";
-            this.uC_PierPileLS1.RailingWidth_Right = "0.0";
-            this.uC_PierPileLS1.Show_Title = false;
-            this.uC_PierPileLS1.Size = new System.Drawing.Size(946, 648);
-            this.uC_PierPileLS1.SkewAngle = "18.0";
-            this.uC_PierPileLS1.SlabDepth_Left = "0.22";
-            this.uC_PierPileLS1.SlabDepth_Right = "0.22";
-            this.uC_PierPileLS1.TabIndex = 0;
-            this.uC_PierPileLS1.TopFlangeWidth_Left = "0.80";
-            this.uC_PierPileLS1.TopFlangeWidth_Right = "0.22";
-            this.uC_PierPileLS1.WearingCoatThickness_Left = "65";
-            this.uC_PierPileLS1.WearingCoatThickness_Right = "65";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(716, 611);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(170, 13);
-            this.label18.TabIndex = 97;
-            this.label18.Text = "DL + LL Combine Load No";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(778, 586);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(114, 13);
-            this.label75.TabIndex = 100;
-            this.label75.Text = "Load Generation";
-            // 
-            // txt_LL_load_gen
-            // 
-            this.txt_LL_load_gen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_LL_load_gen.Location = new System.Drawing.Point(898, 583);
-            this.txt_LL_load_gen.Name = "txt_LL_load_gen";
-            this.txt_LL_load_gen.Size = new System.Drawing.Size(39, 21);
-            this.txt_LL_load_gen.TabIndex = 99;
-            this.txt_LL_load_gen.Text = "191";
-            this.txt_LL_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_dl_ll_comb
-            // 
-            this.txt_dl_ll_comb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_dl_ll_comb.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_dl_ll_comb.Location = new System.Drawing.Point(898, 611);
-            this.txt_dl_ll_comb.Name = "txt_dl_ll_comb";
-            this.txt_dl_ll_comb.Size = new System.Drawing.Size(39, 18);
-            this.txt_dl_ll_comb.TabIndex = 95;
-            this.txt_dl_ll_comb.Text = "1";
-            this.txt_dl_ll_comb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_XINCR
-            // 
-            this.txt_XINCR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_XINCR.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_XINCR.Location = new System.Drawing.Point(719, 585);
-            this.txt_XINCR.Name = "txt_XINCR";
-            this.txt_XINCR.Size = new System.Drawing.Size(37, 18);
-            this.txt_XINCR.TabIndex = 96;
-            this.txt_XINCR.Text = "0.5";
-            this.txt_XINCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_XINCR.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(663, 586);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(50, 13);
-            this.label19.TabIndex = 98;
-            this.label19.Text = "X INCR";
-            // 
-            // txt_Ana_member_load
-            // 
-            this.txt_Ana_member_load.Location = new System.Drawing.Point(429, 77);
-            this.txt_Ana_member_load.Multiline = true;
-            this.txt_Ana_member_load.Name = "txt_Ana_member_load";
-            this.txt_Ana_member_load.Size = new System.Drawing.Size(52, 36);
-            this.txt_Ana_member_load.TabIndex = 101;
-            this.txt_Ana_member_load.Visible = false;
-            // 
             // frm_CompositeLSM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -27151,10 +27182,10 @@
             this.groupBox116.PerformLayout();
             this.grb_curve.ResumeLayout(false);
             this.grb_curve.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_section)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).EndInit();
             this.groupBox70.ResumeLayout(false);
             this.groupBox70.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_section)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox39.ResumeLayout(false);
@@ -27278,6 +27309,7 @@
             this.groupBox109.PerformLayout();
             this.tabControl5.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.pnl_2.ResumeLayout(false);
             this.pnl_2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -29763,5 +29795,7 @@
         private System.Windows.Forms.TextBox txt_XINCR;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox txt_Ana_member_load;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btn_update_forces;
     }
 }

@@ -211,11 +211,7 @@ namespace ASTRAStructures
             //this.Show
             try
             {
-                
                 Project_Type = eASTRADesignType.Structural_Analysis;
-
-
-
 
                 InitializeComponent();
                 //vdScrollableControl1.BaseControl.vdMouseDown += new VectorDraw.Professional.Control.MouseDownEventHandler(BaseControl_vdMouseDown);
@@ -243,10 +239,7 @@ namespace ASTRAStructures
 
                 analysis_title = ml.StringList[1];
 
-
                 analysis_type = ml.StringList[0].ToUpper();
-
-
             }
             catch (Exception ex) { }
 
@@ -10401,19 +10394,56 @@ namespace ASTRAStructures
         {
             txt_project_name.Text = "";
 
-            if(rbtn_3D_Drawing.Checked)
+            if (rbtn_3D_Drawing.Checked)
                 Project_Name = "Drawing Tutorial for " + analysis_title;
             else if (rbtn_SAP.Checked)
                 Project_Name = "SAP Tutorial for " + analysis_title;
             else
                 Project_Name = "Tutorial for " + analysis_title;
 
-            Create_Project();
+            //Create_Project();
             Load_Input_Examples();
         }
 
         public void Load_Input_Examples()
         {
+
+
+            //AstraFunctionOne.CAstraFunctionFactory.Instance.ShowAnalysisExamplesDialog(iApp, false);
+
+
+            frmStructuralExamples ff = new frmStructuralExamples(iApp, true);
+
+
+            ff.rbtn_dwg.Checked = rbtn_3D_Drawing.Checked;
+            ff.rbtn_SAP.Checked = rbtn_SAP.Checked;
+            ff.rbtn_TEXT.Checked = rbtn_TEXT.Checked;
+
+
+            ff.rbtn_dwg.Enabled = false;
+            ff.rbtn_SAP.Enabled = false;
+            ff.rbtn_TEXT.Enabled = false;
+
+            ff.ShowDialog();
+
+            txt_project_name.Text = ff.Example_Title;
+            Create_Project();
+
+            //File_Name = iApp.EXAMPLE_File;
+
+
+            string flName = Path.Combine(user_path, Path.GetFileName(iApp.EXAMPLE_File));
+            File.Copy(iApp.EXAMPLE_File, flName, true);
+            File_Name = flName;
+            IsFlag = false;
+            Clear_All();
+
+            if (rbtn_SAP.Checked)
+                UC_SAP.DataFileName = File_Name;
+
+
+            return;
+
             MyList ml = new MyList(analysis_type, '_');
 
             int anaType = ml.GetInt(1);

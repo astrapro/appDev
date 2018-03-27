@@ -10204,7 +10204,7 @@
             this.btn_Ana_view_structure.Name = "btn_Ana_view_structure";
             this.btn_Ana_view_structure.Size = new System.Drawing.Size(146, 30);
             this.btn_Ana_view_structure.TabIndex = 74;
-            this.btn_Ana_view_structure.Text = "View Structure";
+            this.btn_Ana_view_structure.Text = "View Structure (GUI)";
             this.btn_Ana_view_structure.UseVisualStyleBackColor = true;
             this.btn_Ana_view_structure.Click += new System.EventHandler(this.btn_Ana_view_structure_Click);
             // 

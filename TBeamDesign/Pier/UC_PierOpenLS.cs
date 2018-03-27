@@ -238,10 +238,10 @@ namespace BridgeAnalysisDesign.Pier
         {
             Label lbl = sender as Label;
 
-            Panel pnl = pnl_1;
+            Panel pnl = pnl_2;
 
 
-            if (lbl == lbl_1) pnl = pnl_1;
+            if (lbl == lbl_1) pnl = pnl_2;
             else if (lbl == lbl_2) pnl = pnl_2;
             else if (lbl == lbl_3) pnl = pnl_3;
             else if (lbl == lbl_4) pnl = pnl_4;

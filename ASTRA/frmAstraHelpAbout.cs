@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
 
 namespace AstraFunctionOne
@@ -23,6 +24,16 @@ namespace AstraFunctionOne
             }
             catch (Exception ex) { }
             this.Close();
+        }
+
+        private void frmAstraHelpAbout_Load(object sender, EventArgs e)
+        {
+            string file_path = Path.Combine(Application.StartupPath, "ASTRAHelp\\Release.txt");
+
+            if(File.Exists(file_path))
+            {
+                lbl_release.Text = File.ReadAllText(file_path);
+            }
         }
     }
 }

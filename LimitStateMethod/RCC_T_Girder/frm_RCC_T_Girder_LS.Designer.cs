@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_RCC_T_Girder_LS));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -64,14 +65,29 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tab_dl = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -456,6 +472,17 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dgv_long_loads = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
             this.txt_XINCR = new System.Windows.Forms.TextBox();
@@ -636,16 +663,26 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rtb_ana_result = new System.Windows.Forms.RichTextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_update_forces = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox43 = new System.Windows.Forms.GroupBox();
+            this.txt_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_right_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_left_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_left_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.label554 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.label553 = new System.Windows.Forms.Label();
             this.label241 = new System.Windows.Forms.Label();
+            this.txt_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox51 = new System.Windows.Forms.GroupBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.txt_max_Mz = new System.Windows.Forms.TextBox();
             this.label247 = new System.Windows.Forms.Label();
             this.txt_max_Mz_kN = new System.Windows.Forms.TextBox();
             this.label248 = new System.Windows.Forms.Label();
+            this.txt_left_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox49 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txt_final_Mz = new System.Windows.Forms.TextBox();
@@ -699,6 +736,33 @@
             this.txt_final_vert_reac = new System.Windows.Forms.TextBox();
             this.label264 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.txt_sidl_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_sidl_right_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_sidl_left_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.label552 = new System.Windows.Forms.Label();
+            this.txt_sidl_left_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_sidl_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.label551 = new System.Windows.Forms.Label();
+            this.txt_sidl_left_max_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.label270 = new System.Windows.Forms.Label();
+            this.groupBox57 = new System.Windows.Forms.GroupBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txt_sidl_max_Mz = new System.Windows.Forms.TextBox();
+            this.label271 = new System.Windows.Forms.Label();
+            this.txt_sidl_max_Mz_kN = new System.Windows.Forms.TextBox();
+            this.label272 = new System.Windows.Forms.Label();
+            this.groupBox58 = new System.Windows.Forms.GroupBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txt_sidl_max_Mx = new System.Windows.Forms.TextBox();
+            this.label273 = new System.Windows.Forms.Label();
+            this.txt_sidl_max_Mx_kN = new System.Windows.Forms.TextBox();
+            this.label274 = new System.Windows.Forms.Label();
+            this.groupBox59 = new System.Windows.Forms.GroupBox();
+            this.txt_sidl_max_vert_reac_kN = new System.Windows.Forms.TextBox();
+            this.label275 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txt_sidl_max_vert_reac = new System.Windows.Forms.TextBox();
+            this.label276 = new System.Windows.Forms.Label();
             this.groupBox52 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.txt_sidl_final_Mz = new System.Windows.Forms.TextBox();
@@ -741,6 +805,75 @@
             this.txt_sidl_final_vert_reac = new System.Windows.Forms.TextBox();
             this.label269 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.txt_ll_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_ll_right_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_ll_left_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_ll_left_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.label550 = new System.Windows.Forms.Label();
+            this.label277 = new System.Windows.Forms.Label();
+            this.label549 = new System.Windows.Forms.Label();
+            this.groupBox64 = new System.Windows.Forms.GroupBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txt_ll_max_Mz = new System.Windows.Forms.TextBox();
+            this.label278 = new System.Windows.Forms.Label();
+            this.txt_ll_max_Mz_kN = new System.Windows.Forms.TextBox();
+            this.label279 = new System.Windows.Forms.Label();
+            this.txt_ll_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.groupBox65 = new System.Windows.Forms.GroupBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txt_ll_max_Mx = new System.Windows.Forms.TextBox();
+            this.label280 = new System.Windows.Forms.Label();
+            this.txt_ll_max_Mx_kN = new System.Windows.Forms.TextBox();
+            this.label281 = new System.Windows.Forms.Label();
+            this.txt_ll_left_max_vert_reac = new System.Windows.Forms.TextBox();
+            this.groupBox67 = new System.Windows.Forms.GroupBox();
+            this.txt_ll_max_vert_reac_kN = new System.Windows.Forms.TextBox();
+            this.label282 = new System.Windows.Forms.Label();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txt_ll_max_vert_reac = new System.Windows.Forms.TextBox();
+            this.label283 = new System.Windows.Forms.Label();
+            this.groupBox68 = new System.Windows.Forms.GroupBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txt_ll_final_Mz = new System.Windows.Forms.TextBox();
+            this.label284 = new System.Windows.Forms.Label();
+            this.txt_ll_final_Mz_kN = new System.Windows.Forms.TextBox();
+            this.label285 = new System.Windows.Forms.Label();
+            this.label286 = new System.Windows.Forms.Label();
+            this.groupBox69 = new System.Windows.Forms.GroupBox();
+            this.txt_ll_left_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_ll_left_total_Mx = new System.Windows.Forms.TextBox();
+            this.label287 = new System.Windows.Forms.Label();
+            this.label288 = new System.Windows.Forms.Label();
+            this.txt_ll_left_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.dgv_ll_left_des_frc = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn91 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn92 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn94 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox70 = new System.Windows.Forms.GroupBox();
+            this.dgv_ll_right_des_frc = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn95 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn96 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn97 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_ll_right_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_ll_right_total_Mx = new System.Windows.Forms.TextBox();
+            this.label289 = new System.Windows.Forms.Label();
+            this.label290 = new System.Windows.Forms.Label();
+            this.txt_ll_right_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.groupBox71 = new System.Windows.Forms.GroupBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txt_ll_final_Mx = new System.Windows.Forms.TextBox();
+            this.label291 = new System.Windows.Forms.Label();
+            this.txt_ll_final_Mx_kN = new System.Windows.Forms.TextBox();
+            this.label292 = new System.Windows.Forms.Label();
+            this.groupBox72 = new System.Windows.Forms.GroupBox();
+            this.txt_ll_final_vert_rec_kN = new System.Windows.Forms.TextBox();
+            this.label293 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txt_ll_final_vert_reac = new System.Windows.Forms.TextBox();
+            this.label294 = new System.Windows.Forms.Label();
+            this.groupBox33 = new System.Windows.Forms.GroupBox();
             this.groupBox47 = new System.Windows.Forms.GroupBox();
             this.txt_live_kN_m = new System.Windows.Forms.TextBox();
             this.label388 = new System.Windows.Forms.Label();
@@ -752,6 +885,7 @@
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_live_vert_rec_Ton = new System.Windows.Forms.TextBox();
             this.label401 = new System.Windows.Forms.Label();
+            this.label169 = new System.Windows.Forms.Label();
             this.groupBox34 = new System.Windows.Forms.GroupBox();
             this.label534 = new System.Windows.Forms.Label();
             this.txt_ana_TSRP = new System.Windows.Forms.TextBox();
@@ -762,6 +896,7 @@
             this.label538 = new System.Windows.Forms.Label();
             this.txt_ana_MSLD = new System.Windows.Forms.TextBox();
             this.label539 = new System.Windows.Forms.Label();
+            this.label170 = new System.Windows.Forms.Label();
             this.groupBox46 = new System.Windows.Forms.GroupBox();
             this.label327 = new System.Windows.Forms.Label();
             this.txt_dead_kN_m = new System.Windows.Forms.TextBox();
@@ -773,13 +908,52 @@
             this.col_Joints = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Vert_Reaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txt_dead_vert_reac_ton = new System.Windows.Forms.TextBox();
-            this.groupBox33 = new System.Windows.Forms.GroupBox();
-            this.label169 = new System.Windows.Forms.Label();
-            this.label170 = new System.Windows.Forms.Label();
             this.label541 = new System.Windows.Forms.Label();
             this.label540 = new System.Windows.Forms.Label();
             this.txt_ana_DLSR = new System.Windows.Forms.TextBox();
             this.txt_ana_LLSR = new System.Windows.Forms.TextBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label295 = new System.Windows.Forms.Label();
+            this.groupBox73 = new System.Windows.Forms.GroupBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txt_mxf_max_Mz = new System.Windows.Forms.TextBox();
+            this.label296 = new System.Windows.Forms.Label();
+            this.txt_mxf_max_Mz_kN = new System.Windows.Forms.TextBox();
+            this.label324 = new System.Windows.Forms.Label();
+            this.groupBox74 = new System.Windows.Forms.GroupBox();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txt_mxf_max_Mx = new System.Windows.Forms.TextBox();
+            this.label443 = new System.Windows.Forms.Label();
+            this.txt_mxf_max_Mx_kN = new System.Windows.Forms.TextBox();
+            this.label444 = new System.Windows.Forms.Label();
+            this.groupBox75 = new System.Windows.Forms.GroupBox();
+            this.txt_mxf_max_vert_reac_kN = new System.Windows.Forms.TextBox();
+            this.label471 = new System.Windows.Forms.Label();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.txt_mxf_max_vert_reac = new System.Windows.Forms.TextBox();
+            this.label472 = new System.Windows.Forms.Label();
+            this.groupBox77 = new System.Windows.Forms.GroupBox();
+            this.txt_mxf_left_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_mxf_left_total_Mx = new System.Windows.Forms.TextBox();
+            this.label504 = new System.Windows.Forms.Label();
+            this.label505 = new System.Windows.Forms.Label();
+            this.txt_mxf_left_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.dgv_mxf_left_des_frc = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn99 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn100 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn101 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn102 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox78 = new System.Windows.Forms.GroupBox();
+            this.dgv_mxf_right_des_frc = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn103 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn104 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn105 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn106 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_mxf_right_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_mxf_right_total_Mx = new System.Windows.Forms.TextBox();
+            this.label506 = new System.Windows.Forms.Label();
+            this.label507 = new System.Windows.Forms.Label();
+            this.txt_mxf_right_total_vert_reac = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.dgv_long_user_input = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -873,7 +1047,9 @@
             this.btn_LS_deck_ws = new System.Windows.Forms.Button();
             this.btn_LS_deck_ws_open = new System.Windows.Forms.Button();
             this.tab_deck_slab_BS = new System.Windows.Forms.TabPage();
+            this.uC_Deckslab_BS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_BS();
             this.tab_deck_slab_IS = new System.Windows.Forms.TabPage();
+            this.uC_Deckslab_IS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_IS();
             this.tab_abutment = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.label508 = new System.Windows.Forms.Label();
@@ -1252,6 +1428,7 @@
             this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
             this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_bearing = new System.Windows.Forms.TabPage();
+            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.button1 = new System.Windows.Forms.Button();
             this.tab_drawings = new System.Windows.Forms.TabPage();
             this.tc_drawings = new System.Windows.Forms.TabControl();
@@ -1273,20 +1450,6 @@
             this.tab_Reports = new System.Windows.Forms.TabPage();
             this.uC_ViewReports1 = new BridgeAnalysisDesign.ViewReports.UC_ViewReports();
             this.label210 = new System.Windows.Forms.Label();
-            this.uC_Deckslab_BS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_BS();
-            this.uC_Deckslab_IS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_IS();
-            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
-            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabCtrl.SuspendLayout();
             this.tab_dl.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -1360,6 +1523,7 @@
             this.tabControl4.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox43.SuspendLayout();
             this.groupBox51.SuspendLayout();
@@ -1373,6 +1537,9 @@
             this.groupBox8.SuspendLayout();
             this.groupBox44.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.groupBox57.SuspendLayout();
+            this.groupBox58.SuspendLayout();
+            this.groupBox59.SuspendLayout();
             this.groupBox52.SuspendLayout();
             this.groupBox53.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_sidl_left_des_frc)).BeginInit();
@@ -1381,12 +1548,30 @@
             this.groupBox55.SuspendLayout();
             this.groupBox56.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.groupBox64.SuspendLayout();
+            this.groupBox65.SuspendLayout();
+            this.groupBox67.SuspendLayout();
+            this.groupBox68.SuspendLayout();
+            this.groupBox69.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ll_left_des_frc)).BeginInit();
+            this.groupBox70.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ll_right_des_frc)).BeginInit();
+            this.groupBox71.SuspendLayout();
+            this.groupBox72.SuspendLayout();
+            this.groupBox33.SuspendLayout();
             this.groupBox47.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_right_end_design_forces)).BeginInit();
             this.groupBox34.SuspendLayout();
             this.groupBox46.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).BeginInit();
-            this.groupBox33.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox73.SuspendLayout();
+            this.groupBox74.SuspendLayout();
+            this.groupBox75.SuspendLayout();
+            this.groupBox77.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_left_des_frc)).BeginInit();
+            this.groupBox78.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_long_user_input)).BeginInit();
             this.tc_limit_design.SuspendLayout();
             this.tab_bridge_analysis.SuspendLayout();
@@ -5623,6 +5808,86 @@
             this.dgv_long_loads.Size = new System.Drawing.Size(272, 510);
             this.dgv_long_loads.TabIndex = 0;
             // 
+            // dataGridViewTextBoxColumn31
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn31.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            this.dataGridViewTextBoxColumn32.HeaderText = "1";
+            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn32.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            this.dataGridViewTextBoxColumn33.HeaderText = "2";
+            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            this.dataGridViewTextBoxColumn33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn33.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            this.dataGridViewTextBoxColumn34.HeaderText = "3";
+            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn34.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            this.dataGridViewTextBoxColumn35.HeaderText = "4";
+            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            this.dataGridViewTextBoxColumn35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn35.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            this.dataGridViewTextBoxColumn36.HeaderText = "5";
+            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            this.dataGridViewTextBoxColumn36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn36.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "6";
+            this.Column2.Name = "Column2";
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column2.Width = 50;
+            // 
+            // Column23
+            // 
+            this.Column23.HeaderText = "7";
+            this.Column23.Name = "Column23";
+            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column23.Width = 50;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "8";
+            this.Column24.Name = "Column24";
+            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column24.Width = 50;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "9";
+            this.Column25.Name = "Column25";
+            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column25.Width = 50;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "10";
+            this.Column26.Name = "Column26";
+            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column26.Width = 50;
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -7344,7 +7609,7 @@
             this.btn_view_structure.Name = "btn_view_structure";
             this.btn_view_structure.Size = new System.Drawing.Size(149, 23);
             this.btn_view_structure.TabIndex = 74;
-            this.btn_view_structure.Text = "View Structure";
+            this.btn_view_structure.Text = "View Structure (GUI)";
             this.btn_view_structure.UseVisualStyleBackColor = true;
             this.btn_view_structure.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
@@ -7468,6 +7733,7 @@
             this.tabControl4.Controls.Add(this.tabPage2);
             this.tabControl4.Controls.Add(this.tabPage7);
             this.tabControl4.Controls.Add(this.tabPage5);
+            this.tabControl4.Controls.Add(this.tabPage3);
             this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl4.Location = new System.Drawing.Point(0, 0);
             this.tabControl4.Name = "tabControl4";
@@ -7489,6 +7755,7 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.rtb_ana_result);
+            this.groupBox5.Controls.Add(this.panel5);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.Red;
@@ -7503,11 +7770,32 @@
             // 
             this.rtb_ana_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtb_ana_result.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_ana_result.Location = new System.Drawing.Point(3, 17);
+            this.rtb_ana_result.Location = new System.Drawing.Point(3, 71);
             this.rtb_ana_result.Name = "rtb_ana_result";
-            this.rtb_ana_result.Size = new System.Drawing.Size(916, 450);
+            this.rtb_ana_result.Size = new System.Drawing.Size(916, 396);
             this.rtb_ana_result.TabIndex = 0;
             this.rtb_ana_result.Text = "";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.btn_update_forces);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.ForeColor = System.Drawing.Color.Black;
+            this.panel5.Location = new System.Drawing.Point(3, 17);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(916, 54);
+            this.panel5.TabIndex = 1;
+            // 
+            // btn_update_forces
+            // 
+            this.btn_update_forces.Enabled = false;
+            this.btn_update_forces.Location = new System.Drawing.Point(357, 10);
+            this.btn_update_forces.Name = "btn_update_forces";
+            this.btn_update_forces.Size = new System.Drawing.Size(208, 35);
+            this.btn_update_forces.TabIndex = 76;
+            this.btn_update_forces.Text = "Update Forces";
+            this.btn_update_forces.UseVisualStyleBackColor = true;
+            this.btn_update_forces.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
             // 
             // tabPage2
             // 
@@ -7540,6 +7828,55 @@
             this.groupBox43.TabIndex = 28;
             this.groupBox43.TabStop = false;
             // 
+            // txt_right_max_total_Mz
+            // 
+            this.txt_right_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_right_max_total_Mz.Name = "txt_right_max_total_Mz";
+            this.txt_right_max_total_Mz.ReadOnly = true;
+            this.txt_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_right_max_total_Mz.TabIndex = 6;
+            this.txt_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_right_max_total_Mz.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // txt_right_max_total_Mx
+            // 
+            this.txt_right_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_right_max_total_Mx.Name = "txt_right_max_total_Mx";
+            this.txt_right_max_total_Mx.ReadOnly = true;
+            this.txt_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_right_max_total_Mx.TabIndex = 5;
+            this.txt_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_right_max_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // txt_left_max_total_Mz
+            // 
+            this.txt_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_left_max_total_Mz.Name = "txt_left_max_total_Mz";
+            this.txt_left_max_total_Mz.ReadOnly = true;
+            this.txt_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_left_max_total_Mz.TabIndex = 6;
+            this.txt_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_left_max_total_Mz.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // txt_left_max_total_Mx
+            // 
+            this.txt_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_left_max_total_Mx.Name = "txt_left_max_total_Mx";
+            this.txt_left_max_total_Mx.ReadOnly = true;
+            this.txt_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_left_max_total_Mx.TabIndex = 5;
+            this.txt_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_left_max_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // label554
+            // 
+            this.label554.AutoSize = true;
+            this.label554.Location = new System.Drawing.Point(20, 175);
+            this.label554.Name = "label554";
+            this.label554.Size = new System.Drawing.Size(119, 13);
+            this.label554.TabIndex = 4;
+            this.label554.Text = "Maximum Forces";
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -7547,9 +7884,18 @@
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label22.Location = new System.Drawing.Point(580, 259);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(239, 13);
+            this.label22.Size = new System.Drawing.Size(194, 13);
             this.label22.TabIndex = 29;
-            this.label22.Text = "(Forces are to be used in Design of Pier)";
+            this.label22.Text = "Forces on Pier (from Both Sides)";
+            // 
+            // label553
+            // 
+            this.label553.AutoSize = true;
+            this.label553.Location = new System.Drawing.Point(20, 175);
+            this.label553.Name = "label553";
+            this.label553.Size = new System.Drawing.Size(119, 13);
+            this.label553.TabIndex = 4;
+            this.label553.Text = "Maximum Forces";
             // 
             // label241
             // 
@@ -7558,9 +7904,19 @@
             this.label241.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.label241.Location = new System.Drawing.Point(580, 18);
             this.label241.Name = "label241";
-            this.label241.Size = new System.Drawing.Size(272, 13);
+            this.label241.Size = new System.Drawing.Size(218, 13);
             this.label241.TabIndex = 29;
-            this.label241.Text = "(Forces are to be used in Design of Abutment)";
+            this.label241.Text = "Forces on Abutment (from One Side)";
+            // 
+            // txt_right_max_total_vert_reac
+            // 
+            this.txt_right_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_right_max_total_vert_reac.Name = "txt_right_max_total_vert_reac";
+            this.txt_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_right_max_total_vert_reac.TabIndex = 2;
+            this.txt_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_right_max_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
             // groupBox51
             // 
@@ -7626,6 +7982,16 @@
             this.label248.Size = new System.Drawing.Size(39, 13);
             this.label248.TabIndex = 18;
             this.label248.Text = "kN-m";
+            // 
+            // txt_left_max_total_vert_reac
+            // 
+            this.txt_left_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_left_max_total_vert_reac.Name = "txt_left_max_total_vert_reac";
+            this.txt_left_max_total_vert_reac.ReadOnly = true;
+            this.txt_left_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_left_max_total_vert_reac.TabIndex = 2;
+            this.txt_left_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_left_max_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
             // groupBox49
             // 
@@ -7696,14 +8062,18 @@
             // 
             this.groupBox45.Controls.Add(this.txt_left_total_Mz);
             this.groupBox45.Controls.Add(this.txt_left_total_Mx);
+            this.groupBox45.Controls.Add(this.txt_left_max_total_Mz);
+            this.groupBox45.Controls.Add(this.txt_left_max_total_Mx);
             this.groupBox45.Controls.Add(this.label325);
             this.groupBox45.Controls.Add(this.label326);
             this.groupBox45.Controls.Add(this.txt_left_total_vert_reac);
+            this.groupBox45.Controls.Add(this.label553);
             this.groupBox45.Controls.Add(this.dgv_left_des_frc);
+            this.groupBox45.Controls.Add(this.txt_left_max_total_vert_reac);
             this.groupBox45.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox45.Location = new System.Drawing.Point(6, 18);
             this.groupBox45.Name = "groupBox45";
-            this.groupBox45.Size = new System.Drawing.Size(472, 176);
+            this.groupBox45.Size = new System.Drawing.Size(472, 202);
             this.groupBox45.TabIndex = 24;
             this.groupBox45.TabStop = false;
             this.groupBox45.Text = "Left End Design Forces";
@@ -7815,16 +8185,20 @@
             // 
             // g
             // 
+            this.g.Controls.Add(this.txt_right_max_total_Mz);
+            this.g.Controls.Add(this.txt_right_max_total_Mx);
             this.g.Controls.Add(this.dgv_right_des_frc);
+            this.g.Controls.Add(this.label554);
             this.g.Controls.Add(this.txt_right_total_Mz);
             this.g.Controls.Add(this.txt_right_total_Mx);
             this.g.Controls.Add(this.label402);
+            this.g.Controls.Add(this.txt_right_max_total_vert_reac);
             this.g.Controls.Add(this.label442);
             this.g.Controls.Add(this.txt_right_total_vert_reac);
             this.g.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.g.Location = new System.Drawing.Point(6, 259);
+            this.g.Location = new System.Drawing.Point(6, 241);
             this.g.Name = "g";
-            this.g.Size = new System.Drawing.Size(472, 176);
+            this.g.Size = new System.Drawing.Size(472, 200);
             this.g.TabIndex = 25;
             this.g.TabStop = false;
             this.g.Text = "Right End Design Forces";
@@ -8072,7 +8446,7 @@
             this.groupBox8.Controls.Add(this.txt_max_vert_reac);
             this.groupBox8.Controls.Add(this.label243);
             this.groupBox8.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.ForeColor = System.Drawing.Color.Red;
+            this.groupBox8.ForeColor = System.Drawing.Color.Black;
             this.groupBox8.Location = new System.Drawing.Point(573, 37);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(306, 42);
@@ -8137,7 +8511,7 @@
             this.groupBox44.Controls.Add(this.txt_final_vert_reac);
             this.groupBox44.Controls.Add(this.label264);
             this.groupBox44.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox44.ForeColor = System.Drawing.Color.Red;
+            this.groupBox44.ForeColor = System.Drawing.Color.Black;
             this.groupBox44.Location = new System.Drawing.Point(573, 278);
             this.groupBox44.Name = "groupBox44";
             this.groupBox44.Size = new System.Drawing.Size(306, 44);
@@ -8196,6 +8570,10 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.label270);
+            this.tabPage7.Controls.Add(this.groupBox57);
+            this.tabPage7.Controls.Add(this.groupBox58);
+            this.tabPage7.Controls.Add(this.groupBox59);
             this.tabPage7.Controls.Add(this.groupBox52);
             this.tabPage7.Controls.Add(this.label255);
             this.tabPage7.Controls.Add(this.groupBox53);
@@ -8210,6 +8588,284 @@
             this.tabPage7.Text = "Support Reactions  [SIDL]";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
+            // txt_sidl_right_max_total_Mz
+            // 
+            this.txt_sidl_right_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_Mz.Location = new System.Drawing.Point(363, 174);
+            this.txt_sidl_right_max_total_Mz.Name = "txt_sidl_right_max_total_Mz";
+            this.txt_sidl_right_max_total_Mz.ReadOnly = true;
+            this.txt_sidl_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_Mz.TabIndex = 53;
+            this.txt_sidl_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_sidl_right_max_total_Mx
+            // 
+            this.txt_sidl_right_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_Mx.Location = new System.Drawing.Point(259, 174);
+            this.txt_sidl_right_max_total_Mx.Name = "txt_sidl_right_max_total_Mx";
+            this.txt_sidl_right_max_total_Mx.ReadOnly = true;
+            this.txt_sidl_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_Mx.TabIndex = 52;
+            this.txt_sidl_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_sidl_left_max_total_Mz
+            // 
+            this.txt_sidl_left_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_sidl_left_max_total_Mz.Name = "txt_sidl_left_max_total_Mz";
+            this.txt_sidl_left_max_total_Mz.ReadOnly = true;
+            this.txt_sidl_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_left_max_total_Mz.TabIndex = 53;
+            this.txt_sidl_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label552
+            // 
+            this.label552.AutoSize = true;
+            this.label552.Location = new System.Drawing.Point(21, 177);
+            this.label552.Name = "label552";
+            this.label552.Size = new System.Drawing.Size(119, 13);
+            this.label552.TabIndex = 51;
+            this.label552.Text = "Maximum Forces";
+            // 
+            // txt_sidl_left_max_total_Mx
+            // 
+            this.txt_sidl_left_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_sidl_left_max_total_Mx.Name = "txt_sidl_left_max_total_Mx";
+            this.txt_sidl_left_max_total_Mx.ReadOnly = true;
+            this.txt_sidl_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_left_max_total_Mx.TabIndex = 52;
+            this.txt_sidl_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_sidl_right_max_total_vert_reac
+            // 
+            this.txt_sidl_right_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 174);
+            this.txt_sidl_right_max_total_vert_reac.Name = "txt_sidl_right_max_total_vert_reac";
+            this.txt_sidl_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_sidl_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_vert_reac.TabIndex = 50;
+            this.txt_sidl_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label551
+            // 
+            this.label551.AutoSize = true;
+            this.label551.Location = new System.Drawing.Point(22, 175);
+            this.label551.Name = "label551";
+            this.label551.Size = new System.Drawing.Size(119, 13);
+            this.label551.TabIndex = 51;
+            this.label551.Text = "Maximum Forces";
+            // 
+            // txt_sidl_left_max_total_vert_reac
+            // 
+            this.txt_sidl_left_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_left_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_sidl_left_max_total_vert_reac.Name = "txt_sidl_left_max_total_vert_reac";
+            this.txt_sidl_left_max_total_vert_reac.ReadOnly = true;
+            this.txt_sidl_left_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_left_max_total_vert_reac.TabIndex = 50;
+            this.txt_sidl_left_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label270
+            // 
+            this.label270.AutoSize = true;
+            this.label270.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label270.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label270.Location = new System.Drawing.Point(571, 26);
+            this.label270.Name = "label270";
+            this.label270.Size = new System.Drawing.Size(218, 13);
+            this.label270.TabIndex = 49;
+            this.label270.Text = "Forces on Abutment (from One Side)";
+            // 
+            // groupBox57
+            // 
+            this.groupBox57.Controls.Add(this.textBox9);
+            this.groupBox57.Controls.Add(this.txt_sidl_max_Mz);
+            this.groupBox57.Controls.Add(this.label271);
+            this.groupBox57.Controls.Add(this.txt_sidl_max_Mz_kN);
+            this.groupBox57.Controls.Add(this.label272);
+            this.groupBox57.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox57.ForeColor = System.Drawing.Color.Black;
+            this.groupBox57.Location = new System.Drawing.Point(564, 146);
+            this.groupBox57.Name = "groupBox57";
+            this.groupBox57.Size = new System.Drawing.Size(306, 48);
+            this.groupBox57.TabIndex = 48;
+            this.groupBox57.TabStop = false;
+            this.groupBox57.Text = "Maximum Bending Moment [Mz]";
+            // 
+            // textBox9
+            // 
+            this.textBox9.Location = new System.Drawing.Point(364, 176);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(76, 20);
+            this.textBox9.TabIndex = 6;
+            // 
+            // txt_sidl_max_Mz
+            // 
+            this.txt_sidl_max_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_max_Mz.ForeColor = System.Drawing.Color.Blue;
+            this.txt_sidl_max_Mz.Location = new System.Drawing.Point(7, 19);
+            this.txt_sidl_max_Mz.Name = "txt_sidl_max_Mz";
+            this.txt_sidl_max_Mz.Size = new System.Drawing.Size(85, 20);
+            this.txt_sidl_max_Mz.TabIndex = 16;
+            this.txt_sidl_max_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label271
+            // 
+            this.label271.AutoSize = true;
+            this.label271.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label271.Location = new System.Drawing.Point(98, 22);
+            this.label271.Name = "label271";
+            this.label271.Size = new System.Drawing.Size(47, 13);
+            this.label271.TabIndex = 20;
+            this.label271.Text = "Ton-m";
+            // 
+            // txt_sidl_max_Mz_kN
+            // 
+            this.txt_sidl_max_Mz_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_max_Mz_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_sidl_max_Mz_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_sidl_max_Mz_kN.Name = "txt_sidl_max_Mz_kN";
+            this.txt_sidl_max_Mz_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_sidl_max_Mz_kN.TabIndex = 24;
+            this.txt_sidl_max_Mz_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label272
+            // 
+            this.label272.AutoSize = true;
+            this.label272.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label272.Location = new System.Drawing.Point(251, 22);
+            this.label272.Name = "label272";
+            this.label272.Size = new System.Drawing.Size(39, 13);
+            this.label272.TabIndex = 18;
+            this.label272.Text = "kN-m";
+            // 
+            // groupBox58
+            // 
+            this.groupBox58.Controls.Add(this.textBox11);
+            this.groupBox58.Controls.Add(this.txt_sidl_max_Mx);
+            this.groupBox58.Controls.Add(this.label273);
+            this.groupBox58.Controls.Add(this.txt_sidl_max_Mx_kN);
+            this.groupBox58.Controls.Add(this.label274);
+            this.groupBox58.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox58.ForeColor = System.Drawing.Color.Black;
+            this.groupBox58.Location = new System.Drawing.Point(564, 91);
+            this.groupBox58.Name = "groupBox58";
+            this.groupBox58.Size = new System.Drawing.Size(306, 49);
+            this.groupBox58.TabIndex = 47;
+            this.groupBox58.TabStop = false;
+            this.groupBox58.Text = "Maximum Bending Moment [Mx]";
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(364, 176);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(76, 20);
+            this.textBox11.TabIndex = 6;
+            // 
+            // txt_sidl_max_Mx
+            // 
+            this.txt_sidl_max_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_max_Mx.ForeColor = System.Drawing.Color.Blue;
+            this.txt_sidl_max_Mx.Location = new System.Drawing.Point(7, 19);
+            this.txt_sidl_max_Mx.Name = "txt_sidl_max_Mx";
+            this.txt_sidl_max_Mx.Size = new System.Drawing.Size(85, 20);
+            this.txt_sidl_max_Mx.TabIndex = 12;
+            this.txt_sidl_max_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label273
+            // 
+            this.label273.AutoSize = true;
+            this.label273.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label273.Location = new System.Drawing.Point(98, 22);
+            this.label273.Name = "label273";
+            this.label273.Size = new System.Drawing.Size(47, 13);
+            this.label273.TabIndex = 21;
+            this.label273.Text = "Ton-m";
+            // 
+            // txt_sidl_max_Mx_kN
+            // 
+            this.txt_sidl_max_Mx_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_max_Mx_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_sidl_max_Mx_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_sidl_max_Mx_kN.Name = "txt_sidl_max_Mx_kN";
+            this.txt_sidl_max_Mx_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_sidl_max_Mx_kN.TabIndex = 23;
+            this.txt_sidl_max_Mx_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label274
+            // 
+            this.label274.AutoSize = true;
+            this.label274.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label274.Location = new System.Drawing.Point(251, 22);
+            this.label274.Name = "label274";
+            this.label274.Size = new System.Drawing.Size(39, 13);
+            this.label274.TabIndex = 18;
+            this.label274.Text = "kN-m";
+            // 
+            // groupBox59
+            // 
+            this.groupBox59.Controls.Add(this.txt_sidl_max_vert_reac_kN);
+            this.groupBox59.Controls.Add(this.label275);
+            this.groupBox59.Controls.Add(this.textBox12);
+            this.groupBox59.Controls.Add(this.txt_sidl_max_vert_reac);
+            this.groupBox59.Controls.Add(this.label276);
+            this.groupBox59.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox59.ForeColor = System.Drawing.Color.Black;
+            this.groupBox59.Location = new System.Drawing.Point(564, 45);
+            this.groupBox59.Name = "groupBox59";
+            this.groupBox59.Size = new System.Drawing.Size(306, 42);
+            this.groupBox59.TabIndex = 46;
+            this.groupBox59.TabStop = false;
+            this.groupBox59.Text = "Maximum Vertical Reaction";
+            // 
+            // txt_sidl_max_vert_reac_kN
+            // 
+            this.txt_sidl_max_vert_reac_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_max_vert_reac_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_sidl_max_vert_reac_kN.Location = new System.Drawing.Point(160, 16);
+            this.txt_sidl_max_vert_reac_kN.Name = "txt_sidl_max_vert_reac_kN";
+            this.txt_sidl_max_vert_reac_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_sidl_max_vert_reac_kN.TabIndex = 22;
+            this.txt_sidl_max_vert_reac_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label275
+            // 
+            this.label275.AutoSize = true;
+            this.label275.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label275.Location = new System.Drawing.Point(98, 19);
+            this.label275.Name = "label275";
+            this.label275.Size = new System.Drawing.Size(31, 13);
+            this.label275.TabIndex = 19;
+            this.label275.Text = "Ton";
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(364, 176);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(76, 20);
+            this.textBox12.TabIndex = 6;
+            // 
+            // txt_sidl_max_vert_reac
+            // 
+            this.txt_sidl_max_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_max_vert_reac.ForeColor = System.Drawing.Color.Blue;
+            this.txt_sidl_max_vert_reac.Location = new System.Drawing.Point(7, 16);
+            this.txt_sidl_max_vert_reac.Name = "txt_sidl_max_vert_reac";
+            this.txt_sidl_max_vert_reac.Size = new System.Drawing.Size(85, 20);
+            this.txt_sidl_max_vert_reac.TabIndex = 11;
+            this.txt_sidl_max_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label276
+            // 
+            this.label276.AutoSize = true;
+            this.label276.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label276.Location = new System.Drawing.Point(251, 19);
+            this.label276.Name = "label276";
+            this.label276.Size = new System.Drawing.Size(23, 13);
+            this.label276.TabIndex = 14;
+            this.label276.Text = "kN";
+            // 
             // groupBox52
             // 
             this.groupBox52.Controls.Add(this.textBox4);
@@ -8219,7 +8875,7 @@
             this.groupBox52.Controls.Add(this.label252);
             this.groupBox52.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox52.ForeColor = System.Drawing.Color.Black;
-            this.groupBox52.Location = new System.Drawing.Point(546, 176);
+            this.groupBox52.Location = new System.Drawing.Point(564, 364);
             this.groupBox52.Name = "groupBox52";
             this.groupBox52.Size = new System.Drawing.Size(306, 48);
             this.groupBox52.TabIndex = 45;
@@ -8279,24 +8935,28 @@
             this.label255.AutoSize = true;
             this.label255.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label255.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label255.Location = new System.Drawing.Point(553, 55);
+            this.label255.Location = new System.Drawing.Point(571, 243);
             this.label255.Name = "label255";
-            this.label255.Size = new System.Drawing.Size(239, 13);
+            this.label255.Size = new System.Drawing.Size(194, 13);
             this.label255.TabIndex = 44;
-            this.label255.Text = "(Forces are to be used in Design of Pier)";
+            this.label255.Text = "Forces on Pier (from Both Sides)";
             // 
             // groupBox53
             // 
             this.groupBox53.Controls.Add(this.txt_sidl_left_total_Mz);
             this.groupBox53.Controls.Add(this.txt_sidl_left_total_Mx);
+            this.groupBox53.Controls.Add(this.txt_sidl_left_max_total_Mz);
             this.groupBox53.Controls.Add(this.label256);
+            this.groupBox53.Controls.Add(this.txt_sidl_left_max_total_Mx);
             this.groupBox53.Controls.Add(this.label257);
             this.groupBox53.Controls.Add(this.txt_sidl_left_total_vert_reac);
+            this.groupBox53.Controls.Add(this.label551);
             this.groupBox53.Controls.Add(this.dgv_sidl_left_des_frc);
+            this.groupBox53.Controls.Add(this.txt_sidl_left_max_total_vert_reac);
             this.groupBox53.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox53.Location = new System.Drawing.Point(16, 26);
             this.groupBox53.Name = "groupBox53";
-            this.groupBox53.Size = new System.Drawing.Size(472, 176);
+            this.groupBox53.Size = new System.Drawing.Size(472, 197);
             this.groupBox53.TabIndex = 40;
             this.groupBox53.TabStop = false;
             this.groupBox53.Text = "Left End Design Forces";
@@ -8405,16 +9065,20 @@
             // 
             // groupBox54
             // 
+            this.groupBox54.Controls.Add(this.txt_sidl_right_max_total_Mz);
+            this.groupBox54.Controls.Add(this.txt_sidl_right_max_total_Mx);
             this.groupBox54.Controls.Add(this.dgv_sidl_right_des_frc);
+            this.groupBox54.Controls.Add(this.label552);
             this.groupBox54.Controls.Add(this.txt_sidl_right_total_Mz);
+            this.groupBox54.Controls.Add(this.txt_sidl_right_max_total_vert_reac);
             this.groupBox54.Controls.Add(this.txt_sidl_right_total_Mx);
             this.groupBox54.Controls.Add(this.label263);
             this.groupBox54.Controls.Add(this.label265);
             this.groupBox54.Controls.Add(this.txt_sidl_right_total_vert_reac);
             this.groupBox54.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox54.Location = new System.Drawing.Point(16, 267);
+            this.groupBox54.Location = new System.Drawing.Point(16, 243);
             this.groupBox54.Name = "groupBox54";
-            this.groupBox54.Size = new System.Drawing.Size(472, 176);
+            this.groupBox54.Size = new System.Drawing.Size(472, 200);
             this.groupBox54.TabIndex = 41;
             this.groupBox54.TabStop = false;
             this.groupBox54.Text = "Right End Design Forces";
@@ -8530,7 +9194,7 @@
             this.groupBox55.Controls.Add(this.label267);
             this.groupBox55.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox55.ForeColor = System.Drawing.Color.Black;
-            this.groupBox55.Location = new System.Drawing.Point(546, 121);
+            this.groupBox55.Location = new System.Drawing.Point(564, 309);
             this.groupBox55.Name = "groupBox55";
             this.groupBox55.Size = new System.Drawing.Size(306, 49);
             this.groupBox55.TabIndex = 43;
@@ -8593,8 +9257,8 @@
             this.groupBox56.Controls.Add(this.txt_sidl_final_vert_reac);
             this.groupBox56.Controls.Add(this.label269);
             this.groupBox56.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox56.ForeColor = System.Drawing.Color.Red;
-            this.groupBox56.Location = new System.Drawing.Point(546, 74);
+            this.groupBox56.ForeColor = System.Drawing.Color.Black;
+            this.groupBox56.Location = new System.Drawing.Point(564, 262);
             this.groupBox56.Name = "groupBox56";
             this.groupBox56.Size = new System.Drawing.Size(306, 44);
             this.groupBox56.TabIndex = 42;
@@ -8651,16 +9315,758 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.groupBox47);
-            this.tabPage5.Controls.Add(this.groupBox34);
-            this.tabPage5.Controls.Add(this.groupBox46);
+            this.tabPage5.Controls.Add(this.label277);
+            this.tabPage5.Controls.Add(this.groupBox64);
+            this.tabPage5.Controls.Add(this.groupBox65);
+            this.tabPage5.Controls.Add(this.groupBox67);
+            this.tabPage5.Controls.Add(this.groupBox68);
+            this.tabPage5.Controls.Add(this.label286);
+            this.tabPage5.Controls.Add(this.groupBox69);
+            this.tabPage5.Controls.Add(this.groupBox70);
+            this.tabPage5.Controls.Add(this.groupBox71);
+            this.tabPage5.Controls.Add(this.groupBox72);
             this.tabPage5.Controls.Add(this.groupBox33);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(928, 476);
             this.tabPage5.TabIndex = 2;
-            this.tabPage5.Text = "Design Forces [WSM]";
+            this.tabPage5.Text = "Support Reactions  [LL]";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // txt_ll_right_max_total_Mz
+            // 
+            this.txt_ll_right_max_total_Mz.Location = new System.Drawing.Point(363, 172);
+            this.txt_ll_right_max_total_Mz.Name = "txt_ll_right_max_total_Mz";
+            this.txt_ll_right_max_total_Mz.ReadOnly = true;
+            this.txt_ll_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_max_total_Mz.TabIndex = 6;
+            this.txt_ll_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_right_max_total_Mx
+            // 
+            this.txt_ll_right_max_total_Mx.Location = new System.Drawing.Point(259, 172);
+            this.txt_ll_right_max_total_Mx.Name = "txt_ll_right_max_total_Mx";
+            this.txt_ll_right_max_total_Mx.ReadOnly = true;
+            this.txt_ll_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_max_total_Mx.TabIndex = 5;
+            this.txt_ll_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_left_max_total_Mz
+            // 
+            this.txt_ll_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_ll_left_max_total_Mz.Name = "txt_ll_left_max_total_Mz";
+            this.txt_ll_left_max_total_Mz.ReadOnly = true;
+            this.txt_ll_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_max_total_Mz.TabIndex = 6;
+            this.txt_ll_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_left_max_total_Mx
+            // 
+            this.txt_ll_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_ll_left_max_total_Mx.Name = "txt_ll_left_max_total_Mx";
+            this.txt_ll_left_max_total_Mx.ReadOnly = true;
+            this.txt_ll_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_max_total_Mx.TabIndex = 5;
+            this.txt_ll_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label550
+            // 
+            this.label550.AutoSize = true;
+            this.label550.Location = new System.Drawing.Point(21, 175);
+            this.label550.Name = "label550";
+            this.label550.Size = new System.Drawing.Size(119, 13);
+            this.label550.TabIndex = 4;
+            this.label550.Text = "Maximum Forces";
+            // 
+            // label277
+            // 
+            this.label277.AutoSize = true;
+            this.label277.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label277.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label277.Location = new System.Drawing.Point(569, 13);
+            this.label277.Name = "label277";
+            this.label277.Size = new System.Drawing.Size(218, 13);
+            this.label277.TabIndex = 92;
+            this.label277.Text = "Forces on Abutment (from One Side)";
+            // 
+            // label549
+            // 
+            this.label549.AutoSize = true;
+            this.label549.Location = new System.Drawing.Point(21, 175);
+            this.label549.Name = "label549";
+            this.label549.Size = new System.Drawing.Size(119, 13);
+            this.label549.TabIndex = 4;
+            this.label549.Text = "Maximum Forces";
+            // 
+            // groupBox64
+            // 
+            this.groupBox64.Controls.Add(this.textBox13);
+            this.groupBox64.Controls.Add(this.txt_ll_max_Mz);
+            this.groupBox64.Controls.Add(this.label278);
+            this.groupBox64.Controls.Add(this.txt_ll_max_Mz_kN);
+            this.groupBox64.Controls.Add(this.label279);
+            this.groupBox64.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox64.ForeColor = System.Drawing.Color.Black;
+            this.groupBox64.Location = new System.Drawing.Point(562, 133);
+            this.groupBox64.Name = "groupBox64";
+            this.groupBox64.Size = new System.Drawing.Size(306, 48);
+            this.groupBox64.TabIndex = 91;
+            this.groupBox64.TabStop = false;
+            this.groupBox64.Text = "Maximum Bending Moment [Mz]";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(364, 176);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(76, 20);
+            this.textBox13.TabIndex = 6;
+            // 
+            // txt_ll_max_Mz
+            // 
+            this.txt_ll_max_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_max_Mz.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_max_Mz.Location = new System.Drawing.Point(7, 19);
+            this.txt_ll_max_Mz.Name = "txt_ll_max_Mz";
+            this.txt_ll_max_Mz.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_max_Mz.TabIndex = 16;
+            this.txt_ll_max_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label278
+            // 
+            this.label278.AutoSize = true;
+            this.label278.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label278.Location = new System.Drawing.Point(98, 22);
+            this.label278.Name = "label278";
+            this.label278.Size = new System.Drawing.Size(47, 13);
+            this.label278.TabIndex = 20;
+            this.label278.Text = "Ton-m";
+            // 
+            // txt_ll_max_Mz_kN
+            // 
+            this.txt_ll_max_Mz_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_max_Mz_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_max_Mz_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_ll_max_Mz_kN.Name = "txt_ll_max_Mz_kN";
+            this.txt_ll_max_Mz_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_max_Mz_kN.TabIndex = 24;
+            this.txt_ll_max_Mz_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label279
+            // 
+            this.label279.AutoSize = true;
+            this.label279.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label279.Location = new System.Drawing.Point(251, 22);
+            this.label279.Name = "label279";
+            this.label279.Size = new System.Drawing.Size(39, 13);
+            this.label279.TabIndex = 18;
+            this.label279.Text = "kN-m";
+            // 
+            // txt_ll_right_max_total_vert_reac
+            // 
+            this.txt_ll_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 172);
+            this.txt_ll_right_max_total_vert_reac.Name = "txt_ll_right_max_total_vert_reac";
+            this.txt_ll_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_ll_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_max_total_vert_reac.TabIndex = 2;
+            this.txt_ll_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox65
+            // 
+            this.groupBox65.Controls.Add(this.textBox14);
+            this.groupBox65.Controls.Add(this.txt_ll_max_Mx);
+            this.groupBox65.Controls.Add(this.label280);
+            this.groupBox65.Controls.Add(this.txt_ll_max_Mx_kN);
+            this.groupBox65.Controls.Add(this.label281);
+            this.groupBox65.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox65.ForeColor = System.Drawing.Color.Black;
+            this.groupBox65.Location = new System.Drawing.Point(562, 78);
+            this.groupBox65.Name = "groupBox65";
+            this.groupBox65.Size = new System.Drawing.Size(306, 49);
+            this.groupBox65.TabIndex = 90;
+            this.groupBox65.TabStop = false;
+            this.groupBox65.Text = "Maximum Bending Moment [Mx]";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(364, 176);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(76, 20);
+            this.textBox14.TabIndex = 6;
+            // 
+            // txt_ll_max_Mx
+            // 
+            this.txt_ll_max_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_max_Mx.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_max_Mx.Location = new System.Drawing.Point(7, 19);
+            this.txt_ll_max_Mx.Name = "txt_ll_max_Mx";
+            this.txt_ll_max_Mx.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_max_Mx.TabIndex = 12;
+            this.txt_ll_max_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label280
+            // 
+            this.label280.AutoSize = true;
+            this.label280.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label280.Location = new System.Drawing.Point(98, 22);
+            this.label280.Name = "label280";
+            this.label280.Size = new System.Drawing.Size(47, 13);
+            this.label280.TabIndex = 21;
+            this.label280.Text = "Ton-m";
+            // 
+            // txt_ll_max_Mx_kN
+            // 
+            this.txt_ll_max_Mx_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_max_Mx_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_max_Mx_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_ll_max_Mx_kN.Name = "txt_ll_max_Mx_kN";
+            this.txt_ll_max_Mx_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_max_Mx_kN.TabIndex = 23;
+            this.txt_ll_max_Mx_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label281
+            // 
+            this.label281.AutoSize = true;
+            this.label281.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label281.Location = new System.Drawing.Point(251, 22);
+            this.label281.Name = "label281";
+            this.label281.Size = new System.Drawing.Size(39, 13);
+            this.label281.TabIndex = 18;
+            this.label281.Text = "kN-m";
+            // 
+            // txt_ll_left_max_vert_reac
+            // 
+            this.txt_ll_left_max_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_ll_left_max_vert_reac.Name = "txt_ll_left_max_vert_reac";
+            this.txt_ll_left_max_vert_reac.ReadOnly = true;
+            this.txt_ll_left_max_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_max_vert_reac.TabIndex = 2;
+            this.txt_ll_left_max_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox67
+            // 
+            this.groupBox67.Controls.Add(this.txt_ll_max_vert_reac_kN);
+            this.groupBox67.Controls.Add(this.label282);
+            this.groupBox67.Controls.Add(this.textBox15);
+            this.groupBox67.Controls.Add(this.txt_ll_max_vert_reac);
+            this.groupBox67.Controls.Add(this.label283);
+            this.groupBox67.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox67.ForeColor = System.Drawing.Color.Black;
+            this.groupBox67.Location = new System.Drawing.Point(562, 32);
+            this.groupBox67.Name = "groupBox67";
+            this.groupBox67.Size = new System.Drawing.Size(306, 42);
+            this.groupBox67.TabIndex = 89;
+            this.groupBox67.TabStop = false;
+            this.groupBox67.Text = "Maximum Vertical Reaction";
+            // 
+            // txt_ll_max_vert_reac_kN
+            // 
+            this.txt_ll_max_vert_reac_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_max_vert_reac_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_max_vert_reac_kN.Location = new System.Drawing.Point(160, 16);
+            this.txt_ll_max_vert_reac_kN.Name = "txt_ll_max_vert_reac_kN";
+            this.txt_ll_max_vert_reac_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_max_vert_reac_kN.TabIndex = 22;
+            this.txt_ll_max_vert_reac_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label282
+            // 
+            this.label282.AutoSize = true;
+            this.label282.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label282.Location = new System.Drawing.Point(98, 19);
+            this.label282.Name = "label282";
+            this.label282.Size = new System.Drawing.Size(31, 13);
+            this.label282.TabIndex = 19;
+            this.label282.Text = "Ton";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(364, 176);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(76, 20);
+            this.textBox15.TabIndex = 6;
+            // 
+            // txt_ll_max_vert_reac
+            // 
+            this.txt_ll_max_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_max_vert_reac.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_max_vert_reac.Location = new System.Drawing.Point(7, 16);
+            this.txt_ll_max_vert_reac.Name = "txt_ll_max_vert_reac";
+            this.txt_ll_max_vert_reac.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_max_vert_reac.TabIndex = 11;
+            this.txt_ll_max_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label283
+            // 
+            this.label283.AutoSize = true;
+            this.label283.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label283.Location = new System.Drawing.Point(251, 19);
+            this.label283.Name = "label283";
+            this.label283.Size = new System.Drawing.Size(23, 13);
+            this.label283.TabIndex = 14;
+            this.label283.Text = "kN";
+            // 
+            // groupBox68
+            // 
+            this.groupBox68.Controls.Add(this.textBox16);
+            this.groupBox68.Controls.Add(this.txt_ll_final_Mz);
+            this.groupBox68.Controls.Add(this.label284);
+            this.groupBox68.Controls.Add(this.txt_ll_final_Mz_kN);
+            this.groupBox68.Controls.Add(this.label285);
+            this.groupBox68.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox68.ForeColor = System.Drawing.Color.Black;
+            this.groupBox68.Location = new System.Drawing.Point(562, 351);
+            this.groupBox68.Name = "groupBox68";
+            this.groupBox68.Size = new System.Drawing.Size(306, 48);
+            this.groupBox68.TabIndex = 88;
+            this.groupBox68.TabStop = false;
+            this.groupBox68.Text = "Total Bending Moment [Mz]";
+            // 
+            // textBox16
+            // 
+            this.textBox16.Location = new System.Drawing.Point(364, 176);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(76, 20);
+            this.textBox16.TabIndex = 6;
+            // 
+            // txt_ll_final_Mz
+            // 
+            this.txt_ll_final_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_final_Mz.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_final_Mz.Location = new System.Drawing.Point(7, 15);
+            this.txt_ll_final_Mz.Name = "txt_ll_final_Mz";
+            this.txt_ll_final_Mz.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_final_Mz.TabIndex = 16;
+            this.txt_ll_final_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label284
+            // 
+            this.label284.AutoSize = true;
+            this.label284.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label284.Location = new System.Drawing.Point(98, 22);
+            this.label284.Name = "label284";
+            this.label284.Size = new System.Drawing.Size(47, 13);
+            this.label284.TabIndex = 20;
+            this.label284.Text = "Ton-m";
+            // 
+            // txt_ll_final_Mz_kN
+            // 
+            this.txt_ll_final_Mz_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_final_Mz_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_final_Mz_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_ll_final_Mz_kN.Name = "txt_ll_final_Mz_kN";
+            this.txt_ll_final_Mz_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_final_Mz_kN.TabIndex = 24;
+            this.txt_ll_final_Mz_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label285
+            // 
+            this.label285.AutoSize = true;
+            this.label285.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label285.Location = new System.Drawing.Point(251, 22);
+            this.label285.Name = "label285";
+            this.label285.Size = new System.Drawing.Size(39, 13);
+            this.label285.TabIndex = 18;
+            this.label285.Text = "kN-m";
+            // 
+            // label286
+            // 
+            this.label286.AutoSize = true;
+            this.label286.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label286.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label286.Location = new System.Drawing.Point(569, 230);
+            this.label286.Name = "label286";
+            this.label286.Size = new System.Drawing.Size(194, 13);
+            this.label286.TabIndex = 87;
+            this.label286.Text = "Forces on Pier (from Both Sides)";
+            // 
+            // groupBox69
+            // 
+            this.groupBox69.Controls.Add(this.txt_ll_left_total_Mz);
+            this.groupBox69.Controls.Add(this.txt_ll_left_total_Mx);
+            this.groupBox69.Controls.Add(this.txt_ll_left_max_total_Mz);
+            this.groupBox69.Controls.Add(this.txt_ll_left_max_total_Mx);
+            this.groupBox69.Controls.Add(this.label287);
+            this.groupBox69.Controls.Add(this.label288);
+            this.groupBox69.Controls.Add(this.txt_ll_left_total_vert_reac);
+            this.groupBox69.Controls.Add(this.label549);
+            this.groupBox69.Controls.Add(this.dgv_ll_left_des_frc);
+            this.groupBox69.Controls.Add(this.txt_ll_left_max_vert_reac);
+            this.groupBox69.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox69.Location = new System.Drawing.Point(14, 13);
+            this.groupBox69.Name = "groupBox69";
+            this.groupBox69.Size = new System.Drawing.Size(472, 206);
+            this.groupBox69.TabIndex = 83;
+            this.groupBox69.TabStop = false;
+            this.groupBox69.Text = "Left End Design Forces";
+            // 
+            // txt_ll_left_total_Mz
+            // 
+            this.txt_ll_left_total_Mz.Location = new System.Drawing.Point(364, 146);
+            this.txt_ll_left_total_Mz.Name = "txt_ll_left_total_Mz";
+            this.txt_ll_left_total_Mz.ReadOnly = true;
+            this.txt_ll_left_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_total_Mz.TabIndex = 6;
+            this.txt_ll_left_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_left_total_Mx
+            // 
+            this.txt_ll_left_total_Mx.Location = new System.Drawing.Point(260, 146);
+            this.txt_ll_left_total_Mx.Name = "txt_ll_left_total_Mx";
+            this.txt_ll_left_total_Mx.ReadOnly = true;
+            this.txt_ll_left_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_total_Mx.TabIndex = 5;
+            this.txt_ll_left_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label287
+            // 
+            this.label287.AutoSize = true;
+            this.label287.Location = new System.Drawing.Point(94, 149);
+            this.label287.Name = "label287";
+            this.label287.Size = new System.Drawing.Size(47, 13);
+            this.label287.TabIndex = 4;
+            this.label287.Text = "Total";
+            // 
+            // label288
+            // 
+            this.label288.AutoSize = true;
+            this.label288.Location = new System.Drawing.Point(6, 149);
+            this.label288.Name = "label288";
+            this.label288.Size = new System.Drawing.Size(71, 13);
+            this.label288.TabIndex = 3;
+            this.label288.Text = "Left End";
+            // 
+            // txt_ll_left_total_vert_reac
+            // 
+            this.txt_ll_left_total_vert_reac.Location = new System.Drawing.Point(147, 146);
+            this.txt_ll_left_total_vert_reac.Name = "txt_ll_left_total_vert_reac";
+            this.txt_ll_left_total_vert_reac.ReadOnly = true;
+            this.txt_ll_left_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_total_vert_reac.TabIndex = 2;
+            this.txt_ll_left_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dgv_ll_left_des_frc
+            // 
+            this.dgv_ll_left_des_frc.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ll_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            this.dgv_ll_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ll_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn91,
+            this.dataGridViewTextBoxColumn92,
+            this.dataGridViewTextBoxColumn93,
+            this.dataGridViewTextBoxColumn94});
+            this.dgv_ll_left_des_frc.Location = new System.Drawing.Point(6, 19);
+            this.dgv_ll_left_des_frc.Name = "dgv_ll_left_des_frc";
+            this.dgv_ll_left_des_frc.ReadOnly = true;
+            this.dgv_ll_left_des_frc.Size = new System.Drawing.Size(460, 121);
+            this.dgv_ll_left_des_frc.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn91
+            // 
+            this.dataGridViewTextBoxColumn91.HeaderText = "Joints";
+            this.dataGridViewTextBoxColumn91.Name = "dataGridViewTextBoxColumn91";
+            this.dataGridViewTextBoxColumn91.ReadOnly = true;
+            this.dataGridViewTextBoxColumn91.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn92
+            // 
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn92.DefaultCellStyle = dataGridViewCellStyle30;
+            this.dataGridViewTextBoxColumn92.HeaderText = "Vertical Reaction (Ton)";
+            this.dataGridViewTextBoxColumn92.Name = "dataGridViewTextBoxColumn92";
+            this.dataGridViewTextBoxColumn92.ReadOnly = true;
+            this.dataGridViewTextBoxColumn92.Width = 118;
+            // 
+            // dataGridViewTextBoxColumn93
+            // 
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn93.DefaultCellStyle = dataGridViewCellStyle31;
+            this.dataGridViewTextBoxColumn93.HeaderText = "Maximum    Mx   (Ton-m)";
+            this.dataGridViewTextBoxColumn93.Name = "dataGridViewTextBoxColumn93";
+            this.dataGridViewTextBoxColumn93.ReadOnly = true;
+            this.dataGridViewTextBoxColumn93.Width = 108;
+            // 
+            // dataGridViewTextBoxColumn94
+            // 
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn94.DefaultCellStyle = dataGridViewCellStyle32;
+            this.dataGridViewTextBoxColumn94.HeaderText = "Maximum   Mz  (Ton-m)";
+            this.dataGridViewTextBoxColumn94.Name = "dataGridViewTextBoxColumn94";
+            this.dataGridViewTextBoxColumn94.ReadOnly = true;
+            this.dataGridViewTextBoxColumn94.Width = 108;
+            // 
+            // groupBox70
+            // 
+            this.groupBox70.Controls.Add(this.txt_ll_right_max_total_Mz);
+            this.groupBox70.Controls.Add(this.txt_ll_right_max_total_Mx);
+            this.groupBox70.Controls.Add(this.dgv_ll_right_des_frc);
+            this.groupBox70.Controls.Add(this.label550);
+            this.groupBox70.Controls.Add(this.txt_ll_right_total_Mz);
+            this.groupBox70.Controls.Add(this.txt_ll_right_total_Mx);
+            this.groupBox70.Controls.Add(this.label289);
+            this.groupBox70.Controls.Add(this.txt_ll_right_max_total_vert_reac);
+            this.groupBox70.Controls.Add(this.label290);
+            this.groupBox70.Controls.Add(this.txt_ll_right_total_vert_reac);
+            this.groupBox70.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox70.Location = new System.Drawing.Point(14, 240);
+            this.groupBox70.Name = "groupBox70";
+            this.groupBox70.Size = new System.Drawing.Size(472, 205);
+            this.groupBox70.TabIndex = 84;
+            this.groupBox70.TabStop = false;
+            this.groupBox70.Text = "Right End Design Forces";
+            // 
+            // dgv_ll_right_des_frc
+            // 
+            this.dgv_ll_right_des_frc.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ll_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            this.dgv_ll_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ll_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn95,
+            this.dataGridViewTextBoxColumn96,
+            this.dataGridViewTextBoxColumn97,
+            this.dataGridViewTextBoxColumn98});
+            this.dgv_ll_right_des_frc.Location = new System.Drawing.Point(6, 19);
+            this.dgv_ll_right_des_frc.Name = "dgv_ll_right_des_frc";
+            this.dgv_ll_right_des_frc.ReadOnly = true;
+            this.dgv_ll_right_des_frc.Size = new System.Drawing.Size(460, 121);
+            this.dgv_ll_right_des_frc.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn95
+            // 
+            this.dataGridViewTextBoxColumn95.HeaderText = "Joints";
+            this.dataGridViewTextBoxColumn95.Name = "dataGridViewTextBoxColumn95";
+            this.dataGridViewTextBoxColumn95.ReadOnly = true;
+            this.dataGridViewTextBoxColumn95.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn96
+            // 
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn96.DefaultCellStyle = dataGridViewCellStyle34;
+            this.dataGridViewTextBoxColumn96.HeaderText = "Vertical Reaction (Ton)";
+            this.dataGridViewTextBoxColumn96.Name = "dataGridViewTextBoxColumn96";
+            this.dataGridViewTextBoxColumn96.ReadOnly = true;
+            this.dataGridViewTextBoxColumn96.Width = 118;
+            // 
+            // dataGridViewTextBoxColumn97
+            // 
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn97.DefaultCellStyle = dataGridViewCellStyle35;
+            this.dataGridViewTextBoxColumn97.HeaderText = "Maximum    Mx   (Ton-m)";
+            this.dataGridViewTextBoxColumn97.Name = "dataGridViewTextBoxColumn97";
+            this.dataGridViewTextBoxColumn97.ReadOnly = true;
+            this.dataGridViewTextBoxColumn97.Width = 108;
+            // 
+            // dataGridViewTextBoxColumn98
+            // 
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn98.DefaultCellStyle = dataGridViewCellStyle36;
+            this.dataGridViewTextBoxColumn98.HeaderText = "Maximum   Mz  (Ton-m)";
+            this.dataGridViewTextBoxColumn98.Name = "dataGridViewTextBoxColumn98";
+            this.dataGridViewTextBoxColumn98.ReadOnly = true;
+            this.dataGridViewTextBoxColumn98.Width = 108;
+            // 
+            // txt_ll_right_total_Mz
+            // 
+            this.txt_ll_right_total_Mz.Location = new System.Drawing.Point(363, 146);
+            this.txt_ll_right_total_Mz.Name = "txt_ll_right_total_Mz";
+            this.txt_ll_right_total_Mz.ReadOnly = true;
+            this.txt_ll_right_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_total_Mz.TabIndex = 6;
+            this.txt_ll_right_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_right_total_Mx
+            // 
+            this.txt_ll_right_total_Mx.Location = new System.Drawing.Point(259, 146);
+            this.txt_ll_right_total_Mx.Name = "txt_ll_right_total_Mx";
+            this.txt_ll_right_total_Mx.ReadOnly = true;
+            this.txt_ll_right_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_total_Mx.TabIndex = 5;
+            this.txt_ll_right_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label289
+            // 
+            this.label289.AutoSize = true;
+            this.label289.Location = new System.Drawing.Point(93, 149);
+            this.label289.Name = "label289";
+            this.label289.Size = new System.Drawing.Size(47, 13);
+            this.label289.TabIndex = 4;
+            this.label289.Text = "Total";
+            // 
+            // label290
+            // 
+            this.label290.AutoSize = true;
+            this.label290.Location = new System.Drawing.Point(5, 149);
+            this.label290.Name = "label290";
+            this.label290.Size = new System.Drawing.Size(79, 13);
+            this.label290.TabIndex = 3;
+            this.label290.Text = "Right End";
+            // 
+            // txt_ll_right_total_vert_reac
+            // 
+            this.txt_ll_right_total_vert_reac.Location = new System.Drawing.Point(146, 146);
+            this.txt_ll_right_total_vert_reac.Name = "txt_ll_right_total_vert_reac";
+            this.txt_ll_right_total_vert_reac.ReadOnly = true;
+            this.txt_ll_right_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_total_vert_reac.TabIndex = 2;
+            this.txt_ll_right_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox71
+            // 
+            this.groupBox71.Controls.Add(this.textBox17);
+            this.groupBox71.Controls.Add(this.txt_ll_final_Mx);
+            this.groupBox71.Controls.Add(this.label291);
+            this.groupBox71.Controls.Add(this.txt_ll_final_Mx_kN);
+            this.groupBox71.Controls.Add(this.label292);
+            this.groupBox71.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox71.ForeColor = System.Drawing.Color.Black;
+            this.groupBox71.Location = new System.Drawing.Point(562, 296);
+            this.groupBox71.Name = "groupBox71";
+            this.groupBox71.Size = new System.Drawing.Size(306, 49);
+            this.groupBox71.TabIndex = 86;
+            this.groupBox71.TabStop = false;
+            this.groupBox71.Text = "Total Bending Moment [Mx]";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(364, 176);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(76, 20);
+            this.textBox17.TabIndex = 6;
+            // 
+            // txt_ll_final_Mx
+            // 
+            this.txt_ll_final_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_final_Mx.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_final_Mx.Location = new System.Drawing.Point(7, 19);
+            this.txt_ll_final_Mx.Name = "txt_ll_final_Mx";
+            this.txt_ll_final_Mx.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_final_Mx.TabIndex = 12;
+            this.txt_ll_final_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label291
+            // 
+            this.label291.AutoSize = true;
+            this.label291.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label291.Location = new System.Drawing.Point(98, 22);
+            this.label291.Name = "label291";
+            this.label291.Size = new System.Drawing.Size(47, 13);
+            this.label291.TabIndex = 21;
+            this.label291.Text = "Ton-m";
+            // 
+            // txt_ll_final_Mx_kN
+            // 
+            this.txt_ll_final_Mx_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_final_Mx_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_final_Mx_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_ll_final_Mx_kN.Name = "txt_ll_final_Mx_kN";
+            this.txt_ll_final_Mx_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_final_Mx_kN.TabIndex = 23;
+            this.txt_ll_final_Mx_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label292
+            // 
+            this.label292.AutoSize = true;
+            this.label292.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label292.Location = new System.Drawing.Point(251, 22);
+            this.label292.Name = "label292";
+            this.label292.Size = new System.Drawing.Size(39, 13);
+            this.label292.TabIndex = 18;
+            this.label292.Text = "kN-m";
+            // 
+            // groupBox72
+            // 
+            this.groupBox72.Controls.Add(this.txt_ll_final_vert_rec_kN);
+            this.groupBox72.Controls.Add(this.label293);
+            this.groupBox72.Controls.Add(this.textBox18);
+            this.groupBox72.Controls.Add(this.txt_ll_final_vert_reac);
+            this.groupBox72.Controls.Add(this.label294);
+            this.groupBox72.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox72.ForeColor = System.Drawing.Color.Black;
+            this.groupBox72.Location = new System.Drawing.Point(562, 249);
+            this.groupBox72.Name = "groupBox72";
+            this.groupBox72.Size = new System.Drawing.Size(306, 44);
+            this.groupBox72.TabIndex = 85;
+            this.groupBox72.TabStop = false;
+            this.groupBox72.Text = "Total Vertical Reaction";
+            // 
+            // txt_ll_final_vert_rec_kN
+            // 
+            this.txt_ll_final_vert_rec_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_final_vert_rec_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_final_vert_rec_kN.Location = new System.Drawing.Point(160, 18);
+            this.txt_ll_final_vert_rec_kN.Name = "txt_ll_final_vert_rec_kN";
+            this.txt_ll_final_vert_rec_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_final_vert_rec_kN.TabIndex = 22;
+            this.txt_ll_final_vert_rec_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label293
+            // 
+            this.label293.AutoSize = true;
+            this.label293.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label293.Location = new System.Drawing.Point(98, 21);
+            this.label293.Name = "label293";
+            this.label293.Size = new System.Drawing.Size(31, 13);
+            this.label293.TabIndex = 19;
+            this.label293.Text = "Ton";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(364, 176);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(76, 20);
+            this.textBox18.TabIndex = 6;
+            // 
+            // txt_ll_final_vert_reac
+            // 
+            this.txt_ll_final_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_ll_final_vert_reac.ForeColor = System.Drawing.Color.Blue;
+            this.txt_ll_final_vert_reac.Location = new System.Drawing.Point(7, 18);
+            this.txt_ll_final_vert_reac.Name = "txt_ll_final_vert_reac";
+            this.txt_ll_final_vert_reac.Size = new System.Drawing.Size(85, 20);
+            this.txt_ll_final_vert_reac.TabIndex = 11;
+            this.txt_ll_final_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label294
+            // 
+            this.label294.AutoSize = true;
+            this.label294.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label294.Location = new System.Drawing.Point(251, 21);
+            this.label294.Name = "label294";
+            this.label294.Size = new System.Drawing.Size(23, 13);
+            this.label294.TabIndex = 14;
+            this.label294.Text = "kN";
+            // 
+            // groupBox33
+            // 
+            this.groupBox33.Controls.Add(this.groupBox47);
+            this.groupBox33.Controls.Add(this.label169);
+            this.groupBox33.Controls.Add(this.groupBox34);
+            this.groupBox33.Controls.Add(this.label170);
+            this.groupBox33.Controls.Add(this.groupBox46);
+            this.groupBox33.Controls.Add(this.label541);
+            this.groupBox33.Controls.Add(this.label540);
+            this.groupBox33.Controls.Add(this.txt_ana_DLSR);
+            this.groupBox33.Controls.Add(this.txt_ana_LLSR);
+            this.groupBox33.Location = new System.Drawing.Point(151, 13);
+            this.groupBox33.Name = "groupBox33";
+            this.groupBox33.Size = new System.Drawing.Size(707, 46);
+            this.groupBox33.TabIndex = 82;
+            this.groupBox33.TabStop = false;
+            this.groupBox33.Text = "Support Reactions";
+            this.groupBox33.Visible = false;
             // 
             // groupBox47
             // 
@@ -8673,9 +10079,9 @@
             this.groupBox47.Controls.Add(this.txt_live_vert_rec_Ton);
             this.groupBox47.Controls.Add(this.label401);
             this.groupBox47.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox47.Location = new System.Drawing.Point(558, 98);
+            this.groupBox47.Location = new System.Drawing.Point(322, 74);
             this.groupBox47.Name = "groupBox47";
-            this.groupBox47.Size = new System.Drawing.Size(300, 265);
+            this.groupBox47.Size = new System.Drawing.Size(90, 15);
             this.groupBox47.TabIndex = 23;
             this.groupBox47.TabStop = false;
             this.groupBox47.Text = "Support Reactions from Live Load";
@@ -8735,14 +10141,14 @@
             // dgv_right_end_design_forces
             // 
             this.dgv_right_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgv_right_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_right_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn29,
@@ -8762,8 +10168,8 @@
             // 
             // dataGridViewTextBoxColumn30
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridViewTextBoxColumn30.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
@@ -8790,6 +10196,16 @@
             this.label401.TabIndex = 14;
             this.label401.Text = "Ton";
             // 
+            // label169
+            // 
+            this.label169.AutoSize = true;
+            this.label169.Location = new System.Drawing.Point(366, 17);
+            this.label169.Name = "label169";
+            this.label169.Size = new System.Drawing.Size(186, 26);
+            this.label169.TabIndex = 110;
+            this.label169.Text = "Live Load Support Reaction \r\nper unit width of Abutment/Pier";
+            this.label169.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // groupBox34
             // 
             this.groupBox34.Controls.Add(this.label534);
@@ -8801,9 +10217,9 @@
             this.groupBox34.Controls.Add(this.label538);
             this.groupBox34.Controls.Add(this.txt_ana_MSLD);
             this.groupBox34.Controls.Add(this.label539);
-            this.groupBox34.Location = new System.Drawing.Point(16, 446);
+            this.groupBox34.Location = new System.Drawing.Point(159, 121);
             this.groupBox34.Name = "groupBox34";
-            this.groupBox34.Size = new System.Drawing.Size(44, 10);
+            this.groupBox34.Size = new System.Drawing.Size(460, 113);
             this.groupBox34.TabIndex = 91;
             this.groupBox34.TabStop = false;
             this.groupBox34.Text = "Design Forces";
@@ -8899,6 +10315,16 @@
             this.label539.TabIndex = 99;
             this.label539.Text = "Moment at Supports in Longitudinal Direction [Mx1]";
             // 
+            // label170
+            // 
+            this.label170.AutoSize = true;
+            this.label170.Location = new System.Drawing.Point(6, 17);
+            this.label170.Name = "label170";
+            this.label170.Size = new System.Drawing.Size(186, 26);
+            this.label170.TabIndex = 109;
+            this.label170.Text = "Dead Load Support Reaction \r\nper unit width of Abutment/Pier";
+            this.label170.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // groupBox46
             // 
             this.groupBox46.Controls.Add(this.label327);
@@ -8910,12 +10336,13 @@
             this.groupBox46.Controls.Add(this.dgv_left_end_design_forces);
             this.groupBox46.Controls.Add(this.txt_dead_vert_reac_ton);
             this.groupBox46.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox46.Location = new System.Drawing.Point(151, 98);
+            this.groupBox46.Location = new System.Drawing.Point(24, 55);
             this.groupBox46.Name = "groupBox46";
-            this.groupBox46.Size = new System.Drawing.Size(291, 265);
+            this.groupBox46.Size = new System.Drawing.Size(168, 13);
             this.groupBox46.TabIndex = 22;
             this.groupBox46.TabStop = false;
             this.groupBox46.Text = "Support Reactions from Dead Load";
+            this.groupBox46.Visible = false;
             // 
             // label327
             // 
@@ -8982,14 +10409,14 @@
             // dgv_left_end_design_forces
             // 
             this.dgv_left_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.dgv_left_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_left_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_Joints,
@@ -9009,8 +10436,8 @@
             // 
             // col_Vert_Reaction
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle40;
             this.col_Vert_Reaction.HeaderText = "Vertical Reaction (Ton)";
             this.col_Vert_Reaction.Name = "col_Vert_Reaction";
             this.col_Vert_Reaction.ReadOnly = true;
@@ -9026,41 +10453,6 @@
             this.txt_dead_vert_reac_ton.TabIndex = 11;
             this.txt_dead_vert_reac_ton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_dead_vert_reac_ton.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // groupBox33
-            // 
-            this.groupBox33.Controls.Add(this.label169);
-            this.groupBox33.Controls.Add(this.label170);
-            this.groupBox33.Controls.Add(this.label541);
-            this.groupBox33.Controls.Add(this.label540);
-            this.groupBox33.Controls.Add(this.txt_ana_DLSR);
-            this.groupBox33.Controls.Add(this.txt_ana_LLSR);
-            this.groupBox33.Location = new System.Drawing.Point(151, 13);
-            this.groupBox33.Name = "groupBox33";
-            this.groupBox33.Size = new System.Drawing.Size(707, 57);
-            this.groupBox33.TabIndex = 82;
-            this.groupBox33.TabStop = false;
-            this.groupBox33.Text = "Support Reactions";
-            // 
-            // label169
-            // 
-            this.label169.AutoSize = true;
-            this.label169.Location = new System.Drawing.Point(366, 17);
-            this.label169.Name = "label169";
-            this.label169.Size = new System.Drawing.Size(186, 26);
-            this.label169.TabIndex = 110;
-            this.label169.Text = "Live Load Support Reaction \r\nper unit width of Abutment/Pier";
-            this.label169.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label170
-            // 
-            this.label170.AutoSize = true;
-            this.label170.Location = new System.Drawing.Point(6, 17);
-            this.label170.Name = "label170";
-            this.label170.Size = new System.Drawing.Size(186, 26);
-            this.label170.TabIndex = 109;
-            this.label170.Text = "Dead Load Support Reaction \r\nper unit width of Abutment/Pier";
-            this.label170.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label541
             // 
@@ -9102,6 +10494,458 @@
             this.txt_ana_LLSR.Text = "0";
             this.txt_ana_LLSR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label295);
+            this.tabPage3.Controls.Add(this.groupBox73);
+            this.tabPage3.Controls.Add(this.groupBox74);
+            this.tabPage3.Controls.Add(this.groupBox75);
+            this.tabPage3.Controls.Add(this.groupBox77);
+            this.tabPage3.Controls.Add(this.groupBox78);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(928, 476);
+            this.tabPage3.TabIndex = 4;
+            this.tabPage3.Text = "Maximum Forces";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label295
+            // 
+            this.label295.AutoSize = true;
+            this.label295.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label295.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label295.Location = new System.Drawing.Point(571, 20);
+            this.label295.Name = "label295";
+            this.label295.Size = new System.Drawing.Size(220, 13);
+            this.label295.TabIndex = 69;
+            this.label295.Text = "Maximum Design Forces for Bearings";
+            // 
+            // groupBox73
+            // 
+            this.groupBox73.Controls.Add(this.textBox19);
+            this.groupBox73.Controls.Add(this.txt_mxf_max_Mz);
+            this.groupBox73.Controls.Add(this.label296);
+            this.groupBox73.Controls.Add(this.txt_mxf_max_Mz_kN);
+            this.groupBox73.Controls.Add(this.label324);
+            this.groupBox73.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox73.ForeColor = System.Drawing.Color.Black;
+            this.groupBox73.Location = new System.Drawing.Point(564, 140);
+            this.groupBox73.Name = "groupBox73";
+            this.groupBox73.Size = new System.Drawing.Size(306, 48);
+            this.groupBox73.TabIndex = 68;
+            this.groupBox73.TabStop = false;
+            this.groupBox73.Text = "Maximum Bending Moment [Mz]";
+            // 
+            // textBox19
+            // 
+            this.textBox19.Location = new System.Drawing.Point(364, 176);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(76, 20);
+            this.textBox19.TabIndex = 6;
+            // 
+            // txt_mxf_max_Mz
+            // 
+            this.txt_mxf_max_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_mxf_max_Mz.ForeColor = System.Drawing.Color.Blue;
+            this.txt_mxf_max_Mz.Location = new System.Drawing.Point(7, 19);
+            this.txt_mxf_max_Mz.Name = "txt_mxf_max_Mz";
+            this.txt_mxf_max_Mz.Size = new System.Drawing.Size(85, 20);
+            this.txt_mxf_max_Mz.TabIndex = 16;
+            this.txt_mxf_max_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label296
+            // 
+            this.label296.AutoSize = true;
+            this.label296.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label296.Location = new System.Drawing.Point(98, 22);
+            this.label296.Name = "label296";
+            this.label296.Size = new System.Drawing.Size(47, 13);
+            this.label296.TabIndex = 20;
+            this.label296.Text = "Ton-m";
+            // 
+            // txt_mxf_max_Mz_kN
+            // 
+            this.txt_mxf_max_Mz_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_mxf_max_Mz_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_mxf_max_Mz_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_mxf_max_Mz_kN.Name = "txt_mxf_max_Mz_kN";
+            this.txt_mxf_max_Mz_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_mxf_max_Mz_kN.TabIndex = 24;
+            this.txt_mxf_max_Mz_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label324
+            // 
+            this.label324.AutoSize = true;
+            this.label324.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label324.Location = new System.Drawing.Point(251, 22);
+            this.label324.Name = "label324";
+            this.label324.Size = new System.Drawing.Size(39, 13);
+            this.label324.TabIndex = 18;
+            this.label324.Text = "kN-m";
+            // 
+            // groupBox74
+            // 
+            this.groupBox74.Controls.Add(this.textBox20);
+            this.groupBox74.Controls.Add(this.txt_mxf_max_Mx);
+            this.groupBox74.Controls.Add(this.label443);
+            this.groupBox74.Controls.Add(this.txt_mxf_max_Mx_kN);
+            this.groupBox74.Controls.Add(this.label444);
+            this.groupBox74.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox74.ForeColor = System.Drawing.Color.Black;
+            this.groupBox74.Location = new System.Drawing.Point(564, 85);
+            this.groupBox74.Name = "groupBox74";
+            this.groupBox74.Size = new System.Drawing.Size(306, 49);
+            this.groupBox74.TabIndex = 67;
+            this.groupBox74.TabStop = false;
+            this.groupBox74.Text = "Maximum Bending Moment [Mx]";
+            // 
+            // textBox20
+            // 
+            this.textBox20.Location = new System.Drawing.Point(364, 176);
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(76, 20);
+            this.textBox20.TabIndex = 6;
+            // 
+            // txt_mxf_max_Mx
+            // 
+            this.txt_mxf_max_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_mxf_max_Mx.ForeColor = System.Drawing.Color.Blue;
+            this.txt_mxf_max_Mx.Location = new System.Drawing.Point(7, 19);
+            this.txt_mxf_max_Mx.Name = "txt_mxf_max_Mx";
+            this.txt_mxf_max_Mx.Size = new System.Drawing.Size(85, 20);
+            this.txt_mxf_max_Mx.TabIndex = 12;
+            this.txt_mxf_max_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label443
+            // 
+            this.label443.AutoSize = true;
+            this.label443.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label443.Location = new System.Drawing.Point(98, 22);
+            this.label443.Name = "label443";
+            this.label443.Size = new System.Drawing.Size(47, 13);
+            this.label443.TabIndex = 21;
+            this.label443.Text = "Ton-m";
+            // 
+            // txt_mxf_max_Mx_kN
+            // 
+            this.txt_mxf_max_Mx_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_mxf_max_Mx_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_mxf_max_Mx_kN.Location = new System.Drawing.Point(160, 19);
+            this.txt_mxf_max_Mx_kN.Name = "txt_mxf_max_Mx_kN";
+            this.txt_mxf_max_Mx_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_mxf_max_Mx_kN.TabIndex = 23;
+            this.txt_mxf_max_Mx_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label444
+            // 
+            this.label444.AutoSize = true;
+            this.label444.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label444.Location = new System.Drawing.Point(251, 22);
+            this.label444.Name = "label444";
+            this.label444.Size = new System.Drawing.Size(39, 13);
+            this.label444.TabIndex = 18;
+            this.label444.Text = "kN-m";
+            // 
+            // groupBox75
+            // 
+            this.groupBox75.Controls.Add(this.txt_mxf_max_vert_reac_kN);
+            this.groupBox75.Controls.Add(this.label471);
+            this.groupBox75.Controls.Add(this.textBox21);
+            this.groupBox75.Controls.Add(this.txt_mxf_max_vert_reac);
+            this.groupBox75.Controls.Add(this.label472);
+            this.groupBox75.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox75.ForeColor = System.Drawing.Color.Black;
+            this.groupBox75.Location = new System.Drawing.Point(564, 39);
+            this.groupBox75.Name = "groupBox75";
+            this.groupBox75.Size = new System.Drawing.Size(306, 42);
+            this.groupBox75.TabIndex = 66;
+            this.groupBox75.TabStop = false;
+            this.groupBox75.Text = "Maximum Vertical Reaction";
+            // 
+            // txt_mxf_max_vert_reac_kN
+            // 
+            this.txt_mxf_max_vert_reac_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_mxf_max_vert_reac_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_mxf_max_vert_reac_kN.Location = new System.Drawing.Point(160, 16);
+            this.txt_mxf_max_vert_reac_kN.Name = "txt_mxf_max_vert_reac_kN";
+            this.txt_mxf_max_vert_reac_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_mxf_max_vert_reac_kN.TabIndex = 22;
+            this.txt_mxf_max_vert_reac_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label471
+            // 
+            this.label471.AutoSize = true;
+            this.label471.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label471.Location = new System.Drawing.Point(98, 19);
+            this.label471.Name = "label471";
+            this.label471.Size = new System.Drawing.Size(31, 13);
+            this.label471.TabIndex = 19;
+            this.label471.Text = "Ton";
+            // 
+            // textBox21
+            // 
+            this.textBox21.Location = new System.Drawing.Point(364, 176);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(76, 20);
+            this.textBox21.TabIndex = 6;
+            // 
+            // txt_mxf_max_vert_reac
+            // 
+            this.txt_mxf_max_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_mxf_max_vert_reac.ForeColor = System.Drawing.Color.Blue;
+            this.txt_mxf_max_vert_reac.Location = new System.Drawing.Point(7, 16);
+            this.txt_mxf_max_vert_reac.Name = "txt_mxf_max_vert_reac";
+            this.txt_mxf_max_vert_reac.Size = new System.Drawing.Size(85, 20);
+            this.txt_mxf_max_vert_reac.TabIndex = 11;
+            this.txt_mxf_max_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label472
+            // 
+            this.label472.AutoSize = true;
+            this.label472.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label472.Location = new System.Drawing.Point(251, 19);
+            this.label472.Name = "label472";
+            this.label472.Size = new System.Drawing.Size(23, 13);
+            this.label472.TabIndex = 14;
+            this.label472.Text = "kN";
+            // 
+            // groupBox77
+            // 
+            this.groupBox77.Controls.Add(this.txt_mxf_left_total_Mz);
+            this.groupBox77.Controls.Add(this.txt_mxf_left_total_Mx);
+            this.groupBox77.Controls.Add(this.label504);
+            this.groupBox77.Controls.Add(this.label505);
+            this.groupBox77.Controls.Add(this.txt_mxf_left_total_vert_reac);
+            this.groupBox77.Controls.Add(this.dgv_mxf_left_des_frc);
+            this.groupBox77.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox77.Location = new System.Drawing.Point(16, 20);
+            this.groupBox77.Name = "groupBox77";
+            this.groupBox77.Size = new System.Drawing.Size(472, 176);
+            this.groupBox77.TabIndex = 60;
+            this.groupBox77.TabStop = false;
+            this.groupBox77.Text = "Left End Design Forces";
+            // 
+            // txt_mxf_left_total_Mz
+            // 
+            this.txt_mxf_left_total_Mz.Location = new System.Drawing.Point(364, 146);
+            this.txt_mxf_left_total_Mz.Name = "txt_mxf_left_total_Mz";
+            this.txt_mxf_left_total_Mz.ReadOnly = true;
+            this.txt_mxf_left_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_mxf_left_total_Mz.TabIndex = 6;
+            this.txt_mxf_left_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_mxf_left_total_Mx
+            // 
+            this.txt_mxf_left_total_Mx.Location = new System.Drawing.Point(260, 146);
+            this.txt_mxf_left_total_Mx.Name = "txt_mxf_left_total_Mx";
+            this.txt_mxf_left_total_Mx.ReadOnly = true;
+            this.txt_mxf_left_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_mxf_left_total_Mx.TabIndex = 5;
+            this.txt_mxf_left_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label504
+            // 
+            this.label504.AutoSize = true;
+            this.label504.Location = new System.Drawing.Point(94, 149);
+            this.label504.Name = "label504";
+            this.label504.Size = new System.Drawing.Size(47, 13);
+            this.label504.TabIndex = 4;
+            this.label504.Text = "Total";
+            // 
+            // label505
+            // 
+            this.label505.AutoSize = true;
+            this.label505.Location = new System.Drawing.Point(6, 149);
+            this.label505.Name = "label505";
+            this.label505.Size = new System.Drawing.Size(71, 13);
+            this.label505.TabIndex = 3;
+            this.label505.Text = "Left End";
+            // 
+            // txt_mxf_left_total_vert_reac
+            // 
+            this.txt_mxf_left_total_vert_reac.Location = new System.Drawing.Point(147, 146);
+            this.txt_mxf_left_total_vert_reac.Name = "txt_mxf_left_total_vert_reac";
+            this.txt_mxf_left_total_vert_reac.ReadOnly = true;
+            this.txt_mxf_left_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_mxf_left_total_vert_reac.TabIndex = 2;
+            this.txt_mxf_left_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dgv_mxf_left_des_frc
+            // 
+            this.dgv_mxf_left_des_frc.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_mxf_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            this.dgv_mxf_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_mxf_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn99,
+            this.dataGridViewTextBoxColumn100,
+            this.dataGridViewTextBoxColumn101,
+            this.dataGridViewTextBoxColumn102});
+            this.dgv_mxf_left_des_frc.Location = new System.Drawing.Point(6, 19);
+            this.dgv_mxf_left_des_frc.Name = "dgv_mxf_left_des_frc";
+            this.dgv_mxf_left_des_frc.ReadOnly = true;
+            this.dgv_mxf_left_des_frc.Size = new System.Drawing.Size(460, 121);
+            this.dgv_mxf_left_des_frc.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn99
+            // 
+            this.dataGridViewTextBoxColumn99.HeaderText = "LOAD NAME";
+            this.dataGridViewTextBoxColumn99.Name = "dataGridViewTextBoxColumn99";
+            this.dataGridViewTextBoxColumn99.ReadOnly = true;
+            this.dataGridViewTextBoxColumn99.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn100
+            // 
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn100.DefaultCellStyle = dataGridViewCellStyle42;
+            this.dataGridViewTextBoxColumn100.HeaderText = "Vertical Reaction (Ton)";
+            this.dataGridViewTextBoxColumn100.Name = "dataGridViewTextBoxColumn100";
+            this.dataGridViewTextBoxColumn100.ReadOnly = true;
+            this.dataGridViewTextBoxColumn100.Width = 118;
+            // 
+            // dataGridViewTextBoxColumn101
+            // 
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn101.DefaultCellStyle = dataGridViewCellStyle43;
+            this.dataGridViewTextBoxColumn101.HeaderText = "Maximum    Mx   (Ton-m)";
+            this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
+            this.dataGridViewTextBoxColumn101.ReadOnly = true;
+            this.dataGridViewTextBoxColumn101.Width = 108;
+            // 
+            // dataGridViewTextBoxColumn102
+            // 
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle44;
+            this.dataGridViewTextBoxColumn102.HeaderText = "Maximum   Mz  (Ton-m)";
+            this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
+            this.dataGridViewTextBoxColumn102.ReadOnly = true;
+            this.dataGridViewTextBoxColumn102.Width = 108;
+            // 
+            // groupBox78
+            // 
+            this.groupBox78.Controls.Add(this.dgv_mxf_right_des_frc);
+            this.groupBox78.Controls.Add(this.txt_mxf_right_total_Mz);
+            this.groupBox78.Controls.Add(this.txt_mxf_right_total_Mx);
+            this.groupBox78.Controls.Add(this.label506);
+            this.groupBox78.Controls.Add(this.label507);
+            this.groupBox78.Controls.Add(this.txt_mxf_right_total_vert_reac);
+            this.groupBox78.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox78.Location = new System.Drawing.Point(16, 215);
+            this.groupBox78.Name = "groupBox78";
+            this.groupBox78.Size = new System.Drawing.Size(472, 176);
+            this.groupBox78.TabIndex = 61;
+            this.groupBox78.TabStop = false;
+            this.groupBox78.Text = "Right End Design Forces";
+            // 
+            // dgv_mxf_right_des_frc
+            // 
+            this.dgv_mxf_right_des_frc.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_mxf_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            this.dgv_mxf_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_mxf_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn103,
+            this.dataGridViewTextBoxColumn104,
+            this.dataGridViewTextBoxColumn105,
+            this.dataGridViewTextBoxColumn106});
+            this.dgv_mxf_right_des_frc.Location = new System.Drawing.Point(6, 19);
+            this.dgv_mxf_right_des_frc.Name = "dgv_mxf_right_des_frc";
+            this.dgv_mxf_right_des_frc.ReadOnly = true;
+            this.dgv_mxf_right_des_frc.Size = new System.Drawing.Size(460, 121);
+            this.dgv_mxf_right_des_frc.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn103
+            // 
+            this.dataGridViewTextBoxColumn103.HeaderText = "LOAD NAME";
+            this.dataGridViewTextBoxColumn103.Name = "dataGridViewTextBoxColumn103";
+            this.dataGridViewTextBoxColumn103.ReadOnly = true;
+            this.dataGridViewTextBoxColumn103.Width = 63;
+            // 
+            // dataGridViewTextBoxColumn104
+            // 
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn104.DefaultCellStyle = dataGridViewCellStyle46;
+            this.dataGridViewTextBoxColumn104.HeaderText = "Vertical Reaction (Ton)";
+            this.dataGridViewTextBoxColumn104.Name = "dataGridViewTextBoxColumn104";
+            this.dataGridViewTextBoxColumn104.ReadOnly = true;
+            this.dataGridViewTextBoxColumn104.Width = 118;
+            // 
+            // dataGridViewTextBoxColumn105
+            // 
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn105.DefaultCellStyle = dataGridViewCellStyle47;
+            this.dataGridViewTextBoxColumn105.HeaderText = "Maximum    Mx   (Ton-m)";
+            this.dataGridViewTextBoxColumn105.Name = "dataGridViewTextBoxColumn105";
+            this.dataGridViewTextBoxColumn105.ReadOnly = true;
+            this.dataGridViewTextBoxColumn105.Width = 108;
+            // 
+            // dataGridViewTextBoxColumn106
+            // 
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn106.DefaultCellStyle = dataGridViewCellStyle48;
+            this.dataGridViewTextBoxColumn106.HeaderText = "Maximum   Mz  (Ton-m)";
+            this.dataGridViewTextBoxColumn106.Name = "dataGridViewTextBoxColumn106";
+            this.dataGridViewTextBoxColumn106.ReadOnly = true;
+            this.dataGridViewTextBoxColumn106.Width = 108;
+            // 
+            // txt_mxf_right_total_Mz
+            // 
+            this.txt_mxf_right_total_Mz.Location = new System.Drawing.Point(363, 146);
+            this.txt_mxf_right_total_Mz.Name = "txt_mxf_right_total_Mz";
+            this.txt_mxf_right_total_Mz.ReadOnly = true;
+            this.txt_mxf_right_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_mxf_right_total_Mz.TabIndex = 6;
+            this.txt_mxf_right_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_mxf_right_total_Mx
+            // 
+            this.txt_mxf_right_total_Mx.Location = new System.Drawing.Point(259, 146);
+            this.txt_mxf_right_total_Mx.Name = "txt_mxf_right_total_Mx";
+            this.txt_mxf_right_total_Mx.ReadOnly = true;
+            this.txt_mxf_right_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_mxf_right_total_Mx.TabIndex = 5;
+            this.txt_mxf_right_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label506
+            // 
+            this.label506.AutoSize = true;
+            this.label506.Location = new System.Drawing.Point(93, 149);
+            this.label506.Name = "label506";
+            this.label506.Size = new System.Drawing.Size(47, 13);
+            this.label506.TabIndex = 4;
+            this.label506.Text = "Total";
+            // 
+            // label507
+            // 
+            this.label507.AutoSize = true;
+            this.label507.Location = new System.Drawing.Point(5, 149);
+            this.label507.Name = "label507";
+            this.label507.Size = new System.Drawing.Size(79, 13);
+            this.label507.TabIndex = 3;
+            this.label507.Text = "Right End";
+            // 
+            // txt_mxf_right_total_vert_reac
+            // 
+            this.txt_mxf_right_total_vert_reac.Location = new System.Drawing.Point(146, 146);
+            this.txt_mxf_right_total_vert_reac.Name = "txt_mxf_right_total_vert_reac";
+            this.txt_mxf_right_total_vert_reac.ReadOnly = true;
+            this.txt_mxf_right_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_mxf_right_total_vert_reac.TabIndex = 2;
+            this.txt_mxf_right_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -9140,9 +10984,9 @@
             // 
             // dataGridViewTextBoxColumn44
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn44.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn44.DefaultCellStyle = dataGridViewCellStyle49;
             this.dataGridViewTextBoxColumn44.HeaderText = "VALUE";
             this.dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
             this.dataGridViewTextBoxColumn44.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9274,9 +11118,9 @@
             // 
             // dataGridViewTextBoxColumn53
             // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle50;
             this.dataGridViewTextBoxColumn53.HeaderText = "VALUE";
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9391,9 +11235,9 @@
             // 
             // col_inp_val
             // 
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col_inp_val.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col_inp_val.DefaultCellStyle = dataGridViewCellStyle51;
             this.col_inp_val.HeaderText = "VALUE";
             this.col_inp_val.Name = "col_inp_val";
             this.col_inp_val.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9470,14 +11314,14 @@
             // 
             this.dgv_deck_loads.AllowUserToAddRows = false;
             this.dgv_deck_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_deck_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_deck_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
             this.dgv_deck_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_deck_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn46,
@@ -9486,14 +11330,14 @@
             this.dataGridViewTextBoxColumn49,
             this.dataGridViewTextBoxColumn50,
             this.dataGridViewTextBoxColumn51});
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_deck_loads.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle54.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle54.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_deck_loads.DefaultCellStyle = dataGridViewCellStyle54;
             this.dgv_deck_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_deck_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_deck_loads.Name = "dgv_deck_loads";
@@ -9503,9 +11347,9 @@
             // 
             // dataGridViewTextBoxColumn46
             // 
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle53.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle53;
             this.dataGridViewTextBoxColumn46.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
             this.dataGridViewTextBoxColumn46.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9583,14 +11427,14 @@
             // 
             this.dgv_deck_liveloads.AllowUserToAddRows = false;
             this.dgv_deck_liveloads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_deck_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle55.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_deck_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
             this.dgv_deck_liveloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_deck_liveloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col1,
@@ -9615,14 +11459,14 @@
             this.Column20,
             this.Column21,
             this.Column22});
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_deck_liveloads.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_deck_liveloads.DefaultCellStyle = dataGridViewCellStyle57;
             this.dgv_deck_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_deck_liveloads.Location = new System.Drawing.Point(3, 38);
             this.dgv_deck_liveloads.Name = "dgv_deck_liveloads";
@@ -9631,9 +11475,9 @@
             // 
             // col1
             // 
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.col1.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle56.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.col1.DefaultCellStyle = dataGridViewCellStyle56;
             this.col1.HeaderText = "Moving Load";
             this.col1.Name = "col1";
             this.col1.ReadOnly = true;
@@ -9858,9 +11702,9 @@
             // 
             // dataGridViewTextBoxColumn41
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle58;
             this.dataGridViewTextBoxColumn41.HeaderText = "VALUE";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9898,9 +11742,9 @@
             // 
             // dataGridViewTextBoxColumn38
             // 
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle59;
             this.dataGridViewTextBoxColumn38.HeaderText = "VALUE";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -10092,6 +11936,64 @@
             this.tab_deck_slab_BS.Text = "Deck Slab [BS 5400]";
             this.tab_deck_slab_BS.UseVisualStyleBackColor = true;
             // 
+            // uC_Deckslab_BS1
+            // 
+            this.uC_Deckslab_BS1.axle_unit = 10D;
+            this.uC_Deckslab_BS1.b = 12D;
+            this.uC_Deckslab_BS1.b1 = 1.874D;
+            this.uC_Deckslab_BS1.b2 = 0.845D;
+            this.uC_Deckslab_BS1.bar_dia = 16D;
+            this.uC_Deckslab_BS1.bar_no = 7D;
+            this.uC_Deckslab_BS1.bar_spacing = 150D;
+            this.uC_Deckslab_BS1.c_span = 0.815D;
+            this.uC_Deckslab_BS1.cl = 1.315D;
+            this.uC_Deckslab_BS1.cover = 55D;
+            this.uC_Deckslab_BS1.cr = 1.315D;
+            this.uC_Deckslab_BS1.d = 117D;
+            this.uC_Deckslab_BS1.d_total = 205D;
+            this.uC_Deckslab_BS1.d_YD = 0.18D;
+            this.uC_Deckslab_BS1.d1 = 25D;
+            this.uC_Deckslab_BS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Deckslab_BS1.Fck = 50D;
+            this.uC_Deckslab_BS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Deckslab_BS1.Fy = 500D;
+            this.uC_Deckslab_BS1.gf1_sls_Mhog = 1.1D;
+            this.uC_Deckslab_BS1.gf1_sls_sur = 1.2D;
+            this.uC_Deckslab_BS1.gf1_sls_swt = 1D;
+            this.uC_Deckslab_BS1.gf1_uls_Mhog = 1.3D;
+            this.uC_Deckslab_BS1.gf1_uls_sur = 1.75D;
+            this.uC_Deckslab_BS1.gf1_uls_swt = 1.15D;
+            this.uC_Deckslab_BS1.gf3_sls_Mhog = 1D;
+            this.uC_Deckslab_BS1.gf3_sls_sur = 1D;
+            this.uC_Deckslab_BS1.gf3_sls_swt = 1D;
+            this.uC_Deckslab_BS1.gf3_uls_Mhog = 1.1D;
+            this.uC_Deckslab_BS1.gf3_uls_sur = 1.1D;
+            this.uC_Deckslab_BS1.gf3_uls_swt = 1.1D;
+            this.uC_Deckslab_BS1.girder_no = 4D;
+            this.uC_Deckslab_BS1.h = 180D;
+            this.uC_Deckslab_BS1.load_wheel = 2.5D;
+            this.uC_Deckslab_BS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Deckslab_BS1.Mhog = 0D;
+            this.uC_Deckslab_BS1.Msag = 0D;
+            this.uC_Deckslab_BS1.Name = "uC_Deckslab_BS1";
+            this.uC_Deckslab_BS1.Size = new System.Drawing.Size(948, 668);
+            this.uC_Deckslab_BS1.span_deckslab = 0.962D;
+            this.uC_Deckslab_BS1.TabIndex = 0;
+            this.uC_Deckslab_BS1.thickness_surfacing = 150D;
+            this.uC_Deckslab_BS1.unitwt_concrete = 24D;
+            this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
+            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
+            this.uC_Deckslab_BS1.V = 0D;
+            this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
+            this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
+            this.uC_Deckslab_BS1.width_girderflange = 1.029D;
+            this.uC_Deckslab_BS1.width_girderweb = 0.325D;
+            this.uC_Deckslab_BS1.wload_unit = 30D;
+            this.uC_Deckslab_BS1.YD = "0.18";
+            this.uC_Deckslab_BS1.ZD = "1.0";
+            this.uC_Deckslab_BS1.OnButtonClick += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.ButtonClick(this.uC_Deckslab_BS1_OnButtonClick);
+            this.uC_Deckslab_BS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.CreateData(this.uC_Deckslab_BS1_OnCreateData);
+            // 
             // tab_deck_slab_IS
             // 
             this.tab_deck_slab_IS.Controls.Add(this.uC_Deckslab_IS1);
@@ -10102,6 +12004,30 @@
             this.tab_deck_slab_IS.TabIndex = 7;
             this.tab_deck_slab_IS.Text = "Deckslab [IRC-112]";
             this.tab_deck_slab_IS.UseVisualStyleBackColor = true;
+            // 
+            // uC_Deckslab_IS1
+            // 
+            this.uC_Deckslab_IS1.B = 0D;
+            this.uC_Deckslab_IS1.Deff = 0D;
+            this.uC_Deckslab_IS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Deckslab_IS1.Dw = 0D;
+            this.uC_Deckslab_IS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Deckslab_IS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Deckslab_IS1.Name = "uC_Deckslab_IS1";
+            this.uC_Deckslab_IS1.Number_Of_Cross_Girder = 0;
+            this.uC_Deckslab_IS1.Number_Of_Long_Girder = 0;
+            this.uC_Deckslab_IS1.Result = null;
+            this.uC_Deckslab_IS1.Size = new System.Drawing.Size(948, 668);
+            this.uC_Deckslab_IS1.Skew_Angle = 0D;
+            this.uC_Deckslab_IS1.SMG = 0D;
+            this.uC_Deckslab_IS1.TabIndex = 0;
+            this.uC_Deckslab_IS1.user_path = null;
+            this.uC_Deckslab_IS1.Wc = 0D;
+            this.uC_Deckslab_IS1.Wf = 0D;
+            this.uC_Deckslab_IS1.Width_LeftCantilever = 0D;
+            this.uC_Deckslab_IS1.Width_RightCantilever = 0D;
+            this.uC_Deckslab_IS1.WidthBridge = 0D;
+            this.uC_Deckslab_IS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_IS.CreateData(this.uC_Deckslab_IS1_OnCreateData);
             // 
             // tab_abutment
             // 
@@ -14404,6 +16330,17 @@
             this.tab_bearing.Text = "Bearing";
             this.tab_bearing.UseVisualStyleBackColor = true;
             // 
+            // uC_BRD1
+            // 
+            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
+            this.uC_BRD1.Name = "uC_BRD1";
+            this.uC_BRD1.Show_Forces = true;
+            this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
+            this.uC_BRD1.TabIndex = 1;
+            this.uC_BRD1.user_path = null;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(373, 83);
@@ -14641,179 +16578,6 @@
             this.label210.Text = "Drawings and Reports";
             this.label210.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // uC_Deckslab_BS1
-            // 
-            this.uC_Deckslab_BS1.axle_unit = 10D;
-            this.uC_Deckslab_BS1.b = 12D;
-            this.uC_Deckslab_BS1.b1 = 1.874D;
-            this.uC_Deckslab_BS1.b2 = 0.845D;
-            this.uC_Deckslab_BS1.bar_dia = 16D;
-            this.uC_Deckslab_BS1.bar_no = 7D;
-            this.uC_Deckslab_BS1.bar_spacing = 150D;
-            this.uC_Deckslab_BS1.c_span = 0.815D;
-            this.uC_Deckslab_BS1.cl = 1.315D;
-            this.uC_Deckslab_BS1.cover = 55D;
-            this.uC_Deckslab_BS1.cr = 1.315D;
-            this.uC_Deckslab_BS1.d = 117D;
-            this.uC_Deckslab_BS1.d_total = 205D;
-            this.uC_Deckslab_BS1.d_YD = 0.18D;
-            this.uC_Deckslab_BS1.d1 = 25D;
-            this.uC_Deckslab_BS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Deckslab_BS1.Fck = 50D;
-            this.uC_Deckslab_BS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_Deckslab_BS1.Fy = 500D;
-            this.uC_Deckslab_BS1.gf1_sls_Mhog = 1.1D;
-            this.uC_Deckslab_BS1.gf1_sls_sur = 1.2D;
-            this.uC_Deckslab_BS1.gf1_sls_swt = 1D;
-            this.uC_Deckslab_BS1.gf1_uls_Mhog = 1.3D;
-            this.uC_Deckslab_BS1.gf1_uls_sur = 1.75D;
-            this.uC_Deckslab_BS1.gf1_uls_swt = 1.15D;
-            this.uC_Deckslab_BS1.gf3_sls_Mhog = 1D;
-            this.uC_Deckslab_BS1.gf3_sls_sur = 1D;
-            this.uC_Deckslab_BS1.gf3_sls_swt = 1D;
-            this.uC_Deckslab_BS1.gf3_uls_Mhog = 1.1D;
-            this.uC_Deckslab_BS1.gf3_uls_sur = 1.1D;
-            this.uC_Deckslab_BS1.gf3_uls_swt = 1.1D;
-            this.uC_Deckslab_BS1.girder_no = 4D;
-            this.uC_Deckslab_BS1.h = 180D;
-            this.uC_Deckslab_BS1.load_wheel = 2.5D;
-            this.uC_Deckslab_BS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Deckslab_BS1.Mhog = 0D;
-            this.uC_Deckslab_BS1.Msag = 0D;
-            this.uC_Deckslab_BS1.Name = "uC_Deckslab_BS1";
-            this.uC_Deckslab_BS1.Size = new System.Drawing.Size(948, 668);
-            this.uC_Deckslab_BS1.span_deckslab = 0.962D;
-            this.uC_Deckslab_BS1.TabIndex = 0;
-            this.uC_Deckslab_BS1.thickness_surfacing = 150D;
-            this.uC_Deckslab_BS1.unitwt_concrete = 24D;
-            this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
-            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
-            this.uC_Deckslab_BS1.V = 0D;
-            this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
-            this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
-            this.uC_Deckslab_BS1.width_girderflange = 1.029D;
-            this.uC_Deckslab_BS1.width_girderweb = 0.325D;
-            this.uC_Deckslab_BS1.wload_unit = 30D;
-            this.uC_Deckslab_BS1.YD = "0.18";
-            this.uC_Deckslab_BS1.ZD = "1.0";
-            this.uC_Deckslab_BS1.OnButtonClick += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.ButtonClick(this.uC_Deckslab_BS1_OnButtonClick);
-            this.uC_Deckslab_BS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.CreateData(this.uC_Deckslab_BS1_OnCreateData);
-            // 
-            // uC_Deckslab_IS1
-            // 
-            this.uC_Deckslab_IS1.B = 0D;
-            this.uC_Deckslab_IS1.Deff = 0D;
-            this.uC_Deckslab_IS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Deckslab_IS1.Dw = 0D;
-            this.uC_Deckslab_IS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_Deckslab_IS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Deckslab_IS1.Name = "uC_Deckslab_IS1";
-            this.uC_Deckslab_IS1.Number_Of_Cross_Girder = 0;
-            this.uC_Deckslab_IS1.Number_Of_Long_Girder = 0;
-            this.uC_Deckslab_IS1.Result = null;
-            this.uC_Deckslab_IS1.Size = new System.Drawing.Size(948, 668);
-            this.uC_Deckslab_IS1.Skew_Angle = 0D;
-            this.uC_Deckslab_IS1.SMG = 0D;
-            this.uC_Deckslab_IS1.TabIndex = 0;
-            this.uC_Deckslab_IS1.user_path = null;
-            this.uC_Deckslab_IS1.Wc = 0D;
-            this.uC_Deckslab_IS1.Wf = 0D;
-            this.uC_Deckslab_IS1.Width_LeftCantilever = 0D;
-            this.uC_Deckslab_IS1.Width_RightCantilever = 0D;
-            this.uC_Deckslab_IS1.WidthBridge = 0D;
-            this.uC_Deckslab_IS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_IS.CreateData(this.uC_Deckslab_IS1_OnCreateData);
-            // 
-            // uC_BRD1
-            // 
-            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
-            this.uC_BRD1.Name = "uC_BRD1";
-            this.uC_BRD1.Show_Forces = true;
-            this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
-            this.uC_BRD1.TabIndex = 1;
-            this.uC_BRD1.user_path = null;
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
-            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn31.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            this.dataGridViewTextBoxColumn32.HeaderText = "1";
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn32.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            this.dataGridViewTextBoxColumn33.HeaderText = "2";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            this.dataGridViewTextBoxColumn33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn33.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            this.dataGridViewTextBoxColumn34.HeaderText = "3";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn34.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            this.dataGridViewTextBoxColumn35.HeaderText = "4";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn35.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            this.dataGridViewTextBoxColumn36.HeaderText = "5";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            this.dataGridViewTextBoxColumn36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn36.Width = 50;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "6";
-            this.Column2.Name = "Column2";
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column2.Width = 50;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "7";
-            this.Column23.Name = "Column23";
-            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column23.Width = 50;
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "8";
-            this.Column24.Name = "Column24";
-            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column24.Width = 50;
-            // 
-            // Column25
-            // 
-            this.Column25.HeaderText = "9";
-            this.Column25.Name = "Column25";
-            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column25.Width = 50;
-            // 
-            // Column26
-            // 
-            this.Column26.HeaderText = "10";
-            this.Column26.Name = "Column26";
-            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column26.Width = 50;
-            // 
             // frm_RCC_T_Girder_LS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -14936,6 +16700,7 @@
             this.tabControl4.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.groupBox43.ResumeLayout(false);
             this.groupBox43.PerformLayout();
@@ -14959,6 +16724,12 @@
             this.groupBox44.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.groupBox57.ResumeLayout(false);
+            this.groupBox57.PerformLayout();
+            this.groupBox58.ResumeLayout(false);
+            this.groupBox58.PerformLayout();
+            this.groupBox59.ResumeLayout(false);
+            this.groupBox59.PerformLayout();
             this.groupBox52.ResumeLayout(false);
             this.groupBox52.PerformLayout();
             this.groupBox53.ResumeLayout(false);
@@ -14972,6 +16743,27 @@
             this.groupBox56.ResumeLayout(false);
             this.groupBox56.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox64.ResumeLayout(false);
+            this.groupBox64.PerformLayout();
+            this.groupBox65.ResumeLayout(false);
+            this.groupBox65.PerformLayout();
+            this.groupBox67.ResumeLayout(false);
+            this.groupBox67.PerformLayout();
+            this.groupBox68.ResumeLayout(false);
+            this.groupBox68.PerformLayout();
+            this.groupBox69.ResumeLayout(false);
+            this.groupBox69.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ll_left_des_frc)).EndInit();
+            this.groupBox70.ResumeLayout(false);
+            this.groupBox70.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ll_right_des_frc)).EndInit();
+            this.groupBox71.ResumeLayout(false);
+            this.groupBox71.PerformLayout();
+            this.groupBox72.ResumeLayout(false);
+            this.groupBox72.PerformLayout();
+            this.groupBox33.ResumeLayout(false);
+            this.groupBox33.PerformLayout();
             this.groupBox47.ResumeLayout(false);
             this.groupBox47.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_right_end_design_forces)).EndInit();
@@ -14980,8 +16772,20 @@
             this.groupBox46.ResumeLayout(false);
             this.groupBox46.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).EndInit();
-            this.groupBox33.ResumeLayout(false);
-            this.groupBox33.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox73.ResumeLayout(false);
+            this.groupBox73.PerformLayout();
+            this.groupBox74.ResumeLayout(false);
+            this.groupBox74.PerformLayout();
+            this.groupBox75.ResumeLayout(false);
+            this.groupBox75.PerformLayout();
+            this.groupBox77.ResumeLayout(false);
+            this.groupBox77.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_left_des_frc)).EndInit();
+            this.groupBox78.ResumeLayout(false);
+            this.groupBox78.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_long_user_input)).EndInit();
             this.tc_limit_design.ResumeLayout(false);
             this.tab_bridge_analysis.ResumeLayout(false);
@@ -16278,6 +18082,153 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btn_update_forces;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label270;
+        private System.Windows.Forms.GroupBox groupBox57;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txt_sidl_max_Mz;
+        private System.Windows.Forms.Label label271;
+        public System.Windows.Forms.TextBox txt_sidl_max_Mz_kN;
+        private System.Windows.Forms.Label label272;
+        private System.Windows.Forms.GroupBox groupBox58;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txt_sidl_max_Mx;
+        private System.Windows.Forms.Label label273;
+        public System.Windows.Forms.TextBox txt_sidl_max_Mx_kN;
+        private System.Windows.Forms.Label label274;
+        private System.Windows.Forms.GroupBox groupBox59;
+        public System.Windows.Forms.TextBox txt_sidl_max_vert_reac_kN;
+        private System.Windows.Forms.Label label275;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txt_sidl_max_vert_reac;
+        private System.Windows.Forms.Label label276;
+        private System.Windows.Forms.Label label277;
+        private System.Windows.Forms.GroupBox groupBox64;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txt_ll_max_Mz;
+        private System.Windows.Forms.Label label278;
+        public System.Windows.Forms.TextBox txt_ll_max_Mz_kN;
+        private System.Windows.Forms.Label label279;
+        private System.Windows.Forms.GroupBox groupBox65;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txt_ll_max_Mx;
+        private System.Windows.Forms.Label label280;
+        public System.Windows.Forms.TextBox txt_ll_max_Mx_kN;
+        private System.Windows.Forms.Label label281;
+        private System.Windows.Forms.GroupBox groupBox67;
+        public System.Windows.Forms.TextBox txt_ll_max_vert_reac_kN;
+        private System.Windows.Forms.Label label282;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txt_ll_max_vert_reac;
+        private System.Windows.Forms.Label label283;
+        private System.Windows.Forms.GroupBox groupBox68;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txt_ll_final_Mz;
+        private System.Windows.Forms.Label label284;
+        public System.Windows.Forms.TextBox txt_ll_final_Mz_kN;
+        private System.Windows.Forms.Label label285;
+        private System.Windows.Forms.Label label286;
+        private System.Windows.Forms.GroupBox groupBox69;
+        private System.Windows.Forms.TextBox txt_ll_left_total_Mz;
+        private System.Windows.Forms.TextBox txt_ll_left_total_Mx;
+        private System.Windows.Forms.Label label287;
+        private System.Windows.Forms.Label label288;
+        private System.Windows.Forms.TextBox txt_ll_left_total_vert_reac;
+        private System.Windows.Forms.DataGridView dgv_ll_left_des_frc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn91;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn92;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn93;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn94;
+        private System.Windows.Forms.GroupBox groupBox70;
+        private System.Windows.Forms.DataGridView dgv_ll_right_des_frc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn95;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn96;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn97;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn98;
+        private System.Windows.Forms.TextBox txt_ll_right_total_Mz;
+        private System.Windows.Forms.TextBox txt_ll_right_total_Mx;
+        private System.Windows.Forms.Label label289;
+        private System.Windows.Forms.Label label290;
+        private System.Windows.Forms.TextBox txt_ll_right_total_vert_reac;
+        private System.Windows.Forms.GroupBox groupBox71;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txt_ll_final_Mx;
+        private System.Windows.Forms.Label label291;
+        public System.Windows.Forms.TextBox txt_ll_final_Mx_kN;
+        private System.Windows.Forms.Label label292;
+        private System.Windows.Forms.GroupBox groupBox72;
+        public System.Windows.Forms.TextBox txt_ll_final_vert_rec_kN;
+        private System.Windows.Forms.Label label293;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txt_ll_final_vert_reac;
+        private System.Windows.Forms.Label label294;
+        private System.Windows.Forms.Label label295;
+        private System.Windows.Forms.GroupBox groupBox73;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txt_mxf_max_Mz;
+        private System.Windows.Forms.Label label296;
+        public System.Windows.Forms.TextBox txt_mxf_max_Mz_kN;
+        private System.Windows.Forms.Label label324;
+        private System.Windows.Forms.GroupBox groupBox74;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txt_mxf_max_Mx;
+        private System.Windows.Forms.Label label443;
+        public System.Windows.Forms.TextBox txt_mxf_max_Mx_kN;
+        private System.Windows.Forms.Label label444;
+        private System.Windows.Forms.GroupBox groupBox75;
+        public System.Windows.Forms.TextBox txt_mxf_max_vert_reac_kN;
+        private System.Windows.Forms.Label label471;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox txt_mxf_max_vert_reac;
+        private System.Windows.Forms.Label label472;
+        private System.Windows.Forms.GroupBox groupBox77;
+        private System.Windows.Forms.TextBox txt_mxf_left_total_Mz;
+        private System.Windows.Forms.TextBox txt_mxf_left_total_Mx;
+        private System.Windows.Forms.Label label504;
+        private System.Windows.Forms.Label label505;
+        private System.Windows.Forms.TextBox txt_mxf_left_total_vert_reac;
+        private System.Windows.Forms.DataGridView dgv_mxf_left_des_frc;
+        private System.Windows.Forms.GroupBox groupBox78;
+        private System.Windows.Forms.DataGridView dgv_mxf_right_des_frc;
+        private System.Windows.Forms.TextBox txt_mxf_right_total_Mz;
+        private System.Windows.Forms.TextBox txt_mxf_right_total_Mx;
+        private System.Windows.Forms.Label label506;
+        private System.Windows.Forms.Label label507;
+        private System.Windows.Forms.TextBox txt_mxf_right_total_vert_reac;
+        private System.Windows.Forms.TextBox txt_ll_left_max_total_Mz;
+        private System.Windows.Forms.TextBox txt_ll_left_max_total_Mx;
+        private System.Windows.Forms.Label label549;
+        private System.Windows.Forms.TextBox txt_ll_left_max_vert_reac;
+        private System.Windows.Forms.TextBox txt_ll_right_max_total_Mz;
+        private System.Windows.Forms.TextBox txt_ll_right_max_total_Mx;
+        private System.Windows.Forms.Label label550;
+        private System.Windows.Forms.TextBox txt_ll_right_max_total_vert_reac;
+        private System.Windows.Forms.TextBox txt_right_max_total_Mz;
+        private System.Windows.Forms.TextBox txt_right_max_total_Mx;
+        private System.Windows.Forms.TextBox txt_left_max_total_Mz;
+        private System.Windows.Forms.TextBox txt_left_max_total_Mx;
+        private System.Windows.Forms.Label label554;
+        private System.Windows.Forms.Label label553;
+        private System.Windows.Forms.TextBox txt_right_max_total_vert_reac;
+        private System.Windows.Forms.TextBox txt_left_max_total_vert_reac;
+        private System.Windows.Forms.TextBox txt_sidl_right_max_total_Mz;
+        private System.Windows.Forms.TextBox txt_sidl_right_max_total_Mx;
+        private System.Windows.Forms.TextBox txt_sidl_left_max_total_Mz;
+        private System.Windows.Forms.Label label552;
+        private System.Windows.Forms.TextBox txt_sidl_left_max_total_Mx;
+        private System.Windows.Forms.TextBox txt_sidl_right_max_total_vert_reac;
+        private System.Windows.Forms.Label label551;
+        private System.Windows.Forms.TextBox txt_sidl_left_max_total_vert_reac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn99;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn100;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn101;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn102;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn103;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn104;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn105;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn106;
 
     }
 }

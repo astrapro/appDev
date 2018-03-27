@@ -184,6 +184,12 @@
     <Compile Include="Footing\frm_CombinedFooting.Designer.cs">
       <DependentUpon>frm_CombinedFooting.cs</DependentUpon>
     </Compile>
+    <Compile Include="Foundation\frmSheetPileDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Foundation\frmSheetPileDesign.Designer.cs">
+      <DependentUpon>frmSheetPileDesign.cs</DependentUpon>
+    </Compile>
     <Compile Include="Foundation\frm_Foundation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +459,12 @@
       <DependentUpon>frm_ViewForces.cs</DependentUpon>
     </Compile>
     <Compile Include="RCC_T_Girder\LimitState_LongGirder.cs" />
+    <Compile Include="RE_Wall\frm_RetainingWall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RE_Wall\frm_RetainingWall.Designer.cs">
+      <DependentUpon>frm_RetainingWall.cs</DependentUpon>
+    </Compile>
     <Compile Include="RE_Wall\frm_RE_Wall.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -579,6 +591,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Footing\frm_CombinedFooting.resx">
       <DependentUpon>frm_CombinedFooting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foundation\frmSheetPileDesign.resx">
+      <DependentUpon>frmSheetPileDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Foundation\frm_Foundation.resx">
       <DependentUpon>frm_Foundation.cs</DependentUpon>
@@ -730,6 +745,9 @@
     <EmbeddedResource Include="RCC_T_Girder\frm_ViewForces.resx">
       <DependentUpon>frm_ViewForces.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RE_Wall\frm_RetainingWall.resx">
+      <DependentUpon>frm_RetainingWall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RE_Wall\frm_RE_Wall.resx">
       <DependentUpon>frm_RE_Wall.cs</DependentUpon>

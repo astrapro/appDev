@@ -173,6 +173,66 @@ namespace ASTRAStructures.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap SteelColumn_Fig1 {
+            get {
+                object obj = ResourceManager.GetObject("SteelColumn_Fig1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SteelColumn_Fig11 {
+            get {
+                object obj = ResourceManager.GetObject("SteelColumn_Fig11", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SteelColumn_Fig2 {
+            get {
+                object obj = ResourceManager.GetObject("SteelColumn_Fig2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SteelColumn_Fig3 {
+            get {
+                object obj = ResourceManager.GetObject("SteelColumn_Fig3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SteelColumn_Fig4 {
+            get {
+                object obj = ResourceManager.GetObject("SteelColumn_Fig4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SteelColumn_Fig5 {
+            get {
+                object obj = ResourceManager.GetObject("SteelColumn_Fig5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap techsoft_logo {
             get {
                 object obj = ResourceManager.GetObject("techsoft_logo", resourceCulture);

@@ -71,6 +71,13 @@
         Structural_Analysis = 55,
         Structural_Analysis_SAP = 56,
 
+        Steel_Beam = 57,
+        Steel_Column = 58,
+        Stage_Analysis = 59,
+
+
+        Retaining_Wall = 60,
+
 
     }
 

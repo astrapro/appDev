@@ -198,13 +198,18 @@
             this.axiallyLoadedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.axialLoadBiAxialMomentToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_re_wall_des_strc = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_return_wall_des_strc = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_return_wall_cant = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_return_wall_propped = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_tunnel_design = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_rcc_structure_design = new System.Windows.Forms.ToolStripMenuItem();
-            this.rCCFOOTINGToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.isolatedFootingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.combinedFootingToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_structural_components = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_steel_beam = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_steel_column = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_isolatedFooting = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_combinedFooting = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_pIleFoundation = new System.Windows.Forms.ToolStripMenuItem();
-            this.raftFoundationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_raftFoundation = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jetty_design = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jetty_design_RCC = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_jetty_design_PSC = new System.Windows.Forms.ToolStripMenuItem();
@@ -257,6 +262,8 @@
             this.globalMapperV11ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoAboutTheProgramToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.runProgramToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sheetPileApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_sheet_pile = new System.Windows.Forms.ToolStripMenuItem();
             this.ofdAst = new System.Windows.Forms.OpenFileDialog();
             this.sfdAst = new System.Windows.Forms.SaveFileDialog();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -1491,9 +1498,10 @@
             this.asdsdToolStripMenuItem,
             this.rCCCOLUMNToolStripMenuItem1,
             this.tsmi_re_wall_des_strc,
+            this.tsmi_return_wall_des_strc,
             this.tsmi_tunnel_design,
             this.tsmi_rcc_structure_design,
-            this.rCCFOOTINGToolStripMenuItem1,
+            this.tsmi_structural_components,
             this.tsmi_jetty_design,
             this.tsmi_transmissionTower,
             this.tsmi_transmissionTower3Cables,
@@ -1506,7 +1514,7 @@
             // tsmi_Working_Folder1
             // 
             this.tsmi_Working_Folder1.Name = "tsmi_Working_Folder1";
-            this.tsmi_Working_Folder1.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_Working_Folder1.Size = new System.Drawing.Size(295, 22);
             this.tsmi_Working_Folder1.Text = "Working Folder";
             this.tsmi_Working_Folder1.Visible = false;
             this.tsmi_Working_Folder1.Click += new System.EventHandler(this.tsmi_Working_Folder_Click);
@@ -1518,7 +1526,7 @@
             this.oneWayContinuousRCCSlabToolStripMenuItem,
             this.twoWayRCCSlabToolStripMenuItem});
             this.rCCSLABToolStripMenuItem.Name = "rCCSLABToolStripMenuItem";
-            this.rCCSLABToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.rCCSLABToolStripMenuItem.Size = new System.Drawing.Size(295, 22);
             this.rCCSLABToolStripMenuItem.Text = "RCC Slab";
             this.rCCSLABToolStripMenuItem.Visible = false;
             // 
@@ -1549,7 +1557,7 @@
             this.simplySupportedSingleSpanBeamToolStripMenuItem,
             this.rectangularOrFlangeBeamBS8110ToolStripMenuItem});
             this.asdsdToolStripMenuItem.Name = "asdsdToolStripMenuItem";
-            this.asdsdToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.asdsdToolStripMenuItem.Size = new System.Drawing.Size(295, 22);
             this.asdsdToolStripMenuItem.Text = "RCC Beam";
             this.asdsdToolStripMenuItem.Visible = false;
             // 
@@ -1573,7 +1581,7 @@
             this.axiallyLoadedToolStripMenuItem,
             this.axialLoadBiAxialMomentToolStripMenuItem1});
             this.rCCCOLUMNToolStripMenuItem1.Name = "rCCCOLUMNToolStripMenuItem1";
-            this.rCCCOLUMNToolStripMenuItem1.Size = new System.Drawing.Size(250, 22);
+            this.rCCCOLUMNToolStripMenuItem1.Size = new System.Drawing.Size(295, 22);
             this.rCCCOLUMNToolStripMenuItem1.Text = "RCC Column";
             this.rCCCOLUMNToolStripMenuItem1.Visible = false;
             // 
@@ -1594,62 +1602,101 @@
             // tsmi_re_wall_des_strc
             // 
             this.tsmi_re_wall_des_strc.Name = "tsmi_re_wall_des_strc";
-            this.tsmi_re_wall_des_strc.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_re_wall_des_strc.Size = new System.Drawing.Size(295, 22);
             this.tsmi_re_wall_des_strc.Text = "RE (Reinforced Earth) Wall Design";
             this.tsmi_re_wall_des_strc.Click += new System.EventHandler(this.tsmi_RE_Wall_Design_Click);
+            // 
+            // tsmi_return_wall_des_strc
+            // 
+            this.tsmi_return_wall_des_strc.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_return_wall_cant,
+            this.tsmi_return_wall_propped});
+            this.tsmi_return_wall_des_strc.Name = "tsmi_return_wall_des_strc";
+            this.tsmi_return_wall_des_strc.Size = new System.Drawing.Size(295, 22);
+            this.tsmi_return_wall_des_strc.Text = "RCC Retaining Wall Design";
+            // 
+            // tsmi_return_wall_cant
+            // 
+            this.tsmi_return_wall_cant.Name = "tsmi_return_wall_cant";
+            this.tsmi_return_wall_cant.Size = new System.Drawing.Size(254, 22);
+            this.tsmi_return_wall_cant.Text = "Cantilever Retaining Wall";
+            this.tsmi_return_wall_cant.Click += new System.EventHandler(this.tsmi_return_wall_cant_Click);
+            // 
+            // tsmi_return_wall_propped
+            // 
+            this.tsmi_return_wall_propped.Name = "tsmi_return_wall_propped";
+            this.tsmi_return_wall_propped.Size = new System.Drawing.Size(254, 22);
+            this.tsmi_return_wall_propped.Text = "Propped Cantilever Retaining Wall";
+            this.tsmi_return_wall_propped.Click += new System.EventHandler(this.tsmi_return_wall_cant_Click);
             // 
             // tsmi_tunnel_design
             // 
             this.tsmi_tunnel_design.Name = "tsmi_tunnel_design";
-            this.tsmi_tunnel_design.Size = new System.Drawing.Size(250, 22);
-            this.tsmi_tunnel_design.Text = "Tunnel Design";
+            this.tsmi_tunnel_design.Size = new System.Drawing.Size(295, 22);
+            this.tsmi_tunnel_design.Text = "Tunnel Design (RCC Lining && Steel Portal)";
             this.tsmi_tunnel_design.Click += new System.EventHandler(this.tsmi_structure_design_Click);
             // 
             // tsmi_rcc_structure_design
             // 
             this.tsmi_rcc_structure_design.Name = "tsmi_rcc_structure_design";
-            this.tsmi_rcc_structure_design.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_rcc_structure_design.Size = new System.Drawing.Size(295, 22);
             this.tsmi_rcc_structure_design.Text = "RCC Framed Building Design";
             this.tsmi_rcc_structure_design.Click += new System.EventHandler(this.tsmi_structure_design_Click);
             // 
-            // rCCFOOTINGToolStripMenuItem1
+            // tsmi_structural_components
             // 
-            this.rCCFOOTINGToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.isolatedFootingToolStripMenuItem1,
-            this.combinedFootingToolStripMenuItem1,
+            this.tsmi_structural_components.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_steel_beam,
+            this.tsmi_steel_column,
+            this.tsmi_isolatedFooting,
+            this.tsmi_combinedFooting,
             this.tsmi_pIleFoundation,
-            this.raftFoundationToolStripMenuItem});
-            this.rCCFOOTINGToolStripMenuItem1.Name = "rCCFOOTINGToolStripMenuItem1";
-            this.rCCFOOTINGToolStripMenuItem1.Size = new System.Drawing.Size(250, 22);
-            this.rCCFOOTINGToolStripMenuItem1.Text = "RCC Foundation";
+            this.tsmi_raftFoundation});
+            this.tsmi_structural_components.Name = "tsmi_structural_components";
+            this.tsmi_structural_components.Size = new System.Drawing.Size(295, 22);
+            this.tsmi_structural_components.Text = "Design of Structural Components";
             // 
-            // isolatedFootingToolStripMenuItem1
+            // tsmi_steel_beam
             // 
-            this.isolatedFootingToolStripMenuItem1.Name = "isolatedFootingToolStripMenuItem1";
-            this.isolatedFootingToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
-            this.isolatedFootingToolStripMenuItem1.Text = "Isolated Foundation";
-            this.isolatedFootingToolStripMenuItem1.Click += new System.EventHandler(this.isolatedFootingToolStripMenuItem1_Click);
+            this.tsmi_steel_beam.Name = "tsmi_steel_beam";
+            this.tsmi_steel_beam.Size = new System.Drawing.Size(285, 22);
+            this.tsmi_steel_beam.Text = "Design of Steel Beam";
+            this.tsmi_steel_beam.Click += new System.EventHandler(this.tsmi_steel_beam_Click);
             // 
-            // combinedFootingToolStripMenuItem1
+            // tsmi_steel_column
             // 
-            this.combinedFootingToolStripMenuItem1.Name = "combinedFootingToolStripMenuItem1";
-            this.combinedFootingToolStripMenuItem1.Size = new System.Drawing.Size(206, 22);
-            this.combinedFootingToolStripMenuItem1.Text = "Combined Foundation";
-            this.combinedFootingToolStripMenuItem1.Click += new System.EventHandler(this.combinedFootingToolStripMenuItem1_Click);
+            this.tsmi_steel_column.Name = "tsmi_steel_column";
+            this.tsmi_steel_column.Size = new System.Drawing.Size(285, 22);
+            this.tsmi_steel_column.Text = "Design of Steel Column";
+            this.tsmi_steel_column.Click += new System.EventHandler(this.tsmi_steel_beam_Click);
+            // 
+            // tsmi_isolatedFooting
+            // 
+            this.tsmi_isolatedFooting.Name = "tsmi_isolatedFooting";
+            this.tsmi_isolatedFooting.Size = new System.Drawing.Size(285, 22);
+            this.tsmi_isolatedFooting.Text = "Design of RCC Isolated Foundation";
+            this.tsmi_isolatedFooting.Click += new System.EventHandler(this.isolatedFootingToolStripMenuItem1_Click);
+            // 
+            // tsmi_combinedFooting
+            // 
+            this.tsmi_combinedFooting.Name = "tsmi_combinedFooting";
+            this.tsmi_combinedFooting.Size = new System.Drawing.Size(285, 22);
+            this.tsmi_combinedFooting.Text = "Design of RCC Combined Foundation";
+            this.tsmi_combinedFooting.Click += new System.EventHandler(this.combinedFootingToolStripMenuItem1_Click);
             // 
             // tsmi_pIleFoundation
             // 
             this.tsmi_pIleFoundation.Name = "tsmi_pIleFoundation";
-            this.tsmi_pIleFoundation.Size = new System.Drawing.Size(206, 22);
-            this.tsmi_pIleFoundation.Text = "Well and PIle Foundation";
+            this.tsmi_pIleFoundation.Size = new System.Drawing.Size(285, 22);
+            this.tsmi_pIleFoundation.Text = "Design of RCC Well and PIle Foundation";
             this.tsmi_pIleFoundation.Click += new System.EventHandler(this.tsmi_Bridge_Foundation_Click);
             // 
-            // raftFoundationToolStripMenuItem
+            // tsmi_raftFoundation
             // 
-            this.raftFoundationToolStripMenuItem.Name = "raftFoundationToolStripMenuItem";
-            this.raftFoundationToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
-            this.raftFoundationToolStripMenuItem.Text = "Raft Foundation";
-            this.raftFoundationToolStripMenuItem.Click += new System.EventHandler(this.raftFoundationToolStripMenuItem_Click);
+            this.tsmi_raftFoundation.Name = "tsmi_raftFoundation";
+            this.tsmi_raftFoundation.Size = new System.Drawing.Size(285, 22);
+            this.tsmi_raftFoundation.Text = "Design of RCC Raft Foundation";
+            this.tsmi_raftFoundation.Click += new System.EventHandler(this.raftFoundationToolStripMenuItem_Click);
             // 
             // tsmi_jetty_design
             // 
@@ -1657,7 +1704,7 @@
             this.tsmi_jetty_design_RCC,
             this.tsmi_jetty_design_PSC});
             this.tsmi_jetty_design.Name = "tsmi_jetty_design";
-            this.tsmi_jetty_design.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_jetty_design.Size = new System.Drawing.Size(295, 22);
             this.tsmi_jetty_design.Text = "Jetty Limit State Design";
             // 
             // tsmi_jetty_design_RCC
@@ -1677,28 +1724,28 @@
             // tsmi_transmissionTower
             // 
             this.tsmi_transmissionTower.Name = "tsmi_transmissionTower";
-            this.tsmi_transmissionTower.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_transmissionTower.Size = new System.Drawing.Size(295, 22);
             this.tsmi_transmissionTower.Text = "Transmission Tower Design";
             this.tsmi_transmissionTower.Click += new System.EventHandler(this.tsmi_transmissionTower_Click);
             // 
             // tsmi_transmissionTower3Cables
             // 
             this.tsmi_transmissionTower3Cables.Name = "tsmi_transmissionTower3Cables";
-            this.tsmi_transmissionTower3Cables.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_transmissionTower3Cables.Size = new System.Drawing.Size(295, 22);
             this.tsmi_transmissionTower3Cables.Text = "Transmission Tower 3 Cables";
             this.tsmi_transmissionTower3Cables.Click += new System.EventHandler(this.tsmi_transmissionTower_Click);
             // 
             // tsmi_microwaveTower
             // 
             this.tsmi_microwaveTower.Name = "tsmi_microwaveTower";
-            this.tsmi_microwaveTower.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_microwaveTower.Size = new System.Drawing.Size(295, 22);
             this.tsmi_microwaveTower.Text = "Microwave Tower Design";
             this.tsmi_microwaveTower.Click += new System.EventHandler(this.tsmi_transmissionTower_Click);
             // 
             // tsmi_cableCarTower
             // 
             this.tsmi_cableCarTower.Name = "tsmi_cableCarTower";
-            this.tsmi_cableCarTower.Size = new System.Drawing.Size(250, 22);
+            this.tsmi_cableCarTower.Size = new System.Drawing.Size(295, 22);
             this.tsmi_cableCarTower.Text = "Cable Car Tower Design";
             this.tsmi_cableCarTower.Click += new System.EventHandler(this.tsmi_transmissionTower_Click);
             // 
@@ -1993,7 +2040,8 @@
             this.programsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gPSTransformationGuideToolStripMenuItem1,
             this.googleEarthToolStripMenuItem1,
-            this.globalMapperV11ToolStripMenuItem});
+            this.globalMapperV11ToolStripMenuItem,
+            this.sheetPileApplicationToolStripMenuItem});
             this.programsToolStripMenuItem.Name = "programsToolStripMenuItem";
             this.programsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.programsToolStripMenuItem.Text = "Programs";
@@ -2051,6 +2099,23 @@
             this.runProgramToolStripMenuItem1.Size = new System.Drawing.Size(200, 22);
             this.runProgramToolStripMenuItem1.Text = "Run Program";
             this.runProgramToolStripMenuItem1.Click += new System.EventHandler(this.runProgramToolStripMenuItem1_Click);
+            // 
+            // sheetPileApplicationToolStripMenuItem
+            // 
+            this.sheetPileApplicationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_sheet_pile});
+            this.sheetPileApplicationToolStripMenuItem.Name = "sheetPileApplicationToolStripMenuItem";
+            this.sheetPileApplicationToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.sheetPileApplicationToolStripMenuItem.Text = "Sheet Pile Application";
+            this.sheetPileApplicationToolStripMenuItem.Click += new System.EventHandler(this.tsmi_sheet_pile_Click);
+            // 
+            // tsmi_sheet_pile
+            // 
+            this.tsmi_sheet_pile.Name = "tsmi_sheet_pile";
+            this.tsmi_sheet_pile.Size = new System.Drawing.Size(291, 22);
+            this.tsmi_sheet_pile.Text = "Select && Run the Program \"ProSheet.exe\"";
+            this.tsmi_sheet_pile.Visible = false;
+            this.tsmi_sheet_pile.Click += new System.EventHandler(this.tsmi_sheet_pile_Click);
             // 
             // ofdAst
             // 
@@ -2308,15 +2373,15 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Design;
         private System.Windows.Forms.ToolStripMenuItem asdsdToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rCCCOLUMNToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem rCCFOOTINGToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_structural_components;
         private System.Windows.Forms.ToolStripMenuItem rCCSLABToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oneWayRCCSlabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oneWayContinuousRCCSlabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem twoWayRCCSlabToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem axiallyLoadedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem axialLoadBiAxialMomentToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem isolatedFootingToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem combinedFootingToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_isolatedFooting;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_combinedFooting;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Rail_Bridge;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Abutment_Design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_Bridge_Foundation;
@@ -2449,7 +2514,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_jetty_design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_jetty_design_RCC;
         private System.Windows.Forms.ToolStripMenuItem tsmi_jetty_design_PSC;
-        private System.Windows.Forms.ToolStripMenuItem raftFoundationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_raftFoundation;
         private System.Windows.Forms.ToolStripMenuItem tsmi_extradossed_side_towers;
         private System.Windows.Forms.ToolStripMenuItem tsmi_extradossed_central_towers;
         private System.Windows.Forms.ToolStripMenuItem tsmi_road_box_pushed_underpass;
@@ -2486,6 +2551,13 @@
         private System.Windows.Forms.ToolStripMenuItem hydraulicCalculationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmi_structure_text;
         private System.Windows.Forms.ToolStripMenuItem tsmi_structure_sap;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_steel_beam;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_steel_column;
+        private System.Windows.Forms.ToolStripMenuItem sheetPileApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_sheet_pile;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_return_wall_des_strc;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_return_wall_cant;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_return_wall_propped;
     }
 }
 

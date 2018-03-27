@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -325,7 +326,7 @@
             this.btn_live_load_remove_all = new System.Windows.Forms.Button();
             this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
             this.btn_live_load_remove = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Show_MovingLoad = new System.Windows.Forms.Button();
             this.dgv_live_load = new System.Windows.Forms.DataGridView();
             this.col_load_type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1021,8 +1022,8 @@
             this.btn_dwg_pier = new System.Windows.Forms.Button();
             this.btn_Deck_Drawing = new System.Windows.Forms.Button();
             this.btn_dwg_abut = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer();
-            this.tmr_blink = new System.Windows.Forms.Timer();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tmr_blink = new System.Windows.Forms.Timer(this.components);
             this.tab_des.SuspendLayout();
             this.tab_ana.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -3821,7 +3822,7 @@
             this.grb_load.Controls.Add(this.btn_live_load_remove_all);
             this.grb_load.Controls.Add(this.txt_LL_load_gen);
             this.grb_load.Controls.Add(this.btn_live_load_remove);
-            this.grb_load.Controls.Add(this.button1);
+            this.grb_load.Controls.Add(this.btn_Show_MovingLoad);
             this.grb_load.Controls.Add(this.dgv_live_load);
             this.grb_load.Controls.Add(this.label60);
             this.grb_load.Controls.Add(this.cmb_load_type);
@@ -3892,14 +3893,15 @@
             this.btn_live_load_remove.UseVisualStyleBackColor = true;
             this.btn_live_load_remove.Click += new System.EventHandler(this.btn_live_load_remove_Click);
             // 
-            // button1
+            // btn_Show_MovingLoad
             // 
-            this.button1.Location = new System.Drawing.Point(194, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 23);
-            this.button1.TabIndex = 81;
-            this.button1.Text = "Show Input Data";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Show_MovingLoad.Location = new System.Drawing.Point(194, 284);
+            this.btn_Show_MovingLoad.Name = "btn_Show_MovingLoad";
+            this.btn_Show_MovingLoad.Size = new System.Drawing.Size(139, 23);
+            this.btn_Show_MovingLoad.TabIndex = 81;
+            this.btn_Show_MovingLoad.Text = "Show Input Data";
+            this.btn_Show_MovingLoad.UseVisualStyleBackColor = true;
+            this.btn_Show_MovingLoad.Click += new System.EventHandler(this.btn_Show_MovingLoad_Click);
             // 
             // dgv_live_load
             // 
@@ -11982,7 +11984,7 @@
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.TextBox txt_custom_LL_lat_clrns;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Show_MovingLoad;
         private System.Windows.Forms.RadioButton rbtn_custom_LL;
         private System.Windows.Forms.RadioButton rbtn_LL_fill_data;
         private System.Windows.Forms.GroupBox groupBox3;

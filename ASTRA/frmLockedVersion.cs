@@ -415,12 +415,15 @@ namespace AstraFunctionOne
                     MessageBox.Show(this, "ASTRA Demo Version will run.", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Application.Exit();
                 }
-                else if (activation >= 1 && activation <= 1000)
+                //else if (activation >= 1 && activation <= 1000)
+                else if (activation >= 1 && activation <= 5) // Message comes when activation is less than 5
                 {
-                    string str = (activation - 1) + " more Activation Left.";
-                    MessageBox.Show(str, "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //string str = (activation - 1) + " more Activation Left.";
                     activation--;
                     LockProgram.Set_Activation(activation);
+
+                    string str = (activation) + " more Activation Left.";
+                    MessageBox.Show(str, "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (activation >= 1)
                 {
@@ -460,8 +463,13 @@ namespace AstraFunctionOne
 
             if (LockProgram.CheckHasp())
             {
-                chk_bridge.Enabled = !LockProgram.Check_ASTRA_Bridge_Lock_19();
-                chk_strucrure.Enabled = !LockProgram.Check_ASTRA_Structure_Lock_19();
+                //chk_bridge.Enabled = !LockProgram.Check_ASTRA_Bridge_Lock_19();
+                //chk_strucrure.Enabled = !LockProgram.Check_ASTRA_Structure_Lock_19();
+
+
+                chk_bridge.Enabled = !LockProgram.Check_ASTRA_Bridge_Lock();
+                chk_strucrure.Enabled = !LockProgram.Check_ASTRA_Structure_Lock();
+
 
                 chk_bridge.Checked = !chk_bridge.Enabled;
                 chk_strucrure.Checked = !chk_strucrure.Enabled;

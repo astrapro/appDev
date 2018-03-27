@@ -322,6 +322,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             //file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Design IRC\IRC Abutment Design.xlsx");
             file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Counterfort Abutment LS\Counterfort Abutment Limit State Design [IRC].xlsm");
+            //file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Counterfort Abutment LS\Counterfort Abutment Limit State Design IRC.xlsm");
 
             if (File.Exists(file_path))
             {
@@ -466,6 +467,7 @@ namespace BridgeAnalysisDesign.Abutment
             string copy_path = file_path;
 
             //file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Abutment Design IRC\IRC Abutment Design.xlsx");
+            //file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Counterfort Abutment LS\Counterfort Abutment Limit State Design BS.xlsm");
             file_path = Path.Combine(Application.StartupPath, @"DESIGN\Abutment\Counterfort Abutment LS\Counterfort Abutment Limit State Design [BS].xlsm");
 
             if (File.Exists(file_path))
@@ -730,8 +732,6 @@ namespace BridgeAnalysisDesign.Abutment
         public event EventHandler OnButtonClick;
         private void btn_new_design_Click(object sender, EventArgs e)
         {
-
-
             if (OnButtonClick != null)
             {
                 OnButtonClick(sender, e);

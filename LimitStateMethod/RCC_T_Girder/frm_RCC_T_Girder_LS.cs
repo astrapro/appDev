@@ -435,7 +435,10 @@ namespace LimitStateMethod.RCC_T_Girder
             //Open_Project();
 
             uC_ViewReports1.iApp = iApp;
-
+            if(iApp.DesignStandard != eDesignStandard.IndianStandard)
+            {
+                uC_BRD1.Show_Forces = false;
+            }
             //uC_BRD1.iApp = iApp;
 
         }
@@ -826,6 +829,9 @@ namespace LimitStateMethod.RCC_T_Girder
         }
         private void btn_Ana_view_data_Click(object sender, EventArgs e)
         {
+
+
+
             string file_name = "";
             string ll_txt = "";
 
@@ -850,7 +856,10 @@ namespace LimitStateMethod.RCC_T_Girder
             else if (btn.Name == btn_view_structure.Name)
             {
                 if (File.Exists(file_name))
+                {
                     iApp.OpenWork(file_name, false);
+                    btn_update_forces.Enabled = true;
+                }
             }
             else if (btn.Name == btn_view_report.Name)
             {
@@ -860,6 +869,7 @@ namespace LimitStateMethod.RCC_T_Girder
             }
             else if (btn.Name == btn_View_Moving_Load.Name)
             {
+                ////iApp.View_Plan_Moving_Load("", Ang);
 
                 //file_name = MyList.Get_Analysis_Report_File(file_name);
                 if (File.Exists(MyList.Get_Analysis_Report_File(file_name)))
@@ -871,10 +881,14 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             string file_name = "";
 
+
+
             if (iApp.DesignStandard == eDesignStandard.IndianStandard ||
                 iApp.DesignStandard == eDesignStandard.LRFDStandard
                 )
             {
+                if (all_loads.Count == 0)
+                    LONG_GIRDER_LL_TXT();
                 if (index == 0)
                 {
                     file_name = Long_Girder_Analysis.DeadLoadAnalysis_Input_File;
@@ -934,6 +948,8 @@ namespace LimitStateMethod.RCC_T_Girder
         }
         private void btn_Ana_process_analysis_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+           
             try
             {
                 #region Process
@@ -978,41 +994,12 @@ namespace LimitStateMethod.RCC_T_Girder
 
                 //string ana_rep_file = Long_Girder_Analysis.Analysis_Report;
                 string ana_rep_file = Long_Girder_Analysis.Total_Analysis_Report;
-                if (iApp.Show_and_Run_Process_List(pcol))
+
+                if (btn == btn_process_analysis)
                 {
-                    //iApp.Progress_Works.Clear();
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Total Load Analysis Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis 1 Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis 2 Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis 3 Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis 4 Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis 5 Report File (ANALYSIS_REP.TXT)");
 
-                    //if (iApp.DesignStandard == eDesignStandard.IndianStandard)
-                    //    iApp.Progress_Works.Add("Reading Analysis Data from Live Load Analysis 6 Report File (ANALYSIS_REP.TXT)");
-                    //iApp.Progress_Works.Add("Reading Analysis Data from Dead Load Analysis Report File (ANALYSIS_REP.TXT)");
-
-                    Long_Girder_Analysis.TotalLoad_Analysis = null;
-
-
-                    //Long_Girder_Analysis.LiveLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.LiveLoad_Analysis_Report);
-
-
-                    Long_Girder_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.DeadLoad_Analysis_Report);
-
-                    if (rbtn_HA.Checked == false)
-                    {
-                        Long_Girder_Analysis.All_LL_Analysis = new List<BridgeMemberAnalysis>();
-                        for (i = 0; i < all_loads.Count; i++)
-                        {
-                            string fn = MyList.Get_Analysis_Report_File(Long_Girder_Analysis.Get_LL_Analysis_Input_File(i + 1));
-                            if (File.Exists(fn))
-                            {
-                                Long_Girder_Analysis.All_LL_Analysis.Add(new BridgeMemberAnalysis(iApp, fn));
-                            }
-                        }
-
+                    if (!iApp.Show_and_Run_Process_List(pcol)) return;
+                    
                         //Long_Girder_Analysis.LiveLoad_1_Analysis = new BridgeMemberAnalysis(iApp,
                         //        Long_Girder_Analysis.Get_Analysis_Report_File(Long_Girder_Analysis.LL_Analysis_1_Input_File));
 
@@ -1029,6 +1016,24 @@ namespace LimitStateMethod.RCC_T_Girder
                         //Long_Girder_Analysis.LiveLoad_5_Analysis = new BridgeMemberAnalysis(iApp,
                         //    Long_Girder_Analysis.Get_Analysis_Report_File(Long_Girder_Analysis.LL_Analysis_5_Input_File));
                     }
+
+
+                Long_Girder_Analysis.TotalLoad_Analysis = null;
+
+                Long_Girder_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.DeadLoad_Analysis_Report);
+
+                if (rbtn_HA.Checked == false)
+                {
+                    Long_Girder_Analysis.All_LL_Analysis = new List<BridgeMemberAnalysis>();
+                    for (i = 0; i < all_loads.Count; i++)
+                    {
+                        string fn = MyList.Get_Analysis_Report_File(Long_Girder_Analysis.Get_LL_Analysis_Input_File(i + 1));
+                        if (File.Exists(fn))
+                        {
+                            Long_Girder_Analysis.All_LL_Analysis.Add(new BridgeMemberAnalysis(iApp, fn));
+                        }
+                    }
+
                     Long_Girder_Analysis.TotalLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.Total_Analysis_Report);
 
                     //if (iApp.DesignStandard == eDesignStandard.IndianStandard)
@@ -6558,17 +6563,20 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #region Get Node results from Dead load analysis
             //Get Node results from Dead load analysis
-            mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(_support_inn_joints, 1);
+            //mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(_support_inn_joints, 1);
+            mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(_support_inn_joints, 4);
             //lsf_mxf.Add(mxf);
             rct.DL.Vertival_Load = mxf.Force;
 
             //Get Node results from Dead load analysis
-            mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R3_Shear(_support_inn_joints, 1);
+            //mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R3_Shear(_support_inn_joints, 1);
+            mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R3_Shear(_support_inn_joints, 4);
             //lsf_mxf.Add(mxf);
             rct.DL.Transverse_Force = mxf.Force;
 
             //Get Node results from Dead load analysis
-            mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R1_Axial(_support_inn_joints, 1);
+            //mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R1_Axial(_support_inn_joints, 1);
+            mxf = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R1_Axial(_support_inn_joints, 4);
             //lsf_mxf.Add(mxf);
             rct.DL.Long_Force = mxf.Force;
 
@@ -6576,7 +6584,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #region Get Node results from Dead load analysis
             //Get Node results from Dead load analysis
-            NodeResults ndrs = Long_Girder_Analysis.DeadLoad_Analysis.Node_Displacements.Get_NodeResults(1);
+            //NodeResults ndrs = Long_Girder_Analysis.DeadLoad_Analysis.Node_Displacements.Get_NodeResults(1);
+            NodeResults ndrs = Long_Girder_Analysis.DeadLoad_Analysis.Node_Displacements.Get_NodeResults(4);
 
             foreach (var item in ndrs)
             {
@@ -20405,43 +20414,63 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
                 //LOAD 1 DEAD LOAD SELF WEIGHT
-                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 1);
-                var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 1);
-                var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 1);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 1);
+                //var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 1);
+                //var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 1);
+
+                //_vert_load = shr.Force;
+                //_mx = mx.Force;
+                //_mz = mz.Force;
+
+                //// LOAD 2 DEAD LOAD DECK SLAB WET CONCRETE AND SHUTTERING
+                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 2);
+                //mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 2);
+                //mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 2);
+
+                ////Add Load 1 + Load 2
+                //_vert_load += shr.Force;
+                //_mx += mx.Force;
+                //_mz += mz.Force;
+
+                ////LOAD 3 DEAD LOAD DESHUTTERING
+                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 3);
+                //mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 3);
+                //mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 3);
+
+
+
+                var lst = new List<int>();
+
+                lst.Add(_jnt_no);
+
+                //LOAD 1 DEAD LOAD SELF WEIGHT
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 4);
+                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
+                var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 4);
+                var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 4);
+
+
+
+                //Add Load 1 + Load 2 + Load 3
+                //_vert_load += shr.Force;
+                //_mx += mx.Force;
+                //_mz += mz.Force;
+
 
                 _vert_load = shr.Force;
                 _mx = mx.Force;
                 _mz = mz.Force;
 
-                // LOAD 2 DEAD LOAD DECK SLAB WET CONCRETE AND SHUTTERING
-                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 2);
-                mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 2);
-                mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 2);
 
-                //Add Load 1 + Load 2
-                _vert_load += shr.Force;
-                _mx += mx.Force;
-                _mz += mz.Force;
-
-                //LOAD 3 DEAD LOAD DESHUTTERING
-                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 3);
-                mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 3);
-                mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 3);
-
-
-                //Add Load 1 + Load 2 + Load 3
-                _vert_load += shr.Force;
-                _mx += mx.Force;
-                _mz += mz.Force;
 
 
                 //dgv_left_des_frc.Rows.Add(sr.JointNo, sr.Max_Reaction, sr.Max_Mx, sr.Max_Mz);
-                 dgv_left_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
+                dgv_left_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
 
-                 tot_left_vert_reac += Math.Abs(_vert_load); ;
-                 tot_left_Mx += _mx;
-                 tot_left_Mz += _mz;
-                 list_arr.Add(string.Format(format, _jnt_no, Math.Abs(_vert_load), _mx, _mz));
+                tot_left_vert_reac += Math.Abs(_vert_load); ;
+                tot_left_Mx += _mx;
+                tot_left_Mz += _mz;
+                list_arr.Add(string.Format(format, _jnt_no, Math.Abs(_vert_load), _mx, _mz));
             }
 
             list_arr.Add("");
@@ -20470,37 +20499,51 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
+                ////LOAD 1 DEAD LOAD SELF WEIGHT
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 1);
+                //var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 1);
+                //var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 1);
+
+                //_vert_load = shr.Force;
+                //_mx = mx.Force;
+                //_mz = mz.Force;
+
+                //// LOAD 2 DEAD LOAD DECK SLAB WET CONCRETE AND SHUTTERING
+                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 2);
+                //mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 2);
+                //mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 2);
+
+                ////Add Load 1 + Load 2
+                //_vert_load += shr.Force;
+                //_mx += mx.Force;
+                //_mz += mz.Force;
+
+                ////LOAD 3 DEAD LOAD DESHUTTERING
+                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 3);
+                //mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 3);
+                //mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 3);
+
+
+                ////Add Load 1 + Load 2 + Load 3
+                //_vert_load += shr.Force;
+                //_mx += mx.Force;
+                //_mz += mz.Force;
+
+
+
+                var lst = new List<int>();
+
+                lst.Add(_jnt_no);
+
                 //LOAD 1 DEAD LOAD SELF WEIGHT
-                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 1);
-                var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 1);
-                var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 1);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 4);
+                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
+                var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 4);
+                var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 4);
 
                 _vert_load = shr.Force;
                 _mx = mx.Force;
                 _mz = mz.Force;
-
-                // LOAD 2 DEAD LOAD DECK SLAB WET CONCRETE AND SHUTTERING
-                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 2);
-                mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 2);
-                mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 2);
-
-                //Add Load 1 + Load 2
-                _vert_load += shr.Force;
-                _mx += mx.Force;
-                _mz += mz.Force;
-
-                //LOAD 3 DEAD LOAD DESHUTTERING
-                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 3);
-                mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 3);
-                mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 3);
-
-
-                //Add Load 1 + Load 2 + Load 3
-                _vert_load += shr.Force;
-                _mx += mx.Force;
-                _mz += mz.Force;
-
-
 
 
                 sr = support_reactions.Get_Data(mlist.GetInt(i));
@@ -20548,7 +20591,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             #region Chiranjit [2017 06 11]
-            txt_max_vert_reac.Text =  Math.Max(tot_right_vert_reac , tot_left_vert_reac).ToString("0.000");
+            txt_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
             txt_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
             #endregion Chiranjit [2017 06 11]
 
@@ -20588,14 +20631,19 @@ namespace LimitStateMethod.RCC_T_Girder
             txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
             txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
-            
+
 
             #region Chiranjit [2017 06 11]
-         
+
             txt_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
+
+
+
+
+
 
 
 
@@ -20610,7 +20658,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
-
+            #region SIDL
             tot_left_vert_reac = 0.0;
             tot_left_Mx = 0.0;
             tot_left_Mz = 0.0;
@@ -20625,7 +20673,13 @@ namespace LimitStateMethod.RCC_T_Girder
             {
 
                 _jnt_no = mlist.GetInt(i);
-                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 5);
+
+
+                var jnt = new List<int>();
+                jnt.Add(_jnt_no);
+
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 5);
+                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(jnt, 5);
                 var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 5);
                 var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 5);
 
@@ -20634,7 +20688,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 _mx = mx;
                 _mz = mz;
 
-                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 6);
+                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 6);
+                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(jnt, 6);
                 mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 6);
                 mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 6);
 
@@ -20733,6 +20788,523 @@ namespace LimitStateMethod.RCC_T_Girder
 
             txt_sidl_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
             txt_sidl_final_Mz_kN.Text = (MyList.StringToDouble(txt_sidl_final_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+
+
+            #region Chiranjit [2017 06 11]
+            txt_sidl_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
+            txt_sidl_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_sidl_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
+
+            txt_sidl_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_sidl_max_Mx_kN.Text = (MyList.StringToDouble(txt_sidl_max_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+            txt_sidl_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_sidl_max_Mz_kN.Text = (MyList.StringToDouble(txt_sidl_max_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+            #endregion Chiranjit [2017 06 11]
+
+
+
+            #endregion SIDL
+
+
+
+
+
+
+            #region LL
+            tot_left_vert_reac = 0.0;
+            tot_left_Mx = 0.0;
+            tot_left_Mz = 0.0;
+
+
+
+            dgv_ll_left_des_frc.Rows.Clear();
+            dgv_ll_right_des_frc.Rows.Clear();
+
+            mlist = new MyList(MyList.RemoveAllSpaces(Left_support), ' ');
+            for (int i = 0; i < mlist.Count; i++)
+            {
+
+                _jnt_no = mlist.GetInt(i);
+
+
+                var jnt = new List<int>();
+                jnt.Add(_jnt_no);
+
+                _vert_load = 0;
+                _mx = 0;
+                _mz = 0;
+
+
+
+                for (int j = 0; j < all_loads.Count; j++)
+                {
+
+                    #region Get Node results from Dead load analysis
+                    //Get Node results from Dead load analysis
+                    var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    if (_vert_load < Math.Abs(mxf.Force))
+                    {
+                        _vert_load = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_Torsion(jnt);
+                    if (_mx < Math.Abs(mxf.Force))
+                    {
+                        _mx = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_MomentForce(jnt);
+                    if (_mz < Math.Abs(mxf.Force))
+                    {
+                        _mz = Math.Abs(mxf.Force);
+                    }
+
+                    #endregion Get Forces LL ANALYSIS
+
+                }
+
+
+                dgv_ll_left_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
+
+                tot_left_vert_reac += Math.Abs(_vert_load); ;
+                tot_left_Mx += _mx;
+                tot_left_Mz += _mz;
+                list_arr.Add(string.Format(format, _jnt_no, Math.Abs(_vert_load), _mx, _mz));
+            }
+
+            txt_ll_left_total_vert_reac.Text = tot_left_vert_reac.ToString("0.000");
+            txt_ll_left_total_Mx.Text = tot_left_Mx.ToString("0.000");
+            txt_ll_left_total_Mz.Text = tot_left_Mz.ToString("0.000");
+
+
+            tot_right_vert_reac = 0.0;
+            tot_right_Mx = 0.0;
+            tot_right_Mz = 0.0;
+
+            mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
+            for (int i = 0; i < mlist.Count; i++)
+            {
+
+                _jnt_no = mlist.GetInt(i);
+
+                var jnt = new List<int>();
+                jnt.Add(_jnt_no);
+
+                _vert_load = 0;
+                _mx = 0;
+                _mz = 0;
+                for (int j = 0; j < all_loads.Count; j++)
+                {
+
+                    #region Get Node results from Dead load analysis
+                    //Get Node results from Dead load analysis
+                    var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    if (_vert_load < Math.Abs(mxf.Force))
+                    {
+                        _vert_load = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_Torsion(jnt);
+                    if (_mx < Math.Abs(mxf.Force))
+                    {
+                        _mx = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_MomentForce(jnt);
+                    if (_mz < Math.Abs(mxf.Force))
+                    {
+                        _mz = Math.Abs(mxf.Force);
+                    }
+
+                    #endregion Get Forces LL ANALYSIS
+
+                }
+
+
+                dgv_ll_right_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
+
+                tot_right_vert_reac += Math.Abs(_vert_load); ;
+                tot_right_Mx += _mx;
+                tot_right_Mz += _mz;
+            }
+
+            txt_ll_right_total_vert_reac.Text = tot_right_vert_reac.ToString("0.000");
+            txt_ll_right_total_Mx.Text = tot_right_Mx.ToString("0.000");
+            txt_ll_right_total_Mz.Text = tot_right_Mz.ToString("0.000");
+
+
+
+
+            txt_ll_final_vert_reac.Text = (tot_right_vert_reac + tot_left_vert_reac).ToString("0.000");
+            txt_ll_final_vert_rec_kN.Text = ((tot_right_vert_reac + tot_left_vert_reac) * 10).ToString("0.000");
+
+
+            txt_ll_final_Mx.Text = (tot_left_Mx + tot_right_Mx).ToString("0.000");
+            txt_ll_final_Mx_kN.Text = (MyList.StringToDouble(txt_ll_final_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+            txt_ll_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
+            txt_ll_final_Mz_kN.Text = (MyList.StringToDouble(txt_ll_final_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+
+            #region Chiranjit [2017 06 11]
+            txt_ll_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
+            txt_ll_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_ll_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
+
+            txt_ll_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_ll_max_Mx_kN.Text = (MyList.StringToDouble(txt_ll_max_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+            txt_ll_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_ll_max_Mz_kN.Text = (MyList.StringToDouble(txt_ll_max_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+            #endregion Chiranjit [2017 06 11]
+
+
+
+            #endregion LL
+
+            tot_right_vert_reac = 0.0;
+            tot_left_vert_reac = 0.0;
+
+            tot_left_Mx = 0.0;
+            tot_right_Mx = 0.0;
+
+            tot_left_Mz = 0.0;
+            tot_right_Mz = 0.0;
+
+            #region DL
+
+
+
+            dgv_mxf_left_des_frc.Rows.Clear();
+            dgv_mxf_right_des_frc.Rows.Clear();
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            double v1 = 0.0;
+            double v2 = 0.0;
+            double v3 = 0.0;
+            for (int i = 0; i < dgv_left_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_left_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load))
+                {
+                    _vert_load = v1;
+                }
+
+                v2 = MyList.StringToDouble(dgv_left_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx))
+                {
+                    _mx = v2;
+                }
+
+                v3 = MyList.StringToDouble(dgv_left_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+            dgv_mxf_left_des_frc.Rows.Add("DL", _vert_load, _mx, _mz);
+
+
+            txt_left_max_total_vert_reac.Text = _vert_load.ToString();
+            txt_left_max_total_Mx.Text = _mx.ToString();
+            txt_left_max_total_Mz.Text = _mz.ToString();
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_right_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_right_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(dgv_right_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(dgv_right_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+
+
+            txt_right_max_total_vert_reac.Text = _vert_load.ToString();
+            txt_right_max_total_Mx.Text = _mx.ToString();
+            txt_right_max_total_Mz.Text = _mz.ToString();
+
+
+            dgv_mxf_right_des_frc.Rows.Add("DL", _vert_load, _mx, _mz);
+
+
+
+
+
+
+
+            #endregion DL
+
+
+
+            #region SIDL
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_sidl_left_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_sidl_left_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(dgv_sidl_left_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(dgv_sidl_left_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+            txt_sidl_left_max_total_vert_reac.Text = _vert_load.ToString();
+            txt_sidl_left_max_total_Mx.Text = _mx.ToString();
+            txt_sidl_left_max_total_Mz.Text = _mz.ToString();
+
+
+            dgv_mxf_left_des_frc.Rows.Add("SIDL", _vert_load, _mx, _mz);
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_sidl_right_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_sidl_right_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(dgv_sidl_right_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(dgv_sidl_right_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+            txt_sidl_right_max_total_vert_reac.Text = _vert_load.ToString();
+            txt_sidl_right_max_total_Mx.Text = _mx.ToString();
+            txt_sidl_right_max_total_Mz.Text = _mz.ToString();
+
+            dgv_mxf_right_des_frc.Rows.Add("SIDL", _vert_load, _mx, _mz);
+
+
+            #endregion SIDL
+
+
+
+            #region LL
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_ll_left_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_ll_left_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(dgv_ll_left_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(dgv_ll_left_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+
+
+            txt_ll_left_max_vert_reac.Text = _vert_load.ToString();
+            txt_ll_left_max_total_Mx.Text = _mx.ToString();
+            txt_ll_left_max_total_Mz.Text = _mz.ToString();
+
+
+            dgv_mxf_left_des_frc.Rows.Add("LL", _vert_load, _mx, _mz);
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_ll_right_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_ll_right_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(dgv_ll_right_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(dgv_ll_right_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+
+
+            txt_ll_right_max_total_vert_reac.Text = _vert_load.ToString();
+            txt_ll_right_max_total_Mx.Text = _mx.ToString();
+            txt_ll_right_max_total_Mz.Text = _mz.ToString();
+
+
+
+            dgv_mxf_right_des_frc.Rows.Add("LL", _vert_load, _mx, _mz);
+
+
+            #endregion LL
+
+
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_mxf_left_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_mxf_left_des_frc[1, i].Value.ToString(), 0.0);
+                _vert_load += v1;
+
+                v2 = MyList.StringToDouble(dgv_mxf_left_des_frc[2, i].Value.ToString(), 0.0);
+                _mx += v2;
+
+                v3 = MyList.StringToDouble(dgv_mxf_left_des_frc[3, i].Value.ToString(), 0.0);
+                _mz += v3;
+
+            }
+
+
+
+            tot_left_vert_reac = _vert_load;
+            tot_left_Mx = _mx;
+            tot_left_Mz = _mz;
+
+
+            txt_mxf_left_total_vert_reac.Text = _vert_load.ToString();
+            txt_mxf_left_total_Mx.Text = _mx.ToString();
+            txt_mxf_left_total_Mz.Text = _mz.ToString();
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_mxf_right_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_mxf_right_des_frc[1, i].Value.ToString(), 0.0);
+                _vert_load += v1;
+
+                v2 = MyList.StringToDouble(dgv_mxf_right_des_frc[2, i].Value.ToString(), 0.0);
+                _mx += v2;
+
+                v3 = MyList.StringToDouble(dgv_mxf_right_des_frc[3, i].Value.ToString(), 0.0);
+                _mz += v3;
+
+            }
+
+
+            tot_right_vert_reac = _vert_load;
+            tot_right_Mx = _mx;
+            tot_right_Mz = _mz;
+
+            txt_mxf_right_total_vert_reac.Text = _vert_load.ToString();
+            txt_mxf_right_total_Mx.Text = _mx.ToString();
+            txt_mxf_right_total_Mz.Text = _mz.ToString();
+
+            //txt_left_max_total_vert_reac
+            //txt_left_max_total_Mx
+            //txt_left_max_total_Mz
+
+            //txt_right_max_total_vert_reac
+            //txt_right_max_total_Mx
+            //txt_right_max_total_Mz
+
+
+
+            //txt_sidl_left_max_total_vert_reac
+            //txt_sidl_left_max_total_Mx
+            //txt_sidl_left_max_total_Mz
+
+            //txt_sidl_right_max_total_vert_reac
+            //txt_sidl_right_max_total_Mx
+            //txt_sidl_right_max_total_Mz
+
+
+            //txt_ll_left_max_total_vert_reac
+            //txt_ll_left_max_total_Mx
+            //txt_ll_left_max_total_Mz
+
+            //txt_ll_right_max_total_vert_reac
+            //txt_ll_right_max_total_Mx
+            //txt_ll_right_max_total_Mz
+
+
+
+
+            #region Chiranjit [2017 06 11]
+
+            txt_mxf_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
+            txt_mxf_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_mxf_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
+
+            txt_mxf_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_mxf_max_Mx_kN.Text = (MyList.StringToDouble(txt_mxf_max_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+            txt_mxf_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_mxf_max_Mz_kN.Text = (MyList.StringToDouble(txt_mxf_max_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+            #endregion Chiranjit [2017 06 11]
+
 
 
             File.WriteAllLines(analysis_rep, list_arr.ToArray());
@@ -22972,7 +23544,20 @@ namespace LimitStateMethod.RCC_T_Girder
         private void btn_dwg_open_Click(object sender, EventArgs e)
         {
             Button b = sender as Button;
-            eOpenDrawingOption opt = iApp.Open_Drawing_Option();
+            eOpenDrawingOption opt = eOpenDrawingOption.Cancel;
+
+
+            if (b == btn_dwg_open_GAD ||
+                b == btn_dwg_open_LongGirder ||
+                b == btn_dwg_open_CrossGirder ||
+                b == btn_dwg_open_Deckslab  )
+            {
+                opt = iApp.Open_Drawing_Option();
+            }
+            else
+            {
+                opt = eOpenDrawingOption.Sample_Drawings;
+            }
 
             if (opt == eOpenDrawingOption.Cancel) return;
             

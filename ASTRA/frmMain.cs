@@ -47,6 +47,7 @@ using LimitStateMethod.PSC_I_Girder;
 using LimitStateMethod.SubStructure;
 using LimitStateMethod.Steel_Truss;
 using LimitStateMethod.JettyDesign;
+using BridgeAnalysisDesign.RE_Wall;
 
 //using AstraAccess;
 
@@ -286,7 +287,22 @@ namespace AstraFunctionOne
         }
         public void OpenWork(string opnfileName, bool IsOpenWithMovingLoad)
         {
+
+            string rad_file = Path.Combine(Path.GetDirectoryName(opnfileName), "radius.fil");
+            if (File.Exists(rad_file)) File.Delete(rad_file);
+            Environment.SetEnvironmentVariable("COMP_RAD", "");
+
             SetApp_Structure(opnfileName, IsOpenWithMovingLoad);
+            //if (IsOpenWithMovingLoad)
+            //{
+            //    Form f = Form_ASTRA_Moving_Load(opnfileName);
+            //    f.Owner = this;
+            //    f.Show();
+            //}
+            //else
+            //{
+            //    SetApp_Structure(opnfileName, IsOpenWithMovingLoad);
+            //}
             return;
             ////if (!File.Exists(Path.Combine(Application.StartupPath, "AKSHASP.dll")))
             ////    Application.Exit();
@@ -642,8 +658,18 @@ namespace AstraFunctionOne
                 //}
                 Set_Bridge_Design_Menu();
                 //If visible set to false then menu will be R21
-                //tsmi_structure_text.Visible = false;
-                Load_ASTRA_R22_Menu();
+                if (false)
+                //if (true)
+                {
+
+                    tsmi_structure_text.Visible = false;
+                    tsmi_steel_beam.Visible = false;
+                    tsmi_steel_column.Visible = false;
+                }
+                else
+                {
+                    Load_ASTRA_R22_Menu();
+                }
                 helpProvider1.HelpNamespace = Path.Combine(Application.StartupPath, "ASTRAHelp\\AstraPro.chm");
                 //TechSOFT_Demo();
                 try
@@ -2212,7 +2238,7 @@ namespace AstraFunctionOne
         {
 
 
-            if (!Is_select_Design_Standard) SelectDesignStandard(); 
+            //if (!Is_select_Design_Standard) SelectDesignStandard(); 
             ShowTimerScreen(eASTRAImage.RCC_T_Beam_Bridge);
             frm_RCC_T_Girder_WS frm = new frm_RCC_T_Girder_WS(this);
             frm.Owner = this;
@@ -2383,7 +2409,7 @@ namespace AstraFunctionOne
                     DesignStandard = fds.DesignStandard;
                     Write_Default_Moving_Loads();
                 }
-                Is_select_Design_Standard = true;
+                //Is_select_Design_Standard = true;
             }
             Set_Bridge_Design_Menu();
         }
@@ -2485,7 +2511,7 @@ namespace AstraFunctionOne
             tsmi_research_Studies.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             tsmi_structureModeling.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
 
-
+            tsmi_openStageAnalysisTEXTDataFile.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             return;
             //Chiranjit [2012 02 23]
             //foreach (var item in tsmi_Bridge_Design.DropDownItems)
@@ -3000,7 +3026,16 @@ namespace AstraFunctionOne
 
         public void SetApp_Structure(string filePath, bool IsOpenMovingLoad)
         {
-            AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath);
+            //AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath, );
+            //AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath, );
+            if (IsOpenMovingLoad)
+                AstraAccess.ViewerFunctions.ASTRA_Analysis_Process(filePath, true);
+            else
+            {
+                AstraAccess.ViewerFunctions.Form_ASTRA_TEXT_Input_Data(this, filePath, false).Show();
+
+                //AstraAccess.ViewerFunctions.ASTRA_Input_Data(filePath);
+            }
         }
         public void SetApp_Structure(string filePath, string feature)
         {
@@ -3279,6 +3314,7 @@ namespace AstraFunctionOne
                 }
             }
         }
+
         #endregion IApplication Members
 
         #region External Program
@@ -4745,9 +4781,9 @@ namespace AstraFunctionOne
         {
             ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
 
-            frmSAPApplication sapFrm = new frmSAPApplication(this);
-            sapFrm.Owner = this;
-            sapFrm.ShowDialog();
+            //frmSAPApplication sapFrm = new frmSAPApplication(this);
+            //sapFrm.Owner = this;
+            //sapFrm.ShowDialog();
 
 
             if (tsmi.Name == tsmi_newAnalysisTXTDataFile.Name)
@@ -5017,15 +5053,22 @@ namespace AstraFunctionOne
             }
             else if (tsmi.Name == tsmi_openStageAnalysisTEXTDataFile.Name)
             {
-                ofdAst.Filter = "TXT Files (*.txt)|*.txt";
-                if (ofdAst.ShowDialog() != DialogResult.Cancel)
-                {
-                    this.FilePath = ofdAst.FileName;
-                    //CAstraFunctionFactory.Instance.ShowStageAnalysisDialog(this);
 
-                    AstraAccess.ViewerFunctions.Form_Stage_Analysis(this).Show();
+                frmStageAnalysisWorkspace fstage = new frmStageAnalysisWorkspace(this);
+                fstage.Owner = this;
+                fstage.Show();
 
-                }
+
+
+                //ofdAst.Filter = "TXT Files (*.txt)|*.txt";
+                //if (ofdAst.ShowDialog() != DialogResult.Cancel)
+                //{
+                //    this.FilePath = ofdAst.FileName;
+                //    //CAstraFunctionFactory.Instance.ShowStageAnalysisDialog(this);
+
+                //    AstraAccess.ViewerFunctions.Form_Stage_Analysis(this).Show();
+
+                //}
             }
             else if (tsmi.Name == tsmi_openSAPDataFile.Name)
             {
@@ -5243,7 +5286,16 @@ namespace AstraFunctionOne
             if (tsmi.Name == tsmi_rcc_structure_design.Name)
             {
                 //AstraAccess.ViewerFunctions.Form_ASTRA_Structure_Input_Data( LastDesignWorkingFolder, false).Show();
-                AstraAccess.ViewerFunctions.Form_ASTRA_Structure_Input_Data(this, LastDesignWorkingFolder).Show();
+                ////AstraAccess.ViewerFunctions.Form_ASTRA_Structure_Input_Data(this, LastDesignWorkingFolder).Show();
+
+                frm_StructuralDesign frm = new frm_StructuralDesign(this);
+                frm.StageAnalysisForm = AstraAccess.ViewerFunctions.Form_Stage_Analysis(this);
+                frm.Owner = this;
+                frm.Show();
+
+                //frm.Working_Folder = working_folder;
+                //frm.LastDesignWorkingFolder = working_folder;
+
             }
             else if (tsmi.Name == tsmi_tunnel_design.Name)
             {
@@ -5952,14 +6004,15 @@ namespace AstraFunctionOne
             tsmi_structure_text.DropDownItems.Clear();
 
             ToolStripItem tsi = null;
-
             int anaCount = 1;
-            foreach (var item in list)
-            {
-                tsi = tsmi_structure_text.DropDownItems.Add(item);
-                tsi.Name = "analysis_" + anaCount++;
-                tsi.Click += new EventHandler(tsi_Click);
-            }
+            //foreach (var item in list)
+            //{
+            //    tsi = tsmi_structure_text.DropDownItems.Add(item);
+            //    tsi.Name = "analysis_" + anaCount++;
+            //    tsi.Click += new EventHandler(tsi_Click);
+            //}
+
+            tsmi_structure_text.Click += new EventHandler(tsi_Click);
 
             #endregion Set Structure Analysis Menu
 
@@ -6025,7 +6078,74 @@ namespace AstraFunctionOne
             //throw new NotImplementedException();
         }
 
+        private void tsmi_steel_beam_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
 
+            if (tsmi == tsmi_steel_beam)
+            {
+                frmSteelBeamDesign frm = new frmSteelBeamDesign(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else if (tsmi == tsmi_steel_column)
+            {
+                frmSteelColumnDesign frm = new frmSteelColumnDesign(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+        }
+
+        private void tsmi_sheet_pile_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("Select the Program \"prosheet.exe\" from folder \"Sheet Pile Applications\"",
+            //    "ASTRA", MessageBoxButtons.OK);
+
+            //using (OpenFileDialog ofd = new OpenFileDialog())
+            //{
+            //    ofd.Filter = "Executable File (*.exe)|*.exe";
+            //    if (ofd.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
+            //    {
+            //        System.Diagnostics.Process.Start(ofd.FileName);
+            //    }
+            //}
+
+            BridgeAnalysisDesign.Foundation.frmSheetPileDesign ff = new BridgeAnalysisDesign.Foundation.frmSheetPileDesign();
+
+            ff.Owner = this;
+            ff.Show();
+        }
+
+
+
+        #region IApplication Members
+
+
+        public void View_Plan_Moving_Load(string inputFile, double skewAngle)
+        {
+            ASTRAStructures.frmPlanMovingLoad ff = new frmPlanMovingLoad(this, skewAngle);
+            ff.ShowDialog();
+        }
+
+        #endregion
+
+        private void tsmi_return_wall_cant_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem tsmi = sender as ToolStripMenuItem;
+
+            if (tsmi == tsmi_return_wall_cant)
+            {
+                frm_RetainingWall ff = new frm_RetainingWall(this, false);
+                ff.Owner = this;
+                ff.Show();
+            }
+            if (tsmi == tsmi_return_wall_propped)
+            {
+                frm_RetainingWall ff = new frm_RetainingWall(this, true);
+                ff.Owner = this;
+                ff.Show();
+            }
+        }
     }
 
 }

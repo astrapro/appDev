@@ -2776,6 +2776,7 @@ namespace LimitStateMethod.SuspensionBridge
                     //Open_Project();
 
                     txt_project_name.Text = Path.GetFileName(user_path);
+                    iApp.user_path = user_path;
 
                     Write_All_Data();
                 }

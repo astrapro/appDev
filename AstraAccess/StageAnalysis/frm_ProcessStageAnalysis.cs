@@ -19,6 +19,7 @@ using VectorDraw.Professional.vdObjects;
 using AstraInterface.Interface;
 using AstraInterface.DataStructure;
 using AstraAccess.SAP_Classes;
+ 
 
 
 namespace AstraAccess.StageAnalysis
@@ -189,7 +190,7 @@ namespace AstraAccess.StageAnalysis
         private void frmStageAnalysis_Load(object sender, EventArgs e)
         {
 
-            if(Tag != "")
+            if(Tag != "" && Tag != null)
             {
                 file_path = Tag.ToString();
             }
@@ -2658,4 +2659,6 @@ namespace AstraAccess.StageAnalysis
         }
 
     }
+
+
 }

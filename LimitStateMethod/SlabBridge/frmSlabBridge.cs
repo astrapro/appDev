@@ -2768,7 +2768,10 @@ namespace LimitStateMethod.SlabBridge
             }
             else if (btn == btn_LL_report)
             {
-                if (File.Exists(MyList.Get_Analysis_Report_File(Input_File_LL))) System.Diagnostics.Process.Start(MyList.Get_Analysis_Report_File(Input_File_LL));
+                string ff = Get_LL_File(1);
+                ff = MyList.Get_Analysis_Report_File(ff);
+
+                if (File.Exists(ff)) System.Diagnostics.Process.Start(ff);
             }
             else if (btn == btn_result_summary)
             {
@@ -2963,7 +2966,6 @@ namespace LimitStateMethod.SlabBridge
 
             Working_Folder = user_path;
             //Input_File_LL = Get_LL_File(1);
-            string ll_file = Get_LL_File(1);
 
             string pd = "";
             if (Directory.Exists(Working_Folder))
@@ -2974,7 +2976,12 @@ namespace LimitStateMethod.SlabBridge
 
                 pd = Path.Combine(Working_Folder, "Slab Analysis Live Load");
                 Input_File_LL = Path.Combine(pd, "Slab_LL_Input_File.txt");
+
+
+                //Input_File_LL = Get_LL_File(1);
+
             }
+            string ll_file = Get_LL_File(1);
 
 
             //btn_process_design.Enabled = Directory.Exists(Working_Folder);

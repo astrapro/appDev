@@ -14569,8 +14569,12 @@ namespace LimitStateMethod.CableStayed
                     IsCreateData = false;
 
                     Input_Data = Path.Combine(user_path, "INPUT_DATA.TXT");
+
+                    iApp.user_path = user_path;
+
                     Open_AnalysisFile();
                     Show_ReadMemberLoad(Input_Data);
+
                     MessageBox.Show(this, "File opened succesfully.", "ASTRA", MessageBoxButtons.OK);
 
 

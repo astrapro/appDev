@@ -1,4 +1,6 @@
-﻿namespace AstraAccess.StageAnalysis
+﻿
+
+namespace AstraAccess.StageAnalysis
 {
     partial class frm_ProcessStageAnalysis
     {
@@ -5516,4 +5518,6 @@
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.ComboBox cmb_stage;
     }
+
+
 }

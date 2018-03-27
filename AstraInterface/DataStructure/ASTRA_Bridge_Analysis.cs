@@ -337,7 +337,9 @@ namespace AstraInterface.DataStructure
 
             return msec;
         }
+
     }
+
     [Serializable]
     public class MyList 
     {
@@ -4236,7 +4238,7 @@ namespace AstraInterface.DataStructure
             {
                 for (int j = 0; j < list_beams.Count; j++)
                 {
-                    if (list_beams[i].LoadNo != loadcase) continue;
+                    if (list_beams[j].LoadNo != loadcase) continue;
 
                     if (list_beams[j].StartNodeForce.JointNo == joint_array[i])
                     {
@@ -4290,7 +4292,7 @@ namespace AstraInterface.DataStructure
             {
                 for (int j = 0; j < list_beams.Count; j++)
                 {
-                    if (list_beams[i].LoadNo != loadcase) continue;
+                    if (list_beams[j].LoadNo != loadcase) continue;
 
                     if (list_beams[j].StartNodeForce.JointNo == joint_array[i])
                     {
