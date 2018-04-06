@@ -667,22 +667,14 @@
             this.btn_update_forces = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox43 = new System.Windows.Forms.GroupBox();
-            this.txt_right_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_right_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.txt_left_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_left_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.label554 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label553 = new System.Windows.Forms.Label();
             this.label241 = new System.Windows.Forms.Label();
-            this.txt_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox51 = new System.Windows.Forms.GroupBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.txt_max_Mz = new System.Windows.Forms.TextBox();
             this.label247 = new System.Windows.Forms.Label();
             this.txt_max_Mz_kN = new System.Windows.Forms.TextBox();
             this.label248 = new System.Windows.Forms.Label();
-            this.txt_left_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox49 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.txt_final_Mz = new System.Windows.Forms.TextBox();
@@ -692,23 +684,31 @@
             this.groupBox45 = new System.Windows.Forms.GroupBox();
             this.txt_left_total_Mz = new System.Windows.Forms.TextBox();
             this.txt_left_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_left_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_left_max_total_Mx = new System.Windows.Forms.TextBox();
             this.label325 = new System.Windows.Forms.Label();
             this.label326 = new System.Windows.Forms.Label();
             this.txt_left_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.label553 = new System.Windows.Forms.Label();
             this.dgv_left_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Max_Mx = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Max_Mz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_left_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.g = new System.Windows.Forms.GroupBox();
+            this.txt_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_right_max_total_Mx = new System.Windows.Forms.TextBox();
             this.dgv_right_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label554 = new System.Windows.Forms.Label();
             this.txt_right_total_Mz = new System.Windows.Forms.TextBox();
             this.txt_right_total_Mx = new System.Windows.Forms.TextBox();
             this.label402 = new System.Windows.Forms.Label();
+            this.txt_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.label442 = new System.Windows.Forms.Label();
             this.txt_right_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
@@ -736,14 +736,6 @@
             this.txt_final_vert_reac = new System.Windows.Forms.TextBox();
             this.label264 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.txt_sidl_right_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_sidl_right_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.txt_sidl_left_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.label552 = new System.Windows.Forms.Label();
-            this.txt_sidl_left_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.txt_sidl_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
-            this.label551 = new System.Windows.Forms.Label();
-            this.txt_sidl_left_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.label270 = new System.Windows.Forms.Label();
             this.groupBox57 = new System.Windows.Forms.GroupBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -773,21 +765,29 @@
             this.groupBox53 = new System.Windows.Forms.GroupBox();
             this.txt_sidl_left_total_Mz = new System.Windows.Forms.TextBox();
             this.txt_sidl_left_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_sidl_left_max_total_Mz = new System.Windows.Forms.TextBox();
             this.label256 = new System.Windows.Forms.Label();
+            this.txt_sidl_left_max_total_Mx = new System.Windows.Forms.TextBox();
             this.label257 = new System.Windows.Forms.Label();
             this.txt_sidl_left_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.label551 = new System.Windows.Forms.Label();
             this.dgv_sidl_left_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn83 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn84 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn85 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn86 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_sidl_left_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox54 = new System.Windows.Forms.GroupBox();
+            this.txt_sidl_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_sidl_right_max_total_Mx = new System.Windows.Forms.TextBox();
             this.dgv_sidl_right_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn87 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn88 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn89 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label552 = new System.Windows.Forms.Label();
             this.txt_sidl_right_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_sidl_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.txt_sidl_right_total_Mx = new System.Windows.Forms.TextBox();
             this.label263 = new System.Windows.Forms.Label();
             this.label265 = new System.Windows.Forms.Label();
@@ -805,27 +805,19 @@
             this.txt_sidl_final_vert_reac = new System.Windows.Forms.TextBox();
             this.label269 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.txt_ll_right_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_ll_right_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.txt_ll_left_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_ll_left_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.label550 = new System.Windows.Forms.Label();
             this.label277 = new System.Windows.Forms.Label();
-            this.label549 = new System.Windows.Forms.Label();
             this.groupBox64 = new System.Windows.Forms.GroupBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.txt_ll_max_Mz = new System.Windows.Forms.TextBox();
             this.label278 = new System.Windows.Forms.Label();
             this.txt_ll_max_Mz_kN = new System.Windows.Forms.TextBox();
             this.label279 = new System.Windows.Forms.Label();
-            this.txt_ll_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox65 = new System.Windows.Forms.GroupBox();
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.txt_ll_max_Mx = new System.Windows.Forms.TextBox();
             this.label280 = new System.Windows.Forms.Label();
             this.txt_ll_max_Mx_kN = new System.Windows.Forms.TextBox();
             this.label281 = new System.Windows.Forms.Label();
-            this.txt_ll_left_max_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox67 = new System.Windows.Forms.GroupBox();
             this.txt_ll_max_vert_reac_kN = new System.Windows.Forms.TextBox();
             this.label282 = new System.Windows.Forms.Label();
@@ -842,23 +834,31 @@
             this.groupBox69 = new System.Windows.Forms.GroupBox();
             this.txt_ll_left_total_Mz = new System.Windows.Forms.TextBox();
             this.txt_ll_left_total_Mx = new System.Windows.Forms.TextBox();
+            this.txt_ll_left_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_ll_left_max_total_Mx = new System.Windows.Forms.TextBox();
             this.label287 = new System.Windows.Forms.Label();
             this.label288 = new System.Windows.Forms.Label();
             this.txt_ll_left_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.label549 = new System.Windows.Forms.Label();
             this.dgv_ll_left_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn91 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn92 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn93 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn94 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_ll_left_max_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox70 = new System.Windows.Forms.GroupBox();
+            this.txt_ll_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_ll_right_max_total_Mx = new System.Windows.Forms.TextBox();
             this.dgv_ll_right_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn95 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn96 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn97 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn98 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label550 = new System.Windows.Forms.Label();
             this.txt_ll_right_total_Mz = new System.Windows.Forms.TextBox();
             this.txt_ll_right_total_Mx = new System.Windows.Forms.TextBox();
             this.label289 = new System.Windows.Forms.Label();
+            this.txt_ll_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.label290 = new System.Windows.Forms.Label();
             this.txt_ll_right_total_vert_reac = new System.Windows.Forms.TextBox();
             this.groupBox71 = new System.Windows.Forms.GroupBox();
@@ -913,6 +913,17 @@
             this.txt_ana_DLSR = new System.Windows.Forms.TextBox();
             this.txt_ana_LLSR = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox129 = new System.Windows.Forms.GroupBox();
+            this.txt_brg_max_DL_kN = new System.Windows.Forms.TextBox();
+            this.txt_brg_max_VR_kN = new System.Windows.Forms.TextBox();
+            this.txt_brg_max_DL_Ton = new System.Windows.Forms.TextBox();
+            this.txt_brg_max_VR_Ton = new System.Windows.Forms.TextBox();
+            this.label1126 = new System.Windows.Forms.Label();
+            this.label479 = new System.Windows.Forms.Label();
+            this.label1124 = new System.Windows.Forms.Label();
+            this.label1117 = new System.Windows.Forms.Label();
+            this.label1123 = new System.Windows.Forms.Label();
+            this.label1108 = new System.Windows.Forms.Label();
             this.label295 = new System.Windows.Forms.Label();
             this.groupBox73 = new System.Windows.Forms.GroupBox();
             this.textBox19 = new System.Windows.Forms.TextBox();
@@ -1565,6 +1576,7 @@
             this.groupBox46.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.groupBox129.SuspendLayout();
             this.groupBox73.SuspendLayout();
             this.groupBox74.SuspendLayout();
             this.groupBox75.SuspendLayout();
@@ -7828,55 +7840,6 @@
             this.groupBox43.TabIndex = 28;
             this.groupBox43.TabStop = false;
             // 
-            // txt_right_max_total_Mz
-            // 
-            this.txt_right_max_total_Mz.Location = new System.Drawing.Point(364, 172);
-            this.txt_right_max_total_Mz.Name = "txt_right_max_total_Mz";
-            this.txt_right_max_total_Mz.ReadOnly = true;
-            this.txt_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_right_max_total_Mz.TabIndex = 6;
-            this.txt_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_right_max_total_Mz.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // txt_right_max_total_Mx
-            // 
-            this.txt_right_max_total_Mx.Location = new System.Drawing.Point(260, 172);
-            this.txt_right_max_total_Mx.Name = "txt_right_max_total_Mx";
-            this.txt_right_max_total_Mx.ReadOnly = true;
-            this.txt_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_right_max_total_Mx.TabIndex = 5;
-            this.txt_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_right_max_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // txt_left_max_total_Mz
-            // 
-            this.txt_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
-            this.txt_left_max_total_Mz.Name = "txt_left_max_total_Mz";
-            this.txt_left_max_total_Mz.ReadOnly = true;
-            this.txt_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_left_max_total_Mz.TabIndex = 6;
-            this.txt_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_left_max_total_Mz.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // txt_left_max_total_Mx
-            // 
-            this.txt_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
-            this.txt_left_max_total_Mx.Name = "txt_left_max_total_Mx";
-            this.txt_left_max_total_Mx.ReadOnly = true;
-            this.txt_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_left_max_total_Mx.TabIndex = 5;
-            this.txt_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_left_max_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // label554
-            // 
-            this.label554.AutoSize = true;
-            this.label554.Location = new System.Drawing.Point(20, 175);
-            this.label554.Name = "label554";
-            this.label554.Size = new System.Drawing.Size(119, 13);
-            this.label554.TabIndex = 4;
-            this.label554.Text = "Maximum Forces";
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -7888,15 +7851,6 @@
             this.label22.TabIndex = 29;
             this.label22.Text = "Forces on Pier (from Both Sides)";
             // 
-            // label553
-            // 
-            this.label553.AutoSize = true;
-            this.label553.Location = new System.Drawing.Point(20, 175);
-            this.label553.Name = "label553";
-            this.label553.Size = new System.Drawing.Size(119, 13);
-            this.label553.TabIndex = 4;
-            this.label553.Text = "Maximum Forces";
-            // 
             // label241
             // 
             this.label241.AutoSize = true;
@@ -7907,16 +7861,6 @@
             this.label241.Size = new System.Drawing.Size(218, 13);
             this.label241.TabIndex = 29;
             this.label241.Text = "Forces on Abutment (from One Side)";
-            // 
-            // txt_right_max_total_vert_reac
-            // 
-            this.txt_right_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
-            this.txt_right_max_total_vert_reac.Name = "txt_right_max_total_vert_reac";
-            this.txt_right_max_total_vert_reac.ReadOnly = true;
-            this.txt_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_right_max_total_vert_reac.TabIndex = 2;
-            this.txt_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_right_max_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
             // groupBox51
             // 
@@ -7982,16 +7926,6 @@
             this.label248.Size = new System.Drawing.Size(39, 13);
             this.label248.TabIndex = 18;
             this.label248.Text = "kN-m";
-            // 
-            // txt_left_max_total_vert_reac
-            // 
-            this.txt_left_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
-            this.txt_left_max_total_vert_reac.Name = "txt_left_max_total_vert_reac";
-            this.txt_left_max_total_vert_reac.ReadOnly = true;
-            this.txt_left_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_left_max_total_vert_reac.TabIndex = 2;
-            this.txt_left_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_left_max_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
             // groupBox49
             // 
@@ -8098,6 +8032,26 @@
             this.txt_left_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_left_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
+            // txt_left_max_total_Mz
+            // 
+            this.txt_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_left_max_total_Mz.Name = "txt_left_max_total_Mz";
+            this.txt_left_max_total_Mz.ReadOnly = true;
+            this.txt_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_left_max_total_Mz.TabIndex = 6;
+            this.txt_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_left_max_total_Mz.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // txt_left_max_total_Mx
+            // 
+            this.txt_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_left_max_total_Mx.Name = "txt_left_max_total_Mx";
+            this.txt_left_max_total_Mx.ReadOnly = true;
+            this.txt_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_left_max_total_Mx.TabIndex = 5;
+            this.txt_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_left_max_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
             // label325
             // 
             this.label325.AutoSize = true;
@@ -8125,6 +8079,15 @@
             this.txt_left_total_vert_reac.TabIndex = 2;
             this.txt_left_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_left_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // label553
+            // 
+            this.label553.AutoSize = true;
+            this.label553.Location = new System.Drawing.Point(20, 175);
+            this.label553.Name = "label553";
+            this.label553.Size = new System.Drawing.Size(119, 13);
+            this.label553.TabIndex = 4;
+            this.label553.Text = "Maximum Forces";
             // 
             // dgv_left_des_frc
             // 
@@ -8183,6 +8146,16 @@
             this.col_Max_Mz.ReadOnly = true;
             this.col_Max_Mz.Width = 108;
             // 
+            // txt_left_max_total_vert_reac
+            // 
+            this.txt_left_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_left_max_total_vert_reac.Name = "txt_left_max_total_vert_reac";
+            this.txt_left_max_total_vert_reac.ReadOnly = true;
+            this.txt_left_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_left_max_total_vert_reac.TabIndex = 2;
+            this.txt_left_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_left_max_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
             // g
             // 
             this.g.Controls.Add(this.txt_right_max_total_Mz);
@@ -8202,6 +8175,26 @@
             this.g.TabIndex = 25;
             this.g.TabStop = false;
             this.g.Text = "Right End Design Forces";
+            // 
+            // txt_right_max_total_Mz
+            // 
+            this.txt_right_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_right_max_total_Mz.Name = "txt_right_max_total_Mz";
+            this.txt_right_max_total_Mz.ReadOnly = true;
+            this.txt_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_right_max_total_Mz.TabIndex = 6;
+            this.txt_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_right_max_total_Mz.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            // 
+            // txt_right_max_total_Mx
+            // 
+            this.txt_right_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_right_max_total_Mx.Name = "txt_right_max_total_Mx";
+            this.txt_right_max_total_Mx.ReadOnly = true;
+            this.txt_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_right_max_total_Mx.TabIndex = 5;
+            this.txt_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_right_max_total_Mx.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
             // dgv_right_des_frc
             // 
@@ -8260,6 +8253,15 @@
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
             this.dataGridViewTextBoxColumn28.Width = 108;
             // 
+            // label554
+            // 
+            this.label554.AutoSize = true;
+            this.label554.Location = new System.Drawing.Point(20, 175);
+            this.label554.Name = "label554";
+            this.label554.Size = new System.Drawing.Size(119, 13);
+            this.label554.TabIndex = 4;
+            this.label554.Text = "Maximum Forces";
+            // 
             // txt_right_total_Mz
             // 
             this.txt_right_total_Mz.Location = new System.Drawing.Point(363, 146);
@@ -8288,6 +8290,16 @@
             this.label402.Size = new System.Drawing.Size(47, 13);
             this.label402.TabIndex = 4;
             this.label402.Text = "Total";
+            // 
+            // txt_right_max_total_vert_reac
+            // 
+            this.txt_right_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_right_max_total_vert_reac.Name = "txt_right_max_total_vert_reac";
+            this.txt_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_right_max_total_vert_reac.TabIndex = 2;
+            this.txt_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_right_max_total_vert_reac.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
             // 
             // label442
             // 
@@ -8587,84 +8599,6 @@
             this.tabPage7.TabIndex = 3;
             this.tabPage7.Text = "Support Reactions  [SIDL]";
             this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // txt_sidl_right_max_total_Mz
-            // 
-            this.txt_sidl_right_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_right_max_total_Mz.Location = new System.Drawing.Point(363, 174);
-            this.txt_sidl_right_max_total_Mz.Name = "txt_sidl_right_max_total_Mz";
-            this.txt_sidl_right_max_total_Mz.ReadOnly = true;
-            this.txt_sidl_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_right_max_total_Mz.TabIndex = 53;
-            this.txt_sidl_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_sidl_right_max_total_Mx
-            // 
-            this.txt_sidl_right_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_right_max_total_Mx.Location = new System.Drawing.Point(259, 174);
-            this.txt_sidl_right_max_total_Mx.Name = "txt_sidl_right_max_total_Mx";
-            this.txt_sidl_right_max_total_Mx.ReadOnly = true;
-            this.txt_sidl_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_right_max_total_Mx.TabIndex = 52;
-            this.txt_sidl_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_sidl_left_max_total_Mz
-            // 
-            this.txt_sidl_left_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
-            this.txt_sidl_left_max_total_Mz.Name = "txt_sidl_left_max_total_Mz";
-            this.txt_sidl_left_max_total_Mz.ReadOnly = true;
-            this.txt_sidl_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_left_max_total_Mz.TabIndex = 53;
-            this.txt_sidl_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label552
-            // 
-            this.label552.AutoSize = true;
-            this.label552.Location = new System.Drawing.Point(21, 177);
-            this.label552.Name = "label552";
-            this.label552.Size = new System.Drawing.Size(119, 13);
-            this.label552.TabIndex = 51;
-            this.label552.Text = "Maximum Forces";
-            // 
-            // txt_sidl_left_max_total_Mx
-            // 
-            this.txt_sidl_left_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
-            this.txt_sidl_left_max_total_Mx.Name = "txt_sidl_left_max_total_Mx";
-            this.txt_sidl_left_max_total_Mx.ReadOnly = true;
-            this.txt_sidl_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_left_max_total_Mx.TabIndex = 52;
-            this.txt_sidl_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_sidl_right_max_total_vert_reac
-            // 
-            this.txt_sidl_right_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 174);
-            this.txt_sidl_right_max_total_vert_reac.Name = "txt_sidl_right_max_total_vert_reac";
-            this.txt_sidl_right_max_total_vert_reac.ReadOnly = true;
-            this.txt_sidl_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_right_max_total_vert_reac.TabIndex = 50;
-            this.txt_sidl_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label551
-            // 
-            this.label551.AutoSize = true;
-            this.label551.Location = new System.Drawing.Point(22, 175);
-            this.label551.Name = "label551";
-            this.label551.Size = new System.Drawing.Size(119, 13);
-            this.label551.TabIndex = 51;
-            this.label551.Text = "Maximum Forces";
-            // 
-            // txt_sidl_left_max_total_vert_reac
-            // 
-            this.txt_sidl_left_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_left_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
-            this.txt_sidl_left_max_total_vert_reac.Name = "txt_sidl_left_max_total_vert_reac";
-            this.txt_sidl_left_max_total_vert_reac.ReadOnly = true;
-            this.txt_sidl_left_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_left_max_total_vert_reac.TabIndex = 50;
-            this.txt_sidl_left_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label270
             // 
@@ -8979,6 +8913,16 @@
             this.txt_sidl_left_total_Mx.TabIndex = 5;
             this.txt_sidl_left_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // txt_sidl_left_max_total_Mz
+            // 
+            this.txt_sidl_left_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_sidl_left_max_total_Mz.Name = "txt_sidl_left_max_total_Mz";
+            this.txt_sidl_left_max_total_Mz.ReadOnly = true;
+            this.txt_sidl_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_left_max_total_Mz.TabIndex = 53;
+            this.txt_sidl_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // label256
             // 
             this.label256.AutoSize = true;
@@ -8987,6 +8931,16 @@
             this.label256.Size = new System.Drawing.Size(47, 13);
             this.label256.TabIndex = 4;
             this.label256.Text = "Total";
+            // 
+            // txt_sidl_left_max_total_Mx
+            // 
+            this.txt_sidl_left_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_sidl_left_max_total_Mx.Name = "txt_sidl_left_max_total_Mx";
+            this.txt_sidl_left_max_total_Mx.ReadOnly = true;
+            this.txt_sidl_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_left_max_total_Mx.TabIndex = 52;
+            this.txt_sidl_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label257
             // 
@@ -9005,6 +8959,15 @@
             this.txt_sidl_left_total_vert_reac.Size = new System.Drawing.Size(76, 20);
             this.txt_sidl_left_total_vert_reac.TabIndex = 2;
             this.txt_sidl_left_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label551
+            // 
+            this.label551.AutoSize = true;
+            this.label551.Location = new System.Drawing.Point(22, 175);
+            this.label551.Name = "label551";
+            this.label551.Size = new System.Drawing.Size(119, 13);
+            this.label551.TabIndex = 51;
+            this.label551.Text = "Maximum Forces";
             // 
             // dgv_sidl_left_des_frc
             // 
@@ -9063,6 +9026,16 @@
             this.dataGridViewTextBoxColumn86.ReadOnly = true;
             this.dataGridViewTextBoxColumn86.Width = 108;
             // 
+            // txt_sidl_left_max_total_vert_reac
+            // 
+            this.txt_sidl_left_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_left_max_total_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_sidl_left_max_total_vert_reac.Name = "txt_sidl_left_max_total_vert_reac";
+            this.txt_sidl_left_max_total_vert_reac.ReadOnly = true;
+            this.txt_sidl_left_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_left_max_total_vert_reac.TabIndex = 50;
+            this.txt_sidl_left_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // groupBox54
             // 
             this.groupBox54.Controls.Add(this.txt_sidl_right_max_total_Mz);
@@ -9082,6 +9055,26 @@
             this.groupBox54.TabIndex = 41;
             this.groupBox54.TabStop = false;
             this.groupBox54.Text = "Right End Design Forces";
+            // 
+            // txt_sidl_right_max_total_Mz
+            // 
+            this.txt_sidl_right_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_Mz.Location = new System.Drawing.Point(363, 174);
+            this.txt_sidl_right_max_total_Mz.Name = "txt_sidl_right_max_total_Mz";
+            this.txt_sidl_right_max_total_Mz.ReadOnly = true;
+            this.txt_sidl_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_Mz.TabIndex = 53;
+            this.txt_sidl_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_sidl_right_max_total_Mx
+            // 
+            this.txt_sidl_right_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_Mx.Location = new System.Drawing.Point(259, 174);
+            this.txt_sidl_right_max_total_Mx.Name = "txt_sidl_right_max_total_Mx";
+            this.txt_sidl_right_max_total_Mx.ReadOnly = true;
+            this.txt_sidl_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_Mx.TabIndex = 52;
+            this.txt_sidl_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dgv_sidl_right_des_frc
             // 
@@ -9140,6 +9133,15 @@
             this.dataGridViewTextBoxColumn90.ReadOnly = true;
             this.dataGridViewTextBoxColumn90.Width = 108;
             // 
+            // label552
+            // 
+            this.label552.AutoSize = true;
+            this.label552.Location = new System.Drawing.Point(21, 177);
+            this.label552.Name = "label552";
+            this.label552.Size = new System.Drawing.Size(119, 13);
+            this.label552.TabIndex = 51;
+            this.label552.Text = "Maximum Forces";
+            // 
             // txt_sidl_right_total_Mz
             // 
             this.txt_sidl_right_total_Mz.Location = new System.Drawing.Point(363, 146);
@@ -9148,6 +9150,16 @@
             this.txt_sidl_right_total_Mz.Size = new System.Drawing.Size(76, 20);
             this.txt_sidl_right_total_Mz.TabIndex = 6;
             this.txt_sidl_right_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_sidl_right_max_total_vert_reac
+            // 
+            this.txt_sidl_right_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 174);
+            this.txt_sidl_right_max_total_vert_reac.Name = "txt_sidl_right_max_total_vert_reac";
+            this.txt_sidl_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_sidl_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_vert_reac.TabIndex = 50;
+            this.txt_sidl_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_sidl_right_total_Mx
             // 
@@ -9333,51 +9345,6 @@
             this.tabPage5.Text = "Support Reactions  [LL]";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // txt_ll_right_max_total_Mz
-            // 
-            this.txt_ll_right_max_total_Mz.Location = new System.Drawing.Point(363, 172);
-            this.txt_ll_right_max_total_Mz.Name = "txt_ll_right_max_total_Mz";
-            this.txt_ll_right_max_total_Mz.ReadOnly = true;
-            this.txt_ll_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_ll_right_max_total_Mz.TabIndex = 6;
-            this.txt_ll_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_ll_right_max_total_Mx
-            // 
-            this.txt_ll_right_max_total_Mx.Location = new System.Drawing.Point(259, 172);
-            this.txt_ll_right_max_total_Mx.Name = "txt_ll_right_max_total_Mx";
-            this.txt_ll_right_max_total_Mx.ReadOnly = true;
-            this.txt_ll_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_ll_right_max_total_Mx.TabIndex = 5;
-            this.txt_ll_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_ll_left_max_total_Mz
-            // 
-            this.txt_ll_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
-            this.txt_ll_left_max_total_Mz.Name = "txt_ll_left_max_total_Mz";
-            this.txt_ll_left_max_total_Mz.ReadOnly = true;
-            this.txt_ll_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_ll_left_max_total_Mz.TabIndex = 6;
-            this.txt_ll_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_ll_left_max_total_Mx
-            // 
-            this.txt_ll_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
-            this.txt_ll_left_max_total_Mx.Name = "txt_ll_left_max_total_Mx";
-            this.txt_ll_left_max_total_Mx.ReadOnly = true;
-            this.txt_ll_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_ll_left_max_total_Mx.TabIndex = 5;
-            this.txt_ll_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label550
-            // 
-            this.label550.AutoSize = true;
-            this.label550.Location = new System.Drawing.Point(21, 175);
-            this.label550.Name = "label550";
-            this.label550.Size = new System.Drawing.Size(119, 13);
-            this.label550.TabIndex = 4;
-            this.label550.Text = "Maximum Forces";
-            // 
             // label277
             // 
             this.label277.AutoSize = true;
@@ -9388,15 +9355,6 @@
             this.label277.Size = new System.Drawing.Size(218, 13);
             this.label277.TabIndex = 92;
             this.label277.Text = "Forces on Abutment (from One Side)";
-            // 
-            // label549
-            // 
-            this.label549.AutoSize = true;
-            this.label549.Location = new System.Drawing.Point(21, 175);
-            this.label549.Name = "label549";
-            this.label549.Size = new System.Drawing.Size(119, 13);
-            this.label549.TabIndex = 4;
-            this.label549.Text = "Maximum Forces";
             // 
             // groupBox64
             // 
@@ -9461,15 +9419,6 @@
             this.label279.TabIndex = 18;
             this.label279.Text = "kN-m";
             // 
-            // txt_ll_right_max_total_vert_reac
-            // 
-            this.txt_ll_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 172);
-            this.txt_ll_right_max_total_vert_reac.Name = "txt_ll_right_max_total_vert_reac";
-            this.txt_ll_right_max_total_vert_reac.ReadOnly = true;
-            this.txt_ll_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_ll_right_max_total_vert_reac.TabIndex = 2;
-            this.txt_ll_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // groupBox65
             // 
             this.groupBox65.Controls.Add(this.textBox14);
@@ -9532,15 +9481,6 @@
             this.label281.Size = new System.Drawing.Size(39, 13);
             this.label281.TabIndex = 18;
             this.label281.Text = "kN-m";
-            // 
-            // txt_ll_left_max_vert_reac
-            // 
-            this.txt_ll_left_max_vert_reac.Location = new System.Drawing.Point(147, 172);
-            this.txt_ll_left_max_vert_reac.Name = "txt_ll_left_max_vert_reac";
-            this.txt_ll_left_max_vert_reac.ReadOnly = true;
-            this.txt_ll_left_max_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_ll_left_max_vert_reac.TabIndex = 2;
-            this.txt_ll_left_max_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox67
             // 
@@ -9717,6 +9657,24 @@
             this.txt_ll_left_total_Mx.TabIndex = 5;
             this.txt_ll_left_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // txt_ll_left_max_total_Mz
+            // 
+            this.txt_ll_left_max_total_Mz.Location = new System.Drawing.Point(364, 172);
+            this.txt_ll_left_max_total_Mz.Name = "txt_ll_left_max_total_Mz";
+            this.txt_ll_left_max_total_Mz.ReadOnly = true;
+            this.txt_ll_left_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_max_total_Mz.TabIndex = 6;
+            this.txt_ll_left_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_left_max_total_Mx
+            // 
+            this.txt_ll_left_max_total_Mx.Location = new System.Drawing.Point(260, 172);
+            this.txt_ll_left_max_total_Mx.Name = "txt_ll_left_max_total_Mx";
+            this.txt_ll_left_max_total_Mx.ReadOnly = true;
+            this.txt_ll_left_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_max_total_Mx.TabIndex = 5;
+            this.txt_ll_left_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // label287
             // 
             this.label287.AutoSize = true;
@@ -9743,6 +9701,15 @@
             this.txt_ll_left_total_vert_reac.Size = new System.Drawing.Size(76, 20);
             this.txt_ll_left_total_vert_reac.TabIndex = 2;
             this.txt_ll_left_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label549
+            // 
+            this.label549.AutoSize = true;
+            this.label549.Location = new System.Drawing.Point(21, 175);
+            this.label549.Name = "label549";
+            this.label549.Size = new System.Drawing.Size(119, 13);
+            this.label549.TabIndex = 4;
+            this.label549.Text = "Maximum Forces";
             // 
             // dgv_ll_left_des_frc
             // 
@@ -9801,6 +9768,15 @@
             this.dataGridViewTextBoxColumn94.ReadOnly = true;
             this.dataGridViewTextBoxColumn94.Width = 108;
             // 
+            // txt_ll_left_max_vert_reac
+            // 
+            this.txt_ll_left_max_vert_reac.Location = new System.Drawing.Point(147, 172);
+            this.txt_ll_left_max_vert_reac.Name = "txt_ll_left_max_vert_reac";
+            this.txt_ll_left_max_vert_reac.ReadOnly = true;
+            this.txt_ll_left_max_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_left_max_vert_reac.TabIndex = 2;
+            this.txt_ll_left_max_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // groupBox70
             // 
             this.groupBox70.Controls.Add(this.txt_ll_right_max_total_Mz);
@@ -9820,6 +9796,24 @@
             this.groupBox70.TabIndex = 84;
             this.groupBox70.TabStop = false;
             this.groupBox70.Text = "Right End Design Forces";
+            // 
+            // txt_ll_right_max_total_Mz
+            // 
+            this.txt_ll_right_max_total_Mz.Location = new System.Drawing.Point(363, 172);
+            this.txt_ll_right_max_total_Mz.Name = "txt_ll_right_max_total_Mz";
+            this.txt_ll_right_max_total_Mz.ReadOnly = true;
+            this.txt_ll_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_max_total_Mz.TabIndex = 6;
+            this.txt_ll_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_ll_right_max_total_Mx
+            // 
+            this.txt_ll_right_max_total_Mx.Location = new System.Drawing.Point(259, 172);
+            this.txt_ll_right_max_total_Mx.Name = "txt_ll_right_max_total_Mx";
+            this.txt_ll_right_max_total_Mx.ReadOnly = true;
+            this.txt_ll_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_max_total_Mx.TabIndex = 5;
+            this.txt_ll_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // dgv_ll_right_des_frc
             // 
@@ -9878,6 +9872,15 @@
             this.dataGridViewTextBoxColumn98.ReadOnly = true;
             this.dataGridViewTextBoxColumn98.Width = 108;
             // 
+            // label550
+            // 
+            this.label550.AutoSize = true;
+            this.label550.Location = new System.Drawing.Point(21, 175);
+            this.label550.Name = "label550";
+            this.label550.Size = new System.Drawing.Size(119, 13);
+            this.label550.TabIndex = 4;
+            this.label550.Text = "Maximum Forces";
+            // 
             // txt_ll_right_total_Mz
             // 
             this.txt_ll_right_total_Mz.Location = new System.Drawing.Point(363, 146);
@@ -9904,6 +9907,15 @@
             this.label289.Size = new System.Drawing.Size(47, 13);
             this.label289.TabIndex = 4;
             this.label289.Text = "Total";
+            // 
+            // txt_ll_right_max_total_vert_reac
+            // 
+            this.txt_ll_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 172);
+            this.txt_ll_right_max_total_vert_reac.Name = "txt_ll_right_max_total_vert_reac";
+            this.txt_ll_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_ll_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_ll_right_max_total_vert_reac.TabIndex = 2;
+            this.txt_ll_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label290
             // 
@@ -10060,9 +10072,9 @@
             this.groupBox33.Controls.Add(this.label540);
             this.groupBox33.Controls.Add(this.txt_ana_DLSR);
             this.groupBox33.Controls.Add(this.txt_ana_LLSR);
-            this.groupBox33.Location = new System.Drawing.Point(151, 13);
+            this.groupBox33.Location = new System.Drawing.Point(903, 168);
             this.groupBox33.Name = "groupBox33";
-            this.groupBox33.Size = new System.Drawing.Size(707, 46);
+            this.groupBox33.Size = new System.Drawing.Size(16, 13);
             this.groupBox33.TabIndex = 82;
             this.groupBox33.TabStop = false;
             this.groupBox33.Text = "Support Reactions";
@@ -10496,6 +10508,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox129);
             this.tabPage3.Controls.Add(this.label295);
             this.tabPage3.Controls.Add(this.groupBox73);
             this.tabPage3.Controls.Add(this.groupBox74);
@@ -10509,6 +10522,125 @@
             this.tabPage3.TabIndex = 4;
             this.tabPage3.Text = "Maximum Forces";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox129
+            // 
+            this.groupBox129.Controls.Add(this.txt_brg_max_DL_kN);
+            this.groupBox129.Controls.Add(this.txt_brg_max_VR_kN);
+            this.groupBox129.Controls.Add(this.txt_brg_max_DL_Ton);
+            this.groupBox129.Controls.Add(this.txt_brg_max_VR_Ton);
+            this.groupBox129.Controls.Add(this.label1126);
+            this.groupBox129.Controls.Add(this.label479);
+            this.groupBox129.Controls.Add(this.label1124);
+            this.groupBox129.Controls.Add(this.label1117);
+            this.groupBox129.Controls.Add(this.label1123);
+            this.groupBox129.Controls.Add(this.label1108);
+            this.groupBox129.ForeColor = System.Drawing.Color.Black;
+            this.groupBox129.Location = new System.Drawing.Point(91, 397);
+            this.groupBox129.Name = "groupBox129";
+            this.groupBox129.Size = new System.Drawing.Size(703, 70);
+            this.groupBox129.TabIndex = 77;
+            this.groupBox129.TabStop = false;
+            // 
+            // txt_brg_max_DL_kN
+            // 
+            this.txt_brg_max_DL_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_brg_max_DL_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_brg_max_DL_kN.Location = new System.Drawing.Point(547, 43);
+            this.txt_brg_max_DL_kN.Name = "txt_brg_max_DL_kN";
+            this.txt_brg_max_DL_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_brg_max_DL_kN.TabIndex = 22;
+            this.txt_brg_max_DL_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_brg_max_VR_kN
+            // 
+            this.txt_brg_max_VR_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_brg_max_VR_kN.ForeColor = System.Drawing.Color.Blue;
+            this.txt_brg_max_VR_kN.Location = new System.Drawing.Point(547, 17);
+            this.txt_brg_max_VR_kN.Name = "txt_brg_max_VR_kN";
+            this.txt_brg_max_VR_kN.Size = new System.Drawing.Size(85, 20);
+            this.txt_brg_max_VR_kN.TabIndex = 22;
+            this.txt_brg_max_VR_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_brg_max_DL_Ton
+            // 
+            this.txt_brg_max_DL_Ton.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_brg_max_DL_Ton.ForeColor = System.Drawing.Color.Blue;
+            this.txt_brg_max_DL_Ton.Location = new System.Drawing.Point(387, 43);
+            this.txt_brg_max_DL_Ton.Name = "txt_brg_max_DL_Ton";
+            this.txt_brg_max_DL_Ton.Size = new System.Drawing.Size(85, 20);
+            this.txt_brg_max_DL_Ton.TabIndex = 22;
+            this.txt_brg_max_DL_Ton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_brg_max_VR_Ton
+            // 
+            this.txt_brg_max_VR_Ton.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_brg_max_VR_Ton.ForeColor = System.Drawing.Color.Blue;
+            this.txt_brg_max_VR_Ton.Location = new System.Drawing.Point(387, 17);
+            this.txt_brg_max_VR_Ton.Name = "txt_brg_max_VR_Ton";
+            this.txt_brg_max_VR_Ton.Size = new System.Drawing.Size(85, 20);
+            this.txt_brg_max_VR_Ton.TabIndex = 22;
+            this.txt_brg_max_VR_Ton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1126
+            // 
+            this.label1126.AutoSize = true;
+            this.label1126.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label1126.Location = new System.Drawing.Point(6, 50);
+            this.label1126.Name = "label1126";
+            this.label1126.Size = new System.Drawing.Size(303, 13);
+            this.label1126.TabIndex = 14;
+            this.label1126.Text = "Maximum Vertical Reaction (DL + SIDL)";
+            // 
+            // label479
+            // 
+            this.label479.AutoSize = true;
+            this.label479.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label479.Location = new System.Drawing.Point(6, 24);
+            this.label479.Name = "label479";
+            this.label479.Size = new System.Drawing.Size(343, 13);
+            this.label479.TabIndex = 14;
+            this.label479.Text = "Maximum Vertical Reaction (DL + SIDL + LL)";
+            // 
+            // label1124
+            // 
+            this.label1124.AutoSize = true;
+            this.label1124.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label1124.Location = new System.Drawing.Point(638, 46);
+            this.label1124.Name = "label1124";
+            this.label1124.Size = new System.Drawing.Size(23, 13);
+            this.label1124.TabIndex = 14;
+            this.label1124.Text = "kN";
+            // 
+            // label1117
+            // 
+            this.label1117.AutoSize = true;
+            this.label1117.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label1117.Location = new System.Drawing.Point(638, 20);
+            this.label1117.Name = "label1117";
+            this.label1117.Size = new System.Drawing.Size(23, 13);
+            this.label1117.TabIndex = 14;
+            this.label1117.Text = "kN";
+            // 
+            // label1123
+            // 
+            this.label1123.AutoSize = true;
+            this.label1123.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label1123.Location = new System.Drawing.Point(478, 46);
+            this.label1123.Name = "label1123";
+            this.label1123.Size = new System.Drawing.Size(31, 13);
+            this.label1123.TabIndex = 14;
+            this.label1123.Text = "Ton";
+            // 
+            // label1108
+            // 
+            this.label1108.AutoSize = true;
+            this.label1108.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.label1108.Location = new System.Drawing.Point(478, 20);
+            this.label1108.Name = "label1108";
+            this.label1108.Size = new System.Drawing.Size(31, 13);
+            this.label1108.TabIndex = 14;
+            this.label1108.Text = "Ton";
             // 
             // label295
             // 
@@ -16336,7 +16468,7 @@
             this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
             this.uC_BRD1.Name = "uC_BRD1";
-            this.uC_BRD1.Show_Forces = true;
+            this.uC_BRD1.Show_Forces = false;
             this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
             this.uC_BRD1.TabIndex = 1;
             this.uC_BRD1.user_path = null;
@@ -16774,6 +16906,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox129.ResumeLayout(false);
+            this.groupBox129.PerformLayout();
             this.groupBox73.ResumeLayout(false);
             this.groupBox73.PerformLayout();
             this.groupBox74.ResumeLayout(false);
@@ -18229,6 +18363,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn104;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn105;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn106;
+        private System.Windows.Forms.GroupBox groupBox129;
+        public System.Windows.Forms.TextBox txt_brg_max_DL_kN;
+        public System.Windows.Forms.TextBox txt_brg_max_VR_kN;
+        public System.Windows.Forms.TextBox txt_brg_max_DL_Ton;
+        public System.Windows.Forms.TextBox txt_brg_max_VR_Ton;
+        private System.Windows.Forms.Label label1126;
+        private System.Windows.Forms.Label label479;
+        private System.Windows.Forms.Label label1124;
+        private System.Windows.Forms.Label label1117;
+        private System.Windows.Forms.Label label1123;
+        private System.Windows.Forms.Label label1108;
 
     }
 }

@@ -95,7 +95,7 @@ namespace LimitStateMethod.Bearing
             //list.Add(string.Format(""));
             list.Add(string.Format("MAXIMUM DL SIDL AND  LL VALUES,,"));
             list.Add(string.Format(""));
-            list.Add(string.Format("Total DL + SDL,100.0,kN"));
+            list.Add(string.Format("Total DL + SIDL,100.0,kN"));
             list.Add(string.Format(",,"));
             list.Add(string.Format("Total LL Load (Max),446.9,kN"));
             list.Add(string.Format("Total LL Load (Min),254.0,kN"));
@@ -746,6 +746,10 @@ namespace LimitStateMethod.Bearing
                 rcc_excel.spring_constant_G11 = MyList.StringToDouble(txt_spring_constant_G11.Text, 0.0);
                 rcc_excel.spring_constant_G13 = MyList.StringToDouble(txt_spring_constant_G13.Text, 0.0);
 
+
+                rcc_excel.DGV = dgv_reactions;
+
+
                 rcc_excel.b_L_case1_J9 = MyList.StringToDouble(txt_b_L_case1_J9.Text, 0.0);
                 rcc_excel.b_L_case1_J10 = MyList.StringToDouble(txt_b_L_case1_J10.Text, 0.0);
                 rcc_excel.b_L_case1_J11 = MyList.StringToDouble(txt_b_L_case1_J11.Text, 0.0);
@@ -766,9 +770,12 @@ namespace LimitStateMethod.Bearing
                 //rcc_excel.Deckslab_User_Live_loads.Read_From_Grid(dgv_deck_user_live_loads);
 
                 //rcc_excel.Deck_Loads = Deck_LL_Loads;
+                iApp.Excel_Open_Message();
 
                 rcc_excel.Read_Update_Data();
-                iApp.Excel_Open_Message();
+
+                iApp.Excel_Close_Message();
+
             }
             catch (Exception ex) { }
             //Button_Enable_Disable();
@@ -1204,7 +1211,7 @@ namespace LimitStateMethod.Bearing
         public double b_L_case1_J12 { get; set; }
 
 
-
+        public DataGridView DGV { get; set; }
         public Bearing_Excel_Update()
         {
             Excel_File_Name = "";
@@ -1354,24 +1361,29 @@ namespace LimitStateMethod.Bearing
             #endregion Reactions
 
 
-            myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["reactions"];
+            myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["forces"];
 
+            Excel_User_Inputs es = new Excel_User_Inputs();
+            es.Read_From_Grid(DGV);
 
             cel_index = 3;
-
-            for (i = 0; i < list.Count; i++)
+            i = 0;
+            for (cel_index = 3; cel_index < 36; cel_index++)
             {
-                mlist = new MyList(list[i], ',');
 
+                if (cel_index == 4 || cel_index == 7
+                     || (cel_index >= 10 && cel_index <= 12)
+                     || (cel_index >= 15 && cel_index <= 16)
+                     || (cel_index >= 19 && cel_index <= 20)
+                     || (cel_index >= 19 && cel_index <= 20)
+                     || (cel_index >= 23 && cel_index <= 26)
+                     || (cel_index >= 29 && cel_index <= 30)
+                     || (cel_index >= 33 && cel_index <= 34)
 
-                ci = (int)('C');
+                    ) continue;
 
-
-                c = (char)ci;
-                for (int j = 1; j < mlist.Count; j++)
-                {
-
-                }
+                myExcelWorksheet.get_Range("B" + cel_index, misValue).Formula = es[i++].Input_Value;
+               
             }
 
 

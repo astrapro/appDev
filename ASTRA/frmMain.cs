@@ -658,8 +658,8 @@ namespace AstraFunctionOne
                 //}
                 Set_Bridge_Design_Menu();
                 //If visible set to false then menu will be R21
-                if (false)
-                //if (true)
+                //if (false)
+                if (true)
                 {
 
                     tsmi_structure_text.Visible = false;

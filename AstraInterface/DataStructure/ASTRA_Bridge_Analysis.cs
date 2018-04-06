@@ -1561,7 +1561,7 @@ namespace AstraInterface.DataStructure
         List<AstraTrussMember> list_cables = null;
         List<AstraPlateMember> list_plates = null;
 
-
+        public bool IsCurve = false;
 
         public List<AnalysisData> Analysis_Forces
         {
@@ -4130,15 +4130,27 @@ namespace AstraInterface.DataStructure
                         //Chiranjit [2013 05 03]
                         //if (list_beams[j].StartNodeForce.MaxShearForce < 0)
                         //{
-                            if (max_shear < Math.Abs(list_beams[j].StartNodeForce.MaxShearForce))
-                            {
-                                max_shear = Math.Abs(list_beams[j].StartNodeForce.MaxShearForce);
-                                mfrc.Force = max_shear;
-                                mfrc.Loadcase = list_beams[j].LoadNo;
-                                mfrc.MemberNo = list_beams[j].BeamNo;
-                                mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
-                            }
+                        if (max_shear < Math.Abs(list_beams[j].StartNodeForce.MaxShearForce))
+                        {
+                            max_shear = Math.Abs(list_beams[j].StartNodeForce.MaxShearForce);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
+                        }
                         //}
+                    }
+                    else if (max_shear < Math.Abs(list_beams[j].EndNodeForce.MaxShearForce))
+                    {
+
+                        list_beams[j].StartNodeForce.ForceType = ForceType;
+                        list_beams[j].EndNodeForce.ForceType = ForceType;
+
+                        max_shear = Math.Abs(list_beams[j].EndNodeForce.MaxShearForce);
+                        mfrc.Force = max_shear;
+                        mfrc.Loadcase = list_beams[j].LoadNo;
+                        mfrc.MemberNo = list_beams[j].BeamNo;
+                        mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
                     }
                 }
             }
@@ -4156,7 +4168,7 @@ namespace AstraInterface.DataStructure
             {
                 for (int j = 0; j < list_beams.Count; j++)
                 {
-                    
+
                     if (list_beams[j].StartNodeForce.JointNo == joint_array[i])
                     {
                         if (max_shear < Math.Abs(list_beams[j].StartNodeForce.R1_Axial))
@@ -4166,6 +4178,17 @@ namespace AstraInterface.DataStructure
                             mfrc.Loadcase = list_beams[j].LoadNo;
                             mfrc.MemberNo = list_beams[j].BeamNo;
                             mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
+                        }
+                    }
+                    else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (max_shear < Math.Abs(list_beams[j].EndNodeForce.R1_Axial))
+                        {
+                            max_shear = Math.Abs(list_beams[j].EndNodeForce.R1_Axial);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
                         }
                     }
                 }
@@ -4223,6 +4246,17 @@ namespace AstraInterface.DataStructure
                             mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
                         }
                     }
+                    else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (max_shear < Math.Abs(list_beams[j].EndNodeForce.R2_Shear))
+                        {
+                            max_shear = Math.Abs(list_beams[j].EndNodeForce.R2_Shear);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
+                        }
+                    }
                 }
             }
             return mfrc;
@@ -4249,6 +4283,17 @@ namespace AstraInterface.DataStructure
                             mfrc.Loadcase = list_beams[j].LoadNo;
                             mfrc.MemberNo = list_beams[j].BeamNo;
                             mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
+                        }
+                    }
+                    else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (max_shear < Math.Abs(list_beams[j].EndNodeForce.R2_Shear))
+                        {
+                            max_shear = Math.Abs(list_beams[j].EndNodeForce.R2_Shear);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
                         }
                     }
                 }
@@ -4278,6 +4323,17 @@ namespace AstraInterface.DataStructure
                             mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
                         }
                     }
+                    else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (max_shear < Math.Abs(list_beams[j].EndNodeForce.R3_Shear))
+                        {
+                            max_shear = Math.Abs(list_beams[j].EndNodeForce.R3_Shear);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
+                        }
+                    }
                 }
             }
             return mfrc;
@@ -4299,6 +4355,17 @@ namespace AstraInterface.DataStructure
                         if (max_shear < Math.Abs(list_beams[j].StartNodeForce.R3_Shear))
                         {
                             max_shear = Math.Abs(list_beams[j].StartNodeForce.R3_Shear);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
+                        }
+                    }
+                    else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (max_shear < Math.Abs(list_beams[j].EndNodeForce.R3_Shear))
+                        {
+                            max_shear = Math.Abs(list_beams[j].EndNodeForce.R3_Shear);
                             mfrc.Force = max_shear;
                             mfrc.Loadcase = list_beams[j].LoadNo;
                             mfrc.MemberNo = list_beams[j].BeamNo;
@@ -5453,8 +5520,8 @@ namespace AstraInterface.DataStructure
                     }
                     else
                     {
-                        Member m = structure.Get_Member(list_beams[j].BeamNo);
-                        if (m.StartNode.Z == m.EndNode.Z) continue;
+                        //Member m = structure.Get_Member(list_beams[j].BeamNo);
+                        //if (m.StartNode.Z == m.EndNode.Z) continue;
                     }
 
                     if (list_beams[j].StartNodeForce.JointNo == joint_array[i])
@@ -5564,7 +5631,8 @@ namespace AstraInterface.DataStructure
             List<int> jnt_arr = new List<int>();
             jnt_arr.Add(joint);
 
-            return GetJoint_MomentForce(jnt_arr, loadcase);
+            if (IsCurve) return GetJoint_MomentForce(jnt_arr, loadcase);
+            return GetJoint_MomentForce(joint, true, loadcase);
         }
 
         public MaxForce GetJoint_MomentForce(List<int> joint_array, int loadcase)
@@ -5685,28 +5753,6 @@ namespace AstraInterface.DataStructure
                         }
                         else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
                         {
-                            //if (max_shear < Math.Abs(list_beams[j].StartNodeForce.R2_Shear))
-                            //{
-                            //    max_shear = Math.Abs(list_beams[j].StartNodeForce.R2_Shear);
-
-
-                            //    mfrc.Force = max_shear;
-                            //    mfrc.Loadcase = list_beams[j].LoadNo;
-                            //    mfrc.MemberNo = list_beams[j].BeamNo;
-                            //    mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
-                            //}
-
-                            //if (max_shear < Math.Abs(list_beams[j].StartNodeForce.R3_Shear))
-                            //{
-                            //    max_shear = Math.Abs(list_beams[j].StartNodeForce.R3_Shear);
-
-                            //    mfrc.Force = max_shear;
-                            //    mfrc.Loadcase = list_beams[j].LoadNo;
-                            //    mfrc.MemberNo = list_beams[j].BeamNo;
-                            //    mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
-                            //}
-
-                            //Chiranjit [2012 02 08]
                             list_beams[j].EndNodeForce.ForceType = ForceType;
                             list_beams[j].EndNodeForce.ForceType = ForceType;
 
@@ -5718,7 +5764,7 @@ namespace AstraInterface.DataStructure
                                 mfrc.Force = max_shear;
                                 mfrc.Loadcase = list_beams[j].LoadNo;
                                 mfrc.MemberNo = list_beams[j].BeamNo;
-                                mfrc.NodeNo = list_beams[j].StartNodeForce.JointNo;
+                                mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
                             }
 
                         }
@@ -5736,7 +5782,10 @@ namespace AstraInterface.DataStructure
             List<int> jnt_arr = new List<int>();
             jnt_arr.Add(joint);
 
-            return GetJoint_ShearForce(jnt_arr, loadcase);
+            //return GetJoint_ShearForce(jnt_arr, loadcase,);
+            if (IsCurve) return GetJoint_ShearForce(jnt_arr, loadcase);
+
+            return GetJoint_ShearForce(joint, true, loadcase);
         }
 
 

@@ -864,8 +864,8 @@ namespace LimitStateMethod.RCC_T_Girder
             else if (btn.Name == btn_view_report.Name)
             {
                 file_name = MyList.Get_Analysis_Report_File(file_name);
-                if (File.Exists(file_name))
-                    iApp.RunExe(file_name);
+                if (File.Exists(file_name)) iApp.RunExe(file_name);
+                if (File.Exists(FILE_SUMMARY_RESULTS)) iApp.RunExe(FILE_SUMMARY_RESULTS);
             }
             else if (btn.Name == btn_View_Moving_Load.Name)
             {
@@ -1163,8 +1163,13 @@ namespace LimitStateMethod.RCC_T_Girder
                 //grb_select_analysis.Enabled = rbtn_ana_select_analysis_file.Checked;
 
 
+                List<string> ls = new List<string>();
+                ls.AddRange(File.ReadAllLines(File_Long_Girder_Results));
+                ls.AddRange(File.ReadAllLines(FILE_SUPPORT_REACTIONS));
+                File.WriteAllLines(FILE_SUMMARY_RESULTS, ls.ToArray());
 
 
+                iApp.RunExe(FILE_SUMMARY_RESULTS);
                 iApp.Progress_Works.Clear();
                 iApp.Progress_OFF();
 
@@ -2760,12 +2765,79 @@ namespace LimitStateMethod.RCC_T_Girder
 
             //iApp.RunExe(Path.Combine(user_path, "ANALYSIS_RESULT.TXT"));
         }
+        void Inner_Outer_Sort(ref   List<double> G1_Outer, ref   List<double> G2_Inner)
+        {
+            List<double> G1 = new List<double>();
+            List<double> G2 = new List<double>();
+            
+            G1.AddRange(G1_Outer);
+            G2.AddRange(G2_Inner);
 
+            G1_Outer.Clear();
+            G2_Inner.Clear();
+
+            for(int i = 0; i < G1.Count;i++)
+            {
+                if (Math.Abs(G1[i]) > Math.Abs(G2[i]))
+                {
+                    G1_Outer.Add(G1[i]);
+                    G2_Inner.Add(G2[i]);
+                }
+                else
+                {
+                    G1_Outer.Add(G2[i]);
+                    G2_Inner.Add(G1[i]);
+                }
+            }
+
+        }
+        void Inner_Outer_Sort(ref   List<double> G1_Outer, ref   List<double> G2_Inner, ref   List<double> G3_Inner, ref   List<double> G4_Outer)
+        {
+            List<double> G1 = new List<double>();
+            List<double> G2 = new List<double>();
+            List<double> G3 = new List<double>();
+            List<double> G4 = new List<double>();
+
+            G1.AddRange(G1_Outer);
+            G2.AddRange(G2_Inner);
+            G3.AddRange(G3_Inner);
+            G4.AddRange(G4_Outer);
+
+            G1_Outer.Clear();
+            G2_Inner.Clear();
+            G3_Inner.Clear();
+            G4_Outer.Clear();
+
+            List<double> lst = new List<double>();
+
+
+
+            for (int i = 0; i < G1.Count; i++)
+            {
+                lst.Clear();
+
+                lst.Add(G1[i]);
+                lst.Add(G2[i]);
+                lst.Add(G3[i]);
+                lst.Add(G4[i]);
+
+                lst.Sort();
+                lst.Reverse();
+
+                G1_Outer.Add(lst[0]);
+                G2_Inner.Add(lst[2]);
+                G3_Inner.Add(lst[3]);
+                G4_Outer.Add(lst[1]);
+            }
+
+
+
+        }
         void Show_Long_Girder_Moment_Shear()
         {
-            Show_Bearing_Forces();
+            //Show_Bearing_Forces();
 
-
+            Ana_Initialize_Analysis_InputData();
 
             MemberCollection mc = new MemberCollection(Long_Girder_Analysis.TotalLoad_Analysis.Analysis.Members);
 
@@ -2857,6 +2929,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
             //val = MyList.StringToDouble(txt_Ana_eff_depth.Text, -999.0);
             val = Long_Girder_Analysis.TotalLoad_Analysis.Analysis.Effective_Depth;
+            Long_Girder_Analysis.Effective_Depth = val;
+
             //if (_X_joints.Contains(val))
             //{
             //    Bridge_Analysis.Effective_Depth = val;
@@ -3108,6 +3182,7 @@ namespace LimitStateMethod.RCC_T_Girder
                     val = f.Force;
 
                     SF_DL_Self_Weight_G1.Add(Math.Abs(val));
+
                     f = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_3L8_inn_joints[1], i);
                     val = f.Force;
                     SF_DL_Self_Weight_G2.Add(Math.Abs(val));
@@ -4312,6 +4387,83 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
+
+            SF_DL_Self_Weight_G1.Sort();
+            SF_DL_Self_Weight_G2.Sort();
+
+            SF_DL_Deck_Wet_Conc_G1.Sort();
+            SF_DL_Deck_Wet_Conc_G2.Sort();
+
+            SF_DL_Deck_Dry_Conc_G1.Sort();
+            SF_DL_Deck_Dry_Conc_G2.Sort();
+
+            SF_DL_Self_Deck_G1.Sort();
+            SF_DL_Self_Deck_G2.Sort();
+            SF_DL_Self_Deck_G3.Sort();
+            SF_DL_Self_Deck_G4.Sort();
+
+            SF_SIDL_Crash_Barrier_G1.Sort();
+            SF_SIDL_Crash_Barrier_G2.Sort();
+            SF_SIDL_Crash_Barrier_G3.Sort();
+            SF_SIDL_Crash_Barrier_G4.Sort();
+
+            SF_SIDL_Wearing_G1.Sort();
+            SF_SIDL_Wearing_G2.Sort();
+            SF_SIDL_Wearing_G3.Sort();
+            SF_SIDL_Wearing_G4.Sort();
+
+            SF_LL_1.Sort();
+            SF_LL_2.Sort();
+            SF_LL_3.Sort();
+            SF_LL_4.Sort();
+            SF_LL_5.Sort();
+            SF_LL_6.Sort();
+
+
+
+
+            SF_DL_Self_Weight_G1.Reverse();
+            SF_DL_Self_Weight_G2.Reverse();
+
+            Inner_Outer_Sort(ref SF_DL_Self_Weight_G1, ref SF_DL_Self_Weight_G2);
+
+
+            SF_DL_Deck_Wet_Conc_G1.Reverse();
+            SF_DL_Deck_Wet_Conc_G2.Reverse();
+
+            Inner_Outer_Sort(ref SF_DL_Deck_Wet_Conc_G1, ref SF_DL_Deck_Wet_Conc_G2);
+
+
+            SF_DL_Deck_Dry_Conc_G1.Reverse();
+            SF_DL_Deck_Dry_Conc_G2.Reverse();
+
+            Inner_Outer_Sort(ref SF_DL_Deck_Dry_Conc_G1, ref SF_DL_Deck_Dry_Conc_G2);
+
+
+            SF_DL_Self_Deck_G1.Reverse();
+            SF_DL_Self_Deck_G2.Reverse();
+            SF_DL_Self_Deck_G3.Reverse();
+            SF_DL_Self_Deck_G4.Reverse();
+
+            Inner_Outer_Sort(ref SF_DL_Self_Deck_G1, ref SF_DL_Self_Deck_G2, ref SF_DL_Self_Deck_G3, ref SF_DL_Self_Deck_G4);
+
+
+            SF_SIDL_Crash_Barrier_G1.Reverse();
+            SF_SIDL_Crash_Barrier_G2.Reverse();
+            SF_SIDL_Crash_Barrier_G3.Reverse();
+            SF_SIDL_Crash_Barrier_G4.Reverse();
+
+
+            Inner_Outer_Sort(ref SF_SIDL_Crash_Barrier_G1, ref SF_SIDL_Crash_Barrier_G2, ref SF_SIDL_Crash_Barrier_G3, ref SF_SIDL_Crash_Barrier_G4);
+
+            SF_SIDL_Wearing_G1.Reverse();
+            SF_SIDL_Wearing_G2.Reverse();
+            SF_SIDL_Wearing_G3.Reverse();
+            SF_SIDL_Wearing_G4.Reverse();
+
+            Inner_Outer_Sort(ref SF_SIDL_Wearing_G1, ref SF_SIDL_Wearing_G2, ref SF_SIDL_Wearing_G3, ref SF_SIDL_Wearing_G4);
+
+
             #endregion SHEAR FORCE
 
             #region Bending Moment
@@ -4455,20 +4607,22 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     f = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_L4_inn_joints[0], i);
                     val = f.Force;
-
                     BM_DL_Deck_Wet_Conc_G1.Add(Math.Abs(val));
+
+
+
                     f = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_L4_inn_joints[1], i);
                     val = f.Force;
                     BM_DL_Deck_Wet_Conc_G2.Add(Math.Abs(val));
 
                     f = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_3L8_inn_joints[0], i);
                     val = f.Force;
-
                     BM_DL_Deck_Wet_Conc_G1.Add(Math.Abs(val));
+
+
                     f = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_3L8_inn_joints[1], i);
                     val = f.Force;
                     BM_DL_Deck_Wet_Conc_G2.Add(Math.Abs(val));
-
 
 
                     f = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_L2_inn_joints[0], i);
@@ -5608,6 +5762,9 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
+
+
+
             MyList.Array_Multiply_With(ref BM_DL_Self_Weight_G1, 10.0);
             MyList.Array_Multiply_With(ref BM_DL_Self_Weight_G2, 10.0);
 
@@ -5632,6 +5789,52 @@ namespace LimitStateMethod.RCC_T_Girder
             MyList.Array_Multiply_With(ref BM_SIDL_Wearing_G3, 10.0);
             MyList.Array_Multiply_With(ref BM_SIDL_Wearing_G4, 10.0);
 
+
+
+
+
+
+           BM_DL_Self_Weight_G1.Sort();
+           BM_DL_Self_Weight_G2.Sort();
+
+           Inner_Outer_Sort(ref BM_DL_Self_Weight_G1, ref BM_DL_Self_Weight_G2);
+
+
+           BM_DL_Deck_Wet_Conc_G1.Sort();
+           BM_DL_Deck_Wet_Conc_G2.Sort();
+
+           Inner_Outer_Sort(ref BM_DL_Deck_Wet_Conc_G1, ref BM_DL_Deck_Wet_Conc_G2);
+
+
+           BM_DL_Deck_Dry_Conc_G1.Sort();
+           BM_DL_Deck_Dry_Conc_G2.Sort();
+
+           Inner_Outer_Sort(ref BM_DL_Deck_Dry_Conc_G1, ref BM_DL_Deck_Dry_Conc_G2);
+
+
+           BM_DL_Self_Deck_G1.Sort();
+           BM_DL_Self_Deck_G2.Sort();
+           BM_DL_Self_Deck_G3.Sort();
+           BM_DL_Self_Deck_G4.Sort();
+
+           Inner_Outer_Sort(ref BM_DL_Self_Deck_G1, ref BM_DL_Self_Deck_G2, ref BM_DL_Self_Deck_G3, ref BM_DL_Self_Deck_G4);
+
+
+           BM_SIDL_Crash_Barrier_G1.Sort();
+           BM_SIDL_Crash_Barrier_G2.Sort();
+           BM_SIDL_Crash_Barrier_G3.Sort();
+           BM_SIDL_Crash_Barrier_G4.Sort();
+
+
+           Inner_Outer_Sort(ref BM_SIDL_Crash_Barrier_G1, ref BM_SIDL_Crash_Barrier_G2, ref BM_SIDL_Crash_Barrier_G3, ref BM_SIDL_Crash_Barrier_G4);
+
+
+           BM_SIDL_Wearing_G1.Sort();
+           BM_SIDL_Wearing_G2.Sort();
+           BM_SIDL_Wearing_G3.Sort();
+           BM_SIDL_Wearing_G4.Sort();
+
+           Inner_Outer_Sort(ref BM_SIDL_Wearing_G1, ref BM_SIDL_Wearing_G2, ref BM_SIDL_Wearing_G3, ref BM_SIDL_Wearing_G4);
 
 
 
@@ -6197,6 +6400,10 @@ namespace LimitStateMethod.RCC_T_Girder
                 BM_LL_1 = BM_LL_List[i];
                 SF_LL_1 = SF_LL_List[i];
 
+                BM_LL_1.Sort();
+                SF_LL_1.Sort();
+                SF_LL_1.Reverse();
+
 
                 //Result.Add(string.Format(format, "LL1( 1L " + Long_Girder_Analysis.Live_Load_List[2].Code + " )", "BM in kN-m",
                 Result.Add(string.Format(format, "Live Load Analysis " + (i + 1) + "", "BM in kN-m",
@@ -6493,7 +6700,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
             //Long_Girder_Analysis.DeadLoad_Analysis.Node_Displacements
 
-            iApp.RunExe(File_Long_Girder_Results);
+            //iApp.RunExe(File_Long_Girder_Results);
             Result.Add(string.Format(""));
         }
 
@@ -9155,36 +9362,88 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
-            MyList.Array_Multiply_With(ref SF_DL_Self_Weight_G1, 10.0);
-            MyList.Array_Multiply_With(ref SF_DL_Self_Weight_G2, 10.0);
+            SF_DL_Self_Weight_G1.Sort();
+            SF_DL_Self_Weight_G2.Sort();
+            Inner_Outer_Sort(ref SF_DL_Self_Weight_G1, ref SF_DL_Self_Weight_G2);
 
-            MyList.Array_Multiply_With(ref SF_DL_Deck_Wet_Conc_G1, 10.0);
-            MyList.Array_Multiply_With(ref SF_DL_Deck_Wet_Conc_G2, 10.0);
 
-            MyList.Array_Multiply_With(ref SF_DL_Deck_Dry_Conc_G1, 10.0);
-            MyList.Array_Multiply_With(ref SF_DL_Deck_Dry_Conc_G2, 10.0);
+            SF_DL_Deck_Wet_Conc_G1.Sort();
+            SF_DL_Deck_Wet_Conc_G2.Sort();
+            Inner_Outer_Sort(ref SF_DL_Deck_Wet_Conc_G1, ref SF_DL_Deck_Wet_Conc_G2);
 
-            MyList.Array_Multiply_With(ref SF_DL_Self_Deck_G1, 10.0);
-            MyList.Array_Multiply_With(ref SF_DL_Self_Deck_G2, 10.0);
-            MyList.Array_Multiply_With(ref SF_DL_Self_Deck_G3, 10.0);
-            MyList.Array_Multiply_With(ref SF_DL_Self_Deck_G4, 10.0);
+            SF_DL_Deck_Dry_Conc_G1.Sort();
+            SF_DL_Deck_Dry_Conc_G2.Sort();
+            Inner_Outer_Sort(ref SF_DL_Deck_Dry_Conc_G1, ref SF_DL_Deck_Dry_Conc_G2);
 
-            MyList.Array_Multiply_With(ref SF_SIDL_Crash_Barrier_G1, 10.0);
-            MyList.Array_Multiply_With(ref SF_SIDL_Crash_Barrier_G2, 10.0);
-            MyList.Array_Multiply_With(ref SF_SIDL_Crash_Barrier_G3, 10.0);
-            MyList.Array_Multiply_With(ref SF_SIDL_Crash_Barrier_G4, 10.0);
+            SF_DL_Self_Deck_G1.Sort();
+            SF_DL_Self_Deck_G2.Sort();
+            SF_DL_Self_Deck_G3.Sort();
+            SF_DL_Self_Deck_G4.Sort();
+            Inner_Outer_Sort(ref SF_DL_Self_Deck_G1, ref SF_DL_Self_Deck_G2, ref SF_DL_Self_Deck_G3, ref SF_DL_Self_Deck_G4);
 
-            MyList.Array_Multiply_With(ref SF_SIDL_Wearing_G1, 10.0);
-            MyList.Array_Multiply_With(ref SF_SIDL_Wearing_G2, 10.0);
-            MyList.Array_Multiply_With(ref SF_SIDL_Wearing_G3, 10.0);
-            MyList.Array_Multiply_With(ref SF_SIDL_Wearing_G4, 10.0);
+            SF_SIDL_Crash_Barrier_G1.Sort();
+            SF_SIDL_Crash_Barrier_G2.Sort();
+            SF_SIDL_Crash_Barrier_G3.Sort();
+            SF_SIDL_Crash_Barrier_G4.Sort();
 
-            MyList.Array_Multiply_With(ref SF_LL_1, 10.0);
-            MyList.Array_Multiply_With(ref SF_LL_2, 10.0);
-            MyList.Array_Multiply_With(ref SF_LL_3, 10.0);
-            MyList.Array_Multiply_With(ref SF_LL_4, 10.0);
-            MyList.Array_Multiply_With(ref SF_LL_5, 10.0);
-            MyList.Array_Multiply_With(ref SF_LL_6, 10.0);
+            Inner_Outer_Sort(ref SF_SIDL_Crash_Barrier_G1, ref SF_SIDL_Crash_Barrier_G2, ref SF_SIDL_Crash_Barrier_G3, ref SF_SIDL_Crash_Barrier_G4);
+
+            SF_SIDL_Wearing_G1.Sort();
+            SF_SIDL_Wearing_G2.Sort();
+            SF_SIDL_Wearing_G3.Sort();
+            SF_SIDL_Wearing_G4.Sort();
+
+            Inner_Outer_Sort(ref SF_SIDL_Wearing_G1, ref SF_SIDL_Wearing_G2, ref SF_SIDL_Wearing_G3, ref SF_SIDL_Wearing_G4);
+
+            SF_LL_1.Sort();
+            SF_LL_2.Sort();
+            SF_LL_3.Sort();
+            SF_LL_4.Sort();
+            SF_LL_5.Sort();
+            SF_LL_6.Sort();
+
+
+
+
+            SF_DL_Self_Weight_G1.Reverse();
+            SF_DL_Self_Weight_G2.Reverse();
+
+            SF_DL_Deck_Wet_Conc_G1.Reverse();
+            SF_DL_Deck_Wet_Conc_G2.Reverse();
+
+            SF_DL_Deck_Dry_Conc_G1.Reverse();
+            SF_DL_Deck_Dry_Conc_G2.Reverse();
+
+            SF_DL_Self_Deck_G1.Reverse();
+            SF_DL_Self_Deck_G2.Reverse();
+            SF_DL_Self_Deck_G3.Reverse();
+            SF_DL_Self_Deck_G4.Reverse();
+
+            SF_SIDL_Crash_Barrier_G1.Reverse();
+            SF_SIDL_Crash_Barrier_G2.Reverse();
+            SF_SIDL_Crash_Barrier_G3.Reverse();
+            SF_SIDL_Crash_Barrier_G4.Reverse();
+
+            SF_SIDL_Wearing_G1.Reverse();
+            SF_SIDL_Wearing_G2.Reverse();
+            SF_SIDL_Wearing_G3.Reverse();
+            SF_SIDL_Wearing_G4.Reverse();
+
+            SF_LL_1.Reverse();
+            SF_LL_2.Reverse();
+            SF_LL_3.Reverse();
+            SF_LL_4.Reverse();
+            SF_LL_5.Reverse();
+            SF_LL_6.Reverse();
+
+
+
+
+
+
+
+
+
 
 
             #endregion SHEAR FORCE
@@ -10448,6 +10707,74 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
+
+
+
+
+            BM_DL_Self_Weight_G1.Sort();
+            BM_DL_Self_Weight_G2.Sort();
+
+            Inner_Outer_Sort(ref BM_DL_Self_Weight_G1, ref BM_DL_Self_Weight_G2);
+
+            BM_DL_Deck_Wet_Conc_G1.Sort();
+            BM_DL_Deck_Wet_Conc_G2.Sort();
+
+            Inner_Outer_Sort(ref BM_DL_Deck_Wet_Conc_G1, ref BM_DL_Deck_Wet_Conc_G2);
+
+            BM_DL_Deck_Dry_Conc_G1.Sort();
+            BM_DL_Deck_Dry_Conc_G2.Sort();
+
+            Inner_Outer_Sort(ref BM_DL_Deck_Dry_Conc_G1, ref BM_DL_Deck_Dry_Conc_G2);
+
+            BM_DL_Self_Deck_G1.Sort();
+            BM_DL_Self_Deck_G2.Sort();
+            BM_DL_Self_Deck_G3.Sort();
+            BM_DL_Self_Deck_G4.Sort();
+
+            Inner_Outer_Sort(ref BM_DL_Self_Deck_G1, ref BM_DL_Self_Deck_G2, ref BM_DL_Self_Deck_G3, ref BM_DL_Self_Deck_G4);
+
+            BM_SIDL_Crash_Barrier_G1.Sort();
+            BM_SIDL_Crash_Barrier_G2.Sort();
+            BM_SIDL_Crash_Barrier_G3.Sort();
+            BM_SIDL_Crash_Barrier_G4.Sort();
+
+            Inner_Outer_Sort(ref BM_SIDL_Crash_Barrier_G1, ref BM_SIDL_Crash_Barrier_G2, ref BM_SIDL_Crash_Barrier_G3, ref BM_SIDL_Crash_Barrier_G4);
+
+            BM_SIDL_Wearing_G1.Sort();
+            BM_SIDL_Wearing_G2.Sort();
+            BM_SIDL_Wearing_G3.Sort();
+            BM_SIDL_Wearing_G4.Sort();
+
+            Inner_Outer_Sort(ref BM_SIDL_Wearing_G1, ref BM_SIDL_Wearing_G2, ref BM_SIDL_Wearing_G3, ref BM_SIDL_Wearing_G4);
+
+
+            BM_LL_1.Sort();
+            BM_LL_2.Sort();
+            BM_LL_3.Sort();
+            BM_LL_4.Sort();
+            BM_LL_5.Sort();
+            BM_LL_6.Sort();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             #endregion Bending Moment
 
 
@@ -11352,7 +11679,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
             //Long_Girder_Analysis.DeadLoad_Analysis.Node_Displacements
 
-            iApp.RunExe(File_Long_Girder_Results);
+            //iApp.RunExe(File_Long_Girder_Results);
             Result.Add(string.Format(""));
         }
 
@@ -17653,7 +17980,7 @@ namespace LimitStateMethod.RCC_T_Girder
                     list.Add(string.Format(""));
                     list.Add(string.Format("LOAD 6,TYPE 3,TYPE 1"));
                     list.Add(string.Format("X,-13.4,-18.8"));
-                    list.Add(string.Format("Z,1.5,4.5"));
+                    list.Add(string.Format("Z,1.5,6.5"));
                     list.Add(string.Format(""));
                     //list.Add(string.Format("TOTAL LOAD,TYPE 1,TYPE 1,TYPE 1"));
                     //list.Add(string.Format("X,-18.8,-18.8,-18.8"));
@@ -20000,6 +20327,7 @@ namespace LimitStateMethod.RCC_T_Girder
             {
                 //Show_and_Save_Data();
                 Show_and_Save_Data_Load_1_2_3();
+                Save_Support_Reactions();
             }
             catch (Exception ex) { }
         }
@@ -20179,7 +20507,7 @@ namespace LimitStateMethod.RCC_T_Girder
             list_arr.Add("");
             list_arr.Add("TOTAL VERTICAL REACTION = " + txt_final_vert_reac.Text + " Ton" + "    =  " + txt_final_vert_rec_kN.Text + " kN");
 
-            //txt_final_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            //txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             //txt_final_Mx_kN.Text = (MyList.StringToDouble(txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
 
 
@@ -20191,7 +20519,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             #region Chiranjit [2017 06 11]
-            txt_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
             #endregion Chiranjit [2017 06 11]
 
@@ -20200,7 +20528,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_final_Mx_kN.Text + " kN-m");
-            //txt_final_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            //txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             //txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
@@ -20210,7 +20538,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #region Chiranjit [2017 06 11]
 
-            txt_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -20604,7 +20932,7 @@ namespace LimitStateMethod.RCC_T_Girder
             list_arr.Add("");
             list_arr.Add("TOTAL VERTICAL REACTION = " + txt_final_vert_reac.Text + " Ton" + "    =  " + txt_final_vert_rec_kN.Text + " kN");
 
-            //txt_final_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            //txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             //txt_final_Mx_kN.Text = (MyList.StringToDouble(txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
 
 
@@ -20616,7 +20944,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             #region Chiranjit [2017 06 11]
-            txt_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
             #endregion Chiranjit [2017 06 11]
 
@@ -20625,17 +20953,17 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_final_Mx_kN.Text + " kN-m");
-            //txt_final_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            //txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             //txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
             txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
 
-
             #region Chiranjit [2017 06 11]
 
-            txt_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            //txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -20798,10 +21126,10 @@ namespace LimitStateMethod.RCC_T_Girder
             txt_sidl_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
             txt_sidl_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_sidl_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_sidl_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_sidl_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_sidl_max_Mx_kN.Text = (MyList.StringToDouble(txt_sidl_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_sidl_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_sidl_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_sidl_max_Mz_kN.Text = (MyList.StringToDouble(txt_sidl_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -20960,10 +21288,10 @@ namespace LimitStateMethod.RCC_T_Girder
             txt_ll_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
             txt_ll_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_ll_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_ll_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_ll_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_ll_max_Mx_kN.Text = (MyList.StringToDouble(txt_ll_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_ll_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_ll_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_ll_max_Mz_kN.Text = (MyList.StringToDouble(txt_ll_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -21012,7 +21340,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 }
 
                 v3 = MyList.StringToDouble(dgv_left_des_frc[3, i].Value.ToString(), 0.0);
-                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
 
             }
 
@@ -21040,7 +21368,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
 
                 v3 = MyList.StringToDouble(dgv_right_des_frc[3, i].Value.ToString(), 0.0);
-                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
 
             }
 
@@ -21082,7 +21410,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
 
                 v3 = MyList.StringToDouble(dgv_sidl_left_des_frc[3, i].Value.ToString(), 0.0);
-                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
 
             }
 
@@ -21112,7 +21440,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
 
                 v3 = MyList.StringToDouble(dgv_sidl_right_des_frc[3, i].Value.ToString(), 0.0);
-                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
 
             }
 
@@ -21146,7 +21474,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
 
                 v3 = MyList.StringToDouble(dgv_ll_left_des_frc[3, i].Value.ToString(), 0.0);
-                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
 
             }
 
@@ -21178,7 +21506,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
 
                 v3 = MyList.StringToDouble(dgv_ll_right_des_frc[3, i].Value.ToString(), 0.0);
-                if (Math.Abs(v2) > Math.Abs(_mz)) _mz = v3;
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
 
             }
 
@@ -21297,14 +21625,88 @@ namespace LimitStateMethod.RCC_T_Girder
             txt_mxf_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
             txt_mxf_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_mxf_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_mxf_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_mxf_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_mxf_max_Mx_kN.Text = (MyList.StringToDouble(txt_mxf_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_mxf_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_mxf_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_mxf_max_Mz_kN.Text = (MyList.StringToDouble(txt_mxf_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
+            #region Bearing Forces
 
+
+            txt_brg_max_VR_Ton.Text = txt_mxf_max_vert_reac.Text;
+            txt_brg_max_VR_kN.Text = txt_mxf_max_vert_reac_kN.Text;
+
+
+
+            tot_left_vert_reac = 0.0;
+            tot_right_vert_reac = 0.0;
+
+
+            for (int i = 0; i < dgv_mxf_right_des_frc.RowCount - 2; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_mxf_left_des_frc[1, i].Value.ToString(), 0.0);
+                tot_left_vert_reac += v1;
+
+                v1 = MyList.StringToDouble(dgv_mxf_right_des_frc[1, i].Value.ToString(), 0.0);
+                tot_right_vert_reac += v1;
+            }
+
+
+
+            _vert_load = Math.Max(tot_left_vert_reac, tot_right_vert_reac);
+            txt_brg_max_DL_Ton.Text = _vert_load.ToString();
+            txt_brg_max_DL_kN.Text = (_vert_load * 10).ToString();
+
+
+                double VR = MyList.StringToDouble(txt_brg_max_VR_Ton.Text, 0.0) * 10;
+                double DL = MyList.StringToDouble(txt_brg_max_DL_Ton.Text, 0.0) * 10;
+                //double HRT = MyList.StringToDouble(txt_brg_max_HRT_Ton.Text, 0.0) * 10;
+                //double HRL = MyList.StringToDouble(txt_brg_max_HRL_Ton.Text, 0.0) * 10;
+
+
+
+                txt_brg_max_VR_kN.Text = VR.ToString("f3");
+                txt_brg_max_DL_kN.Text = DL.ToString("f3");
+                //txt_brg_max_HRT_kN.Text = HRT.ToString("f3");
+                //txt_brg_max_HRL_kN.Text = HRL.ToString("f3");
+
+
+                uC_BRD1.txt_1_Nnorm.Text = VR.ToString("f3");
+                uC_BRD1.txt_1_Nmin.Text = DL.ToString("f3");
+                //uC_BRD1.txt_1_Hlatn.Text = HRT.ToString("f3");
+
+
+                uC_BRD1.txt_VMABL_1_Nnorm.Text = VR.ToString("f3");
+                uC_BRD1.txt_VMABL_1_Nmin.Text = DL.ToString("f3");
+                //uC_BRD1.txt_VMABL_1_Hingn.Text = HRL.ToString("f3");
+
+
+                uC_BRD1.txt_VBAB_1_Nnorm.Text = VR.ToString("f3");
+                uC_BRD1.txt_VBAB_1_Nmin.Text = DL.ToString("f3");
+                //uC_BRD1.txt_VBAB_1_Hlatn.Text = HRT.ToString("f3");
+                //uC_BRD1.txt_VBAB_1_Hingn.Text = HRL.ToString("f3");
+
+                uC_BRD1.txt_VFB_1_Nnorm.Text = VR.ToString("f3");
+                uC_BRD1.txt_VFB_1_Nmin.Text = DL.ToString("f3");
+                //uC_BRD1.txt_VFB_1_Hlatn.Text = HRT.ToString("f3");
+                //uC_BRD1.txt_VFB_1_Hingn.Text = HRL.ToString("f3");
+
+
+                v1 = MyList.StringToDouble(dgv_mxf_left_des_frc[1, 2].Value.ToString(), 0.0) * 10;
+                v2 = MyList.StringToDouble(dgv_mxf_right_des_frc[1, 2].Value.ToString(), 0.0) * 10;
+
+
+
+                uC_BRD1.dgv_reactions[1, 2].Value = DL.ToString("f3");
+
+                uC_BRD1.dgv_reactions[1, 4].Value = Math.Max(v1, v2).ToString("f3"); ;
+                uC_BRD1.dgv_reactions[1, 5].Value = Math.Min(v1, v2).ToString("f3"); ;
+                uC_BRD1.dgv_reactions[1, 7].Value = (DL + Math.Max(v1, v2)).ToString("f3"); ;
+                uC_BRD1.dgv_reactions[1, 8].Value = (DL + Math.Min(v1, v2)).ToString("f3"); ;
+
+ #endregion Bearing Forces
 
 
             File.WriteAllLines(analysis_rep, list_arr.ToArray());
@@ -21318,6 +21720,583 @@ namespace LimitStateMethod.RCC_T_Girder
             Environment.SetEnvironmentVariable("PIER", f_path);
         }
 
+
+        string FILE_SUPPORT_REACTIONS { get { return Path.Combine(user_path, "SUPPORT_REACTIONS.TXT"); } }
+        string FILE_SUMMARY_RESULTS { get { return Path.Combine(user_path, "SUMMARY_RESULTS.TXT"); } }
+
+        void Save_Support_Reactions()
+        {
+
+            string format = "{0,27} {1,10:f3} {2,10:f3} {3,10:f3}";
+
+            List<string> list = new List<string>();
+            string separator = "-------------------------------------------------------------------";
+
+
+            int i = 0;
+
+            list.Add(separator);
+            list.Add(string.Format("SUPPORT REACTIONS [DL]"));
+            list.Add(separator);
+            list.Add(string.Format(""));
+
+            #region Dead Load [DL]
+            #region  Left End Design Forces
+            list.Add(string.Format(""));
+            list.Add(string.Format("Left End Design Forces"));
+            list.Add(separator);
+            //list.Add(string.Format("dgv_left_des_frc"));
+            list.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NOS", "REACTIONS",  "  MX",    "   MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+             
+
+            for (i = 0; i < dgv_left_des_frc.RowCount-1; i++)
+            {
+                list.Add(string.Format(format, dgv_left_des_frc[0, i].Value
+                    , dgv_left_des_frc[1, i].Value
+                    , dgv_left_des_frc[2, i].Value
+                    , dgv_left_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format("txt_left_total_vert_reac"));
+            //list.Add(string.Format("txt_left_total_Mx"));
+            //list.Add(string.Format("txt_left_total_Mz"));
+
+            list.Add(string.Format(format, "Total", txt_left_total_vert_reac.Text
+                , txt_left_total_Mx.Text
+                , txt_left_total_Mz.Text));
+
+            list.Add(separator);
+             
+            //list.Add(string.Format("txt_left_max_total_vert_reac"));
+            //list.Add(string.Format("txt_left_max_total_Mx"));
+            list.Add(string.Format(""));
+
+
+            list.Add(string.Format(format
+                , "Maximum Forces"
+                , txt_left_max_total_vert_reac.Text
+                , txt_left_max_total_Mx.Text
+                , txt_left_max_total_Mz.Text));
+
+            list.Add(separator);
+
+
+            #endregion  Left End Design Forces
+
+            #region  Right End Design Forces
+
+            list.Add("");
+            list.Add(string.Format("Right End Design Forces"));
+            list.Add(separator);
+             
+            list.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+            //list.Add(string.Format("dgv_right_des_frc"));
+
+            for (i = 0; i < dgv_right_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format, dgv_right_des_frc[0, i].Value
+                    , dgv_right_des_frc[1, i].Value
+                    , dgv_right_des_frc[2, i].Value
+                    , dgv_right_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_total_vert_reac"));
+            //list.Add(string.Format("txt_right_total_Mx"));
+            //list.Add(string.Format("txt_right_total_Mz"));
+
+
+            list.Add(string.Format(format, "Total", 
+                txt_right_total_vert_reac.Text
+                , txt_right_total_Mx.Text
+                , txt_right_total_Mz.Text));
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_max_total_vert_reac"));
+            //list.Add(string.Format("txt_right_max_total_Mx"));
+            //list.Add(string.Format("txt_right_max_total_Mz"));
+
+
+            list.Add(string.Format(format, "Maximum Forces"
+                , txt_right_max_total_vert_reac.Text
+                , txt_right_max_total_Mx.Text
+                , txt_right_max_total_Mz.Text));
+
+            list.Add(separator);
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Forces on Abutment (from One Side)"));
+            list.Add(string.Format("-----------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_max_vert_reac.Text, txt_max_vert_reac_kN.Text));
+            //list.Add(string.Format("txt_max_vert_reac"));
+            //list.Add(string.Format("txt_max_vert_reac_kN"));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_max_Mx.Text, txt_max_Mx_kN.Text));
+            //list.Add(string.Format("txt_max_Mx"));
+            //list.Add(string.Format("txt_max_Mx_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_max_Mz.Text, txt_max_Mz_kN.Text));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("txt_max_Mz"));
+            //list.Add(string.Format("txt_max_Mz_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Forces on Pier (from Both Sides)"));
+            list.Add(string.Format("--------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_final_vert_reac.Text, txt_final_vert_rec_kN.Text));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("txt_final_vert_reac"));
+            //list.Add(string.Format("txt_final_vert_rec_kN"));
+            list.Add(string.Format("Total Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_final_Mx.Text, txt_final_Mx_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_final_Mz.Text, txt_final_Mz_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+
+            #endregion Right End Design Forces
+            #endregion Dead Load [DL]
+
+
+            list.Add(string.Format(""));
+            list.Add(separator);
+            list.Add(string.Format("SUPPORT REACTIONS  [SIDL]"));
+            list.Add(separator);
+
+            #region Super Imposed Dead Load [DL]
+
+            #region  Left End Design Forces
+            list.Add(string.Format(""));
+            list.Add(string.Format("Left End Design Forces"));
+            list.Add(separator);
+            //list.Add(string.Format("dgv_left_des_frc"));
+            list.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+
+
+
+            for (i = 0; i < dgv_sidl_left_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format, dgv_sidl_left_des_frc[0, i].Value
+                    , dgv_sidl_left_des_frc[1, i].Value
+                    , dgv_sidl_left_des_frc[2, i].Value
+                    , dgv_sidl_left_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format("txt_left_total_vert_reac"));
+            //list.Add(string.Format("txt_left_total_Mx"));
+            //list.Add(string.Format("txt_left_total_Mz"));
+
+            list.Add(string.Format(format, "Total"
+                , txt_sidl_left_total_vert_reac.Text
+                , txt_sidl_left_total_Mx.Text
+                , txt_sidl_left_total_Mz.Text));
+
+            list.Add(separator);
+
+            //list.Add(string.Format("txt_left_max_total_vert_reac"));
+            //list.Add(string.Format("txt_left_max_total_Mx"));
+            //list.Add(string.Format("txt_left_max_total_Mz"));
+
+
+            list.Add(string.Format(format, "Maximum Forces"
+                , txt_sidl_left_max_total_vert_reac.Text
+                , txt_sidl_left_max_total_Mx.Text
+                , txt_sidl_left_max_total_Mz.Text));
+
+            list.Add(separator);
+            list.Add(string.Format(""));
+
+
+            #endregion  Left End Design Forces
+
+            #region  Right End Design Forces
+
+            list.Add(string.Format("Right End Design Forces"));
+            list.Add(separator);
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+            //list.Add(string.Format("dgv_right_des_frc"));
+
+            for (i = 0; i < dgv_sidl_right_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format
+                    , dgv_sidl_right_des_frc[0, i].Value
+                    , dgv_sidl_right_des_frc[1, i].Value
+                    , dgv_sidl_right_des_frc[2, i].Value
+                    , dgv_sidl_right_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_total_vert_reac"));
+            //list.Add(string.Format("txt_right_total_Mx"));
+            //list.Add(string.Format("txt_right_total_Mz"));
+
+
+            list.Add(string.Format(format, "Total",
+                txt_sidl_right_total_vert_reac.Text
+                , txt_sidl_right_total_Mx.Text
+                , txt_sidl_right_total_Mz.Text));
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_max_total_vert_reac"));
+            //list.Add(string.Format("txt_right_max_total_Mx"));
+            //list.Add(string.Format("txt_right_max_total_Mz"));
+
+
+            list.Add(string.Format(format
+                , "Maximum Forces"
+                , txt_sidl_right_max_total_vert_reac.Text
+                , txt_sidl_right_max_total_Mx.Text
+                , txt_sidl_right_max_total_Mz.Text));
+
+            list.Add(separator);
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Forces on Abutment (from One Side)"));
+            list.Add(string.Format("-----------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_sidl_max_vert_reac.Text, txt_sidl_max_vert_reac_kN.Text));
+            //list.Add(string.Format("txt_max_vert_reac"));
+            //list.Add(string.Format("txt_max_vert_reac_kN"));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_sidl_max_Mx.Text, txt_sidl_max_Mx_kN.Text));
+            //list.Add(string.Format("txt_max_Mx"));
+            //list.Add(string.Format("txt_max_Mx_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_sidl_max_Mz.Text, txt_sidl_max_Mz_kN.Text));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("txt_max_Mz"));
+            //list.Add(string.Format("txt_max_Mz_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Forces on Pier (from Both Sides)"));
+            list.Add(string.Format("--------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_sidl_final_vert_reac.Text, txt_sidl_final_vert_rec_kN.Text));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("txt_final_vert_reac"));
+            //list.Add(string.Format("txt_final_vert_rec_kN"));
+            list.Add(string.Format("Total Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_sidl_final_Mx.Text, txt_sidl_final_Mx_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_sidl_final_Mz.Text, txt_sidl_final_Mz_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            #endregion Right End Design Forces
+
+            #endregion Super Imposed Dead Load [DL]
+
+
+            list.Add(string.Format(""));
+            list.Add(separator);
+            list.Add(string.Format("SUPPORT REACTIONS  [LL]"));
+            list.Add(separator);
+            list.Add(string.Format(""));
+            #region Live Load [LL]
+
+            #region  Left End Design Forces
+            list.Add(string.Format(""));
+            list.Add(string.Format("Left End Design Forces"));
+            list.Add(separator);
+            list.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+
+
+
+            for (i = 0; i < dgv_ll_left_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format
+                    , dgv_ll_left_des_frc[0, i].Value
+                    , dgv_ll_left_des_frc[1, i].Value
+                    , dgv_ll_left_des_frc[2, i].Value
+                    , dgv_ll_left_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format("txt_left_total_vert_reac"));
+            //list.Add(string.Format("txt_left_total_Mx"));
+            //list.Add(string.Format("txt_left_total_Mz"));
+
+            list.Add(string.Format(format, "Total"
+                , txt_ll_left_total_vert_reac.Text
+                , txt_ll_left_total_Mx.Text
+                , txt_ll_left_total_Mz.Text));
+
+            list.Add(separator);
+
+            //list.Add(string.Format("txt_left_max_total_vert_reac"));
+            //list.Add(string.Format("txt_left_max_total_Mx"));
+            //list.Add(string.Format("txt_left_max_total_Mz"));
+
+
+            list.Add(string.Format(format, "Maximum Forces"
+                , txt_ll_left_max_vert_reac.Text
+                , txt_ll_left_max_total_Mx.Text
+                , txt_ll_left_max_total_Mz.Text));
+
+            list.Add(separator);
+            list.Add("");
+
+
+
+            #endregion  Left End Design Forces
+
+            #region  Right End Design Forces
+
+            list.Add(string.Format("Right End Design Forces"));
+            list.Add(separator);
+                      list.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+            //list.Add(string.Format("dgv_right_des_frc"));
+
+            for (i = 0; i < dgv_ll_right_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format
+                    , dgv_ll_right_des_frc[0, i].Value
+                    , dgv_ll_right_des_frc[1, i].Value
+                    , dgv_ll_right_des_frc[2, i].Value
+                    , dgv_ll_right_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_total_vert_reac"));
+            //list.Add(string.Format("txt_right_total_Mx"));
+            //list.Add(string.Format("txt_right_total_Mz"));
+
+
+            list.Add(string.Format(format, "Total"
+                , txt_ll_right_total_vert_reac.Text
+                , txt_ll_right_total_Mx.Text
+                , txt_ll_right_total_Mz.Text));
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_max_total_vert_reac"));
+            //list.Add(string.Format("txt_right_max_total_Mx"));
+            //list.Add(string.Format("txt_right_max_total_Mz"));
+
+
+            list.Add(string.Format(format, "Maximum Forces"
+                , txt_ll_right_max_total_vert_reac.Text
+                , txt_ll_right_max_total_Mx.Text
+                , txt_ll_right_max_total_Mz.Text));
+
+            list.Add(separator);
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Forces on Abutment (from One Side)"));
+            list.Add(string.Format("-----------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_ll_max_vert_reac.Text, txt_ll_max_vert_reac_kN.Text));
+            //list.Add(string.Format("txt_max_vert_reac"));
+            //list.Add(string.Format("txt_max_vert_reac_kN"));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_ll_max_Mx.Text, txt_ll_max_Mx_kN.Text));
+            //list.Add(string.Format("txt_max_Mx"));
+            //list.Add(string.Format("txt_max_Mx_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_ll_max_Mz.Text, txt_ll_max_Mz_kN.Text));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("txt_max_Mz"));
+            //list.Add(string.Format("txt_max_Mz_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Forces on Pier (from Both Sides)"));
+            list.Add(string.Format("--------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_ll_final_vert_reac.Text, txt_ll_final_vert_rec_kN.Text));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("txt_final_vert_reac"));
+            //list.Add(string.Format("txt_final_vert_rec_kN"));
+            list.Add(string.Format("Total Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_ll_final_Mx.Text, txt_ll_final_Mx_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_ll_final_Mz.Text, txt_ll_final_Mz_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            #endregion Right End Design Forces
+
+            #endregion Live Load [LL]
+
+
+            list.Add(string.Format(""));
+            list.Add(separator);
+            list.Add(string.Format("MAXIMUM FORCES"));
+            list.Add(separator);
+            list.Add(string.Format(""));
+
+            #region MAX [DL SIDL LL]
+
+            #region  Left End Design Forces
+            list.Add(string.Format(""));
+            list.Add(string.Format("Left End Design Forces"));
+            list.Add(separator);
+            list.Add(string.Format(format, "LOAD", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NAME", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+
+
+
+            for (i = 0; i < dgv_mxf_left_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format
+                    , dgv_mxf_left_des_frc[0, i].Value
+                    , dgv_mxf_left_des_frc[1, i].Value
+                    , dgv_mxf_left_des_frc[2, i].Value
+                    , dgv_mxf_left_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+            //list.Add(string.Format("txt_left_total_vert_reac"));
+            //list.Add(string.Format("txt_left_total_Mx"));
+            //list.Add(string.Format("txt_left_total_Mz"));
+
+            list.Add(string.Format(format, "Total"
+                , txt_mxf_left_total_vert_reac.Text
+                , txt_mxf_left_total_Mx.Text
+                , txt_mxf_left_total_Mz.Text));
+
+            list.Add(separator);
+            list.Add("");
+
+
+            #endregion  Left End Design Forces
+
+            #region  Right End Design Forces
+
+            list.Add(string.Format("Right End Design Forces"));
+            list.Add(separator);
+
+            list.Add(string.Format(format, "LOAD", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list.Add(string.Format(format, "NAME", "REACTIONS", "MX", "MZ"));
+            list.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list.Add(separator);
+
+            //list.Add(string.Format("dgv_right_des_frc"));
+
+            for (i = 0; i < dgv_mxf_right_des_frc.RowCount - 1; i++)
+            {
+                list.Add(string.Format(format
+                    , dgv_mxf_right_des_frc[0, i].Value
+                    , dgv_mxf_right_des_frc[1, i].Value
+                    , dgv_mxf_right_des_frc[2, i].Value
+                    , dgv_mxf_right_des_frc[3, i].Value));
+            }
+
+            list.Add(separator);
+
+
+
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("txt_right_total_vert_reac"));
+            //list.Add(string.Format("txt_right_total_Mx"));
+            //list.Add(string.Format("txt_right_total_Mz"));
+
+
+            list.Add(string.Format(format, "Total"
+                , txt_mxf_right_total_vert_reac.Text
+                , txt_mxf_right_total_Mx.Text
+                , txt_mxf_right_total_Mz.Text));
+
+            list.Add(separator);
+
+
+            list.Add(separator);
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Design Forces for Bearings"));
+            list.Add(string.Format("-----------------------------------"));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("Maximum Vertical Reaction = {0:f3} Ton = {1:f3} kN", txt_mxf_max_vert_reac.Text, txt_mxf_max_vert_reac_kN.Text));
+
+            list.Add(string.Format("Maximum Vertical Reaction (DL + SIDL + LL) = {0:f3} Ton = {1:f3} kN", txt_brg_max_VR_Ton.Text, txt_brg_max_VR_kN.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Vertical Reaction (DL + SIDL) = {0:f3} Ton-m = {1:f3} kN-m", txt_brg_max_DL_Ton.Text, txt_brg_max_DL_kN.Text));
+
+            list.Add(string.Format("{0:f3} + {1:f3} = {2:f3} OR {3:f3} + {4:f3} = {5:f3}"
+                , dgv_mxf_left_des_frc[1, 0].Value
+                , dgv_mxf_left_des_frc[1, 1].Value
+                , (MyList.StringToDouble(dgv_mxf_left_des_frc[1, 0].Value.ToString()) + MyList.StringToDouble(dgv_mxf_left_des_frc[1, 1].Value.ToString()))
+                , dgv_mxf_right_des_frc[1, 0].Value
+                , dgv_mxf_right_des_frc[1, 1].Value
+                , (MyList.StringToDouble(dgv_mxf_right_des_frc[1, 0].Value.ToString()) + MyList.StringToDouble(dgv_mxf_right_des_frc[1, 1].Value.ToString()))
+                ));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mx] = {0:f3} Ton-m = {1:f3} kN-m", txt_mxf_max_Mx.Text, txt_mxf_max_Mx_kN.Text));
+            //list.Add(string.Format("txt_max_Mx"));
+            //list.Add(string.Format("txt_max_Mx_kN"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Maximum Bending Moment [Mz] = {0:f3} Ton-m = {1:f3} kN-m", txt_mxf_max_Mz.Text, txt_mxf_max_Mz_kN.Text));
+            list.Add(string.Format(""));
+
+            #endregion Right End Design Forces
+
+            #endregion Live Load [LL]
+
+            File.WriteAllLines(FILE_SUPPORT_REACTIONS, list.ToArray());
+
+        }
         void Show_and_Save_Data_Load_1_and_4()
         {
             if (!File.Exists(analysis_rep)) return;
@@ -21493,7 +22472,7 @@ namespace LimitStateMethod.RCC_T_Girder
             list_arr.Add("");
             list_arr.Add("TOTAL VERTICAL REACTION = " + txt_final_vert_reac.Text + " Ton" + "    =  " + txt_final_vert_rec_kN.Text + " kN");
 
-            //txt_final_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            //txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             //txt_final_Mx_kN.Text = (MyList.StringToDouble(txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
 
 
@@ -21505,7 +22484,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             #region Chiranjit [2017 06 11]
-            txt_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
             #endregion Chiranjit [2017 06 11]
 
@@ -21514,7 +22493,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_final_Mx_kN.Text + " kN-m");
-            //txt_final_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            //txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             //txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
@@ -21524,7 +22503,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #region Chiranjit [2017 06 11]
 
-            txt_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -21786,7 +22765,7 @@ namespace LimitStateMethod.RCC_T_Girder
             list_arr.Add("");
             list_arr.Add("TOTAL VERTICAL REACTION = " + txt_final_vert_reac.Text + " Ton" + "    =  " + txt_final_vert_rec_kN.Text + " kN");
 
-            //txt_final_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            //txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             //txt_final_Mx_kN.Text = (MyList.StringToDouble(txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
 
 
@@ -21798,7 +22777,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             #region Chiranjit [2017 06 11]
-            txt_max_Mx.Text = ((tot_left_Mx > tot_right_Mx) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
             #endregion Chiranjit [2017 06 11]
 
@@ -21807,7 +22786,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
             list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_final_Mx_kN.Text + " kN-m");
-            //txt_final_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            //txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             //txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
@@ -21817,7 +22796,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #region Chiranjit [2017 06 11]
 
-            txt_max_Mz.Text = ((tot_left_Mz > tot_right_Mz) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
