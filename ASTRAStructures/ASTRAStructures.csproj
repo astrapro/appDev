@@ -219,6 +219,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransmissionTower.cs" />
+    <Compile Include="UCPostProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCPostProcess.Designer.cs">
+      <DependentUpon>UCPostProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCPreProcess.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCPreProcess.Designer.cs">
+      <DependentUpon>UCPreProcess.cs</DependentUpon>
+    </Compile>
     <Compile Include="UCSapPostProcess.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -306,6 +318,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UCPostProcess.resx">
+      <DependentUpon>UCPostProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCPreProcess.resx">
+      <DependentUpon>UCPreProcess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UCSapPostProcess.resx">
       <DependentUpon>UCSapPostProcess.cs</DependentUpon>
     </EmbeddedResource>
@@ -340,10 +358,6 @@
     <ProjectReference Include="..\AstraInterface\AstraInterface.csproj">
       <Project>{39488388-529f-43f1-aaa5-03e17909b872}</Project>
       <Name>AstraInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LimitStateMethod\LimitStateMethod.csproj">
-      <Project>{9a403342-da0b-4da4-9ee8-0d6c051ea5ba}</Project>
-      <Name>LimitStateMethod</Name>
     </ProjectReference>
     <ProjectReference Include="..\TBeamDesign\BridgeAnalysisDesign.csproj">
       <Project>{ebbab6bd-2680-47c5-9e76-087a0d0dc9f7}</Project>

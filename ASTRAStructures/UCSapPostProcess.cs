@@ -1087,8 +1087,10 @@ namespace ASTRAStructures
 
         public void Draw_Plates(vdDocument doc)
         {
-
-            Draw_Plates(AST_DOC.Joints, doc);
+            if (AST_DOC != null)
+            {
+                Draw_Plates(AST_DOC.Joints, doc);
+            }
         }
 
         DataGridView dgv_plate_elements;

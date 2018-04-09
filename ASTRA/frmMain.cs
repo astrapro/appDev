@@ -95,6 +95,7 @@ namespace AstraFunctionOne
         public eVersionType Version_Type { get; set; }
 
 
+        bool IsRelease_22 = false;
         public frmMain()
         {
             InitializeComponent();
@@ -658,17 +659,18 @@ namespace AstraFunctionOne
                 //}
                 Set_Bridge_Design_Menu();
                 //If visible set to false then menu will be R21
+                IsRelease_22 = true;
+                //IsRelease_22 = false;
                 //if (false)
-                if (true)
+                if (IsRelease_22)
                 {
-
-                    tsmi_structure_text.Visible = false;
-                    tsmi_steel_beam.Visible = false;
-                    tsmi_steel_column.Visible = false;
+                    Load_ASTRA_R22_Menu();
                 }
                 else
                 {
-                    Load_ASTRA_R22_Menu();
+                    tsmi_structure_text.Visible = false;
+                    tsmi_steel_beam.Visible = false;
+                    tsmi_steel_column.Visible = false;
                 }
                 helpProvider1.HelpNamespace = Path.Combine(Application.StartupPath, "ASTRAHelp\\AstraPro.chm");
                 //TechSOFT_Demo();
@@ -2249,9 +2251,19 @@ namespace AstraFunctionOne
         {
 
             ShowTimerScreen(eASTRAImage.RCC_T_Beam_Bridge);
-            frm_RCC_T_Girder_LS frm = new frm_RCC_T_Girder_LS(this);
-            frm.Owner = this;
-            frm.Show();
+
+            if (IsRelease_22)
+            {
+                frm_RCC_T_Girder_LS_New frm = new frm_RCC_T_Girder_LS_New(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else
+            {
+                frm_RCC_T_Girder_LS frm = new frm_RCC_T_Girder_LS(this);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
         public void SetWorkingFolder_OLD()
         {
@@ -5706,10 +5718,20 @@ namespace AstraFunctionOne
         {
 
             ShowTimerScreen(eASTRAImage.Composite_Bridge);
-            //LimitStateMethod.Composite.frm_Composite_LS frm = new LimitStateMethod.Composite.frm_Composite_LS(this);
-            LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
-            frm.Owner = this;
-            frm.Show();
+
+            if (IsRelease_22)
+            {
+                LimitStateMethod.Composite.frm_CompositeLSM_New frm = new LimitStateMethod.Composite.frm_CompositeLSM_New(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else
+            {
+                //LimitStateMethod.Composite.frm_Composite_LS frm = new LimitStateMethod.Composite.frm_Composite_LS(this);
+                LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
         private void Show_Composite_Bridge_Working_Stress()
         {

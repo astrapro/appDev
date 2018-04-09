@@ -7824,7 +7824,7 @@ namespace LimitStateMethod.Extradossed
 
                         if (cmb_long_open_file.SelectedIndex == 0)
                             file_name = Extradosed.DeadLoadAnalysis_Input_File;
-                        if (cmb_long_open_file.SelectedIndex == cmb_long_open_file.Items.Count - 1)
+                        else if (cmb_long_open_file.SelectedIndex == cmb_long_open_file.Items.Count - 1)
                             file_name = Extradosed.TotalAnalysis_Input_File;
                         //else if (cmb_long_open_file.SelectedIndex == 1)
                         //    file_name = Input_File_LL;

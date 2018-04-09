@@ -9891,15 +9891,6 @@ namespace ASTRAStructures
         }
         string system_path = "";
 
-
-
-
-
-       
-
-
-
-
         public TowerDesign Complete_Design
         {
             get
@@ -9907,11 +9898,6 @@ namespace ASTRAStructures
                 return complete_design;
             }
         }
-
-
-
-
-
 
         private void Update_Section_Properties()
         {
@@ -10566,9 +10552,6 @@ namespace ASTRAStructures
             MessageBox.Show("Tutorial Data Loaded Successfully.", "ASTRA", MessageBoxButtons.OK);
         }
 
-
-
-
         public bool Close_Message(bool msg)
         {
 
@@ -10631,7 +10614,6 @@ namespace ASTRAStructures
                 }
             }
         }
-
         private void btn_input_browse_Click(object sender, EventArgs e)
         {
             string flName = "";
@@ -10752,7 +10734,6 @@ namespace ASTRAStructures
         }
         public void DisposeDoc(vdDocument dc)
         {
-
             try
             {
                 dc.Dispose();
