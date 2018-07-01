@@ -1,7 +1,6 @@
 ﻿namespace LimitStateMethod.PSC_I_Girder
 {
-
-    partial class frm_PSC_I_Girder_LS
+    partial class frm_PSC_I_Girder_LS_New
     {
         /// <summary>
         /// Required designer variable.
@@ -94,7 +93,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_PSC_I_Girder_LS));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_PSC_I_Girder_LS_New));
             this.tc_limit_design = new System.Windows.Forms.TabControl();
             this.tab_analysis_deck = new System.Windows.Forms.TabPage();
             this.tbc_PSC_Girder = new System.Windows.Forms.TabControl();
@@ -207,11 +206,11 @@
             this.txt_Ana_wgwc = new System.Windows.Forms.TextBox();
             this.label515 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_Ana_hp = new System.Windows.Forms.TextBox();
             this.label233 = new System.Windows.Forms.Label();
             this.label238 = new System.Windows.Forms.Label();
             this.label239 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_Ana_wp = new System.Windows.Forms.TextBox();
             this.label240 = new System.Windows.Forms.Label();
             this.grb_crash_barrier = new System.Windows.Forms.GroupBox();
             this.txt_Ana_Hc = new System.Windows.Forms.TextBox();
@@ -490,6 +489,7 @@
             this.chk_self_indian = new System.Windows.Forms.CheckBox();
             this.btn_long_restore_ll = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label296 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dgv_long_loads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -501,6 +501,7 @@
             this.label75 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label295 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dgv_long_liveloads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -530,33 +531,15 @@
             this.txt_XINCR = new System.Windows.Forms.TextBox();
             this.tab_mov_data_British = new System.Windows.Forms.TabPage();
             this.groupBox60 = new System.Windows.Forms.GroupBox();
+            this.label443 = new System.Windows.Forms.Label();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.btn_edit_load_combs_BS = new System.Windows.Forms.Button();
+            this.btn_long_restore_ll_BS = new System.Windows.Forms.Button();
+            this.label444 = new System.Windows.Forms.Label();
+            this.label471 = new System.Windows.Forms.Label();
             this.sp_hb = new System.Windows.Forms.SplitContainer();
-            this.groupBox62 = new System.Windows.Forms.GroupBox();
-            this.dgv_long_british_loads = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label713 = new System.Windows.Forms.Label();
             this.groupBox61 = new System.Windows.Forms.GroupBox();
+            this.label555 = new System.Windows.Forms.Label();
             this.dgv_british_loads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -584,6 +567,32 @@
             this.label224 = new System.Windows.Forms.Label();
             this.label225 = new System.Windows.Forms.Label();
             this.label222 = new System.Windows.Forms.Label();
+            this.groupBox62 = new System.Windows.Forms.GroupBox();
+            this.label556 = new System.Windows.Forms.Label();
+            this.dgv_long_british_loads = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label713 = new System.Windows.Forms.Label();
             this.groupBox63 = new System.Windows.Forms.GroupBox();
             this.chk_self_british = new System.Windows.Forms.CheckBox();
             this.groupBox66 = new System.Windows.Forms.GroupBox();
@@ -592,10 +601,7 @@
             this.rbtn_HA_HB = new System.Windows.Forms.RadioButton();
             this.txt_LL_lf = new System.Windows.Forms.TextBox();
             this.txt_LL_impf = new System.Windows.Forms.TextBox();
-            this.label711 = new System.Windows.Forms.Label();
             this.txt_no_lanes = new System.Windows.Forms.TextBox();
-            this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
-            this.label714 = new System.Windows.Forms.Label();
             this.grb_ha = new System.Windows.Forms.GroupBox();
             this.grb_ha_aply = new System.Windows.Forms.GroupBox();
             this.chk_HA_7L = new System.Windows.Forms.CheckBox();
@@ -628,7 +634,6 @@
             this.chk_HB_1L = new System.Windows.Forms.CheckBox();
             this.label716 = new System.Windows.Forms.Label();
             this.cmb_HB = new System.Windows.Forms.ComboBox();
-            this.txt_ll_british_incr = new System.Windows.Forms.TextBox();
             this.txt_lane_width = new System.Windows.Forms.TextBox();
             this.label715 = new System.Windows.Forms.Label();
             this.txt_deck_width = new System.Windows.Forms.TextBox();
@@ -636,8 +641,15 @@
             this.label720 = new System.Windows.Forms.Label();
             this.label718 = new System.Windows.Forms.Label();
             this.label717 = new System.Windows.Forms.Label();
+            this.txt_ll_british_incr = new System.Windows.Forms.TextBox();
+            this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
             this.tab_analysis = new System.Windows.Forms.TabPage();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.tc_AnaProcess = new System.Windows.Forms.TabControl();
+            this.tab_ana_select = new System.Windows.Forms.TabPage();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.label324 = new System.Windows.Forms.Label();
+            this.cmb_long_open_file_analysis = new System.Windows.Forms.ComboBox();
+            this.btn_view_data_1 = new System.Windows.Forms.Button();
             this.groupBox50 = new System.Windows.Forms.GroupBox();
             this.rbtn_esprt_pinned = new System.Windows.Forms.RadioButton();
             this.rbtn_esprt_fixed = new System.Windows.Forms.RadioButton();
@@ -647,6 +659,7 @@
             this.chk_esprt_fixed_FY = new System.Windows.Forms.CheckBox();
             this.chk_esprt_fixed_MX = new System.Windows.Forms.CheckBox();
             this.chk_esprt_fixed_FX = new System.Windows.Forms.CheckBox();
+            this.btn_Ana_create_data = new System.Windows.Forms.Button();
             this.groupBox51 = new System.Windows.Forms.GroupBox();
             this.rbtn_ssprt_pinned = new System.Windows.Forms.RadioButton();
             this.rbtn_ssprt_fixed = new System.Windows.Forms.RadioButton();
@@ -656,9 +669,22 @@
             this.chk_ssprt_fixed_FY = new System.Windows.Forms.CheckBox();
             this.chk_ssprt_fixed_MX = new System.Windows.Forms.CheckBox();
             this.chk_ssprt_fixed_FX = new System.Windows.Forms.CheckBox();
+            this.tab_ana_preProcess = new System.Windows.Forms.TabPage();
+            this.ucPreProcess1 = new ASTRAStructures.UCPreProcess();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label480 = new System.Windows.Forms.Label();
+            this.cmb_long_open_file = new System.Windows.Forms.ComboBox();
+            this.tab_ana_process = new System.Windows.Forms.TabPage();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox35 = new System.Windows.Forms.GroupBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label532 = new System.Windows.Forms.Label();
+            this.cmb_long_open_file_process = new System.Windows.Forms.ComboBox();
             this.btn_View_Moving_Load = new System.Windows.Forms.Button();
+            this.btn_view_report = new System.Windows.Forms.Button();
+            this.btn_view_data = new System.Windows.Forms.Button();
+            this.btn_Ana_process_analysis = new System.Windows.Forms.Button();
+            this.btn_view_structure = new System.Windows.Forms.Button();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
@@ -667,12 +693,6 @@
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.cmb_long_open_file = new System.Windows.Forms.ComboBox();
-            this.btn_view_report = new System.Windows.Forms.Button();
-            this.btn_view_data = new System.Windows.Forms.Button();
-            this.btn_view_structure = new System.Windows.Forms.Button();
-            this.btn_Ana_process_analysis = new System.Windows.Forms.Button();
-            this.btn_Ana_create_data = new System.Windows.Forms.Button();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
@@ -795,6 +815,10 @@
             this.dataGridViewTextBoxColumn85 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn86 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox58 = new System.Windows.Forms.GroupBox();
+            this.txt_sidl_right_max_total_Mz = new System.Windows.Forms.TextBox();
+            this.txt_sidl_right_max_total_Mx = new System.Windows.Forms.TextBox();
+            this.label552 = new System.Windows.Forms.Label();
+            this.txt_sidl_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
             this.dgv_sidl_right_des_frc = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn87 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn88 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -989,6 +1013,11 @@
             this.label1117 = new System.Windows.Forms.Label();
             this.label1123 = new System.Windows.Forms.Label();
             this.label1108 = new System.Windows.Forms.Label();
+            this.tab_ana_postProcess = new System.Windows.Forms.TabPage();
+            this.ucPostProcess1 = new ASTRAStructures.UCPostProcess();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label481 = new System.Windows.Forms.Label();
+            this.cmb_long_open_file_post_process = new System.Windows.Forms.ComboBox();
             this.tab_psc_girder = new System.Windows.Forms.TabPage();
             this.groupBox52 = new System.Windows.Forms.GroupBox();
             this.label217 = new System.Windows.Forms.Label();
@@ -1494,10 +1523,8 @@
             this.btn_dwg_rcc_abut = new System.Windows.Forms.Button();
             this.btn_dwg_open_consts = new System.Windows.Forms.Button();
             this.btn_dwg_open = new System.Windows.Forms.Button();
-            this.txt_sidl_right_max_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_sidl_right_max_total_Mx = new System.Windows.Forms.TextBox();
-            this.label552 = new System.Windows.Forms.Label();
-            this.txt_sidl_right_max_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.label1177 = new System.Windows.Forms.Label();
+            this.label472 = new System.Windows.Forms.Label();
             this.tc_limit_design.SuspendLayout();
             this.tab_analysis_deck.SuspendLayout();
             this.tbc_PSC_Girder.SuspendLayout();
@@ -1550,11 +1577,11 @@
             this.sp_hb.Panel1.SuspendLayout();
             this.sp_hb.Panel2.SuspendLayout();
             this.sp_hb.SuspendLayout();
-            this.groupBox62.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).BeginInit();
             this.groupBox61.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_british_loads)).BeginInit();
             this.panel3.SuspendLayout();
+            this.groupBox62.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).BeginInit();
             this.groupBox63.SuspendLayout();
             this.groupBox66.SuspendLayout();
             this.grb_ha.SuspendLayout();
@@ -1562,11 +1589,17 @@
             this.grb_hb.SuspendLayout();
             this.grb_hb_aply.SuspendLayout();
             this.tab_analysis.SuspendLayout();
+            this.tc_AnaProcess.SuspendLayout();
+            this.tab_ana_select.SuspendLayout();
+            this.groupBox19.SuspendLayout();
+            this.groupBox50.SuspendLayout();
+            this.groupBox51.SuspendLayout();
+            this.tab_ana_preProcess.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tab_ana_process.SuspendLayout();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
-            this.groupBox50.SuspendLayout();
-            this.groupBox51.SuspendLayout();
             this.groupBox35.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox16.SuspendLayout();
@@ -1627,6 +1660,8 @@
             this.groupBox134.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).BeginInit();
             this.groupBox129.SuspendLayout();
+            this.tab_ana_postProcess.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.tab_psc_girder.SuspendLayout();
             this.groupBox52.SuspendLayout();
             this.tabControl3.SuspendLayout();
@@ -2703,6 +2738,8 @@
             // chk_crash_barrier
             // 
             this.chk_crash_barrier.AutoSize = true;
+            this.chk_crash_barrier.Checked = true;
+            this.chk_crash_barrier.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_crash_barrier.Location = new System.Drawing.Point(6, 122);
             this.chk_crash_barrier.Name = "chk_crash_barrier";
             this.chk_crash_barrier.Size = new System.Drawing.Size(233, 17);
@@ -2949,11 +2986,11 @@
             // 
             // groupBox12
             // 
-            this.groupBox12.Controls.Add(this.textBox4);
+            this.groupBox12.Controls.Add(this.txt_Ana_hp);
             this.groupBox12.Controls.Add(this.label233);
             this.groupBox12.Controls.Add(this.label238);
             this.groupBox12.Controls.Add(this.label239);
-            this.groupBox12.Controls.Add(this.textBox5);
+            this.groupBox12.Controls.Add(this.txt_Ana_wp);
             this.groupBox12.Controls.Add(this.label240);
             this.groupBox12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.ForeColor = System.Drawing.Color.Blue;
@@ -2964,15 +3001,15 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Parapet Wall";
             // 
-            // textBox4
+            // txt_Ana_hp
             // 
-            this.textBox4.Location = new System.Drawing.Point(332, 18);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(50, 21);
-            this.textBox4.TabIndex = 2;
-            this.textBox4.Text = "1.200";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox4.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            this.txt_Ana_hp.Location = new System.Drawing.Point(332, 18);
+            this.txt_Ana_hp.Name = "txt_Ana_hp";
+            this.txt_Ana_hp.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_hp.TabIndex = 2;
+            this.txt_Ana_hp.Text = "1.200";
+            this.txt_Ana_hp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_hp.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label233
             // 
@@ -2980,9 +3017,9 @@
             this.label233.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label233.Location = new System.Drawing.Point(256, 21);
             this.label233.Name = "label233";
-            this.label233.Size = new System.Drawing.Size(70, 13);
+            this.label233.Size = new System.Drawing.Size(71, 13);
             this.label233.TabIndex = 3;
-            this.label233.Text = "Height [hc]";
+            this.label233.Text = "Height [hp]";
             // 
             // label238
             // 
@@ -2996,31 +3033,31 @@
             // label239
             // 
             this.label239.AutoSize = true;
-            this.label239.Location = new System.Drawing.Point(148, 21);
+            this.label239.Location = new System.Drawing.Point(190, 21);
             this.label239.Name = "label239";
             this.label239.Size = new System.Drawing.Size(18, 13);
             this.label239.TabIndex = 0;
             this.label239.Text = "m";
             // 
-            // textBox5
+            // txt_Ana_wp
             // 
-            this.textBox5.Location = new System.Drawing.Point(92, 18);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(50, 21);
-            this.textBox5.TabIndex = 1;
-            this.textBox5.Text = " 0.500";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox5.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            this.txt_Ana_wp.Location = new System.Drawing.Point(134, 18);
+            this.txt_Ana_wp.Name = "txt_Ana_wp";
+            this.txt_Ana_wp.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_wp.TabIndex = 1;
+            this.txt_Ana_wp.Text = " 0.500";
+            this.txt_Ana_wp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_wp.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label240
             // 
             this.label240.AutoSize = true;
             this.label240.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label240.Location = new System.Drawing.Point(5, 18);
+            this.label240.Location = new System.Drawing.Point(35, 21);
             this.label240.Name = "label240";
-            this.label240.Size = new System.Drawing.Size(68, 13);
+            this.label240.Size = new System.Drawing.Size(69, 13);
             this.label240.TabIndex = 0;
-            this.label240.Text = "Width [wc]";
+            this.label240.Text = "Width [wp]";
             // 
             // grb_crash_barrier
             // 
@@ -5889,6 +5926,7 @@
             // 
             // groupBox79
             // 
+            this.groupBox79.Controls.Add(this.label1177);
             this.groupBox79.Controls.Add(this.label226);
             this.groupBox79.Controls.Add(this.txt_dl_ll_comb);
             this.groupBox79.Controls.Add(this.btn_edit_load_combs);
@@ -5931,7 +5969,7 @@
             // 
             // btn_edit_load_combs
             // 
-            this.btn_edit_load_combs.Location = new System.Drawing.Point(214, 588);
+            this.btn_edit_load_combs.Location = new System.Drawing.Point(214, 561);
             this.btn_edit_load_combs.Name = "btn_edit_load_combs";
             this.btn_edit_load_combs.Size = new System.Drawing.Size(157, 29);
             this.btn_edit_load_combs.TabIndex = 83;
@@ -5943,7 +5981,7 @@
             // 
             this.chk_self_indian.AutoSize = true;
             this.chk_self_indian.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_self_indian.Location = new System.Drawing.Point(25, 593);
+            this.chk_self_indian.Location = new System.Drawing.Point(25, 566);
             this.chk_self_indian.Name = "chk_self_indian";
             this.chk_self_indian.Size = new System.Drawing.Size(165, 20);
             this.chk_self_indian.TabIndex = 81;
@@ -5952,7 +5990,7 @@
             // 
             // btn_long_restore_ll
             // 
-            this.btn_long_restore_ll.Location = new System.Drawing.Point(406, 588);
+            this.btn_long_restore_ll.Location = new System.Drawing.Point(406, 561);
             this.btn_long_restore_ll.Name = "btn_long_restore_ll";
             this.btn_long_restore_ll.Size = new System.Drawing.Size(167, 29);
             this.btn_long_restore_ll.TabIndex = 8;
@@ -5962,15 +6000,28 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.label296);
             this.groupBox9.Controls.Add(this.label14);
             this.groupBox9.Controls.Add(this.dgv_long_loads);
             this.groupBox9.ForeColor = System.Drawing.Color.Black;
-            this.groupBox9.Location = new System.Drawing.Point(665, 47);
+            this.groupBox9.Location = new System.Drawing.Point(3, 33);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(269, 522);
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Define Load Start position";
+            this.groupBox9.Tag = "          ";
+            this.groupBox9.Text = "                                              ";
+            // 
+            // label296
+            // 
+            this.label296.AutoSize = true;
+            this.label296.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label296.ForeColor = System.Drawing.Color.Black;
+            this.label296.Location = new System.Drawing.Point(16, 0);
+            this.label296.Name = "label296";
+            this.label296.Size = new System.Drawing.Size(171, 13);
+            this.label296.TabIndex = 86;
+            this.label296.Text = "Apply Load Combinations";
             // 
             // label14
             // 
@@ -6087,16 +6138,28 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label295);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.dgv_long_liveloads);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(3, 47);
+            this.groupBox3.Location = new System.Drawing.Point(276, 33);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(656, 522);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Define Vehicle Axle Loads";
+            this.groupBox3.Text = "                                     ";
+            // 
+            // label295
+            // 
+            this.label295.AutoSize = true;
+            this.label295.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label295.ForeColor = System.Drawing.Color.Black;
+            this.label295.Location = new System.Drawing.Point(16, 0);
+            this.label295.Name = "label295";
+            this.label295.Size = new System.Drawing.Size(127, 13);
+            this.label295.TabIndex = 86;
+            this.label295.Text = "Define Load Types";
             // 
             // label13
             // 
@@ -6364,8 +6427,17 @@
             // 
             // groupBox60
             // 
+            this.groupBox60.Controls.Add(this.label472);
+            this.groupBox60.Controls.Add(this.label443);
+            this.groupBox60.Controls.Add(this.textBox12);
+            this.groupBox60.Controls.Add(this.btn_edit_load_combs_BS);
+            this.groupBox60.Controls.Add(this.btn_long_restore_ll_BS);
+            this.groupBox60.Controls.Add(this.label444);
+            this.groupBox60.Controls.Add(this.label471);
             this.groupBox60.Controls.Add(this.sp_hb);
             this.groupBox60.Controls.Add(this.groupBox63);
+            this.groupBox60.Controls.Add(this.txt_ll_british_incr);
+            this.groupBox60.Controls.Add(this.txt_ll_british_lgen);
             this.groupBox60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox60.Location = new System.Drawing.Point(3, 3);
             this.groupBox60.Name = "groupBox60";
@@ -6373,42 +6445,114 @@
             this.groupBox60.TabIndex = 83;
             this.groupBox60.TabStop = false;
             // 
+            // label443
+            // 
+            this.label443.AutoSize = true;
+            this.label443.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label443.Location = new System.Drawing.Point(706, 616);
+            this.label443.Name = "label443";
+            this.label443.Size = new System.Drawing.Size(170, 13);
+            this.label443.TabIndex = 91;
+            this.label443.Text = "DL + LL Combine Load No";
+            // 
+            // textBox12
+            // 
+            this.textBox12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox12.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Location = new System.Drawing.Point(882, 615);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(45, 18);
+            this.textBox12.TabIndex = 90;
+            this.textBox12.Text = "1";
+            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btn_edit_load_combs_BS
+            // 
+            this.btn_edit_load_combs_BS.Location = new System.Drawing.Point(168, 584);
+            this.btn_edit_load_combs_BS.Name = "btn_edit_load_combs_BS";
+            this.btn_edit_load_combs_BS.Size = new System.Drawing.Size(157, 29);
+            this.btn_edit_load_combs_BS.TabIndex = 89;
+            this.btn_edit_load_combs_BS.Text = "Edit Load Combinations";
+            this.btn_edit_load_combs_BS.UseVisualStyleBackColor = true;
+            this.btn_edit_load_combs_BS.Click += new System.EventHandler(this.btn_edit_load_combs_Click);
+            // 
+            // btn_long_restore_ll_BS
+            // 
+            this.btn_long_restore_ll_BS.Location = new System.Drawing.Point(360, 584);
+            this.btn_long_restore_ll_BS.Name = "btn_long_restore_ll_BS";
+            this.btn_long_restore_ll_BS.Size = new System.Drawing.Size(167, 29);
+            this.btn_long_restore_ll_BS.TabIndex = 86;
+            this.btn_long_restore_ll_BS.Text = "Restore Default Values";
+            this.btn_long_restore_ll_BS.UseVisualStyleBackColor = true;
+            this.btn_long_restore_ll_BS.Click += new System.EventHandler(this.btn_restore_ll_data_Click);
+            // 
+            // label444
+            // 
+            this.label444.AutoSize = true;
+            this.label444.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label444.Location = new System.Drawing.Point(761, 591);
+            this.label444.Name = "label444";
+            this.label444.Size = new System.Drawing.Size(114, 13);
+            this.label444.TabIndex = 88;
+            this.label444.Text = "Load Generation";
+            // 
+            // label471
+            // 
+            this.label471.AutoSize = true;
+            this.label471.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label471.Location = new System.Drawing.Point(649, 593);
+            this.label471.Name = "label471";
+            this.label471.Size = new System.Drawing.Size(50, 13);
+            this.label471.TabIndex = 87;
+            this.label471.Text = "X INCR";
+            // 
             // sp_hb
             // 
             this.sp_hb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sp_hb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sp_hb.Location = new System.Drawing.Point(3, 246);
             this.sp_hb.Name = "sp_hb";
             // 
             // sp_hb.Panel1
             // 
-            this.sp_hb.Panel1.Controls.Add(this.groupBox62);
+            this.sp_hb.Panel1.Controls.Add(this.groupBox61);
             // 
             // sp_hb.Panel2
             // 
-            this.sp_hb.Panel2.Controls.Add(this.groupBox61);
-            this.sp_hb.Size = new System.Drawing.Size(928, 387);
-            this.sp_hb.SplitterDistance = 518;
+            this.sp_hb.Panel2.Controls.Add(this.groupBox62);
+            this.sp_hb.Size = new System.Drawing.Size(928, 336);
+            this.sp_hb.SplitterDistance = 312;
             this.sp_hb.TabIndex = 83;
             // 
-            // groupBox62
+            // groupBox61
             // 
-            this.groupBox62.Controls.Add(this.dgv_long_british_loads);
-            this.groupBox62.Controls.Add(this.label713);
-            this.groupBox62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox62.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox62.ForeColor = System.Drawing.Color.Black;
-            this.groupBox62.Location = new System.Drawing.Point(0, 0);
-            this.groupBox62.Name = "groupBox62";
-            this.groupBox62.Size = new System.Drawing.Size(516, 385);
-            this.groupBox62.TabIndex = 7;
-            this.groupBox62.TabStop = false;
-            this.groupBox62.Text = "Define Vehicle Axle Loads";
+            this.groupBox61.Controls.Add(this.label555);
+            this.groupBox61.Controls.Add(this.dgv_british_loads);
+            this.groupBox61.Controls.Add(this.panel3);
+            this.groupBox61.Controls.Add(this.label222);
+            this.groupBox61.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox61.ForeColor = System.Drawing.Color.Black;
+            this.groupBox61.Location = new System.Drawing.Point(0, 0);
+            this.groupBox61.Name = "groupBox61";
+            this.groupBox61.Size = new System.Drawing.Size(310, 334);
+            this.groupBox61.TabIndex = 8;
+            this.groupBox61.TabStop = false;
+            this.groupBox61.Text = "                                                      ";
             // 
-            // dgv_long_british_loads
+            // label555
             // 
-            this.dgv_long_british_loads.AllowUserToAddRows = false;
-            this.dgv_long_british_loads.AllowUserToDeleteRows = false;
+            this.label555.AutoSize = true;
+            this.label555.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label555.ForeColor = System.Drawing.Color.Black;
+            this.label555.Location = new System.Drawing.Point(9, 1);
+            this.label555.Name = "label555";
+            this.label555.Size = new System.Drawing.Size(171, 13);
+            this.label555.TabIndex = 85;
+            this.label555.Text = "Apply Load Combinations";
+            // 
+            // dgv_british_loads
+            // 
+            this.dgv_british_loads.AllowUserToAddRows = false;
+            this.dgv_british_loads.AllowUserToDeleteRows = false;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -6416,7 +6560,260 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn52,
+            this.dataGridViewTextBoxColumn53,
+            this.dataGridViewTextBoxColumn54,
+            this.dataGridViewTextBoxColumn77,
+            this.dataGridViewTextBoxColumn78,
+            this.dataGridViewTextBoxColumn79,
+            this.Column28,
+            this.Column29,
+            this.Column30,
+            this.Column31,
+            this.Column32,
+            this.Column33,
+            this.Column34,
+            this.Column35,
+            this.Column36,
+            this.Column37,
+            this.Column38,
+            this.Column39,
+            this.Column40,
+            this.Column41,
+            this.Column42});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgv_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_british_loads.Location = new System.Drawing.Point(3, 74);
+            this.dgv_british_loads.Name = "dgv_british_loads";
+            this.dgv_british_loads.RowHeadersWidth = 21;
+            this.dgv_british_loads.Size = new System.Drawing.Size(304, 257);
+            this.dgv_british_loads.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn52.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewTextBoxColumn52.HeaderText = "Moving Load";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            this.dataGridViewTextBoxColumn52.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn52.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            this.dataGridViewTextBoxColumn53.HeaderText = "1";
+            this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            this.dataGridViewTextBoxColumn53.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn53.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.HeaderText = "2";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn54.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn77
+            // 
+            this.dataGridViewTextBoxColumn77.HeaderText = "3";
+            this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
+            this.dataGridViewTextBoxColumn77.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn77.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn78
+            // 
+            this.dataGridViewTextBoxColumn78.HeaderText = "4";
+            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
+            this.dataGridViewTextBoxColumn78.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn78.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn79
+            // 
+            this.dataGridViewTextBoxColumn79.HeaderText = "5";
+            this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
+            this.dataGridViewTextBoxColumn79.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn79.Width = 50;
+            // 
+            // Column28
+            // 
+            this.Column28.HeaderText = "6";
+            this.Column28.Name = "Column28";
+            // 
+            // Column29
+            // 
+            this.Column29.HeaderText = "7";
+            this.Column29.Name = "Column29";
+            // 
+            // Column30
+            // 
+            this.Column30.HeaderText = "8";
+            this.Column30.Name = "Column30";
+            // 
+            // Column31
+            // 
+            this.Column31.HeaderText = "9";
+            this.Column31.Name = "Column31";
+            // 
+            // Column32
+            // 
+            this.Column32.HeaderText = "10";
+            this.Column32.Name = "Column32";
+            // 
+            // Column33
+            // 
+            this.Column33.HeaderText = "11";
+            this.Column33.Name = "Column33";
+            // 
+            // Column34
+            // 
+            this.Column34.HeaderText = "12";
+            this.Column34.Name = "Column34";
+            // 
+            // Column35
+            // 
+            this.Column35.HeaderText = "13";
+            this.Column35.Name = "Column35";
+            // 
+            // Column36
+            // 
+            this.Column36.HeaderText = "14";
+            this.Column36.Name = "Column36";
+            // 
+            // Column37
+            // 
+            this.Column37.HeaderText = "15";
+            this.Column37.Name = "Column37";
+            // 
+            // Column38
+            // 
+            this.Column38.HeaderText = "16";
+            this.Column38.Name = "Column38";
+            // 
+            // Column39
+            // 
+            this.Column39.HeaderText = "17";
+            this.Column39.Name = "Column39";
+            // 
+            // Column40
+            // 
+            this.Column40.HeaderText = "18";
+            this.Column40.Name = "Column40";
+            // 
+            // Column41
+            // 
+            this.Column41.HeaderText = "19";
+            this.Column41.Name = "Column41";
+            // 
+            // Column42
+            // 
+            this.Column42.HeaderText = "20";
+            this.Column42.Name = "Column42";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label223);
+            this.panel3.Controls.Add(this.label224);
+            this.panel3.Controls.Add(this.label225);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 51);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(304, 23);
+            this.panel3.TabIndex = 15;
+            // 
+            // label223
+            // 
+            this.label223.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label223.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label223.Location = new System.Drawing.Point(291, 0);
+            this.label223.Name = "label223";
+            this.label223.Size = new System.Drawing.Size(104, 21);
+            this.label223.TabIndex = 12;
+            this.label223.Text = "Lane 3";
+            this.label223.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label224
+            // 
+            this.label224.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label224.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label224.Location = new System.Drawing.Point(77, 0);
+            this.label224.Name = "label224";
+            this.label224.Size = new System.Drawing.Size(104, 21);
+            this.label224.TabIndex = 12;
+            this.label224.Text = "Lane 1";
+            this.label224.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label225
+            // 
+            this.label225.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label225.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label225.Location = new System.Drawing.Point(184, 0);
+            this.label225.Name = "label225";
+            this.label225.Size = new System.Drawing.Size(104, 21);
+            this.label225.TabIndex = 12;
+            this.label225.Text = "Lane 2";
+            this.label225.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label222
+            // 
+            this.label222.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label222.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label222.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label222.ForeColor = System.Drawing.Color.Black;
+            this.label222.Location = new System.Drawing.Point(3, 17);
+            this.label222.Name = "label222";
+            this.label222.Size = new System.Drawing.Size(304, 34);
+            this.label222.TabIndex = 11;
+            this.label222.Text = "(Refer to Page 100, ASTRA Pro User Manual)";
+            this.label222.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // groupBox62
+            // 
+            this.groupBox62.Controls.Add(this.label556);
+            this.groupBox62.Controls.Add(this.dgv_long_british_loads);
+            this.groupBox62.Controls.Add(this.label713);
+            this.groupBox62.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox62.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox62.ForeColor = System.Drawing.Color.Black;
+            this.groupBox62.Location = new System.Drawing.Point(0, 0);
+            this.groupBox62.Name = "groupBox62";
+            this.groupBox62.Size = new System.Drawing.Size(610, 334);
+            this.groupBox62.TabIndex = 7;
+            this.groupBox62.TabStop = false;
+            this.groupBox62.Text = "                                     ";
+            // 
+            // label556
+            // 
+            this.label556.AutoSize = true;
+            this.label556.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label556.ForeColor = System.Drawing.Color.Black;
+            this.label556.Location = new System.Drawing.Point(16, 2);
+            this.label556.Name = "label556";
+            this.label556.Size = new System.Drawing.Size(127, 13);
+            this.label556.TabIndex = 85;
+            this.label556.Text = "Define Load Types";
+            // 
+            // dgv_long_british_loads
+            // 
+            this.dgv_long_british_loads.AllowUserToAddRows = false;
+            this.dgv_long_british_loads.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_long_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn55,
@@ -6441,26 +6838,26 @@
             this.dataGridViewTextBoxColumn74,
             this.dataGridViewTextBoxColumn75,
             this.dataGridViewTextBoxColumn76});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_long_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_long_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_long_british_loads.Name = "dgv_long_british_loads";
             this.dgv_long_british_loads.RowHeadersWidth = 21;
-            this.dgv_long_british_loads.Size = new System.Drawing.Size(510, 331);
+            this.dgv_long_british_loads.Size = new System.Drawing.Size(604, 280);
             this.dgv_long_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn55
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewTextBoxColumn55.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -6622,252 +7019,11 @@
             this.label713.ForeColor = System.Drawing.Color.Black;
             this.label713.Location = new System.Drawing.Point(3, 17);
             this.label713.Name = "label713";
-            this.label713.Size = new System.Drawing.Size(510, 34);
+            this.label713.Size = new System.Drawing.Size(604, 34);
             this.label713.TabIndex = 10;
             this.label713.Text = "(USER MAY CHANGE THE VAUES IN THE CELLS, THE DATA WILL BE SAVED IN FILE \"LL.TXT\" " +
     "FOR USE)";
             this.label713.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox61
-            // 
-            this.groupBox61.Controls.Add(this.dgv_british_loads);
-            this.groupBox61.Controls.Add(this.panel3);
-            this.groupBox61.Controls.Add(this.label222);
-            this.groupBox61.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox61.ForeColor = System.Drawing.Color.Black;
-            this.groupBox61.Location = new System.Drawing.Point(0, 0);
-            this.groupBox61.Name = "groupBox61";
-            this.groupBox61.Size = new System.Drawing.Size(404, 385);
-            this.groupBox61.TabIndex = 8;
-            this.groupBox61.TabStop = false;
-            this.groupBox61.Text = "Define Load Start position";
-            // 
-            // dgv_british_loads
-            // 
-            this.dgv_british_loads.AllowUserToAddRows = false;
-            this.dgv_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgv_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn52,
-            this.dataGridViewTextBoxColumn53,
-            this.dataGridViewTextBoxColumn54,
-            this.dataGridViewTextBoxColumn77,
-            this.dataGridViewTextBoxColumn78,
-            this.dataGridViewTextBoxColumn79,
-            this.Column28,
-            this.Column29,
-            this.Column30,
-            this.Column31,
-            this.Column32,
-            this.Column33,
-            this.Column34,
-            this.Column35,
-            this.Column36,
-            this.Column37,
-            this.Column38,
-            this.Column39,
-            this.Column40,
-            this.Column41,
-            this.Column42});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dgv_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_british_loads.Location = new System.Drawing.Point(3, 74);
-            this.dgv_british_loads.Name = "dgv_british_loads";
-            this.dgv_british_loads.RowHeadersWidth = 21;
-            this.dgv_british_loads.Size = new System.Drawing.Size(398, 308);
-            this.dgv_british_loads.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn52
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn52.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn52.HeaderText = "Moving Load";
-            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
-            this.dataGridViewTextBoxColumn52.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn52.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn53
-            // 
-            this.dataGridViewTextBoxColumn53.HeaderText = "1";
-            this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
-            this.dataGridViewTextBoxColumn53.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn53.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn54
-            // 
-            this.dataGridViewTextBoxColumn54.HeaderText = "2";
-            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
-            this.dataGridViewTextBoxColumn54.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn54.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn77
-            // 
-            this.dataGridViewTextBoxColumn77.HeaderText = "3";
-            this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
-            this.dataGridViewTextBoxColumn77.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn77.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn78
-            // 
-            this.dataGridViewTextBoxColumn78.HeaderText = "4";
-            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
-            this.dataGridViewTextBoxColumn78.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn78.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn79
-            // 
-            this.dataGridViewTextBoxColumn79.HeaderText = "5";
-            this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
-            this.dataGridViewTextBoxColumn79.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn79.Width = 50;
-            // 
-            // Column28
-            // 
-            this.Column28.HeaderText = "6";
-            this.Column28.Name = "Column28";
-            // 
-            // Column29
-            // 
-            this.Column29.HeaderText = "7";
-            this.Column29.Name = "Column29";
-            // 
-            // Column30
-            // 
-            this.Column30.HeaderText = "8";
-            this.Column30.Name = "Column30";
-            // 
-            // Column31
-            // 
-            this.Column31.HeaderText = "9";
-            this.Column31.Name = "Column31";
-            // 
-            // Column32
-            // 
-            this.Column32.HeaderText = "10";
-            this.Column32.Name = "Column32";
-            // 
-            // Column33
-            // 
-            this.Column33.HeaderText = "11";
-            this.Column33.Name = "Column33";
-            // 
-            // Column34
-            // 
-            this.Column34.HeaderText = "12";
-            this.Column34.Name = "Column34";
-            // 
-            // Column35
-            // 
-            this.Column35.HeaderText = "13";
-            this.Column35.Name = "Column35";
-            // 
-            // Column36
-            // 
-            this.Column36.HeaderText = "14";
-            this.Column36.Name = "Column36";
-            // 
-            // Column37
-            // 
-            this.Column37.HeaderText = "15";
-            this.Column37.Name = "Column37";
-            // 
-            // Column38
-            // 
-            this.Column38.HeaderText = "16";
-            this.Column38.Name = "Column38";
-            // 
-            // Column39
-            // 
-            this.Column39.HeaderText = "17";
-            this.Column39.Name = "Column39";
-            // 
-            // Column40
-            // 
-            this.Column40.HeaderText = "18";
-            this.Column40.Name = "Column40";
-            // 
-            // Column41
-            // 
-            this.Column41.HeaderText = "19";
-            this.Column41.Name = "Column41";
-            // 
-            // Column42
-            // 
-            this.Column42.HeaderText = "20";
-            this.Column42.Name = "Column42";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label223);
-            this.panel3.Controls.Add(this.label224);
-            this.panel3.Controls.Add(this.label225);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 51);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(398, 23);
-            this.panel3.TabIndex = 15;
-            // 
-            // label223
-            // 
-            this.label223.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label223.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label223.Location = new System.Drawing.Point(291, 0);
-            this.label223.Name = "label223";
-            this.label223.Size = new System.Drawing.Size(104, 21);
-            this.label223.TabIndex = 12;
-            this.label223.Text = "Lane 3";
-            this.label223.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label224
-            // 
-            this.label224.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label224.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label224.Location = new System.Drawing.Point(77, 0);
-            this.label224.Name = "label224";
-            this.label224.Size = new System.Drawing.Size(104, 21);
-            this.label224.TabIndex = 12;
-            this.label224.Text = "Lane 1";
-            this.label224.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label225
-            // 
-            this.label225.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label225.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label225.Location = new System.Drawing.Point(184, 0);
-            this.label225.Name = "label225";
-            this.label225.Size = new System.Drawing.Size(104, 21);
-            this.label225.TabIndex = 12;
-            this.label225.Text = "Lane 2";
-            this.label225.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label222
-            // 
-            this.label222.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label222.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label222.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label222.ForeColor = System.Drawing.Color.Black;
-            this.label222.Location = new System.Drawing.Point(3, 17);
-            this.label222.Name = "label222";
-            this.label222.Size = new System.Drawing.Size(398, 34);
-            this.label222.TabIndex = 11;
-            this.label222.Text = "(Refer to Page 100, ASTRA Pro User Manual)";
-            this.label222.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox63
             // 
@@ -6875,13 +7031,9 @@
             this.groupBox63.Controls.Add(this.groupBox66);
             this.groupBox63.Controls.Add(this.txt_LL_lf);
             this.groupBox63.Controls.Add(this.txt_LL_impf);
-            this.groupBox63.Controls.Add(this.label711);
             this.groupBox63.Controls.Add(this.txt_no_lanes);
-            this.groupBox63.Controls.Add(this.txt_ll_british_lgen);
-            this.groupBox63.Controls.Add(this.label714);
             this.groupBox63.Controls.Add(this.grb_ha);
             this.groupBox63.Controls.Add(this.grb_hb);
-            this.groupBox63.Controls.Add(this.txt_ll_british_incr);
             this.groupBox63.Controls.Add(this.txt_lane_width);
             this.groupBox63.Controls.Add(this.label715);
             this.groupBox63.Controls.Add(this.txt_deck_width);
@@ -6957,7 +7109,7 @@
             // 
             // txt_LL_lf
             // 
-            this.txt_LL_lf.Location = new System.Drawing.Point(178, 128);
+            this.txt_LL_lf.Location = new System.Drawing.Point(178, 176);
             this.txt_LL_lf.Name = "txt_LL_lf";
             this.txt_LL_lf.Size = new System.Drawing.Size(59, 21);
             this.txt_LL_lf.TabIndex = 3;
@@ -6967,7 +7119,7 @@
             // 
             // txt_LL_impf
             // 
-            this.txt_LL_impf.Location = new System.Drawing.Point(178, 101);
+            this.txt_LL_impf.Location = new System.Drawing.Point(178, 135);
             this.txt_LL_impf.Name = "txt_LL_impf";
             this.txt_LL_impf.Size = new System.Drawing.Size(59, 21);
             this.txt_LL_impf.TabIndex = 3;
@@ -6975,46 +7127,15 @@
             this.txt_LL_impf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_LL_impf.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
             // 
-            // label711
-            // 
-            this.label711.AutoSize = true;
-            this.label711.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label711.Location = new System.Drawing.Point(28, 181);
-            this.label711.Name = "label711";
-            this.label711.Size = new System.Drawing.Size(101, 13);
-            this.label711.TabIndex = 80;
-            this.label711.Text = "Load Generation";
-            // 
             // txt_no_lanes
             // 
-            this.txt_no_lanes.Location = new System.Drawing.Point(178, 74);
+            this.txt_no_lanes.Location = new System.Drawing.Point(178, 93);
             this.txt_no_lanes.Name = "txt_no_lanes";
             this.txt_no_lanes.Size = new System.Drawing.Size(59, 21);
             this.txt_no_lanes.TabIndex = 3;
             this.txt_no_lanes.Text = "3";
             this.txt_no_lanes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_no_lanes.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
-            // txt_ll_british_lgen
-            // 
-            this.txt_ll_british_lgen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ll_british_lgen.Location = new System.Drawing.Point(178, 178);
-            this.txt_ll_british_lgen.Name = "txt_ll_british_lgen";
-            this.txt_ll_british_lgen.Size = new System.Drawing.Size(59, 21);
-            this.txt_ll_british_lgen.TabIndex = 79;
-            this.txt_ll_british_lgen.Text = "191";
-            this.txt_ll_british_lgen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ll_british_lgen.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
-            // label714
-            // 
-            this.label714.AutoSize = true;
-            this.label714.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label714.Location = new System.Drawing.Point(28, 160);
-            this.label714.Name = "label714";
-            this.label714.Size = new System.Drawing.Size(110, 13);
-            this.label714.TabIndex = 60;
-            this.label714.Text = "Moving Increment";
             // 
             // grb_ha
             // 
@@ -7407,21 +7528,10 @@
             this.cmb_HB.TabIndex = 0;
             this.cmb_HB.SelectedIndexChanged += new System.EventHandler(this.cmb_HB_SelectedIndexChanged);
             // 
-            // txt_ll_british_incr
-            // 
-            this.txt_ll_british_incr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ll_british_incr.Location = new System.Drawing.Point(178, 155);
-            this.txt_ll_british_incr.Name = "txt_ll_british_incr";
-            this.txt_ll_british_incr.Size = new System.Drawing.Size(59, 18);
-            this.txt_ll_british_incr.TabIndex = 58;
-            this.txt_ll_british_incr.Text = "0.5";
-            this.txt_ll_british_incr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ll_british_incr.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
             // txt_lane_width
             // 
             this.txt_lane_width.Enabled = false;
-            this.txt_lane_width.Location = new System.Drawing.Point(178, 47);
+            this.txt_lane_width.Location = new System.Drawing.Point(178, 57);
             this.txt_lane_width.Name = "txt_lane_width";
             this.txt_lane_width.Size = new System.Drawing.Size(59, 21);
             this.txt_lane_width.TabIndex = 3;
@@ -7432,7 +7542,7 @@
             // label715
             // 
             this.label715.AutoSize = true;
-            this.label715.Location = new System.Drawing.Point(28, 131);
+            this.label715.Location = new System.Drawing.Point(28, 179);
             this.label715.Name = "label715";
             this.label715.Size = new System.Drawing.Size(72, 13);
             this.label715.TabIndex = 1;
@@ -7451,7 +7561,7 @@
             // label719
             // 
             this.label719.AutoSize = true;
-            this.label719.Location = new System.Drawing.Point(28, 104);
+            this.label719.Location = new System.Drawing.Point(28, 138);
             this.label719.Name = "label719";
             this.label719.Size = new System.Drawing.Size(85, 13);
             this.label719.TabIndex = 1;
@@ -7460,7 +7570,7 @@
             // label720
             // 
             this.label720.AutoSize = true;
-            this.label720.Location = new System.Drawing.Point(28, 75);
+            this.label720.Location = new System.Drawing.Point(28, 94);
             this.label720.Name = "label720";
             this.label720.Size = new System.Drawing.Size(109, 13);
             this.label720.TabIndex = 1;
@@ -7469,7 +7579,7 @@
             // label718
             // 
             this.label718.AutoSize = true;
-            this.label718.Location = new System.Drawing.Point(28, 48);
+            this.label718.Location = new System.Drawing.Point(28, 58);
             this.label718.Name = "label718";
             this.label718.Size = new System.Drawing.Size(101, 13);
             this.label718.TabIndex = 1;
@@ -7484,9 +7594,31 @@
             this.label717.TabIndex = 1;
             this.label717.Text = "Total Bridge Deck Width";
             // 
+            // txt_ll_british_incr
+            // 
+            this.txt_ll_british_incr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ll_british_incr.Location = new System.Drawing.Point(705, 591);
+            this.txt_ll_british_incr.Name = "txt_ll_british_incr";
+            this.txt_ll_british_incr.Size = new System.Drawing.Size(46, 18);
+            this.txt_ll_british_incr.TabIndex = 58;
+            this.txt_ll_british_incr.Text = "0.5";
+            this.txt_ll_british_incr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_ll_british_incr.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
+            // 
+            // txt_ll_british_lgen
+            // 
+            this.txt_ll_british_lgen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ll_british_lgen.Location = new System.Drawing.Point(881, 588);
+            this.txt_ll_british_lgen.Name = "txt_ll_british_lgen";
+            this.txt_ll_british_lgen.Size = new System.Drawing.Size(46, 21);
+            this.txt_ll_british_lgen.TabIndex = 79;
+            this.txt_ll_british_lgen.Text = "191";
+            this.txt_ll_british_lgen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_ll_british_lgen.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
+            // 
             // tab_analysis
             // 
-            this.tab_analysis.Controls.Add(this.splitContainer3);
+            this.tab_analysis.Controls.Add(this.tc_AnaProcess);
             this.tab_analysis.Location = new System.Drawing.Point(4, 22);
             this.tab_analysis.Name = "tab_analysis";
             this.tab_analysis.Size = new System.Drawing.Size(940, 642);
@@ -7494,26 +7626,88 @@
             this.tab_analysis.Text = "Analysis Process";
             this.tab_analysis.UseVisualStyleBackColor = true;
             // 
-            // splitContainer3
+            // tc_AnaProcess
             // 
-            this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.tc_AnaProcess.Controls.Add(this.tab_ana_select);
+            this.tc_AnaProcess.Controls.Add(this.tab_ana_preProcess);
+            this.tc_AnaProcess.Controls.Add(this.tab_ana_process);
+            this.tc_AnaProcess.Controls.Add(this.tab_ana_postProcess);
+            this.tc_AnaProcess.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc_AnaProcess.Location = new System.Drawing.Point(0, 0);
+            this.tc_AnaProcess.Name = "tc_AnaProcess";
+            this.tc_AnaProcess.SelectedIndex = 0;
+            this.tc_AnaProcess.Size = new System.Drawing.Size(940, 642);
+            this.tc_AnaProcess.TabIndex = 98;
+            this.tc_AnaProcess.SelectedIndexChanged += new System.EventHandler(this.tc_AnaProcess_SelectedIndexChanged);
             // 
-            // splitContainer3.Panel1
+            // tab_ana_select
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.groupBox50);
-            this.splitContainer3.Panel1.Controls.Add(this.groupBox51);
-            this.splitContainer3.Panel1.Controls.Add(this.groupBox35);
+            this.tab_ana_select.Controls.Add(this.groupBox19);
+            this.tab_ana_select.Controls.Add(this.groupBox50);
+            this.tab_ana_select.Controls.Add(this.btn_Ana_create_data);
+            this.tab_ana_select.Controls.Add(this.groupBox51);
+            this.tab_ana_select.Location = new System.Drawing.Point(4, 22);
+            this.tab_ana_select.Name = "tab_ana_select";
+            this.tab_ana_select.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_ana_select.Size = new System.Drawing.Size(932, 616);
+            this.tab_ana_select.TabIndex = 0;
+            this.tab_ana_select.Text = "Analysis Data";
+            this.tab_ana_select.UseVisualStyleBackColor = true;
             // 
-            // splitContainer3.Panel2
+            // groupBox19
             // 
-            this.splitContainer3.Panel2.Controls.Add(this.tabControl6);
-            this.splitContainer3.Size = new System.Drawing.Size(940, 642);
-            this.splitContainer3.SplitterDistance = 143;
-            this.splitContainer3.TabIndex = 97;
+            this.groupBox19.Controls.Add(this.label324);
+            this.groupBox19.Controls.Add(this.cmb_long_open_file_analysis);
+            this.groupBox19.Controls.Add(this.btn_view_data_1);
+            this.groupBox19.ForeColor = System.Drawing.Color.Black;
+            this.groupBox19.Location = new System.Drawing.Point(221, 267);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(490, 82);
+            this.groupBox19.TabIndex = 99;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Open Analysis File";
+            // 
+            // label324
+            // 
+            this.label324.AutoSize = true;
+            this.label324.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label324.Location = new System.Drawing.Point(3, 17);
+            this.label324.Name = "label324";
+            this.label324.Size = new System.Drawing.Size(135, 16);
+            this.label324.TabIndex = 101;
+            this.label324.Text = "Select Analysis File";
+            // 
+            // cmb_long_open_file_analysis
+            // 
+            this.cmb_long_open_file_analysis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_long_open_file_analysis.DropDownWidth = 398;
+            this.cmb_long_open_file_analysis.FormattingEnabled = true;
+            this.cmb_long_open_file_analysis.Items.AddRange(new object[] {
+            "Dead Load Analysis",
+            "Live Load Analysis",
+            "LL Analysis Load 1",
+            "LL Analysis Load 2",
+            "LL Analysis Load 3 ",
+            "LL Analysis Load 4 ",
+            "LL Analysis Load 5",
+            "LL Analysis Load 6",
+            "Total Analysis",
+            "Long Girder Analysis Results"});
+            this.cmb_long_open_file_analysis.Location = new System.Drawing.Point(144, 16);
+            this.cmb_long_open_file_analysis.Name = "cmb_long_open_file_analysis";
+            this.cmb_long_open_file_analysis.Size = new System.Drawing.Size(315, 21);
+            this.cmb_long_open_file_analysis.TabIndex = 100;
+            this.cmb_long_open_file_analysis.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
+            // 
+            // btn_view_data_1
+            // 
+            this.btn_view_data_1.Location = new System.Drawing.Point(144, 43);
+            this.btn_view_data_1.Name = "btn_view_data_1";
+            this.btn_view_data_1.Size = new System.Drawing.Size(137, 30);
+            this.btn_view_data_1.TabIndex = 74;
+            this.btn_view_data_1.Text = "View Analysis Data";
+            this.btn_view_data_1.UseVisualStyleBackColor = true;
+            this.btn_view_data_1.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // groupBox50
             // 
@@ -7525,7 +7719,7 @@
             this.groupBox50.Controls.Add(this.chk_esprt_fixed_FY);
             this.groupBox50.Controls.Add(this.chk_esprt_fixed_MX);
             this.groupBox50.Controls.Add(this.chk_esprt_fixed_FX);
-            this.groupBox50.Location = new System.Drawing.Point(593, 67);
+            this.groupBox50.Location = new System.Drawing.Point(297, 103);
             this.groupBox50.Name = "groupBox50";
             this.groupBox50.Size = new System.Drawing.Size(339, 53);
             this.groupBox50.TabIndex = 97;
@@ -7621,6 +7815,16 @@
             this.chk_esprt_fixed_FX.Text = "FX";
             this.chk_esprt_fixed_FX.UseVisualStyleBackColor = true;
             // 
+            // btn_Ana_create_data
+            // 
+            this.btn_Ana_create_data.Location = new System.Drawing.Point(328, 195);
+            this.btn_Ana_create_data.Name = "btn_Ana_create_data";
+            this.btn_Ana_create_data.Size = new System.Drawing.Size(277, 50);
+            this.btn_Ana_create_data.TabIndex = 46;
+            this.btn_Ana_create_data.Text = "Create Analysis Data";
+            this.btn_Ana_create_data.UseVisualStyleBackColor = true;
+            this.btn_Ana_create_data.Click += new System.EventHandler(this.btn_Ana_create_data_Click);
+            // 
             // groupBox51
             // 
             this.groupBox51.Controls.Add(this.rbtn_ssprt_pinned);
@@ -7631,7 +7835,7 @@
             this.groupBox51.Controls.Add(this.chk_ssprt_fixed_FY);
             this.groupBox51.Controls.Add(this.chk_ssprt_fixed_MX);
             this.groupBox51.Controls.Add(this.chk_ssprt_fixed_FX);
-            this.groupBox51.Location = new System.Drawing.Point(593, 6);
+            this.groupBox51.Location = new System.Drawing.Point(297, 22);
             this.groupBox51.Name = "groupBox51";
             this.groupBox51.Size = new System.Drawing.Size(339, 58);
             this.groupBox51.TabIndex = 98;
@@ -7723,44 +7927,228 @@
             this.chk_ssprt_fixed_FX.Text = "FX";
             this.chk_ssprt_fixed_FX.UseVisualStyleBackColor = true;
             // 
+            // tab_ana_preProcess
+            // 
+            this.tab_ana_preProcess.Controls.Add(this.ucPreProcess1);
+            this.tab_ana_preProcess.Controls.Add(this.panel6);
+            this.tab_ana_preProcess.Location = new System.Drawing.Point(4, 22);
+            this.tab_ana_preProcess.Name = "tab_ana_preProcess";
+            this.tab_ana_preProcess.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_ana_preProcess.Size = new System.Drawing.Size(932, 616);
+            this.tab_ana_preProcess.TabIndex = 1;
+            this.tab_ana_preProcess.Text = "Pre Process";
+            this.tab_ana_preProcess.UseVisualStyleBackColor = true;
+            // 
+            // ucPreProcess1
+            // 
+            this.ucPreProcess1.analysis_title = null;
+            this.ucPreProcess1.analysis_type = null;
+            this.ucPreProcess1.Current_LoadCase = null;
+            this.ucPreProcess1.CurrentLoadIndex = 0;
+            this.ucPreProcess1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucPreProcess1.FilePath = null;
+            this.ucPreProcess1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucPreProcess1.INPUT_FILE = null;
+            this.ucPreProcess1.LL_Definition = null;
+            this.ucPreProcess1.LoadCases = null;
+            this.ucPreProcess1.Location = new System.Drawing.Point(3, 47);
+            this.ucPreProcess1.Materials = null;
+            this.ucPreProcess1.MovingLoads = null;
+            this.ucPreProcess1.Name = "ucPreProcess1";
+            this.ucPreProcess1.SeismicLoads = null;
+            this.ucPreProcess1.Size = new System.Drawing.Size(926, 566);
+            this.ucPreProcess1.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label480);
+            this.panel6.Controls.Add(this.cmb_long_open_file);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(926, 44);
+            this.panel6.TabIndex = 2;
+            // 
+            // label480
+            // 
+            this.label480.AutoSize = true;
+            this.label480.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label480.Location = new System.Drawing.Point(8, 14);
+            this.label480.Name = "label480";
+            this.label480.Size = new System.Drawing.Size(135, 16);
+            this.label480.TabIndex = 97;
+            this.label480.Text = "Select Analysis File";
+            // 
+            // cmb_long_open_file
+            // 
+            this.cmb_long_open_file.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_long_open_file.DropDownWidth = 453;
+            this.cmb_long_open_file.FormattingEnabled = true;
+            this.cmb_long_open_file.Items.AddRange(new object[] {
+            "DEAD LOAD ANALYSIS",
+            "TOTAL ANALYSIS",
+            "LIVE LOAD ANALYSIS",
+            "LIVE LOAD ANALYSIS 1  : 1 LANE TYPE 3 MOST ECCENTRIC",
+            "LIVE LOAD ANALYSIS 2  : 1 LANE TYPE 3 ON MEMBER",
+            "LIVE LOAD ANALYSIS 3  : 1 LANE TYPE 3 PLACED CONCENTRICALLY",
+            "LIVE LOAD ANALYSIS 4  : 1 LANE TYPE 1 PLACED MOST ECCENTRICALLY",
+            "LIVE LOAD ANALYSIS 5  : 2 LANE TYPE 1 PLACED MOST ECCENTRICALLY",
+            "LIVE LOAD ANALYSIS 6  : 3 LANE TYPE 1 PLACED MOST CONCENTRICALLY",
+            "LIVE LOAD ANALYSIS 7  : 1 LANE TYPE 1 + 1 LANE TYPE 3",
+            "LIVE LOAD ANALYSIS 8  : 1 LANE TYPE 3 + 1 LANE TYPE 1",
+            "LIVE LOAD ANALYSIS 9  : 1 LANE TYPE 3 + 1 LANE TYPE 1",
+            "LIVE LOAD ANALYSIS 10  : 2 LANE TYPE 1 PLACED AFTER TYPE 2",
+            "LIVE LOAD ANALYSIS 11  : 2 LANE TYPE 2 PLACED MOST ECCENTRICALLY",
+            "LIVE LOAD ANALYSIS 12  : 2 LANE TYPE 2 PLACED AT CENTER OF THE EACH LANE",
+            "LIVE LOAD ANALYSIS 13  : TYPE 2 PLACED AT THE CENTER OF INNER GIRDER",
+            "PSC GIRDER ANALYSIS RESULTS"});
+            this.cmb_long_open_file.Location = new System.Drawing.Point(154, 13);
+            this.cmb_long_open_file.Name = "cmb_long_open_file";
+            this.cmb_long_open_file.Size = new System.Drawing.Size(403, 21);
+            this.cmb_long_open_file.TabIndex = 9;
+            this.cmb_long_open_file.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
+            // 
+            // tab_ana_process
+            // 
+            this.tab_ana_process.Controls.Add(this.splitContainer3);
+            this.tab_ana_process.Location = new System.Drawing.Point(4, 22);
+            this.tab_ana_process.Name = "tab_ana_process";
+            this.tab_ana_process.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_ana_process.Size = new System.Drawing.Size(932, 616);
+            this.tab_ana_process.TabIndex = 2;
+            this.tab_ana_process.Text = "Process";
+            this.tab_ana_process.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox35);
+            this.splitContainer3.Panel1.Controls.Add(this.btn_view_structure);
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox16);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tabControl6);
+            this.splitContainer3.Size = new System.Drawing.Size(926, 610);
+            this.splitContainer3.SplitterDistance = 112;
+            this.splitContainer3.TabIndex = 97;
+            // 
             // groupBox35
             // 
             this.groupBox35.Controls.Add(this.groupBox14);
             this.groupBox35.Controls.Add(this.btn_Ana_process_analysis);
-            this.groupBox35.Controls.Add(this.btn_Ana_create_data);
             this.groupBox35.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox35.ForeColor = System.Drawing.Color.Navy;
             this.groupBox35.Location = new System.Drawing.Point(3, 3);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(584, 129);
+            this.groupBox35.Size = new System.Drawing.Size(882, 94);
             this.groupBox35.TabIndex = 95;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "Analysis";
             // 
             // groupBox14
             // 
+            this.groupBox14.Controls.Add(this.label532);
+            this.groupBox14.Controls.Add(this.cmb_long_open_file_process);
             this.groupBox14.Controls.Add(this.btn_View_Moving_Load);
-            this.groupBox14.Controls.Add(this.groupBox16);
-            this.groupBox14.Controls.Add(this.cmb_long_open_file);
             this.groupBox14.Controls.Add(this.btn_view_report);
             this.groupBox14.Controls.Add(this.btn_view_data);
-            this.groupBox14.Controls.Add(this.btn_view_structure);
-            this.groupBox14.Location = new System.Drawing.Point(163, 12);
+            this.groupBox14.ForeColor = System.Drawing.Color.Black;
+            this.groupBox14.Location = new System.Drawing.Point(282, 11);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(415, 106);
+            this.groupBox14.Size = new System.Drawing.Size(569, 82);
             this.groupBox14.TabIndex = 8;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Open Analysis File";
             // 
+            // label532
+            // 
+            this.label532.AutoSize = true;
+            this.label532.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label532.Location = new System.Drawing.Point(3, 17);
+            this.label532.Name = "label532";
+            this.label532.Size = new System.Drawing.Size(135, 16);
+            this.label532.TabIndex = 101;
+            this.label532.Text = "Select Analysis File";
+            // 
+            // cmb_long_open_file_process
+            // 
+            this.cmb_long_open_file_process.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_long_open_file_process.DropDownWidth = 398;
+            this.cmb_long_open_file_process.FormattingEnabled = true;
+            this.cmb_long_open_file_process.Items.AddRange(new object[] {
+            "Dead Load Analysis",
+            "Live Load Analysis",
+            "LL Analysis Load 1",
+            "LL Analysis Load 2",
+            "LL Analysis Load 3 ",
+            "LL Analysis Load 4 ",
+            "LL Analysis Load 5",
+            "LL Analysis Load 6",
+            "Total Analysis",
+            "Long Girder Analysis Results"});
+            this.cmb_long_open_file_process.Location = new System.Drawing.Point(144, 16);
+            this.cmb_long_open_file_process.Name = "cmb_long_open_file_process";
+            this.cmb_long_open_file_process.Size = new System.Drawing.Size(315, 21);
+            this.cmb_long_open_file_process.TabIndex = 100;
+            this.cmb_long_open_file_process.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
+            // 
             // btn_View_Moving_Load
             // 
-            this.btn_View_Moving_Load.Location = new System.Drawing.Point(208, 72);
+            this.btn_View_Moving_Load.Location = new System.Drawing.Point(322, 43);
             this.btn_View_Moving_Load.Name = "btn_View_Moving_Load";
-            this.btn_View_Moving_Load.Size = new System.Drawing.Size(201, 30);
+            this.btn_View_Moving_Load.Size = new System.Drawing.Size(137, 30);
             this.btn_View_Moving_Load.TabIndex = 78;
-            this.btn_View_Moving_Load.Text = "View Moving Load";
+            this.btn_View_Moving_Load.Text = "Results Summary";
             this.btn_View_Moving_Load.UseVisualStyleBackColor = true;
             this.btn_View_Moving_Load.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // btn_view_report
+            // 
+            this.btn_view_report.Location = new System.Drawing.Point(163, 43);
+            this.btn_view_report.Name = "btn_view_report";
+            this.btn_view_report.Size = new System.Drawing.Size(137, 30);
+            this.btn_view_report.TabIndex = 76;
+            this.btn_view_report.Text = "View Analysis Report";
+            this.btn_view_report.UseVisualStyleBackColor = true;
+            this.btn_view_report.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // btn_view_data
+            // 
+            this.btn_view_data.Location = new System.Drawing.Point(6, 43);
+            this.btn_view_data.Name = "btn_view_data";
+            this.btn_view_data.Size = new System.Drawing.Size(137, 30);
+            this.btn_view_data.TabIndex = 74;
+            this.btn_view_data.Text = "View Analysis Data";
+            this.btn_view_data.UseVisualStyleBackColor = true;
+            this.btn_view_data.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // btn_Ana_process_analysis
+            // 
+            this.btn_Ana_process_analysis.Location = new System.Drawing.Point(35, 38);
+            this.btn_Ana_process_analysis.Name = "btn_Ana_process_analysis";
+            this.btn_Ana_process_analysis.Size = new System.Drawing.Size(177, 46);
+            this.btn_Ana_process_analysis.TabIndex = 75;
+            this.btn_Ana_process_analysis.Text = "Process Analysis";
+            this.btn_Ana_process_analysis.UseVisualStyleBackColor = true;
+            this.btn_Ana_process_analysis.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
+            // 
+            // btn_view_structure
+            // 
+            this.btn_view_structure.Location = new System.Drawing.Point(631, 32);
+            this.btn_view_structure.Name = "btn_view_structure";
+            this.btn_view_structure.Size = new System.Drawing.Size(149, 20);
+            this.btn_view_structure.TabIndex = 74;
+            this.btn_view_structure.Text = "View Structure (GUI)";
+            this.btn_view_structure.UseVisualStyleBackColor = true;
+            this.btn_view_structure.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // groupBox16
             // 
@@ -7769,9 +8157,9 @@
             this.groupBox16.Controls.Add(this.groupBox17);
             this.groupBox16.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox16.ForeColor = System.Drawing.Color.Navy;
-            this.groupBox16.Location = new System.Drawing.Point(405, 72);
+            this.groupBox16.Location = new System.Drawing.Point(806, 48);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(10, 40);
+            this.groupBox16.Size = new System.Drawing.Size(54, 40);
             this.groupBox16.TabIndex = 96;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Read Analysis For";
@@ -7856,86 +8244,6 @@
             this.checkBox4.Text = "M3";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
-            // cmb_long_open_file
-            // 
-            this.cmb_long_open_file.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_long_open_file.DropDownWidth = 453;
-            this.cmb_long_open_file.FormattingEnabled = true;
-            this.cmb_long_open_file.Items.AddRange(new object[] {
-            "DEAD LOAD ANALYSIS",
-            "TOTAL ANALYSIS",
-            "LIVE LOAD ANALYSIS",
-            "LIVE LOAD ANALYSIS 1  : 1 LANE TYPE 3 MOST ECCENTRIC",
-            "LIVE LOAD ANALYSIS 2  : 1 LANE TYPE 3 ON MEMBER",
-            "LIVE LOAD ANALYSIS 3  : 1 LANE TYPE 3 PLACED CONCENTRICALLY",
-            "LIVE LOAD ANALYSIS 4  : 1 LANE TYPE 1 PLACED MOST ECCENTRICALLY",
-            "LIVE LOAD ANALYSIS 5  : 2 LANE TYPE 1 PLACED MOST ECCENTRICALLY",
-            "LIVE LOAD ANALYSIS 6  : 3 LANE TYPE 1 PLACED MOST CONCENTRICALLY",
-            "LIVE LOAD ANALYSIS 7  : 1 LANE TYPE 1 + 1 LANE TYPE 3",
-            "LIVE LOAD ANALYSIS 8  : 1 LANE TYPE 3 + 1 LANE TYPE 1",
-            "LIVE LOAD ANALYSIS 9  : 1 LANE TYPE 3 + 1 LANE TYPE 1",
-            "LIVE LOAD ANALYSIS 10  : 2 LANE TYPE 1 PLACED AFTER TYPE 2",
-            "LIVE LOAD ANALYSIS 11  : 2 LANE TYPE 2 PLACED MOST ECCENTRICALLY",
-            "LIVE LOAD ANALYSIS 12  : 2 LANE TYPE 2 PLACED AT CENTER OF THE EACH LANE",
-            "LIVE LOAD ANALYSIS 13  : TYPE 2 PLACED AT THE CENTER OF INNER GIRDER",
-            "PSC GIRDER ANALYSIS RESULTS"});
-            this.cmb_long_open_file.Location = new System.Drawing.Point(6, 16);
-            this.cmb_long_open_file.Name = "cmb_long_open_file";
-            this.cmb_long_open_file.Size = new System.Drawing.Size(403, 21);
-            this.cmb_long_open_file.TabIndex = 9;
-            this.cmb_long_open_file.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
-            this.cmb_long_open_file.Click += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
-            // 
-            // btn_view_report
-            // 
-            this.btn_view_report.Location = new System.Drawing.Point(6, 72);
-            this.btn_view_report.Name = "btn_view_report";
-            this.btn_view_report.Size = new System.Drawing.Size(196, 30);
-            this.btn_view_report.TabIndex = 76;
-            this.btn_view_report.Text = "View Analysis Report";
-            this.btn_view_report.UseVisualStyleBackColor = true;
-            this.btn_view_report.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
-            // 
-            // btn_view_data
-            // 
-            this.btn_view_data.Location = new System.Drawing.Point(6, 43);
-            this.btn_view_data.Name = "btn_view_data";
-            this.btn_view_data.Size = new System.Drawing.Size(196, 23);
-            this.btn_view_data.TabIndex = 74;
-            this.btn_view_data.Text = "View Analysis Data";
-            this.btn_view_data.UseVisualStyleBackColor = true;
-            this.btn_view_data.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
-            // 
-            // btn_view_structure
-            // 
-            this.btn_view_structure.Location = new System.Drawing.Point(208, 43);
-            this.btn_view_structure.Name = "btn_view_structure";
-            this.btn_view_structure.Size = new System.Drawing.Size(201, 23);
-            this.btn_view_structure.TabIndex = 74;
-            this.btn_view_structure.Text = "View Structure (GUI)";
-            this.btn_view_structure.UseVisualStyleBackColor = true;
-            this.btn_view_structure.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
-            // 
-            // btn_Ana_process_analysis
-            // 
-            this.btn_Ana_process_analysis.Location = new System.Drawing.Point(6, 72);
-            this.btn_Ana_process_analysis.Name = "btn_Ana_process_analysis";
-            this.btn_Ana_process_analysis.Size = new System.Drawing.Size(137, 46);
-            this.btn_Ana_process_analysis.TabIndex = 75;
-            this.btn_Ana_process_analysis.Text = "Process Analysis";
-            this.btn_Ana_process_analysis.UseVisualStyleBackColor = true;
-            this.btn_Ana_process_analysis.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
-            // 
-            // btn_Ana_create_data
-            // 
-            this.btn_Ana_create_data.Location = new System.Drawing.Point(6, 19);
-            this.btn_Ana_create_data.Name = "btn_Ana_create_data";
-            this.btn_Ana_create_data.Size = new System.Drawing.Size(137, 46);
-            this.btn_Ana_create_data.TabIndex = 46;
-            this.btn_Ana_create_data.Text = "Create Analysis Data";
-            this.btn_Ana_create_data.UseVisualStyleBackColor = true;
-            this.btn_Ana_create_data.Click += new System.EventHandler(this.btn_Ana_create_data_Click);
-            // 
             // tabControl6
             // 
             this.tabControl6.Controls.Add(this.tabPage7);
@@ -7947,7 +8255,7 @@
             this.tabControl6.Location = new System.Drawing.Point(0, 0);
             this.tabControl6.Name = "tabControl6";
             this.tabControl6.SelectedIndex = 0;
-            this.tabControl6.Size = new System.Drawing.Size(936, 491);
+            this.tabControl6.Size = new System.Drawing.Size(922, 490);
             this.tabControl6.TabIndex = 0;
             // 
             // tabPage7
@@ -7957,7 +8265,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(928, 465);
+            this.tabPage7.Size = new System.Drawing.Size(914, 464);
             this.tabPage7.TabIndex = 0;
             this.tabPage7.Text = "Analysis Results";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -7970,7 +8278,7 @@
             this.groupBox18.ForeColor = System.Drawing.Color.Red;
             this.groupBox18.Location = new System.Drawing.Point(3, 56);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(922, 406);
+            this.groupBox18.Size = new System.Drawing.Size(908, 405);
             this.groupBox18.TabIndex = 94;
             this.groupBox18.TabStop = false;
             // 
@@ -7980,7 +8288,7 @@
             this.rtb_live_load_results.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtb_live_load_results.Location = new System.Drawing.Point(3, 17);
             this.rtb_live_load_results.Name = "rtb_live_load_results";
-            this.rtb_live_load_results.Size = new System.Drawing.Size(916, 386);
+            this.rtb_live_load_results.Size = new System.Drawing.Size(902, 385);
             this.rtb_live_load_results.TabIndex = 1;
             this.rtb_live_load_results.Text = "";
             // 
@@ -7994,7 +8302,7 @@
             this.panel8.ForeColor = System.Drawing.Color.Black;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(922, 53);
+            this.panel8.Size = new System.Drawing.Size(908, 53);
             this.panel8.TabIndex = 127;
             // 
             // btn_update_forces
@@ -8050,7 +8358,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(928, 465);
+            this.tabPage8.Size = new System.Drawing.Size(914, 464);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Support Reactions [DL]";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -8071,7 +8379,7 @@
             this.groupBox43.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox43.Location = new System.Drawing.Point(3, 3);
             this.groupBox43.Name = "groupBox43";
-            this.groupBox43.Size = new System.Drawing.Size(922, 459);
+            this.groupBox43.Size = new System.Drawing.Size(908, 458);
             this.groupBox43.TabIndex = 29;
             this.groupBox43.TabStop = false;
             // 
@@ -8817,7 +9125,7 @@
             this.tabPage11.Controls.Add(this.groupBox64);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(928, 465);
+            this.tabPage11.Size = new System.Drawing.Size(914, 464);
             this.tabPage11.TabIndex = 3;
             this.tabPage11.Text = "Support Reactions [SIDL]";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -9277,6 +9585,45 @@
             this.groupBox58.TabStop = false;
             this.groupBox58.Text = "Right End Design Forces";
             // 
+            // txt_sidl_right_max_total_Mz
+            // 
+            this.txt_sidl_right_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_Mz.Location = new System.Drawing.Point(363, 176);
+            this.txt_sidl_right_max_total_Mz.Name = "txt_sidl_right_max_total_Mz";
+            this.txt_sidl_right_max_total_Mz.ReadOnly = true;
+            this.txt_sidl_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_Mz.TabIndex = 57;
+            this.txt_sidl_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_sidl_right_max_total_Mx
+            // 
+            this.txt_sidl_right_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_Mx.Location = new System.Drawing.Point(259, 176);
+            this.txt_sidl_right_max_total_Mx.Name = "txt_sidl_right_max_total_Mx";
+            this.txt_sidl_right_max_total_Mx.ReadOnly = true;
+            this.txt_sidl_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_Mx.TabIndex = 56;
+            this.txt_sidl_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label552
+            // 
+            this.label552.AutoSize = true;
+            this.label552.Location = new System.Drawing.Point(21, 179);
+            this.label552.Name = "label552";
+            this.label552.Size = new System.Drawing.Size(119, 13);
+            this.label552.TabIndex = 55;
+            this.label552.Text = "Maximum Forces";
+            // 
+            // txt_sidl_right_max_total_vert_reac
+            // 
+            this.txt_sidl_right_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
+            this.txt_sidl_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 176);
+            this.txt_sidl_right_max_total_vert_reac.Name = "txt_sidl_right_max_total_vert_reac";
+            this.txt_sidl_right_max_total_vert_reac.ReadOnly = true;
+            this.txt_sidl_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
+            this.txt_sidl_right_max_total_vert_reac.TabIndex = 54;
+            this.txt_sidl_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // dgv_sidl_right_des_frc
             // 
             this.dgv_sidl_right_des_frc.AllowUserToResizeColumns = false;
@@ -9522,7 +9869,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(928, 465);
+            this.tabPage9.Size = new System.Drawing.Size(914, 464);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Support Reactions [LL]";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -10830,7 +11177,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(928, 465);
+            this.tabPage5.Size = new System.Drawing.Size(914, 464);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Maximum Forces";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -11391,6 +11738,72 @@
             this.label1108.Size = new System.Drawing.Size(31, 13);
             this.label1108.TabIndex = 14;
             this.label1108.Text = "Ton";
+            // 
+            // tab_ana_postProcess
+            // 
+            this.tab_ana_postProcess.Controls.Add(this.ucPostProcess1);
+            this.tab_ana_postProcess.Controls.Add(this.panel7);
+            this.tab_ana_postProcess.Location = new System.Drawing.Point(4, 22);
+            this.tab_ana_postProcess.Name = "tab_ana_postProcess";
+            this.tab_ana_postProcess.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_ana_postProcess.Size = new System.Drawing.Size(932, 616);
+            this.tab_ana_postProcess.TabIndex = 3;
+            this.tab_ana_postProcess.Text = "Post Process";
+            this.tab_ana_postProcess.UseVisualStyleBackColor = true;
+            // 
+            // ucPostProcess1
+            // 
+            this.ucPostProcess1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucPostProcess1.File_Name = "";
+            this.ucPostProcess1.FilePath = null;
+            this.ucPostProcess1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucPostProcess1.INPUT_FILE = null;
+            this.ucPostProcess1.Location = new System.Drawing.Point(3, 51);
+            this.ucPostProcess1.Name = "ucPostProcess1";
+            this.ucPostProcess1.Size = new System.Drawing.Size(926, 562);
+            this.ucPostProcess1.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label481);
+            this.panel7.Controls.Add(this.cmb_long_open_file_post_process);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(926, 48);
+            this.panel7.TabIndex = 3;
+            // 
+            // label481
+            // 
+            this.label481.AutoSize = true;
+            this.label481.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label481.Location = new System.Drawing.Point(6, 16);
+            this.label481.Name = "label481";
+            this.label481.Size = new System.Drawing.Size(135, 16);
+            this.label481.TabIndex = 97;
+            this.label481.Text = "Select Analysis File";
+            // 
+            // cmb_long_open_file_post_process
+            // 
+            this.cmb_long_open_file_post_process.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_long_open_file_post_process.DropDownWidth = 398;
+            this.cmb_long_open_file_post_process.FormattingEnabled = true;
+            this.cmb_long_open_file_post_process.Items.AddRange(new object[] {
+            "Dead Load Analysis",
+            "Live Load Analysis",
+            "LL Analysis Load 1",
+            "LL Analysis Load 2",
+            "LL Analysis Load 3 ",
+            "LL Analysis Load 4 ",
+            "LL Analysis Load 5",
+            "LL Analysis Load 6",
+            "Total Analysis",
+            "Long Girder Analysis Results"});
+            this.cmb_long_open_file_post_process.Location = new System.Drawing.Point(147, 15);
+            this.cmb_long_open_file_post_process.Name = "cmb_long_open_file_post_process";
+            this.cmb_long_open_file_post_process.Size = new System.Drawing.Size(455, 21);
+            this.cmb_long_open_file_post_process.TabIndex = 9;
+            this.cmb_long_open_file_post_process.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
             // 
             // tab_psc_girder
             // 
@@ -12633,7 +13046,7 @@
             this.uC_Deckslab_BS1.thickness_surfacing = 150D;
             this.uC_Deckslab_BS1.unitwt_concrete = 24D;
             this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
-            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
+            this.uC_Deckslab_BS1.user_path = "";
             this.uC_Deckslab_BS1.V = 0D;
             this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
             this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
@@ -17084,55 +17497,36 @@
             this.btn_dwg_open.UseVisualStyleBackColor = true;
             this.btn_dwg_open.Click += new System.EventHandler(this.btn_dwg_open_Click);
             // 
-            // txt_sidl_right_max_total_Mz
+            // label1177
             // 
-            this.txt_sidl_right_max_total_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_right_max_total_Mz.Location = new System.Drawing.Point(363, 176);
-            this.txt_sidl_right_max_total_Mz.Name = "txt_sidl_right_max_total_Mz";
-            this.txt_sidl_right_max_total_Mz.ReadOnly = true;
-            this.txt_sidl_right_max_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_right_max_total_Mz.TabIndex = 57;
-            this.txt_sidl_right_max_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label1177.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1177.ForeColor = System.Drawing.Color.Red;
+            this.label1177.Location = new System.Drawing.Point(7, 601);
+            this.label1177.Name = "label1177";
+            this.label1177.Size = new System.Drawing.Size(614, 27);
+            this.label1177.TabIndex = 108;
+            this.label1177.Text = resources.GetString("label1177.Text");
             // 
-            // txt_sidl_right_max_total_Mx
+            // label472
             // 
-            this.txt_sidl_right_max_total_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_right_max_total_Mx.Location = new System.Drawing.Point(259, 176);
-            this.txt_sidl_right_max_total_Mx.Name = "txt_sidl_right_max_total_Mx";
-            this.txt_sidl_right_max_total_Mx.ReadOnly = true;
-            this.txt_sidl_right_max_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_right_max_total_Mx.TabIndex = 56;
-            this.txt_sidl_right_max_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label472.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label472.ForeColor = System.Drawing.Color.Red;
+            this.label472.Location = new System.Drawing.Point(14, 612);
+            this.label472.Name = "label472";
+            this.label472.Size = new System.Drawing.Size(614, 27);
+            this.label472.TabIndex = 108;
+            this.label472.Text = resources.GetString("label472.Text");
             // 
-            // label552
-            // 
-            this.label552.AutoSize = true;
-            this.label552.Location = new System.Drawing.Point(21, 179);
-            this.label552.Name = "label552";
-            this.label552.Size = new System.Drawing.Size(119, 13);
-            this.label552.TabIndex = 55;
-            this.label552.Text = "Maximum Forces";
-            // 
-            // txt_sidl_right_max_total_vert_reac
-            // 
-            this.txt_sidl_right_max_total_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_sidl_right_max_total_vert_reac.Location = new System.Drawing.Point(146, 176);
-            this.txt_sidl_right_max_total_vert_reac.Name = "txt_sidl_right_max_total_vert_reac";
-            this.txt_sidl_right_max_total_vert_reac.ReadOnly = true;
-            this.txt_sidl_right_max_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_sidl_right_max_total_vert_reac.TabIndex = 54;
-            this.txt_sidl_right_max_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // frm_PSC_I_Girder_LS
+            // frm_PSC_I_Girder_LS_New
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(962, 700);
             this.Controls.Add(this.tc_limit_design);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frm_PSC_I_Girder_LS";
+            this.Name = "frm_PSC_I_Girder_LS_New";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_PSC_I_Girder_LS";
+            this.Text = "frm_PSC_I_Girder_LS_New";
             this.Load += new System.EventHandler(this.frm_RCC_T_Girder_LS_Load);
             this.tc_limit_design.ResumeLayout(false);
             this.tab_analysis_deck.ResumeLayout(false);
@@ -17211,14 +17605,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_long_liveloads)).EndInit();
             this.tab_mov_data_British.ResumeLayout(false);
             this.groupBox60.ResumeLayout(false);
+            this.groupBox60.PerformLayout();
             this.sp_hb.Panel1.ResumeLayout(false);
             this.sp_hb.Panel2.ResumeLayout(false);
             this.sp_hb.ResumeLayout(false);
-            this.groupBox62.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).EndInit();
             this.groupBox61.ResumeLayout(false);
+            this.groupBox61.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_british_loads)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.groupBox62.ResumeLayout(false);
+            this.groupBox62.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).EndInit();
             this.groupBox63.ResumeLayout(false);
             this.groupBox63.PerformLayout();
             this.groupBox66.ResumeLayout(false);
@@ -17232,15 +17629,24 @@
             this.grb_hb_aply.ResumeLayout(false);
             this.grb_hb_aply.PerformLayout();
             this.tab_analysis.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.ResumeLayout(false);
+            this.tc_AnaProcess.ResumeLayout(false);
+            this.tab_ana_select.ResumeLayout(false);
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
             this.groupBox50.ResumeLayout(false);
             this.groupBox50.PerformLayout();
             this.groupBox51.ResumeLayout(false);
             this.groupBox51.PerformLayout();
+            this.tab_ana_preProcess.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.tab_ana_process.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.ResumeLayout(false);
             this.groupBox35.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox26.ResumeLayout(false);
             this.groupBox26.PerformLayout();
@@ -17341,6 +17747,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).EndInit();
             this.groupBox129.ResumeLayout(false);
             this.groupBox129.PerformLayout();
+            this.tab_ana_postProcess.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.tab_psc_girder.ResumeLayout(false);
             this.tab_psc_girder.PerformLayout();
             this.groupBox52.ResumeLayout(false);
@@ -18462,10 +18871,8 @@
         private System.Windows.Forms.RadioButton rbtn_HA_HB;
         private System.Windows.Forms.TextBox txt_LL_lf;
         private System.Windows.Forms.TextBox txt_LL_impf;
-        private System.Windows.Forms.Label label711;
         private System.Windows.Forms.TextBox txt_no_lanes;
         private System.Windows.Forms.TextBox txt_ll_british_lgen;
-        private System.Windows.Forms.Label label714;
         private System.Windows.Forms.GroupBox grb_ha;
         private System.Windows.Forms.GroupBox grb_ha_aply;
         private System.Windows.Forms.CheckBox chk_HA_7L;
@@ -18535,11 +18942,11 @@
         private System.Windows.Forms.TextBox txt_project_name;
         private System.Windows.Forms.Label label232;
         private System.Windows.Forms.GroupBox groupBox12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_Ana_hp;
         private System.Windows.Forms.Label label233;
         private System.Windows.Forms.Label label238;
         private System.Windows.Forms.Label label239;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_Ana_wp;
         private System.Windows.Forms.Label label240;
         private System.Windows.Forms.CheckBox chk_cb_right;
         private System.Windows.Forms.CheckBox chk_crash_barrier;
@@ -18823,8 +19230,35 @@
         private System.Windows.Forms.TextBox txt_sidl_right_max_total_Mx;
         private System.Windows.Forms.Label label552;
         private System.Windows.Forms.TextBox txt_sidl_right_max_total_vert_reac;
-
+        private System.Windows.Forms.TabControl tc_AnaProcess;
+        private System.Windows.Forms.TabPage tab_ana_select;
+        private System.Windows.Forms.TabPage tab_ana_preProcess;
+        private ASTRAStructures.UCPreProcess ucPreProcess1;
+        private System.Windows.Forms.TabPage tab_ana_process;
+        private System.Windows.Forms.TabPage tab_ana_postProcess;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label480;
+        private System.Windows.Forms.Label label532;
+        private System.Windows.Forms.ComboBox cmb_long_open_file_process;
+        private ASTRAStructures.UCPostProcess ucPostProcess1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label481;
+        private System.Windows.Forms.ComboBox cmb_long_open_file_post_process;
+        private System.Windows.Forms.Label label295;
+        private System.Windows.Forms.Label label556;
+        private System.Windows.Forms.Label label555;
+        private System.Windows.Forms.Label label296;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.Label label324;
+        private System.Windows.Forms.ComboBox cmb_long_open_file_analysis;
+        private System.Windows.Forms.Button btn_view_data_1;
+        private System.Windows.Forms.Label label443;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Button btn_edit_load_combs_BS;
+        private System.Windows.Forms.Button btn_long_restore_ll_BS;
+        private System.Windows.Forms.Label label444;
+        private System.Windows.Forms.Label label471;
+        private System.Windows.Forms.Label label1177;
+        private System.Windows.Forms.Label label472;
     }
-
-
 }

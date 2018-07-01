@@ -905,7 +905,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         }
         private void Calculate_Program()
         {
-            string file_path = Path.Combine(user_path, "ANALYSIS_REP.TXT");
+            string file_path = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "ANALYSIS_REP.TXT");
             //Truss_Analysis = new SteelTrussAnalysis(file_path, pbar);
 
 
@@ -914,11 +914,11 @@ namespace BridgeAnalysisDesign.SteelTruss
 
             //string file_name = Path.Combine(user_path, "MembersDesign.txt");
             rep_file_name = Truss_Analysis.Analysis.Length.ToString("0") + "m Bridge " + ((cmb_design_member.Text.ToUpper() == "ALL") ? "Complete" : cmb_design_member.Text.Replace("Member", "")) + " Member Design Report.TXT";
-            rep_file_name = Path.Combine(user_path, rep_file_name);
+            rep_file_name = Path.Combine(user_path, "Design of Steel Members\\" +  rep_file_name);
 
 
 
-            rep_file_name = Path.Combine(user_path, "DESIGN_REP.TXT");
+            rep_file_name = Path.Combine(user_path, "Design of Truss Bridge Members\\DESIGN_REPORTS.TXT");
             if (File.Exists(rep_file_name))
             {
                 if (MessageBox.Show(rep_file_name + " report file is already exist. Do you want to Overwrite this file?", "ASTRA", MessageBoxButtons.YesNo) == DialogResult.No)
@@ -927,6 +927,8 @@ namespace BridgeAnalysisDesign.SteelTruss
                 }
             }
 
+            if (!Directory.Exists(Path.GetDirectoryName(rep_file_name)))
+                Directory.CreateDirectory(Path.GetDirectoryName(rep_file_name));
 
 
             StreamWriter sw = new StreamWriter(new FileStream(rep_file_name, FileMode.Create));
@@ -967,7 +969,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 sw.WriteLine("Steel Yield Stress [Fy] = {0} N/sq.mm", txt_gd_fy.Text);
                 sw.WriteLine("Length of Span [l] = {0} kN/m", txt_L.Text);
                 sw.WriteLine("Steel Yield Stress [Fy] = {0} kN/m", txt_gd_fy.Text);
-                sw.WriteLine("Permissible stress in Axial comppression [fc] = {0} N/sq.mm", txt_fc.Text);
+                sw.WriteLine("Permissible stress in Axial compression [fc] = {0} N/sq.mm", txt_fc.Text);
                 sw.WriteLine("Permissible Tensile stress [ft] = {0} N/sq.mm", txt_gd_ft.Text);
                 sw.WriteLine("Permissible Bending stress in steel [σ_b] = {0} N/sq.mm", txt_sigma_b.Text);
                 sw.WriteLine("Permissible shear stress in steel [σ_c] = {0} N/sq.mm", txt_sigma_c.Text);
@@ -1014,7 +1016,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
 
 
-                string file_load_def = Path.Combine(Analysis_Path, "MAX_LOAD_DEFLECTION.TXT");
+                string file_load_def = Path.Combine(Analysis_Path, "PROCESS\\MAX_LOAD_DEFLECTION.TXT");
                 //File.WriteAllLines(file_load_def, list_node.ToArray());
 
                 if (File.Exists(file_load_def))
@@ -1160,9 +1162,9 @@ namespace BridgeAnalysisDesign.SteelTruss
                 Complete_Design.WriteForces_Capacity_Summery(sw);
                 Complete_Design.WriteGroupSummery(sw);
                 string file_ds_frc = "";
-                file_ds_frc = Path.Combine(user_path, "DESIGN_SECTION_SUMMARY.TXT");
+                file_ds_frc = Path.Combine(user_path, "PROCESS\\DESIGN_SECTION_SUMMARY.TXT");
                 Complete_Design.WriteGroupSummery(file_ds_frc);
-                file_ds_frc = Path.Combine(user_path, "DESIGN_FORCES_SUMMARY.TXT");
+                file_ds_frc = Path.Combine(user_path, "PROCESS\\DESIGN_FORCES_SUMMARY.TXT");
 
 
 
@@ -1265,15 +1267,16 @@ namespace BridgeAnalysisDesign.SteelTruss
         {
             set
             {
-                user_path = value;
+                //user_path = value;
+                file_path = value;
                 //if (!File.Exists(Path.Combine(user_path, "ANALYSIS_REP.TXT")))
                 //{
                 //    MessageBox.Show(this, "ANALYSIS_REP.TXT   file not found!", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //    return;
                 //}
-                this.Text = "DESIGN OF STEEL TRUSS MEMBERS : " + MyList.Get_Modified_Path(value);
+                this.Text = "DESIGN OF STEEL TRUSS MEMBERS : " + MyList.Get_Modified_Path(user_path);
 
-                file_path = user_path;
+                //file_path = user_path;
                 //file_path = GetAstraDirectoryPath(user_path);
 
                 if (!Directory.Exists(file_path))
@@ -1286,7 +1289,8 @@ namespace BridgeAnalysisDesign.SteelTruss
                     Directory.CreateDirectory(system_path);
 
                 //rep_file_name = Path.Combine(file_path, "Bridge_Steel_Truss_Complete_Deign.TXT");
-                rep_file_name = Path.Combine(file_path, "DESIGN_REP.TXT");
+                rep_file_name = Path.Combine(user_path, "Process\\DESIGN_REPORTS.TXT");
+
                 user_input_file = Path.Combine(system_path, "Steel Truss Complete Deign Bridge.FIL");
                 user_drawing_file = Path.Combine(system_path, "STEEL_TRUSS_OPEN_WEB_GIRDER_COMPLETE_DEIGN.FIL");
 
@@ -1313,21 +1317,21 @@ namespace BridgeAnalysisDesign.SteelTruss
                 {
                     if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_1)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 1 [BS]";
+                        return "STEEL TRUSS BRIDGE WARREN 1 [BS]";
 
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_2)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 2 [BS]";
+                        return "STEEL TRUSS BRIDGE WARREN 2 [BS]";
 
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_3)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 3 [BS]";
+                        return "STEEL TRUSS BRIDGE WARREN 3 [BS]";
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_K_Type)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE K TYPE [BS]";
+                        return "STEEL TRUSS BRIDGE K TYPE [BS]";
                     }
 
                     //if (IsWarren2)
@@ -1339,21 +1343,21 @@ namespace BridgeAnalysisDesign.SteelTruss
                 {
                     if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_1)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 1 [LRFD]";
+                        return "STEEL TRUSS BRIDGE WARREN 1 [LRFD]";
 
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_2)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 2 [LRFD]";
+                        return "STEEL TRUSS BRIDGE WARREN 2 [LRFD]";
 
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_3)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 3 [LRFD]";
+                        return "STEEL TRUSS BRIDGE WARREN 3 [LRFD]";
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_K_Type)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE K TYPE [LRFD]";
+                        return "STEEL TRUSS BRIDGE K TYPE [LRFD]";
                     }
 
                     //if (IsWarren2)
@@ -1365,21 +1369,21 @@ namespace BridgeAnalysisDesign.SteelTruss
                 {
                     if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_1)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 1 [IRC]";
+                        return "STEEL TRUSS BRIDGE WARREN 1 [IRC]";
 
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_2)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 2 [IRC]";
+                        return "STEEL TRUSS BRIDGE WARREN 2 [IRC]";
 
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_3)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE WARREN 3 [IRC]";
+                        return "STEEL TRUSS BRIDGE WARREN 3 [IRC]";
                     }
                     else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_K_Type)
                     {
-                        return "DESIGN OF STEEL TRUSS BRIDGE K TYPE [IRC]";
+                        return "STEEL TRUSS BRIDGE K TYPE [IRC]";
                     }
 
                     //if (IsWarren2)
@@ -4306,13 +4310,12 @@ namespace BridgeAnalysisDesign.SteelTruss
         public void OpenAnalysisFile(string file_name)
         {
             string analysis_file = file_name;
-
             if (File.Exists(analysis_file))
             {
                 btn_View_Structure.Enabled = true;
 
                 FilePath = Path.GetDirectoryName(file_name);
-                string rep_file = Path.Combine(user_path, "ANALYSIS_REP.TXT");
+                string rep_file = Path.Combine(file_path, "ANALYSIS_REP.TXT");
                 if (File.Exists(rep_file) && !isCreateData)
                 {
 
@@ -4373,7 +4376,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
                 //Len
 
-                string kFile = Path.Combine(user_path, "MEMBER_LOAD_DATA.txt");
+                string kFile = Path.Combine(Path.GetDirectoryName(file_name), "MEMBER_LOAD_DATA.txt");
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard && Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_1 && isCreateData)
                 {
                     if (Truss_Analysis.Analysis.Length == 60.0 ||
@@ -4570,7 +4573,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             Format_SIDL();
             FillResultGridWithColor();
             Button_Enable_Disable();
-            string ll_txt = Path.Combine(user_path, "LL.txt");
+            string ll_txt = Path.Combine(file_path, "LL.txt");
 
             Live_Load_List = LoadData.GetLiveLoads(ll_txt);
 
@@ -4674,8 +4677,10 @@ namespace BridgeAnalysisDesign.SteelTruss
                                                 File.Exists(MyList.Get_Analysis_Report_File(Truss_Analysis.Analysis_File));
 
                 btn_input_open.Enabled = File.Exists(Truss_Analysis.Analysis_File);
-                btn_open_analysis.Enabled = File.Exists(Path.Combine(user_path, "ANALYSIS_REP.TXT"));
-                btn_open_member_load.Enabled = File.Exists(Path.Combine(user_path, "MEMBER_LOAD_DATA.txt"));
+
+
+                btn_open_analysis.Enabled = File.Exists(MyList.Get_Analysis_Report_File(INPUT_FILE));
+                btn_open_member_load.Enabled = File.Exists(Path.Combine(Path.GetDirectoryName(INPUT_FILE), "MEMBER_LOAD_DATA.txt"));
 
 
 
@@ -10633,6 +10638,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         }
         private void btnReport_Click(object sender, EventArgs e)
         {
+            rep_file_name = Path.Combine(user_path, "Design of Truss Bridge Members\\DESIGN_REPORTS.TXT");
             if (File.Exists(rep_file_name))
                 iApp.View_Result(rep_file_name);
         }
@@ -11972,8 +11978,9 @@ namespace BridgeAnalysisDesign.SteelTruss
 
         private void Open_Project()
         {
-            string file_name =  Path.Combine(user_path, "INPUT_DATA.TXT");
+            string file_name =  Path.Combine(user_path, "ANALYSIS PROCESS\\INPUT_DATA.TXT");
 
+            INPUT_FILE = file_name;
             //IsWarren2
             isCreateData = false;
             //Read_All_Data();
@@ -12024,9 +12031,11 @@ namespace BridgeAnalysisDesign.SteelTruss
         public void Run_Process()
         {
 
-            iApp.Delete_Temporary_Files(user_path);
 
             string flPath = txt_analysis_file.Text;
+
+            iApp.Delete_Temporary_Files(Path.GetDirectoryName(flPath));
+
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(flPath), "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
             File.WriteAllText(Path.Combine(iApp.AppFolder, "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
             //System.Environment.SetEnvironmentVariable("SURVEY", flPath);
@@ -12071,7 +12080,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             Thread thd = new Thread(new ThreadStart(Run_Process));
             thd.Start();
             thd.Join();
-            string load_file = Path.Combine(Path.GetDirectoryName(flPath), "MEMBER_LOAD_DATA.txt");
+            string load_file = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "MEMBER_LOAD_DATA.txt");
 
             if (!File.Exists(load_file))
             {
@@ -12083,7 +12092,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             }
 
 
-            string ana_rep_file = Path.Combine(user_path, "ANALYSIS_REP.TXT");
+            string ana_rep_file = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "ANALYSIS_REP.TXT");
             if (File.Exists(ana_rep_file))
             {
 
@@ -12136,7 +12145,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                         }
                     }
 
-                    string file_load_def = Path.Combine(Analysis_Path, "MAX_LOAD_DEFLECTION.TXT");
+                    string file_load_def = Path.Combine(Analysis_Path, "PROCESS\\MAX_LOAD_DEFLECTION.TXT");
                     File.WriteAllLines(file_load_def, list_node.ToArray());
                     txt_node_displace.Lines = list_node.ToArray();
                 }
@@ -12160,7 +12169,8 @@ namespace BridgeAnalysisDesign.SteelTruss
                 FillMemberGroup();
             }
 
-            string kFile = Path.Combine(system_path, "MEMBER_LOAD_DATA.txt");
+            //string kFile = Path.Combine(system_path, "MEMBER_LOAD_DATA.txt");
+            string kFile = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "MEMBER_LOAD_DATA.txt");
             if (File.Exists(kFile))
             {
                 //angle thickness not comming
@@ -12277,7 +12287,8 @@ namespace BridgeAnalysisDesign.SteelTruss
                 return;
             }
 
-            string load_file = Path.Combine(Path.GetDirectoryName(file_name), "MEMBER_LOAD_DATA.txt");
+            //string load_file = Path.Combine(Path.GetDirectoryName(file_name), "MEMBER_LOAD_DATA.txt");
+            string load_file = Path.Combine(file_path, "MEMBER_LOAD_DATA.txt");
 
             if (!SaveMemberLoads(load_file)) return;
 
@@ -12469,7 +12480,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         }
         private void btn_open_analysis_file_Click(object sender, EventArgs e)
         {
-            string kFile = Path.Combine(user_path, "ANALYSIS_REP.TXT");
+            string kFile = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "ANALYSIS_REP.TXT");
             
             if (File.Exists(kFile))
                 System.Diagnostics.Process.Start(kFile); ;
@@ -12477,7 +12488,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         }
         private void btn_open_member_load_Click(object sender, EventArgs e)
         {
-            string kFile = Path.Combine(user_path, "MEMBER_LOAD_DATA.txt");
+            string kFile = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "MEMBER_LOAD_DATA.txt");
             if (File.Exists(kFile))
                 iApp.View_Result(kFile, true);
             //System.Diagnostics.Process.Start(kFile);
@@ -12692,7 +12703,10 @@ namespace BridgeAnalysisDesign.SteelTruss
             }
             catch (Exception ex) { }
 
-            string input_file = Path.Combine(user_path, "INPUT_DATA.TXT");
+
+
+
+            string input_file = Path.Combine(user_path, "ANALYSIS PROCESS\\INPUT_DATA.TXT");
 
             //using (SaveFileDialog sfd = new SaveFileDialog())
             //{
@@ -12703,7 +12717,10 @@ namespace BridgeAnalysisDesign.SteelTruss
             //        FilePath = Path.GetDirectoryName(sfd.FileName);
             //    }
             //}
+            //FilePath = Path.GetDirectoryName(input_file);
             FilePath = Path.GetDirectoryName(input_file);
+
+
             INPUT_FILE = input_file;
 
             //if (IsWarren2 == false)

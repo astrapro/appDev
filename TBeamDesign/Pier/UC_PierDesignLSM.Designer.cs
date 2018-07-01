@@ -36,8 +36,38 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnl_buttons = new System.Windows.Forms.Panel();
             this.btn_abutment_open = new System.Windows.Forms.Button();
+            this.btn_abutment_open_report = new System.Windows.Forms.Button();
             this.btn_Pier_Process = new System.Windows.Forms.Button();
             this.pnl_main = new System.Windows.Forms.Panel();
+            this.pnl_5 = new System.Windows.Forms.Panel();
+            this.lbl_note = new System.Windows.Forms.Label();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.txt_SI_H52 = new System.Windows.Forms.TextBox();
+            this.txt_SI_H51 = new System.Windows.Forms.TextBox();
+            this.txt_SI_J52 = new System.Windows.Forms.TextBox();
+            this.txt_SUP_G132 = new System.Windows.Forms.TextBox();
+            this.txt_SI_J51 = new System.Windows.Forms.TextBox();
+            this.txt_SI_J50 = new System.Windows.Forms.TextBox();
+            this.txt_SI_H50 = new System.Windows.Forms.TextBox();
+            this.lbl_5 = new System.Windows.Forms.Label();
             this.pnl_6 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_bs_ll_2 = new System.Windows.Forms.DataGridView();
@@ -68,35 +98,6 @@
             this.cmb_bs_ll_2 = new System.Windows.Forms.ComboBox();
             this.cmb_bs_ll_1 = new System.Windows.Forms.ComboBox();
             this.lbl_6 = new System.Windows.Forms.Label();
-            this.pnl_5 = new System.Windows.Forms.Panel();
-            this.lbl_note = new System.Windows.Forms.Label();
-            this.label95 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.txt_SI_H52 = new System.Windows.Forms.TextBox();
-            this.txt_SI_H51 = new System.Windows.Forms.TextBox();
-            this.txt_SI_J52 = new System.Windows.Forms.TextBox();
-            this.txt_SUP_G132 = new System.Windows.Forms.TextBox();
-            this.txt_SI_J51 = new System.Windows.Forms.TextBox();
-            this.txt_SI_J50 = new System.Windows.Forms.TextBox();
-            this.txt_SI_H50 = new System.Windows.Forms.TextBox();
-            this.lbl_5 = new System.Windows.Forms.Label();
             this.pnl_4 = new System.Windows.Forms.Panel();
             this.label67 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
@@ -217,11 +218,11 @@
             this.lbl_1 = new System.Windows.Forms.Label();
             this.pnl_buttons.SuspendLayout();
             this.pnl_main.SuspendLayout();
+            this.pnl_5.SuspendLayout();
             this.pnl_6.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_1)).BeginInit();
-            this.pnl_5.SuspendLayout();
             this.pnl_4.SuspendLayout();
             this.pnl_3.SuspendLayout();
             this.pnl_2.SuspendLayout();
@@ -255,33 +256,46 @@
             // 
             // pnl_buttons
             // 
+            this.pnl_buttons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_buttons.Controls.Add(this.btn_abutment_open);
+            this.pnl_buttons.Controls.Add(this.btn_abutment_open_report);
             this.pnl_buttons.Controls.Add(this.btn_Pier_Process);
             this.pnl_buttons.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_buttons.Location = new System.Drawing.Point(0, 435);
+            this.pnl_buttons.Location = new System.Drawing.Point(0, 377);
             this.pnl_buttons.Name = "pnl_buttons";
-            this.pnl_buttons.Size = new System.Drawing.Size(721, 57);
+            this.pnl_buttons.Size = new System.Drawing.Size(721, 115);
             this.pnl_buttons.TabIndex = 60;
             // 
             // btn_abutment_open
             // 
             this.btn_abutment_open.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_abutment_open.Location = new System.Drawing.Point(363, 11);
+            this.btn_abutment_open.Location = new System.Drawing.Point(180, 79);
             this.btn_abutment_open.Name = "btn_abutment_open";
-            this.btn_abutment_open.Size = new System.Drawing.Size(185, 34);
+            this.btn_abutment_open.Size = new System.Drawing.Size(359, 29);
             this.btn_abutment_open.TabIndex = 5;
-            this.btn_abutment_open.Text = "Open Design";
+            this.btn_abutment_open.Text = "Open User\'s Design by selecting User\'s Given file name";
             this.btn_abutment_open.UseVisualStyleBackColor = true;
             this.btn_abutment_open.Click += new System.EventHandler(this.btn_open_Click);
+            // 
+            // btn_abutment_open_report
+            // 
+            this.btn_abutment_open_report.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_abutment_open_report.Location = new System.Drawing.Point(180, 47);
+            this.btn_abutment_open_report.Name = "btn_abutment_open_report";
+            this.btn_abutment_open_report.Size = new System.Drawing.Size(359, 29);
+            this.btn_abutment_open_report.TabIndex = 5;
+            this.btn_abutment_open_report.Text = "Open Design Report";
+            this.btn_abutment_open_report.UseVisualStyleBackColor = true;
+            this.btn_abutment_open_report.Click += new System.EventHandler(this.btn_open_Click);
             // 
             // btn_Pier_Process
             // 
             this.btn_Pier_Process.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Pier_Process.Location = new System.Drawing.Point(172, 11);
+            this.btn_Pier_Process.Location = new System.Drawing.Point(180, 7);
             this.btn_Pier_Process.Name = "btn_Pier_Process";
-            this.btn_Pier_Process.Size = new System.Drawing.Size(185, 34);
+            this.btn_Pier_Process.Size = new System.Drawing.Size(359, 37);
             this.btn_Pier_Process.TabIndex = 6;
-            this.btn_Pier_Process.Text = "Process Design";
+            this.btn_Pier_Process.Text = "Process for New Design and Save as User\'s Design with User\'s Given file name";
             this.btn_Pier_Process.UseVisualStyleBackColor = true;
             this.btn_Pier_Process.Click += new System.EventHandler(this.btn_process_Click);
             // 
@@ -303,8 +317,304 @@
             this.pnl_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_main.Location = new System.Drawing.Point(0, 54);
             this.pnl_main.Name = "pnl_main";
-            this.pnl_main.Size = new System.Drawing.Size(721, 381);
+            this.pnl_main.Size = new System.Drawing.Size(721, 323);
             this.pnl_main.TabIndex = 61;
+            // 
+            // pnl_5
+            // 
+            this.pnl_5.AutoScroll = true;
+            this.pnl_5.Controls.Add(this.lbl_note);
+            this.pnl_5.Controls.Add(this.label95);
+            this.pnl_5.Controls.Add(this.label85);
+            this.pnl_5.Controls.Add(this.label80);
+            this.pnl_5.Controls.Add(this.label76);
+            this.pnl_5.Controls.Add(this.label91);
+            this.pnl_5.Controls.Add(this.label81);
+            this.pnl_5.Controls.Add(this.label59);
+            this.pnl_5.Controls.Add(this.label61);
+            this.pnl_5.Controls.Add(this.label94);
+            this.pnl_5.Controls.Add(this.label83);
+            this.pnl_5.Controls.Add(this.label68);
+            this.pnl_5.Controls.Add(this.label64);
+            this.pnl_5.Controls.Add(this.label75);
+            this.pnl_5.Controls.Add(this.label89);
+            this.pnl_5.Controls.Add(this.label82);
+            this.pnl_5.Controls.Add(this.label72);
+            this.pnl_5.Controls.Add(this.label86);
+            this.pnl_5.Controls.Add(this.label74);
+            this.pnl_5.Controls.Add(this.label70);
+            this.pnl_5.Controls.Add(this.txt_SI_H52);
+            this.pnl_5.Controls.Add(this.txt_SI_H51);
+            this.pnl_5.Controls.Add(this.txt_SI_J52);
+            this.pnl_5.Controls.Add(this.txt_SUP_G132);
+            this.pnl_5.Controls.Add(this.txt_SI_J51);
+            this.pnl_5.Controls.Add(this.txt_SI_J50);
+            this.pnl_5.Controls.Add(this.txt_SI_H50);
+            this.pnl_5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnl_5.Location = new System.Drawing.Point(0, 1341);
+            this.pnl_5.Name = "pnl_5";
+            this.pnl_5.Size = new System.Drawing.Size(704, 149);
+            this.pnl_5.TabIndex = 69;
+            // 
+            // lbl_note
+            // 
+            this.lbl_note.AutoSize = true;
+            this.lbl_note.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_note.ForeColor = System.Drawing.Color.Red;
+            this.lbl_note.Location = new System.Drawing.Point(112, 124);
+            this.lbl_note.Name = "lbl_note";
+            this.lbl_note.Size = new System.Drawing.Size(463, 14);
+            this.lbl_note.TabIndex = 23;
+            this.lbl_note.Text = "Note : The values in RED COLOR are taken from the Analysis Results.";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(249, 96);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(70, 13);
+            this.label95.TabIndex = 2;
+            this.label95.Text = "Left Span=\t";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(249, 69);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(70, 13);
+            this.label85.TabIndex = 2;
+            this.label85.Text = "Left Span=\t";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(249, 42);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(70, 13);
+            this.label80.TabIndex = 2;
+            this.label80.Text = "Left Span=\t";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(453, 96);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(78, 13);
+            this.label76.TabIndex = 3;
+            this.label76.Text = "Right Span=\t";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(453, 69);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(78, 13);
+            this.label91.TabIndex = 3;
+            this.label91.Text = "Right Span=\t";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(453, 42);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(78, 13);
+            this.label81.TabIndex = 3;
+            this.label81.Text = "Right Span=\t";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(12, 15);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(177, 13);
+            this.label59.TabIndex = 0;
+            this.label59.Text = "Total weight of superstructure";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(12, 42);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(175, 13);
+            this.label61.TabIndex = 0;
+            this.label61.Text = "Vertical Load (SIDL Reaction)";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(76, 102);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(13, 10);
+            this.label94.TabIndex = 0;
+            this.label94.Text = "LL";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label83.Location = new System.Drawing.Point(76, 75);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(15, 10);
+            this.label83.TabIndex = 0;
+            this.label83.Text = "TT";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(12, 96);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(69, 13);
+            this.label68.TabIndex = 0;
+            this.label68.Text = "Moment  M";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(12, 69);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(69, 13);
+            this.label64.TabIndex = 0;
+            this.label64.Text = "Moment  M";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(602, 96);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(43, 13);
+            this.label75.TabIndex = 0;
+            this.label75.Text = "Ton-m";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(602, 69);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(43, 13);
+            this.label89.TabIndex = 0;
+            this.label89.Text = "Ton-m";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(602, 42);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(27, 13);
+            this.label82.TabIndex = 0;
+            this.label82.Text = "Ton";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(390, 99);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(43, 13);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Ton-m";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(390, 72);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(43, 13);
+            this.label86.TabIndex = 0;
+            this.label86.Text = "Ton-m";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(390, 42);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(27, 13);
+            this.label74.TabIndex = 0;
+            this.label74.Text = "Ton";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(387, 15);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(27, 13);
+            this.label70.TabIndex = 0;
+            this.label70.Text = "Ton";
+            // 
+            // txt_SI_H52
+            // 
+            this.txt_SI_H52.Location = new System.Drawing.Point(325, 93);
+            this.txt_SI_H52.Name = "txt_SI_H52";
+            this.txt_SI_H52.Size = new System.Drawing.Size(56, 21);
+            this.txt_SI_H52.TabIndex = 1;
+            this.txt_SI_H52.Text = "0.0";
+            this.txt_SI_H52.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_SI_H51
+            // 
+            this.txt_SI_H51.Location = new System.Drawing.Point(325, 66);
+            this.txt_SI_H51.Name = "txt_SI_H51";
+            this.txt_SI_H51.Size = new System.Drawing.Size(56, 21);
+            this.txt_SI_H51.TabIndex = 1;
+            this.txt_SI_H51.Text = "0.0";
+            this.txt_SI_H51.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_SI_J52
+            // 
+            this.txt_SI_J52.Location = new System.Drawing.Point(537, 93);
+            this.txt_SI_J52.Name = "txt_SI_J52";
+            this.txt_SI_J52.Size = new System.Drawing.Size(56, 21);
+            this.txt_SI_J52.TabIndex = 1;
+            this.txt_SI_J52.Text = "0.0";
+            this.txt_SI_J52.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_SUP_G132
+            // 
+            this.txt_SUP_G132.Location = new System.Drawing.Point(325, 12);
+            this.txt_SUP_G132.Name = "txt_SUP_G132";
+            this.txt_SUP_G132.Size = new System.Drawing.Size(56, 21);
+            this.txt_SUP_G132.TabIndex = 1;
+            this.txt_SUP_G132.Text = "460";
+            this.txt_SUP_G132.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_SI_J51
+            // 
+            this.txt_SI_J51.Location = new System.Drawing.Point(537, 66);
+            this.txt_SI_J51.Name = "txt_SI_J51";
+            this.txt_SI_J51.Size = new System.Drawing.Size(56, 21);
+            this.txt_SI_J51.TabIndex = 1;
+            this.txt_SI_J51.Text = "0.0";
+            this.txt_SI_J51.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_SI_J50
+            // 
+            this.txt_SI_J50.Location = new System.Drawing.Point(537, 39);
+            this.txt_SI_J50.Name = "txt_SI_J50";
+            this.txt_SI_J50.Size = new System.Drawing.Size(56, 21);
+            this.txt_SI_J50.TabIndex = 1;
+            this.txt_SI_J50.Text = "42";
+            this.txt_SI_J50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_SI_H50
+            // 
+            this.txt_SI_H50.Location = new System.Drawing.Point(325, 39);
+            this.txt_SI_H50.Name = "txt_SI_H50";
+            this.txt_SI_H50.Size = new System.Drawing.Size(56, 21);
+            this.txt_SI_H50.TabIndex = 1;
+            this.txt_SI_H50.Text = "42";
+            this.txt_SI_H50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lbl_5
+            // 
+            this.lbl_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbl_5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_5.Location = new System.Drawing.Point(0, 1320);
+            this.lbl_5.Name = "lbl_5";
+            this.lbl_5.Size = new System.Drawing.Size(704, 21);
+            this.lbl_5.TabIndex = 68;
+            this.lbl_5.Text = "DESIGN FORCES";
+            this.lbl_5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_5.Click += new System.EventHandler(this.lbl_1_DoubleClick);
             // 
             // pnl_6
             // 
@@ -630,302 +940,6 @@
             this.lbl_6.Text = "LIVE LOAD INPUTS";
             this.lbl_6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lbl_6.Click += new System.EventHandler(this.lbl_1_DoubleClick);
-            // 
-            // pnl_5
-            // 
-            this.pnl_5.AutoScroll = true;
-            this.pnl_5.Controls.Add(this.lbl_note);
-            this.pnl_5.Controls.Add(this.label95);
-            this.pnl_5.Controls.Add(this.label85);
-            this.pnl_5.Controls.Add(this.label80);
-            this.pnl_5.Controls.Add(this.label76);
-            this.pnl_5.Controls.Add(this.label91);
-            this.pnl_5.Controls.Add(this.label81);
-            this.pnl_5.Controls.Add(this.label59);
-            this.pnl_5.Controls.Add(this.label61);
-            this.pnl_5.Controls.Add(this.label94);
-            this.pnl_5.Controls.Add(this.label83);
-            this.pnl_5.Controls.Add(this.label68);
-            this.pnl_5.Controls.Add(this.label64);
-            this.pnl_5.Controls.Add(this.label75);
-            this.pnl_5.Controls.Add(this.label89);
-            this.pnl_5.Controls.Add(this.label82);
-            this.pnl_5.Controls.Add(this.label72);
-            this.pnl_5.Controls.Add(this.label86);
-            this.pnl_5.Controls.Add(this.label74);
-            this.pnl_5.Controls.Add(this.label70);
-            this.pnl_5.Controls.Add(this.txt_SI_H52);
-            this.pnl_5.Controls.Add(this.txt_SI_H51);
-            this.pnl_5.Controls.Add(this.txt_SI_J52);
-            this.pnl_5.Controls.Add(this.txt_SUP_G132);
-            this.pnl_5.Controls.Add(this.txt_SI_J51);
-            this.pnl_5.Controls.Add(this.txt_SI_J50);
-            this.pnl_5.Controls.Add(this.txt_SI_H50);
-            this.pnl_5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnl_5.Location = new System.Drawing.Point(0, 1341);
-            this.pnl_5.Name = "pnl_5";
-            this.pnl_5.Size = new System.Drawing.Size(704, 149);
-            this.pnl_5.TabIndex = 69;
-            // 
-            // lbl_note
-            // 
-            this.lbl_note.AutoSize = true;
-            this.lbl_note.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_note.ForeColor = System.Drawing.Color.Red;
-            this.lbl_note.Location = new System.Drawing.Point(112, 124);
-            this.lbl_note.Name = "lbl_note";
-            this.lbl_note.Size = new System.Drawing.Size(463, 14);
-            this.lbl_note.TabIndex = 23;
-            this.lbl_note.Text = "Note : The values in RED COLOR are taken from the Analysis Results.";
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(249, 96);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(70, 13);
-            this.label95.TabIndex = 2;
-            this.label95.Text = "Left Span=\t";
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(249, 69);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(70, 13);
-            this.label85.TabIndex = 2;
-            this.label85.Text = "Left Span=\t";
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(249, 42);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(70, 13);
-            this.label80.TabIndex = 2;
-            this.label80.Text = "Left Span=\t";
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(453, 96);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(78, 13);
-            this.label76.TabIndex = 3;
-            this.label76.Text = "Right Span=\t";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(453, 69);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(78, 13);
-            this.label91.TabIndex = 3;
-            this.label91.Text = "Right Span=\t";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(453, 42);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(78, 13);
-            this.label81.TabIndex = 3;
-            this.label81.Text = "Right Span=\t";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(12, 15);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(177, 13);
-            this.label59.TabIndex = 0;
-            this.label59.Text = "Total weight of superstructure";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(12, 42);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(175, 13);
-            this.label61.TabIndex = 0;
-            this.label61.Text = "Vertical Load (SIDL Reaction)";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label94.Location = new System.Drawing.Point(76, 102);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(13, 10);
-            this.label94.TabIndex = 0;
-            this.label94.Text = "LL";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Verdana", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label83.Location = new System.Drawing.Point(76, 75);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(15, 10);
-            this.label83.TabIndex = 0;
-            this.label83.Text = "TT";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(12, 96);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(69, 13);
-            this.label68.TabIndex = 0;
-            this.label68.Text = "Moment  M";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(12, 69);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(69, 13);
-            this.label64.TabIndex = 0;
-            this.label64.Text = "Moment  M";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(602, 96);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(43, 13);
-            this.label75.TabIndex = 0;
-            this.label75.Text = "Ton-m";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(602, 69);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(43, 13);
-            this.label89.TabIndex = 0;
-            this.label89.Text = "Ton-m";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(602, 42);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(27, 13);
-            this.label82.TabIndex = 0;
-            this.label82.Text = "Ton";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(390, 99);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(43, 13);
-            this.label72.TabIndex = 0;
-            this.label72.Text = "Ton-m";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(390, 72);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(43, 13);
-            this.label86.TabIndex = 0;
-            this.label86.Text = "Ton-m";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(390, 42);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(27, 13);
-            this.label74.TabIndex = 0;
-            this.label74.Text = "Ton";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(387, 15);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(27, 13);
-            this.label70.TabIndex = 0;
-            this.label70.Text = "Ton";
-            // 
-            // txt_SI_H52
-            // 
-            this.txt_SI_H52.Location = new System.Drawing.Point(325, 93);
-            this.txt_SI_H52.Name = "txt_SI_H52";
-            this.txt_SI_H52.Size = new System.Drawing.Size(56, 21);
-            this.txt_SI_H52.TabIndex = 1;
-            this.txt_SI_H52.Text = "0.0";
-            this.txt_SI_H52.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_SI_H51
-            // 
-            this.txt_SI_H51.Location = new System.Drawing.Point(325, 66);
-            this.txt_SI_H51.Name = "txt_SI_H51";
-            this.txt_SI_H51.Size = new System.Drawing.Size(56, 21);
-            this.txt_SI_H51.TabIndex = 1;
-            this.txt_SI_H51.Text = "0.0";
-            this.txt_SI_H51.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_SI_J52
-            // 
-            this.txt_SI_J52.Location = new System.Drawing.Point(537, 93);
-            this.txt_SI_J52.Name = "txt_SI_J52";
-            this.txt_SI_J52.Size = new System.Drawing.Size(56, 21);
-            this.txt_SI_J52.TabIndex = 1;
-            this.txt_SI_J52.Text = "0.0";
-            this.txt_SI_J52.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_SUP_G132
-            // 
-            this.txt_SUP_G132.Location = new System.Drawing.Point(325, 12);
-            this.txt_SUP_G132.Name = "txt_SUP_G132";
-            this.txt_SUP_G132.Size = new System.Drawing.Size(56, 21);
-            this.txt_SUP_G132.TabIndex = 1;
-            this.txt_SUP_G132.Text = "460";
-            this.txt_SUP_G132.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_SI_J51
-            // 
-            this.txt_SI_J51.Location = new System.Drawing.Point(537, 66);
-            this.txt_SI_J51.Name = "txt_SI_J51";
-            this.txt_SI_J51.Size = new System.Drawing.Size(56, 21);
-            this.txt_SI_J51.TabIndex = 1;
-            this.txt_SI_J51.Text = "0.0";
-            this.txt_SI_J51.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_SI_J50
-            // 
-            this.txt_SI_J50.Location = new System.Drawing.Point(537, 39);
-            this.txt_SI_J50.Name = "txt_SI_J50";
-            this.txt_SI_J50.Size = new System.Drawing.Size(56, 21);
-            this.txt_SI_J50.TabIndex = 1;
-            this.txt_SI_J50.Text = "42";
-            this.txt_SI_J50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_SI_H50
-            // 
-            this.txt_SI_H50.Location = new System.Drawing.Point(325, 39);
-            this.txt_SI_H50.Name = "txt_SI_H50";
-            this.txt_SI_H50.Size = new System.Drawing.Size(56, 21);
-            this.txt_SI_H50.TabIndex = 1;
-            this.txt_SI_H50.Text = "42";
-            this.txt_SI_H50.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // lbl_5
-            // 
-            this.lbl_5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_5.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_5.Location = new System.Drawing.Point(0, 1320);
-            this.lbl_5.Name = "lbl_5";
-            this.lbl_5.Size = new System.Drawing.Size(704, 21);
-            this.lbl_5.TabIndex = 68;
-            this.lbl_5.Text = "DESIGN FORCES";
-            this.lbl_5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_5.Click += new System.EventHandler(this.lbl_1_DoubleClick);
             // 
             // pnl_4
             // 
@@ -2135,13 +2149,13 @@
             this.Size = new System.Drawing.Size(721, 492);
             this.pnl_buttons.ResumeLayout(false);
             this.pnl_main.ResumeLayout(false);
+            this.pnl_5.ResumeLayout(false);
+            this.pnl_5.PerformLayout();
             this.pnl_6.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bs_ll_1)).EndInit();
-            this.pnl_5.ResumeLayout(false);
-            this.pnl_5.PerformLayout();
             this.pnl_4.ResumeLayout(false);
             this.pnl_4.PerformLayout();
             this.pnl_3.ResumeLayout(false);
@@ -2307,7 +2321,7 @@
         private System.Windows.Forms.TextBox txt_SI_H50;
         private System.Windows.Forms.Label lbl_5;
         private System.Windows.Forms.Label lbl_note;
-        private System.Windows.Forms.Button btn_abutment_open;
+        private System.Windows.Forms.Button btn_abutment_open_report;
         private System.Windows.Forms.Button btn_Pier_Process;
         private System.Windows.Forms.Panel pnl_6;
         private System.Windows.Forms.Label lbl_6;
@@ -2339,5 +2353,6 @@
         private System.Windows.Forms.Label label109;
         private System.Windows.Forms.ComboBox cmb_bs_ll_2;
         private System.Windows.Forms.ComboBox cmb_bs_ll_1;
+        private System.Windows.Forms.Button btn_abutment_open;
     }
 }

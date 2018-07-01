@@ -30,31 +30,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCPreProcess));
             this.sc1 = new System.Windows.Forms.SplitContainer();
             this.tc_prp_main = new System.Windows.Forms.TabControl();
             this.tab_file_open = new System.Windows.Forms.TabPage();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.btn_save_data = new System.Windows.Forms.Button();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_open_data = new System.Windows.Forms.ToolStripButton();
             this.tsb_file_open = new System.Windows.Forms.ToolStripButton();
@@ -366,7 +367,6 @@
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_save_data = new System.Windows.Forms.Button();
             this.sc1.Panel1.SuspendLayout();
             this.sc1.Panel2.SuspendLayout();
             this.sc1.SuspendLayout();
@@ -528,6 +528,16 @@
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(884, 56);
             this.panel22.TabIndex = 139;
+            // 
+            // btn_save_data
+            // 
+            this.btn_save_data.Location = new System.Drawing.Point(51, 16);
+            this.btn_save_data.Name = "btn_save_data";
+            this.btn_save_data.Size = new System.Drawing.Size(151, 30);
+            this.btn_save_data.TabIndex = 140;
+            this.btn_save_data.Text = "Save Data File";
+            this.btn_save_data.UseVisualStyleBackColor = true;
+            this.btn_save_data.Click += new System.EventHandler(this.tsmi_file_save_Click);
             // 
             // toolStrip1
             // 
@@ -838,7 +848,7 @@
             this.tab_geom.Location = new System.Drawing.Point(4, 22);
             this.tab_geom.Name = "tab_geom";
             this.tab_geom.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_geom.Size = new System.Drawing.Size(890, 99);
+            this.tab_geom.Size = new System.Drawing.Size(890, 71);
             this.tab_geom.TabIndex = 0;
             this.tab_geom.Text = "Geometry";
             this.tab_geom.UseVisualStyleBackColor = true;
@@ -918,7 +928,7 @@
             this.tab_props.Location = new System.Drawing.Point(4, 22);
             this.tab_props.Name = "tab_props";
             this.tab_props.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_props.Size = new System.Drawing.Size(890, 99);
+            this.tab_props.Size = new System.Drawing.Size(890, 71);
             this.tab_props.TabIndex = 1;
             this.tab_props.Text = "Properties";
             this.tab_props.UseVisualStyleBackColor = true;
@@ -956,7 +966,7 @@
             this.tab_constants.Controls.Add(this.cmb_Const_MUnit);
             this.tab_constants.Location = new System.Drawing.Point(4, 22);
             this.tab_constants.Name = "tab_constants";
-            this.tab_constants.Size = new System.Drawing.Size(890, 99);
+            this.tab_constants.Size = new System.Drawing.Size(890, 71);
             this.tab_constants.TabIndex = 5;
             this.tab_constants.Text = "Constants";
             this.tab_constants.UseVisualStyleBackColor = true;
@@ -1021,7 +1031,7 @@
             this.tab_supports.Location = new System.Drawing.Point(4, 22);
             this.tab_supports.Name = "tab_supports";
             this.tab_supports.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_supports.Size = new System.Drawing.Size(890, 99);
+            this.tab_supports.Size = new System.Drawing.Size(890, 71);
             this.tab_supports.TabIndex = 8;
             this.tab_supports.Text = "Supports";
             this.tab_supports.UseVisualStyleBackColor = true;
@@ -1042,7 +1052,7 @@
             this.tab_loads.Controls.Add(this.txt_seft_wt_Value);
             this.tab_loads.Location = new System.Drawing.Point(4, 22);
             this.tab_loads.Name = "tab_loads";
-            this.tab_loads.Size = new System.Drawing.Size(890, 99);
+            this.tab_loads.Size = new System.Drawing.Size(890, 71);
             this.tab_loads.TabIndex = 3;
             this.tab_loads.Text = "Loading";
             this.tab_loads.UseVisualStyleBackColor = true;
@@ -1187,7 +1197,7 @@
             // 
             this.tab_mov_load.Location = new System.Drawing.Point(4, 22);
             this.tab_mov_load.Name = "tab_mov_load";
-            this.tab_mov_load.Size = new System.Drawing.Size(890, 99);
+            this.tab_mov_load.Size = new System.Drawing.Size(890, 71);
             this.tab_mov_load.TabIndex = 4;
             this.tab_mov_load.Text = "Moving Load";
             this.tab_mov_load.UseVisualStyleBackColor = true;
@@ -1196,7 +1206,7 @@
             // 
             this.tab_dynamic.Location = new System.Drawing.Point(4, 22);
             this.tab_dynamic.Name = "tab_dynamic";
-            this.tab_dynamic.Size = new System.Drawing.Size(890, 99);
+            this.tab_dynamic.Size = new System.Drawing.Size(890, 71);
             this.tab_dynamic.TabIndex = 6;
             this.tab_dynamic.Text = "Dynamic Analysis";
             this.tab_dynamic.UseVisualStyleBackColor = true;
@@ -1206,7 +1216,7 @@
             this.tab_ana_spec.Location = new System.Drawing.Point(4, 22);
             this.tab_ana_spec.Name = "tab_ana_spec";
             this.tab_ana_spec.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ana_spec.Size = new System.Drawing.Size(890, 99);
+            this.tab_ana_spec.Size = new System.Drawing.Size(890, 71);
             this.tab_ana_spec.TabIndex = 7;
             this.tab_ana_spec.Text = "Analysis Specifications";
             this.tab_ana_spec.UseVisualStyleBackColor = true;
@@ -1355,7 +1365,7 @@
             this.tab1_geom.Location = new System.Drawing.Point(23, 4);
             this.tab1_geom.Name = "tab1_geom";
             this.tab1_geom.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_geom.Size = new System.Drawing.Size(296, 546);
+            this.tab1_geom.Size = new System.Drawing.Size(296, 574);
             this.tab1_geom.TabIndex = 0;
             this.tab1_geom.Text = "Geometry";
             this.tab1_geom.UseVisualStyleBackColor = true;
@@ -1369,7 +1379,7 @@
             this.tc3.Location = new System.Drawing.Point(3, 3);
             this.tc3.Name = "tc3";
             this.tc3.SelectedIndex = 0;
-            this.tc3.Size = new System.Drawing.Size(290, 540);
+            this.tc3.Size = new System.Drawing.Size(290, 568);
             this.tc3.TabIndex = 1;
             // 
             // tab2_joints
@@ -1379,7 +1389,7 @@
             this.tab2_joints.Location = new System.Drawing.Point(4, 22);
             this.tab2_joints.Name = "tab2_joints";
             this.tab2_joints.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2_joints.Size = new System.Drawing.Size(282, 514);
+            this.tab2_joints.Size = new System.Drawing.Size(282, 542);
             this.tab2_joints.TabIndex = 0;
             this.tab2_joints.Text = "Joints";
             this.tab2_joints.UseVisualStyleBackColor = true;
@@ -1387,14 +1397,14 @@
             // dgv_joints
             // 
             this.dgv_joints.AllowUserToAddRows = false;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_joints.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_joints.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_joints.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_joints.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_jno,
@@ -1409,15 +1419,15 @@
             this.dgv_joints.RowTemplate.Height = 15;
             this.dgv_joints.RowTemplate.ReadOnly = true;
             this.dgv_joints.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_joints.Size = new System.Drawing.Size(276, 469);
+            this.dgv_joints.Size = new System.Drawing.Size(276, 497);
             this.dgv_joints.TabIndex = 0;
             this.dgv_joints.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_joints_CellEnter);
             // 
             // col_jno
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.col_jno.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.col_jno.DefaultCellStyle = dataGridViewCellStyle2;
             this.col_jno.Frozen = true;
             this.col_jno.HeaderText = "Joint#";
             this.col_jno.Name = "col_jno";
@@ -1426,8 +1436,8 @@
             // 
             // col_x
             // 
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_x.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_x.DefaultCellStyle = dataGridViewCellStyle3;
             this.col_x.HeaderText = "X";
             this.col_x.Name = "col_x";
             this.col_x.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1435,8 +1445,8 @@
             // 
             // col_y
             // 
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_y.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_y.DefaultCellStyle = dataGridViewCellStyle4;
             this.col_y.HeaderText = "Y";
             this.col_y.Name = "col_y";
             this.col_y.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1444,8 +1454,8 @@
             // 
             // col_z
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_z.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_z.DefaultCellStyle = dataGridViewCellStyle5;
             this.col_z.HeaderText = "Z";
             this.col_z.Name = "col_z";
             this.col_z.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1453,8 +1463,8 @@
             // 
             // col_support
             // 
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.col_support.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.col_support.DefaultCellStyle = dataGridViewCellStyle6;
             this.col_support.HeaderText = "Support";
             this.col_support.Name = "col_support";
             this.col_support.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -1468,7 +1478,7 @@
             this.panel18.Controls.Add(this.btn_jnt_edit);
             this.panel18.Controls.Add(this.btn_jnt_insert);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel18.Location = new System.Drawing.Point(3, 472);
+            this.panel18.Location = new System.Drawing.Point(3, 500);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(276, 39);
             this.panel18.TabIndex = 2;
@@ -1520,7 +1530,7 @@
             this.tab2_members.Location = new System.Drawing.Point(4, 22);
             this.tab2_members.Name = "tab2_members";
             this.tab2_members.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2_members.Size = new System.Drawing.Size(282, 514);
+            this.tab2_members.Size = new System.Drawing.Size(282, 542);
             this.tab2_members.TabIndex = 1;
             this.tab2_members.Text = "Members ";
             this.tab2_members.UseVisualStyleBackColor = true;
@@ -1528,14 +1538,14 @@
             // dgv_members
             // 
             this.dgv_members.AllowUserToAddRows = false;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_members.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_members.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_members.ColumnHeadersHeight = 36;
             this.dgv_members.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgTxtMemberNo,
@@ -1548,19 +1558,19 @@
             this.dgv_members.Name = "dgv_members";
             this.dgv_members.RowHeadersWidth = 20;
             this.dgv_members.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_members.RowsDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_members.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_members.RowTemplate.Height = 14;
             this.dgv_members.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_members.Size = new System.Drawing.Size(276, 471);
+            this.dgv_members.Size = new System.Drawing.Size(276, 499);
             this.dgv_members.TabIndex = 1;
             this.dgv_members.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMemberGrid_CellEnter);
             // 
             // dgTxtMemberNo
             // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgTxtMemberNo.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgTxtMemberNo.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgTxtMemberNo.Frozen = true;
             this.dgTxtMemberNo.HeaderText = "Member#";
             this.dgTxtMemberNo.Name = "dgTxtMemberNo";
@@ -1574,24 +1584,24 @@
             // 
             // dgTxtNode1
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgTxtNode1.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgTxtNode1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgTxtNode1.HeaderText = "Start Node";
             this.dgTxtNode1.Name = "dgTxtNode1";
             this.dgTxtNode1.Width = 44;
             // 
             // dgTxtNode2
             // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgTxtNode2.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgTxtNode2.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgTxtNode2.HeaderText = "End Node";
             this.dgTxtNode2.Name = "dgTxtNode2";
             this.dgTxtNode2.Width = 44;
             // 
             // dgTxtMAT
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgTxtMAT.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dgTxtMAT.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgTxtMAT.HeaderText = "Length";
             this.dgTxtMAT.Name = "dgTxtMAT";
             this.dgTxtMAT.ReadOnly = true;
@@ -1605,7 +1615,7 @@
             this.panel19.Controls.Add(this.btn_mbr_edit);
             this.panel19.Controls.Add(this.btn_mbr_insert);
             this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel19.Location = new System.Drawing.Point(3, 474);
+            this.panel19.Location = new System.Drawing.Point(3, 502);
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(276, 37);
             this.panel19.TabIndex = 5;
@@ -1656,7 +1666,7 @@
             this.tab2_elements.Controls.Add(this.panel20);
             this.tab2_elements.Location = new System.Drawing.Point(4, 22);
             this.tab2_elements.Name = "tab2_elements";
-            this.tab2_elements.Size = new System.Drawing.Size(282, 514);
+            this.tab2_elements.Size = new System.Drawing.Size(282, 542);
             this.tab2_elements.TabIndex = 2;
             this.tab2_elements.Text = "Elements";
             this.tab2_elements.UseVisualStyleBackColor = true;
@@ -1664,14 +1674,14 @@
             // dgv_elements
             // 
             this.dgv_elements.AllowUserToAddRows = false;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_elements.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_elements.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_elements.ColumnHeadersHeight = 36;
             this.dgv_elements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -1685,19 +1695,19 @@
             this.dgv_elements.Name = "dgv_elements";
             this.dgv_elements.RowHeadersWidth = 13;
             this.dgv_elements.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_elements.RowsDefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_elements.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_elements.RowTemplate.Height = 14;
             this.dgv_elements.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_elements.Size = new System.Drawing.Size(282, 477);
+            this.dgv_elements.Size = new System.Drawing.Size(282, 505);
             this.dgv_elements.TabIndex = 2;
             this.dgv_elements.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvElementGrid_CellEnter);
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn1.Frozen = true;
             this.dataGridViewTextBoxColumn1.HeaderText = "Element#";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -1705,40 +1715,40 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewTextBoxColumn3.HeaderText = "Node 1";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.Width = 50;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn4.HeaderText = "Node 2";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.Width = 50;
             // 
             // dataGridViewTextBoxColumn12
             // 
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn12.HeaderText = "Node 3";
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Width = 50;
             // 
             // dataGridViewTextBoxColumn13
             // 
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn13.HeaderText = "Node 4";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.Width = 50;
             // 
             // dataGridViewTextBoxColumn14
             // 
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewTextBoxColumn14.HeaderText = "Thickness";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 70;
@@ -1750,7 +1760,7 @@
             this.panel20.Controls.Add(this.btn_elmt_edit);
             this.panel20.Controls.Add(this.btn_elmt_insert);
             this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 477);
+            this.panel20.Location = new System.Drawing.Point(0, 505);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(282, 37);
             this.panel20.TabIndex = 6;
@@ -1802,7 +1812,7 @@
             this.tab1_props.Location = new System.Drawing.Point(23, 4);
             this.tab1_props.Name = "tab1_props";
             this.tab1_props.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_props.Size = new System.Drawing.Size(296, 546);
+            this.tab1_props.Size = new System.Drawing.Size(296, 574);
             this.tab1_props.TabIndex = 1;
             this.tab1_props.Text = "Properties";
             this.tab1_props.UseVisualStyleBackColor = true;
@@ -1816,7 +1826,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(290, 388);
+            this.tabControl1.Size = new System.Drawing.Size(290, 416);
             this.tabControl1.TabIndex = 2;
             // 
             // tab_mem_props
@@ -1826,7 +1836,7 @@
             this.tab_mem_props.Location = new System.Drawing.Point(4, 22);
             this.tab_mem_props.Name = "tab_mem_props";
             this.tab_mem_props.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mem_props.Size = new System.Drawing.Size(282, 362);
+            this.tab_mem_props.Size = new System.Drawing.Size(282, 390);
             this.tab_mem_props.TabIndex = 0;
             this.tab_mem_props.Text = "Properties";
             this.tab_mem_props.UseVisualStyleBackColor = true;
@@ -1838,7 +1848,7 @@
             this.grb_mem_props.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grb_mem_props.Location = new System.Drawing.Point(3, 3);
             this.grb_mem_props.Name = "grb_mem_props";
-            this.grb_mem_props.Size = new System.Drawing.Size(276, 239);
+            this.grb_mem_props.Size = new System.Drawing.Size(276, 267);
             this.grb_mem_props.TabIndex = 0;
             this.grb_mem_props.TabStop = false;
             this.grb_mem_props.Text = "SECTION PROPERTIES";
@@ -1848,7 +1858,7 @@
             this.tv_mem_props.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_mem_props.Location = new System.Drawing.Point(3, 17);
             this.tv_mem_props.Name = "tv_mem_props";
-            this.tv_mem_props.Size = new System.Drawing.Size(270, 179);
+            this.tv_mem_props.Size = new System.Drawing.Size(270, 207);
             this.tv_mem_props.TabIndex = 1;
             this.tv_mem_props.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_mem_props_AfterSelect);
             this.tv_mem_props.Click += new System.EventHandler(this.tv_mem_props_Click);
@@ -1860,7 +1870,7 @@
             this.panel2.Controls.Add(this.btn_props_del);
             this.panel2.Controls.Add(this.btn_props_add);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 196);
+            this.panel2.Location = new System.Drawing.Point(3, 224);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(270, 40);
             this.panel2.TabIndex = 0;
@@ -1903,7 +1913,7 @@
             this.groupBox10.Controls.Add(this.tv_elem_props);
             this.groupBox10.Controls.Add(this.panel17);
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox10.Location = new System.Drawing.Point(3, 242);
+            this.groupBox10.Location = new System.Drawing.Point(3, 270);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(276, 117);
             this.groupBox10.TabIndex = 1;
@@ -1970,7 +1980,7 @@
             this.tab_mem_spec.Location = new System.Drawing.Point(4, 22);
             this.tab_mem_spec.Name = "tab_mem_spec";
             this.tab_mem_spec.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mem_spec.Size = new System.Drawing.Size(282, 362);
+            this.tab_mem_spec.Size = new System.Drawing.Size(282, 390);
             this.tab_mem_spec.TabIndex = 1;
             this.tab_mem_spec.Text = "Specification";
             this.tab_mem_spec.UseVisualStyleBackColor = true;
@@ -1982,7 +1992,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Location = new System.Drawing.Point(3, 155);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(276, 204);
+            this.groupBox8.Size = new System.Drawing.Size(276, 232);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Cable Member Specifications";
@@ -1992,7 +2002,7 @@
             this.tv_mem_spec_cable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_mem_spec_cable.Location = new System.Drawing.Point(3, 17);
             this.tv_mem_spec_cable.Name = "tv_mem_spec_cable";
-            this.tv_mem_spec_cable.Size = new System.Drawing.Size(270, 143);
+            this.tv_mem_spec_cable.Size = new System.Drawing.Size(270, 171);
             this.tv_mem_spec_cable.TabIndex = 1;
             this.tv_mem_spec_cable.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
             // 
@@ -2002,7 +2012,7 @@
             this.panel11.Controls.Add(this.btn_spec_add_cable);
             this.panel11.Controls.Add(this.btn_spec_del_cable);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(3, 160);
+            this.panel11.Location = new System.Drawing.Point(3, 188);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(270, 41);
             this.panel11.TabIndex = 0;
@@ -2111,7 +2121,7 @@
             this.tab_mem_release.Location = new System.Drawing.Point(4, 22);
             this.tab_mem_release.Name = "tab_mem_release";
             this.tab_mem_release.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mem_release.Size = new System.Drawing.Size(282, 362);
+            this.tab_mem_release.Size = new System.Drawing.Size(282, 390);
             this.tab_mem_release.TabIndex = 2;
             this.tab_mem_release.Text = "Release";
             this.tab_mem_release.UseVisualStyleBackColor = true;
@@ -2123,7 +2133,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 356);
+            this.groupBox2.Size = new System.Drawing.Size(276, 384);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Member Release";
@@ -2133,7 +2143,7 @@
             this.tv_mem_release.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_mem_release.Location = new System.Drawing.Point(3, 17);
             this.tv_mem_release.Name = "tv_mem_release";
-            this.tv_mem_release.Size = new System.Drawing.Size(270, 296);
+            this.tv_mem_release.Size = new System.Drawing.Size(270, 324);
             this.tv_mem_release.TabIndex = 1;
             this.tv_mem_release.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
             // 
@@ -2143,7 +2153,7 @@
             this.panel5.Controls.Add(this.btn_release_del);
             this.panel5.Controls.Add(this.btn_release_add);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(3, 313);
+            this.panel5.Location = new System.Drawing.Point(3, 341);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(270, 40);
             this.panel5.TabIndex = 0;
@@ -2186,7 +2196,7 @@
             this.grb_mem_groups.Controls.Add(this.tv_mem_grps);
             this.grb_mem_groups.Controls.Add(this.panel3);
             this.grb_mem_groups.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grb_mem_groups.Location = new System.Drawing.Point(3, 391);
+            this.grb_mem_groups.Location = new System.Drawing.Point(3, 419);
             this.grb_mem_groups.Name = "grb_mem_groups";
             this.grb_mem_groups.Size = new System.Drawing.Size(290, 152);
             this.grb_mem_groups.TabIndex = 1;
@@ -2253,7 +2263,7 @@
             this.tab1_const.Controls.Add(this.groupBox3);
             this.tab1_const.Location = new System.Drawing.Point(23, 4);
             this.tab1_const.Name = "tab1_const";
-            this.tab1_const.Size = new System.Drawing.Size(296, 546);
+            this.tab1_const.Size = new System.Drawing.Size(296, 574);
             this.tab1_const.TabIndex = 5;
             this.tab1_const.Text = "Constants";
             this.tab1_const.UseVisualStyleBackColor = true;
@@ -2265,7 +2275,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(296, 546);
+            this.groupBox3.Size = new System.Drawing.Size(296, 574);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Constants";
@@ -2275,7 +2285,7 @@
             this.tv_constants.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_constants.Location = new System.Drawing.Point(3, 17);
             this.tv_constants.Name = "tv_constants";
-            this.tv_constants.Size = new System.Drawing.Size(290, 486);
+            this.tv_constants.Size = new System.Drawing.Size(290, 514);
             this.tv_constants.TabIndex = 1;
             this.tv_constants.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
             // 
@@ -2285,7 +2295,7 @@
             this.panel6.Controls.Add(this.btn_cons_del);
             this.panel6.Controls.Add(this.btn_cons_add);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 503);
+            this.panel6.Location = new System.Drawing.Point(3, 531);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(290, 40);
             this.panel6.TabIndex = 0;
@@ -2329,7 +2339,7 @@
             this.tab1_supports.Location = new System.Drawing.Point(23, 4);
             this.tab1_supports.Name = "tab1_supports";
             this.tab1_supports.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_supports.Size = new System.Drawing.Size(296, 546);
+            this.tab1_supports.Size = new System.Drawing.Size(296, 574);
             this.tab1_supports.TabIndex = 8;
             this.tab1_supports.Text = "Supports";
             this.tab1_supports.UseVisualStyleBackColor = true;
@@ -2341,7 +2351,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(290, 540);
+            this.groupBox4.Size = new System.Drawing.Size(290, 568);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Supports";
@@ -2351,7 +2361,7 @@
             this.tv_supports.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_supports.Location = new System.Drawing.Point(3, 17);
             this.tv_supports.Name = "tv_supports";
-            this.tv_supports.Size = new System.Drawing.Size(284, 480);
+            this.tv_supports.Size = new System.Drawing.Size(284, 508);
             this.tv_supports.TabIndex = 1;
             this.tv_supports.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
             // 
@@ -2361,7 +2371,7 @@
             this.panel7.Controls.Add(this.btn_supp_del);
             this.panel7.Controls.Add(this.btn_supp_add);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 497);
+            this.panel7.Location = new System.Drawing.Point(3, 525);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(284, 40);
             this.panel7.TabIndex = 0;
@@ -2405,7 +2415,7 @@
             this.tab1_loads.Controls.Add(this.groupBox14);
             this.tab1_loads.Location = new System.Drawing.Point(23, 4);
             this.tab1_loads.Name = "tab1_loads";
-            this.tab1_loads.Size = new System.Drawing.Size(296, 546);
+            this.tab1_loads.Size = new System.Drawing.Size(296, 574);
             this.tab1_loads.TabIndex = 3;
             this.tab1_loads.Text = "Loading";
             this.tab1_loads.UseVisualStyleBackColor = true;
@@ -2427,7 +2437,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 48);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(296, 498);
+            this.panel8.Size = new System.Drawing.Size(296, 526);
             this.panel8.TabIndex = 0;
             // 
             // groupBox5
@@ -2435,7 +2445,7 @@
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Location = new System.Drawing.Point(0, 0);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(294, 114);
+            this.groupBox5.Size = new System.Drawing.Size(294, 142);
             this.groupBox5.TabIndex = 3;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Load Cases";
@@ -2445,7 +2455,7 @@
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(0, 114);
+            this.label6.Location = new System.Drawing.Point(0, 142);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(294, 18);
             this.label6.TabIndex = 4;
@@ -2459,7 +2469,7 @@
             this.grb_jload.Controls.Add(this.btn_jload_del);
             this.grb_jload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_jload.Enabled = false;
-            this.grb_jload.Location = new System.Drawing.Point(0, 132);
+            this.grb_jload.Location = new System.Drawing.Point(0, 160);
             this.grb_jload.Name = "grb_jload";
             this.grb_jload.Size = new System.Drawing.Size(294, 36);
             this.grb_jload.TabIndex = 1;
@@ -2505,7 +2515,7 @@
             this.grb_mload.Controls.Add(this.btn_mload_del);
             this.grb_mload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_mload.Enabled = false;
-            this.grb_mload.Location = new System.Drawing.Point(0, 168);
+            this.grb_mload.Location = new System.Drawing.Point(0, 196);
             this.grb_mload.Name = "grb_mload";
             this.grb_mload.Size = new System.Drawing.Size(294, 40);
             this.grb_mload.TabIndex = 1;
@@ -2551,7 +2561,7 @@
             this.grb_eload.Controls.Add(this.btn_eload_del);
             this.grb_eload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_eload.Enabled = false;
-            this.grb_eload.Location = new System.Drawing.Point(0, 208);
+            this.grb_eload.Location = new System.Drawing.Point(0, 236);
             this.grb_eload.Name = "grb_eload";
             this.grb_eload.Size = new System.Drawing.Size(294, 40);
             this.grb_eload.TabIndex = 6;
@@ -2597,7 +2607,7 @@
             this.grb_sdload.Controls.Add(this.btn_sdload_del);
             this.grb_sdload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_sdload.Enabled = false;
-            this.grb_sdload.Location = new System.Drawing.Point(0, 248);
+            this.grb_sdload.Location = new System.Drawing.Point(0, 276);
             this.grb_sdload.Name = "grb_sdload";
             this.grb_sdload.Size = new System.Drawing.Size(294, 40);
             this.grb_sdload.TabIndex = 3;
@@ -2643,7 +2653,7 @@
             this.grb_rload.Controls.Add(this.btn_rload_del);
             this.grb_rload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_rload.Enabled = false;
-            this.grb_rload.Location = new System.Drawing.Point(0, 288);
+            this.grb_rload.Location = new System.Drawing.Point(0, 316);
             this.grb_rload.Name = "grb_rload";
             this.grb_rload.Size = new System.Drawing.Size(294, 42);
             this.grb_rload.TabIndex = 5;
@@ -2689,7 +2699,7 @@
             this.grb_cload.Controls.Add(this.btn_cload_del);
             this.grb_cload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_cload.Enabled = false;
-            this.grb_cload.Location = new System.Drawing.Point(0, 330);
+            this.grb_cload.Location = new System.Drawing.Point(0, 358);
             this.grb_cload.Name = "grb_cload";
             this.grb_cload.Size = new System.Drawing.Size(294, 40);
             this.grb_cload.TabIndex = 1;
@@ -2735,7 +2745,7 @@
             this.grb_tload.Controls.Add(this.btn_tload_del);
             this.grb_tload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_tload.Enabled = false;
-            this.grb_tload.Location = new System.Drawing.Point(0, 370);
+            this.grb_tload.Location = new System.Drawing.Point(0, 398);
             this.grb_tload.Name = "grb_tload";
             this.grb_tload.Size = new System.Drawing.Size(294, 44);
             this.grb_tload.TabIndex = 2;
@@ -2781,7 +2791,7 @@
             this.grb_aload.Controls.Add(this.btn_aload_del);
             this.grb_aload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_aload.Enabled = false;
-            this.grb_aload.Location = new System.Drawing.Point(0, 414);
+            this.grb_aload.Location = new System.Drawing.Point(0, 442);
             this.grb_aload.Name = "grb_aload";
             this.grb_aload.Size = new System.Drawing.Size(294, 42);
             this.grb_aload.TabIndex = 1;
@@ -2827,7 +2837,7 @@
             this.grb_fload.Controls.Add(this.btn_fload_del);
             this.grb_fload.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.grb_fload.Enabled = false;
-            this.grb_fload.Location = new System.Drawing.Point(0, 456);
+            this.grb_fload.Location = new System.Drawing.Point(0, 484);
             this.grb_fload.Name = "grb_fload";
             this.grb_fload.Size = new System.Drawing.Size(294, 40);
             this.grb_fload.TabIndex = 7;
@@ -2915,7 +2925,7 @@
             this.tab1_loads2.Controls.Add(this.groupBox15);
             this.tab1_loads2.Location = new System.Drawing.Point(23, 4);
             this.tab1_loads2.Name = "tab1_loads2";
-            this.tab1_loads2.Size = new System.Drawing.Size(296, 546);
+            this.tab1_loads2.Size = new System.Drawing.Size(296, 574);
             this.tab1_loads2.TabIndex = 9;
             this.tab1_loads2.Text = "Loading";
             this.tab1_loads2.UseVisualStyleBackColor = true;
@@ -2929,7 +2939,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 41);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(296, 505);
+            this.panel1.Size = new System.Drawing.Size(296, 533);
             this.panel1.TabIndex = 5;
             // 
             // groupBox19
@@ -2938,7 +2948,7 @@
             this.groupBox19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox19.Location = new System.Drawing.Point(0, 99);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(294, 404);
+            this.groupBox19.Size = new System.Drawing.Size(294, 432);
             this.groupBox19.TabIndex = 6;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Load Cases";
@@ -2948,7 +2958,7 @@
             this.tv_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_loads.Location = new System.Drawing.Point(3, 17);
             this.tv_loads.Name = "tv_loads";
-            this.tv_loads.Size = new System.Drawing.Size(288, 384);
+            this.tv_loads.Size = new System.Drawing.Size(288, 412);
             this.tv_loads.TabIndex = 1;
             this.tv_loads.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_loadings_AfterSelect);
             this.tv_loads.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
@@ -3086,7 +3096,7 @@
             this.tab1_moving.Controls.Add(this.sc3);
             this.tab1_moving.Location = new System.Drawing.Point(23, 4);
             this.tab1_moving.Name = "tab1_moving";
-            this.tab1_moving.Size = new System.Drawing.Size(296, 546);
+            this.tab1_moving.Size = new System.Drawing.Size(296, 574);
             this.tab1_moving.TabIndex = 4;
             this.tab1_moving.Text = "Moving";
             this.tab1_moving.UseVisualStyleBackColor = true;
@@ -3107,8 +3117,8 @@
             // 
             this.sc3.Panel2.Controls.Add(this.groupBox7);
             this.sc3.Panel2.Controls.Add(this.panel12);
-            this.sc3.Size = new System.Drawing.Size(296, 546);
-            this.sc3.SplitterDistance = 275;
+            this.sc3.Size = new System.Drawing.Size(296, 574);
+            this.sc3.SplitterDistance = 289;
             this.sc3.TabIndex = 0;
             // 
             // groupBox6
@@ -3118,7 +3128,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(294, 273);
+            this.groupBox6.Size = new System.Drawing.Size(294, 287);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Define Vehicle Axle Loads";
@@ -3128,7 +3138,7 @@
             this.tv_mov_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_mov_loads.Location = new System.Drawing.Point(3, 17);
             this.tv_mov_loads.Name = "tv_mov_loads";
-            this.tv_mov_loads.Size = new System.Drawing.Size(288, 219);
+            this.tv_mov_loads.Size = new System.Drawing.Size(288, 233);
             this.tv_mov_loads.TabIndex = 1;
             this.tv_mov_loads.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
             // 
@@ -3138,7 +3148,7 @@
             this.panel9.Controls.Add(this.btn_mov_load_del);
             this.panel9.Controls.Add(this.btn_mov_load_add);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 236);
+            this.panel9.Location = new System.Drawing.Point(3, 250);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(288, 34);
             this.panel9.TabIndex = 0;
@@ -3182,7 +3192,7 @@
             this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox7.Location = new System.Drawing.Point(0, 33);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(294, 232);
+            this.groupBox7.Size = new System.Drawing.Size(294, 246);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Define Load Start position";
@@ -3192,7 +3202,7 @@
             this.tv_mov_def_load.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv_mov_def_load.Location = new System.Drawing.Point(3, 17);
             this.tv_mov_def_load.Name = "tv_mov_def_load";
-            this.tv_mov_def_load.Size = new System.Drawing.Size(288, 177);
+            this.tv_mov_def_load.Size = new System.Drawing.Size(288, 191);
             this.tv_mov_def_load.TabIndex = 1;
             this.tv_mov_def_load.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
             // 
@@ -3202,7 +3212,7 @@
             this.panel10.Controls.Add(this.btn_mov_def_load_del);
             this.panel10.Controls.Add(this.btn_mov_def_load_add);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(3, 194);
+            this.panel10.Location = new System.Drawing.Point(3, 208);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(288, 35);
             this.panel10.TabIndex = 0;
@@ -3272,7 +3282,7 @@
             this.tab1_dynamic.Controls.Add(this.panel13);
             this.tab1_dynamic.Location = new System.Drawing.Point(23, 4);
             this.tab1_dynamic.Name = "tab1_dynamic";
-            this.tab1_dynamic.Size = new System.Drawing.Size(296, 546);
+            this.tab1_dynamic.Size = new System.Drawing.Size(296, 574);
             this.tab1_dynamic.TabIndex = 6;
             this.tab1_dynamic.Text = "Dynamic";
             this.tab1_dynamic.UseVisualStyleBackColor = true;
@@ -3285,7 +3295,7 @@
             this.txt_dynamic.Multiline = true;
             this.txt_dynamic.Name = "txt_dynamic";
             this.txt_dynamic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_dynamic.Size = new System.Drawing.Size(296, 350);
+            this.txt_dynamic.Size = new System.Drawing.Size(296, 378);
             this.txt_dynamic.TabIndex = 6;
             this.txt_dynamic.WordWrap = false;
             // 
@@ -3425,7 +3435,7 @@
             this.tab1_ana_spec.Location = new System.Drawing.Point(23, 4);
             this.tab1_ana_spec.Name = "tab1_ana_spec";
             this.tab1_ana_spec.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_ana_spec.Size = new System.Drawing.Size(296, 546);
+            this.tab1_ana_spec.Size = new System.Drawing.Size(296, 574);
             this.tab1_ana_spec.TabIndex = 7;
             this.tab1_ana_spec.Text = "Analysis";
             this.tab1_ana_spec.UseVisualStyleBackColor = true;
@@ -3971,16 +3981,6 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_save_data
-            // 
-            this.btn_save_data.Location = new System.Drawing.Point(51, 16);
-            this.btn_save_data.Name = "btn_save_data";
-            this.btn_save_data.Size = new System.Drawing.Size(151, 30);
-            this.btn_save_data.TabIndex = 140;
-            this.btn_save_data.Text = "Save Data File";
-            this.btn_save_data.UseVisualStyleBackColor = true;
-            this.btn_save_data.Click += new System.EventHandler(this.tsmi_file_save_Click);
             // 
             // UCPreProcess
             // 

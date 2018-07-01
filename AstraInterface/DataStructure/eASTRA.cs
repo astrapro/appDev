@@ -137,10 +137,14 @@
 
     public enum eVersionType
     {
-        Last_2013_Version = 0,
-        High_Value_Version = 1,
-        Low_Value_Version = 2,
-        Demo_Version = 3
+        Demo = 0,
+        Activation_Trial = 1,
+
+        Professional_Bridge = 11,
+        Enterprise_Bridge = 31,
+
+        Professional_Structure = 12,
+        Enterprise_Structure = 32,
     }
 
     public enum eDesignOption

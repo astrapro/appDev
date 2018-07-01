@@ -44,7 +44,7 @@ namespace BridgeAnalysisDesign.Pier
             {
                 //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 //    return "DESIGN OF RCC ABUTMENT CANTILEVER [BS]";
-                return "Pier Design with Open Foundation in LSM";
+                return "Design of RCC Pier with Open Foundation";
             }
         }
         public bool Show_Title
@@ -263,7 +263,7 @@ namespace BridgeAnalysisDesign.Pier
         {
 
 
-            MessageBox.Show(this, "The Design in Excel Worksheet will take some time to complete. Please wait until the process is complete as shown at the bottom of the Excel Worksheet.", "ASTRA", MessageBoxButtons.OK);
+            //MessageBox.Show(this, "The Design in Excel Worksheet will take some time to complete. Please wait until the process is complete as shown at the bottom of the Excel Worksheet.", "ASTRA", MessageBoxButtons.OK);
 
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
             {
@@ -277,20 +277,44 @@ namespace BridgeAnalysisDesign.Pier
             if (OnProcess != null) OnProcess(sender, e);
         }
 
-        private void Pier_Process_Design_IS()
-        {
 
+        string Get_Design_Report()
+        {
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+
             if (iApp.user_path != "")
                 file_path = Path.Combine(iApp.user_path, Title);
 
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                file_path = Path.Combine(file_path, "Pier Design with Open Foundation in LSM [IRC].xlsm");
+            else
+                file_path = Path.Combine(file_path, "Pier Design with Open Foundation in LSM [BS].xlsm");
+            return file_path;
+        }
+
+
+
+
+        private void Pier_Process_Design_IS()
+        {
+            string file_path = Get_Design_Report();
+
+            if (!Directory.Exists(Path.GetDirectoryName(file_path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(file_path));
+
+
+            //string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            //if (iApp.user_path != "")
+            //    file_path = Path.Combine(iApp.user_path, Title);
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Pier with Open Foundation IS.xlsm");
+            ////file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+
+            ////if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+            //file_path = Path.Combine(file_path, "Pier Design with Open Foundation in LSM [IRC].xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -478,17 +502,23 @@ namespace BridgeAnalysisDesign.Pier
         private void Pier_Process_Design_BS()
         {
 
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
+            string file_path = Get_Design_Report();
 
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+            if (!Directory.Exists(Path.GetDirectoryName(file_path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(file_path));
 
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+
+            //string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            //if (iApp.user_path != "")
+            //    file_path = Path.Combine(iApp.user_path, Title);
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Pier with Open Foundation BS.xlsm");
+            ////file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+
+            ////if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+            //file_path = Path.Combine(file_path, "Pier with Open Foundation BS.xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -603,7 +633,40 @@ namespace BridgeAnalysisDesign.Pier
 
         private void btn_open_Click(object sender, EventArgs e)
         {
-            iApp.Open_ASTRA_Worksheet_Dialog();
+            Button btn = sender as Button;
+
+            if (btn == btn_open_worksheet)
+            {
+                iApp.Open_ASTRA_Worksheet_Dialog();
+            }
+            else
+            {
+
+                string file_path = Get_Design_Report();
+
+                //if (iApp.user_path != "")  file_path = Path.Combine(iApp.user_path, Title);
+
+                //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                //{
+                //    file_path = Path.Combine(file_path, "Pier with Open Foundation BS.xlsm");
+                //}
+                //else
+                //{
+                //    file_path = Path.Combine(file_path, "Pier with Open Foundation IS.xlsm");
+                //}
+
+                if (File.Exists(file_path))
+                {
+                    iApp.OpenExcelFile(file_path, "2011ap");
+                }
+                else
+                {
+                    MessageBox.Show(file_path + " file not found.");
+                    return;
+                }
+            }
+
+
         }
 
         private void txt_xls_inp_H7_TextChanged(object sender, EventArgs e)

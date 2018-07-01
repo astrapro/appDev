@@ -113,7 +113,7 @@ namespace AstraFunctionOne
             msg += "\n\n\nUser may view the moving Load Analysis by using ASTRA Pro Viewer (CAD) menu Option \"ASTRA-Load Deflection\"";
             LastDesignWorkingFolder = "";
 
-            Version_Type = eVersionType.High_Value_Version;
+            Version_Type = eVersionType.Enterprise_Bridge;
 
             Drawing_File = "";
             user_path = "";
@@ -126,9 +126,8 @@ namespace AstraFunctionOne
         public string LastDesignWorkingFolder { get; set; }
         public bool Check_Demo_Version()
         {
-            if (IsDemo || !LockProgram.IsProfessional_BridgeVersion())
+            if (IsDemo)
             {
-
                 //frm_Demo_Message f = new frm_Demo_Message(this);
                 //f.Owner = this;
                 //f.ShowDialog();
@@ -638,13 +637,17 @@ namespace AstraFunctionOne
                 //Chiranjit [2013 05 16]
                 Progress_Works = new ProgressList();
 
-                Version_Type = eVersionType.Low_Value_Version;
                 //Version_Type = eVersionType.High_Value_Version;
 
                 //IsAASTHO = true;
                 IsAASTHO = false;
                 //bool IsDemo = true;
-                IsDemo = !LockProgram.CheckHasp();
+
+                
+                Version_Type = LockProgram.Get_LockedVersion();
+
+                IsDemo = (Version_Type == eVersionType.Demo);
+
                 //IsAASTHO = false;
 
                 this.Text = ASTRA_Pro;
@@ -661,7 +664,6 @@ namespace AstraFunctionOne
                 //If visible set to false then menu will be R21
                 IsRelease_22 = true;
                 //IsRelease_22 = false;
-                //if (false)
                 if (IsRelease_22)
                 {
                     Load_ASTRA_R22_Menu();
@@ -693,10 +695,10 @@ namespace AstraFunctionOne
 
                         Tables = new ASTRA_Tables(DesignStandard);
 
-                        if (!IsDemo)
+                        if (LockProgram.CheckHasp())
                         {
                             LockProgram.Version_Type = Version_Type;
-                            if (LockProgram.CheckHasp())
+                            if (LockProgram.Version_Type == eVersionType.Activation_Trial || LockProgram.Version_Type == eVersionType.Demo)
                             {
 
 
@@ -714,7 +716,9 @@ namespace AstraFunctionOne
                                 toolStripSeparator9.Visible = !chHasp.IsActivate;
 
                                 //if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_ASTRA_Lock_18())
-                                if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_Previuos_Version())
+                                //if (!LockProgram.IsActivate && LockProgram.Check_ASTRA_Lock() || LockProgram.Check_Previuos_Version())
+                                //if (Version_Type == eVersionType.Demo || Version_Type == eVersionType.Activation_Trial)
+                                if (Version_Type == eVersionType.Demo)
                                 {
                                     //faum.ShowDialog();
 
@@ -726,7 +730,13 @@ namespace AstraFunctionOne
                                 }
                                 else
                                 {
-                                    if (chHasp.activation == 0)
+                                    chHasp.activation = LockProgram.Get_Activation();
+                                    //if (chHasp.activation > 0)
+                                    //{
+                                    //    LockProgram.Set_Activation();
+                                    //}
+
+                                    if (chHasp.activation <= 5)
                                     {
                                         //throw new Exception("No more activation left.");
                                         //faum.ShowDialog();
@@ -736,6 +746,11 @@ namespace AstraFunctionOne
                                             toolStripSeparator9.Visible = !chHasp.IsActivate;
                                         }
                                     }
+                                    else
+                                    {
+                                        LockProgram.Set_Activation();
+                                    }
+                                   
                                 }
                                 //if (!chHasp.IsActivate)
                                 //{
@@ -747,11 +762,11 @@ namespace AstraFunctionOne
                             else
                             {
                                 //System.Environment.SetEnvironmentVariable("ASTRA_VERSION", "DEMO");
-                                tsmi_license.Visible = false;
-                                toolStripSeparator9.Visible = false;
+                                //tsmi_license.Visible = false;
+                                //toolStripSeparator9.Visible = false;
                                 //Chiranjit [2012 01 16]
                                 //TechSOFT_Demo();
-                                throw new Exception("ASTRA Lock not found at any port of this computer.");
+                                //throw new Exception("ASTRA Lock not found at any port of this computer.");
                             }
                         }
 
@@ -793,20 +808,20 @@ namespace AstraFunctionOne
             {
                 if (IsDemo)
                 {
-                    Last_version = eVersionType.Demo_Version;
+                    Last_version = eVersionType.Demo;
                     //this.BackgroundImage = Properties.Resources.ASTRA_Demo;
                     this.BackgroundImage = Properties.Resources.ASTRA_Unauthorized;
                 }
                 else
                 {
-                    if (LockProgram.Is_High_Value())
+                    if (Version_Type == eVersionType.Enterprise_Bridge)
                     {
-                        Last_version = eVersionType.High_Value_Version;
+                        Last_version = eVersionType.Enterprise_Bridge;
                         this.BackgroundImage = Properties.Resources.ASTRA_Enterprise;
                     }
                     else
                     {
-                        Last_version = eVersionType.Low_Value_Version;
+                        Last_version = eVersionType.Professional_Bridge;
                         this.BackgroundImage = Properties.Resources.ASTRA_Professional;
                     }
                 }
@@ -1809,7 +1824,7 @@ namespace AstraFunctionOne
         {
             frmLockedVersion fch = new frmLockedVersion(true);
             //if (!fch.IsActivate || !fch.Check_ASTRA_Structure_Lock())
-            if (!LockProgram.Check_ASTRA_Bridge_Lock_19() || !LockProgram.Check_ASTRA_Structure_Lock_19() || LockProgram.CheckHasp())
+            //if (Version_Type == eVersionType.Demo || Version_Type == eVersionType.Activation_Trial)
             {
                 if (fch.ShowDialog() == DialogResult.OK)
                 {
@@ -3132,7 +3147,7 @@ namespace AstraFunctionOne
 
             try
             {
-
+                Excel_Open_Message();
                 Excel.Application xlApp;
                 Excel.Workbook xlWorkBook;
                 Excel.Worksheet xlWorkSheet;
@@ -3156,7 +3171,11 @@ namespace AstraFunctionOne
                 }
                 xlApp.Visible = true;
 
+                Excel_Close_Message();
+
                 return true;
+
+
             }
             catch (Exception ex)
             {
@@ -4180,9 +4199,25 @@ namespace AstraFunctionOne
             if (flc == null)
                 flc = new frmLockedVersion(false);
 
-            IsDemo = !LockProgram.Check_ASTRA_Lock();
-            Is_BridgeDemo = !LockProgram.IsProfessional_BridgeVersion();
-            Is_StructureDemo = !LockProgram.IsProfessional_StructuralVersion();
+            Version_Type = LockProgram.Get_LockedVersion();
+
+            IsDemo = (Version_Type == eVersionType.Demo);
+
+            if (Version_Type == eVersionType.Enterprise_Bridge || Version_Type == eVersionType.Professional_Bridge)
+            {
+                Is_BridgeDemo = true;
+                Is_StructureDemo = false;
+            } 
+            else if (Version_Type == eVersionType.Enterprise_Structure || Version_Type == eVersionType.Professional_Structure)
+            {
+                Is_BridgeDemo = true;
+                Is_StructureDemo = true;
+            }
+            else
+            {
+                Is_BridgeDemo = false;
+                Is_StructureDemo = false;
+            }
 
 
 
@@ -4197,28 +4232,28 @@ namespace AstraFunctionOne
                 if (IsDemo)
                 {
 
-                    if (Last_version != eVersionType.Demo_Version)
+                    if (Last_version != eVersionType.Demo)
                     {
-                        Last_version = eVersionType.Demo_Version;
+                        Last_version = eVersionType.Demo;
                         //this.BackgroundImage = Properties.Resources.ASTRA_Demo;
                         this.BackgroundImage = Properties.Resources.ASTRA_Unauthorized;
                     }
                 }
                 else
                 {
-                    if (LockProgram.Is_High_Value())
+                    if (Version_Type == eVersionType.Enterprise_Bridge || Version_Type == eVersionType.Enterprise_Structure)
                     {
-                        if (Last_version != eVersionType.High_Value_Version)
+                        if (Last_version != Version_Type)
                         {
-                            Last_version = eVersionType.High_Value_Version;
+                            Last_version = Version_Type;
                             this.BackgroundImage = Properties.Resources.ASTRA_Enterprise;
                         }
                     }
                     else
                     {
-                        if (Last_version != eVersionType.Low_Value_Version)
+                        if (Last_version != Version_Type)
                         {
-                            Last_version = eVersionType.Low_Value_Version;
+                            Last_version = eVersionType.Professional_Bridge;
                             this.BackgroundImage = Properties.Resources.ASTRA_Professional;
                         }
 
@@ -4256,95 +4291,31 @@ namespace AstraFunctionOne
             this.tsl_text.Visible = true;
 
 
-
-
-
             if (IsDemo)
             {
                 if (File.Exists(flls))
                     File.Delete(flls);
                 this.Text = "ASTRA Pro [DEMO] " + ASTRA_Pro;
-                if (Version_Type == eVersionType.High_Value_Version)
-                    this.tsl_text.Text = "ASTRA Pro Dongle Not found at any Port. This is an Unauthorized / Demo Version. Please contact TechSOFT for Authorized Version.";
+                if (Version_Type == eVersionType.Enterprise_Bridge)
+                    this.tsl_text.Text = "ASTRA Pro Dongle is not found at any USB port. This is an Unauthorized / Demo Version. Please contact TechSOFT for Authorized Version.";
                 else
-                    this.tsl_text.Text = "ASTRA Pro Dongle Not found at any Port. This is an Unauthorized Version.";
+                    this.tsl_text.Text = "ASTRA Pro Dongle is not found at any USB port. This is an Unauthorized Version.";
             }
             else
             {
-                if (!LockProgram.Get_Authorization_Code())
-                    this.tsl_text.Text = "ASTRA Pro Dongle found but it is not Authorized. " + LockProgram.Get_Activation() + " activation(s) remaining. Please enter Authorization code.";
-                else if (LockProgram.IsProfessional_BridgeVersion() && LockProgram.IsProfessional_StructuralVersion())
+                if (Version_Type == eVersionType.Activation_Trial)
+                    this.tsl_text.Text = "ASTRA Pro Dongle is found but it is not Authorized. " + LockProgram.Get_Activation() + " activation(s) remaining. Please enter Authorization code.";
+                else if (Version_Type == eVersionType.Enterprise_Structure || Version_Type == eVersionType.Professional_Structure)
                 {
-                    this.tsl_text.Text = "ASTRA Pro Authorized Dongle found. This is a Professional Version of ASTRA Pro. Thank you for using ASTRA Pro.";
+                    this.tsl_text.Text = "ASTRA Pro Authorized Dongle is found. This is a Professional Version of ASTRA Pro. Thank you for using ASTRA Pro.";
                 }
-                else if (LockProgram.IsProfessional_BridgeVersion() && !LockProgram.IsProfessional_StructuralVersion())
+                else if (Version_Type == eVersionType.Enterprise_Bridge || Version_Type == eVersionType.Professional_Bridge)
                 {
                     //this.tsl_text.Text = "ASTRA Pro Bridge Authorized Dongle found. This is a Professional Version of ASTRA Pro. Thank you for using ASTRA Pro.";
                     //this.tsl_text.Text = "Authorized Dongle for Bridge Design with ASTRA Pro found. Authorized Dongle for Building Design with ASTRA Pro not found.";
-                    this.tsl_text.Text = "ASTRA Pro Authorized Dongle is found for Bridge Design. Authorized Dongle is not found for Building Design.";
+                    this.tsl_text.Text = "ASTRA Pro Authorized Dongle is found for Bridge Design. Authorized Dongle is not found for Structure Design.";
                 }
-                else if (!LockProgram.IsProfessional_BridgeVersion() && LockProgram.IsProfessional_StructuralVersion())
-                {
-                    //this.tsl_text.Text = "ASTRA Pro Structure Authorized Dongle found. This is a Professional Version of ASTRA Pro. Thank you for using ASTRA Pro.";
-                    //this.tsl_text.Text = "Authorized Dongle for Building Design with ASTRA Pro found. Authorized Dongle for Bridge Design with ASTRA Pro not found.";
-                    this.tsl_text.Text = "ASTRA Pro Authorized Dongle is found for Building Design. Authorized Dongle is not found for Bridge Design.";
-                }
-                else if (!LockProgram.IsProfessional_BridgeVersion() && !LockProgram.IsProfessional_StructuralVersion())
-                {
-                    //this.tsl_text.Text = "ASTRA Pro Structure Authorized Dongle found. This is a Professional Version of ASTRA Pro. Thank you for using ASTRA Pro.";
-                    this.tsl_text.Text = "ASTRA Pro Dongle found but it is not Authorized for Bridge or Building Design. Please contact TechSOFT for Authorized Version.";
-                }
-                #region Chiranjit
-
-                //if (flc.Get_Authorization_Code())
-                //    this.tsl_text.Text = "ASTRA Pro Authorized Dongle found. This is a Professional Version of ASTRA Pro. Thank you for using ASTRA Pro.";
-                //else
-                //    //this.tsl_text.Text = "ASTRA Pro Dongle found but is not Authorize. " + flc.Get_Activation() + " activation(s) remaining. Please enter Authorization code. (File >> Enter Athorization Code)";
-                //    this.tsl_text.Text = "ASTRA Pro Dongle found but it is not Authorized. " + flc.Get_Activation() + " activation(s) remaining. Please enter Authorization code.";
-                ////flc.Get_Activation();
-
-                //if (!File.Exists(flls))
-                //{
-                //    try
-                //    {
-                //        File.WriteAllText(flls, Application.StartupPath + Environment.NewLine +
-                //            "Application.CommonAppDataPath" + " = " + Application.CommonAppDataPath + Environment.NewLine + Environment.NewLine +
-                //            "Application.CompanyName" + " = " + Application.CompanyName + Environment.NewLine +
-                //            "Application.ExecutablePath" + " = " + Application.ExecutablePath + Environment.NewLine +
-                //            "Application.LocalUserAppDataPath" + " = " + Application.LocalUserAppDataPath + Environment.NewLine +
-                //            "Application.ProductName " + " = " + Application.ProductName + Environment.NewLine + Environment.NewLine +
-                //            "Application.ProductVersion" + " = " + Application.ProductVersion + Environment.NewLine + Environment.NewLine +
-                //            "Application.UserAppDataPath" + " = " + Application.UserAppDataPath + Environment.NewLine + Environment.NewLine +
-                //            "Environment.CurrentDirectory" + " = " + Environment.CurrentDirectory + Environment.NewLine + Environment.NewLine +
-                //            "Environment.ExitCode" + " = " + Environment.ExitCode + Environment.NewLine + Environment.NewLine +
-                //            "Environment.MachineName" + " = " + Environment.MachineName + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.VersionString" + " = " + Environment.OSVersion.VersionString + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Platform" + " = " + Environment.OSVersion.Platform + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.ServicePack" + " = " + Environment.OSVersion.ServicePack + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Version.Build" + " = " + Environment.OSVersion.Version.Build + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Version.Major" + " = " + Environment.OSVersion.Version.Major + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Version.MajorRevision" + " = " + Environment.OSVersion.Version.MajorRevision + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Version.Minor" + " = " + Environment.OSVersion.Version.Minor + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Version.MinorRevision" + " = " + Environment.OSVersion.Version.MinorRevision + Environment.NewLine + Environment.NewLine +
-                //            "Environment.OSVersion.Version.Revision" + " = " + Environment.OSVersion.Version.Revision + Environment.NewLine + Environment.NewLine +
-                //            "Environment.ProcessorCount" + " = " + Environment.ProcessorCount + Environment.NewLine + Environment.NewLine +
-                //            "Environment.StackTrace" + " = " + Environment.StackTrace + Environment.NewLine + Environment.NewLine +
-                //            "Environment.SystemDirectory" + " = " + Environment.SystemDirectory + Environment.NewLine + Environment.NewLine +
-                //            "Environment.TickCount" + " = " + Environment.TickCount + Environment.NewLine + Environment.NewLine +
-                //            "Environment.UserDomainName" + " = " + Environment.UserDomainName + Environment.NewLine + Environment.NewLine +
-                //            "Environment.UserInteractive" + " = " + Environment.UserInteractive + Environment.NewLine + Environment.NewLine +
-                //            "Environment.UserName" + " = " + Environment.UserName + Environment.NewLine + Environment.NewLine +
-                //            "Environment.Version.Build" + " = " + Environment.Version.Build + Environment.NewLine + Environment.NewLine +
-                //            "Environment.Version.Major" + " = " + Environment.Version.Major + Environment.NewLine + Environment.NewLine +
-                //            "Environment.Version.MajorRevision" + " = " + Environment.Version.MajorRevision + Environment.NewLine + Environment.NewLine +
-                //            "Environment.Version.Minor" + " = " + Environment.Version.Minor + Environment.NewLine + Environment.NewLine +
-                //            "Environment.Version.MinorRevision" + " = " + Environment.Version.MinorRevision + Environment.NewLine + Environment.NewLine +
-                //            "Environment.Version.Revision" + " = " + Environment.Version.Revision + Environment.NewLine + Environment.NewLine +
-                //            "Environment.WorkingSet" + " = " + Environment.WorkingSet + Environment.NewLine + Environment.NewLine +
-                //            "Application.CommonAppDataRegistry" + " = " + Application.CommonAppDataRegistry + "\n\r");
-                //    }
-                //    catch (Exception exx) { }
-                #endregion
+               
                 //}
             }
             if (DesignStandard == eDesignStandard.IndianStandard)
@@ -4564,6 +4535,61 @@ namespace AstraFunctionOne
             }
         }
 
+        public void Write_Skew_Data_to_File(string fname, string sap_path)
+        {
+
+            if (Path.GetDirectoryName(fname).ToLower() == Path.GetDirectoryName(sap_path).ToLower()) return;
+
+
+
+
+            #region SAP Analysis
+
+            string sap_file = "", sap_file2 = "";
+
+            sap_file = Path.Combine(Path.GetDirectoryName(fname), "SAP_Input_Data.txt");
+            sap_file2 = Path.Combine(Path.GetDirectoryName(sap_path), "SAP_Input_Data.txt");
+
+
+
+            SAP_Document sap = new SAP_Document();
+            SAP_Document sap2 = new SAP_Document();
+
+            if (File.Exists(sap_file)) 
+            {
+                sap.Read_SAP_Data(sap_file);
+            }
+
+            if (File.Exists(sap_file2))
+            {
+                sap2.Read_SAP_Data(sap_file2);
+            }
+
+
+            //sap_file = Path.Combine(sap_path, "SAP_Input_Data.txt");
+
+            if (File.Exists(sap_file))
+            {
+                //sap.Read_SAP_Data(sap_file);
+
+                if (sap.Beams.Count > 0)
+                {
+                    for (int i = 0; i < sap.Beams.Count; i++)
+                    {
+                        var item = sap.Beams[i];
+                        var item2 = sap2.Beams[i];
+
+                        sap.Beams[i] = sap2.Beams[i];
+                    }
+                }
+
+                sap_file = Path.Combine(Path.GetDirectoryName(sap_file), "inp.tmp");
+                File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+            }
+            #endregion SAP Analysis
+        }
+
         public void Write_Data_to_File(string fname, string sap_path)
         {
 
@@ -4688,6 +4714,12 @@ namespace AstraFunctionOne
 
         public void View_Input_File(string file_name)
         {
+
+            var ll_txt = MyList.Get_LL_TXT_File(file_name);
+
+            if (File.Exists(ll_txt)) RunExe(ll_txt);
+
+            Thread.Sleep(300);
             if (File.Exists(file_name)) System.Diagnostics.Process.Start(file_name);
 
             //Chiranjit [2016 09 22]
@@ -5745,9 +5777,19 @@ namespace AstraFunctionOne
         {
 
             ShowTimerScreen(eASTRAImage.PSC_I_Girder_Long_Span);
-            frm_PSC_I_Girder_LS frm = new frm_PSC_I_Girder_LS(this);
-            frm.Owner = this;
-            frm.Show();
+
+            if (IsRelease_22)
+            {
+                frm_PSC_I_Girder_LS_New frm = new frm_PSC_I_Girder_LS_New(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else
+            {
+                frm_PSC_I_Girder_LS frm = new frm_PSC_I_Girder_LS(this);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
         private void Show_PSC_IGirder_Bridge_Working_Stress()
         {

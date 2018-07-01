@@ -30,6 +30,7 @@
         {
             this.pnl_bot = new System.Windows.Forms.Panel();
             this.btn_Excel_Notes = new System.Windows.Forms.Button();
+            this.btn_open_worksheet = new System.Windows.Forms.Button();
             this.btn_report = new System.Windows.Forms.Button();
             this.btn_proceed = new System.Windows.Forms.Button();
             this.pnl_content = new System.Windows.Forms.Panel();
@@ -288,8 +289,6 @@
             this.txt_xls_inp_I7 = new System.Windows.Forms.TextBox();
             this.txt_xls_inp_G8 = new System.Windows.Forms.TextBox();
             this.txt_xls_inp_G7 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.rbtn_value_worksheet = new System.Windows.Forms.RadioButton();
@@ -318,6 +317,8 @@
             this.label72 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lbl_Title = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -359,10 +360,10 @@
             this.pnl_2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel9.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -389,18 +390,20 @@
             // 
             // pnl_bot
             // 
+            this.pnl_bot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnl_bot.Controls.Add(this.btn_Excel_Notes);
+            this.pnl_bot.Controls.Add(this.btn_open_worksheet);
             this.pnl_bot.Controls.Add(this.btn_report);
             this.pnl_bot.Controls.Add(this.btn_proceed);
             this.pnl_bot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_bot.Location = new System.Drawing.Point(0, 739);
+            this.pnl_bot.Location = new System.Drawing.Point(0, 654);
             this.pnl_bot.Name = "pnl_bot";
-            this.pnl_bot.Size = new System.Drawing.Size(803, 46);
+            this.pnl_bot.Size = new System.Drawing.Size(803, 131);
             this.pnl_bot.TabIndex = 0;
             // 
             // btn_Excel_Notes
             // 
-            this.btn_Excel_Notes.Location = new System.Drawing.Point(14, 6);
+            this.btn_Excel_Notes.Location = new System.Drawing.Point(12, 43);
             this.btn_Excel_Notes.Name = "btn_Excel_Notes";
             this.btn_Excel_Notes.Size = new System.Drawing.Size(172, 33);
             this.btn_Excel_Notes.TabIndex = 8;
@@ -408,23 +411,33 @@
             this.btn_Excel_Notes.UseVisualStyleBackColor = true;
             this.btn_Excel_Notes.Click += new System.EventHandler(this.btn_Excel_Notes_Click);
             // 
+            // btn_open_worksheet
+            // 
+            this.btn_open_worksheet.Location = new System.Drawing.Point(269, 78);
+            this.btn_open_worksheet.Name = "btn_open_worksheet";
+            this.btn_open_worksheet.Size = new System.Drawing.Size(346, 33);
+            this.btn_open_worksheet.TabIndex = 0;
+            this.btn_open_worksheet.Text = "Open User\'s Design by selecting User\'s Given file name";
+            this.btn_open_worksheet.UseVisualStyleBackColor = true;
+            this.btn_open_worksheet.Click += new System.EventHandler(this.btn_open_Click);
+            // 
             // btn_report
             // 
-            this.btn_report.Location = new System.Drawing.Point(363, 6);
+            this.btn_report.Location = new System.Drawing.Point(269, 43);
             this.btn_report.Name = "btn_report";
-            this.btn_report.Size = new System.Drawing.Size(139, 33);
+            this.btn_report.Size = new System.Drawing.Size(346, 33);
             this.btn_report.TabIndex = 0;
-            this.btn_report.Text = "Open Report";
+            this.btn_report.Text = "Open Design Report";
             this.btn_report.UseVisualStyleBackColor = true;
             this.btn_report.Click += new System.EventHandler(this.btn_open_Click);
             // 
             // btn_proceed
             // 
-            this.btn_proceed.Location = new System.Drawing.Point(218, 6);
+            this.btn_proceed.Location = new System.Drawing.Point(269, 6);
             this.btn_proceed.Name = "btn_proceed";
-            this.btn_proceed.Size = new System.Drawing.Size(139, 33);
+            this.btn_proceed.Size = new System.Drawing.Size(346, 37);
             this.btn_proceed.TabIndex = 0;
-            this.btn_proceed.Text = "Proceed";
+            this.btn_proceed.Text = "Process for New Design and Save as User\'s Design with User\'s Given file name";
             this.btn_proceed.UseVisualStyleBackColor = true;
             this.btn_proceed.Click += new System.EventHandler(this.btn_proceed_Click);
             // 
@@ -451,7 +464,7 @@
             this.pnl_content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_content.Location = new System.Drawing.Point(0, 124);
             this.pnl_content.Name = "pnl_content";
-            this.pnl_content.Size = new System.Drawing.Size(803, 615);
+            this.pnl_content.Size = new System.Drawing.Size(803, 530);
             this.pnl_content.TabIndex = 0;
             // 
             // panel6
@@ -3074,26 +3087,6 @@
             this.txt_xls_inp_G7.Text = "25.84";
             this.txt_xls_inp_G7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.pictureBox6);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(786, 908);
-            this.panel5.TabIndex = 36;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::BridgeAnalysisDesign.Properties.Resources.Pile_Foundation1;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox6.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(786, 908);
-            this.pictureBox6.TabIndex = 0;
-            this.pictureBox6.TabStop = false;
-            // 
             // panel9
             // 
             this.panel9.Controls.Add(this.groupBox1);
@@ -3378,6 +3371,26 @@
             this.label2.Size = new System.Drawing.Size(22, 13);
             this.label2.TabIndex = 34;
             this.label2.Text = "kN";
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.pictureBox6);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(786, 908);
+            this.panel5.TabIndex = 36;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::BridgeAnalysisDesign.Properties.Resources.Pile_Foundation1;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox6.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(786, 908);
+            this.pictureBox6.TabIndex = 0;
+            this.pictureBox6.TabStop = false;
             // 
             // lbl_Title
             // 
@@ -3695,11 +3708,11 @@
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel9.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -4044,6 +4057,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button btn_open_worksheet;
     }
 
 

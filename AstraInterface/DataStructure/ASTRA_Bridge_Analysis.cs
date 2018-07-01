@@ -4140,17 +4140,20 @@ namespace AstraInterface.DataStructure
                         }
                         //}
                     }
-                    else if (max_shear < Math.Abs(list_beams[j].EndNodeForce.MaxShearForce))
+                    else if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
                     {
+                        if (max_shear < Math.Abs(list_beams[j].EndNodeForce.MaxShearForce))
+                        {
 
-                        list_beams[j].StartNodeForce.ForceType = ForceType;
-                        list_beams[j].EndNodeForce.ForceType = ForceType;
+                            list_beams[j].StartNodeForce.ForceType = ForceType;
+                            list_beams[j].EndNodeForce.ForceType = ForceType;
 
-                        max_shear = Math.Abs(list_beams[j].EndNodeForce.MaxShearForce);
-                        mfrc.Force = max_shear;
-                        mfrc.Loadcase = list_beams[j].LoadNo;
-                        mfrc.MemberNo = list_beams[j].BeamNo;
-                        mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
+                            max_shear = Math.Abs(list_beams[j].EndNodeForce.MaxShearForce);
+                            mfrc.Force = max_shear;
+                            mfrc.Loadcase = list_beams[j].LoadNo;
+                            mfrc.MemberNo = list_beams[j].BeamNo;
+                            mfrc.NodeNo = list_beams[j].EndNodeForce.JointNo;
+                        }
                     }
                 }
             }

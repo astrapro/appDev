@@ -134,9 +134,9 @@ namespace LimitStateMethod.DeckSlab
             get
             {
                 if (user_path == null) return "";
-                if (Directory.Exists(Path.Combine(user_path, "Worksheet_Design")) == false)
-                    Directory.CreateDirectory(Path.Combine(user_path, "Worksheet_Design"));
-                return Path.Combine(user_path, "Worksheet_Design");
+                if (Directory.Exists(Path.Combine(user_path, "Design of Deck Slab")) == false)
+                    Directory.CreateDirectory(Path.Combine(user_path, "Design of Deck Slab"));
+                return Path.Combine(user_path, "Design of Deck Slab");
             }
         }
         DeckSlab_Analysis_Extend Deck_Analysis = null;
@@ -4447,7 +4447,7 @@ namespace LimitStateMethod.DeckSlab
         {
             get
             {
-                return Path.Combine(user_path, "DECKSLAB_ANALYSIS_RESULT.TXT");
+                return Path.Combine(user_path, "Process\\DECKSLAB_ANALYSIS_RESULT.TXT");
             }
         }
 
@@ -5174,6 +5174,7 @@ namespace LimitStateMethod.DeckSlab
 
                     iApp.Excel_Open_Message();
                     rcc_excel.Read_Update_Data();
+                    iApp.Excel_Close_Message();
                 }
                 catch (Exception ex) { }
                 Button_Enable_Disable();

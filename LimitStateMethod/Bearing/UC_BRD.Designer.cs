@@ -672,6 +672,12 @@
             this.txt_VFB_1_Hlts = new System.Windows.Forms.TextBox();
             this.txt_VFB_1_Hlatn = new System.Windows.Forms.TextBox();
             this.label201 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label569 = new System.Windows.Forms.Label();
+            this.btn_VFB_drawings = new System.Windows.Forms.Button();
+            this.btn_VBAB_drawings = new System.Windows.Forms.Button();
+            this.btn_VMABL_drawings = new System.Windows.Forms.Button();
+            this.btn_VMABT_drawings = new System.Windows.Forms.Button();
             this.tab_NEOB = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -723,14 +729,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.label391 = new System.Windows.Forms.Label();
+            this.btn_open_worksheet_report = new System.Windows.Forms.Button();
             this.btn_open_worksheet = new System.Windows.Forms.Button();
             this.btn_bearing_worksheet = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label569 = new System.Windows.Forms.Label();
-            this.btn_VFB_drawings = new System.Windows.Forms.Button();
-            this.btn_VBAB_drawings = new System.Windows.Forms.Button();
-            this.btn_VMABL_drawings = new System.Windows.Forms.Button();
-            this.btn_VMABT_drawings = new System.Windows.Forms.Button();
             this.tbc1.SuspendLayout();
             this.tab_FRCS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_rotation)).BeginInit();
@@ -746,6 +747,7 @@
             this.panel4.SuspendLayout();
             this.tab_VFB.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tab_NEOB.SuspendLayout();
             this.panel7.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -753,7 +755,6 @@
             this.groupBox1.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbc1
@@ -763,8 +764,8 @@
             this.tbc1.Controls.Add(this.tab_VMABL);
             this.tbc1.Controls.Add(this.tab_VBAB);
             this.tbc1.Controls.Add(this.tab_VFB);
-            this.tbc1.Controls.Add(this.tab_NEOB);
             this.tbc1.Controls.Add(this.tabPage2);
+            this.tbc1.Controls.Add(this.tab_NEOB);
             this.tbc1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbc1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbc1.Location = new System.Drawing.Point(0, 0);
@@ -7139,11 +7140,76 @@
             this.label201.TabIndex = 281;
             this.label201.Text = "Trans. Horizontal Force (Seismic) [Hlts]";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label569);
+            this.tabPage2.Controls.Add(this.btn_VFB_drawings);
+            this.tabPage2.Controls.Add(this.btn_VBAB_drawings);
+            this.tabPage2.Controls.Add(this.btn_VMABL_drawings);
+            this.tabPage2.Controls.Add(this.btn_VMABT_drawings);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(941, 636);
+            this.tabPage2.TabIndex = 5;
+            this.tabPage2.Text = "Drawings";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label569
+            // 
+            this.label569.AutoSize = true;
+            this.label569.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label569.Location = new System.Drawing.Point(364, 144);
+            this.label569.Name = "label569";
+            this.label569.Size = new System.Drawing.Size(308, 23);
+            this.label569.TabIndex = 80;
+            this.label569.Text = "Editable Construction Drawings";
+            // 
+            // btn_VFB_drawings
+            // 
+            this.btn_VFB_drawings.Location = new System.Drawing.Point(296, 426);
+            this.btn_VFB_drawings.Name = "btn_VFB_drawings";
+            this.btn_VFB_drawings.Size = new System.Drawing.Size(526, 65);
+            this.btn_VFB_drawings.TabIndex = 0;
+            this.btn_VFB_drawings.Text = "FIXED BEARING DRAWINGS ";
+            this.btn_VFB_drawings.UseVisualStyleBackColor = true;
+            this.btn_VFB_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
+            // 
+            // btn_VBAB_drawings
+            // 
+            this.btn_VBAB_drawings.Location = new System.Drawing.Point(296, 355);
+            this.btn_VBAB_drawings.Name = "btn_VBAB_drawings";
+            this.btn_VBAB_drawings.Size = new System.Drawing.Size(526, 65);
+            this.btn_VBAB_drawings.TabIndex = 0;
+            this.btn_VBAB_drawings.Text = "BI AXIAL BEARING DRAWINGS ";
+            this.btn_VBAB_drawings.UseVisualStyleBackColor = true;
+            this.btn_VBAB_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
+            // 
+            // btn_VMABL_drawings
+            // 
+            this.btn_VMABL_drawings.Location = new System.Drawing.Point(296, 284);
+            this.btn_VMABL_drawings.Name = "btn_VMABL_drawings";
+            this.btn_VMABL_drawings.Size = new System.Drawing.Size(526, 65);
+            this.btn_VMABL_drawings.TabIndex = 0;
+            this.btn_VMABL_drawings.Text = "MONO AXIAL BEARING (LONGITUDINAL) DRAWINGS ";
+            this.btn_VMABL_drawings.UseVisualStyleBackColor = true;
+            this.btn_VMABL_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
+            // 
+            // btn_VMABT_drawings
+            // 
+            this.btn_VMABT_drawings.Location = new System.Drawing.Point(296, 213);
+            this.btn_VMABT_drawings.Name = "btn_VMABT_drawings";
+            this.btn_VMABT_drawings.Size = new System.Drawing.Size(526, 65);
+            this.btn_VMABT_drawings.TabIndex = 0;
+            this.btn_VMABT_drawings.Text = "MONO AXIAL BEARING (TRANVERSE) DRAWINGS ";
+            this.btn_VMABT_drawings.UseVisualStyleBackColor = true;
+            this.btn_VMABT_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
+            // 
             // tab_NEOB
             // 
             this.tab_NEOB.Controls.Add(this.panel7);
             this.tab_NEOB.Controls.Add(this.panel6);
             this.tab_NEOB.Controls.Add(this.label391);
+            this.tab_NEOB.Controls.Add(this.btn_open_worksheet_report);
             this.tab_NEOB.Controls.Add(this.btn_open_worksheet);
             this.tab_NEOB.Controls.Add(this.btn_bearing_worksheet);
             this.tab_NEOB.Location = new System.Drawing.Point(4, 22);
@@ -7155,21 +7221,22 @@
             // 
             // panel7
             // 
+            this.panel7.AutoScroll = true;
+            this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel7.Controls.Add(this.groupBox2);
             this.panel7.Controls.Add(this.groupBox1);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 152);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(941, 409);
+            this.panel7.Size = new System.Drawing.Size(941, 353);
             this.panel7.TabIndex = 12;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgv_reactions);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(451, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(490, 409);
+            this.groupBox2.Size = new System.Drawing.Size(490, 397);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tabulation of Reactions";
@@ -7193,7 +7260,7 @@
             this.dgv_reactions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_reactions.Location = new System.Drawing.Point(3, 17);
             this.dgv_reactions.Name = "dgv_reactions";
-            this.dgv_reactions.Size = new System.Drawing.Size(484, 389);
+            this.dgv_reactions.Size = new System.Drawing.Size(484, 377);
             this.dgv_reactions.TabIndex = 0;
             // 
             // Column1
@@ -7259,10 +7326,9 @@
             this.groupBox1.Controls.Add(this.label410);
             this.groupBox1.Controls.Add(this.txt_spring_constant_G8);
             this.groupBox1.Controls.Add(this.txt_spring_constant_G10);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(451, 409);
+            this.groupBox1.Size = new System.Drawing.Size(451, 397);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Design Inputs";
@@ -7665,89 +7731,35 @@
             this.label391.Text = "Elastomeric Laminated Steel Plate Reinforced Neoprene Bearings";
             this.label391.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_open_worksheet_report
+            // 
+            this.btn_open_worksheet_report.Location = new System.Drawing.Point(307, 550);
+            this.btn_open_worksheet_report.Name = "btn_open_worksheet_report";
+            this.btn_open_worksheet_report.Size = new System.Drawing.Size(365, 37);
+            this.btn_open_worksheet_report.TabIndex = 0;
+            this.btn_open_worksheet_report.Text = "Open Design Report";
+            this.btn_open_worksheet_report.UseVisualStyleBackColor = true;
+            this.btn_open_worksheet_report.Click += new System.EventHandler(this.btn_open_worksheet_Click);
+            // 
             // btn_open_worksheet
             // 
-            this.btn_open_worksheet.Location = new System.Drawing.Point(534, 583);
+            this.btn_open_worksheet.Location = new System.Drawing.Point(307, 589);
             this.btn_open_worksheet.Name = "btn_open_worksheet";
-            this.btn_open_worksheet.Size = new System.Drawing.Size(261, 37);
+            this.btn_open_worksheet.Size = new System.Drawing.Size(365, 37);
             this.btn_open_worksheet.TabIndex = 0;
-            this.btn_open_worksheet.Text = "Open Bearing Design Worksheet";
+            this.btn_open_worksheet.Text = "Open User\'s Design by selecting User\'s Given file name";
             this.btn_open_worksheet.UseVisualStyleBackColor = true;
             this.btn_open_worksheet.Click += new System.EventHandler(this.btn_open_worksheet_Click);
             // 
             // btn_bearing_worksheet
             // 
-            this.btn_bearing_worksheet.Location = new System.Drawing.Point(254, 583);
+            this.btn_bearing_worksheet.Location = new System.Drawing.Point(307, 511);
             this.btn_bearing_worksheet.Name = "btn_bearing_worksheet";
-            this.btn_bearing_worksheet.Size = new System.Drawing.Size(261, 37);
+            this.btn_bearing_worksheet.Size = new System.Drawing.Size(365, 37);
             this.btn_bearing_worksheet.TabIndex = 0;
-            this.btn_bearing_worksheet.Text = "Process Bearing Design Worksheet";
+            this.btn_bearing_worksheet.Text = "Process for New Design and Save as User\'s Design with User\'s Given file name";
             this.btn_bearing_worksheet.UseVisualStyleBackColor = true;
             this.btn_bearing_worksheet.Click += new System.EventHandler(this.btn_bearing_worksheet_Click);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.label569);
-            this.tabPage2.Controls.Add(this.btn_VFB_drawings);
-            this.tabPage2.Controls.Add(this.btn_VBAB_drawings);
-            this.tabPage2.Controls.Add(this.btn_VMABL_drawings);
-            this.tabPage2.Controls.Add(this.btn_VMABT_drawings);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(941, 636);
-            this.tabPage2.TabIndex = 5;
-            this.tabPage2.Text = "Drawings";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // label569
-            // 
-            this.label569.AutoSize = true;
-            this.label569.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label569.Location = new System.Drawing.Point(364, 144);
-            this.label569.Name = "label569";
-            this.label569.Size = new System.Drawing.Size(308, 23);
-            this.label569.TabIndex = 80;
-            this.label569.Text = "Editable Construction Drawings";
-            // 
-            // btn_VFB_drawings
-            // 
-            this.btn_VFB_drawings.Location = new System.Drawing.Point(296, 426);
-            this.btn_VFB_drawings.Name = "btn_VFB_drawings";
-            this.btn_VFB_drawings.Size = new System.Drawing.Size(526, 65);
-            this.btn_VFB_drawings.TabIndex = 0;
-            this.btn_VFB_drawings.Text = "FIXED BEARING DRAWINGS ";
-            this.btn_VFB_drawings.UseVisualStyleBackColor = true;
-            this.btn_VFB_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
-            // 
-            // btn_VBAB_drawings
-            // 
-            this.btn_VBAB_drawings.Location = new System.Drawing.Point(296, 355);
-            this.btn_VBAB_drawings.Name = "btn_VBAB_drawings";
-            this.btn_VBAB_drawings.Size = new System.Drawing.Size(526, 65);
-            this.btn_VBAB_drawings.TabIndex = 0;
-            this.btn_VBAB_drawings.Text = "BI AXIAL BEARING DRAWINGS ";
-            this.btn_VBAB_drawings.UseVisualStyleBackColor = true;
-            this.btn_VBAB_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
-            // 
-            // btn_VMABL_drawings
-            // 
-            this.btn_VMABL_drawings.Location = new System.Drawing.Point(296, 284);
-            this.btn_VMABL_drawings.Name = "btn_VMABL_drawings";
-            this.btn_VMABL_drawings.Size = new System.Drawing.Size(526, 65);
-            this.btn_VMABL_drawings.TabIndex = 0;
-            this.btn_VMABL_drawings.Text = "MONO AXIAL BEARING (LONGITUDINAL) DRAWINGS ";
-            this.btn_VMABL_drawings.UseVisualStyleBackColor = true;
-            this.btn_VMABL_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
-            // 
-            // btn_VMABT_drawings
-            // 
-            this.btn_VMABT_drawings.Location = new System.Drawing.Point(296, 213);
-            this.btn_VMABT_drawings.Name = "btn_VMABT_drawings";
-            this.btn_VMABT_drawings.Size = new System.Drawing.Size(526, 65);
-            this.btn_VMABT_drawings.TabIndex = 0;
-            this.btn_VMABT_drawings.Text = "MONO AXIAL BEARING (TRANVERSE) DRAWINGS ";
-            this.btn_VMABT_drawings.UseVisualStyleBackColor = true;
-            this.btn_VMABT_drawings.Click += new System.EventHandler(this.btn_drawings_Click);
             // 
             // UC_BRD
             // 
@@ -7777,6 +7789,8 @@
             this.tab_VFB.ResumeLayout(false);
             this.tab_VFB.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tab_NEOB.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -7785,8 +7799,6 @@
             this.groupBox1.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -8483,5 +8495,6 @@
         public System.Windows.Forms.TextBox txt_VMABL_1_Nnorm;
         public System.Windows.Forms.TextBox txt_VFB_1_Hlatn;
         public System.Windows.Forms.DataGridView dgv_reactions;
+        private System.Windows.Forms.Button btn_open_worksheet_report;
     }
 }

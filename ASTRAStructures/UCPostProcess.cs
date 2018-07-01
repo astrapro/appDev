@@ -43,7 +43,7 @@ namespace ASTRAStructures
     public partial class UCPostProcess : UserControl
     {
 
-        IApplication iApp;
+        public IApplication iApp;
 
         public string FilePath { get; set; }
 
@@ -212,7 +212,7 @@ namespace ASTRAStructures
         public bool IsFlag = false;
         public void Load_Initials(string file_name)
         {
-            
+            TabPage tb = tc_pp_main.SelectedTab;
             File_Name = file_name;
 
             StructureAnalysis = null;
@@ -227,6 +227,8 @@ namespace ASTRAStructures
                 if (cmb_pp_text_size.Items.Count > 0)
                     cmb_pp_text_size.SelectedIndex = 0;
             }
+            tc_pp_main.SelectedTab = tb;
+            tc_pp_main_SelectedIndexChanged(null, null);
         }
         public void Set_Moving_Load_File(string file_name, bool moving_load)
         {
@@ -538,6 +540,28 @@ namespace ASTRAStructures
 
             else if (tsb.Name == tsb_pp_Pan.Name)
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.PanEx(VD);
+            else if (tsb.Name == tsb_pp_Edit.Name)
+            {
+                using (SaveFileDialog sfd = new SaveFileDialog())
+                {
+                    sfd.Filter = "VDML Drawing File(*.vdml)|*.vdml|DXF Drawing File(*.dxf)|*.dxf|DWG Drawing File(*.dwg)|*.dwg";
+                    if (sfd.ShowDialog() != DialogResult.Cancel)
+                    {
+                        if (iApp.IsDemo)
+                        {
+                            MessageBox.Show("This function is not available in Demo version.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+                        else
+                        {
+                            VDoc.SaveAs(sfd.FileName);
+                            System.Environment.SetEnvironmentVariable("OPENFILE", sfd.FileName);
+                            //System.Diagnostics.Process.Start("viewer.exe", Drawing_File);
+                            System.Diagnostics.Process.Start(Path.Combine(Application.StartupPath, "viewer.exe"));
+                        }
+                    }
+                }
+            }
             else if (tsb.Name == tsb_pp_Save.Name)
             {
                 SaveDrawing(VD);
@@ -779,8 +803,7 @@ namespace ASTRAStructures
             }
 
 
-
-
+             
             if (tc_pp_main.SelectedTab == tab_load_deflection)
             {
                 //if (StructureAnalysis == null)
@@ -822,10 +845,10 @@ namespace ASTRAStructures
                 tc_pp_main.SelectedTab == tab_max_force)
             {
 
-                //if (StructureAnalysis == null)
-                //{
-                //    StructureAnalysis = new MovingLoadAnalysis.StructureMemberAnalysis(AST_DOC.AnalysisFileName);
-                //}
+                
+
+
+
                 if (tc_pp_main.SelectedTab == tab_max_force)
                     PP_Show_Panel(tab1_max_force);
                 else
@@ -1150,11 +1173,11 @@ namespace ASTRAStructures
                 else
                 {
 
-                    AST_DOC_ORG.MemberLoads.Delete_ASTRAMemberLoad(MainDoc);
-                    AST_DOC_ORG.MemberLoads.DrawMemberLoad(MainDoc, LoadCase);
+                    //AST_DOC_ORG.MemberLoads.Delete_ASTRAMemberLoad(MainDoc);
+                    //AST_DOC_ORG.MemberLoads.DrawMemberLoad(MainDoc, LoadCase);
 
-                    AST_DOC_ORG.JointLoads.Delete_ASTRAArrowLine(MainDoc);
-                    AST_DOC_ORG.JointLoads.DrawJointLoads(MainDoc, LoadCase);
+                    //AST_DOC_ORG.JointLoads.Delete_ASTRAArrowLine(MainDoc);
+                    //AST_DOC_ORG.JointLoads.DrawJointLoads(MainDoc, LoadCase);
                 }
                 AST_DOC_ORG.JointLoads.CopyCoordinates(AST_DOC_ORG.Joints);
             }
@@ -2024,8 +2047,6 @@ namespace ASTRAStructures
             }
 
             tc1_pp.TabPages.Clear();
-            sc_docs.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            ts_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
 
             if (tc_pp_main.SelectedTab == tab_forces)
             {
@@ -2093,8 +2114,6 @@ namespace ASTRAStructures
             }
             else if (tc_pp_main.SelectedTab == tab_moving_load)
             {
-                sc_docs.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-                ts_1.RightToLeft = System.Windows.Forms.RightToLeft.No;
                 PP_Show_Panel(tab1_moving_load);
             }
             else if (tc_pp_main.SelectedTab == tab_envelop)

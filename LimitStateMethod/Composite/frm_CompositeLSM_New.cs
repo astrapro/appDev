@@ -24,7 +24,7 @@ using AstraAccess.ADOC;
 namespace LimitStateMethod.Composite
 {
     //public partial class frm_CompositeLSM_New_New : Form
-   
+
     public partial class frm_CompositeLSM_New : Form
     {
         //const string Title = "ANALYSIS OF COMPOSITE BRIDGE (LIMIT STATE METHOD)";
@@ -89,7 +89,7 @@ namespace LimitStateMethod.Composite
         {
             get
             {
-                return Path.Combine(user_path, "ANALYSIS_RESULT.TXT");
+                return Path.Combine(user_path, "Process\\ANALYSIS_RESULT.TXT");
             }
         }
 
@@ -98,12 +98,13 @@ namespace LimitStateMethod.Composite
         {
             get
             {
-                if (Path.GetFileName(user_path) == Project_Name)
-                {
-                    if (Directory.Exists(Path.Combine(user_path, "Worksheet_Design")) == false)
-                        Directory.CreateDirectory(Path.Combine(user_path, "Worksheet_Design"));
-                }
-                return Path.Combine(user_path, "Worksheet_Design");
+                //if (Path.GetFileName(user_path) == Project_Name)
+                //{
+                //    if (Directory.Exists(Path.Combine(user_path, "Worksheet_Design")) == false)
+                //        Directory.CreateDirectory(Path.Combine(user_path, "Worksheet_Design"));
+                //}
+                //return Path.Combine(user_path, "Worksheet_Design");
+                return user_path;
             }
         }
         public string Drawing_Folder
@@ -170,7 +171,7 @@ namespace LimitStateMethod.Composite
 
                 //return;
 
-                string usp = Path.Combine(user_path, "Steel Girder Analysis");
+                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
 
                 if (!Directory.Exists(usp))
                     Directory.CreateDirectory(usp);
@@ -231,13 +232,13 @@ namespace LimitStateMethod.Composite
 
             Write_All_Data(false);
 
-            string inp_file = Path.Combine(user_path, "INPUT_DATA.TXT");
 
-            string usp = Path.Combine(user_path, "Steel Girder Analysis");
+            string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
 
             if (!Directory.Exists(usp))
                 Directory.CreateDirectory(usp);
 
+            string inp_file = Path.Combine(usp, "INPUT_DATA.TXT");
 
             //Calculate_Load_Computation();
             Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
@@ -300,6 +301,14 @@ namespace LimitStateMethod.Composite
                 }
                 else
                 {
+                    //if(Ang > 0)
+                    //{
+                    //    Bridge_Analysis.Skew_Angle = 0.0;
+                    //    Bridge_Analysis.CreateData_Straight_Indian();
+                    //    Bridge_Analysis.WriteData(Bridge_Analysis.TempAnalysis_Input_File);
+                    //    Ana_Write_Load_Data(Bridge_Analysis.TempAnalysis_Input_File, false, false);
+                    //}
+                    Bridge_Analysis.Skew_Angle = Ang;
                     Bridge_Analysis.CreateData_Straight_Indian();
                 }
 
@@ -531,13 +540,21 @@ namespace LimitStateMethod.Composite
             }
             cmb_long_open_file.SelectedIndex = 0;
 
+            cmb_long_open_file_analysis.Items.Clear();
             cmb_long_open_file_process.Items.Clear();
             cmb_long_open_file_post_process.Items.Clear();
             for (int i = 0; i < cmb_long_open_file.Items.Count; i++)
             {
+                cmb_long_open_file_analysis.Items.Add(cmb_long_open_file.Items[i].ToString());
                 cmb_long_open_file_process.Items.Add(cmb_long_open_file.Items[i].ToString());
                 cmb_long_open_file_post_process.Items.Add(cmb_long_open_file.Items[i].ToString());
             }
+
+
+            cmb_long_open_file_analysis.SelectedIndex = 0;
+
+
+
             //Create Orthotropic Data
             Bridge_Analysis.CreateData_Orthotropic();
             Bridge_Analysis.WriteData_Orthotropic_Analysis(Bridge_Analysis.Orthotropic_Input_File);
@@ -566,8 +583,12 @@ namespace LimitStateMethod.Composite
                     Directory.CreateDirectory(user_path);
 
                 Create_Data();
-                MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                MessageBox.Show(this, "Input Data Files for various Analysis Processes are created within the folder  \"" + Project_Name + "\".",
+                  "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Save_Input_Data();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -623,24 +644,32 @@ namespace LimitStateMethod.Composite
         {
             string file_name = "";
             string ll_txt = "";
-
+            ComboBox cmb = cmb_long_open_file_process;
 
 
 
 
             Button btn = sender as Button;
 
+
+            if (btn == btn_view_data_1)
+            {
+                cmb = cmb_long_open_file_analysis;
+            }
+
+
+
             #region Set File Name
 
             if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
-                file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file_process.SelectedIndex);
+                file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb.SelectedIndex);
             }
             else
             {
-                if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                if (cmb.SelectedIndex < cmb.Items.Count - 1)
                 {
-                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file_process.SelectedIndex);
+                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb.SelectedIndex);
                 }
                 else
                 {
@@ -670,7 +699,7 @@ namespace LimitStateMethod.Composite
                 }
             }
             ll_txt = MyList.Get_LL_TXT_File(file_name);
-            if (btn.Name == btn_view_data.Name)
+            if (btn.Name == btn_view_data.Name || btn.Name == btn_view_data_1.Name)
             {
                 iApp.View_Input_File(file_name);
                 //if (File.Exists(ll_txt))
@@ -692,7 +721,7 @@ namespace LimitStateMethod.Composite
                     Form f = null;
                     if (chk_curve.Checked)
                     {
-                      f =  iApp.Form_ASTRA_TEXT_Data(file_name);
+                        f = iApp.Form_ASTRA_TEXT_Data(file_name);
                     }
                     else
                     {
@@ -764,8 +793,15 @@ namespace LimitStateMethod.Composite
                 else if (i > 2)
                 {
                     //flPath = Bridge_Analysis.GetAnalysis_Input_File(i);
-                    flPath = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 2);
+                    //flPath = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 2);
+
+                    if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                        flPath = cmb_long_open_file.Items[i - 2].ToString().ToUpper();
+                    else
+                        flPath = cmb_long_open_file.Items[i].ToString().ToUpper();
                 }
+
+
                 iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
                 i++;
             }
@@ -845,8 +881,15 @@ namespace LimitStateMethod.Composite
 
             frm_Pier_ViewDesign_Forces(Bridge_Analysis.Total_Analysis_Report, s1, s2);
 
+
+            if (!File.Exists(FILE_BASIC_INPUT_DATA)) Save_Input_Data();
+
+
             Save_Support_Reactions();
             #region Print Results
+
+
+            Results.AddRange(rtb_load_cal.Lines);
 
             Results.AddRange(File.ReadAllLines(FILE_SUPPORT_REACTIONS));
 
@@ -928,9 +971,9 @@ namespace LimitStateMethod.Composite
             Results.Add(string.Format(""));
 
 
-            File.WriteAllLines(Result_Report, Results.ToArray());
+            File.WriteAllLines(FILE_SUMMARY_RESULTS, Results.ToArray());
 
-            iApp.RunExe(Result_Report);
+            iApp.RunExe(FILE_SUMMARY_RESULTS);
             #endregion
 
             txt_ana_DLSR.Text = Total_DeadLoad_Reaction;
@@ -1019,7 +1062,7 @@ namespace LimitStateMethod.Composite
             txt_ana_MSLD.Text = "";
             txt_ana_MSTD.Text = "";
 
-            
+
 
 
             dgv_left_end_design_forces.Rows.Clear();
@@ -1225,9 +1268,9 @@ namespace LimitStateMethod.Composite
                 int i = 0;
                 //Chiranjit [2012 07 13]
                 Write_All_Data();
-                
 
-                if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 {
                     LONG_GIRDER_BRITISH_LL_TXT();
                 }
@@ -1292,6 +1335,7 @@ namespace LimitStateMethod.Composite
                     {
                         //flPath = Bridge_Analysis.GetAnalysis_Input_File(i);
                         flPath = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 2);
+                        //flPath = Bridge_Analysis.GetAnalysis_Input_File(i);
 
 
                         pd.IS_Stage_File = true;
@@ -1305,17 +1349,45 @@ namespace LimitStateMethod.Composite
                         pd.IS_Stage_File = false;
                         pd.Stage_File_Name = "";
 
+                        //if (Ang > 0)
+                        //{
+                        //    pd.IS_Skew_File = true;
+                        //    pd.Skew_File_Name = Bridge_Analysis.TempAnalysis_Input_File;
+                        //}
+
                     }
                     else
                     {
-                        pd.IS_Stage_File = true;
+                        //pd.IS_Stage_File = true;
                     }
                     //pd = new ProcessData();
                     pd.Process_File_Name = flPath;
-                    pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                    pcol.Add(pd);
-                    iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
+                    if (i > 2)
+                    {
+                        //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
 
+                        if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                        {
+                            pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file.Items[i - 2].ToString().ToUpper();
+                            pcol.Add(pd);
+                            //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
+                            iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file.Items[i - 2].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
+                        }
+                        else
+                        {
+                            pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file.Items[i].ToString().ToUpper();
+                            pcol.Add(pd);
+                            //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
+                            iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file.Items[i].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
+                        }
+                    }
+                    else
+                    {
+                        pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
+                        pcol.Add(pd);
+                        iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
+
+                    }
                     i++;
 
 
@@ -1324,7 +1396,7 @@ namespace LimitStateMethod.Composite
 
 
                 string ana_rep_file = Bridge_Analysis.Total_Analysis_Report;
-                if(btn == btn_Ana_process_analysis) if (!iApp.Show_and_Run_Process_List(pcol)) return;
+                if (btn == btn_Ana_process_analysis) if (!iApp.Show_and_Run_Process_List(pcol)) return;
 
 
                 Read_Analysis_Results();
@@ -1513,7 +1585,7 @@ namespace LimitStateMethod.Composite
 
         }
 
-      
+
         void Ana_Write_Load_Data(string file_name, bool add_LiveLoad, bool add_DeadLoad)
         {
             //string file_name = Bridge_Analysis.Input_File;
@@ -1931,7 +2003,7 @@ namespace LimitStateMethod.Composite
             if (!chk_curve.Checked) Bridge_Analysis.Radius = 0;
 
 
-            
+
 
 
             if (Deck_Analysis == null)
@@ -1976,7 +2048,7 @@ namespace LimitStateMethod.Composite
             int i = 0;
 
 
-            if (Bridge_Analysis._L2_inn_joints.Count == 0)
+            if (Bridge_Analysis._L2_inn_joints.Count == 0 || Ang > 0)
             {
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     Bridge_Analysis.CreateData_StraightBritish();
@@ -1991,10 +2063,12 @@ namespace LimitStateMethod.Composite
             List<int> _L4_out_joints = Bridge_Analysis._L4_out_joints;
             List<int> _deff_out_joints = Bridge_Analysis._deff_out_joints;
 
+            if (_deff_out_joints.Count == 0) _deff_out_joints = Bridge_Analysis._deff_inn_joints;
 
             List<int> _L6_out_joints = Bridge_Analysis._L6_out_joints;
             List<int> _L3_out_joints = Bridge_Analysis._L3_out_joints;
             List<int> _3L8_out_joints = Bridge_Analysis._3L8_out_joints;
+            if (_3L8_out_joints.Count == 0) _3L8_out_joints = Bridge_Analysis._3L8_inn_joints;
 
 
 
@@ -2053,19 +2127,19 @@ namespace LimitStateMethod.Composite
                     list_results.Add(string.Format("CURVED CONTINUOUS COMPOSITE BRIDGE"));
                     list_results.Add(string.Format("-----------------------------------"));
                     list_results.Add(string.Format(""));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
-                    list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Spans = {0} m", txt_multiSpan.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Curve Radius = {0} m", txt_curve_radius.Text));
-                    list_results.Add(string.Format("Curve Angle = {0} Degree", txt_curve_angle.Text));
-                    list_results.Add(string.Format("Design Speed = {0} kmph = {1} m/s", txt_curve_des_spd_kph.Text, txt_curve_des_spd_mps.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("*********************************************************"));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
+                    //list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Spans = {0} m", txt_multiSpan.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Curve Radius = {0} m", txt_curve_radius.Text));
+                    //list_results.Add(string.Format("Curve Angle = {0} Degree", txt_curve_angle.Text));
+                    //list_results.Add(string.Format("Design Speed = {0} kmph = {1} m/s", txt_curve_des_spd_kph.Text, txt_curve_des_spd_mps.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("*********************************************************"));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format(""));
                 }
                 else
                 {
@@ -2075,15 +2149,15 @@ namespace LimitStateMethod.Composite
                     list_results.Add(string.Format(""));
                     list_results.Add(string.Format("STRAIGHT CONTINUOUS COMPOSITE BRIDGE"));
                     list_results.Add(string.Format("-------------------------------------"));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
-                    list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Spans = {0} m", txt_multiSpan.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("*********************************************************"));
-                    list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
+                    //list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Spans = {0} m", txt_multiSpan.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("*********************************************************"));
+                    //list_results.Add(string.Format(""));
                     list_results.Add(string.Format(""));
                 }
             }
@@ -2098,16 +2172,16 @@ namespace LimitStateMethod.Composite
                     list_results.Add(string.Format("CURVED COMPOSITE BRIDGE"));
                     list_results.Add(string.Format("------------------------"));
                     list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
-                    list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Curve Radius = {0} m", txt_curve_radius.Text));
-                    list_results.Add(string.Format("Curve Angle = {0} Degree", txt_curve_angle.Text));
-                    list_results.Add(string.Format("Design Speed = {0} kmph = {1} m/s", txt_curve_des_spd_kph.Text, txt_curve_des_spd_mps.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("*********************************************************"));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
+                    //list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Curve Radius = {0} m", txt_curve_radius.Text));
+                    //list_results.Add(string.Format("Curve Angle = {0} Degree", txt_curve_angle.Text));
+                    //list_results.Add(string.Format("Design Speed = {0} kmph = {1} m/s", txt_curve_des_spd_kph.Text, txt_curve_des_spd_mps.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("*********************************************************"));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format(""));
                 }
                 else
                 {
@@ -2118,15 +2192,21 @@ namespace LimitStateMethod.Composite
                     list_results.Add(string.Format("STRAIGHT COMPOSITE BRIDGE"));
                     list_results.Add(string.Format("--------------------------"));
                     list_results.Add(string.Format(""));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
-                    list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
-                    list_results.Add(string.Format(""));
-                    list_results.Add(string.Format("*********************************************************"));
-                    list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("Length = {0} m", txt_Ana_L.Text));
+                    //list_results.Add(string.Format("Width = {0} m", txt_Ana_B.Text));
+                    //list_results.Add(string.Format(""));
+                    //list_results.Add(string.Format("*********************************************************"));
+                    //list_results.Add(string.Format(""));
                 }
             }
 
+            Save_Input_Data();
+            if(File.Exists(FILE_BASIC_INPUT_DATA))
+            {
+                list_results.AddRange(File.ReadAllLines(FILE_BASIC_INPUT_DATA));
+
+            }
 
             list_results.Add(string.Format(""));
             list_results.Add(string.Format("BENDING MOMENTS (TON-M)"));
@@ -2364,7 +2444,7 @@ namespace LimitStateMethod.Composite
             //txt_SUMM_N73.Text = mfc.Force.ToString();
 
 
-            
+
 
 
 
@@ -3168,7 +3248,7 @@ namespace LimitStateMethod.Composite
             rcc_pier.FilePath = user_path;
 
 
-            string usp = Path.Combine(user_path, "Steel Girder Analysis");
+            string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
 
             if (!Directory.Exists(usp))
                 Directory.CreateDirectory(usp);
@@ -4261,7 +4341,7 @@ namespace LimitStateMethod.Composite
                 cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
                 cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
                 cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                //cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
                 tbc_girder.TabPages.Remove(tab_moving_data_british);
                 tabControl1.TabPages.Remove(tab_deckslab_BS);
@@ -4278,7 +4358,6 @@ namespace LimitStateMethod.Composite
             Default_Moving_LoadData(dgv_long_liveloads);
 
             Default_Moving_Type_LoadData(dgv_long_loads);
-
 
 
             Default_Moving_LoadData(dgv_deck_liveloads);
@@ -4455,12 +4534,12 @@ namespace LimitStateMethod.Composite
 
             txt_Ana_NMG.SelectedIndex = 0;
             txt_curve_des_spd_kph.Text = "50";
-            
+
             rbtn_multiSpan.Checked = true;
             chk_curve.Checked = true;
 
 
-            if(iApp.DesignStandard == eDesignStandard.IndianStandard)
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
             {
                 rbtn_singleSpan.Checked = true;
                 chk_curve.Checked = false;
@@ -5889,6 +5968,24 @@ namespace LimitStateMethod.Composite
 
 
 
+            #region Elastomeric Bearing Inputs
+
+
+            uC_BRD1.Length = txt_Ana_L.Text;
+
+
+
+            uC_BRD1.Girder_Length = (L - 2 * 0.5).ToString();
+            uC_BRD1.Effective_Length = (L - 2 * 0.5).ToString();
+            //uC_BRD1.Effective_Length = txt_Ana_Leff.Text;
+
+            uC_BRD1.Overall_Span = txt_Ana_L.Text;
+            uC_BRD1.Bearings_Span = uC_BRD1.Effective_Length;
+            uC_BRD1.Bearings_Nos = (NMG * 2).ToString();
+            uC_BRD1.Bearings_Trans = SMG.ToString();
+
+            #endregion Elastomeric Bearing Inputs
+
             Change_LSM_Data();
         }
         private void TextBox_TextChanged(object sender, EventArgs e)
@@ -6887,19 +6984,19 @@ namespace LimitStateMethod.Composite
 
                 //if (Bridge_Analysis.Live_Load_List == null)
                 //{
-                    if (iApp.DesignStandard == eDesignStandard.IndianStandard)
-                    {
-                        //Bridge_Analysis.Live_Load_List = new List<LoadData>(iApp.LiveLoads.ToArray());
-                        Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
-                    }
-                    else
-                    {
-                        //Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(Bridge_Analysis.Straight_LL_File), "ll.txt"));
-                     
-                        Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
-                        LONG_GIRDER_BRITISH_LL_TXT();
-                    
-                    }
+                if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                {
+                    //Bridge_Analysis.Live_Load_List = new List<LoadData>(iApp.LiveLoads.ToArray());
+                    Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
+                }
+                else
+                {
+                    //Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(Bridge_Analysis.Straight_LL_File), "ll.txt"));
+
+                    Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
+                    LONG_GIRDER_BRITISH_LL_TXT();
+
+                }
                 //}
 
                 double dd = 0.0;
@@ -6908,15 +7005,15 @@ namespace LimitStateMethod.Composite
                 //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
 
 
-                    if (true)
-                    {
+                if (true)
+                {
 
                     foreach (var item in all_loads)
                     {
                         dd = 0.0;
                         foreach (var item2 in item)
                         {
-                            if(item2.StartsWith("TYPE"))
+                            if (item2.StartsWith("TYPE"))
                             {
                                 MyList ml = new MyList(item2, ' ');
                                 if (ml.Count == 7)
@@ -6964,7 +7061,7 @@ namespace LimitStateMethod.Composite
 
                 //foreach (LoadData ld in Bridge_Analysis.LoadList)
 
-               
+
 
                 double _V = MyList.StringToDouble(txt_curve_des_spd_mps.Text, 0.0);
 
@@ -7015,8 +7112,8 @@ namespace LimitStateMethod.Composite
 
 
 
-                    Transverse_load.Add(string.Format("{0} FX {1:f4}", Bridge_Analysis.support_inner_joints, (Math.Min(_FX, _FZ)*2 / tot_sup))); // 
-                    Transverse_load.Add(string.Format("{0} FZ -{1:f4}", Bridge_Analysis.support_inner_joints, Math.Max(_FX, _FZ)*2 / tot_sup)); // 
+                    Transverse_load.Add(string.Format("{0} FX {1:f4}", Bridge_Analysis.support_inner_joints, (Math.Min(_FX, _FZ) * 2 / tot_sup))); // 
+                    Transverse_load.Add(string.Format("{0} FZ -{1:f4}", Bridge_Analysis.support_inner_joints, Math.Max(_FX, _FZ) * 2 / tot_sup)); // 
 
 
 
@@ -7044,12 +7141,11 @@ namespace LimitStateMethod.Composite
             #region Dead Load Value for DeckSlab analysis
 
             deck_member_load.Clear();
-            deck_member_load.Add(wo3 / 100);
-            deck_member_load.Add(wo2 / 100);
-            deck_member_load.Add(wo11);
+            deck_member_load.Add(outer_dl2 * 0.6);
+            deck_member_load.Add(sidl * 0.01);
+            deck_member_load.Add(sidl * 0.01 + sufacing * 0.3);
 
             #endregion Dead Load Value for DeckSlab analysis
-
 
 
             txt_Ana_member_load.Lines = member_load.ToArray();
@@ -7550,7 +7646,7 @@ namespace LimitStateMethod.Composite
 
         void Show_and_Save_Data()
         {
-            
+
             if (!File.Exists(analysis_rep)) return;
             string format = "{0,27} {1,10:f3} {2,10:f3} {3,10:f3}";
             List<string> list_arr = new List<string>(File.ReadAllLines(analysis_rep));
@@ -7591,7 +7687,7 @@ namespace LimitStateMethod.Composite
 
 
             Bridge_Analysis.DL_Analysis.IsCurve = chk_curve.Checked;
- 
+
 
             BridgeMemberAnalysis DeadLoad_Analysis = Bridge_Analysis.DL_Analysis;
 
@@ -7620,7 +7716,7 @@ namespace LimitStateMethod.Composite
                 _jnt_no = mlist.GetInt(i);
 
                 //LOAD 1 DEAD LOAD SELF WEIGHT
-                var shr = DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no,  2);
+                var shr = DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 2);
                 var mx = DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 2);
                 var mz = DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 2);
 
@@ -7758,9 +7854,9 @@ namespace LimitStateMethod.Composite
             txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
-             
+
 
 
             list_arr.Add("        MAXIMUM  MZ     = " + txt_final_Mz.Text + " Ton-M" + "  =  " + txt_final_Mz_kN.Text + " kN-m");
@@ -7888,9 +7984,9 @@ namespace LimitStateMethod.Composite
             txt_sidl_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_sidl_max_Mx_kN.Text = (MyList.StringToDouble(txt_sidl_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_sidl_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_sidl_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_sidl_max_Mz_kN.Text = (MyList.StringToDouble(txt_sidl_max_Mz.Text, 0.0) * 10.0).ToString("f3");
-             
+
 
 
             #endregion SIDL
@@ -8049,7 +8145,7 @@ namespace LimitStateMethod.Composite
             txt_ll_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_ll_max_Mx_kN.Text = (MyList.StringToDouble(txt_ll_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_ll_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_ll_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_ll_max_Mz_kN.Text = (MyList.StringToDouble(txt_ll_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
 
@@ -8362,7 +8458,7 @@ namespace LimitStateMethod.Composite
             txt_mxf_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_mxf_max_Mx_kN.Text = (MyList.StringToDouble(txt_mxf_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
-            txt_mxf_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_mxf_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_mxf_max_Mz_kN.Text = (MyList.StringToDouble(txt_mxf_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
 
@@ -8413,8 +8509,10 @@ namespace LimitStateMethod.Composite
 
 
 
-        string FILE_SUPPORT_REACTIONS { get { return Path.Combine(user_path, "SUPPORT_REACTIONS.TXT"); } }
-        string FILE_SUMMARY_RESULTS { get { return Path.Combine(user_path, "ANALYSIS_RESULT.TXT"); } }
+        string FILE_SUPPORT_REACTIONS { get { return Path.Combine(user_path, "Process\\SUPPORT_REACTIONS.TXT"); } }
+        string FILE_SUMMARY_RESULTS { get { return Path.Combine(user_path, "Process\\SUMMARY_RESULTS.TXT"); } }
+        string FILE_BASIC_INPUT_DATA { get { return Path.Combine(user_path, "Process\\Analysis_User_Data.TXT"); } }
+
         //ANALYSIS_RESULT
         //    SUMMARY_RESULTS
 
@@ -9133,7 +9231,7 @@ namespace LimitStateMethod.Composite
 
             #region Chiranjit [2017 06 11]
 
-            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -9272,7 +9370,7 @@ namespace LimitStateMethod.Composite
 
 
             list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_final_Mx_kN.Text + " kN-m");
-            txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             list_arr.Add("        MAXIMUM  MZ     = " + txt_final_Mz.Text + " Ton-M" + "  =  " + txt_final_Mz_kN.Text + " kN-m");
@@ -9380,7 +9478,7 @@ namespace LimitStateMethod.Composite
 
 
                 txt_Ana_L.Text = "0.0";
-                if(rbtn_multiSpan.Checked)
+                if (rbtn_multiSpan.Checked)
                 {
                     txt_multiSpan.Text = "22,22,22";
                     txt_Ana_L.Text = "66.0";
@@ -16392,7 +16490,7 @@ namespace LimitStateMethod.Composite
                             load_lst.Add(string.Format("{0} CON GY -{1} {2:f3}", item, txt_HA_CON.Text, Bridge_Analysis.MemColls.Get_Member_Length(item.ToString()) / 2));
                         }
 
-                        if(Transverse_load.Count > 1)
+                        if (Transverse_load.Count > 1)
                         {
                             load_lst.Add(string.Format("LOAD 2 TRANSVERSE LOAD"));
                             load_lst.AddRange(Transverse_load.ToArray());
@@ -16502,6 +16600,8 @@ namespace LimitStateMethod.Composite
                 {
                     ucPostProcess1.Curve_Radius = Curve_Radius;
                     ucPostProcess1.Load_Initials(file_name);
+                    //ucPostProcess1.PP_Tab_Selection();
+
                 }
             }
         }
@@ -16661,7 +16761,7 @@ namespace LimitStateMethod.Composite
                     //txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
                     //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
                     //Chiranjit [2013 10 10]
-                  
+
 
 
                     uC_RCC_Abut1.Modified_Cells();
@@ -16959,23 +17059,35 @@ namespace LimitStateMethod.Composite
             if (grb_curve.Enabled)
             {
                 if (Curve_Radius == 0) txt_curve_radius.Text = "50";
+
+                Ang = 0;
             }
             else
             {
                 txt_curve_radius.Text = "0";
             }
+            txt_Ana_ang.Enabled = !chk_curve.Checked;
         }
 
         private void rbtn_singleSpan_CheckedChanged(object sender, EventArgs e)
         {
             if (rbtn_singleSpan.Checked)
             {
-                if(rbtn_sec_box.Checked)
+                if (rbtn_sec_box.Checked)
                     txt_Ana_L.Text = "46";
                 else
                     txt_Ana_L.Text = "36";
                 txt_multiSpan.Text = txt_Ana_L.Text;
                 txt_Ana_NMG.SelectedIndex = 1;
+
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                {
+                    txt_ll_british_incr.Text = "0.5";
+                }
+                else
+                {
+                    txt_XINCR.Text = "0.5";
+                }
             }
             else if (rbtn_multiSpan.Checked)
             {
@@ -16988,12 +17100,14 @@ namespace LimitStateMethod.Composite
                 //txt_Ana_L.Text = ml.SUM.ToString("f3");
                 txt_Ana_L.Text = ml.SUM.ToString();
 
-                if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 {
                     txt_ll_british_incr.Text = "4.0";
                 }
                 else
+                {
                     txt_XINCR.Text = "4.0";
+                }
 
             }
         }
@@ -17002,7 +17116,7 @@ namespace LimitStateMethod.Composite
         {
             //if (rbtn_multiSpan.Checked)
             {
-                MyList ml = new MyList(txt_multiSpan.Text.Replace(","," "), ' ');
+                MyList ml = new MyList(txt_multiSpan.Text.Replace(",", " "), ' ');
                 txt_Ana_L.Text = ml.SUM.ToString();
             }
         }
@@ -17133,7 +17247,7 @@ namespace LimitStateMethod.Composite
                 #endregion Draw Pen Ultimate Span
             }
 
-            for (int r = 0; r < (int) NMG; r++)
+            for (int r = 0; r < (int)NMG; r++)
             {
 
 
@@ -17235,7 +17349,7 @@ namespace LimitStateMethod.Composite
                         elmt.L = B - elmt.Z * 2;
                     }
                     else
-                    elmt.L = B - CL - CR;
+                        elmt.L = B - CL - CR;
                     elmt.Web_Thickness = ES.Bw / 1000;
                     elmt.Web_Depth = ES.Dw / 1000;
 
@@ -17279,7 +17393,7 @@ namespace LimitStateMethod.Composite
 
         private void rbtn_steel_deck_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbtn_steel_deck.Checked)
+            if (rbtn_steel_deck.Checked)
             {
                 Ds = 0.01;
             }
@@ -17422,7 +17536,404 @@ namespace LimitStateMethod.Composite
             }
         }
 
+        private void btn_edit_load_combs_IRC_Click(object sender, EventArgs e)
+        {
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                LimitStateMethod.LoadCombinations.frm_LoadCombination ff = new LoadCombinations.frm_LoadCombination(iApp, dgv_long_liveloads, dgv_long_loads);
+                ff.Owner = this;
+                ff.ShowDialog();
+            }
+            else
+            {
+                LimitStateMethod.LoadCombinations.frm_LoadCombination ff = new LoadCombinations.frm_LoadCombination(iApp, dgv_long_british_loads, dgv_british_loads);
+                ff.Owner = this;
+                ff.ShowDialog();
+
+            }
+        }
+
+        private void btn_long_restore_ll_IRC_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (MessageBox.Show("All values will be changed to original default values, want to change ?",
+                "ASTRA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (btn.Name == btn_deck_restore_ll.Name)
+                    Default_Moving_LoadData(dgv_deck_liveloads);
+                else if (btn.Name == btn_long_restore_ll_IRC.Name)
+                    Default_Moving_LoadData(dgv_long_liveloads);
+                else if (btn.Name == btn_long_restore_ll_BS.Name)
+                {
+
+                    cmb_HB.SelectedIndex = 2;
+
+                    British_Interactive();
+                    Default_British_HB_Type_LoadData(dgv_british_loads);
+
+                }
+            }
+        }
+
+        public void Save_Input_Data()
+        {
+            List<string> list = new List<string>();
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("BASIC INPUT DATA FOR {0}", Title));
+            list.Add(string.Format("-------------------------------------------------------------------------------------------"));
+
+            #region Input Data
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Length of Deck Span (along X-direction)  [L]= {0} m", txt_Ana_L.Text));
+            if (rbtn_multiSpan.Checked)
+            {
+                list.Add(string.Format("Spans (Separated by comma ',')= {0} m", txt_multiSpan.Text));
+                list.Add(string.Format(""));
+            }
+
+            if (chk_curve.Checked)
+            {
+                list.Add(string.Format("Curved Span"));
+                list.Add(string.Format("-----------------------------"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("Radius = {0} m", txt_curve_radius.Text));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("Central Angle = {0} degree", txt_curve_angle.Text));
+                list.Add(string.Format(""));
+                list.Add(string.Format("Design Speed = {0} km/h = {1} m/s", txt_curve_des_spd_kph.Text, txt_curve_des_spd_mps.Text));
+                list.Add(string.Format(""));
+            }
+            list.Add(string.Format("Total number of Long Main girders [NMG] = {0} m", txt_Ana_NMG.Text));
+            list.Add(string.Format("Total number of Cross girders [NCG]= {0} m", txt_Ana_NCG.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Bridge Deck  (along Z-direction) [B]= {0} m", txt_Ana_B.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Carriageway Width [CW] (must be < Width of Bridge Deck)= {0} m", txt_Ana_CW.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Left Cantilever part of Deck Slab [CL] (must be < Width of Bridge Deck/3)= {0} m", txt_Ana_CL.Text));
+            list.Add(string.Format("Width of Right Cantilever part of Deck Slab [CR] (must be < Width of Bridge Deck/3)= {0} m", txt_Ana_CR.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Thickness of Deck Slab [Ds]= {0} m", txt_Ana_Ds.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Skew Angle [Ang]= {0} degree", txt_Ana_ang.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Unit weight of Concrete [Y_c]= {0} kN/Cu.m", txt_Ana_gamma_c.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Unit weight of Green Concrete [Y_c]= {0} kN/Cu.m", txt_Ana_gamma_c_green.Text));
+            list.Add(string.Format("Unit weight of Steel [Y_s]= {0} kN/Cu.m", txt_Ana_gamma_s.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Modular Ratio [m]= {0}", txt_Ana_m.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("WEARING COURSE"));
+            list.Add(string.Format("-----------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Thickness of Wearing Course  [Dw]= {0} m", txt_Ana_Dw.Text));
+            list.Add(string.Format("Unit weight of Wearing Course [Y_w]= {0} kN/Cu.m", txt_Ana_gamma_w.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("CRASH BARRIER ON BOTH SIDES / NO FOOTPATH"));
+            list.Add(string.Format("------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Crash Barrier [wc]= {0} m", txt_Ana_Wc.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Height of Crash Barrier [hc]= {0} m", txt_Ana_Hc.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("SIDE WALK/FOOTPATH"));
+            list.Add(string.Format("---------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Footpath including Kerb [wf]= {0} m", txt_Ana_wf.Text));
+            list.Add(string.Format("Height of Footpath  [hf]= {0} m", txt_Ana_hf.Text));
+            list.Add(string.Format("Width of Kerb [wk]= {0} m", txt_Ana_Wk.Text));
+            list.Add(string.Format("Width of Outer Railing [wr]= {0} m", txt_Ana_wr.Text));
+            list.Add(string.Format(""));
+
+            #endregion Input Data
+
+
+
+
+            #region Section Properties
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Angle & Angle Thickness"));
+            list.Add(string.Format("------------------------"));
+            list.Add(string.Format("{0} {1} {2} X {3}", cmb_ana_nos_ang.Text, cmb_ana_ang_section_name.Text, cmb_ana_ang_section_code.Text, cmb_ana_ang_thk.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            #region For End Span Section of Main Girder
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("For End Span Section of Main Girder"));
+            list.Add(string.Format("-------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Web Plates"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Total Nos.[Nb]= {0} nos", txt_sec_end_Nb.Text));
+            list.Add(string.Format("Web Breadth[Bw]= {0} mm", txt_sec_end_Bw.Text));
+            list.Add(string.Format("Web Depth  [Dw]= {0} mm", txt_sec_end_Dw.Text));
+            if (rbtn_sec_box.Checked)
+                list.Add(string.Format("Spacing between two Webs    [S]= {0} mm", txt_sec_end_S.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Top Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bft]= {0} mm", txt_sec_end_Bft.Text));
+            list.Add(string.Format("Depth [Dft]= {0} mm", txt_sec_end_Dft.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bottom Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bfb]= {0} mm", txt_sec_end_Bfb.Text));
+            list.Add(string.Format("Depth [Dfb]= {0} mm", txt_sec_end_Dfb.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Top"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bt]= {0} mm", txt_sec_end_Bt.Text));
+            list.Add(string.Format("Depth [Dt]= {0} mm", txt_sec_end_Dt.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Bottom"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth  [Bb]= {0} mm", txt_sec_end_Bb.Text));
+            list.Add(string.Format("Depth [Db]= {0} mm", txt_sec_end_Db.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Side Plates"));
+            list.Add(string.Format("-------------------------------------"));
+            list.Add(string.Format("Bs1= {0} mm", txt_sec_end_Bs1.Text));
+            list.Add(string.Format("Ds1= {0} mm", txt_sec_end_Ds1.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs2= {0} mm", txt_sec_end_Bs2.Text));
+            list.Add(string.Format("Ds2= {0} mm", txt_sec_end_Ds2.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs3= {0} mm", txt_sec_end_Bs3.Text));
+            list.Add(string.Format("Ds3= {0} mm", txt_sec_end_Ds3.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs4= {0} mm", txt_sec_end_Bs4.Text));
+            list.Add(string.Format("Ds4= {0} mm", txt_sec_end_Ds4.Text));
+            list.Add(string.Format(""));
+
+            #endregion For End Span Section of Main Girder
+
+            #region For Penultimate Span Section of Main Girder (L/4)
+
+            list.Add(string.Format("For Penultimate Span Section of Main Girder (L/4)"));
+            list.Add(string.Format("--------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Web Plates"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Total Nos.[Nb]= {0} nos", txt_sec_L4_Nb.Text));
+            list.Add(string.Format("Web Breadth[Bw]= {0} mm", txt_sec_L4_Bw.Text));
+            list.Add(string.Format("Web Depth  [Dw]= {0} mm", txt_sec_L4_Dw.Text));
+            if(rbtn_sec_box.Checked)
+            list.Add(string.Format("Spacing between two Webs    [S]= {0} mm", txt_sec_L4_S.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Top Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bft]= {0} mm", txt_sec_L4_Bft.Text));
+            list.Add(string.Format("Depth [Dft]= {0} mm", txt_sec_L4_Dft.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bottom Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bfb]= {0} mm", txt_sec_L4_Bfb.Text));
+            list.Add(string.Format("Depth [Dfb]= {0} mm", txt_sec_L4_Dfb.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Top"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bt]= {0} mm", txt_sec_L4_Bt.Text));
+            list.Add(string.Format("Depth [Dt]= {0} mm", txt_sec_L4_Dt.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Bottom"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth  [Bb]= {0} mm", txt_sec_L4_Bb.Text));
+            list.Add(string.Format("Depth [Db]= {0} mm", txt_sec_L4_Db.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Side Plates"));
+            list.Add(string.Format("-------------------------------------"));
+            list.Add(string.Format("Bs1= {0} mm", txt_sec_L4_Bs1.Text));
+            list.Add(string.Format("Ds1= {0} mm", txt_sec_L4_Ds1.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs2= {0} mm", txt_sec_L4_Bs2.Text));
+            list.Add(string.Format("Ds2= {0} mm", txt_sec_L4_Ds2.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs3= {0} mm", txt_sec_L4_Bs3.Text));
+            list.Add(string.Format("Ds3= {0} mm", txt_sec_L4_Ds3.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs4= {0} mm", txt_sec_L4_Bs4.Text));
+            list.Add(string.Format("Ds4= {0} mm", txt_sec_L4_Ds4.Text));
+            list.Add(string.Format(""));
+
+            #endregion For End Span Section of Main Girder
+
+            #region For Mid Span Section of Main Girder (L/2)
+
+            list.Add(string.Format("For Mid Span Section of Main Girder (L/2)"));
+            list.Add(string.Format("-----------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Web Plates"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Total Nos.[Nb]= {0} nos", txt_sec_L2_Nb.Text));
+            list.Add(string.Format("Web Breadth[Bw]= {0} mm", txt_sec_L2_Bw.Text));
+            list.Add(string.Format("Web Depth  [Dw]= {0} mm", txt_sec_L2_Dw.Text));
+            if (rbtn_sec_box.Checked)
+                list.Add(string.Format("Spacing between two Webs    [S]= {0} mm", txt_sec_L2_S.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Top Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bft]= {0} mm", txt_sec_L2_Bft.Text));
+            list.Add(string.Format("Depth [Dft]= {0} mm", txt_sec_L2_Dft.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bottom Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bfb]= {0} mm", txt_sec_L2_Bfb.Text));
+            list.Add(string.Format("Depth [Dfb]= {0} mm", txt_sec_L2_Dfb.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Top"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bt]= {0} mm", txt_sec_L2_Bt.Text));
+            list.Add(string.Format("Depth [Dt]= {0} mm", txt_sec_L2_Dt.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Bottom"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth  [Bb]= {0} mm", txt_sec_L2_Bb.Text));
+            list.Add(string.Format("Depth [Db]= {0} mm", txt_sec_L2_Db.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Side Plates"));
+            list.Add(string.Format("-------------------------------------"));
+            list.Add(string.Format("Bs1= {0} mm", txt_sec_L2_Bs1.Text));
+            list.Add(string.Format("Ds1= {0} mm", txt_sec_L2_Ds1.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs2= {0} mm", txt_sec_L2_Bs2.Text));
+            list.Add(string.Format("Ds2= {0} mm", txt_sec_L2_Ds2.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs3= {0} mm", txt_sec_L2_Bs3.Text));
+            list.Add(string.Format("Ds3= {0} mm", txt_sec_L2_Ds3.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs4= {0} mm", txt_sec_L2_Bs4.Text));
+            list.Add(string.Format("Ds4= {0} mm", txt_sec_L2_Ds4.Text));
+            list.Add(string.Format(""));
+
+            #endregion For Mid Span Section of Main Girder (L/2)
+
+            #region For Section of Cross Girder
+
+            list.Add(string.Format("For Section of Cross Girder"));
+            list.Add(string.Format("---------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Web Plates"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Total Nos.[Nb]= {0} nos", txt_sec_cross_Nb.Text));
+            list.Add(string.Format("Web Breadth[Bw]= {0} mm", txt_sec_cross_Bw.Text));
+            list.Add(string.Format("Web Depth  [Dw]= {0} mm", txt_sec_cross_Dw.Text));
+            if (rbtn_sec_box.Checked)
+                list.Add(string.Format("Spacing between two Webs    [S]= {0} mm", txt_sec_cross_S.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Top Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bft]= {0} mm", txt_sec_cross_Bft.Text));
+            list.Add(string.Format("Depth [Dft]= {0} mm", txt_sec_cross_Dft.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bottom Flange"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bfb]= {0} mm", txt_sec_cross_Bfb.Text));
+            list.Add(string.Format("Depth [Dfb]= {0} mm", txt_sec_cross_Dfb.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Top"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth [Bt]= {0} mm", txt_sec_cross_Bt.Text));
+            list.Add(string.Format("Depth [Dt]= {0} mm", txt_sec_cross_Dt.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Flange Plate at Bottom"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("Breadth  [Bb]= {0} mm", txt_sec_cross_Bb.Text));
+            list.Add(string.Format("Depth [Db]= {0} mm", txt_sec_cross_Db.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Side Plates"));
+            list.Add(string.Format("-------------------------------------"));
+            list.Add(string.Format("Bs1= {0} mm", txt_sec_cross_Bs1.Text));
+            list.Add(string.Format("Ds1= {0} mm", txt_sec_cross_Ds1.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs2= {0} mm", txt_sec_cross_Bs2.Text));
+            list.Add(string.Format("Ds2= {0} mm", txt_sec_cross_Ds2.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs3= {0} mm", txt_sec_cross_Bs3.Text));
+            list.Add(string.Format("Ds3= {0} mm", txt_sec_cross_Ds3.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Bs4= {0} mm", txt_sec_cross_Bs4.Text));
+            list.Add(string.Format("Ds4= {0} mm", txt_sec_cross_Ds4.Text));
+            list.Add(string.Format(""));
+
+            #endregion For Section of Cross Girder
+            #endregion Section Properties
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("MOVING LOAD / LIVE LOAD DATA"));
+            list.Add(string.Format("--------------------------------"));
+            list.Add(string.Format(""));
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                if (rbtn_HA.Checked || rbtn_HA_HB.Checked)
+                {
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("HA Loading UDL = {0} Ton/m", txt_HA_UDL.Text));
+                    list.Add(string.Format("HA Loading Concentrated (Knife Edge Load, KEL) = {0} Ton", txt_HA_CON.Text));
+                    list.Add(string.Format(""));
+                }
+                list.Add(string.Format(""));
+            }
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.AddRange(long_ll.ToArray());
+            list.Add(string.Format(""));
+
+            for (int i = 0; i < ll_comb.Count; i++)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("LIVE LOAD COMBINATION {0} : {1}", (i + 1), ll_comb[i]));
+                list.Add(string.Format("------------------------------------------------------------------------------"));
+                list.AddRange(all_loads[i].ToArray());
+                list.Add(string.Format(""));
+
+            }
+
+            File.WriteAllLines(FILE_BASIC_INPUT_DATA, list.ToArray());
+            //System.Diagnostics.Process.Start(FILE_BASIC_INPUT_DATA);
+        }
     }
-
-
 }

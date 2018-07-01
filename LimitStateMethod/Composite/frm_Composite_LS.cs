@@ -12609,6 +12609,19 @@ namespace LimitStateMethod.Composite
                 return "";
             }
         }
+        public string TempAnalysis_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(user_path))
+                {
+                    string pd = Path.Combine(working_folder, "TempAnalysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "Temp_Input_File.txt");
+                }
+                return "";
+            }
+        }
         public string Orthotropic_Input_File
         {
             get
@@ -13085,150 +13098,294 @@ namespace LimitStateMethod.Composite
                 {
                     //if ((Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right)) == false) continue;
 
-
-                    //x_min = _X_min[_Z_joints.IndexOf(Joints[i].Z)];
-
-                    x_min = 0.0;
-
-
-                    if (HA_distances.Contains(Joints[i].Z))
+                    if (Skew_Angle > 0)
                     {
-                        //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
-                        _HA_Joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if ((Joints[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
-                    //    _L2_inn_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (Joints[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left)
-                    //        _L4_inn_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z <= (W - cant_wi_right))
-                    //        _L4_out_joints.Add(Joints[i].NodeNo);
-                    //}
+                        x_min = _X_min[_Z_joints.IndexOf(Joints[i].Z)];
 
-                    //else if (Joints[i].X.ToString("0.0") == ((L / 3.0) + x_min).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left)
-                    //    _L3_inn_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (L / 3.0)) + x_min).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z <= (W - cant_wi_right))
-                    //    _L3_out_joints.Add(Joints[i].NodeNo);
-                    //}
+                        if (HA_distances.Contains(Joints[i].Z))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                            _HA_Joints.Add(Joints[i].NodeNo);
+                        }
+                        else if ((Joints[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                            _L2_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if (Joints[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _L4_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if (Joints[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _L4_out_joints.Add(Joints[i].NodeNo);
+                        }
+
+                        else if (Joints[i].X.ToString("0.0") == ((L / 3.0) + x_min).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _L3_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if (Joints[i].X.ToString("0.0") == ((L - (L / 3.0)) + x_min).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _L3_out_joints.Add(Joints[i].NodeNo);
+                        }
 
 
-                    //else if (Joints[i].X.ToString("0.0") == ((L / 6.0) + x_min).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left)
-                    //    _L6_inn_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (L / 6.0)) + x_min).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z <= (W - cant_wi_right))
-                    //    _L6_out_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (Joints[i].X.ToString("0.0") == ((3 * L / 8.0) + 0).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left)
-                    //    _3L8_inn_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (3 * L / 8.0)) + 0).ToString("0.0"))
-                    //{
-                    //    //if (Joints[i].Z <= (W - cant_wi_right))
-                    //    _3L8_out_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if ((Joints[i].X.ToString("0.0") == (Effective_Depth + 0).ToString("0.0")))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left)
-                    //        _deff_inn_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if ((Joints[i].X.ToString("0.0") == (L - Effective_Depth + 0).ToString("0.0")))
-                    //{
-                    //    //if (Joints[i].Z <= (W - cant_wi_right))
-                    //        _deff_out_joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if (HA_distances.Contains(Joints[i].Z))
-                    //{
-                    //    //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
-                    //    _HA_Joints.Add(Joints[i].NodeNo);
-                    //}
-                    //else if ((Joints[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[7]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
-                        _L2_inn_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if (Joints[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[4]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z >= cant_wi_left)
-                        _L4_inn_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[10]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z <= (W - cant_wi_right))
-                        _L4_out_joints.Add(Joints[i].NodeNo);
-                    }
+                        else if (Joints[i].X.ToString("0.0") == ((L / 6.0) + x_min).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _L6_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if (Joints[i].X.ToString("0.0") == ((L - (L / 6.0)) + x_min).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _L6_out_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if (Joints[i].X.ToString("0.0") == ((3 * L / 8.0) + 0).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _3L8_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if (Joints[i].X.ToString("0.0") == ((L - (3 * L / 8.0)) + 0).ToString("0.0"))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _3L8_out_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if ((Joints[i].X.ToString("0.0") == (Effective_Depth + 0).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _deff_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        else if ((Joints[i].X.ToString("0.0") == (L - Effective_Depth + 0).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _deff_out_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (HA_distances.Contains(Joints[i].Z))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                        //    _HA_Joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if ((Joints[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[7]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                        //    _L2_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if (Joints[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[4]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _L4_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if (Joints[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[10]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _L4_out_joints.Add(Joints[i].NodeNo);
+                        //}
 
-                    //else if (Joints[i].X.ToString("0.0") == ((L / 3.0) + x_min).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[5]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z >= cant_wi_left)
-                        _L3_inn_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (L / 3.0)) + x_min).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[9]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z <= (W - cant_wi_right))
-                        _L3_out_joints.Add(Joints[i].NodeNo);
-                    }
+                        ////else if (Joints[i].X.ToString("0.0") == ((L / 3.0) + x_min).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[5]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _L3_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if (Joints[i].X.ToString("0.0") == ((L - (L / 3.0)) + x_min).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[9]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _L3_out_joints.Add(Joints[i].NodeNo);
+                        //}
 
 
-                    //else if (Joints[i].X.ToString("0.0") == ((L / 6.0) + x_min).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[3]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z >= cant_wi_left)
-                        _L6_inn_joints.Add(Joints[i].NodeNo);
+                        ////else if (Joints[i].X.ToString("0.0") == ((L / 6.0) + x_min).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[3]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _L6_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if (Joints[i].X.ToString("0.0") == ((L - (L / 6.0)) + x_min).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[11]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _L6_out_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if (Joints[i].X.ToString("0.0") == ((3 * L / 8.0) + 0).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[6]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _3L8_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if (Joints[i].X.ToString("0.0") == ((L - (3 * L / 8.0)) + 0).ToString("0.0"))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[8]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _3L8_out_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if ((Joints[i].X.ToString("0.0") == (Effective_Depth + 0).ToString("0.0")))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[2]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _deff_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        ////else if ((Joints[i].X.ToString("0.0") == (L - Effective_Depth + 0).ToString("0.0")))
+                        //else if ((Joints[i].X.ToString("0.0") == ((_X_joints[12]) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _deff_out_joints.Add(Joints[i].NodeNo);
+                        //}
                     }
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (L / 6.0)) + x_min).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[11]) + x_min).ToString("0.0")))
+                    else
                     {
-                        //if (Joints[i].Z <= (W - cant_wi_right))
-                        _L6_out_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if (Joints[i].X.ToString("0.0") == ((3 * L / 8.0) + 0).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[6]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z >= cant_wi_left)
-                        _3L8_inn_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if (Joints[i].X.ToString("0.0") == ((L - (3 * L / 8.0)) + 0).ToString("0.0"))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[8]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z <= (W - cant_wi_right))
-                        _3L8_out_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if ((Joints[i].X.ToString("0.0") == (Effective_Depth + 0).ToString("0.0")))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[2]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z >= cant_wi_left)
-                        _deff_inn_joints.Add(Joints[i].NodeNo);
-                    }
-                    //else if ((Joints[i].X.ToString("0.0") == (L - Effective_Depth + 0).ToString("0.0")))
-                    else if ((Joints[i].X.ToString("0.0") == ((_X_joints[12]) + x_min).ToString("0.0")))
-                    {
-                        //if (Joints[i].Z <= (W - cant_wi_right))
-                        _deff_out_joints.Add(Joints[i].NodeNo);
-                    }
 
+
+                        x_min = 0.0;
+
+
+                        if (HA_distances.Contains(Joints[i].Z))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                            _HA_Joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if ((Joints[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                        //    _L2_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (Joints[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //        _L4_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //        _L4_out_joints.Add(Joints[i].NodeNo);
+                        //}
+
+                        //else if (Joints[i].X.ToString("0.0") == ((L / 3.0) + x_min).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _L3_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (L / 3.0)) + x_min).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _L3_out_joints.Add(Joints[i].NodeNo);
+                        //}
+
+
+                        //else if (Joints[i].X.ToString("0.0") == ((L / 6.0) + x_min).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _L6_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (L / 6.0)) + x_min).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _L6_out_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (Joints[i].X.ToString("0.0") == ((3 * L / 8.0) + 0).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //    _3L8_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (3 * L / 8.0)) + 0).ToString("0.0"))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //    _3L8_out_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if ((Joints[i].X.ToString("0.0") == (Effective_Depth + 0).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left)
+                        //        _deff_inn_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if ((Joints[i].X.ToString("0.0") == (L - Effective_Depth + 0).ToString("0.0")))
+                        //{
+                        //    //if (Joints[i].Z <= (W - cant_wi_right))
+                        //        _deff_out_joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if (HA_distances.Contains(Joints[i].Z))
+                        //{
+                        //    //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                        //    _HA_Joints.Add(Joints[i].NodeNo);
+                        //}
+                        //else if ((Joints[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[7]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left && Joints[i].Z <= (W - cant_wi_right))
+                            _L2_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (Joints[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[4]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _L4_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[10]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _L4_out_joints.Add(Joints[i].NodeNo);
+                        }
+
+                        //else if (Joints[i].X.ToString("0.0") == ((L / 3.0) + x_min).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[5]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _L3_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (L / 3.0)) + x_min).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[9]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _L3_out_joints.Add(Joints[i].NodeNo);
+                        }
+
+
+                        //else if (Joints[i].X.ToString("0.0") == ((L / 6.0) + x_min).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[3]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _L6_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (L / 6.0)) + x_min).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[11]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _L6_out_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (Joints[i].X.ToString("0.0") == ((3 * L / 8.0) + 0).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[6]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _3L8_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if (Joints[i].X.ToString("0.0") == ((L - (3 * L / 8.0)) + 0).ToString("0.0"))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[8]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _3L8_out_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if ((Joints[i].X.ToString("0.0") == (Effective_Depth + 0).ToString("0.0")))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[2]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z >= cant_wi_left)
+                            _deff_inn_joints.Add(Joints[i].NodeNo);
+                        }
+                        //else if ((Joints[i].X.ToString("0.0") == (L - Effective_Depth + 0).ToString("0.0")))
+                        else if ((Joints[i].X.ToString("0.0") == ((_X_joints[12]) + x_min).ToString("0.0")))
+                        {
+                            //if (Joints[i].Z <= (W - cant_wi_right))
+                            _deff_out_joints.Add(Joints[i].NodeNo);
+                        }
+
+                    }
 
 
 

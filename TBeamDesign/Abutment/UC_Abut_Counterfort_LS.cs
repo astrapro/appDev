@@ -294,7 +294,8 @@ namespace BridgeAnalysisDesign.Abutment
         public string Get_Project_Folder()
         {
 
-            string file_path = Path.Combine(iapp.user_path, "Counterfort Abutment Design");
+            //string file_path = Path.Combine(iapp.user_path, "Counterfort Abutment Design");
+            string file_path = Path.Combine(iapp.user_path, "Design of RCC Abutment with Open Foundation");
 
 
 
@@ -311,12 +312,12 @@ namespace BridgeAnalysisDesign.Abutment
         {
 
 
-            string file_path = Get_Project_Folder();
-
+            string file_path = Get_Design_Report();
             //file_path = Path.Combine(file_path, "BoQ_Bridges_Box_Type.xlsx");
 
 
-            file_path = Path.Combine(file_path, "Counterfort Abutment Limit State Design [IRC].xlsm");
+            //file_path = Path.Combine(file_path, "Counterfort Abutment Limit State Design [IRC].xlsm");
+            //file_path = Path.Combine(file_path, "Abutment Design with Open Foundation in LSM [IRC].xlsm");
 
             string copy_path = file_path;
 
@@ -453,16 +454,27 @@ namespace BridgeAnalysisDesign.Abutment
 
         }
 
+        string Get_Design_Report()
+        {
+            string file_path = Get_Project_Folder();
+
+            if(iapp.DesignStandard == eDesignStandard.IndianStandard) 
+                file_path = Path.Combine(file_path, "Abutment Design with Open Foundation in LSM [IRC].xlsm");
+            else
+                file_path = Path.Combine(file_path, "Abutment Design with Open Foundation in LSM [BS].xlsm");
+            return file_path;
+        }
+
         private void Design_IRC_Abutment_Bridges_Box_Type_BS()
         {
 
 
-            string file_path = Get_Project_Folder();
+            string file_path = Get_Design_Report();
 
-            //file_path = Path.Combine(file_path, "BoQ_Bridges_Box_Type.xlsx");
+            ////file_path = Path.Combine(file_path, "BoQ_Bridges_Box_Type.xlsx");
 
 
-            file_path = Path.Combine(file_path, "Counterfort Abutment Limit State Design [BS].xlsm");
+            //file_path = Path.Combine(file_path, "Counterfort Abutment Limit State Design [BS].xlsm");
 
             string copy_path = file_path;
 
@@ -706,7 +718,7 @@ namespace BridgeAnalysisDesign.Abutment
             rindx = 0;
 
             myExcelWorkbook.Save();
-
+            iApp.Excel_Close_Message();
             releaseObject(myExcelWorkbook);
 
         }
@@ -790,7 +802,38 @@ namespace BridgeAnalysisDesign.Abutment
 
         private void btn_open_design_Click(object sender, EventArgs e)
         {
-            iapp.Open_WorkSheet_Design();
+            Button btn = sender as Button;
+
+            if (btn == btn_open_worksheet)
+            {
+                iapp.Open_WorkSheet_Design();
+            }
+
+            else if (btn == btn_open_design)
+            {
+                string file_path = Get_Design_Report();
+
+                //if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                //{
+                //    file_path = Path.Combine(file_path, "Counterfort Abutment Limit State Design [IRC].xlsm");
+                //}
+                //else
+                //{
+                //    file_path = Path.Combine(file_path, "Counterfort Abutment Limit State Design [BS].xlsm");
+                //}
+
+                if (File.Exists(file_path))
+                {
+                    iApp.OpenExcelFile(file_path, "2011ap");
+                }
+                else
+                {
+                    MessageBox.Show(file_path + " file not found.");
+                    return;
+                }
+
+            }
+
         }
 
 

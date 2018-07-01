@@ -192,8 +192,9 @@ namespace AstraAccess.DrawingWorkspace
                 #region PSC_I_Girder_LS_GAD
                 case eBaseDrawings.PSC_I_Girder_LS_GAD:
 
-                    lbl_Title.Text = "PSC I Girder Bridge";
-                    lbl_Drawing.Text = "General Arrangement Drawings";
+                    lbl_Title.Text = "PSC I Girder Bridge Drawings";
+                    //lbl_Drawing.Text = "General Arrangement Drawings";
+                    lbl_Drawing.Text = "";
 
                     SRC_Drawing_Path = ASTRA_BaseDrawings.PSC_I_Girder_LS_GAD;
                     break;

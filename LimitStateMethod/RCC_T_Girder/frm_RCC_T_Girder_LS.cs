@@ -1022,6 +1022,10 @@ namespace LimitStateMethod.RCC_T_Girder
 
                 Long_Girder_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.DeadLoad_Analysis_Report);
 
+
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                    Long_Girder_Analysis.LiveLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.LiveLoad_Analysis_Report);
+
                 if (rbtn_HA.Checked == false)
                 {
                     Long_Girder_Analysis.All_LL_Analysis = new List<BridgeMemberAnalysis>();
@@ -21679,12 +21683,38 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
-            //uC_BRD1.dgv_reactions[1, 2].Value = DL.ToString("f3");
+            uC_BRD1.txt_1_Nnorm.Text = VR.ToString("f3");
+            uC_BRD1.txt_1_Nmin.Text = DL.ToString("f3");
+            //uC_BRD1.txt_1_Hlatn.Text = HRT.ToString("f3");
 
-            //uC_BRD1.dgv_reactions[1, 4].Value = Math.Max(v1, v2).ToString("f3"); ;
-            //uC_BRD1.dgv_reactions[1, 5].Value = Math.Min(v1, v2).ToString("f3"); ;
-            //uC_BRD1.dgv_reactions[1, 7].Value = (DL + Math.Max(v1, v2)).ToString("f3"); ;
-            //uC_BRD1.dgv_reactions[1, 8].Value = (DL + Math.Min(v1, v2)).ToString("f3"); ;
+
+            uC_BRD1.txt_VMABL_1_Nnorm.Text = VR.ToString("f3");
+            uC_BRD1.txt_VMABL_1_Nmin.Text = DL.ToString("f3");
+            //uC_BRD1.txt_VMABL_1_Hingn.Text = HRL.ToString("f3");
+
+
+            uC_BRD1.txt_VBAB_1_Nnorm.Text = VR.ToString("f3");
+            uC_BRD1.txt_VBAB_1_Nmin.Text = DL.ToString("f3");
+            //uC_BRD1.txt_VBAB_1_Hlatn.Text = HRT.ToString("f3");
+            //uC_BRD1.txt_VBAB_1_Hingn.Text = HRL.ToString("f3");
+
+            uC_BRD1.txt_VFB_1_Nnorm.Text = VR.ToString("f3");
+            uC_BRD1.txt_VFB_1_Nmin.Text = DL.ToString("f3");
+            //uC_BRD1.txt_VFB_1_Hlatn.Text = HRT.ToString("f3");
+            //uC_BRD1.txt_VFB_1_Hingn.Text = HRL.ToString("f3");
+
+
+            v1 = MyList.StringToDouble(dgv_mxf_left_des_frc[1, 2].Value.ToString(), 0.0) * 10;
+            v2 = MyList.StringToDouble(dgv_mxf_right_des_frc[1, 2].Value.ToString(), 0.0) * 10;
+
+
+
+            uC_BRD1.dgv_reactions[1, 2].Value = DL.ToString("f3");
+
+            uC_BRD1.dgv_reactions[1, 4].Value = Math.Max(v1, v2).ToString("f3"); ;
+            uC_BRD1.dgv_reactions[1, 5].Value = Math.Min(v1, v2).ToString("f3"); ;
+            uC_BRD1.dgv_reactions[1, 7].Value = (DL + Math.Max(v1, v2)).ToString("f3"); ;
+            uC_BRD1.dgv_reactions[1, 8].Value = (DL + Math.Min(v1, v2)).ToString("f3"); ;
 
             #endregion Bearing Forces
 
@@ -26070,7 +26100,8 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             get
             {
-                return Path.Combine(Working_Folder, "LL.TXT");
+                //return Path.Combine(Working_Folder, "LL.TXT");
+                return Path.Combine(Path.GetDirectoryName(Total_Analysis_Report), "LL.TXT");
             }
         }
         public string Analysis_Report
@@ -26090,8 +26121,8 @@ namespace LimitStateMethod.RCC_T_Girder
             set
             {
                 input_file = value;
-                if (File.Exists(value))
-                    user_path = Path.GetDirectoryName(input_file);
+                if (input_file != "") user_path = Path.GetDirectoryName(input_file);
+                else user_path = "";
             }
         }
         //Chiranjit [2012 05 27]
@@ -26104,6 +26135,19 @@ namespace LimitStateMethod.RCC_T_Girder
                     string pd = Path.Combine(Working_Folder, "DL + LL Combine Analysis");
                     if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
                     return Path.Combine(pd, "DL_LL_Combine_Input_File.txt");
+                }
+                return "";
+            }
+        }
+        public string TempAnalysis_Input_File
+        {
+            get
+            {
+                if (Directory.Exists(Working_Folder))
+                {
+                    string pd = Path.Combine(Working_Folder, "Temp Analysis");
+                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
+                    return Path.Combine(pd, "Temp_Input_File.txt");
                 }
                 return "";
             }
@@ -26288,7 +26332,7 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             get
             {
-                if (File.Exists(Input_File))
+                if (Input_File != "")
                     return Path.GetDirectoryName(Input_File);
                 return "";
             }
@@ -26667,8 +26711,12 @@ namespace LimitStateMethod.RCC_T_Girder
 
             if (Width_LeftCantilever > 0)
             {
-                List_Envelop_Outer = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
-                List_Envelop_Inner = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+                //List_Envelop_Outer = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
+                //List_Envelop_Inner = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+
+
+                List_Envelop_Outer = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+                List_Envelop_Inner = Long_Girder_Members_Array[3, 0].MemberNo + " TO " + Long_Girder_Members_Array[3, iCols - 2].MemberNo;
             }
             else
             {
@@ -26794,6 +26842,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
             for (int c = 0; c < _Rows; c++)
             {
+                //for (i = 0; i < _Columns - 1; i++)
                 for (i = 0; i < _Columns - 1; i++)
                 {
                     if (i <= 1 || i >= (_Columns - 3))
@@ -26861,7 +26910,7 @@ namespace LimitStateMethod.RCC_T_Girder
             }
             for (int c = 0; c < _Rows - 1; c++)
             {
-                for (i = 0; i < _Columns - 1; i++)
+                for (i = 0; i < _Columns; i++)
                 {
                     if (lst_index.Contains(i))
                         Cross_Girder_Inter.Add(Cross_Girder_Members_Array[c, i].MemberNo);
@@ -27357,8 +27406,11 @@ namespace LimitStateMethod.RCC_T_Girder
 
             if (Width_LeftCantilever > 0)
             {
-                List_Envelop_Outer = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
-                List_Envelop_Inner = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+                //List_Envelop_Outer = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, iCols - 2].MemberNo;
+                //List_Envelop_Inner = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+
+                List_Envelop_Outer = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, iCols - 2].MemberNo;
+                List_Envelop_Inner = Long_Girder_Members_Array[3, 0].MemberNo + " TO " + Long_Girder_Members_Array[3, iCols - 2].MemberNo;
             }
             else
             {
@@ -27638,10 +27690,16 @@ namespace LimitStateMethod.RCC_T_Girder
                 Long_Inner_Mid_Section.Composite_Section_Ix,
                 Long_Inner_Mid_Section.Composite_Section_Iz));
 
-            if (HA_Loading_Members == "")
+            //if (HA_Loading_Members == "")
+            //{
+            //    list.Add(string.Format("{0} PRIS YD {1:f4} ZD 1.0",
+            //        _DeckSlab,
+            //        Ds));
+            //}
+            if (HA_Loading_Members != "")
             {
                 list.Add(string.Format("{0} PRIS YD {1:f4} ZD 1.0",
-                    _DeckSlab,
+                    HA_Loading_Members,
                     Ds));
             }
         }

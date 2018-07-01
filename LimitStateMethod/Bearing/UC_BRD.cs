@@ -30,9 +30,10 @@ namespace LimitStateMethod.Bearing
         {
             get
             {
-                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-                    return "DESIGN OF BEARING [BS]";
-                return "DESIGN OF BEARING [IRC]";
+                //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                //    return "DESIGN OF BEARING [BS]";
+                //return "DESIGN OF BEARING [IRC]";
+                return "Design of Bearings";
             }
         }
 
@@ -68,6 +69,107 @@ namespace LimitStateMethod.Bearing
         }
 
         bool _frc = true;
+
+
+
+        #region Elastomeric Bearing Properties
+        public string Length
+        {
+            get
+            {
+                return txt_Introduction_G23.Text;
+            }
+            set
+            {
+                txt_Introduction_G23.Text = value;
+            }
+        }
+        public string Girder_Length
+        {
+            get
+            {
+                return txt_Introduction_G24.Text;
+            }
+            set
+            {
+                txt_Introduction_G24.Text = value;
+            }
+        }
+        public string Effective_Length
+        {
+            get
+            {
+                return txt_Introduction_G25.Text;
+            }
+            set
+            {
+                txt_Introduction_G25.Text = value;
+            }
+        }
+        public string Overall_Span
+        {
+            get
+            {
+                return txt_b_L_case1_J9.Text;
+            }
+            set
+            {
+                txt_b_L_case1_J9.Text = value;
+            }
+        }
+        public string Bearings_Span
+        {
+            get
+            {
+                return txt_b_L_case1_J10.Text;
+            }
+            set
+            {
+                txt_b_L_case1_J10.Text = value;
+            }
+        }
+        public string Bearings_Trans
+        {
+            get
+            {
+                return txt_b_L_case1_J11.Text;
+            }
+            set
+            {
+                txt_b_L_case1_J11.Text = value;
+            }
+        }
+        public string Bearings_Nos
+        {
+            get
+            {
+                return txt_b_L_case1_J12.Text;
+            }
+            set
+            {
+                txt_b_L_case1_J12.Text = value;
+            }
+        }
+
+//        txt_Introduction_G23 = Length
+
+//txt_Introduction_G24 = Girder Length
+
+//txt_Introduction_G25 = Effective Length
+
+
+//txt_b_L_case1_J9  = Overall span
+
+//txt_b_L_case1_J10 = The c/c of Bearings for the span   
+
+
+//txt_b_L_case1_J11  =  The c.c of the bearings (Transverse direction)
+
+
+//txt_b_L_case1_J12 = No. of bearings per span 
+
+
+        #endregion Elastomeric Bearing Properties
         public bool Show_Forces
         {
             set
@@ -100,8 +202,8 @@ namespace LimitStateMethod.Bearing
             list.Add(string.Format("Total LL Load (Max),446.9,kN"));
             list.Add(string.Format("Total LL Load (Min),254.0,kN"));
             list.Add(string.Format(",,"));
-            list.Add(string.Format("Total Load (DL+ SIDL + LL) (Max),546.9,kN"));
-            list.Add(string.Format("Total Load (DL+ SIDL + LL) (Min),354.0,kN"));
+            list.Add(string.Format("Total Load (DL+ SIDL + Max LL) ,546.9,kN"));
+            list.Add(string.Format("Total Load (DL+ SIDL + Min LL) ,354.0,kN"));
             list.Add(string.Format(",,"));
             list.Add(string.Format("MAXIMUM ROATION VALUES,,"));
             list.Add(string.Format(",,"));
@@ -213,9 +315,9 @@ namespace LimitStateMethod.Bearing
         {
             get
             {
-                if (Directory.Exists(Path.Combine(Working_Folder, "Worksheet_Design")) == false)
-                    Directory.CreateDirectory(Path.Combine(Working_Folder, "Worksheet_Design"));
-                return Path.Combine(Working_Folder, "Worksheet_Design");
+                if (Directory.Exists(Path.Combine(Working_Folder, "Elastomeric Bearing")) == false)
+                    Directory.CreateDirectory(Path.Combine(Working_Folder, "Elastomeric Bearing"));
+                return Path.Combine(Working_Folder, "Elastomeric Bearing");
             }
         }
 
@@ -697,11 +799,26 @@ namespace LimitStateMethod.Bearing
             iApp.RunViewer(Path.Combine(ptvb.Drawing_Folder, "DRAWINGS"), draw_cmd);
         }
 
+
+        string Get_Design_Report()
+        {
+
+            return Path.Combine(Worksheet_Folder, "Elastomeric_Bearing_Design.xls");
+
+        }
         private void btn_bearing_worksheet_Click(object sender, System.EventArgs e)
         {
             string excel_path = Path.Combine(Application.StartupPath, @"DESIGN\Bearing Design");
+
+
             string excel_file = "Bridge_Bearing_Design.xls";
-            excel_file = Path.Combine(excel_path, excel_file);
+
+
+            if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+                excel_file = "Bridge_Bearing_Design_BS.xls";
+
+                
+                excel_file = Path.Combine(excel_path, excel_file);
 
             //try
             //{
@@ -726,7 +843,10 @@ namespace LimitStateMethod.Bearing
             }
             try
             {
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(excel_file_name));
+
+                //copy_path = Path.Combine(Worksheet_Folder, "Elastomeric_Bearing_Design.xls");
+                copy_path = Get_Design_Report();
+
                 File.Copy(excel_file_name, copy_path, true);
                 Bearing_Excel_Update rcc_excel = new Bearing_Excel_Update();
                 rcc_excel.Excel_File_Name = copy_path;
@@ -824,7 +944,37 @@ namespace LimitStateMethod.Bearing
 
         private void btn_open_worksheet_Click(object sender, System.EventArgs e)
         {
-            iApp.Open_ASTRA_Worksheet_Dialog();
+            Button btn = sender as Button;
+
+            if (btn == btn_open_worksheet)
+            {
+                iApp.Open_ASTRA_Worksheet_Dialog();
+            }
+            else if (btn == btn_open_worksheet_report)
+            {
+                string excel_file = "Bridge_Bearing_Design.xls";
+
+
+
+                //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                //    excel_file = "Bridge_Bearing_Design_BS.xls";
+
+
+
+                excel_file = Get_Design_Report();
+
+
+
+                if (File.Exists(excel_file))
+                {
+                    iApp.OpenExcelFile(excel_file, "2011ap");
+                }
+                else
+                {
+                    MessageBox.Show(excel_file + " file not found.");
+                    return;
+                }
+            }
         }
 
 
@@ -1302,6 +1452,9 @@ namespace LimitStateMethod.Bearing
 
 
             myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["spring constant"];
+
+
+            
 
             myExcelWorksheet.get_Range("G6", misValue).Formula = spring_constant_G6;
             myExcelWorksheet.get_Range("I6", misValue).Formula = spring_constant_I6;

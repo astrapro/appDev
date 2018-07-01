@@ -6950,7 +6950,10 @@ namespace BridgeAnalysisDesign.Pier
             list.Add("---------------------------------------------------------------------------");
             list.Add("---------            Thank you for using ASTRA Pro          ---------------");
             list.Add("---------------------------------------------------------------------------");
-        
+
+            if (!Directory.Exists(Path.GetDirectoryName(rep_file_name)))
+                Directory.CreateDirectory(Path.GetDirectoryName(rep_file_name));
+
             File.WriteAllLines(rep_file_name, list.ToArray());
             list.Clear();
             list = null;
@@ -6986,8 +6989,6 @@ namespace BridgeAnalysisDesign.Pier
             }
         }
 
-      
-
         public string FilePath
         {
             set
@@ -6999,16 +7000,16 @@ namespace BridgeAnalysisDesign.Pier
                 file_path = user_path;
 
 
-                if (!Directory.Exists(file_path))
-                    Directory.CreateDirectory(file_path);
+                //if (!Directory.Exists(file_path))
+                //    Directory.CreateDirectory(file_path);
 
                 file_path = Path.Combine(file_path, "Design of RCC Piers");
-                if (!Directory.Exists(file_path))
-                    Directory.CreateDirectory(file_path);
+                //if (!Directory.Exists(file_path))
+                //    Directory.CreateDirectory(file_path);
 
-                system_path = Path.Combine(file_path, "AstraSys");
-                if (!Directory.Exists(system_path))
-                    Directory.CreateDirectory(system_path);
+                //system_path = Path.Combine(file_path, "AstraSys");
+                //if (!Directory.Exists(system_path))
+                //    Directory.CreateDirectory(system_path);
 
                 rep_file_name = Path.Combine(file_path, "Bridge_Rcc_Pier.TXT");
                 user_input_file = Path.Combine(system_path, "RCC_PIERS.FIL");

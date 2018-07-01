@@ -33,26 +33,34 @@ namespace AstraFunctionOne
         {
 
             frmLockedVersion ff = new frmLockedVersion(false);
-
-            if (!LockProgram.IsProfessional_BridgeVersion())
-            {
-                lbl_bridge.Text = "Unauthorised";
-                lbl_bridge.ForeColor = Color.Red;
-            }
-            else
+           
+            if (LockProgram.Version_Type == AstraInterface.DataStructure.eVersionType.Enterprise_Bridge ||
+                LockProgram.Version_Type == AstraInterface.DataStructure.eVersionType.Professional_Bridge)
             {
                 lbl_bridge.Text = "Authorised";
                 lbl_bridge.ForeColor = Color.Black;
-            }
-            if (!LockProgram.IsProfessional_StructuralVersion())
-            {
+
                 lbl_structure.Text = "Unauthorised";
                 lbl_structure.ForeColor = Color.Red;
             }
-            else
+
+            else if (LockProgram.Version_Type == AstraInterface.DataStructure.eVersionType.Enterprise_Structure ||
+                LockProgram.Version_Type == AstraInterface.DataStructure.eVersionType.Professional_Structure)
             {
+                lbl_bridge.Text = "Authorised";
+                lbl_bridge.ForeColor = Color.Black;
+
                 lbl_structure.Text = "Authorised";
                 lbl_structure.ForeColor = Color.Black;
+            }
+            else
+            {
+
+                lbl_bridge.Text = "Unauthorised";
+                lbl_bridge.ForeColor = Color.Red;
+
+                lbl_structure.Text = "Unauthorised";
+                lbl_structure.ForeColor = Color.Red;
             }
         }
 

@@ -89,6 +89,22 @@ namespace AstraFunctionOne.ProcessList
                                 Run_Data2(flpath);
                             //Run_Exe(flpath);
                         }
+                        //else if (ProcessList[i].IS_Skew_File)
+                        //{
+                        //    if (i == 0)
+                        //    {
+                        //        if (File.Exists(ProcessList[i].Skew_File_Name))
+                        //            Run_SkewFile(ProcessList[i].Skew_File_Name);
+                        //    }
+                        //    if (File.Exists(flpath))
+                        //        Run_SkewFile(flpath);
+
+                        //    iapp.Write_Skew_Data_to_File(flpath, ProcessList[i].Skew_File_Name);
+
+                        //    if (File.Exists(flpath))
+                        //        Run_Data2(flpath);
+                        //    //Run_Exe(flpath);
+                        //}
                         else
                         {
                             if (File.Exists(flpath))
@@ -160,6 +176,47 @@ namespace AstraFunctionOne.ProcessList
         }
 
 
+        void Run_SkewFile(string flPath)
+        {
+
+            PRC = new Process();
+            iapp.Delete_Temporary_Files(flPath);
+
+            var ast05 = Path.Combine(Application.StartupPath, "AST005.EXE");
+            var ast06 = Path.Combine(Application.StartupPath, "AST006.EXE");
+            if (File.Exists(ast05))
+            {
+                if (File.Exists(ast06))
+                    File.Delete(ast06);
+
+                File.Move(ast05, ast06);
+            }
+
+            File.WriteAllText(Path.Combine(Path.GetDirectoryName(flPath), "RES001.TMP"), "");
+
+            string exe_file = Path.Combine(Application.StartupPath, "AST001.EXE");
+
+
+            File.WriteAllText(Path.Combine(Path.GetDirectoryName(flPath), "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
+            File.WriteAllText(Path.Combine(Application.StartupPath, "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
+            //System.Environment.SetEnvironmentVariable("SURVEY", flPath);
+
+            System.Diagnostics.Process prs = new System.Diagnostics.Process();
+
+            System.Environment.SetEnvironmentVariable("SURVEY", flPath);
+            System.Environment.SetEnvironmentVariable("ASTRA", flPath);
+
+
+            PRC.StartInfo.FileName = exe_file;
+            PRC.Start();
+            PRC.WaitForExit();
+
+            if (File.Exists(ast06))
+            {
+                if (File.Exists(ast05)) File.Delete(ast05);
+                File.Move(ast06, ast05);
+            }
+        }
 
 
         public bool Run_Data2(string flPath)

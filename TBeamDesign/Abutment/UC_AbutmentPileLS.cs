@@ -61,7 +61,7 @@ namespace BridgeAnalysisDesign.Abutment
             {
                 //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 //    return "DESIGN OF RCC ABUTMENT CANTILEVER [BS]";
-                return "Abutment Design with Pile Foundation in LSM";
+                return "Design of RCC Abutment with Pile Foundation";
             }
         }
 
@@ -273,7 +273,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             if (iApp == null) return;
 
-            MessageBox.Show(this, "The Design in Excel Worksheet will take some time to complete. Please wait until the process is complete as shown at the bottom of the Excel Worksheet.", "ASTRA", MessageBoxButtons.OK);
+            //MessageBox.Show(this, "The Design in Excel Worksheet will take some time to complete. Please wait until the process is complete as shown at the bottom of the Excel Worksheet.", "ASTRA", MessageBoxButtons.OK);
 
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
             {
@@ -371,24 +371,25 @@ namespace BridgeAnalysisDesign.Abutment
             return list;
         }
 
+
+        string Get_Design_Report()
+        {
+            string file_path = Path.Combine(iApp.user_path, Title);
+
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                file_path = Path.Combine(file_path, "Abutment Design with Pile Foundation in LSM [IRC].xls");
+            else
+                file_path = Path.Combine(file_path, "Abutment Design with Pile Foundation in LSM [BS].xls");
+            return file_path;
+        }
+
+
         private void Process_Design_IS()
         {
+            string file_path = Get_Design_Report();
 
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
-
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
-
-            //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            //file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xlsm");
-            file_path = Path.Combine(file_path, "Abutment with Pile Foundation IS.xls");
-
-            //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
-            //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
+            if (!Directory.Exists(Path.GetDirectoryName(file_path))) 
+                Directory.CreateDirectory(Path.GetDirectoryName(file_path));
 
             string copy_path = file_path;
 
@@ -504,18 +505,18 @@ namespace BridgeAnalysisDesign.Abutment
 
         private void Process_Design_BS()
         {
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
+            string file_path = Get_Design_Report();
 
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+            if (!Directory.Exists(Path.GetDirectoryName(file_path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(file_path));
+
 
             //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
             //file_path = Path.Combine(file_path, "Abutment with Pile Foundation.xlsm");
-            file_path = Path.Combine(file_path, "Abutment with Pile Foundation BS.xls");
+            //file_path = Path.Combine(file_path, "Abutment with Pile Foundation BS.xls");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -535,7 +536,7 @@ namespace BridgeAnalysisDesign.Abutment
             }
 
 
-            //iApp.Excel_Open_Message();
+            iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
             Excel.Workbooks myExcelWorkbooks;
@@ -822,7 +823,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             releaseObject(myExcelWorkbook);
 
-            //iApp.Excel_Open_Message();
+            iApp.Excel_Close_Message();
         }
 
 
@@ -846,7 +847,35 @@ namespace BridgeAnalysisDesign.Abutment
 
         private void btn_open_Click(object sender, EventArgs e)
         {
-            iApp.Open_ASTRA_Worksheet_Dialog();
+            Button btn = sender as Button;
+            if (btn == btn_open_wroksheet)
+            {
+                iApp.Open_ASTRA_Worksheet_Dialog();
+            } 
+            else
+            {
+            //    string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            //    if (iApp.user_path != "")
+            //        file_path = Path.Combine(iApp.user_path, Title);
+
+            //   if(iApp.DesignStandard == eDesignStandard.IndianStandard)
+            //       file_path = Path.Combine(file_path, "Abutment with Pile Foundation IS.xls");
+            //   else
+            //       file_path = Path.Combine(file_path, "Abutment with Pile Foundation BS.xls");
+
+                string file_path = Get_Design_Report();
+
+               if (File.Exists(file_path))
+               {
+                   iApp.OpenExcelFile(file_path, "2011ap");
+               }
+               else
+               {
+                   MessageBox.Show(file_path + " file not found.");
+                   return;
+               }
+
+            }
         }
 
         public event EventHandler Worksheet_Force_CheckedChanged;

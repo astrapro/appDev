@@ -864,10 +864,10 @@
             // 
             // sc_docs.Panel2
             // 
-            this.sc_docs.Panel2.Controls.Add(this.ts_1);
             this.sc_docs.Panel2.Controls.Add(this.tc_docs);
             this.sc_docs.Panel2.Controls.Add(this.panel27);
             this.sc_docs.Panel2.Controls.Add(this.pnl_progress);
+            this.sc_docs.Panel2.Controls.Add(this.ts_1);
             this.sc_docs.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.sc_docs.Size = new System.Drawing.Size(1022, 506);
             this.sc_docs.SplitterDistance = 358;
@@ -1034,10 +1034,10 @@
             // tab_3_mem_frc
             // 
             this.tab_3_mem_frc.Controls.Add(this.dgv_beam_frcs);
-            this.tab_3_mem_frc.Location = new System.Drawing.Point(4, 22);
+            this.tab_3_mem_frc.Location = new System.Drawing.Point(4, 40);
             this.tab_3_mem_frc.Name = "tab_3_mem_frc";
             this.tab_3_mem_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_3_mem_frc.Size = new System.Drawing.Size(320, 470);
+            this.tab_3_mem_frc.Size = new System.Drawing.Size(320, 452);
             this.tab_3_mem_frc.TabIndex = 1;
             this.tab_3_mem_frc.Text = "Beam Forces";
             this.tab_3_mem_frc.UseVisualStyleBackColor = true;
@@ -1070,7 +1070,7 @@
             this.dgv_beam_frcs.Name = "dgv_beam_frcs";
             this.dgv_beam_frcs.RowHeadersWidth = 21;
             this.dgv_beam_frcs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_beam_frcs.Size = new System.Drawing.Size(314, 464);
+            this.dgv_beam_frcs.Size = new System.Drawing.Size(314, 446);
             this.dgv_beam_frcs.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn32
@@ -1161,9 +1161,9 @@
             // tab_3_truss_frc
             // 
             this.tab_3_truss_frc.Controls.Add(this.dgv_truss_frcs);
-            this.tab_3_truss_frc.Location = new System.Drawing.Point(4, 22);
+            this.tab_3_truss_frc.Location = new System.Drawing.Point(4, 40);
             this.tab_3_truss_frc.Name = "tab_3_truss_frc";
-            this.tab_3_truss_frc.Size = new System.Drawing.Size(320, 470);
+            this.tab_3_truss_frc.Size = new System.Drawing.Size(320, 452);
             this.tab_3_truss_frc.TabIndex = 2;
             this.tab_3_truss_frc.Text = "Truss / Cable Forces";
             this.tab_3_truss_frc.UseVisualStyleBackColor = true;
@@ -1192,7 +1192,7 @@
             this.dgv_truss_frcs.Name = "dgv_truss_frcs";
             this.dgv_truss_frcs.RowHeadersWidth = 21;
             this.dgv_truss_frcs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_truss_frcs.Size = new System.Drawing.Size(320, 470);
+            this.dgv_truss_frcs.Size = new System.Drawing.Size(320, 452);
             this.dgv_truss_frcs.TabIndex = 0;
             // 
             // Column1
@@ -1750,7 +1750,7 @@
             // 
             this.txt_env_mnos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_env_mnos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_env_mnos.Location = new System.Drawing.Point(341, 26);
+            this.txt_env_mnos.Location = new System.Drawing.Point(342, 26);
             this.txt_env_mnos.Name = "txt_env_mnos";
             this.txt_env_mnos.Size = new System.Drawing.Size(211, 21);
             this.txt_env_mnos.TabIndex = 2;
@@ -1793,7 +1793,7 @@
             // btn_env_show
             // 
             this.btn_env_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_env_show.Location = new System.Drawing.Point(375, 97);
+            this.btn_env_show.Location = new System.Drawing.Point(376, 97);
             this.btn_env_show.Name = "btn_env_show";
             this.btn_env_show.Size = new System.Drawing.Size(121, 23);
             this.btn_env_show.TabIndex = 0;
@@ -2464,10 +2464,10 @@
             this.tc_docs.Controls.Add(this.tab_diag_doc);
             this.tc_docs.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_docs.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_docs.Location = new System.Drawing.Point(0, 0);
+            this.tc_docs.Location = new System.Drawing.Point(0, 25);
             this.tc_docs.Name = "tc_docs";
             this.tc_docs.SelectedIndex = 0;
-            this.tc_docs.Size = new System.Drawing.Size(658, 453);
+            this.tc_docs.Size = new System.Drawing.Size(658, 428);
             this.tc_docs.TabIndex = 3;
             // 
             // tab_frcs_doc
@@ -2476,7 +2476,7 @@
             this.tab_frcs_doc.Location = new System.Drawing.Point(4, 22);
             this.tab_frcs_doc.Name = "tab_frcs_doc";
             this.tab_frcs_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_frcs_doc.Size = new System.Drawing.Size(650, 427);
+            this.tab_frcs_doc.Size = new System.Drawing.Size(650, 402);
             this.tab_frcs_doc.TabIndex = 0;
             this.tab_frcs_doc.Text = "Analysis Forces ";
             this.tab_frcs_doc.UseVisualStyleBackColor = true;
@@ -2489,7 +2489,7 @@
             this.vdSC_frcs.Location = new System.Drawing.Point(3, 3);
             this.vdSC_frcs.Name = "vdSC_frcs";
             this.vdSC_frcs.ShowLayoutPopupMenu = true;
-            this.vdSC_frcs.Size = new System.Drawing.Size(644, 421);
+            this.vdSC_frcs.Size = new System.Drawing.Size(644, 396);
             this.vdSC_frcs.TabIndex = 0;
             // 
             // tab_defl_doc
@@ -2498,7 +2498,7 @@
             this.tab_defl_doc.Location = new System.Drawing.Point(4, 22);
             this.tab_defl_doc.Name = "tab_defl_doc";
             this.tab_defl_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_defl_doc.Size = new System.Drawing.Size(650, 427);
+            this.tab_defl_doc.Size = new System.Drawing.Size(650, 402);
             this.tab_defl_doc.TabIndex = 1;
             this.tab_defl_doc.Text = "Load Deflection";
             this.tab_defl_doc.UseVisualStyleBackColor = true;
@@ -2510,7 +2510,7 @@
             this.vdSC_ldef.Location = new System.Drawing.Point(3, 3);
             this.vdSC_ldef.Name = "vdSC_ldef";
             this.vdSC_ldef.ShowLayoutPopupMenu = true;
-            this.vdSC_ldef.Size = new System.Drawing.Size(644, 421);
+            this.vdSC_ldef.Size = new System.Drawing.Size(644, 396);
             this.vdSC_ldef.TabIndex = 0;
             // 
             // tab_max_doc
@@ -2709,6 +2709,7 @@
             this.pbLoadDeflection.Name = "pbLoadDeflection";
             this.pbLoadDeflection.Size = new System.Drawing.Size(656, 24);
             this.pbLoadDeflection.TabIndex = 24;
+            this.pbLoadDeflection.VisibleChanged += new System.EventHandler(this.pbLoadDeflection_VisibleChanged);
             // 
             // lblPleaseWait
             // 

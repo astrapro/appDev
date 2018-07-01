@@ -57,7 +57,7 @@ namespace ASTRAStructures
         }
 
         
-        IApplication iApp;
+        public IApplication iApp;
 
         public string FilePath { get { return File_Name; } set { File_Name = value; } }
 
@@ -704,6 +704,7 @@ namespace ASTRAStructures
 
         public void Load_Initials()
         {
+            TabPage tb = tc_prp_main.SelectedTab;
             //if (tc_parrent.SelectedTab == tab_pre_process)
             //{
                
@@ -775,7 +776,7 @@ namespace ASTRAStructures
                 tc_prp_main.SelectedTab = tab_file_open;
             }
 
-
+            tc_prp_main.SelectedTab = tb;
             Button_Enable_Disable();
 
             Count_Geometry();
@@ -937,6 +938,10 @@ namespace ASTRAStructures
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_ShadeOn(VD);
             else if (tsb.Name == tsb_Wire.Name)
                 VectorDraw.Professional.ActionUtilities.vdCommandAction.View3D_Wire(VD);
+            else if (tsb.Name == tsb_Edit.Name)
+            {
+                tsmi_Edit_Click(sender, e);
+            }
             else if (tsb.Name == tsb_Save.Name)
             {
                 using (SaveFileDialog sfd = new SaveFileDialog())
@@ -955,6 +960,30 @@ namespace ASTRAStructures
                                 MessageBox.Show("File Saved successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
+                    }
+                }
+            }
+        }
+        private void tsmi_Edit_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+                sfd.Filter = "VDML Drawing File(*.vdml)|*.vdml|DXF Drawing File(*.dxf)|*.dxf|DWG Drawing File(*.dwg)|*.dwg";
+                if (sfd.ShowDialog() != DialogResult.Cancel)
+                {
+                    if (iApp.IsDemo)
+                    {
+                        MessageBox.Show("This function is not available in Demo version.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        VDoc.SaveAs(sfd.FileName);
+                        Drawing_File = sfd.FileName;
+
+                        System.Environment.SetEnvironmentVariable("OPENFILE", Drawing_File);
+                        //System.Diagnostics.Process.Start("viewer.exe", Drawing_File);
+                        System.Diagnostics.Process.Start(Path.Combine(Application.StartupPath, "viewer.exe"));
                     }
                 }
             }
@@ -4614,6 +4643,8 @@ namespace ASTRAStructures
                         {
                             if (item1.Comment != "")
                                 tn.Nodes.Add(item1 + " " + item1.Comment);
+                            else
+                                tn.Nodes.Add(item1);
                         }
                         tn = tn.Parent;
                     }

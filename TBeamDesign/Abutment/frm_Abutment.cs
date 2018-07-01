@@ -3411,6 +3411,10 @@ namespace BridgeAnalysisDesign.Abutment
         public void Calculate_Program(string file_name)
         {
 
+            if (!Directory.Exists(Path.GetDirectoryName(file_name)))
+                Directory.CreateDirectory(Path.GetDirectoryName(file_name));
+
+
             string ref_string = "";
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             #region TechSOFT Banner
@@ -5606,19 +5610,19 @@ namespace BridgeAnalysisDesign.Abutment
                 file_path = user_path;
                
 
-                if (!Directory.Exists(file_path))
-                    Directory.CreateDirectory(file_path);
+                //if (!Directory.Exists(file_path))
+                //    Directory.CreateDirectory(file_path);
 
                 if (IsExecuteBridge) file_path = Path.Combine(file_path, "Design of RCC Abutment");
                 else file_path = Path.Combine(user_path, "Design of Cantilever Abutment Wall");
 
 
-                if (!Directory.Exists(file_path))
-                    Directory.CreateDirectory(file_path);
+                //if (!Directory.Exists(file_path))
+                //    Directory.CreateDirectory(file_path);
 
-                system_path = Path.Combine(file_path, "AstraSys");
-                if (!Directory.Exists(system_path))
-                    Directory.CreateDirectory(system_path);
+                //system_path = Path.Combine(file_path, "AstraSys");
+                //if (!Directory.Exists(system_path))
+                //    Directory.CreateDirectory(system_path);
 
                 rep_file_name = Path.Combine(file_path, "Bridge_RCC_Abutment.TXT");
                 user_input_file = Path.Combine(system_path, "RCC_ABUTMENT.FIL");
@@ -5626,7 +5630,10 @@ namespace BridgeAnalysisDesign.Abutment
         }
         public void Write_Cantilever_Drawing_File()
         {
+
             drawing_path = Path.Combine(system_path, "ABUTMENT_DRAWING.FIL");
+
+            if (!Directory.Exists(Path.GetDirectoryName(drawing_path)))  Directory.CreateDirectory(Path.GetDirectoryName(drawing_path));
 
             StreamWriter sw = new StreamWriter(new FileStream(drawing_path, FileMode.Create));
             try
@@ -5672,8 +5679,6 @@ namespace BridgeAnalysisDesign.Abutment
                 sw.Close();
             }
         }
-
-
 
     }
 }

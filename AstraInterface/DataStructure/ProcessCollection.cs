@@ -21,8 +21,10 @@ namespace AstraInterface.DataStructure
         public string Remark { get; set; }
         public string Process_File_Name { get; set; }
         public string Stage_File_Name { get; set; }
+        public string Skew_File_Name { get; set; }
 
         public bool IS_Stage_File { get; set; }
+        public bool IS_Skew_File { get; set; }
 
 
         public ProcessData()
@@ -35,6 +37,10 @@ namespace AstraInterface.DataStructure
 
             IS_Stage_File = false;
             Stage_File_Name = "";
+
+
+            IS_Skew_File = false;
+            Skew_File_Name = "";
         }
     }
 }

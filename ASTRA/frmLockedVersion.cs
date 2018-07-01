@@ -56,9 +56,10 @@ namespace AstraFunctionOne
             if (LockProgram.CheckHasp())
             {
                 //MemoLock();
-                if (LockProgram.Get_Authorization_Code() && LockProgram.Check_ASTRA_Structure_Lock() && LockProgram.Check_ASTRA_Bridge_Lock())
+                if (LockProgram.Version_Type == eVersionType.Professional_Structure ||
+                    LockProgram.Version_Type == eVersionType.Enterprise_Structure )
                 {
-                    if(!licMenu)
+                    if (!licMenu)
                         this.Close();
                 }
                 else
@@ -80,127 +81,50 @@ namespace AstraFunctionOne
             if (txt_Auth_code_Bridge.Enabled)
             {
                 #region Chiranjit Bridge Design
-
-
                 //Application.Exit();
-                if (txt_Auth_code_Bridge.Text == ASTRA_R21.Authorization_Code)
+                if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Enterprise_Bridge)
                 {
-          
-                    //Chiranjit [2012 11 28]
-                    #region Write ASTRA Code
-
-                    LockProgram.WriteToLock(51, 18);
-                    LockProgram.WriteToLock(52, 54);
-
-                    #endregion
-
-                    LockProgram.WriteToLock(10, 1);//authorize address
-                    LockProgram.WriteToLock(27, 0);//authorize bridge high value address
-                    //MessageBox.Show(this, "ASTRA Pro Authorized for Bridge Analysis & Design." + "\n\nPlease Contact: techsoft@consultant.com, dataflow@mail.com", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //MessageBox.Show(this, "ASTRA Pro Authorized for Bridge Analysis & Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Bridge);
+                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R21.NewCode_Enterprise_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Enterprise_Bridge)
                 {
+                    LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Bridge);
 
-                    //if (LockProgram.Check_ASTRA_Lock_19())
-                    if (LockProgram.Check_Previuos_Version())
-                    {
-                        MessageBox.Show("Previous Version lock found. This Authorization Code is not valid. Enter Upgrade Code.", "ASTRA", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        //LockProgram.Write_ASTRA_Code_19();
-                        //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                        //LockProgram.Write_ASTRA_Bridge_Code_19();
-                        //LockProgram.Write_ASTRA_Enterprise_Code_19();
-
-                        LockProgram.Write_ASTRA_Code_21();
-                        LockProgram.Write_ASTRA_AuthorisedCode_21();
-                        LockProgram.Write_ASTRA_Bridge_Code_21();
-                        LockProgram.Write_ASTRA_Enterprise_Code_21();
-
-                        MessageBox.Show(this, "ASTRA Pro Upgraded to full authorised. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R21.UpgradeCode_Enterprise_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Professional_Bridge)
                 {
-
-                    //LockProgram.Write_ASTRA_Code_19();
-
-                    //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                    //LockProgram.Write_ASTRA_Bridge_Code_19();
-                    //LockProgram.Write_ASTRA_Enterprise_Code_19();
-
-                    //LockProgram.Write_ASTRA_Code_20();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                    //LockProgram.Write_ASTRA_Bridge_Code_20();
-                    //LockProgram.Write_ASTRA_Enterprise_Code_20();
-
-
-
-                    LockProgram.Write_ASTRA_Code_21();
-                    LockProgram.Write_ASTRA_AuthorisedCode_21();
-                    LockProgram.Write_ASTRA_Bridge_Code_21();
-                    LockProgram.Write_ASTRA_Enterprise_Code_21();
-
-
-                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LockProgram.Write_ASTRA_Code(eVersionType.Professional_Bridge);
+                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R21.NewCode_Professional_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Professional_Bridge)
                 {
-                    if (LockProgram.Check_Previuos_Version())
-                    {
-                        MessageBox.Show("Previous Version lock found. This Authorization Code is not valid. Enter Upgrade Code.", "ASTRA", MessageBoxButtons.OK);
-                        //MessageBox.Show("This Authorization Code is not valid.", "ASTRA", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        //LockProgram.Write_ASTRA_Code_19();
-                        //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                        //LockProgram.Write_ASTRA_Bridge_Code_19();
-                        //LockProgram.Write_ASTRA_Professional_Code_19();
-
-
-                        LockProgram.Write_ASTRA_Code_21();
-                        LockProgram.Write_ASTRA_AuthorisedCode_21();
-                        LockProgram.Write_ASTRA_Bridge_Code_21();
-                        LockProgram.Write_ASTRA_Professional_Code_21();
-
-                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    LockProgram.Write_ASTRA_Code(eVersionType.Professional_Bridge);
+                    MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R21.UpgradeCode_Professional_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Enterprise_Structure)
                 {
+                    LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Structure);
 
-                    LockProgram.Write_ASTRA_Code_21();
-                    LockProgram.Write_ASTRA_AuthorisedCode_21();
-                    LockProgram.Write_ASTRA_Bridge_Code_21();
-                    LockProgram.Write_ASTRA_Professional_Code_21();
-
-                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge & Structure Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R21.UpgradeCode_Professional_Bridge_SP) // Special Code generated for Rahul Malviya
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Professional_Structure)
                 {
-                    int actvContrl = LockProgram.Get_Activation_Control_No();
+                    LockProgram.Write_ASTRA_Code(eVersionType.Professional_Structure);
 
-                    if (actvContrl == 2)
-                    {
-                        LockProgram.Write_ASTRA_Code_21();
-                        LockProgram.Write_ASTRA_AuthorisedCode_21();
-                        LockProgram.Write_ASTRA_Bridge_Code_21();
-                        LockProgram.Write_ASTRA_Professional_Code_21();
+                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge & Structure Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Enterprise_Structure)
+                {
+                    LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Structure);
 
-                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        //MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        MessageBox.Show(this, "Sorry! Bridge Authorization Code is not valid." + "\n\nPlease Contact: techsoft@consultant.com, dataflow@mail.com", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
+                    MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge & Structure Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Professional_Structure)
+                {
+                    LockProgram.Write_ASTRA_Code(eVersionType.Professional_Structure);
+                    MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge & Structure Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (txt_Auth_code_Bridge.Text == "")
                 {
@@ -214,215 +138,38 @@ namespace AstraFunctionOne
                 #endregion Chiranjit Bridge Design
             }
 
-            if (txt_Auth_code_Building.Enabled)
-            {
-                #region Chiranjit Builing Design
-
-                if (txt_Auth_code_Building.Text == ASTRA_R21.NewCode_Enterprise_Structure)
-                {
-                    if (LockProgram.Check_Previuos_Version())
-                    {
-                        MessageBox.Show("This Authorization Code is not valid.", "ASTRA", MessageBoxButtons.OK);
-
-                    }
-                    else
-                    {
-                        //LockProgram.Write_ASTRA_Code_19();
-                        //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                        //LockProgram.Write_ASTRA_Structure_Code_19();
-                        //LockProgram.Write_ASTRA_Enterprise_Code_19();
-
-
-                        //LockProgram.Write_ASTRA_Code_20();
-                        //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                        //LockProgram.Write_ASTRA_Structure_Code_20();
-                        //LockProgram.Write_ASTRA_Enterprise_Code_20();
-
-
-                        LockProgram.Write_ASTRA_Code_21();
-                        LockProgram.Write_ASTRA_AuthorisedCode_21();
-                        LockProgram.Write_ASTRA_Structure_Code_21();
-                        LockProgram.Write_ASTRA_Enterprise_Code_21();
-
-                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else if (txt_Auth_code_Building.Text == ASTRA_R21.NewCode_Professional_Structure)
-                {
-                    if (LockProgram.Get_Speacial_Code_ASTRA_R21())
-                    {
-                        MessageBox.Show("This Building Authorization Code is not valid. Please Contact TechSOFT, email at dataflow@mail.com", "ASTRA", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        if (LockProgram.Check_Previuos_Version())
-                        {
-                            MessageBox.Show("This Authorization Code is not valid.", "ASTRA", MessageBoxButtons.OK);
-                        }
-                        else
-                        {
-                            //LockProgram.Write_ASTRA_Code_19();
-                            //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                            //LockProgram.Write_ASTRA_Structure_Code_19();
-                            //LockProgram.Write_ASTRA_Professional_Code_19();
-
-
-                            //LockProgram.Write_ASTRA_Code_20();
-                            //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                            //LockProgram.Write_ASTRA_Structure_Code_20();
-                            //LockProgram.Write_ASTRA_Professional_Code_20();
-
-
-                            LockProgram.Write_ASTRA_Code_21();
-                            LockProgram.Write_ASTRA_AuthorisedCode_21();
-                            LockProgram.Write_ASTRA_Structure_Code_21();
-                            LockProgram.Write_ASTRA_Professional_Code_21();
-
-
-
-
-                            MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                }
-                else if (txt_Auth_code_Building.Text == ASTRA_R21.NewCode_Professional_Structure2)
-                {
-                    //if (LockProgram.Get_Speacial_Code_ASTRA_R21())
-                    //{
-                    //    MessageBox.Show("This Authorization Code is not valid. Please Contact TechSOFT, email at dataflow@mail.com", "ASTRA", MessageBoxButtons.OK);
-                    //}
-                    if (LockProgram.Check_Previuos_Version())
-                    {
-                        MessageBox.Show("This Authorization Code is not valid.", "ASTRA", MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        //LockProgram.Write_ASTRA_Code_19();
-                        //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                        //LockProgram.Write_ASTRA_Structure_Code_19();
-                        //LockProgram.Write_ASTRA_Professional_Code_19();
-
-
-                        //LockProgram.Write_ASTRA_Code_20();
-                        //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                        //LockProgram.Write_ASTRA_Structure_Code_20();
-                        //LockProgram.Write_ASTRA_Professional_Code_20();
-
-
-                        LockProgram.Write_ASTRA_Code_21();
-                        LockProgram.Write_ASTRA_AuthorisedCode_21();
-                        LockProgram.Write_ASTRA_Structure_Code_21();
-                        LockProgram.Write_ASTRA_Professional_Code_21();
-
-                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                else if (txt_Auth_code_Building.Text == ASTRA_R21.UpgradeCode_Enterprise_Structure)
-                {
-                    //LockProgram.Write_ASTRA_Code_19();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                    //LockProgram.Write_ASTRA_Structure_Code_19();
-                    //LockProgram.Write_ASTRA_Enterprise_Code_19();
-
-
-                    //LockProgram.Write_ASTRA_Code_20();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                    //LockProgram.Write_ASTRA_Structure_Code_20();
-                    //LockProgram.Write_ASTRA_Enterprise_Code_20();
-
-
-                    LockProgram.Write_ASTRA_Code_21();
-                    LockProgram.Write_ASTRA_AuthorisedCode_21();
-                    LockProgram.Write_ASTRA_Structure_Code_21();
-                    LockProgram.Write_ASTRA_Enterprise_Code_21();
-
-
-
-                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-       
-           
-                }
-                else if (txt_Auth_code_Building.Text == ASTRA_R21.UpgradeCode_Professional_Structure)
-                {
-                    //LockProgram.Write_ASTRA_Code_19();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                    //LockProgram.Write_ASTRA_Structure_Code_19();
-                    //LockProgram.Write_ASTRA_Professional_Code_19();
-
-
-                    //LockProgram.Write_ASTRA_Code_20();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                    //LockProgram.Write_ASTRA_Structure_Code_20();
-                    //LockProgram.Write_ASTRA_Professional_Code_20();
-
-
-                    LockProgram.Write_ASTRA_Code_21();
-                    LockProgram.Write_ASTRA_AuthorisedCode_21();
-                    LockProgram.Write_ASTRA_Structure_Code_21();
-                    LockProgram.Write_ASTRA_Professional_Code_21();
-
-
-
-                    MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-
-                else if (txt_Auth_code_Building.Text == ASTRA_R21.UpgradeCode_Professional_Structure_SP)
-                {
-                    //LockProgram.Write_ASTRA_Code_19();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_19();
-                    //LockProgram.Write_ASTRA_Structure_Code_19();
-                    //LockProgram.Write_ASTRA_Professional_Code_19();
-
-
-                    //LockProgram.Write_ASTRA_Code_20();
-                    //LockProgram.Write_ASTRA_AuthorisedCode_20();
-                    //LockProgram.Write_ASTRA_Structure_Code_20();
-                    //LockProgram.Write_ASTRA_Professional_Code_20();
-
-                    if (LockProgram.Get_Activation_Control_No() == 2)
-                    {
-                        LockProgram.Write_ASTRA_Code_21();
-                        LockProgram.Write_ASTRA_AuthorisedCode_21();
-                        LockProgram.Write_ASTRA_Structure_Code_21();
-                        LockProgram.Write_ASTRA_Professional_Code_21();
-                        MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro RCC Framed Building Design. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                    else
-                    {
-                        MessageBox.Show(this, "Sorry! RCC Framed Building Authorization Code is not valid." + "\n\nPlease Contact: techsoft@consultant.com, dataflow@mail.com", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else if (txt_Auth_code_Building.Text == "")
-                {
-                }
-                else
-                {
-                    //WriteToLock(10, 0);
-                    MessageBox.Show(this, "Sorry! RCC Framed Building Authorization Code is not valid." + "\n\nPlease Contact: techsoft@consultant.com, dataflow@mail.com", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-                #endregion Chiranjit Bridge Design
-
-            }
-
-
-            if (LockProgram.Get_Authorization_Code() == false && licMenu == false)
+           LockProgram.Version_Type = LockProgram.Get_LockedVersion();
+            if (LockProgram.Version_Type == eVersionType.Activation_Trial && licMenu == false)
             {
                 activation = LockProgram.Get_Activation();
                 if (activation == 0)
                 {
                     //Chiranjit [2012 12 20]
-                    MessageBox.Show(this, "ASTRA Demo Version will run.", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(this, "ASTRA Pro Demo Version will run.", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Application.Exit();
                 }
                 //else if (activation >= 1 && activation <= 1000)
-                else if (activation >= 1 && activation <= 5) // Message comes when activation is less than 5
+                else if (activation >= 1 && activation <= 10) // Message comes when activation is less than 5
                 {
                     //string str = (activation - 1) + " more Activation Left.";
                     activation--;
                     LockProgram.Set_Activation(activation);
 
-                    string str = (activation) + " more Activation Left.";
+                    string str = "";
+
+                    if (activation == 1)
+                    {
+                        str = (activation) + " more activation Left.";
+                    }
+                    else if (activation == 0)
+                    {
+                        str = "No more activation Left. ASTRA Pro Unauthorised Version will run.";
+                    }
+                    else
+                    {
+                        str = (activation) + " more activations Left.";
+
+                    }
                     MessageBox.Show(str, "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else if (activation >= 1)
@@ -430,6 +177,10 @@ namespace AstraFunctionOne
                     activation--;
                     LockProgram.Set_Activation(activation);
                 }
+            }
+            else
+            {
+                //MessageBox.Show(this, "ASTRA Pro Demo Version will run.", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             this.DialogResult = DialogResult.OK;
             this.Close();
@@ -445,7 +196,8 @@ namespace AstraFunctionOne
         {
             get
             {
-                return LockProgram.IsActivate_19;
+                return (LockProgram.Version_Type != eVersionType.Activation_Trial &&
+                    LockProgram.Version_Type != eVersionType.Demo);
             }
         }
         public static eVersionType Version_Type { get; set; }
@@ -453,56 +205,10 @@ namespace AstraFunctionOne
         private void timer1_Tick(object sender, EventArgs e)
         {
 
-
-            //timer1.Stop();
-            //return;
             if (lbl_code.ForeColor != Color.Red)
                 lbl_code.ForeColor = Color.Red;
             else
                 lbl_code.ForeColor = Color.Blue;
-
-            if (LockProgram.CheckHasp())
-            {
-                //chk_bridge.Enabled = !LockProgram.Check_ASTRA_Bridge_Lock_19();
-                //chk_strucrure.Enabled = !LockProgram.Check_ASTRA_Structure_Lock_19();
-
-
-                chk_bridge.Enabled = !LockProgram.Check_ASTRA_Bridge_Lock();
-                chk_strucrure.Enabled = !LockProgram.Check_ASTRA_Structure_Lock();
-
-
-                chk_bridge.Checked = !chk_bridge.Enabled;
-                chk_strucrure.Checked = !chk_strucrure.Enabled;
-
-                if (chk_bridge.Checked && chk_strucrure.Checked)
-                {
-                    //this.Close();
-                    timer1.Stop();
-                }
-
-            }
-            else
-            {
-                //MessageBox.Show(this, "ASTRA Pro USB Dongle not found at any port.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                chk_bridge.Enabled = true;
-                chk_strucrure.Enabled = true;
-
-                chk_bridge.Checked = !chk_bridge.Enabled;
-                chk_strucrure.Checked = !chk_strucrure.Enabled;
-            }
-
-            //txt_Auth_code_Bridge.Enabled = !chk_bridge.Checked;
-            //txt_Auth_code_Building.Enabled = !chk_strucrure.Checked;
-
-
-            //if (!txt_Auth_code_Bridge.Enabled)
-            //{
-            //    txt_Auth_code_Bridge.Text = "AUTHORISED";
-            //}
-            //if (!txt_Auth_code_Building.Enabled)
-            //{
-            //    txt_Auth_code_Building.Text = "AUTHORISED";
-            //}
         }
 
 
@@ -510,7 +216,7 @@ namespace AstraFunctionOne
 
 
 
-    public static class LockProgram
+    public static class LockProgram1
     {
         static int Service;
         static int LptNum = 0, SeedCode;
@@ -683,12 +389,12 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_18()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_18()) return true;
             }
@@ -696,7 +402,7 @@ namespace AstraFunctionOne
 
             return true;
         }
-       
+
         public static void MemoLock_18()
         {
             short lock_flag = 0;
@@ -834,12 +540,12 @@ namespace AstraFunctionOne
 
 
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_18()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_18()) return true;
             }
@@ -900,12 +606,12 @@ namespace AstraFunctionOne
             }
 
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_18()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_18()) return true;
             }
@@ -1193,12 +899,12 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_19()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_19()) return true;
             }
@@ -1253,12 +959,12 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_19()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_19()) return true;
             }
@@ -1316,12 +1022,12 @@ namespace AstraFunctionOne
             }
 
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_19()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_19()) return true;
             }
@@ -1498,7 +1204,7 @@ namespace AstraFunctionOne
         }
 
 
-                    
+
 
         public static bool Write_ASTRA_AuthorisedCode_20()
         {
@@ -1611,12 +1317,12 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_20()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_20()) return true;
             }
@@ -1676,12 +1382,12 @@ namespace AstraFunctionOne
             }
 
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_20()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_20()) return true;
             }
@@ -1735,13 +1441,13 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 //if (!Is_High_Value_19()) return false;
                 if (!Is_High_Value_20()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 //if (Is_High_Value_19()) return true;
                 if (Is_High_Value_20()) return true;
@@ -1963,8 +1669,12 @@ namespace AstraFunctionOne
 
         public static bool Write_ASTRA_Code_21()
         {
-            WriteToLock(4, 18);
-            WriteToLock(5, 54);
+            //WriteToLock(4, 18);
+            //WriteToLock(5, 54);
+
+
+            WriteToLock(4, 22);
+            WriteToLock(5, 55);
             return true;
         }
 
@@ -2074,12 +1784,12 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_21()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_21()) return true;
             }
@@ -2139,12 +1849,12 @@ namespace AstraFunctionOne
             }
 
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 if (!Is_High_Value_21()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 if (Is_High_Value_21()) return true;
             }
@@ -2198,13 +1908,13 @@ namespace AstraFunctionOne
                 return false;
             }
 
-            if (Version_Type == eVersionType.High_Value_Version)
+            if (Version_Type == eVersionType.Enterprise_Bridge)
             {
                 //if (!Is_High_Value_19()) return false;
                 if (!Is_High_Value_20()) return false;
             }
 
-            if (Version_Type == eVersionType.Low_Value_Version)
+            if (Version_Type == eVersionType.Professional_Bridge)
             {
                 //if (Is_High_Value_19()) return true;
                 if (Is_High_Value_20()) return true;
@@ -2509,6 +2219,480 @@ namespace AstraFunctionOne
         #endregion ASTRA_Pro R 21
 
 
+
+
+        #region ASTRA_Pro R 22
+
+        public static bool Write_ASTRA_Bridge_Code_22()
+        {
+            WriteToLock(49, 1);
+            return true;
+        }
+        public static bool Write_ASTRA_Structure_Code_22()
+        {
+            WriteToLock(48, 1);
+            return true;
+        }
+
+        public static bool Write_ASTRA_Code_22()
+        {
+            //WriteToLock(4, 18);
+            //WriteToLock(5, 54);
+
+
+            WriteToLock(4, 22);
+            WriteToLock(5, 55);
+            return true;
+        }
+
+
+
+        public static bool Write_ASTRA_AuthorisedCode_22()
+        {
+            WriteToLock(10, 1);
+            return true;
+        }
+
+
+        public static bool Write_ASTRA_Enterprise_Code_22()
+        {
+            WriteToLock(19, 1);
+            return true;
+        }
+
+        public static bool Write_ASTRA_Professional_Code_22()
+        {
+            WriteToLock(19, 0);
+            return true;
+        }
+
+        public static bool Check_ASTRA_Lock_22()
+        {
+            if (!CheckHasp()) return false;
+
+            if (!IsActivate_21 && Get_Activation() <= 0) return false;
+
+            short lock_flag = 0;
+            LptNum = 0;
+
+            /**/
+            // Memo Lock
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            // Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 4; //for ASTRA Pro R21
+            //p2 == 18
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+            if (p2 == 22)
+                lock_flag = 1;
+            else
+            {
+                lock_flag = 0;
+                return false;
+            }
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 5; //for  ASTRA Pro R21.0
+            //p2 == 54
+            param1 = (object)p1;
+            param2 = (object)data;
+            param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+            if (p2 == 55)
+            {
+                lock_flag = 1;
+            }
+            else
+            {
+                lock_flag = 0;
+                return false;
+            }
+
+            if (Version_Type == eVersionType.Enterprise_Bridge)
+            {
+                if (!Is_High_Value_21()) return false;
+            }
+
+            if (Version_Type == eVersionType.Professional_Bridge)
+            {
+                if (Is_High_Value_21()) return true;
+            }
+
+
+            return true;
+        }
+
+        public static bool Check_ASTRA_Bridge_Lock_22()
+        {
+            short lock_flag = 0;
+            LptNum = 0;
+
+            /**/
+            // Memo Lock
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            //	Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 49; // ASTRA Pro R 21.0
+            //p2 == 1 //Structure Analysis
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+            if (p2 == 1) //for Bridge
+                lock_flag = 1;
+            else
+            {
+                lock_flag = 0;
+                return false;
+            }
+
+
+            if (Version_Type == eVersionType.Enterprise_Bridge)
+            {
+                if (!Is_High_Value_21()) return false;
+            }
+
+            if (Version_Type == eVersionType.Professional_Bridge)
+            {
+                if (Is_High_Value_21()) return true;
+            }
+
+            return true;
+        }
+        public static bool Check_ASTRA_Structure_Lock_22()
+        {
+            short lock_flag = 0;
+            LptNum = 0;
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            //	Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 48; // new address for Structural Analysis
+            //p2 == 1 //Structure Analysis
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+            if (p2 == 1)
+                lock_flag = 1;
+            else
+            {
+                lock_flag = 0;
+                return false;
+            }
+
+            if (Version_Type == eVersionType.Enterprise_Bridge)
+            {
+                //if (!Is_High_Value_19()) return false;
+                if (!Is_High_Value_20()) return false;
+            }
+
+            if (Version_Type == eVersionType.Professional_Bridge)
+            {
+                //if (Is_High_Value_19()) return true;
+                if (Is_High_Value_20()) return true;
+            }
+
+            return true;
+        }
+
+        public static bool IsProfessional_StructuralVersion_22()
+        {
+            try
+            {
+                if (CheckHasp())
+                {
+                    if (Check_ASTRA_Lock_22())
+                        return Check_ASTRA_Structure_Lock_22();
+                }
+            }
+            catch (Exception ex) { }
+            return false;
+        }
+
+        public static bool IsProfessional_BridgeVersion_22()
+        {
+            try
+            {
+
+                if (CheckHasp())
+                {
+                    if (Check_ASTRA_Lock_22()) return Check_ASTRA_Bridge_Lock_22();
+                }
+            }
+            catch (Exception ex) { }
+            return false;
+        }
+
+        public static bool Get_Authorization_Code_22()
+        {
+            short lock_flag = 0;
+            LptNum = 0;
+
+            /**/
+            // Memo Lock
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+            // Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 10;
+            //p2 == 1 // If Authorizasion Code entered
+            //p2 == 0 // If Authorizasion Code not entered
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+            //p2 == 1 // If Authorizasion Code entered
+            //p2 == 0 // If Authorizasion Code not entered
+            if (p2 == 1)
+            {
+                lock_flag = 1;
+            }
+            else
+            {
+                lock_flag = 0;
+
+            }
+            return (lock_flag == 1);
+        }
+
+        public static bool Is_High_Value_22()
+        {
+            LptNum = 0;
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            //Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 19; //ASTRA Pro R 21
+            //p2 == 1
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+
+            return (p2 == 1);
+        }
+
+        public static bool IsActivate_22
+        {
+            get
+            {
+                return Get_Authorization_Code_22();
+            }
+        }
+
+
+        public static int Get_Activation_ASTRA_R22()
+        {
+            LptNum = 0;
+
+            /**/
+            // Memo Lock
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            //                Below is to READ Memo Lock For Release 12/14
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = 6;
+            //p2 == 23
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+
+            if (p2 > 60000) return 0;
+            return p2;
+        }
+
+
+        public static void Set_Activation_ASTRA_R22(int actv)
+        {
+            WriteToLock(6, actv);
+        }
+
+
+        public static bool Write_ASTRAStructure_Code_22()
+        {
+            Write_ASTRA_Code_22();
+            Write_ASTRA_AuthorisedCode_22();
+            Write_ASTRA_Structure_Code_22();
+            Write_ASTRA_Enterprise_Code_22();
+            return true;
+        }
+
+
+
+
+
+        #endregion ASTRA_Pro R 22
+
         #region Common Functions
 
 
@@ -2528,10 +2712,10 @@ namespace AstraFunctionOne
             if (CheckHasp())
             {
                 Set_Activation(10);
-                Write_ASTRA_Code_21();
-                Write_ASTRA_AuthorisedCode_21();
-                Write_ASTRA_Bridge_Code_21();
-                Write_ASTRA_Professional_Code_21();
+                Write_ASTRA_Code_22();
+                Write_ASTRA_AuthorisedCode_22();
+                Write_ASTRA_Bridge_Code_22();
+                Write_ASTRA_Professional_Code_22();
                 return true;
             }
             return false;
@@ -2553,51 +2737,57 @@ namespace AstraFunctionOne
             if (CheckHasp())
             {
                 Set_Activation(10);
-                Write_ASTRA_Code_21();
-                Write_ASTRA_AuthorisedCode_21();
-                Write_ASTRA_Structure_Code_21();
-                Write_ASTRA_Professional_Code_21();
+                Write_ASTRA_Code_22();
+                Write_ASTRA_AuthorisedCode_22();
+                Write_ASTRA_Structure_Code_22();
+                Write_ASTRA_Professional_Code_22();
                 return true;
             }
             return false;
         }
-         
+
         public static bool Check_ASTRA_Lock()
         {
             //return Check_ASTRA_Lock_19();
             //return Check_ASTRA_Lock_20();
-            return Check_ASTRA_Lock_21();
+            //return Check_ASTRA_Lock_21();
+            return Check_ASTRA_Lock_22();
         }
         public static bool Check_ASTRA_Structure_Lock()
         {
             //return Check_ASTRA_Structure_Lock_19();
             //return Check_ASTRA_Structure_Lock_20();
-            return Check_ASTRA_Structure_Lock_21();
+            //return Check_ASTRA_Structure_Lock_21();
+            return Check_ASTRA_Structure_Lock_22();
         }
         public static bool Check_ASTRA_Bridge_Lock()
         {
             //return Check_ASTRA_Bridge_Lock_19();
             //return Check_ASTRA_Bridge_Lock_20();
-            return Check_ASTRA_Bridge_Lock_21();
+            //return Check_ASTRA_Bridge_Lock_21();
+            return Check_ASTRA_Bridge_Lock_22();
         }
         public static bool IsProfessional_StructuralVersion()
         {
             //return IsProfessional_StructuralVersion_19();
             //return IsProfessional_StructuralVersion_20();
-            return IsProfessional_StructuralVersion_21();
+            //return IsProfessional_StructuralVersion_21();
+            return IsProfessional_StructuralVersion_22();
         }
         public static bool IsProfessional_BridgeVersion()
         {
             //return IsProfessional_BridgeVersion_19();
             //return IsProfessional_BridgeVersion_20();
-            return IsProfessional_BridgeVersion_21();
+            //return IsProfessional_BridgeVersion_21();
+            return IsProfessional_BridgeVersion_22();
         }
 
         public static bool Get_Authorization_Code()
         {
             //return Get_Authorization_Code_19();
             //return Get_Authorization_Code_20();
-            return Get_Authorization_Code_21();
+            //return Get_Authorization_Code_21();
+            return Get_Authorization_Code_22();
         }
 
         public static bool IsActivate
@@ -2606,7 +2796,8 @@ namespace AstraFunctionOne
             {
                 //return IsActivate_19;
                 //return IsActivate_20;
-                return IsActivate_21;
+                //return IsActivate_21;
+                return IsActivate_22;
             }
         }
 
@@ -2614,7 +2805,8 @@ namespace AstraFunctionOne
         {
             //return Is_High_Value_19();
             //return Is_High_Value_20();
-            return Is_High_Value_21();
+            //return Is_High_Value_21();
+            return Is_High_Value_22();
         }
 
         #endregion  Common Functions
@@ -2747,7 +2939,6 @@ namespace AstraFunctionOne
         public static string Authorization_Code = "987a3142b031011f";
 
         public static string NewCode_Enterprise_Bridge = "478a7849c031b48p";
-
         public static string NewCode_Enterprise_Structure = "326a8456c031b96q";
 
         public static string NewCode_Professional_Bridge = "548a9748c031b15w";
@@ -2760,7 +2951,6 @@ namespace AstraFunctionOne
         public static string UpgradeCode_Professional_Structure = "345a5412c874b74s";
     }
 
-
     public static class ASTRA_R21
     {
         public static string Authorization_Code = "983a1254c321542f";
@@ -2772,21 +2962,282 @@ namespace AstraFunctionOne
         public static string NewCode_Professional_Structure = "124a4586b031011f";
 
         //This new Structure Code is added for Mr. Dhananjay and Dhruva 
-        public static string NewCode_Professional_Structure2 = "594a3561b218151w"; 
+        public static string NewCode_Professional_Structure2 = "594a3561b218151w";
 
         public static string UpgradeCode_Enterprise_Bridge = "597g5488r031011f";
         public static string UpgradeCode_Enterprise_Structure = "845s6984e012987t";
 
-
-
-
         public static string UpgradeCode_Professional_Bridge = "326e6881w323748q";
         public static string UpgradeCode_Professional_Structure = "421z7958t041022e";
-
-
 
         //Special Code for Rahul Malviya
         public static string UpgradeCode_Professional_Bridge_SP = "716e5478t985236w";
         public static string UpgradeCode_Professional_Structure_SP = "254s9659q965342p";
     }
+
+    public static class ASTRA_R22
+    {
+        public static string Authorization_Code = "983a1254c321542f";
+
+        public static string NewCode_Enterprise_Bridge = "854e4895c951784w";
+        public static string NewCode_Enterprise_Structure = "543u9247c197458d";
+        public static string NewCode_Professional_Bridge = "745h7951c424887w";
+        public static string NewCode_Professional_Structure = "326j8745c754874a";
+        public static string UpgradeCode_Enterprise_Bridge = "214u3954c541248s";
+        public static string UpgradeCode_Enterprise_Structure = "983z5197c498547r";
+        public static string UpgradeCode_Professional_Bridge = "976h4026c501254x";
+        public static string UpgradeCode_Professional_Structure = "749f7845d845157p";
+
+        public static string UpgradeCode_Professional_Bridge_SP = "716e5478t985236w";
+        public static string UpgradeCode_Professional_Structure_SP = "254s9659q965342p";
+    }
+
+
+
+    public static class LockProgram
+    {
+        static int Service;
+        static int LptNum = 0, SeedCode;
+        static int Pass1, Pass2;
+        static int p1, p2, p3, p4;
+        static int lock_flag;
+        static long IDNum;
+
+        static string authorization_code = "984a2015b092517d";
+        public static eVersionType Version_Type { get; set; }
+
+
+
+
+        static int Code_Address = 10;
+        static int Activation_Address = 50;
+
+        //static int Professional_Bridge = 11;
+        //static int Professional_Structure = 12;
+        //static int Enterprise_Bridge = 31;
+        //static int Enterprise_Structure = 32;
+
+        static public int Activation = 0;
+
+        #region Lock Activation
+
+
+
+
+        #region General Functions
+
+        public static bool Is_AASHTO()
+        {
+            p2 = 0;
+            //if (p2 != 1)
+            //{
+            if (TimeZone.CurrentTimeZone.StandardName.ToUpper().StartsWith("INDIA")) return false;
+            else p2 = 1;
+            //}
+
+            return (p2 == 1);
+        }
+        public static int Get_Activation()
+        {
+            LptNum = 0;
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            Service = 3;
+            SeedCode = 0;
+
+            p1 = Activation_Address;
+            //p2 == 23
+            int address = p1;
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+
+            if (p2 > 60000) return 0;
+            return p2;
+        }
+        public static void Set_Activation(int actv)
+        {
+            WriteToLock(Activation_Address, actv);
+        }
+
+
+        public static int ReadFromLock(int address)
+        {
+            LptNum = 0;
+
+            Pass1 = 4651;
+            Pass2 = 9261;
+
+
+            LptNum = 0;
+
+
+            Service = 3;
+            SeedCode = 0;
+
+            //p2 == 23
+            int data = 0;
+            int status = 0;
+
+            object param1 = (object)address;
+            object param2 = (object)data;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.ReadWord,
+                SeedCode,
+                LptNum,
+                Pass1,
+                Pass2,
+                param1,
+                param2,
+                param3,
+                null);
+            status = (int)param3;
+
+            p2 = (int)param2;
+
+            if (p2 > 60000) return 0;
+            return p2;
+        }
+
+        public static bool WriteToLock(int p1Val, int p2Val)
+        {
+            int service, seed, lptnum, passw1, passw2, p1, p2, p3, p4;
+            service = 0;
+            seed = 0;
+            lptnum = 0;
+            //passw1 = Pass1;
+            //passw2 = Pass2;
+
+            passw1 = 4651;
+            passw2 = 9261;
+
+            p1 = p1Val;
+            p2 = p2Val;
+            p3 = 0;
+            p4 = 0;
+
+            bool bSuccess = true;
+
+            HaspKey.Hasp(HaspService.WriteWord, seed, lptnum, passw1, passw2, p1, p2, p3, p4);
+            if (p3 != 0)
+            {
+                bSuccess = false;
+                //MessageBox.Show(this, "Error.", "TechSOFT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return bSuccess;
+        }
+
+        public static bool CheckHasp()
+        {
+            //int Service = 0;
+            int LptNum = 0, SeedCode = 0;
+            //int Pass1, Pass2;
+            //int p1, p2, p3, p4;
+            //int lock_flag;
+            //long IDNum;
+
+            int ps1, ps2, p1, p2, p3, p4;
+
+            ps1 = 4561;
+            ps2 = 9261;
+            p1 = p2 = p3 = p4 = 0;
+
+            bool findHasp = false;
+
+            int result = 0;
+            int status = 0;
+
+            object param1 = (object)result;
+            object param3 = (object)status;
+
+            HaspKey.Hasp(HaspService.IsHasp,
+                SeedCode,
+                LptNum,
+                0,
+                0,
+                param1,
+                null,
+                param3,
+                null);
+
+
+            result = (int)param1;
+            status = (int)param3;
+
+            //if (0 == status)
+            //    findHasp = true;
+            if (result == 1)
+                findHasp = true;
+            return findHasp;
+        }
+
+
+
+        public static eVersionType Get_LockedVersion()
+        {
+            //return eVersionType.Enterprise_Structure;
+
+
+            eVersionType ver = eVersionType.Demo;
+
+            //Check 1
+            if (CheckHasp())
+            {
+                //Check 2
+                ver = (eVersionType)ReadFromLock(Code_Address);
+            }
+
+            //Check 3
+            if (ver == eVersionType.Demo)
+            {
+                int act = Get_Activation();
+                if (act > 0)
+                {
+                    ver = eVersionType.Activation_Trial;
+                }
+            }
+
+            return ver;
+        }
+        public static int Set_Activation()
+        {
+            Activation = Get_Activation();
+            Activation = Activation - 1;
+            Set_Activation(Activation);
+            return Activation;
+        }
+
+        #endregion General Functions
+
+        #endregion Lock Activation
+
+        public static void Write_ASTRA_Code(eVersionType verType)
+        {
+            WriteToLock(Code_Address, (int)verType);
+        }
+    }
+
 }

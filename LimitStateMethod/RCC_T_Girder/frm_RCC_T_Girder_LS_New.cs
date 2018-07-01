@@ -57,12 +57,8 @@ namespace LimitStateMethod.RCC_T_Girder
         TGirder_Section_Properties CG_INTER;
         TGirder_Section_Properties CG_END;
 
-        //Chiranjit [2012 06 08]
-        RccPier rcc_pier = null;
-
-        //Chiranjit [2012 05 27]
-        RCC_AbutmentWall Abut = null;
-
+        RCC_AbutmentWall Abut;
+        RccPier rcc_pier;
         bool IsCreateData = true;
 
         #region Chiranjit [2014 03 12] Support Input
@@ -237,10 +233,11 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             get
             {
-                if (Path.GetFileName(user_path) == Project_Name)
-                    if (Directory.Exists(Path.Combine(user_path, "Worksheet_Design")) == false)
-                        Directory.CreateDirectory(Path.Combine(user_path, "Worksheet_Design"));
-                return Path.Combine(user_path, "Worksheet_Design");
+                //if (Path.GetFileName(user_path) == Project_Name)
+                    //if (Directory.Exists(Path.Combine(user_path, "Worksheet_Design")) == false)
+                    //    Directory.CreateDirectory(Path.Combine(user_path, "Worksheet_Design"));
+                    //return Path.Combine(user_path, "Worksheet_Design");
+                return Path.Combine(user_path, "");
             }
         }
         public string Drawing_Folder
@@ -280,6 +277,9 @@ namespace LimitStateMethod.RCC_T_Girder
         private void frm_RCC_T_Girder_LS_New_Load(object sender, EventArgs e)
         {
             btn_IRC_Loadings.Visible = iApp.DesignStandard == eDesignStandard.IndianStandard;
+            ucPreProcess1.iApp = iApp;
+            ucPostProcess1.iApp = iApp;
+
 
             Set_Project_Name();
 
@@ -462,7 +462,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
                 //user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
 
-                string usp = Path.Combine(user_path, "Long Girder Analysis");
+                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
                 if (Directory.Exists(usp))
                 {
                     chk_file = Path.Combine(usp, "INPUT_DATA.TXT");
@@ -610,7 +610,9 @@ namespace LimitStateMethod.RCC_T_Girder
 
                 Ana_Initialize_Analysis_InputData();
 
-                string usp = Path.Combine(user_path, "Long Girder Analysis");
+                //string usp = Path.Combine(user_path, "Long Girder Analysis");
+                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
+
 
                 string inp_file = Path.Combine(user_path, "INPUT_DATA.TXT");
 
@@ -634,6 +636,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 Long_Girder_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
 
 
+                File.WriteAllLines(FILE_LOAD_COMPUTAION, rtb_calc_load.Lines);
+            
 
 
                 Long_Girder_Analysis.Start_Support = Start_Support_Text;
@@ -641,10 +645,32 @@ namespace LimitStateMethod.RCC_T_Girder
 
                 if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
                 {
+                    //if(Ang > 0)
+                    //{
+                    //    Long_Girder_Analysis.Skew_Angle = 0;
+                    //    Long_Girder_Analysis.CreateData();
+
+                    //    //Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File);
+                    //    //Long_Girder_Analysis.WriteData_Total_Analysis(inp_file);
+
+                    //    Calculate_Load_Computation(Long_Girder_Analysis._Outer_Girder_Mid,
+                    //        Long_Girder_Analysis._Inner_Girder_Mid,
+                    //         Long_Girder_Analysis.joints_list_for_load);
+
+                    //    Long_Girder_Analysis.Skew_Angle = 0;
+                    //    Long_Girder_Analysis.CreateData();
+                    //    //Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.TotalAnalysis_Input_File);
+
+                    //    //Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.TempAnalysis_Input_File, long_ll);
+                    //    Long_Girder_Analysis.WriteData_DeadLoad_Analysis(Long_Girder_Analysis.TempAnalysis_Input_File);
+                    //    Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.TempAnalysis_Input_File, false, true);
+                    //}
+                    Long_Girder_Analysis.Skew_Angle = Ang;
+
                     Long_Girder_Analysis.CreateData();
 
-                    Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File);
-                    Long_Girder_Analysis.WriteData_Total_Analysis(inp_file);
+                    //Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File);
+                    //Long_Girder_Analysis.WriteData_Total_Analysis(inp_file);
 
                     Calculate_Load_Computation(Long_Girder_Analysis._Outer_Girder_Mid,
                         Long_Girder_Analysis._Inner_Girder_Mid,
@@ -676,7 +702,7 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     Long_Girder_Analysis.WriteData_DeadLoad_Analysis(Long_Girder_Analysis.DeadLoadAnalysis_Input_File);
 
-                    Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.Input_File, true, true);
+                    //Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.Input_File, true, true);
                     Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.TotalAnalysis_Input_File, true, true);
 
 
@@ -706,13 +732,6 @@ namespace LimitStateMethod.RCC_T_Girder
                     }
                     cmb_long_open_file.Items.Add("DL + LL ANALYSIS");
 
-                    cmb_long_open_file_process.Items.Clear();
-                    cmb_long_open_file_post_process.Items.Clear();
-                    for (int i = 0; i < cmb_long_open_file.Items.Count; i++)
-                    {
-                        cmb_long_open_file_process.Items.Add(cmb_long_open_file.Items[i].ToString());
-                        cmb_long_open_file_post_process.Items.Add(cmb_long_open_file.Items[i].ToString());
-                    }
 
                     Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.TotalAnalysis_Input_File, true, true, DL_LL_Comb_Load_No);
 
@@ -746,14 +765,30 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     Long_Girder_Analysis.HA_Lanes = HA_Lanes;
 
+
+
+
+
                     Long_Girder_Analysis.CreateData_British();
 
-                    Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File, true);
-                    Long_Girder_Analysis.WriteData_Total_Analysis(inp_file, true);
+                    //Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File, true);
+                    //Long_Girder_Analysis.WriteData_Total_Analysis(inp_file, true);
 
                     Calculate_Load_Computation(Long_Girder_Analysis._Outer_Girder_Mid,
                         Long_Girder_Analysis._Inner_Girder_Mid,
                          Long_Girder_Analysis.joints_list_for_load);
+
+
+                    //if (Ang > 0)
+                    //{
+                    //    Long_Girder_Analysis.Skew_Angle = 0;
+                    //    Long_Girder_Analysis.CreateData_British();
+                    //    Long_Girder_Analysis.WriteData_DeadLoad_Analysis(Long_Girder_Analysis.TempAnalysis_Input_File);
+                    //    Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.TempAnalysis_Input_File, false, true);
+                    //    Long_Girder_Analysis.Skew_Angle = Ang;
+                    //}
+
+                    Long_Girder_Analysis.CreateData_British();
 
                     //Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.TotalAnalysis_Input_File);
 
@@ -791,7 +826,25 @@ namespace LimitStateMethod.RCC_T_Girder
                         Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LiveLoadAnalysis_Input_File, false, false, 1);
                     }
 
+
+
                 }
+
+
+
+                cmb_long_open_file_analysis.Items.Clear();
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_post_process.Items.Clear();
+                for (int i = 0; i < cmb_long_open_file.Items.Count; i++)
+                {
+                    cmb_long_open_file_analysis.Items.Add(cmb_long_open_file.Items[i].ToString());
+                    cmb_long_open_file_process.Items.Add(cmb_long_open_file.Items[i].ToString());
+                    cmb_long_open_file_post_process.Items.Add(cmb_long_open_file.Items[i].ToString());
+                }
+
+                cmb_long_open_file_analysis.SelectedIndex = 0;
+
+
 
 
                 Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.DeadLoadAnalysis_Input_File, false, true);
@@ -807,8 +860,10 @@ namespace LimitStateMethod.RCC_T_Girder
                 cmb_long_open_file.SelectedIndex = 0;
                 Button_Enable_Disable();
 
-                MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.",
+                MessageBox.Show(this, "Input Data Files for various Analysis Processes are created within the folder  \""  + Project_Name + "\".",
                   "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                Save_Input_Data();
 
             }
             catch (Exception ex)
@@ -816,6 +871,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 //Long_Girder_Analysis.Input_File.Length
                 MessageBox.Show(ex.Message, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            Button_Enable_Disable();
         }
 
         private bool Check_Project_Folder()
@@ -837,25 +893,27 @@ namespace LimitStateMethod.RCC_T_Girder
         }
         private void btn_Ana_view_data_Click(object sender, EventArgs e)
         {
+            Button btn = sender as Button;
+            ComboBox cmb = cmb_long_open_file_process;
 
-
+            if(btn == btn_view_data_1)
+            {
+                cmb = cmb_long_open_file_analysis;
+            }
 
             string file_name = "";
             string ll_txt = "";
 
-            Button btn = sender as Button;
 
             #region Set File Name
-            file_name = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
+            file_name = Get_LongGirder_File(cmb.SelectedIndex);
 
             #endregion Set File Name
 
             ll_txt = MyList.Get_LL_TXT_File(file_name);
-            if (btn.Name == btn_view_data.Name)
+            if (btn.Name == btn_view_data.Name || btn.Name == btn_view_data_1.Name )
             {
-
                 iApp.View_Input_File(file_name);
-
                 //if (File.Exists(ll_txt))
                 //    iApp.RunExe(ll_txt);
                 //if (File.Exists(file_name))
@@ -888,6 +946,7 @@ namespace LimitStateMethod.RCC_T_Girder
             }
 
         }
+
 
         private string Get_LongGirder_File(int index)
         {
@@ -981,10 +1040,18 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     if (File.Exists(flPath))
                     {
+                       
                         pd = new ProcessData();
                         pd.Process_File_Name = flPath;
                         //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                         pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file_process.Items[i].ToString();
+
+                        //if (Ang > 0)
+                        //{
+                        //    pd.IS_Skew_File = true;
+                        //    pd.Skew_File_Name = Long_Girder_Analysis.TempAnalysis_Input_File;
+                        //}
+
                         pcol.Add(pd);
 
                         //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
@@ -1036,6 +1103,10 @@ namespace LimitStateMethod.RCC_T_Girder
                 Long_Girder_Analysis.TotalLoad_Analysis = null;
 
                 Long_Girder_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.DeadLoad_Analysis_Report);
+
+                if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+                    Long_Girder_Analysis.LiveLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.LiveLoad_Analysis_Report);
+
 
                 if (rbtn_HA.Checked == false)
                 {
@@ -1179,8 +1250,14 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
                 List<string> ls = new List<string>();
+
+                if (!File.Exists(FILE_BASIC_INPUT_DATA)) Save_Input_Data();
+
+                ls.AddRange(File.ReadAllLines(FILE_BASIC_INPUT_DATA));
+                ls.AddRange(File.ReadAllLines(FILE_LOAD_COMPUTAION));
                 ls.AddRange(File.ReadAllLines(File_Long_Girder_Results));
                 ls.AddRange(File.ReadAllLines(FILE_SUPPORT_REACTIONS));
+
                 File.WriteAllLines(FILE_SUMMARY_RESULTS, ls.ToArray());
 
 
@@ -17594,7 +17671,7 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             get
             {
-                return Path.Combine(user_path, "LONG_GIRDER_ANALYSIS_RESULT.TXT");
+                return Path.Combine(user_path, "PROCESS\\LONG_GIRDER_ANALYSIS_RESULT.TXT");
             }
         }
         public string File_DeckSlab_Results
@@ -17635,10 +17712,13 @@ namespace LimitStateMethod.RCC_T_Girder
 
             Deck_Buttons();
 
-            btn_LS_long_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Long_Girder)));
-            btn_LS_cross_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Cross_Girder)));
-            btn_LS_deck_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Deckslab)));
+            //btn_LS_long_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Long_Girder)));
+            //btn_LS_cross_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Cross_Girder)));
+            //btn_LS_deck_rep_open.Enabled = File.Exists(Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Deckslab)));
 
+            btn_LS_long_rep_open.Enabled = File.Exists(Get_Long_Girder_Design_Report());
+            btn_LS_cross_rep_open.Enabled = File.Exists(Get_Cross_Girder_Design_Report());
+            btn_LS_deck_rep_open.Enabled = File.Exists(Get_Deckslab_Design_Report());
 
 
             int c = cmb_long_open_file.SelectedIndex;
@@ -17646,8 +17726,21 @@ namespace LimitStateMethod.RCC_T_Girder
             cmb_long_open_file.SelectedIndex = c;
         }
 
-
-
+        string Get_Long_Girder_Design_Report()
+        {
+            var usp = Path.Combine(user_path, "Design of Long Main Long Girders");
+            return Path.Combine(usp, Path.GetFileName(Excel_Long_Girder));
+        }
+        string Get_Cross_Girder_Design_Report()
+        {
+            var usp = Path.Combine(user_path, "Design of Cross Girders");
+            return Path.Combine(usp, Path.GetFileName(Excel_Cross_Girder));
+        }
+        string Get_Deckslab_Design_Report()
+        {
+            var usp = Path.Combine(user_path, "Design of Deckslab");
+            return Path.Combine(usp, Path.GetFileName(Excel_Deckslab));
+        }
 
         public void Ana_OpenAnalysisFile(string file_name)
         {
@@ -17661,7 +17754,7 @@ namespace LimitStateMethod.RCC_T_Girder
             {
                 Deck_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
             }
-            usp = Path.Combine(user_path, "Long Girder Analysis");
+            usp = Path.Combine(user_path, "ANALYSIS PROCESS");
             if (Directory.Exists(usp))
             {
                 Long_Girder_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
@@ -19213,7 +19306,18 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #endregion Chiranjit [2017 09 18]
 
+            #region Elastomeric Bearing Inputs
 
+            uC_BRD1.Length = txt_Ana_L.Text;
+            uC_BRD1.Girder_Length = (L - 2 * og).ToString();
+            uC_BRD1.Effective_Length = txt_Ana_Leff.Text;
+
+            uC_BRD1.Overall_Span = txt_Ana_L.Text;
+            uC_BRD1.Bearings_Span = txt_Ana_Leff.Text;
+            uC_BRD1.Bearings_Nos = (NMG * 2).ToString();
+            uC_BRD1.Bearings_Trans = txt_Ana_SMG.Text;
+
+            #endregion Elastomeric Bearing Inputs
 
         }
         private void txt_Ana_width_TextChanged(object sender, EventArgs e)
@@ -19626,7 +19730,10 @@ namespace LimitStateMethod.RCC_T_Girder
             rtb_calc_load.Lines = list.ToArray();
 
             if (Path.GetFileName(user_path) == Project_Name)
-                File.WriteAllLines(Path.Combine(user_path, "Load_Computation.txt"), list.ToArray());
+            {
+                //File.WriteAllLines(FILE_LOAD_COMPUTAION, list.ToArray());
+                //File.WriteAllLines(Path.Combine(user_path, "Load_Computation.txt"), list.ToArray());
+            }
             //iApp.RunExe(Path.Combine(user_path, "Load_Computation.txt"));
         }
 
@@ -19930,7 +20037,8 @@ namespace LimitStateMethod.RCC_T_Girder
             //member_load.Add(string.Format(""));
             txt_member_load.Lines = long_member_load.ToArray();
             rtb_calc_load.Lines = list.ToArray();
-            File.WriteAllLines(Path.Combine(user_path, "Load_Computation.txt"), list.ToArray());
+            //File.WriteAllLines(FILE_LOAD_COMPUTAION, list.ToArray());
+            //File.WriteAllLines(Path.Combine(user_path, "Load_Computation.txt"), list.ToArray());
             //iApp.RunExe(Path.Combine(user_path, "Load_Computation.txt"));
         }
 
@@ -19938,8 +20046,11 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             if (Long_Girder_Analysis._Outer_Girder_Support == null)
             {
-                Ana_Initialize_Analysis_InputData();
-                Long_Girder_Analysis.CreateData();
+                //Ana_Initialize_Analysis_InputData();
+                if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+                    Long_Girder_Analysis.CreateData_British();
+                else
+                    Long_Girder_Analysis.CreateData();
                 Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File, iApp.DesignStandard == eDesignStandard.BritishStandard);
             }
             outer_girders = Long_Girder_Analysis._Outer_Girder_Support + " " + Long_Girder_Analysis._Outer_Girder_Mid;
@@ -20052,9 +20163,9 @@ namespace LimitStateMethod.RCC_T_Girder
 
             #region Dead Load Value for DeckSlab analysis
             deck_member_load.Clear();
-            deck_member_load.Add(wo3);
-            deck_member_load.Add(wo2);
-            deck_member_load.Add(wo3);
+            deck_member_load.Add(wo1 + wo2);
+            deck_member_load.Add(wo5 / 2);
+            deck_member_load.Add(wo5 / 2 + wo6 / 2);
             #endregion Dead Load Value for DeckSlab analysis
 
 
@@ -20117,8 +20228,7 @@ namespace LimitStateMethod.RCC_T_Girder
             //member_load.Add(string.Format(""));
             txt_member_load.Lines = long_member_load.ToArray();
             rtb_calc_load.Lines = list.ToArray();
-            if (Path.GetFileName(user_path) == Project_Name)
-                File.WriteAllLines(Path.Combine(user_path, "Load_Computation.txt"), list.ToArray());
+            
             //iApp.RunExe(Path.Combine(user_path, "Load_Computation.txt"));
         }
 
@@ -20791,8 +20901,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 lst.Add(_jnt_no);
 
                 //LOAD 1 DEAD LOAD SELF WEIGHT
-                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 4);
-                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
+                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 4);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
                 var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 4);
                 var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 4);
 
@@ -20883,8 +20993,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 lst.Add(_jnt_no);
 
                 //LOAD 1 DEAD LOAD SELF WEIGHT
-                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 4);
-                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
+                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 4);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
                 var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 4);
                 var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 4);
 
@@ -21025,8 +21135,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 var jnt = new List<int>();
                 jnt.Add(_jnt_no);
 
-                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 5);
-                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(jnt, 5);
+                var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 5);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(jnt, 5);
                 var mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 5);
                 var mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 5);
 
@@ -21035,8 +21145,8 @@ namespace LimitStateMethod.RCC_T_Girder
                 _mx = mx;
                 _mz = mz;
 
-                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 6);
-                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(jnt, 6);
+                shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_ShearForce(_jnt_no, 6);
+                //shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(jnt, 6);
                 mx = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_Torsion(_jnt_no, 6);
                 mz = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 6);
 
@@ -21193,7 +21303,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     #region Get Node results from Dead load analysis
                     //Get Node results from Dead load analysis
-                    var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    //var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_ShearForce(jnt);
                     if (_vert_load < Math.Abs(mxf.Force))
                     {
                         _vert_load = Math.Abs(mxf.Force);
@@ -21250,7 +21361,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     #region Get Node results from Dead load analysis
                     //Get Node results from Dead load analysis
-                    var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    //var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_ShearForce(jnt);
                     if (_vert_load < Math.Abs(mxf.Force))
                     {
                         _vert_load = Math.Abs(mxf.Force);
@@ -21740,8 +21852,10 @@ namespace LimitStateMethod.RCC_T_Girder
         }
 
 
-        string FILE_SUPPORT_REACTIONS { get { return Path.Combine(user_path, "SUPPORT_REACTIONS.TXT"); } }
-        string FILE_SUMMARY_RESULTS { get { return Path.Combine(user_path, "SUMMARY_RESULTS.TXT"); } }
+        string FILE_SUPPORT_REACTIONS { get { return Path.Combine(user_path, "Process\\SUPPORT_REACTIONS.TXT"); } }
+        string FILE_SUMMARY_RESULTS { get { return Path.Combine(user_path, "Process\\SUMMARY_RESULTS.TXT"); } }
+        string FILE_BASIC_INPUT_DATA { get { return Path.Combine(user_path, "Process\\Analysis_User_Data.TXT"); } }
+        string FILE_LOAD_COMPUTAION { get { return Path.Combine(user_path, "Process\\Load_Computations.TXT"); } }
 
         void Save_Support_Reactions()
         {
@@ -23034,6 +23148,8 @@ namespace LimitStateMethod.RCC_T_Girder
 
             Button btn = sender as Button;
 
+            string usp = "";
+
             string excel_file_name = "";
             string copy_path = "";
             if (btn.Name == btn_LS_long_ws.Name)
@@ -23056,7 +23172,11 @@ namespace LimitStateMethod.RCC_T_Girder
                     return;
                 }
 
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(excel_file_name));
+                copy_path = Get_Long_Girder_Design_Report();
+                usp = Path.GetDirectoryName(copy_path);
+
+                if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
+
                 File.Copy(excel_file_name, copy_path, true);
                 RCC_T_Girder_Excel_Update rcc_excel = new RCC_T_Girder_Excel_Update();
                 rcc_excel.Excel_File_Name = copy_path;
@@ -23064,27 +23184,36 @@ namespace LimitStateMethod.RCC_T_Girder
                 rcc_excel.Report_File_Name = File_Long_Girder_Results;
                 iApp.Excel_Open_Message();
                 rcc_excel.Update_Excel_Long_Girder();
-                //iApp.Excel_Open_Message();
+                iApp.Excel_Close_Message();
                 Button_Enable_Disable();
                 return;
-
             }
             else if (btn.Name == btn_LS_long_rep_open.Name)
             {
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Long_Girder));
+                //usp = Path.Combine(user_path, "Design of Long Main Long Girders");
+                //copy_path = Path.Combine(usp, Path.GetFileName(Excel_Long_Girder));
+                
+                copy_path = Get_Long_Girder_Design_Report();
+
                 if (File.Exists(copy_path))
                     iApp.OpenExcelFile(copy_path, "2011ap");
             }
             else if (btn.Name == btn_LS_cross_rep_open.Name)
             {
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Cross_Girder));
+                //usp = Path.Combine(user_path, "Design of Cross Girders");
+                //copy_path = Path.Combine(usp, Path.GetFileName(Excel_Cross_Girder));
+
+                copy_path = Get_Cross_Girder_Design_Report();
+
                 if (File.Exists(copy_path))
                     iApp.OpenExcelFile(copy_path, "2011ap");
-
             }
             else if (btn.Name == btn_LS_deck_rep_open.Name)
             {
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(Excel_Deckslab));
+                //usp = Path.Combine(user_path, "Design of Deck Slab");
+                //copy_path = Path.Combine(usp, Path.GetFileName(Excel_Deckslab));
+                copy_path = Get_Deckslab_Design_Report();
+
                 if (File.Exists(copy_path))
                     iApp.OpenExcelFile(copy_path, "2011ap");
             }
@@ -23107,14 +23236,28 @@ namespace LimitStateMethod.RCC_T_Girder
                     return;
                 }
 
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(excel_file_name));
+                //copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(excel_file_name));
+
+
+                //usp = Path.Combine(user_path, "Design of Cross Girders");
+                //if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
+                //copy_path = Path.Combine(usp, Path.GetFileName(excel_file_name));
+
+
+                copy_path = Get_Cross_Girder_Design_Report();
+                usp = Path.GetDirectoryName(copy_path);
+
+                if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
+
+
+
                 File.Copy(excel_file_name, copy_path, true);
                 RCC_T_Girder_Excel_Update rcc_excel = new RCC_T_Girder_Excel_Update();
                 rcc_excel.Excel_File_Name = copy_path;
                 rcc_excel.Cross_User_Inputs.Read_From_Grid(dgv_cross_user_input);
                 iApp.Excel_Open_Message();
                 rcc_excel.Insert_Values_into_Excel_Cross_Girder();
-                //iApp.Excel_Open_Message();
+                iApp.Excel_Close_Message();
                 Button_Enable_Disable();
                 return;
 
@@ -23138,7 +23281,14 @@ namespace LimitStateMethod.RCC_T_Girder
 
                     return;
                 }
-                copy_path = Path.Combine(Worksheet_Folder, Path.GetFileName(excel_file_name));
+
+
+                copy_path = Get_Deckslab_Design_Report();
+                usp = Path.GetDirectoryName(copy_path);
+                if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
+
+
+
                 File.Copy(excel_file_name, copy_path, true);
                 RCC_Deckslab_Excel_Update rcc_excel = new RCC_Deckslab_Excel_Update();
                 rcc_excel.Excel_File_Name = copy_path;
@@ -23151,6 +23301,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 rcc_excel.Deckslab_User_Live_loads.Read_From_Grid(dgv_deck_user_live_loads);
                 iApp.Excel_Open_Message();
                 rcc_excel.Read_Update_Data();
+                iApp.Excel_Close_Message();
                 Button_Enable_Disable();
                 return;
             }
@@ -23715,8 +23866,15 @@ namespace LimitStateMethod.RCC_T_Girder
             {
                 if (btn.Name == btn_deck_restore_ll.Name)
                     Default_Moving_LoadData(dgv_deck_liveloads);
-                else if (btn.Name == btn_long_restore_ll.Name)
+                else if (btn.Name == btn_long_restore_ll_IRC.Name)
                     Default_Moving_LoadData(dgv_long_liveloads);
+                else if (btn.Name == btn_long_restore_ll_BS.Name)
+                {
+                    cmb_HB.SelectedIndex = 0;
+                    British_Interactive();
+                    //Default_British_LoadData(dgv_long_british_loads);
+                    //Default_British_Type_LoadData(dgv_british_loads);
+                }
             }
         }
 
@@ -24723,6 +24881,10 @@ namespace LimitStateMethod.RCC_T_Girder
                 //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != 9;
                 btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
             }
+            else if (cmb == cmb_long_open_file_analysis)
+            {
+                btn_view_data_1.Enabled = File.Exists(file_name);
+            }
             else if (cmb == cmb_long_open_file_post_process)
             {
                 if (File.Exists(file_name))
@@ -24731,11 +24893,7 @@ namespace LimitStateMethod.RCC_T_Girder
                     ucPostProcess1.Load_Initials(file_name);
                 }
             }
-
-            #region Set File Name
-
-            #endregion Set File Name
-
+             
         }
 
         private void txt_sec_in_mid_lg_w_TextChanged(object sender, EventArgs e)
@@ -25683,9 +25841,18 @@ namespace LimitStateMethod.RCC_T_Girder
 
         private void btn_edit_load_combs_Click(object sender, EventArgs e)
         {
-            LimitStateMethod.LoadCombinations.frm_LoadCombination ff = new LoadCombinations.frm_LoadCombination(iApp, dgv_long_liveloads, dgv_long_loads);
-            ff.Owner = this;
-            ff.ShowDialog();
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                LimitStateMethod.LoadCombinations.frm_LoadCombination ff = new LoadCombinations.frm_LoadCombination(iApp, dgv_long_liveloads, dgv_long_loads);
+                ff.Owner = this;
+                ff.ShowDialog();
+            }
+            else if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                LimitStateMethod.LoadCombinations.frm_LoadCombination ff = new LoadCombinations.frm_LoadCombination(iApp, dgv_long_british_loads, dgv_british_loads);
+                ff.Owner = this;
+                ff.ShowDialog();
+            }
         }
 
         private void tc_limit_design_SelectedIndexChanged(object sender, EventArgs e)
@@ -25743,7 +25910,7 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             Button btn = sender as Button;
 
-            if (btn.Name == btn_TGirder_browse.Name)
+            if (btn.Name == btn_open_design.Name)
             {
                 //user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
                 frm_Open_Project frm = new frm_Open_Project(this.Name, Path.Combine(iApp.LastDesignWorkingFolder, Title));
@@ -25779,7 +25946,7 @@ namespace LimitStateMethod.RCC_T_Girder
                     //MessageBox.Show("Data Loaded successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            else if (btn.Name == btn_TGirder_new_design.Name)
+            else if (btn.Name == btn_new_design.Name)
             {
                 //frm_NewProject frm = new frm_NewProject(Path.GetDirectoryName(user_path));
                 ////frm.Project_Name = "Singlecell Box Culvert Design Project";
@@ -26039,6 +26206,201 @@ namespace LimitStateMethod.RCC_T_Girder
             //    ucSapPostProcess1.UCSapPostProcess_Load(sender, e);
             //    ucSapPostProcess1.Tab_Post_Selection();
             //}
+
+        }
+
+        public void Save_Input_Data()
+        {
+            List<string> list = new List<string>();
+
+            
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("BASIC INPUT DATA FOR {0}", Title));
+            list.Add(string.Format("-------------------------------------------------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Length of Deck Span (along X-direction)  [L]= {0} m", txt_Ana_L.Text));
+            list.Add(string.Format("Overhang of girder off the bearing [og]= {0} m", txt_Ana_og.Text));
+            list.Add(string.Format("Overhang of slab off the bearing [os]= {0} m", txt_Ana_os.Text));
+            list.Add(string.Format("Expansion Gap [eg]= {0} mm", txt_Ana_eg.Text));
+            list.Add(string.Format("Length of varrying portion [Lvp]= {0} m", txt_Ana_Lvp.Text));
+            list.Add(string.Format("Length of Solid portion [Lsp]= {0} m", txt_Ana_Lsp.Text));
+            list.Add(string.Format("Effective Span Length [leff]= {0} m", txt_Ana_Leff.Text));
+            list.Add(string.Format("Width of Bridge Deck  (along Z-direction) [B]= {0} m", txt_Ana_B.Text));
+            list.Add(string.Format("Carriageway Width [CW]= {0} m", txt_Ana_CW.Text));
+            list.Add(string.Format("Width of Left Cantilever part of Deck Slab [CL]= {0} m", txt_Ana_CL.Text));
+            list.Add(string.Format("Width of Right Cantilever part of Deck Slab [CR]= {0} m", txt_Ana_CR.Text));
+            list.Add(string.Format("Total number of main long girders [NMG]= {0} nos", cmb_NMG.Text));
+            list.Add(string.Format("Thickness of Deck Slab [Ds]= {0} m", txt_Ana_Ds.Text));
+            list.Add(string.Format("Thickness of Deck Slab at overhang [Dso]= {0} m", txt_Ana_Dso.Text));
+            list.Add(string.Format("Skew Angle [Ang]= {0} degree", txt_Ana_ang.Text));
+            list.Add(string.Format("Unit weight of Dry Concrete [Y_c]= {0} kN/Cu.m", txt_Ana_gamma_c_dry.Text));
+            list.Add(string.Format("Unit weight of Wet Concrete [Y_c]= {0} kN/Cu.m", txt_Ana_gamma_c_wet.Text));
+            list.Add(string.Format("Weight of Crash Barrier [wgc]= {0} kN/m", txt_Ana_wgc.Text));
+            list.Add(string.Format("Weight of Railing [wgr]= {0}  kN/m", txt_Ana_wgr.Text));
+            list.Add(string.Format("Intensity of Load for shuttering [ils]= {0}  kN/m", txt_Ana_ils.Text));
+            list.Add(string.Format("Wearing Course Thickness [Dw]= {0} m", txt_Ana_Dw.Text));
+            list.Add(string.Format("Wearing Course Unit weight [Y_w]= {0} kN/Cu.m", txt_Ana_gamma_w.Text));
+            list.Add(string.Format("Parapet Wall Width [wp]= {0} m", txt_Ana_wp.Text));
+            list.Add(string.Format("Parapet Wall Height [hp]= {0} m", txt_Ana_hp.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format("CRASH BARRIER / NO FOOTPATH", txt_Ana_Wc.Text));
+            list.Add(string.Format("-----------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width [wc]= {0} m", txt_Ana_Hc.Text));
+            list.Add(string.Format("Height [hc]= {0} m", txt_Ana_Hc.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("SIDE WALK/FOOTPATH"));
+            list.Add(string.Format("---------------------------"));
+            //list.Add(string.Format("Footpath and Kerb"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Footpath including Kerb [wf]= {0} m", txt_Ana_Wf.Text));
+            list.Add(string.Format("Height of Footpath  [hf]= {0} m", txt_Ana_Hf.Text));
+            list.Add(string.Format("Width of Kerb [wk]= {0} m", txt_Ana_Wk.Text));
+            list.Add(string.Format("Width of Outer Railing [wr]= {0} m", txt_Ana_Wr.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+
+            #region Section Properties
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("-------------------------------------------------------------------"));
+            list.Add(string.Format("SECTION PROPERTIES"));
+            list.Add(string.Format("-------------------------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Inner Long Main Girder"));
+            list.Add(string.Format("-----------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Inner Long Main Girder at Mid Section"));
+            list.Add(string.Format("--------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Slab [W]= {0} m", txt_sec_in_mid_lg_w.Text));
+            list.Add(string.Format("Depth of slab [Ds]= {0} m", txt_sec_in_mid_lg_Ds.Text));
+            list.Add(string.Format("Width of top flange [wtf]= {0} m", txt_sec_in_mid_lg_wtf.Text));
+            list.Add(string.Format("Width of bottom flange[bwf]= {0} m", txt_sec_in_mid_lg_bwf.Text));
+            list.Add(string.Format("Width of web [bw]= {0} m", txt_sec_in_mid_lg_bw.Text));
+            list.Add(string.Format("Thickness of top flange [D1]= {0} m", txt_sec_in_mid_lg_D1.Text));
+            list.Add(string.Format("Thickness of top haunch [D2]= {0} m", txt_sec_in_mid_lg_D2.Text));
+            list.Add(string.Format("Thickness of bottom haunch [D3]= {0} m", txt_sec_in_mid_lg_D3.Text));
+            list.Add(string.Format("Thickness of bottom flange [D4]= {0} m", txt_sec_in_mid_lg_D4.Text));
+            list.Add(string.Format("Depth of girder [d]= {0} m", txt_sec_in_mid_lg_D.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Inner Long Main Girder at Support Section"));
+            list.Add(string.Format("-------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Slab [W]= {0} m", txt_sec_in_sup_lg_w.Text));
+            list.Add(string.Format("Depth of slab [Ds]= {0} m", txt_sec_in_sup_lg_Ds.Text));
+            list.Add(string.Format("Width of top flange [wtf]= {0} m", txt_sec_in_sup_lg_wtf.Text));
+            list.Add(string.Format("Width of web [bw]= {0} m", txt_sec_in_sup_lg_bw.Text));
+            list.Add(string.Format("Thickness of top flange [D1]= {0} m", txt_sec_in_sup_lg_D1.Text));
+            list.Add(string.Format("Thickness of top haunch [D2]= {0} m", txt_sec_in_sup_lg_D2.Text));
+            list.Add(string.Format("Depth of girder [d]= {0} m", txt_sec_in_sup_lg_D.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Outer Long Main Girder"));
+            list.Add(string.Format("-----------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Outer Long Main Girder at Mid Section"));
+            list.Add(string.Format("--------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Slab [W]= {0} m", txt_sec_out_mid_lg_W.Text));
+            list.Add(string.Format("Depth of slab [Ds]= {0} m", txt_sec_out_mid_lg_Ds.Text));
+            list.Add(string.Format("Width of top flange [wtf]= {0} m", txt_sec_out_mid_lg_wtf.Text));
+            list.Add(string.Format("Width of bottom flange[bwf]= {0} m", txt_sec_out_mid_lg_bwf.Text));
+            list.Add(string.Format("Width of web [bw]= {0} m", txt_sec_out_mid_lg_BW.Text));
+            list.Add(string.Format("Thickness of top flange [D1]= {0} m", txt_sec_out_mid_lg_D1.Text));
+            list.Add(string.Format("Thickness of top haunch [D2]= {0} m", txt_sec_out_mid_lg_D2.Text));
+            list.Add(string.Format("Thickness of bottom haunch [D3]= {0} m", txt_sec_out_mid_lg_D3.Text));
+            list.Add(string.Format("Thickness of bottom flange [D4]= {0} m", txt_sec_out_mid_lg_D4.Text));
+            list.Add(string.Format("Depth of girder [d]= {0} m", txt_sec_out_mid_lg_D.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Outer Long Main Girder at Support Section"));
+            list.Add(string.Format("-------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Slab [W]= {0} m", txt_sec_out_sup_lg_W.Text));
+            list.Add(string.Format("Depth of slab [Ds]= {0} m", txt_sec_out_sup_lg_Ds.Text));
+            list.Add(string.Format("Width of top flange [wtf]= {0} m", txt_sec_out_sup_lg_wtf.Text));
+            list.Add(string.Format("Width of web [bw]= {0} m", txt_sec_out_sup_lg_bw.Text));
+            list.Add(string.Format("Thickness of top flange [D1]= {0} m", txt_sec_out_sup_lg_D1.Text));
+            list.Add(string.Format("Thickness of top haunch [D2]= {0} m", txt_sec_out_sup_lg_D2.Text));
+            list.Add(string.Format("Depth of girder [d]= {0} m", txt_sec_out_sup_lg_D.Text));
+            list.Add(string.Format(""));
+
+            #endregion Sec. Props.
+
+
+
+
+            #region CROSS GIRDER SECIONS
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("CROSS GIRDER SECIONS"));
+            list.Add(string.Format("-------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total number of Cross girders [NCG]= {0} nos", txt_Ana_NCG.Text));
+            list.Add(string.Format("Depth of Girder= {0} m", txt_Ana_DCG.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(" Intermediate Cross Girder Section"));
+            list.Add(string.Format(" -----------------------------------"));
+            list.Add(string.Format(" "));
+            list.Add(string.Format("Width of Slab [W]= {0} m", txt_sec_int_cg_w.Text));
+            list.Add(string.Format("Depth of slab [Ds]= {0} m", txt_sec_int_cg_Ds.Text));
+            list.Add(string.Format("Width of web [bw]= {0} m", txt_sec_int_cg_bw.Text));
+            list.Add(string.Format("Thickness of top haunch [D1]= {0} m", txt_sec_int_cg_D1.Text));
+            list.Add(string.Format("Depth of girder [d]= {0} m", txt_sec_int_cg_d.Text));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("End Cross Girder Section"));
+            list.Add(string.Format("---------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Width of Slab [W]= {0} m", txt_sec_end_cg_w.Text));
+            list.Add(string.Format("Depth of slab [Ds]= {0} m", txt_sec_end_cg_Ds.Text));
+            list.Add(string.Format("Width of web [bw]= {0} m", txt_sec_end_cg_bw.Text));
+            list.Add(string.Format("Thickness of top haunch [D1]= {0} m", txt_sec_end_cg_D1.Text));
+            list.Add(string.Format("Depth of girder [d]= {0} m", txt_sec_end_cg_d.Text));
+            list.Add(string.Format(""));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("MOVING LOAD / LIVE LOAD DATA"));
+            list.Add(string.Format("--------------------------------"));
+            list.Add(string.Format(""));
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                if (rbtn_HA.Checked || rbtn_HA_HB.Checked)
+                {
+
+                    list.Add(string.Format(""));
+                    list.Add(string.Format("HA Loading UDL = {0} Ton/m", txt_HA_UDL.Text));
+                    list.Add(string.Format("HA Loading Concentrated (Knife Edge Load, KEL) = {0} Ton", txt_HA_CON.Text));
+                    list.Add(string.Format(""));
+                }
+                list.Add(string.Format(""));
+            }
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.AddRange(long_ll.ToArray());
+            list.Add(string.Format(""));
+
+            for (int i = 0; i < ll_comb.Count; i++)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("LIVE LOAD COMBINATION {0} : {1}", (i + 1), ll_comb[i]));
+                list.Add(string.Format("------------------------------------------------------------------------------"));
+                list.AddRange(all_loads[i].ToArray());
+                list.Add(string.Format(""));
+
+            }
+            #endregion CROSS GIRDER SECIONS
+
+            File.WriteAllLines(FILE_BASIC_INPUT_DATA, list.ToArray());
 
         }
 

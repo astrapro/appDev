@@ -116,6 +116,7 @@
             this.label105 = new System.Windows.Forms.Label();
             this.lbl_2 = new System.Windows.Forms.Label();
             this.pnl_1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.txt_GEN_G9 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.txt_GEN_G18 = new System.Windows.Forms.TextBox();
@@ -186,9 +187,9 @@
             this.lbl_1 = new System.Windows.Forms.Label();
             this.lbl_title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_abutment_open = new System.Windows.Forms.Button();
-            this.btn_Pier_Process = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_worksheet_report = new System.Windows.Forms.Button();
+            this.btn_process = new System.Windows.Forms.Button();
+            this.btn_worksheet_open = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnl_2.SuspendLayout();
             this.pnl_1.SuspendLayout();
@@ -207,7 +208,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 435);
+            this.panel1.Size = new System.Drawing.Size(766, 372);
             this.panel1.TabIndex = 0;
             // 
             // pnl_2
@@ -1209,6 +1210,18 @@
             this.pnl_1.Size = new System.Drawing.Size(747, 328);
             this.pnl_1.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(747, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Note : The values in Red color are taken from previous pages and should not be ch" +
+    "ange by user.";
+            // 
             // txt_GEN_G9
             // 
             this.txt_GEN_G9.ForeColor = System.Drawing.Color.Red;
@@ -1851,47 +1864,47 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btn_abutment_open);
-            this.panel2.Controls.Add(this.btn_Pier_Process);
+            this.panel2.Controls.Add(this.btn_worksheet_open);
+            this.panel2.Controls.Add(this.btn_worksheet_report);
+            this.panel2.Controls.Add(this.btn_process);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 435);
+            this.panel2.Location = new System.Drawing.Point(0, 372);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(766, 64);
+            this.panel2.Size = new System.Drawing.Size(766, 127);
             this.panel2.TabIndex = 5;
             // 
-            // btn_abutment_open
+            // btn_worksheet_report
             // 
-            this.btn_abutment_open.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_abutment_open.Location = new System.Drawing.Point(386, 15);
-            this.btn_abutment_open.Name = "btn_abutment_open";
-            this.btn_abutment_open.Size = new System.Drawing.Size(185, 34);
-            this.btn_abutment_open.TabIndex = 7;
-            this.btn_abutment_open.Text = "Open Design";
-            this.btn_abutment_open.UseVisualStyleBackColor = true;
-            this.btn_abutment_open.Click += new System.EventHandler(this.btn_open_Click);
+            this.btn_worksheet_report.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_worksheet_report.Location = new System.Drawing.Point(134, 45);
+            this.btn_worksheet_report.Name = "btn_worksheet_report";
+            this.btn_worksheet_report.Size = new System.Drawing.Size(498, 34);
+            this.btn_worksheet_report.TabIndex = 7;
+            this.btn_worksheet_report.Text = "Open Design Report";
+            this.btn_worksheet_report.UseVisualStyleBackColor = true;
+            this.btn_worksheet_report.Click += new System.EventHandler(this.btn_open_Click);
             // 
-            // btn_Pier_Process
+            // btn_process
             // 
-            this.btn_Pier_Process.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_Pier_Process.Location = new System.Drawing.Point(195, 15);
-            this.btn_Pier_Process.Name = "btn_Pier_Process";
-            this.btn_Pier_Process.Size = new System.Drawing.Size(185, 34);
-            this.btn_Pier_Process.TabIndex = 8;
-            this.btn_Pier_Process.Text = "Process Design";
-            this.btn_Pier_Process.UseVisualStyleBackColor = true;
-            this.btn_Pier_Process.Click += new System.EventHandler(this.btn_process_Click);
+            this.btn_process.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_process.Location = new System.Drawing.Point(134, 5);
+            this.btn_process.Name = "btn_process";
+            this.btn_process.Size = new System.Drawing.Size(498, 34);
+            this.btn_process.TabIndex = 8;
+            this.btn_process.Text = "Process for New Design and Save as User\'s Design with User\'s given file name";
+            this.btn_process.UseVisualStyleBackColor = true;
+            this.btn_process.Click += new System.EventHandler(this.btn_process_Click);
             // 
-            // label1
+            // btn_worksheet_open
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(747, 15);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Note : The values in Red color are taken from previous pages and should not be ch" +
-    "ange by user.";
+            this.btn_worksheet_open.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_worksheet_open.Location = new System.Drawing.Point(134, 85);
+            this.btn_worksheet_open.Name = "btn_worksheet_open";
+            this.btn_worksheet_open.Size = new System.Drawing.Size(498, 34);
+            this.btn_worksheet_open.TabIndex = 7;
+            this.btn_worksheet_open.Text = "Open User\'s Design by selecting User\'s given file name";
+            this.btn_worksheet_open.UseVisualStyleBackColor = true;
+            this.btn_worksheet_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
             // UC_CompositeBridgeLSM
             // 
@@ -1990,8 +2003,8 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lbl_title;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btn_abutment_open;
-        private System.Windows.Forms.Button btn_Pier_Process;
+        private System.Windows.Forms.Button btn_worksheet_report;
+        private System.Windows.Forms.Button btn_process;
         public System.Windows.Forms.TextBox txt_SUMM_N17;
         public System.Windows.Forms.TextBox txt_SUMM_L17;
         public System.Windows.Forms.TextBox txt_SUMM_N16;
@@ -2075,5 +2088,6 @@
         public System.Windows.Forms.TextBox txt_GEN_G21;
         public System.Windows.Forms.TextBox txt_GEN_I21;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_worksheet_open;
     }
 }

@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_RCC_T_Girder_LS_New));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -87,12 +88,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_RCC_T_Girder_LS_New));
             this.tabCtrl = new System.Windows.Forms.TabControl();
             this.tab_dl = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_TGirder_new_design = new System.Windows.Forms.Button();
-            this.btn_TGirder_browse = new System.Windows.Forms.Button();
+            this.btn_new_design = new System.Windows.Forms.Button();
+            this.btn_open_design = new System.Windows.Forms.Button();
             this.txt_project_name = new System.Windows.Forms.TextBox();
             this.label205 = new System.Windows.Forms.Label();
             this.groupBox37 = new System.Windows.Forms.GroupBox();
@@ -466,10 +466,11 @@
             this.tab_mov_data_Indian = new System.Windows.Forms.TabPage();
             this.label202 = new System.Windows.Forms.Label();
             this.btn_IRC_Loadings = new System.Windows.Forms.Button();
-            this.btn_edit_load_combs = new System.Windows.Forms.Button();
+            this.btn_edit_load_combs_IRC = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
             this.txt_LL_load_gen = new System.Windows.Forms.TextBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label547 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dgv_long_loads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -486,9 +487,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
             this.txt_XINCR = new System.Windows.Forms.TextBox();
+            this.label560 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.btn_long_restore_ll = new System.Windows.Forms.Button();
+            this.btn_long_restore_ll_IRC = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label548 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dgv_long_liveloads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -515,8 +518,16 @@
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_mov_data_british = new System.Windows.Forms.TabPage();
             this.groupBox60 = new System.Windows.Forms.GroupBox();
+            this.label561 = new System.Windows.Forms.Label();
+            this.label557 = new System.Windows.Forms.Label();
+            this.btn_edit_load_combs_BS = new System.Windows.Forms.Button();
+            this.label558 = new System.Windows.Forms.Label();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.label559 = new System.Windows.Forms.Label();
+            this.btn_long_restore_ll_BS = new System.Windows.Forms.Button();
             this.sp_hb = new System.Windows.Forms.SplitContainer();
             this.groupBox62 = new System.Windows.Forms.GroupBox();
+            this.label556 = new System.Windows.Forms.Label();
             this.dgv_long_british_loads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -542,6 +553,7 @@
             this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label713 = new System.Windows.Forms.Label();
             this.groupBox61 = new System.Windows.Forms.GroupBox();
+            this.label555 = new System.Windows.Forms.Label();
             this.dgv_british_loads = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn77 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -577,10 +589,7 @@
             this.rbtn_HA_HB = new System.Windows.Forms.RadioButton();
             this.txt_LL_lf = new System.Windows.Forms.TextBox();
             this.txt_LL_impf = new System.Windows.Forms.TextBox();
-            this.label711 = new System.Windows.Forms.Label();
             this.txt_no_lanes = new System.Windows.Forms.TextBox();
-            this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
-            this.label714 = new System.Windows.Forms.Label();
             this.grb_ha = new System.Windows.Forms.GroupBox();
             this.grb_ha_aply = new System.Windows.Forms.GroupBox();
             this.chk_HA_7L = new System.Windows.Forms.CheckBox();
@@ -613,7 +622,6 @@
             this.chk_HB_1L = new System.Windows.Forms.CheckBox();
             this.label716 = new System.Windows.Forms.Label();
             this.cmb_HB = new System.Windows.Forms.ComboBox();
-            this.txt_ll_british_incr = new System.Windows.Forms.TextBox();
             this.txt_lane_width = new System.Windows.Forms.TextBox();
             this.label715 = new System.Windows.Forms.Label();
             this.txt_deck_width = new System.Windows.Forms.TextBox();
@@ -621,9 +629,16 @@
             this.label720 = new System.Windows.Forms.Label();
             this.label718 = new System.Windows.Forms.Label();
             this.label717 = new System.Windows.Forms.Label();
+            this.txt_ll_british_incr = new System.Windows.Forms.TextBox();
+            this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
             this.tab_result = new System.Windows.Forms.TabPage();
             this.tc_AnaProcess = new System.Windows.Forms.TabControl();
             this.tab_ana_select = new System.Windows.Forms.TabPage();
+            this.groupBox76 = new System.Windows.Forms.GroupBox();
+            this.label545 = new System.Windows.Forms.Label();
+            this.cmb_long_open_file_analysis = new System.Windows.Forms.ComboBox();
+            this.btn_view_data_1 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox50 = new System.Windows.Forms.GroupBox();
             this.rbtn_esprt_pinned = new System.Windows.Forms.RadioButton();
             this.rbtn_esprt_fixed = new System.Windows.Forms.RadioButton();
@@ -1536,6 +1551,7 @@
             this.tab_result.SuspendLayout();
             this.tc_AnaProcess.SuspendLayout();
             this.tab_ana_select.SuspendLayout();
+            this.groupBox76.SuspendLayout();
             this.groupBox50.SuspendLayout();
             this.groupBox40.SuspendLayout();
             this.tab_ana_preProcess.SuspendLayout();
@@ -1696,8 +1712,8 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btn_TGirder_new_design);
-            this.panel4.Controls.Add(this.btn_TGirder_browse);
+            this.panel4.Controls.Add(this.btn_new_design);
+            this.panel4.Controls.Add(this.btn_open_design);
             this.panel4.Controls.Add(this.txt_project_name);
             this.panel4.Controls.Add(this.label205);
             this.panel4.Location = new System.Drawing.Point(9, 10);
@@ -1705,25 +1721,25 @@
             this.panel4.Size = new System.Drawing.Size(405, 56);
             this.panel4.TabIndex = 177;
             // 
-            // btn_TGirder_new_design
+            // btn_new_design
             // 
-            this.btn_TGirder_new_design.Location = new System.Drawing.Point(104, 4);
-            this.btn_TGirder_new_design.Name = "btn_TGirder_new_design";
-            this.btn_TGirder_new_design.Size = new System.Drawing.Size(121, 24);
-            this.btn_TGirder_new_design.TabIndex = 188;
-            this.btn_TGirder_new_design.Text = "New Design";
-            this.btn_TGirder_new_design.UseVisualStyleBackColor = true;
-            this.btn_TGirder_new_design.Click += new System.EventHandler(this.btn_TGirder_new_design_Click);
+            this.btn_new_design.Location = new System.Drawing.Point(104, 4);
+            this.btn_new_design.Name = "btn_new_design";
+            this.btn_new_design.Size = new System.Drawing.Size(121, 24);
+            this.btn_new_design.TabIndex = 188;
+            this.btn_new_design.Text = "New Design";
+            this.btn_new_design.UseVisualStyleBackColor = true;
+            this.btn_new_design.Click += new System.EventHandler(this.btn_TGirder_new_design_Click);
             // 
-            // btn_TGirder_browse
+            // btn_open_design
             // 
-            this.btn_TGirder_browse.Location = new System.Drawing.Point(242, 4);
-            this.btn_TGirder_browse.Name = "btn_TGirder_browse";
-            this.btn_TGirder_browse.Size = new System.Drawing.Size(121, 24);
-            this.btn_TGirder_browse.TabIndex = 189;
-            this.btn_TGirder_browse.Text = "Open Design";
-            this.btn_TGirder_browse.UseVisualStyleBackColor = true;
-            this.btn_TGirder_browse.Click += new System.EventHandler(this.btn_TGirder_new_design_Click);
+            this.btn_open_design.Location = new System.Drawing.Point(242, 4);
+            this.btn_open_design.Name = "btn_open_design";
+            this.btn_open_design.Size = new System.Drawing.Size(121, 24);
+            this.btn_open_design.TabIndex = 189;
+            this.btn_open_design.Text = "Open Design";
+            this.btn_open_design.UseVisualStyleBackColor = true;
+            this.btn_open_design.Click += new System.EventHandler(this.btn_TGirder_new_design_Click);
             // 
             // txt_project_name
             // 
@@ -2791,6 +2807,8 @@
             // chk_crash_barrier
             // 
             this.chk_crash_barrier.AutoSize = true;
+            this.chk_crash_barrier.Checked = true;
+            this.chk_crash_barrier.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_crash_barrier.Location = new System.Drawing.Point(6, 113);
             this.chk_crash_barrier.Name = "chk_crash_barrier";
             this.chk_crash_barrier.Size = new System.Drawing.Size(233, 17);
@@ -4557,7 +4575,7 @@
             this.groupBox19.Size = new System.Drawing.Size(347, 242);
             this.groupBox19.TabIndex = 13;
             this.groupBox19.TabStop = false;
-            this.groupBox19.Text = " Intermediate Cross Girder Section";
+            this.groupBox19.Text = "End Cross Girder Section";
             // 
             // label121
             // 
@@ -5709,15 +5727,16 @@
             // 
             this.tab_mov_data_Indian.Controls.Add(this.label202);
             this.tab_mov_data_Indian.Controls.Add(this.btn_IRC_Loadings);
-            this.tab_mov_data_Indian.Controls.Add(this.btn_edit_load_combs);
+            this.tab_mov_data_Indian.Controls.Add(this.btn_edit_load_combs_IRC);
             this.tab_mov_data_Indian.Controls.Add(this.label75);
             this.tab_mov_data_Indian.Controls.Add(this.txt_LL_load_gen);
             this.tab_mov_data_Indian.Controls.Add(this.groupBox9);
             this.tab_mov_data_Indian.Controls.Add(this.label8);
             this.tab_mov_data_Indian.Controls.Add(this.txt_dl_ll_comb);
             this.tab_mov_data_Indian.Controls.Add(this.txt_XINCR);
+            this.tab_mov_data_Indian.Controls.Add(this.label560);
             this.tab_mov_data_Indian.Controls.Add(this.label19);
-            this.tab_mov_data_Indian.Controls.Add(this.btn_long_restore_ll);
+            this.tab_mov_data_Indian.Controls.Add(this.btn_long_restore_ll_IRC);
             this.tab_mov_data_Indian.Controls.Add(this.groupBox3);
             this.tab_mov_data_Indian.Location = new System.Drawing.Point(4, 22);
             this.tab_mov_data_Indian.Name = "tab_mov_data_Indian";
@@ -5746,15 +5765,15 @@
             this.btn_IRC_Loadings.UseVisualStyleBackColor = true;
             this.btn_IRC_Loadings.Click += new System.EventHandler(this.btn_IRC_Loadings_Click);
             // 
-            // btn_edit_load_combs
+            // btn_edit_load_combs_IRC
             // 
-            this.btn_edit_load_combs.Location = new System.Drawing.Point(246, 577);
-            this.btn_edit_load_combs.Name = "btn_edit_load_combs";
-            this.btn_edit_load_combs.Size = new System.Drawing.Size(175, 29);
-            this.btn_edit_load_combs.TabIndex = 82;
-            this.btn_edit_load_combs.Text = "Edit Load Combinations";
-            this.btn_edit_load_combs.UseVisualStyleBackColor = true;
-            this.btn_edit_load_combs.Click += new System.EventHandler(this.btn_edit_load_combs_Click);
+            this.btn_edit_load_combs_IRC.Location = new System.Drawing.Point(246, 577);
+            this.btn_edit_load_combs_IRC.Name = "btn_edit_load_combs_IRC";
+            this.btn_edit_load_combs_IRC.Size = new System.Drawing.Size(175, 29);
+            this.btn_edit_load_combs_IRC.TabIndex = 82;
+            this.btn_edit_load_combs_IRC.Text = "Edit Load Combinations";
+            this.btn_edit_load_combs_IRC.UseVisualStyleBackColor = true;
+            this.btn_edit_load_combs_IRC.Click += new System.EventHandler(this.btn_edit_load_combs_Click);
             // 
             // label75
             // 
@@ -5779,15 +5798,27 @@
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.label547);
             this.groupBox9.Controls.Add(this.label14);
             this.groupBox9.Controls.Add(this.dgv_long_loads);
             this.groupBox9.ForeColor = System.Drawing.Color.Black;
-            this.groupBox9.Location = new System.Drawing.Point(659, 26);
+            this.groupBox9.Location = new System.Drawing.Point(3, 28);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(278, 546);
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Define Load Start position";
+            this.groupBox9.Text = "                                               ";
+            // 
+            // label547
+            // 
+            this.label547.AutoSize = true;
+            this.label547.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label547.ForeColor = System.Drawing.Color.Black;
+            this.label547.Location = new System.Drawing.Point(6, 1);
+            this.label547.Name = "label547";
+            this.label547.Size = new System.Drawing.Size(171, 13);
+            this.label547.TabIndex = 83;
+            this.label547.Text = "Apply Load Combinations";
             // 
             // label14
             // 
@@ -5952,9 +5983,19 @@
             this.txt_XINCR.Name = "txt_XINCR";
             this.txt_XINCR.Size = new System.Drawing.Size(37, 18);
             this.txt_XINCR.TabIndex = 58;
-            this.txt_XINCR.Text = "0.5";
+            this.txt_XINCR.Text = "0.2";
             this.txt_XINCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_XINCR.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label560
+            // 
+            this.label560.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label560.ForeColor = System.Drawing.Color.Red;
+            this.label560.Location = new System.Drawing.Point(15, 609);
+            this.label560.Name = "label560";
+            this.label560.Size = new System.Drawing.Size(614, 33);
+            this.label560.TabIndex = 60;
+            this.label560.Text = resources.GetString("label560.Text");
             // 
             // label19
             // 
@@ -5966,28 +6007,40 @@
             this.label19.TabIndex = 60;
             this.label19.Text = "X INCR";
             // 
-            // btn_long_restore_ll
+            // btn_long_restore_ll_IRC
             // 
-            this.btn_long_restore_ll.Location = new System.Drawing.Point(427, 577);
-            this.btn_long_restore_ll.Name = "btn_long_restore_ll";
-            this.btn_long_restore_ll.Size = new System.Drawing.Size(175, 29);
-            this.btn_long_restore_ll.TabIndex = 8;
-            this.btn_long_restore_ll.Text = "Restore Default Values";
-            this.btn_long_restore_ll.UseVisualStyleBackColor = true;
-            this.btn_long_restore_ll.Click += new System.EventHandler(this.btn_restore_ll_data_Click);
+            this.btn_long_restore_ll_IRC.Location = new System.Drawing.Point(427, 577);
+            this.btn_long_restore_ll_IRC.Name = "btn_long_restore_ll_IRC";
+            this.btn_long_restore_ll_IRC.Size = new System.Drawing.Size(175, 29);
+            this.btn_long_restore_ll_IRC.TabIndex = 8;
+            this.btn_long_restore_ll_IRC.Text = "Restore Default Values";
+            this.btn_long_restore_ll_IRC.UseVisualStyleBackColor = true;
+            this.btn_long_restore_ll_IRC.Click += new System.EventHandler(this.btn_restore_ll_data_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label548);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.dgv_long_liveloads);
             this.groupBox3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(3, 26);
+            this.groupBox3.Location = new System.Drawing.Point(284, 28);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(653, 543);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Define Vehicle Axle Loads";
+            this.groupBox3.Text = "                                     ";
+            // 
+            // label548
+            // 
+            this.label548.AutoSize = true;
+            this.label548.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label548.ForeColor = System.Drawing.Color.Black;
+            this.label548.Location = new System.Drawing.Point(6, 2);
+            this.label548.Name = "label548";
+            this.label548.Size = new System.Drawing.Size(127, 13);
+            this.label548.TabIndex = 83;
+            this.label548.Text = "Define Load Types";
             // 
             // label13
             // 
@@ -6201,9 +6254,18 @@
             // 
             // groupBox60
             // 
+            this.groupBox60.Controls.Add(this.label561);
+            this.groupBox60.Controls.Add(this.label557);
+            this.groupBox60.Controls.Add(this.btn_edit_load_combs_BS);
+            this.groupBox60.Controls.Add(this.label558);
+            this.groupBox60.Controls.Add(this.textBox22);
+            this.groupBox60.Controls.Add(this.label559);
+            this.groupBox60.Controls.Add(this.btn_long_restore_ll_BS);
             this.groupBox60.Controls.Add(this.sp_hb);
             this.groupBox60.Controls.Add(this.label198);
             this.groupBox60.Controls.Add(this.groupBox63);
+            this.groupBox60.Controls.Add(this.txt_ll_british_incr);
+            this.groupBox60.Controls.Add(this.txt_ll_british_lgen);
             this.groupBox60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox60.Location = new System.Drawing.Point(3, 3);
             this.groupBox60.Name = "groupBox60";
@@ -6211,26 +6273,100 @@
             this.groupBox60.TabIndex = 84;
             this.groupBox60.TabStop = false;
             // 
+            // label561
+            // 
+            this.label561.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label561.ForeColor = System.Drawing.Color.Red;
+            this.label561.Location = new System.Drawing.Point(1, 600);
+            this.label561.Name = "label561";
+            this.label561.Size = new System.Drawing.Size(614, 33);
+            this.label561.TabIndex = 91;
+            this.label561.Text = resources.GetString("label561.Text");
+            // 
+            // label557
+            // 
+            this.label557.AutoSize = true;
+            this.label557.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label557.Location = new System.Drawing.Point(716, 616);
+            this.label557.Name = "label557";
+            this.label557.Size = new System.Drawing.Size(170, 13);
+            this.label557.TabIndex = 87;
+            this.label557.Text = "DL + LL Combine Load No";
+            // 
+            // btn_edit_load_combs_BS
+            // 
+            this.btn_edit_load_combs_BS.Location = new System.Drawing.Point(158, 570);
+            this.btn_edit_load_combs_BS.Name = "btn_edit_load_combs_BS";
+            this.btn_edit_load_combs_BS.Size = new System.Drawing.Size(175, 29);
+            this.btn_edit_load_combs_BS.TabIndex = 90;
+            this.btn_edit_load_combs_BS.Text = "Edit Load Combinations";
+            this.btn_edit_load_combs_BS.UseVisualStyleBackColor = true;
+            this.btn_edit_load_combs_BS.Click += new System.EventHandler(this.btn_edit_load_combs_Click);
+            // 
+            // label558
+            // 
+            this.label558.AutoSize = true;
+            this.label558.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label558.Location = new System.Drawing.Point(772, 594);
+            this.label558.Name = "label558";
+            this.label558.Size = new System.Drawing.Size(114, 13);
+            this.label558.TabIndex = 89;
+            this.label558.Text = "Load Generation";
+            // 
+            // textBox22
+            // 
+            this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox22.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox22.Location = new System.Drawing.Point(892, 615);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(39, 18);
+            this.textBox22.TabIndex = 86;
+            this.textBox22.Text = "1";
+            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label559
+            // 
+            this.label559.AutoSize = true;
+            this.label559.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label559.Location = new System.Drawing.Point(652, 594);
+            this.label559.Name = "label559";
+            this.label559.Size = new System.Drawing.Size(50, 13);
+            this.label559.TabIndex = 88;
+            this.label559.Text = "X INCR";
+            // 
+            // btn_long_restore_ll_BS
+            // 
+            this.btn_long_restore_ll_BS.Location = new System.Drawing.Point(339, 570);
+            this.btn_long_restore_ll_BS.Name = "btn_long_restore_ll_BS";
+            this.btn_long_restore_ll_BS.Size = new System.Drawing.Size(175, 29);
+            this.btn_long_restore_ll_BS.TabIndex = 85;
+            this.btn_long_restore_ll_BS.Text = "Restore Default Values";
+            this.btn_long_restore_ll_BS.UseVisualStyleBackColor = true;
+            this.btn_long_restore_ll_BS.Click += new System.EventHandler(this.btn_restore_ll_data_Click);
+            // 
             // sp_hb
             // 
             this.sp_hb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sp_hb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.sp_hb.Location = new System.Drawing.Point(3, 274);
             this.sp_hb.Name = "sp_hb";
             // 
             // sp_hb.Panel1
             // 
             this.sp_hb.Panel1.Controls.Add(this.groupBox62);
+            this.sp_hb.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             // 
             // sp_hb.Panel2
             // 
             this.sp_hb.Panel2.Controls.Add(this.groupBox61);
-            this.sp_hb.Size = new System.Drawing.Size(928, 359);
+            this.sp_hb.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.sp_hb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.sp_hb.Size = new System.Drawing.Size(928, 291);
             this.sp_hb.SplitterDistance = 518;
             this.sp_hb.TabIndex = 83;
             // 
             // groupBox62
             // 
+            this.groupBox62.Controls.Add(this.label556);
             this.groupBox62.Controls.Add(this.dgv_long_british_loads);
             this.groupBox62.Controls.Add(this.label713);
             this.groupBox62.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -6238,10 +6374,22 @@
             this.groupBox62.ForeColor = System.Drawing.Color.Black;
             this.groupBox62.Location = new System.Drawing.Point(0, 0);
             this.groupBox62.Name = "groupBox62";
-            this.groupBox62.Size = new System.Drawing.Size(516, 357);
+            this.groupBox62.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.groupBox62.Size = new System.Drawing.Size(516, 289);
             this.groupBox62.TabIndex = 7;
             this.groupBox62.TabStop = false;
-            this.groupBox62.Text = "Define Vehicle Axle Loads";
+            this.groupBox62.Text = "                                     ";
+            // 
+            // label556
+            // 
+            this.label556.AutoSize = true;
+            this.label556.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label556.ForeColor = System.Drawing.Color.Black;
+            this.label556.Location = new System.Drawing.Point(6, 2);
+            this.label556.Name = "label556";
+            this.label556.Size = new System.Drawing.Size(127, 13);
+            this.label556.TabIndex = 84;
+            this.label556.Text = "Define Load Types";
             // 
             // dgv_long_british_loads
             // 
@@ -6291,7 +6439,7 @@
             this.dgv_long_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_long_british_loads.Name = "dgv_long_british_loads";
             this.dgv_long_british_loads.RowHeadersWidth = 21;
-            this.dgv_long_british_loads.Size = new System.Drawing.Size(510, 303);
+            this.dgv_long_british_loads.Size = new System.Drawing.Size(510, 235);
             this.dgv_long_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn55
@@ -6468,6 +6616,7 @@
             // 
             // groupBox61
             // 
+            this.groupBox61.Controls.Add(this.label555);
             this.groupBox61.Controls.Add(this.dgv_british_loads);
             this.groupBox61.Controls.Add(this.panel3);
             this.groupBox61.Controls.Add(this.label222);
@@ -6475,10 +6624,22 @@
             this.groupBox61.ForeColor = System.Drawing.Color.Black;
             this.groupBox61.Location = new System.Drawing.Point(0, 0);
             this.groupBox61.Name = "groupBox61";
-            this.groupBox61.Size = new System.Drawing.Size(404, 357);
+            this.groupBox61.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.groupBox61.Size = new System.Drawing.Size(404, 289);
             this.groupBox61.TabIndex = 8;
             this.groupBox61.TabStop = false;
-            this.groupBox61.Text = "Define Load Start position";
+            this.groupBox61.Text = "                                               ";
+            // 
+            // label555
+            // 
+            this.label555.AutoSize = true;
+            this.label555.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label555.ForeColor = System.Drawing.Color.Black;
+            this.label555.Location = new System.Drawing.Point(7, 2);
+            this.label555.Name = "label555";
+            this.label555.Size = new System.Drawing.Size(171, 13);
+            this.label555.TabIndex = 84;
+            this.label555.Text = "Apply Load Combinations";
             // 
             // dgv_british_loads
             // 
@@ -6527,7 +6688,7 @@
             this.dgv_british_loads.Location = new System.Drawing.Point(3, 61);
             this.dgv_british_loads.Name = "dgv_british_loads";
             this.dgv_british_loads.RowHeadersWidth = 21;
-            this.dgv_british_loads.Size = new System.Drawing.Size(398, 293);
+            this.dgv_british_loads.Size = new System.Drawing.Size(398, 225);
             this.dgv_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn77
@@ -6724,13 +6885,9 @@
             this.groupBox63.Controls.Add(this.groupBox66);
             this.groupBox63.Controls.Add(this.txt_LL_lf);
             this.groupBox63.Controls.Add(this.txt_LL_impf);
-            this.groupBox63.Controls.Add(this.label711);
             this.groupBox63.Controls.Add(this.txt_no_lanes);
-            this.groupBox63.Controls.Add(this.txt_ll_british_lgen);
-            this.groupBox63.Controls.Add(this.label714);
             this.groupBox63.Controls.Add(this.grb_ha);
             this.groupBox63.Controls.Add(this.grb_hb);
-            this.groupBox63.Controls.Add(this.txt_ll_british_incr);
             this.groupBox63.Controls.Add(this.txt_lane_width);
             this.groupBox63.Controls.Add(this.label715);
             this.groupBox63.Controls.Add(this.txt_deck_width);
@@ -6795,7 +6952,7 @@
             // 
             // txt_LL_lf
             // 
-            this.txt_LL_lf.Location = new System.Drawing.Point(177, 137);
+            this.txt_LL_lf.Location = new System.Drawing.Point(177, 192);
             this.txt_LL_lf.Name = "txt_LL_lf";
             this.txt_LL_lf.Size = new System.Drawing.Size(59, 21);
             this.txt_LL_lf.TabIndex = 3;
@@ -6805,7 +6962,7 @@
             // 
             // txt_LL_impf
             // 
-            this.txt_LL_impf.Location = new System.Drawing.Point(177, 110);
+            this.txt_LL_impf.Location = new System.Drawing.Point(177, 157);
             this.txt_LL_impf.Name = "txt_LL_impf";
             this.txt_LL_impf.Size = new System.Drawing.Size(59, 21);
             this.txt_LL_impf.TabIndex = 3;
@@ -6813,48 +6970,16 @@
             this.txt_LL_impf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_LL_impf.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
             // 
-            // label711
-            // 
-            this.label711.AutoSize = true;
-            this.label711.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label711.Location = new System.Drawing.Point(27, 196);
-            this.label711.Name = "label711";
-            this.label711.Size = new System.Drawing.Size(101, 13);
-            this.label711.TabIndex = 80;
-            this.label711.Text = "Load Generation";
-            // 
             // txt_no_lanes
             // 
             this.txt_no_lanes.Enabled = false;
-            this.txt_no_lanes.Location = new System.Drawing.Point(177, 83);
+            this.txt_no_lanes.Location = new System.Drawing.Point(177, 122);
             this.txt_no_lanes.Name = "txt_no_lanes";
             this.txt_no_lanes.Size = new System.Drawing.Size(59, 21);
             this.txt_no_lanes.TabIndex = 3;
             this.txt_no_lanes.Text = "3";
             this.txt_no_lanes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_no_lanes.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
-            // txt_ll_british_lgen
-            // 
-            this.txt_ll_british_lgen.Enabled = false;
-            this.txt_ll_british_lgen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ll_british_lgen.Location = new System.Drawing.Point(177, 193);
-            this.txt_ll_british_lgen.Name = "txt_ll_british_lgen";
-            this.txt_ll_british_lgen.Size = new System.Drawing.Size(59, 21);
-            this.txt_ll_british_lgen.TabIndex = 79;
-            this.txt_ll_british_lgen.Text = "191";
-            this.txt_ll_british_lgen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ll_british_lgen.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
-            // label714
-            // 
-            this.label714.AutoSize = true;
-            this.label714.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label714.Location = new System.Drawing.Point(27, 175);
-            this.label714.Name = "label714";
-            this.label714.Size = new System.Drawing.Size(110, 13);
-            this.label714.TabIndex = 60;
-            this.label714.Text = "Moving Increment";
             // 
             // grb_ha
             // 
@@ -7227,21 +7352,10 @@
             this.cmb_HB.TabIndex = 0;
             this.cmb_HB.SelectedIndexChanged += new System.EventHandler(this.cmb_HB_SelectedIndexChanged);
             // 
-            // txt_ll_british_incr
-            // 
-            this.txt_ll_british_incr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ll_british_incr.Location = new System.Drawing.Point(177, 170);
-            this.txt_ll_british_incr.Name = "txt_ll_british_incr";
-            this.txt_ll_british_incr.Size = new System.Drawing.Size(59, 18);
-            this.txt_ll_british_incr.TabIndex = 58;
-            this.txt_ll_british_incr.Text = "0.5";
-            this.txt_ll_british_incr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ll_british_incr.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
             // txt_lane_width
             // 
             this.txt_lane_width.Enabled = false;
-            this.txt_lane_width.Location = new System.Drawing.Point(177, 56);
+            this.txt_lane_width.Location = new System.Drawing.Point(177, 77);
             this.txt_lane_width.Name = "txt_lane_width";
             this.txt_lane_width.Size = new System.Drawing.Size(59, 21);
             this.txt_lane_width.TabIndex = 3;
@@ -7252,7 +7366,7 @@
             // label715
             // 
             this.label715.AutoSize = true;
-            this.label715.Location = new System.Drawing.Point(27, 140);
+            this.label715.Location = new System.Drawing.Point(27, 195);
             this.label715.Name = "label715";
             this.label715.Size = new System.Drawing.Size(72, 13);
             this.label715.TabIndex = 1;
@@ -7271,7 +7385,7 @@
             // label719
             // 
             this.label719.AutoSize = true;
-            this.label719.Location = new System.Drawing.Point(27, 113);
+            this.label719.Location = new System.Drawing.Point(27, 160);
             this.label719.Name = "label719";
             this.label719.Size = new System.Drawing.Size(85, 13);
             this.label719.TabIndex = 1;
@@ -7280,7 +7394,7 @@
             // label720
             // 
             this.label720.AutoSize = true;
-            this.label720.Location = new System.Drawing.Point(27, 84);
+            this.label720.Location = new System.Drawing.Point(27, 123);
             this.label720.Name = "label720";
             this.label720.Size = new System.Drawing.Size(109, 13);
             this.label720.TabIndex = 1;
@@ -7289,7 +7403,7 @@
             // label718
             // 
             this.label718.AutoSize = true;
-            this.label718.Location = new System.Drawing.Point(27, 57);
+            this.label718.Location = new System.Drawing.Point(27, 78);
             this.label718.Name = "label718";
             this.label718.Size = new System.Drawing.Size(101, 13);
             this.label718.TabIndex = 1;
@@ -7303,6 +7417,29 @@
             this.label717.Size = new System.Drawing.Size(144, 13);
             this.label717.TabIndex = 1;
             this.label717.Text = "Total Bridge Deck Width";
+            // 
+            // txt_ll_british_incr
+            // 
+            this.txt_ll_british_incr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ll_british_incr.Location = new System.Drawing.Point(708, 592);
+            this.txt_ll_british_incr.Name = "txt_ll_british_incr";
+            this.txt_ll_british_incr.Size = new System.Drawing.Size(43, 18);
+            this.txt_ll_british_incr.TabIndex = 58;
+            this.txt_ll_british_incr.Text = "0.5";
+            this.txt_ll_british_incr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_ll_british_incr.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
+            // 
+            // txt_ll_british_lgen
+            // 
+            this.txt_ll_british_lgen.Enabled = false;
+            this.txt_ll_british_lgen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ll_british_lgen.Location = new System.Drawing.Point(891, 591);
+            this.txt_ll_british_lgen.Name = "txt_ll_british_lgen";
+            this.txt_ll_british_lgen.Size = new System.Drawing.Size(39, 21);
+            this.txt_ll_british_lgen.TabIndex = 79;
+            this.txt_ll_british_lgen.Text = "191";
+            this.txt_ll_british_lgen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_ll_british_lgen.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
             // 
             // tab_result
             // 
@@ -7330,6 +7467,7 @@
             // 
             // tab_ana_select
             // 
+            this.tab_ana_select.Controls.Add(this.groupBox76);
             this.tab_ana_select.Controls.Add(this.groupBox50);
             this.tab_ana_select.Controls.Add(this.btn_create_data);
             this.tab_ana_select.Controls.Add(this.groupBox40);
@@ -7340,6 +7478,71 @@
             this.tab_ana_select.TabIndex = 0;
             this.tab_ana_select.Text = "Analysis Data";
             this.tab_ana_select.UseVisualStyleBackColor = true;
+            // 
+            // groupBox76
+            // 
+            this.groupBox76.Controls.Add(this.label545);
+            this.groupBox76.Controls.Add(this.cmb_long_open_file_analysis);
+            this.groupBox76.Controls.Add(this.btn_view_data_1);
+            this.groupBox76.Controls.Add(this.button5);
+            this.groupBox76.ForeColor = System.Drawing.Color.Black;
+            this.groupBox76.Location = new System.Drawing.Point(231, 270);
+            this.groupBox76.Name = "groupBox76";
+            this.groupBox76.Size = new System.Drawing.Size(470, 77);
+            this.groupBox76.TabIndex = 97;
+            this.groupBox76.TabStop = false;
+            this.groupBox76.Text = "Open Analysis File";
+            // 
+            // label545
+            // 
+            this.label545.AutoSize = true;
+            this.label545.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label545.Location = new System.Drawing.Point(9, 18);
+            this.label545.Name = "label545";
+            this.label545.Size = new System.Drawing.Size(135, 16);
+            this.label545.TabIndex = 99;
+            this.label545.Text = "Select Analysis File";
+            // 
+            // cmb_long_open_file_analysis
+            // 
+            this.cmb_long_open_file_analysis.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_long_open_file_analysis.DropDownWidth = 398;
+            this.cmb_long_open_file_analysis.FormattingEnabled = true;
+            this.cmb_long_open_file_analysis.Items.AddRange(new object[] {
+            "Dead Load Analysis",
+            "Live Load Analysis",
+            "LL Analysis Load 1",
+            "LL Analysis Load 2",
+            "LL Analysis Load 3 ",
+            "LL Analysis Load 4 ",
+            "LL Analysis Load 5",
+            "LL Analysis Load 6",
+            "Total Analysis",
+            "Long Girder Analysis Results"});
+            this.cmb_long_open_file_analysis.Location = new System.Drawing.Point(150, 17);
+            this.cmb_long_open_file_analysis.Name = "cmb_long_open_file_analysis";
+            this.cmb_long_open_file_analysis.Size = new System.Drawing.Size(315, 21);
+            this.cmb_long_open_file_analysis.TabIndex = 98;
+            this.cmb_long_open_file_analysis.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
+            // 
+            // btn_view_data_1
+            // 
+            this.btn_view_data_1.Location = new System.Drawing.Point(163, 44);
+            this.btn_view_data_1.Name = "btn_view_data_1";
+            this.btn_view_data_1.Size = new System.Drawing.Size(149, 30);
+            this.btn_view_data_1.TabIndex = 74;
+            this.btn_view_data_1.Text = "View Analysis Data";
+            this.btn_view_data_1.UseVisualStyleBackColor = true;
+            this.btn_view_data_1.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(471, 41);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(149, 30);
+            this.button5.TabIndex = 74;
+            this.button5.Text = "View Structure (GUI)";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // groupBox50
             // 
@@ -12319,7 +12522,7 @@
             this.uC_Deckslab_BS1.thickness_surfacing = 150D;
             this.uC_Deckslab_BS1.unitwt_concrete = 24D;
             this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
-            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
+            this.uC_Deckslab_BS1.user_path = "";
             this.uC_Deckslab_BS1.V = 0D;
             this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
             this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
@@ -16998,12 +17201,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_long_liveloads)).EndInit();
             this.tab_mov_data_british.ResumeLayout(false);
             this.groupBox60.ResumeLayout(false);
+            this.groupBox60.PerformLayout();
             this.sp_hb.Panel1.ResumeLayout(false);
             this.sp_hb.Panel2.ResumeLayout(false);
             this.sp_hb.ResumeLayout(false);
             this.groupBox62.ResumeLayout(false);
+            this.groupBox62.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).EndInit();
             this.groupBox61.ResumeLayout(false);
+            this.groupBox61.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_british_loads)).EndInit();
             this.panel3.ResumeLayout(false);
             this.groupBox63.ResumeLayout(false);
@@ -17021,6 +17227,8 @@
             this.tab_result.ResumeLayout(false);
             this.tc_AnaProcess.ResumeLayout(false);
             this.tab_ana_select.ResumeLayout(false);
+            this.groupBox76.ResumeLayout(false);
+            this.groupBox76.PerformLayout();
             this.groupBox50.ResumeLayout(false);
             this.groupBox50.PerformLayout();
             this.groupBox40.ResumeLayout(false);
@@ -17682,7 +17890,7 @@
         private System.Windows.Forms.DataGridView dgv_deck_liveloads;
         private System.Windows.Forms.Button btn_deck_restore_ll;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btn_long_restore_ll;
+        private System.Windows.Forms.Button btn_long_restore_ll_IRC;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgv_long_liveloads;
         private System.Windows.Forms.Label label8;
@@ -18217,10 +18425,8 @@
         private System.Windows.Forms.RadioButton rbtn_HA_HB;
         private System.Windows.Forms.TextBox txt_LL_lf;
         private System.Windows.Forms.TextBox txt_LL_impf;
-        private System.Windows.Forms.Label label711;
         private System.Windows.Forms.TextBox txt_no_lanes;
         private System.Windows.Forms.TextBox txt_ll_british_lgen;
-        private System.Windows.Forms.Label label714;
         private System.Windows.Forms.GroupBox grb_ha;
         private System.Windows.Forms.GroupBox grb_ha_aply;
         private System.Windows.Forms.CheckBox chk_HA_7L;
@@ -18270,7 +18476,7 @@
         private System.Windows.Forms.Label label200;
         private System.Windows.Forms.Label label199;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_edit_load_combs;
+        private System.Windows.Forms.Button btn_edit_load_combs_IRC;
         private System.Windows.Forms.Label label202;
         private System.Windows.Forms.TextBox txt_dl_ll_comb;
         private System.Windows.Forms.TabPage tab_long_main_girders;
@@ -18284,8 +18490,8 @@
         private System.Windows.Forms.Button btn_dwg_box_abutment;
         private BridgeAnalysisDesign.Abutment.UC_RCC_Abut uC_RCC_Abut1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btn_TGirder_new_design;
-        private System.Windows.Forms.Button btn_TGirder_browse;
+        private System.Windows.Forms.Button btn_new_design;
+        private System.Windows.Forms.Button btn_open_design;
         private System.Windows.Forms.TextBox txt_project_name;
         private System.Windows.Forms.Label label205;
         private System.Windows.Forms.Button btn_dwg_open_Deckslab;
@@ -18603,6 +18809,23 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label481;
         private System.Windows.Forms.ComboBox cmb_long_open_file_post_process;
+        private System.Windows.Forms.GroupBox groupBox76;
+        private System.Windows.Forms.Label label545;
+        private System.Windows.Forms.ComboBox cmb_long_open_file_analysis;
+        private System.Windows.Forms.Button btn_view_data_1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label547;
+        private System.Windows.Forms.Label label548;
+        private System.Windows.Forms.Label label555;
+        private System.Windows.Forms.Label label556;
+        private System.Windows.Forms.Label label557;
+        private System.Windows.Forms.Button btn_edit_load_combs_BS;
+        private System.Windows.Forms.Label label558;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.Label label559;
+        private System.Windows.Forms.Button btn_long_restore_ll_BS;
+        private System.Windows.Forms.Label label560;
+        private System.Windows.Forms.Label label561;
 
     }
 

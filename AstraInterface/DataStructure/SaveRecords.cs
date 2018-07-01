@@ -163,6 +163,9 @@ namespace AstraInterface.DataStructure
             }
 
 
+            data_file = Path.Combine(folder_path, "Process\\Design.sys");
+
+
             if (!File.Exists(data_file)) return;
 
 
@@ -362,14 +365,21 @@ namespace AstraInterface.DataStructure
             string data_file = User_Input_Data;
 
 
-            if (fm == null)
-            {
-                data_file = Path.Combine(folder_path, ctrl.Text + ".apr");
-            }
-            else
-            {
-                data_file = Path.Combine(folder_path, ctrl.Name + ".apr");
-            }
+            //if (fm == null)
+            //{
+            //    data_file = Path.Combine(folder_path, ctrl.Text + ".apr");
+            //}
+            //else
+            //{
+            //    data_file = Path.Combine(folder_path, ctrl.Name + ".apr");
+            //}
+            //Change for Restructuring Folders
+
+            data_file = Path.Combine(folder_path, "Process");
+
+            if (!Directory.Exists(data_file)) Directory.CreateDirectory(data_file);
+
+            data_file = Path.Combine(data_file, "Design.sys");
 
 
             //if (!File.Exists(data_file)) return;

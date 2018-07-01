@@ -41,7 +41,8 @@ namespace BridgeAnalysisDesign
                 string kStr = "";
                 foreach (var item in Directory.GetDirectories(Wokring_Folder))
                 {
-                    kStr = Path.Combine(item, Project_Type + ".apr");
+                    //kStr = Path.Combine(item, Project_Type + ".apr");
+                    kStr = Path.Combine(item, "Process\\Design.Sys");
                     if (File.Exists(kStr))
                         lst_proj_folders.Items.Add(Path.GetFileName(item));
                 }

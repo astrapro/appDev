@@ -493,12 +493,12 @@
             this.label219.AutoSize = true;
             this.label219.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label219.ForeColor = System.Drawing.Color.Red;
-            this.label219.Location = new System.Drawing.Point(84, 4);
+            this.label219.Location = new System.Drawing.Point(124, 4);
             this.label219.Name = "label219";
-            this.label219.Size = new System.Drawing.Size(752, 14);
+            this.label219.Size = new System.Drawing.Size(603, 14);
             this.label219.TabIndex = 127;
-            this.label219.Text = "Data in Red color are obtained from various pages under Tab \"PSC Girder\", so any " +
-    "change must not be done here";
+            this.label219.Text = "Data in Red color are obtained from previous pages , so any change must not be do" +
+    "ne here";
             // 
             // tab_deck_ll_cons_data
             // 

@@ -42,7 +42,7 @@ namespace LimitStateMethod.Composite
             {
                 //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 //    return "DESIGN OF RCC ABUTMENT CANTILEVER [BS]";
-                return "Steel Girder Bridge Design in Limit State Method";
+                return "Design of Steel Girder in LSM";
             }
         }
 
@@ -222,20 +222,41 @@ namespace LimitStateMethod.Composite
             }
             if (OnProcess != null) OnProcess(sender, e);
         }
-        private void Process_Design_IS()
+
+        string Get_Design_Report()
         {
 
             string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+
             if (iApp.user_path != "")
                 file_path = Path.Combine(iApp.user_path, Title);
 
             if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                file_path = Path.Combine(file_path, "Sleel Girder Design in LSM (IRC).xlsx");
+            else
+                file_path = Path.Combine(file_path, "Sleel Girder Design in LSM (BS).xlsx");
 
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+            return file_path;
+        }
+        private void Process_Design_IS()
+        {
+            string file_path = Get_Design_Report();
+
+            if (!Directory.Exists(Path.GetDirectoryName(file_path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(file_path));
+
+            //string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
+            //if (iApp.user_path != "")
+            //    file_path = Path.Combine(iApp.user_path, Title);
 
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            file_path = Path.Combine(file_path, "Sleel Girder Design in Limit State Method (IRC).xlsx");
+            ////file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+
+            ////if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
+
+            //file_path = Path.Combine(file_path, "Sleel Girder Design in Limit State Method (IRC).xlsx");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -332,6 +353,7 @@ namespace LimitStateMethod.Composite
             catch (Exception exx) { }
 
             myExcelWorkbook.Save();
+            iApp.Excel_Close_Message();
 
             releaseObject(myExcelWorkbook);
 
@@ -341,17 +363,12 @@ namespace LimitStateMethod.Composite
         private void Process_Design_BS()
         {
 
-            string file_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
-            if (iApp.user_path != "")
-                file_path = Path.Combine(iApp.user_path, Title);
+            string file_path = Get_Design_Report();
 
-            if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
-            //file_path = Path.Combine(file_path, "RCC Cantilever Abutment Design");
+            if (!Directory.Exists(Path.GetDirectoryName(file_path)))
+                Directory.CreateDirectory(Path.GetDirectoryName(file_path));
 
-            //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
-
-            file_path = Path.Combine(file_path, "Sleel Girder Design in Limit State Method (BS).xlsx");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -454,7 +471,10 @@ namespace LimitStateMethod.Composite
 
             releaseObject(myExcelWorkbook);
 
-            //iApp.Excel_Open_Message();
+            iApp.Excel_Close_Message();
+
+
+
         }
 
         private void releaseObject(object obj)
@@ -477,7 +497,26 @@ namespace LimitStateMethod.Composite
 
         private void btn_open_Click(object sender, EventArgs e)
         {
-            iApp.Open_ASTRA_Worksheet_Dialog();
+            Button btn = sender as Button;
+
+
+            string file_path = Get_Design_Report();
+
+            if (btn == btn_worksheet_open)
+            {
+                iApp.Open_ASTRA_Worksheet_Dialog();
+            }
+            else
+            {
+                if (File.Exists(file_path))
+                {
+                    iApp.OpenExcelFile(file_path, "2011ap");
+                }
+                else
+                {
+                    MessageBox.Show(file_path + " file not found.", "ASTRA", MessageBoxButtons.OK);
+                }
+            }
         }
     }
 }

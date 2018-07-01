@@ -120,7 +120,7 @@
   <data name="label1177.Text" xml:space="preserve">
     <value>(Note : By incresing the moving load increment, the analysis will be faster, but the forces in the memebrsand at supports may be reduced, a default increment of 0.5 m is set for the moving loads, which may be changed by the user as desired.)</value>
   </data>
-  <data name="label1176.Text" xml:space="preserve">
+  <data name="label472.Text" xml:space="preserve">
     <value>(Note : By incresing the moving load increment, the analysis will be faster, but the forces in the memebrsand at supports may be reduced, a default increment of 0.5 m is set for the moving loads, which may be changed by the user as desired.)</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

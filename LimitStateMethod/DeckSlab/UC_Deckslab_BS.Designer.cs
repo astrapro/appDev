@@ -846,6 +846,7 @@
             this.txt_Mhog.TabIndex = 2;
             this.txt_Mhog.Text = "0.0";
             this.txt_Mhog.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Mhog.TextChanged += new System.EventHandler(this.txt_Mhog_TextChanged);
             // 
             // label99
             // 

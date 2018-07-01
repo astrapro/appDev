@@ -4968,6 +4968,8 @@ namespace ASTRAStructures
                         {
                             if (item1.Comment != "")
                                 tn.Nodes.Add(item1 + " " + item1.Comment);
+                            else
+                                tn.Nodes.Add(item1);
                         }
                         tn = tn.Parent;
                     }
@@ -5050,20 +5052,26 @@ namespace ASTRAStructures
             #endregion
 
             #region Moving Load
-            if (AST_DOC.MovingLoads.Count > 0)
+            INPUT_FILE = AST_DOC.FileName;
+            var ll = MyList.Get_LL_TXT_File(INPUT_FILE);
+            if (File.Exists(ll))
             {
-                TreeNode tn;
-                tv_mov_loads.Nodes.Clear();
-                MovingLoads.Clear();
-
-                foreach (var item in AST_DOC.MovingLoads)
+                AST_DOC.MovingLoads = MovingLoadData.GetMovingLoads(ll);
+                if (AST_DOC.MovingLoads.Count > 0)
                 {
-                    MovingLoads.Add(item);
-                    tn = new TreeNode(item.ToString());
-                    tv_mov_loads.Nodes.Add(tn);
-                    tn.Nodes.Add("LOADS : " + item.Loads);
-                    tn.Nodes.Add("DISTANCES : " + item.Distances);
-                    tn.Nodes.Add("LOAD WIDTH : " + item.LoadWidth);
+                    TreeNode tn;
+                    tv_mov_loads.Nodes.Clear();
+                    MovingLoads.Clear();
+
+                    foreach (var item in AST_DOC.MovingLoads)
+                    {
+                        MovingLoads.Add(item);
+                        tn = new TreeNode(item.ToString());
+                        tv_mov_loads.Nodes.Add(tn);
+                        tn.Nodes.Add("LOADS : " + item.Loads);
+                        tn.Nodes.Add("DISTANCES : " + item.Distances);
+                        tn.Nodes.Add("LOAD WIDTH : " + item.LoadWidth);
+                    }
                 }
             }
             if (AST_DOC.LL_Definition.Count > 0)
@@ -5073,7 +5081,7 @@ namespace ASTRAStructures
                 TreeNode tn;
                 tv_mov_def_load.Nodes.Clear();
                 LL_Definition.Clear();
-
+                txt_load_gen.Text = AST_DOC.LOAD_GENERATION.ToString();
                 foreach (var item in AST_DOC.LL_Definition)
                 {
 
@@ -5643,6 +5651,7 @@ namespace ASTRAStructures
         {
             get
             {
+                if (cmb_text_size.SelectedIndex == -1) cmb_text_size.SelectedIndex = 0;
                 double VV = MyList.StringToDouble(cmb_text_size.Text, 0.2);
                 if (VV == 0.0)
                     VV = 0.1;
@@ -6254,6 +6263,8 @@ namespace ASTRAStructures
             string patFile = Path.Combine(Application.StartupPath, "PAT001.tmp");
 
             string fName = File_Name;
+
+            iApp.Delete_Temporary_Files(fName);
             //Delete_FIL_Files(Path.GetDirectoryName(fName));
             Delete_Temporary_Files(fName);
 
@@ -6278,6 +6289,7 @@ namespace ASTRAStructures
             try
             {
                 System.Diagnostics.Process.Start(runExe).WaitForExit();
+                iApp.Delete_Temporary_Files(fName);
 
                 if (File.Exists(Analysis_File_Name))
                 {
@@ -7287,10 +7299,11 @@ namespace ASTRAStructures
         {
             get
             {
+                if (cmb_pp_text_size.Text == "") cmb_pp_text_size.Text = "1";
                 double VV = MyList.StringToDouble(cmb_pp_text_size.Text, 0.0);
 
                 if (VV == 0.0)
-                    VV = 0.1;
+                    VV = 1;
                 return (VV) * 0.05;
             }
         }
@@ -10420,6 +10433,12 @@ namespace ASTRAStructures
 
             string flName = Path.Combine(user_path, Path.GetFileName(iApp.EXAMPLE_File));
             File.Copy(iApp.EXAMPLE_File, flName, true);
+
+            var ll1 = MyList.Get_LL_TXT_File(iApp.EXAMPLE_File);
+            var ll2 = MyList.Get_LL_TXT_File(flName);
+
+            if (File.Exists(ll1)) File.Copy(ll1, ll2, true);
+
             File_Name = flName;
             IsFlag = false;
             Clear_All();
@@ -10657,7 +10676,16 @@ namespace ASTRAStructures
                     if (ofd.ShowDialog() != System.Windows.Forms.DialogResult.Cancel)
                     {
                         flName = Path.Combine(user_path, Path.GetFileName(ofd.FileName));
+                        if (ofd.FileName.ToLower() != flName.ToLower())
                         File.Copy(ofd.FileName, flName, true);
+
+                        var ll = MyList.Get_LL_TXT_File(ofd.FileName);
+
+                        if(File.Exists(ll))
+                        {
+                            var ll2 = Path.Combine(Path.GetDirectoryName(flName), "LL.TXT");
+                            File.Copy(ll, ll2, true);
+                        }
                         File_Name = flName;
                         IsFlag = false;
                         Clear_All();

@@ -1840,14 +1840,14 @@
             this.tsmi_CAD_Viewer.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.astraProViewerToolStripMenuItem});
             this.tsmi_CAD_Viewer.Name = "tsmi_CAD_Viewer";
-            this.tsmi_CAD_Viewer.Size = new System.Drawing.Size(81, 20);
-            this.tsmi_CAD_Viewer.Text = "CAD &Viewer";
+            this.tsmi_CAD_Viewer.Size = new System.Drawing.Size(61, 20);
+            this.tsmi_CAD_Viewer.Text = "&Viewing";
             // 
             // astraProViewerToolStripMenuItem
             // 
             this.astraProViewerToolStripMenuItem.Name = "astraProViewerToolStripMenuItem";
-            this.astraProViewerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.astraProViewerToolStripMenuItem.Text = "&Astra Pro Viewer";
+            this.astraProViewerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.astraProViewerToolStripMenuItem.Text = "&Interactive Drawing";
             this.astraProViewerToolStripMenuItem.Click += new System.EventHandler(this.cADViewerToolStripMenuItem_Click);
             // 
             // utilityToolStripMenuItem

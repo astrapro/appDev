@@ -307,19 +307,30 @@ namespace LimitStateMethod.DeckSlab
         {
             get
             {
+                if (iApp == null) return "";
+                if (iApp.user_path != "")
+                {
+                    working_folder = Path.Combine(iApp.user_path, Title);
+
+                    if (!Directory.Exists(working_folder))
+                        Directory.CreateDirectory(working_folder);
+                    return working_folder;
+                }
+
                 return working_folder;
+
             }
             set
             {
-                if(value != null)
-                if (Path.GetFileName(value) != Title)
-                {
-                    working_folder = Path.Combine(value, Title);
-                    if (!Directory.Exists(working_folder))
-                        Directory.CreateDirectory(working_folder);
-                }
-                else
-                    working_folder = value;
+                //if(value != null)
+                //if (Path.GetFileName(value) != Title)
+                //{
+                //    //working_folder = Path.Combine(value, Title);
+                //    //if (!Directory.Exists(working_folder))
+                //    //    Directory.CreateDirectory(working_folder);
+                //}
+                //else
+                //    //working_folder = value;
                 Button_Enabled_Disabled();
             }
         }
@@ -1681,8 +1692,37 @@ namespace LimitStateMethod.DeckSlab
             }
             else if (btn.Name == btn_process_design.Name)
             {
+                if (txt_DS_results.Lines.Length > 5)
+                {
+                    flags[0] = true;
+                    flags[1] = true;
+                }
+                if (txt_TBR_results.Lines.Length > 5)
+                    flags[2] = true;
+                if (txt_FC_results.Lines.Length > 5)
+                    flags[3] = true;
+                if (txt_SC_results.Lines.Length > 5)
+                    flags[4] = true;
+
+                if (rtb_cant_DC_results.Lines.Length > 5)
+                    flags[5] = true;
+                if (txt_cant_TBR_results.Lines.Length > 5)
+                    flags[6] = true;
+                if (txt_cant_FC_results.Lines.Length > 5)
+                    flags[7] = true;
+                if (txt_cant_SC_results.Lines.Length > 5)
+                    flags[8] = true;
+                if (txt_cant_LBR_results.Lines.Length > 5)
+                    flags[9] = true;
+
+
+
                 //Calculate_Program();
                 if (!Show_Flag(11)) return;
+
+
+
+
                 Process_Design(Deckslab_Report_File);
 
                 iApp.View_Result(Deckslab_Report_File);
@@ -3234,6 +3274,11 @@ namespace LimitStateMethod.DeckSlab
             }
             catch (Exception ex) { }
 
+        }
+
+        private void txt_Mhog_TextChanged(object sender, EventArgs e)
+        {
+            Button_Enabled_Disabled();
         }
 
      

@@ -43,8 +43,8 @@ namespace AstraFunctionOne
         private void timer1_Tick(object sender, EventArgs e)
         {
             //if (iapp.IsDemo == false)
-            if (iapp.Is_BridgeDemo == false)
-                this.Close();
+            //if (iapp.Is_BridgeDemo == false)
+            //    this.Close();
 
         }
     }
