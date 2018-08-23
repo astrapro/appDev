@@ -3026,4 +3026,5 @@
         private System.Windows.Forms.Timer tmr_moving_load;
         private System.Windows.Forms.Timer tmrLoadDeflection;
     }
+
 }

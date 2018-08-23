@@ -54,18 +54,18 @@
             // 
             this.rbtn_LRFD.AutoSize = true;
             this.rbtn_LRFD.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_LRFD.Location = new System.Drawing.Point(6, 72);
+            this.rbtn_LRFD.Location = new System.Drawing.Point(6, 47);
             this.rbtn_LRFD.Name = "rbtn_LRFD";
-            this.rbtn_LRFD.Size = new System.Drawing.Size(238, 20);
+            this.rbtn_LRFD.Size = new System.Drawing.Size(195, 20);
             this.rbtn_LRFD.TabIndex = 1;
-            this.rbtn_LRFD.Text = "AASHTO LRFD Loading Standard";
+            this.rbtn_LRFD.Text = "AASHTO - LRFD Standard";
             this.rbtn_LRFD.UseVisualStyleBackColor = true;
             // 
             // rbtn_BS
             // 
             this.rbtn_BS.AutoSize = true;
             this.rbtn_BS.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_BS.Location = new System.Drawing.Point(6, 46);
+            this.rbtn_BS.Location = new System.Drawing.Point(6, 21);
             this.rbtn_BS.Name = "rbtn_BS";
             this.rbtn_BS.Size = new System.Drawing.Size(257, 20);
             this.rbtn_BS.TabIndex = 1;
@@ -77,7 +77,7 @@
             this.rbtn_IS.AutoSize = true;
             this.rbtn_IS.Checked = true;
             this.rbtn_IS.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_IS.Location = new System.Drawing.Point(6, 20);
+            this.rbtn_IS.Location = new System.Drawing.Point(6, 73);
             this.rbtn_IS.Name = "rbtn_IS";
             this.rbtn_IS.Size = new System.Drawing.Size(133, 20);
             this.rbtn_IS.TabIndex = 0;

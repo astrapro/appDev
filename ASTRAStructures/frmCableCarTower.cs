@@ -6048,7 +6048,8 @@ namespace ASTRAStructures
             ext = Path.GetExtension(fName).ToLower();
             if (ext == ".txt")
             {
-                runExe = Path.Combine(Application.StartupPath, "AST001.exe");
+                //runExe = Path.Combine(Application.StartupPath, "AST001.exe");
+                runExe = Path.Combine(Application.StartupPath, "AST006.exe");
 
                 if (File.Exists(runExe) == false)
                 {

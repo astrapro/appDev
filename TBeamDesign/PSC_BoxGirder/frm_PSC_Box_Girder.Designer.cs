@@ -542,7 +542,6 @@
             this.btn_design_of_anchorage = new System.Windows.Forms.Button();
             this.btn_cable_frict = new System.Windows.Forms.Button();
             this.btn_Temp_trans = new System.Windows.Forms.Button();
-            this.uC_BoxGirder1 = new BridgeAnalysisDesign.PSC_BoxGirder.UC_BoxGirder();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_psc_box = new System.Windows.Forms.Button();
             this.btn_worksheet_open = new System.Windows.Forms.Button();
@@ -816,7 +815,6 @@
             this.btn_segment_report = new System.Windows.Forms.Button();
             this.btn_segment_process = new System.Windows.Forms.Button();
             this.tab_rcc_abutment = new System.Windows.Forms.TabPage();
-            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
             this.tab_pier = new System.Windows.Forms.TabPage();
             this.label155 = new System.Windows.Forms.Label();
             this.btn_RCC_Pier_Process = new System.Windows.Forms.Button();
@@ -1002,6 +1000,27 @@
             this.txt_RCC_Pier_L = new System.Windows.Forms.TextBox();
             this.label464 = new System.Windows.Forms.Label();
             this.tab_des_form2 = new System.Windows.Forms.TabPage();
+            this.label150 = new System.Windows.Forms.Label();
+            this.label284 = new System.Windows.Forms.Label();
+            this.label285 = new System.Windows.Forms.Label();
+            this.txt_pier_2_vspc = new System.Windows.Forms.TextBox();
+            this.label286 = new System.Windows.Forms.Label();
+            this.txt_pier_2_vdia = new System.Windows.Forms.TextBox();
+            this.label287 = new System.Windows.Forms.Label();
+            this.txt_pier_2_hdia = new System.Windows.Forms.TextBox();
+            this.label288 = new System.Windows.Forms.Label();
+            this.label293 = new System.Windows.Forms.Label();
+            this.label294 = new System.Windows.Forms.Label();
+            this.txt_pier_2_ldia = new System.Windows.Forms.TextBox();
+            this.label295 = new System.Windows.Forms.Label();
+            this.txt_pier_2_vlegs = new System.Windows.Forms.TextBox();
+            this.label296 = new System.Windows.Forms.Label();
+            this.txt_pier_2_hlegs = new System.Windows.Forms.TextBox();
+            this.label297 = new System.Windows.Forms.Label();
+            this.txt_pier_2_slegs = new System.Windows.Forms.TextBox();
+            this.label298 = new System.Windows.Forms.Label();
+            this.txt_pier_2_sdia = new System.Windows.Forms.TextBox();
+            this.label299 = new System.Windows.Forms.Label();
             this.label233 = new System.Windows.Forms.Label();
             this.label234 = new System.Windows.Forms.Label();
             this.label465 = new System.Windows.Forms.Label();
@@ -1059,27 +1078,8 @@
             this.btn_dwg_pier = new System.Windows.Forms.Button();
             this.btn_open_drawings = new System.Windows.Forms.Button();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
-            this.label150 = new System.Windows.Forms.Label();
-            this.label284 = new System.Windows.Forms.Label();
-            this.label285 = new System.Windows.Forms.Label();
-            this.txt_pier_2_vspc = new System.Windows.Forms.TextBox();
-            this.label286 = new System.Windows.Forms.Label();
-            this.txt_pier_2_vdia = new System.Windows.Forms.TextBox();
-            this.label287 = new System.Windows.Forms.Label();
-            this.txt_pier_2_hdia = new System.Windows.Forms.TextBox();
-            this.label288 = new System.Windows.Forms.Label();
-            this.label293 = new System.Windows.Forms.Label();
-            this.label294 = new System.Windows.Forms.Label();
-            this.txt_pier_2_ldia = new System.Windows.Forms.TextBox();
-            this.label295 = new System.Windows.Forms.Label();
-            this.txt_pier_2_vlegs = new System.Windows.Forms.TextBox();
-            this.label296 = new System.Windows.Forms.Label();
-            this.txt_pier_2_hlegs = new System.Windows.Forms.TextBox();
-            this.label297 = new System.Windows.Forms.Label();
-            this.txt_pier_2_slegs = new System.Windows.Forms.TextBox();
-            this.label298 = new System.Windows.Forms.Label();
-            this.txt_pier_2_sdia = new System.Windows.Forms.TextBox();
-            this.label299 = new System.Windows.Forms.Label();
+            this.uC_BoxGirder1 = new BridgeAnalysisDesign.PSC_BoxGirder.UC_BoxGirder();
+            this.uC_RCC_Abut1 = new BridgeAnalysisDesign.Abutment.UC_RCC_Abut();
             this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -3839,7 +3839,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl5);
             this.splitContainer1.Size = new System.Drawing.Size(930, 628);
-            this.splitContainer1.SplitterDistance = 119;
+            this.splitContainer1.SplitterDistance = 117;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 104;
             // 
@@ -4248,7 +4248,7 @@
             this.tabControl5.Location = new System.Drawing.Point(0, 0);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(928, 501);
+            this.tabControl5.Size = new System.Drawing.Size(928, 503);
             this.tabControl5.TabIndex = 1;
             // 
             // tabPage5
@@ -4257,7 +4257,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(920, 475);
+            this.tabPage5.Size = new System.Drawing.Size(920, 477);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Analysis Results";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -4275,7 +4275,7 @@
             this.groupBox44.ForeColor = System.Drawing.Color.Red;
             this.groupBox44.Location = new System.Drawing.Point(3, 3);
             this.groupBox44.Name = "groupBox44";
-            this.groupBox44.Size = new System.Drawing.Size(914, 469);
+            this.groupBox44.Size = new System.Drawing.Size(914, 471);
             this.groupBox44.TabIndex = 94;
             this.groupBox44.TabStop = false;
             // 
@@ -5523,7 +5523,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(920, 475);
+            this.tabPage6.Size = new System.Drawing.Size(519, 243);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Reaction Forces";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -5541,7 +5541,7 @@
             this.groupBox62.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox62.Location = new System.Drawing.Point(3, 3);
             this.groupBox62.Name = "groupBox62";
-            this.groupBox62.Size = new System.Drawing.Size(914, 469);
+            this.groupBox62.Size = new System.Drawing.Size(513, 237);
             this.groupBox62.TabIndex = 29;
             this.groupBox62.TabStop = false;
             // 
@@ -6328,18 +6328,6 @@
             this.btn_Temp_trans.Text = "Temperature Stresses";
             this.btn_Temp_trans.UseVisualStyleBackColor = true;
             this.btn_Temp_trans.Click += new System.EventHandler(this.btn_Open_Worksheet_Design_Click);
-            // 
-            // uC_BoxGirder1
-            // 
-            this.uC_BoxGirder1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_BoxGirder1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_BoxGirder1.iApp = null;
-            this.uC_BoxGirder1.Location = new System.Drawing.Point(3, 3);
-            this.uC_BoxGirder1.Name = "uC_BoxGirder1";
-            this.uC_BoxGirder1.Size = new System.Drawing.Size(936, 567);
-            this.uC_BoxGirder1.Span = 48.75D;
-            this.uC_BoxGirder1.TabIndex = 12;
-            this.uC_BoxGirder1.Width = 9.75D;
             // 
             // panel2
             // 
@@ -9280,23 +9268,6 @@
             this.tab_rcc_abutment.Text = "Design of RCC Abutment";
             this.tab_rcc_abutment.UseVisualStyleBackColor = true;
             // 
-            // uC_RCC_Abut1
-            // 
-            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_RCC_Abut1.iApp = null;
-            this.uC_RCC_Abut1.Is_Individual = true;
-            this.uC_RCC_Abut1.Is_Limit_State = false;
-            this.uC_RCC_Abut1.IsBoxType = true;
-            this.uC_RCC_Abut1.Length = 60D;
-            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
-            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
-            this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(944, 660);
-            this.uC_RCC_Abut1.TabIndex = 0;
-            this.uC_RCC_Abut1.Width = 12D;
-            this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
-            // 
             // tab_pier
             // 
             this.tab_pier.Controls.Add(this.label155);
@@ -11397,6 +11368,200 @@
             this.tab_des_form2.Text = "Design Input Data [Form2]";
             this.tab_des_form2.UseVisualStyleBackColor = true;
             // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label150.Location = new System.Drawing.Point(869, 440);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(31, 13);
+            this.label150.TabIndex = 243;
+            this.label150.Text = "mm";
+            // 
+            // label284
+            // 
+            this.label284.AutoSize = true;
+            this.label284.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label284.Location = new System.Drawing.Point(869, 382);
+            this.label284.Name = "label284";
+            this.label284.Size = new System.Drawing.Size(31, 13);
+            this.label284.TabIndex = 244;
+            this.label284.Text = "mm";
+            // 
+            // label285
+            // 
+            this.label285.AutoSize = true;
+            this.label285.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label285.Location = new System.Drawing.Point(869, 326);
+            this.label285.Name = "label285";
+            this.label285.Size = new System.Drawing.Size(31, 13);
+            this.label285.TabIndex = 245;
+            this.label285.Text = "mm";
+            // 
+            // txt_pier_2_vspc
+            // 
+            this.txt_pier_2_vspc.Location = new System.Drawing.Point(789, 437);
+            this.txt_pier_2_vspc.Name = "txt_pier_2_vspc";
+            this.txt_pier_2_vspc.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_vspc.TabIndex = 240;
+            this.txt_pier_2_vspc.Text = "200";
+            this.txt_pier_2_vspc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label286
+            // 
+            this.label286.AutoSize = true;
+            this.label286.Location = new System.Drawing.Point(471, 440);
+            this.label286.Name = "label286";
+            this.label286.Size = new System.Drawing.Size(263, 13);
+            this.label286.TabIndex = 237;
+            this.label286.Text = "Spacing between Vertical Stirrup Bars [vspc]";
+            // 
+            // txt_pier_2_vdia
+            // 
+            this.txt_pier_2_vdia.Location = new System.Drawing.Point(789, 379);
+            this.txt_pier_2_vdia.Name = "txt_pier_2_vdia";
+            this.txt_pier_2_vdia.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_vdia.TabIndex = 241;
+            this.txt_pier_2_vdia.Text = "10";
+            this.txt_pier_2_vdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label287
+            // 
+            this.label287.AutoSize = true;
+            this.label287.Location = new System.Drawing.Point(471, 382);
+            this.label287.Name = "label287";
+            this.label287.Size = new System.Drawing.Size(232, 13);
+            this.label287.TabIndex = 238;
+            this.label287.Text = "Diameter of Vertical Stirrup Bars [vdia]";
+            // 
+            // txt_pier_2_hdia
+            // 
+            this.txt_pier_2_hdia.Location = new System.Drawing.Point(789, 323);
+            this.txt_pier_2_hdia.Name = "txt_pier_2_hdia";
+            this.txt_pier_2_hdia.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_hdia.TabIndex = 242;
+            this.txt_pier_2_hdia.Text = "12";
+            this.txt_pier_2_hdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label288
+            // 
+            this.label288.AutoSize = true;
+            this.label288.Location = new System.Drawing.Point(471, 326);
+            this.label288.Name = "label288";
+            this.label288.Size = new System.Drawing.Size(247, 13);
+            this.label288.TabIndex = 239;
+            this.label288.Text = "Diameter of Horizontal Stirrup Bars [hdia]";
+            // 
+            // label293
+            // 
+            this.label293.AutoSize = true;
+            this.label293.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label293.Location = new System.Drawing.Point(869, 299);
+            this.label293.Name = "label293";
+            this.label293.Size = new System.Drawing.Size(31, 13);
+            this.label293.TabIndex = 236;
+            this.label293.Text = "mm";
+            // 
+            // label294
+            // 
+            this.label294.AutoSize = true;
+            this.label294.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label294.Location = new System.Drawing.Point(869, 245);
+            this.label294.Name = "label294";
+            this.label294.Size = new System.Drawing.Size(31, 13);
+            this.label294.TabIndex = 235;
+            this.label294.Text = "mm";
+            // 
+            // txt_pier_2_ldia
+            // 
+            this.txt_pier_2_ldia.Location = new System.Drawing.Point(789, 296);
+            this.txt_pier_2_ldia.Name = "txt_pier_2_ldia";
+            this.txt_pier_2_ldia.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_ldia.TabIndex = 234;
+            this.txt_pier_2_ldia.Text = "25";
+            this.txt_pier_2_ldia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label295
+            // 
+            this.label295.AutoSize = true;
+            this.label295.Location = new System.Drawing.Point(471, 299);
+            this.label295.Name = "label295";
+            this.label295.Size = new System.Drawing.Size(295, 13);
+            this.label295.TabIndex = 233;
+            this.label295.Text = "Diameter of Longitudinal reinforcement Bars [ldia]";
+            // 
+            // txt_pier_2_vlegs
+            // 
+            this.txt_pier_2_vlegs.Location = new System.Drawing.Point(789, 409);
+            this.txt_pier_2_vlegs.Name = "txt_pier_2_vlegs";
+            this.txt_pier_2_vlegs.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_vlegs.TabIndex = 232;
+            this.txt_pier_2_vlegs.Text = "4";
+            this.txt_pier_2_vlegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label296
+            // 
+            this.label296.AutoSize = true;
+            this.label296.Location = new System.Drawing.Point(470, 412);
+            this.label296.Name = "label296";
+            this.label296.Size = new System.Drawing.Size(282, 13);
+            this.label296.TabIndex = 229;
+            this.label296.Text = "Vertical Stirrup Reinforcement Legs Nos. [vlegs]";
+            // 
+            // txt_pier_2_hlegs
+            // 
+            this.txt_pier_2_hlegs.Location = new System.Drawing.Point(789, 350);
+            this.txt_pier_2_hlegs.Name = "txt_pier_2_hlegs";
+            this.txt_pier_2_hlegs.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_hlegs.TabIndex = 231;
+            this.txt_pier_2_hlegs.Text = "12";
+            this.txt_pier_2_hlegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label297
+            // 
+            this.label297.AutoSize = true;
+            this.label297.Location = new System.Drawing.Point(470, 353);
+            this.label297.Name = "label297";
+            this.label297.Size = new System.Drawing.Size(297, 13);
+            this.label297.TabIndex = 228;
+            this.label297.Text = "Horizontal Stirrup Reinforcement Legs Nos. [hlegs]";
+            // 
+            // txt_pier_2_slegs
+            // 
+            this.txt_pier_2_slegs.Location = new System.Drawing.Point(789, 269);
+            this.txt_pier_2_slegs.Name = "txt_pier_2_slegs";
+            this.txt_pier_2_slegs.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_slegs.TabIndex = 230;
+            this.txt_pier_2_slegs.Text = "6";
+            this.txt_pier_2_slegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label298
+            // 
+            this.label298.AutoSize = true;
+            this.label298.Location = new System.Drawing.Point(471, 277);
+            this.label298.Name = "label298";
+            this.label298.Size = new System.Drawing.Size(230, 13);
+            this.label298.TabIndex = 227;
+            this.label298.Text = "Shear Reinforcement Legs Nos. [slegs]";
+            // 
+            // txt_pier_2_sdia
+            // 
+            this.txt_pier_2_sdia.Location = new System.Drawing.Point(789, 242);
+            this.txt_pier_2_sdia.Name = "txt_pier_2_sdia";
+            this.txt_pier_2_sdia.Size = new System.Drawing.Size(74, 21);
+            this.txt_pier_2_sdia.TabIndex = 226;
+            this.txt_pier_2_sdia.Text = "16";
+            this.txt_pier_2_sdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label299
+            // 
+            this.label299.AutoSize = true;
+            this.label299.Location = new System.Drawing.Point(471, 250);
+            this.label299.Name = "label299";
+            this.label299.Size = new System.Drawing.Size(223, 13);
+            this.label299.TabIndex = 225;
+            this.label299.Text = "Diameter of Reinforcement Bar [sdia]";
+            // 
             // label233
             // 
             this.label233.AutoSize = true;
@@ -11953,199 +12118,35 @@
             this.btn_open_drawings.UseVisualStyleBackColor = true;
             this.btn_open_drawings.Click += new System.EventHandler(this.btn_open_drawings_Click);
             // 
-            // label150
+            // uC_BoxGirder1
             // 
-            this.label150.AutoSize = true;
-            this.label150.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label150.Location = new System.Drawing.Point(869, 440);
-            this.label150.Name = "label150";
-            this.label150.Size = new System.Drawing.Size(31, 13);
-            this.label150.TabIndex = 243;
-            this.label150.Text = "mm";
+            this.uC_BoxGirder1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BoxGirder1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BoxGirder1.iApp = null;
+            this.uC_BoxGirder1.Location = new System.Drawing.Point(3, 3);
+            this.uC_BoxGirder1.Name = "uC_BoxGirder1";
+            this.uC_BoxGirder1.Size = new System.Drawing.Size(936, 567);
+            this.uC_BoxGirder1.Span = 48.75D;
+            this.uC_BoxGirder1.TabIndex = 12;
+            this.uC_BoxGirder1.Width = 9.75D;
             // 
-            // label284
+            // uC_RCC_Abut1
             // 
-            this.label284.AutoSize = true;
-            this.label284.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label284.Location = new System.Drawing.Point(869, 382);
-            this.label284.Name = "label284";
-            this.label284.Size = new System.Drawing.Size(31, 13);
-            this.label284.TabIndex = 244;
-            this.label284.Text = "mm";
-            // 
-            // label285
-            // 
-            this.label285.AutoSize = true;
-            this.label285.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label285.Location = new System.Drawing.Point(869, 326);
-            this.label285.Name = "label285";
-            this.label285.Size = new System.Drawing.Size(31, 13);
-            this.label285.TabIndex = 245;
-            this.label285.Text = "mm";
-            // 
-            // txt_pier_2_vspc
-            // 
-            this.txt_pier_2_vspc.Location = new System.Drawing.Point(789, 437);
-            this.txt_pier_2_vspc.Name = "txt_pier_2_vspc";
-            this.txt_pier_2_vspc.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_vspc.TabIndex = 240;
-            this.txt_pier_2_vspc.Text = "200";
-            this.txt_pier_2_vspc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label286
-            // 
-            this.label286.AutoSize = true;
-            this.label286.Location = new System.Drawing.Point(471, 440);
-            this.label286.Name = "label286";
-            this.label286.Size = new System.Drawing.Size(263, 13);
-            this.label286.TabIndex = 237;
-            this.label286.Text = "Spacing between Vertical Stirrup Bars [vspc]";
-            // 
-            // txt_pier_2_vdia
-            // 
-            this.txt_pier_2_vdia.Location = new System.Drawing.Point(789, 379);
-            this.txt_pier_2_vdia.Name = "txt_pier_2_vdia";
-            this.txt_pier_2_vdia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_vdia.TabIndex = 241;
-            this.txt_pier_2_vdia.Text = "10";
-            this.txt_pier_2_vdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label287
-            // 
-            this.label287.AutoSize = true;
-            this.label287.Location = new System.Drawing.Point(471, 382);
-            this.label287.Name = "label287";
-            this.label287.Size = new System.Drawing.Size(232, 13);
-            this.label287.TabIndex = 238;
-            this.label287.Text = "Diameter of Vertical Stirrup Bars [vdia]";
-            // 
-            // txt_pier_2_hdia
-            // 
-            this.txt_pier_2_hdia.Location = new System.Drawing.Point(789, 323);
-            this.txt_pier_2_hdia.Name = "txt_pier_2_hdia";
-            this.txt_pier_2_hdia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_hdia.TabIndex = 242;
-            this.txt_pier_2_hdia.Text = "12";
-            this.txt_pier_2_hdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label288
-            // 
-            this.label288.AutoSize = true;
-            this.label288.Location = new System.Drawing.Point(471, 326);
-            this.label288.Name = "label288";
-            this.label288.Size = new System.Drawing.Size(247, 13);
-            this.label288.TabIndex = 239;
-            this.label288.Text = "Diameter of Horizontal Stirrup Bars [hdia]";
-            // 
-            // label293
-            // 
-            this.label293.AutoSize = true;
-            this.label293.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label293.Location = new System.Drawing.Point(869, 299);
-            this.label293.Name = "label293";
-            this.label293.Size = new System.Drawing.Size(31, 13);
-            this.label293.TabIndex = 236;
-            this.label293.Text = "mm";
-            // 
-            // label294
-            // 
-            this.label294.AutoSize = true;
-            this.label294.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label294.Location = new System.Drawing.Point(869, 245);
-            this.label294.Name = "label294";
-            this.label294.Size = new System.Drawing.Size(31, 13);
-            this.label294.TabIndex = 235;
-            this.label294.Text = "mm";
-            // 
-            // txt_pier_2_ldia
-            // 
-            this.txt_pier_2_ldia.Location = new System.Drawing.Point(789, 296);
-            this.txt_pier_2_ldia.Name = "txt_pier_2_ldia";
-            this.txt_pier_2_ldia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_ldia.TabIndex = 234;
-            this.txt_pier_2_ldia.Text = "25";
-            this.txt_pier_2_ldia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label295
-            // 
-            this.label295.AutoSize = true;
-            this.label295.Location = new System.Drawing.Point(471, 299);
-            this.label295.Name = "label295";
-            this.label295.Size = new System.Drawing.Size(295, 13);
-            this.label295.TabIndex = 233;
-            this.label295.Text = "Diameter of Longitudinal reinforcement Bars [ldia]";
-            // 
-            // txt_pier_2_vlegs
-            // 
-            this.txt_pier_2_vlegs.Location = new System.Drawing.Point(789, 409);
-            this.txt_pier_2_vlegs.Name = "txt_pier_2_vlegs";
-            this.txt_pier_2_vlegs.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_vlegs.TabIndex = 232;
-            this.txt_pier_2_vlegs.Text = "4";
-            this.txt_pier_2_vlegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label296
-            // 
-            this.label296.AutoSize = true;
-            this.label296.Location = new System.Drawing.Point(470, 412);
-            this.label296.Name = "label296";
-            this.label296.Size = new System.Drawing.Size(282, 13);
-            this.label296.TabIndex = 229;
-            this.label296.Text = "Vertical Stirrup Reinforcement Legs Nos. [vlegs]";
-            // 
-            // txt_pier_2_hlegs
-            // 
-            this.txt_pier_2_hlegs.Location = new System.Drawing.Point(789, 350);
-            this.txt_pier_2_hlegs.Name = "txt_pier_2_hlegs";
-            this.txt_pier_2_hlegs.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_hlegs.TabIndex = 231;
-            this.txt_pier_2_hlegs.Text = "12";
-            this.txt_pier_2_hlegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label297
-            // 
-            this.label297.AutoSize = true;
-            this.label297.Location = new System.Drawing.Point(470, 353);
-            this.label297.Name = "label297";
-            this.label297.Size = new System.Drawing.Size(297, 13);
-            this.label297.TabIndex = 228;
-            this.label297.Text = "Horizontal Stirrup Reinforcement Legs Nos. [hlegs]";
-            // 
-            // txt_pier_2_slegs
-            // 
-            this.txt_pier_2_slegs.Location = new System.Drawing.Point(789, 269);
-            this.txt_pier_2_slegs.Name = "txt_pier_2_slegs";
-            this.txt_pier_2_slegs.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_slegs.TabIndex = 230;
-            this.txt_pier_2_slegs.Text = "6";
-            this.txt_pier_2_slegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label298
-            // 
-            this.label298.AutoSize = true;
-            this.label298.Location = new System.Drawing.Point(471, 277);
-            this.label298.Name = "label298";
-            this.label298.Size = new System.Drawing.Size(230, 13);
-            this.label298.TabIndex = 227;
-            this.label298.Text = "Shear Reinforcement Legs Nos. [slegs]";
-            // 
-            // txt_pier_2_sdia
-            // 
-            this.txt_pier_2_sdia.Location = new System.Drawing.Point(789, 242);
-            this.txt_pier_2_sdia.Name = "txt_pier_2_sdia";
-            this.txt_pier_2_sdia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_sdia.TabIndex = 226;
-            this.txt_pier_2_sdia.Text = "16";
-            this.txt_pier_2_sdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label299
-            // 
-            this.label299.AutoSize = true;
-            this.label299.Location = new System.Drawing.Point(471, 250);
-            this.label299.Name = "label299";
-            this.label299.Size = new System.Drawing.Size(223, 13);
-            this.label299.TabIndex = 225;
-            this.label299.Text = "Diameter of Reinforcement Bar [sdia]";
+            this.uC_RCC_Abut1.Deadload_Reaction = "";
+            this.uC_RCC_Abut1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_RCC_Abut1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_RCC_Abut1.iApp = null;
+            this.uC_RCC_Abut1.Is_Individual = true;
+            this.uC_RCC_Abut1.Is_Limit_State = true;
+            this.uC_RCC_Abut1.IsBoxType = true;
+            this.uC_RCC_Abut1.Length = 60D;
+            this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
+            this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
+            this.uC_RCC_Abut1.Overhang = 0.65D;
+            this.uC_RCC_Abut1.Size = new System.Drawing.Size(944, 660);
+            this.uC_RCC_Abut1.TabIndex = 0;
+            this.uC_RCC_Abut1.Width = 12D;
+            this.uC_RCC_Abut1.Abut_Counterfort_LS1_dead_load_CheckedChanged += new System.EventHandler(this.uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged);
             // 
             // frm_PSC_Box_Girder
             // 

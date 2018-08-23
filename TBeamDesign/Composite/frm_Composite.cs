@@ -15452,7 +15452,6 @@ namespace BridgeAnalysisDesign.Composite
         MovingLoad = 8,
     }
 
-    //Chiranjit [2012 12 13]
     public class Steel_Girder_Section
     {
         public int Nb;
@@ -16412,6 +16411,85 @@ namespace BridgeAnalysisDesign.Composite
             {
                 list.Add(string.Format("Angle Section : 4 X {0} {1}X{2}", AngleSection.SectionName, AngleSection.SectionSize, AngleSection.Thickness));
                 list.Add(string.Format("Angle Area : {0:f3}", AngleSection.Area * 100));
+            }
+            list.Add(string.Format(""));
+        }
+
+
+        public void Get_Input_Data_inch(ref List<string> list)
+        {
+
+
+            list.Add(string.Format(""));
+            //if (Nb > 0)
+            list.Add(string.Format("Total Number of Web = Nb = {0} ", Nb));
+            //if (S > 0)
+            list.Add(string.Format("Spacing between two Web = S = {0} in", S));
+            //if (Bw > 0)
+            list.Add(string.Format("Web Thickness = Bw = {0} in", Bw));
+            //if (Dw > 0)
+            list.Add(string.Format("Web Depth = Dw = {0} in ", Dw));
+            list.Add(string.Format(""));
+            //if (Area_Web_Plate > 0)
+            list.Add(string.Format("Web Area = {0:f3} sq.in ", Area_Web_Plate));
+            list.Add(string.Format(""));
+            //if (Bft > 0)
+            list.Add(string.Format("Top Flange Breadth = Bft = {0} in", Bft));
+            //if (Dft > 0)
+            list.Add(string.Format("Top Flange Depth = Dft = {0} in", Dft));
+            list.Add(string.Format(""));
+            //if (Area_Top_Flange_Plate > 0)
+            list.Add(string.Format("Top Flange Area = {0:f3} sq.in ", Area_Top_Flange_Plate));
+            //if (Bfb > 0)
+            list.Add(string.Format("Bottom Flange Breadth = Bfb = {0} in ", Bfb));
+            //if (Dfb > 0)
+            list.Add(string.Format("Bottom Flange Depth = Dfb = {0} in ", Dfb));
+            list.Add(string.Format(""));
+            //if (Area_Bottom_Flange_Plate > 0)
+            list.Add(string.Format("Bottom Flange Area = {0:f3} sq.in ", Area_Bottom_Flange_Plate));
+            list.Add(string.Format(""));
+            //if (Dt > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Breadth = Bt = {0} in ", Bt));
+            //if (Bt > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Depth = Dt = {0} in", Dt));
+            list.Add(string.Format(""));
+            //if (Area_Top_Plate > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Area = {0:f3} sq.in", Area_Top_Plate));
+            list.Add(string.Format(""));
+            //if (Bb > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Breadth = Bb = {0} in ", Bb));
+            //if (Db > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Depth = Db = {0} in ", Db));
+            list.Add(string.Format(""));
+            //if (Area_Bottom_Plate > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Area = {0:f3} sq.in ", Area_Bottom_Plate));
+            list.Add(string.Format(""));
+            //if (Bs1 > 0)
+            list.Add(string.Format("Additional Side Plate 1 Breadth = Bs1 = {0} in  ", Bs1));
+            //if (Ds1 > 0)
+            list.Add(string.Format("Additional Side Plate 1 Depth = Ds1 = {0} in   ", Ds1));
+            //if (Bs2 > 0)
+            list.Add(string.Format("Side Plate 2 Breadth = Bs2 = {0} in   ", Bs2));
+            //if (Ds2 > 0)
+            list.Add(string.Format("Additional Side Plate 2 Depth = Ds2 = {0} in   ", Ds2));
+            //if (Bs3 > 0)
+            list.Add(string.Format("Additional Side Plate 3 Breadth = Bs3 = {0} in   ", Bs3));
+            //if (Ds3 > 0)
+            list.Add(string.Format("Additional Side Plate 3 Depth = Ds3 = {0} in   ", Ds3));
+            //if (Bs4 > 0)
+            list.Add(string.Format("Additional Side Plate 4 Breadth = Bs4 = {0} in   ", Bs4));
+            //if (Ds4 > 0)
+            list.Add(string.Format("Additional Side Plate 4 Depth = Ds4 = {0} in   ", Ds4));
+            list.Add(string.Format(""));
+            //if (Area_Side_Plate > 0)
+            list.Add(string.Format("Additional Total Side Plate Area = {0:f3} sq.in ", Area_Side_Plate));
+            list.Add(string.Format(""));
+
+
+            if (AngleSection != null)
+            {
+                list.Add(string.Format("Angle Section : 4 X {0} {1}X{2}", AngleSection.SectionName, AngleSection.SectionSize, AngleSection.Thickness));
+                list.Add(string.Format("Angle Area : {0:f3} sq.in", AngleSection.Area * 100));
             }
             list.Add(string.Format(""));
         }
@@ -17992,7 +18070,6 @@ namespace BridgeAnalysisDesign.Composite
 
     }
 
-    //Chiranjit [2012 12 14]
     public class CompositeSection
     {
         public Steel_Girder_Section Section_Long_Girder_at_L4_Span { get; set; }
@@ -18276,6 +18353,1798 @@ namespace BridgeAnalysisDesign.Composite
             list.Add(string.Format(""));
             double add_total = total_weight * 1.24;
             list.Add(string.Format("ADD 24% FOR SPLICING, BOLTS etc. = {0:f3} X 1.24 = {1:f3} TONS.", total_weight, add_total));
+            list.Add(string.Format(""));
+
+            list.Add(string.Format(""));
+
+            foreach (var item in list)
+            {
+                sw.WriteLine(item);
+            }
+            //return list;
+        }
+
+
+        public void Calculate_Composite_Section()
+        {
+            try
+            {
+                Section_Long_Girder_at_L4_Span.Calculate_Composite_Section();
+                Section_Long_Girder_at_Mid_Span.Calculate_Composite_Section();
+                Section_Long_Girder_at_End_Span.Calculate_Composite_Section();
+            }
+            catch (Exception ex) { }
+        }
+    }
+
+
+
+    public class Steel_Girder_Section_AASHTO
+    {
+        public int Nb;
+        public double S, Bw, Dw, Bft, Dft, Bfb, Dfb, Bt, Dt, Bb, Db, Bs1, Ds1, Bs2, Ds2, Bs3, Ds3, Bs4, Ds4, Ixbs, Iybs;
+
+
+        //Chiranjit [2013 06 25]
+        public RolledSteelAnglesRow AngleSection;
+
+        //Chiranjit [2013 07 02]
+        public double Ds;
+        public double bs;
+        public double Bs;
+        public double m;
+        double side = 2;
+        double na = 4;
+
+
+
+        public Steel_Girder_Section_AASHTO()
+        {
+            Nb = 0;
+            S = 0.0;
+            Bw = 0.0;
+            Dw = 0.0;
+            Bft = 0.0;
+            Dft = 0.0;
+            Bfb = 0.0;
+            Dfb = 0.0;
+            Bt = 0.0;
+            Dt = 0.0;
+            Bb = 0.0;
+            Db = 0.0;
+            Bs1 = 0.0;
+            Ds1 = 0.0;
+            Bs2 = 0.0;
+            Ds2 = 0.0;
+            Bs3 = 0.0;
+            Ds3 = 0.0;
+            Bs4 = 0.0;
+            Ds4 = 0.0;
+            Ixbs = 0.0;
+            Iybs = 0.0;
+
+        }
+        public Steel_Girder_Section_AASHTO(Steel_Girder_Section obj)
+        {
+            Nb = obj.Nb;
+            S = obj.S;
+            Bw = obj.Bw;
+            Dw = obj.Dw;
+            Bft = obj.Bft;
+            Dft = obj.Dft;
+            Bfb = obj.Bfb;
+            Dfb = obj.Dfb;
+            Bt = obj.Bt;
+            Dt = obj.Dt;
+            Bb = obj.Bb;
+            Db = obj.Db;
+            Bs1 = obj.Bs1;
+            Ds1 = obj.Ds1;
+            Bs2 = obj.Bs2;
+            Ds2 = obj.Ds2;
+            Bs3 = obj.Bs3;
+            Ds3 = obj.Ds3;
+            Bs4 = obj.Bs4;
+            Ds4 = obj.Ds4;
+            Ixbs = obj.Ixbs;
+            Iybs = obj.Iybs;
+
+        }
+
+        public int Total_Plate
+        {
+            get
+            {
+                return Nb;
+            }
+            set
+            {
+                Nb = value;
+            }
+        }
+        public double Area_in_Sq_FT
+        {
+            get
+            {
+                return (Ax / (12*12)); //Chiranjit [2013 07 04]
+
+            }
+        }
+        public double Ixx_in_Sq_Sq_FT
+        {
+            get
+            {
+                return (Ixx / (12 * 12 * 12 * 12));
+
+            }
+        }
+        public double Iyy_in_Sq_Sq_FT
+        {
+            get
+            {
+                return (Iyy / (12 * 12 * 12 * 12));
+
+            }
+        }
+        public double Izz_in_Sq_Sq_FT
+        {
+            get
+            {
+                return (Ixx_in_Sq_Sq_FT + Iyy_in_Sq_Sq_FT);
+            }
+        }
+
+
+        public double Ax
+        {
+            get
+            {
+                return (Nb * (Bw * Dw) +
+                    (Bft * Dft) +
+                    (Bfb * Dfb) +
+                    (Bt * Dt) +
+                    (Bb * Db) +
+                    (Bs1 * Ds1) +
+                    (Bs2 * Ds2) +
+                    (Bs3 * Ds3) +
+                    (Bs4 * Ds4));
+            }
+        }
+        public double Ixb
+        {
+            get
+            {
+
+                return (Nb * (Bw * Math.Pow(Dw, 3.0)) / 12.0 + (Bft * Math.Pow(Dft, 3.0)) / 12 + (Bft * Dft) * Math.Pow((Dw / 2 + Dft / 2), 2.0) + (Bfb * Math.Pow(Dfb, 3.0)) / 12 + (Bfb * Dfb) * Math.Pow((Dw / 2 + Dfb / 2), 2.0));
+            }
+        }
+        public double Ixtp
+        {
+            get
+            {
+                return (Bt * Math.Pow(Dt, 3.0)) / 12 + (Bt * Dt) * Math.Pow((Dt / 2 + Dft + Dw / 2), 2.0);
+            }
+        }
+        public double Ixbp
+        {
+            get
+            {
+                return (Bb * Math.Pow(Db, 3.0)) / 12.0 + (Bb * Db) * Math.Pow((Db / 2 + Dfb + Dw / 2), 2.0);
+            }
+        }
+        public double Ixp1
+        {
+            get
+            {
+                return (Bs1 * Math.Pow(Ds1, 3.0)) / 12.0;
+            }
+        }
+
+        public double Ixp2
+        {
+            get
+            {
+                return (Bs2 * Math.Pow(Ds2, 3.0)) / 12.0;
+            }
+        }
+
+        public double Ixp3
+        {
+            get
+            {
+                return (Bs3 * Math.Pow(Ds3, 3.0)) / 12.0;
+            }
+        }
+
+        public double Ixp4
+        {
+            get
+            {
+                return (Bs4 * Math.Pow(Ds4, 3.0)) / 12.0;
+            }
+        }
+
+        public double Ixx
+        {
+            get
+            {
+                return Ixb + Ixtp + Ixbp + Ixp1 + Ixp2 + Ixp3 + Ixp4;
+            }
+        }
+
+        public double Iyb
+        {
+            get
+            {
+                return Nb * (Dw * Math.Pow(Bw, 3.0)) / 12 + Nb * (Bw * Dw) * Math.Pow((S / 2), 2.0) + Nb * (Dft * Math.Pow(Bft, 3.0)) / 12.0 + Nb * (Dft * Bft) * Math.Pow((S / 2), 2) + Nb * (Dfb * Math.Pow(Bfb, 3)) / 12 + Nb * (Dfb * Bfb) * Math.Pow((S / 2), 2);
+            }
+        }
+        public double Iytp
+        {
+            get
+            {
+                return (Dt * Math.Pow(Bt, 3.0)) / 12.0;
+            }
+        }
+
+        public double Iybp
+        {
+            get
+            {
+                return (Db * Math.Pow(Bb, 3.0)) / 12.0;
+            }
+        }
+
+
+        public double Iyp1
+        {
+            get
+            {
+                return (Ds1 * Math.Pow(Bs1, 3.0)) / 12.0 + (Ds1 * Bs1) * Math.Pow((Bs1 / 2 + Bw / 2 + S / 2), 2.0);
+            }
+        }
+        public double Iyp2
+        {
+            get
+            {
+                //return (Ds2 * Math.Pow(Bs2, 3.0)) / 12.0 + (Ds2 * Bs2) * Math.Pow((S / 2 - Dw / 2 - Bs2 / 2), 2.0); //Chiranjit [2013 07 04]
+                return (Ds2 * Math.Pow(Bs2, 3.0)) / 12.0 + (Ds2 * Bs2) * Math.Pow((S / 2 - Bw / 2 - Bs2 / 2), 2.0);
+            }
+        }
+        public double Iyp3
+        {
+            get
+            {
+                //return (Ds3 * Math.Pow(Bs3, 3.0)) / 12.0 + (Ds3 * Bs3) * Math.Pow((S / 2 - Dw / 2 - Bs3 / 2), 2.0); //Chiranjit [2013 07 04]
+                return (Ds3 * Math.Pow(Bs3, 3.0)) / 12.0 + (Ds3 * Bs3) * Math.Pow((S / 2 - Bw / 2 - Bs3 / 2), 2.0); //Chiranjit [2013 07 04]
+            }
+        }
+        public double Iyp4
+        {
+            get
+            {
+                return (Ds4 * Math.Pow(Bs4, 3.0)) / 12.0 + (Ds4 * Bs4) * Math.Pow((S / 2 + Bw / 2 + Bs4 / 2), 2.0);
+            }
+        }
+
+        public double Iyy
+        {
+            get
+            {
+                return Iyb + Iytp + Iybp + Iyp1 + Iyp2 + Iyp3 + Iyp4;
+            }
+        }
+
+        public double Izz
+        {
+            get
+            {
+                return Ixx + Iyy;
+            }
+        }
+
+
+        public double Area_Top_Plate
+        {
+            get
+            {
+                return (Bt * Dt);
+            }
+        }
+        public double Area_Bottom_Plate
+        {
+            get
+            {
+                return (Bb * Db);
+            }
+        }
+        public double Area_Top_Flange_Plate
+        {
+            get
+            {
+                return (Bft * Dft);
+            }
+        }
+        public double Area_Bottom_Flange_Plate
+        {
+            get
+            {
+                return (Bfb * Dfb);
+            }
+        }
+        public double Area_Web_Plate
+        {
+            get
+            {
+                return (Nb * Bw * Dw);
+            }
+        }
+        public double Area_Side_Plate
+        {
+            get
+            {
+                return (Bs1 * Ds1 + Bs2 * Ds2 + Bs3 * Ds3 + Bs4 * Ds4);
+            }
+        }
+
+        public double Area_Total_Plate
+        {
+            get
+            {
+                return (Area_Top_Plate + Area_Bottom_Plate +
+                    Area_Top_Flange_Plate + Area_Bottom_Flange_Plate + Area_Side_Plate);
+            }
+        }
+
+
+        public List<string> Get_Result(string res_text)
+        {
+            List<string> list = new List<string>();
+            list.Add(string.Format("---------------------------------------------------------------------"));
+            list.Add(string.Format(res_text));
+            list.Add(string.Format("---------------------------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(" "));
+            //list.Add(string.Format("              __________________________________________                       _____"));
+            //list.Add(string.Format("           ___|________________________________________|___                      | "));
+            //list.Add(string.Format("           |______________________________________________|                      yt"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |"));
+            //list.Add(string.Format(" X-------------  | |  | |                    | |  | |---------------------------- X  (Neutral Axis)"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            yb"));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |                            "));
+            //list.Add(string.Format("                 | |  | |                    | |  | |                            |                             "));
+            //list.Add(string.Format("            _____|_|  |_|____________________|_|  |_|_____                       |"));
+            //list.Add(string.Format("           |______________________________________________|                      |"));
+            //list.Add(string.Format("              |________________________________________|                        _|              "));
+            //list.Add(string.Format(""));
+            //list.Add(string.Format(""));
+            //list.Add(string.Format(""));
+            //list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("User's Input Data received from dialog box "));
+            Get_Input_Data(ref list);
+            list.Add(string.Format(""));
+            Get_Area_Result(ref list);
+            list.Add(string.Format(""));
+            //list.Add(string.Format("Side Plate 2 Ixbs = 0 "));
+            //list.Add(string.Format("Side Plate 2 Iybs = 0 "));
+            Get_Ixx_Result(ref list);
+            list.Add(string.Format(""));
+            Get_Iyy_Result(ref list);
+            list.Add(string.Format(""));
+            Get_Izz_Result(ref list);
+
+            double Ax = 0;
+            double ix = 0;
+            double iy = 0;
+            if (AngleSection != null && Nb == 1)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("-----------------------------------------------------------------"));
+                list.Add(string.Format("COMPOSITE SECTION"));
+                list.Add(string.Format("-----------------------------------------------------------------"));
+                list.Add(string.Format(""));
+
+                Calculate_Composite_Section();
+                list.AddRange(Composite_Results.ToArray());
+            }
+            return list;
+
+        }
+
+        public void Get_Izz_Result(ref List<string> list)
+        {
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("Izz = Ixx + Iyy "));
+            list.Add(string.Format(""));
+            list.Add(string.Format("    = {0:f6} sq.sq.ft", Izz_in_Sq_Sq_FT));
+            //list.Add(string.Format(" = 4324246133 "));
+        }
+        public void Izz_Result_ToStream(StreamWriter sw)
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                Get_Izz_Result(ref list);
+                foreach (var item in list)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+            catch (Exception ex) { }
+        }
+        public void Get_Iyy_Result(ref List<string> list)
+        {
+            //if (Iyb != 0.0)
+            //{
+            list.Add(string.Format("Iyb  = Nb * (Dw*Bw^3)/12 + Nb*(Bw*Dw)*(S/2)^2 "));
+            list.Add(string.Format("       + Nb*(Dft*Bft^3)/12 + Nb*(Dft*Bft)*(S/2)^2 "));
+            list.Add(string.Format("       + Nb*(Dfb*Bfb^3)/12 + Nb*(Dfb*Bfb)* (S/2)^2 "));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0} * ({1}*{2}^3)/12 + {0}*({2}*{1})*({3}/2)^2 ", Nb, Dw, Bw, S));
+            list.Add(string.Format("       + {0} * ({1}*{2}^3)/12 + {0}*({2}*{1})*({3}/2)^2 ", Nb, Dft, Bft, S));
+            list.Add(string.Format("       + {0} * ({1}*{2}^3)/12 + {0}*({2}*{1})*({3}/2)^2 ", Nb, Dfb, Bfb, S));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iyb));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Iytp != 0.0)
+            //{
+            list.Add(string.Format("Iytp = (Dt*Bt^3)/12 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 ", Dt, Bt));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iytp));
+            list.Add(string.Format(""));
+            //}
+            //if (Iybp != 0.0)
+            //{
+            list.Add(string.Format("Iybp = (Db*Bb^3)/12 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 ", Db, Bb));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iybp));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Iyp1 != 0.0)
+            //{
+            list.Add(string.Format("Iyp1 = (Ds1*Bs1^3)/12 + (Ds1*Bs1)*(Bs1/2 + Bw/2 + S/2)^2 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 + ({0}*{1})*({1}/2 + {2}/2 + {3}/2)^2 ", Ds1, Bs1, Bw, S));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iyp1));
+            //list.Add(string.Format(" = 107422200 "));
+            list.Add(string.Format(""));
+            //}
+            //if (Iyp2 != 0.0)
+            //{
+            //list.Add(string.Format("Iyp2 = (Ds2*Bs2^3)/12 + (Ds2*Bs2)*( S/2 - Dw/2 - Bs2/2)^2 "));
+            list.Add(string.Format("Iyp2 = (Ds2*Bs2^3)/12 + (Ds2*Bs2)*( S/2 - Bw/2 - Bs2/2)^2 "));//Chiranjit [2013 07 04]
+            list.Add(string.Format("     = ({0}*{1}^3)/12 + ({0}*{1})*({2}/2 + {3}/2 + {1}/2)^2 ", Ds2, Bs2, S, Bw));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iyp2));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Iyp3 != 0.0)
+            //{
+            list.Add(string.Format("Iyp3 = (Ds3*Bs3^3)/12 + (Ds3*Bs3)*( S/2 - Bw/2 - Bs3/2)^2 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 + ({0}*{1})*({2}/2 + {3}/2 + {1}/2)^2 ", Ds3, Bs3, S, Bw));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iyp3));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Iyp4 != 0.0)
+            //{
+            list.Add(string.Format("Iyp4 = (Ds4*Bs4^3)/12 + (Ds4*Bs4)*( S/2 + Bw/2 + Bs4/2)^2 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 + ({0}*{1})*({2}/2 + {3}/2 + {1}/2)^2 ", Ds4, Bs4, S, Bw));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iyp4));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Iyy != 0.0)
+            //{
+            list.Add(string.Format("Iyy = Iyb + Iytp + Iybp + Iyp1 + Iyp2 + Iyp3 + Iyp4 "));
+            list.Add(string.Format(""));
+            list.Add(string.Format("    = {0:E3} + {1:E3} + {2:E3} + {3:E3} + {4:E3} + {5:E3} + {6:E3} ",
+                Iyb, Iytp, Iybp, Iyp1, Iyp2, Iyp3, Iyp4));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Iyy));
+            //list.Add(string.Format(" = 1433479467 "));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:f6} sq.sq.m", Iyy_in_Sq_Sq_FT));
+            list.Add(string.Format(""));
+            //}
+        }
+
+        public void Iyy_Result_ToStream(StreamWriter sw)
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                Get_Iyy_Result(ref list);
+                foreach (var item in list)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public void Get_Ixx_Result(ref List<string> list)
+        {
+
+            list.Add(string.Format(""));
+
+            //if (Ixb != 0.0)
+            //{
+            list.Add(string.Format("Ixb = Nb x (Bw x Dw^3)/12 + (Bft*Dft^3)/12 + (Bft*Dft)*(Dw/2 + Dft/2)^2"));
+            list.Add(string.Format("     + (Bfb*Dfb^3)/12 + (Bfb*Dfb)*(Dw/2 + Dfb/2)^2 "));
+            list.Add(string.Format(""));
+            list.Add(string.Format("    = {0} x ({1} x {2}^3)/12 + ({3}*{4}^3)/12 + ({3}*{4})*({2}/2 + {4}/2)^2", Nb, Bw, Dw, Bft, Dft));
+            list.Add(string.Format("     + ({0}*{1}^3)/12 + ({0}*{1})*({2}/2 + {1}/2)^2 ", Bfb, Dfb, Dw));
+            list.Add(string.Format(""));
+            list.Add(string.Format("    = {0:E3} sq.sq.in", Ixb));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Ixtp != 0.0)
+            //{
+            list.Add(string.Format("Ixtp = (Bt*Dt^3)/12 + (Bt*Dt)*(Dt/2 + Dft + Dw/2)^2 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 + ({0}*{1})*({1}/2 + {2} + {3}/2)^2 ", Bt, Dt, Dft, Dw));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixtp));
+            list.Add(string.Format(""));
+            //}
+            //if (Ixbp != 0.0)
+            //{
+            list.Add(string.Format("Ixbp = (Bb*Db^3)/12 + (Bb*Db)*(Db/2 + Dfb + Dw/2)^2 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 + ({0}*{1})*({1}/2 + {2} + {3}/2)^2 ", Bb, Db, Dfb, Dw));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixbp));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            //}
+            //if (Ixp1 != 0.0)
+            //{
+            list.Add(string.Format("Ixp1 = (Bs1*Ds1^3)/12 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 ", Bs1, Ds1));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixp1));
+            list.Add(string.Format(""));
+            //}
+            //if (Ixp2 != 0.0)
+            //{
+            list.Add(string.Format("Ixp2 = (Bs2*Ds2^3)/12 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 ", Bs2, Ds2));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixp2));
+            list.Add(string.Format(""));
+            //list.Add(string.Format(" = 91125000 "));
+            list.Add(string.Format(""));
+            //}
+            //if (Ixp3 != 0.0)
+            //{
+            list.Add(string.Format("Ixp3 = (Bs3*Ds3^3)/12 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 ", Bs3, Ds3));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixp3));
+            list.Add(string.Format(""));
+            //list.Add(string.Format(" = 91125000 "));
+            list.Add(string.Format(""));
+            //}
+            //if (Ixp4 != 0.0)
+            //{
+            list.Add(string.Format("Ixp4 = (Bs4*Ds4^3)/12 "));
+            list.Add(string.Format("     = ({0}*{1}^3)/12 ", Bs4, Ds4));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixp4));
+            list.Add(string.Format(""));
+            //list.Add(string.Format(" = 91125000 "));
+            //}
+            //if (Ixx != 0.0)
+            //{
+            list.Add(string.Format(""));
+            list.Add(string.Format("Ixx = Ixb + Ixtp + Ixbp + Ixp1 + Ixp2 + Ixp3 + Ixp4 "));
+            list.Add(string.Format("    = {0:E3} + {1:E3} + {2:E3} + {3:E3} + {4:E3} + {5:E3} + {6:E3} ",
+                Ixb, Ixtp, Ixbp, Ixp1, Ixp2, Ixp3, Ixp4));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:E3} sq.sq.in", Ixx));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0:f6} sq.sq.ft", Ixx_in_Sq_Sq_FT));
+            list.Add(string.Format(""));
+            //}
+        }
+
+        public void Ixx_Result_ToStream(StreamWriter sw)
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                Get_Ixx_Result(ref list);
+                foreach (var item in list)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public void Get_Area_Result(ref List<string> list)
+        {
+            if (Ax != 0.0)
+            {
+                list.Add(string.Format("Section Area = (Nb * (Bw * Dw) + (Bft * Dft) + (Bfb * Dfb) + (Bt * Dt) + (Bb * Db) "));
+                list.Add(string.Format("               + (Bs1 * Bs1) + (Bs2 * Bs2) +(Bs3 * Bs3) + (Bs4 * Ds4))"));
+                list.Add(string.Format(""));
+                list.Add(string.Format("             = ({0} * ({1} * {2}) + ({3} * {4}) + ({5} * {6}) + ({7} * {8}) + ({9} * {10}) ",
+                                                   Nb, Bw, Dw, Bft, Dft, Bfb, Dfb, Bt, Dt, Bb, Db));
+                list.Add(string.Format("               + (Bs1 * Ds1) + (Bs2 * Ds2) +(Bs3 * Ds3) + (Bs4 * Ds4))"));
+                list.Add(string.Format("               + ({0} * {1}) + ({2} * {3}) +({4} * {5}) + ({6} * {7}))", Bs1, Ds1, Bs2, Ds2, Bs3, Ds3, Bs4, Ds4));
+
+
+
+                list.Add(string.Format("             = {0:f3}  sq.in", Ax));
+                list.Add(string.Format(""));
+                list.Add(string.Format("Section Area = {0:f6}  sq.ft", Area_in_Sq_FT));
+                list.Add(string.Format(""));
+            }
+
+        }
+        public void Area_Result_ToStream(StreamWriter sw)
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                Get_Area_Result(ref list);
+                foreach (var item in list)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        public void Get_Input_Data(ref List<string> list)
+        {
+
+            list.Add(string.Format(""));
+            //if (Nb > 0)
+            list.Add(string.Format("Total Number of Web = Nb = {0} ", Nb));
+            //if (S > 0)
+            list.Add(string.Format("Spacing between two Web = S = {0} in", S));
+            //if (Bw > 0)
+            list.Add(string.Format("Web Thickness = Bw = {0} in", Bw));
+            //if (Dw > 0)
+            list.Add(string.Format("Web Depth = Dw = {0} in ", Dw));
+            list.Add(string.Format(""));
+            //if (Area_Web_Plate > 0)
+            list.Add(string.Format("Web Area = {0:f3} sq.in ", Area_Web_Plate));
+            list.Add(string.Format(""));
+            //if (Bft > 0)
+            list.Add(string.Format("Top Flange Breadth = Bft = {0} in", Bft));
+            //if (Dft > 0)
+            list.Add(string.Format("Top Flange Depth = Dft = {0} in", Dft));
+            list.Add(string.Format(""));
+            //if (Area_Top_Flange_Plate > 0)
+            list.Add(string.Format("Top Flange Area = {0:f3} sq.in ", Area_Top_Flange_Plate));
+            //if (Bfb > 0)
+            list.Add(string.Format("Bottom Flange Breadth = Bfb = {0} in ", Bfb));
+            //if (Dfb > 0)
+            list.Add(string.Format("Bottom Flange Depth = Dfb = {0} in ", Dfb));
+            list.Add(string.Format(""));
+            //if (Area_Bottom_Flange_Plate > 0)
+            list.Add(string.Format("Bottom Flange Area = {0:f3} sq.in ", Area_Bottom_Flange_Plate));
+            list.Add(string.Format(""));
+            //if (Dt > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Breadth = Bt = {0} in ", Bt));
+            //if (Bt > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Depth = Dt = {0} in", Dt));
+            list.Add(string.Format(""));
+            //if (Area_Top_Plate > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Area = {0:f3} sq.in ", Area_Top_Plate));
+            list.Add(string.Format(""));
+            //if (Bb > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Breadth = Bb = {0} in ", Bb));
+            //if (Db > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Depth = Db = {0} in ", Db));
+            list.Add(string.Format(""));
+            //if (Area_Bottom_Plate > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Area = {0:f3} sq.in ", Area_Bottom_Plate));
+            list.Add(string.Format(""));
+            //if (Bs1 > 0)
+            list.Add(string.Format("Additional Side Plate 1 Breadth = Bs1 = {0} in  ", Bs1));
+            //if (Ds1 > 0)
+            list.Add(string.Format("Additional Side Plate 1 Depth = Ds1 = {0} in   ", Ds1));
+            //if (Bs2 > 0)
+            list.Add(string.Format("Side Plate 2 Breadth = Bs2 = {0} in   ", Bs2));
+            //if (Ds2 > 0)
+            list.Add(string.Format("Additional Side Plate 2 Depth = Ds2 = {0} in   ", Ds2));
+            //if (Bs3 > 0)
+            list.Add(string.Format("Additional Side Plate 3 Breadth = Bs3 = {0} in   ", Bs3));
+            //if (Ds3 > 0)
+            list.Add(string.Format("Additional Side Plate 3 Depth = Ds3 = {0} in   ", Ds3));
+            //if (Bs4 > 0)
+            list.Add(string.Format("Additional Side Plate 4 Breadth = Bs4 = {0} in   ", Bs4));
+            //if (Ds4 > 0)
+            list.Add(string.Format("Additional Side Plate 4 Depth = Ds4 = {0} in   ", Ds4));
+            list.Add(string.Format(""));
+            //if (Area_Side_Plate > 0)
+            list.Add(string.Format("Additional Total Side Plate Area = {0:f3} sq.in ", Area_Side_Plate));
+            list.Add(string.Format(""));
+
+
+            if (AngleSection != null)
+            {
+                list.Add(string.Format("Angle Section : 4 X {0} {1}X{2}", AngleSection.SectionName, AngleSection.SectionSize, AngleSection.Thickness));
+                list.Add(string.Format("Angle Area : {0:f3} sq.in", AngleSection.Area * 0.00155));
+            }
+            list.Add(string.Format(""));
+        }
+
+
+        public void Get_Input_Data_inch(ref List<string> list)
+        {
+
+
+            list.Add(string.Format(""));
+            //if (Nb > 0)
+            list.Add(string.Format("Total Number of Web = Nb = {0} ", Nb));
+            //if (S > 0)
+            list.Add(string.Format("Spacing between two Web = S = {0} in", S));
+            //if (Bw > 0)
+            list.Add(string.Format("Web Thickness = Bw = {0} in", Bw));
+            //if (Dw > 0)
+            list.Add(string.Format("Web Depth = Dw = {0} in ", Dw));
+            list.Add(string.Format(""));
+            //if (Area_Web_Plate > 0)
+            list.Add(string.Format("Web Area = {0:f3} sq.in ", Area_Web_Plate));
+            list.Add(string.Format(""));
+            //if (Bft > 0)
+            list.Add(string.Format("Top Flange Breadth = Bft = {0} in", Bft));
+            //if (Dft > 0)
+            list.Add(string.Format("Top Flange Depth = Dft = {0} in", Dft));
+            list.Add(string.Format(""));
+            //if (Area_Top_Flange_Plate > 0)
+            list.Add(string.Format("Top Flange Area = {0:f3} sq.in ", Area_Top_Flange_Plate));
+            //if (Bfb > 0)
+            list.Add(string.Format("Bottom Flange Breadth = Bfb = {0} in ", Bfb));
+            //if (Dfb > 0)
+            list.Add(string.Format("Bottom Flange Depth = Dfb = {0} in ", Dfb));
+            list.Add(string.Format(""));
+            //if (Area_Bottom_Flange_Plate > 0)
+            list.Add(string.Format("Bottom Flange Area = {0:f3} sq.in ", Area_Bottom_Flange_Plate));
+            list.Add(string.Format(""));
+            //if (Dt > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Breadth = Bt = {0} in ", Bt));
+            //if (Bt > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Depth = Dt = {0} in", Dt));
+            list.Add(string.Format(""));
+            //if (Area_Top_Plate > 0)
+            list.Add(string.Format("Additional Flange Plate at Top Area = {0:f3} sq.in", Area_Top_Plate));
+            list.Add(string.Format(""));
+            //if (Bb > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Breadth = Bb = {0} in ", Bb));
+            //if (Db > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Depth = Db = {0} in ", Db));
+            list.Add(string.Format(""));
+            //if (Area_Bottom_Plate > 0)
+            list.Add(string.Format("Additional Flange Plate at Bottom Area = {0:f3} sq.in ", Area_Bottom_Plate));
+            list.Add(string.Format(""));
+            //if (Bs1 > 0)
+            list.Add(string.Format("Additional Side Plate 1 Breadth = Bs1 = {0} in  ", Bs1));
+            //if (Ds1 > 0)
+            list.Add(string.Format("Additional Side Plate 1 Depth = Ds1 = {0} in   ", Ds1));
+            //if (Bs2 > 0)
+            list.Add(string.Format("Side Plate 2 Breadth = Bs2 = {0} in   ", Bs2));
+            //if (Ds2 > 0)
+            list.Add(string.Format("Additional Side Plate 2 Depth = Ds2 = {0} in   ", Ds2));
+            //if (Bs3 > 0)
+            list.Add(string.Format("Additional Side Plate 3 Breadth = Bs3 = {0} in   ", Bs3));
+            //if (Ds3 > 0)
+            list.Add(string.Format("Additional Side Plate 3 Depth = Ds3 = {0} in   ", Ds3));
+            //if (Bs4 > 0)
+            list.Add(string.Format("Additional Side Plate 4 Breadth = Bs4 = {0} in   ", Bs4));
+            //if (Ds4 > 0)
+            list.Add(string.Format("Additional Side Plate 4 Depth = Ds4 = {0} in   ", Ds4));
+            list.Add(string.Format(""));
+            //if (Area_Side_Plate > 0)
+            list.Add(string.Format("Additional Total Side Plate Area = {0:f3} sq.in ", Area_Side_Plate));
+            list.Add(string.Format(""));
+
+
+            if (AngleSection != null)
+            {
+                list.Add(string.Format("Angle Section : 4 X {0} {1}X{2}", AngleSection.SectionName, AngleSection.SectionSize, AngleSection.Thickness));
+                list.Add(string.Format("Angle Area : {0:f3} sq.in", AngleSection.Area * 0.00155));
+            }
+            list.Add(string.Format(""));
+        }
+
+        public void Input_Data_ToStream(StreamWriter sw)
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                Get_Input_Data(ref list);
+                foreach (var item in list)
+                {
+                    sw.WriteLine(item);
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+
+        public List<string> Get_Table_Formatted_Data()
+        {
+            List<string> list = new List<string>();
+            string kStr = "";
+            string format = "{0,25} {1,25} {2,25} {3,25}";
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+
+            //list.Add(string.Format(format,"Web Plates", "Top Flange",));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+
+            return list;
+        }
+
+
+
+        //Chiranjit [2013 06 25]
+        public double Length { get; set; }
+        public int NumberOfGirder { get; set; }
+        public double Steel_Unit_Weight { get; set; }
+
+
+        public double Qw, Ww, Qt, Wt, Qb, Wb, Qft, Wft, Qfb, Wfb, Wa;
+
+        public double Total_Weight
+        {
+            get
+            {
+                return (Ww + Wt + Wb + Wft + Wfb + Wa);
+            }
+        }
+        public List<string> Get_Weight_Calculation()
+        {
+            List<string> list = new List<string>();
+
+            if (Steel_Unit_Weight == 0.0)
+                Steel_Unit_Weight = 7.8;
+
+            #region Chiranjit [2013 06 25] Weight Computation
+            list.Add(string.Format(""));
+            //list.Add(string.Format("------------------------------------------"));
+            //list.Add(string.Format("COMPUTATION OF TOTAL STEEL WEIGHT IN TONS: "));
+            //list.Add(string.Format("------------------------------------------"));
+            //list.Add(string.Format(""));
+            //list.Add(string.Format(""));
+            ////list.Add(string.Format("LONG MAIN GIRDERS"));
+            ////list.Add(string.Format("-----------------"));
+            //list.Add(string.Format("TYPE={0}", (Nb == 1) ? "PLATE" : "BOX"));
+            //list.Add(string.Format(""));
+            //list.Add(string.Format("TOTAL NO: = {0}", NumberOfGirder));
+            //list.Add(string.Format("LENGTH = {0:f3} M", Length));
+            //list.Add(string.Format(""));
+            list.Add(string.Format("WEB NUMBERS = {0}", Nb));
+            list.Add(string.Format("WEB PLATE DEPTH = {0:f3} FT", Dw / 12));
+            list.Add(string.Format("WEB PLATE THICKNESS = {0:f3} FT", Bw / 12));
+
+            Qw = NumberOfGirder * Length * Nb * Dw / 12 * Bw / 12;
+
+            list.Add(string.Format("WEB QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                NumberOfGirder, Length, Nb, Dw / 12, Bw / 12, Qw));
+
+            Ww = Qw * Steel_Unit_Weight;
+
+            list.Add(string.Format("TOTAL WEB WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qw, Steel_Unit_Weight, Ww));
+            list.Add(string.Format(""));
+            list.Add(string.Format("TOP FLANGE = 1"));
+            list.Add(string.Format("TOP FLANGE BREADTH = {0:f3} FT", Bft / 12));
+            list.Add(string.Format("TOP FLANGE DEPTH = {0:f3} FT", Dft / 12));
+
+            Qft = NumberOfGirder * Length * Bft / 12 * Dft / 12;
+
+            list.Add(string.Format("TOP FLANGE QUANTITY =  {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                NumberOfGirder, Length, 1, Bft / 12, Dft / 12, Qft));
+
+            Wft = Qft * Steel_Unit_Weight;
+
+            list.Add(string.Format("TOTAL TOP FLANGE WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qft, Steel_Unit_Weight, Wft));
+            list.Add(string.Format(""));
+            list.Add(string.Format("BOTTOM FLANGE = 1"));
+            list.Add(string.Format("BOTTOM FLANGE BREADTH = {0:f3} FT", Bfb / 12));
+            list.Add(string.Format("BOTTOM FLANGE DEPTH = {0:f3} FT", Dfb / 12));
+            Qfb = NumberOfGirder * Length * Bfb / 12 * Dfb / 12;
+            list.Add(string.Format("BOTTOM FLANGE QUANTITY =  {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                NumberOfGirder, Length, 1, Bb / 12, Db / 12, Qfb));
+            Wfb = Qfb * Steel_Unit_Weight;
+            list.Add(string.Format("TOTAL BOTTOM FLANGE WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qfb, Steel_Unit_Weight, Wfb));
+            list.Add(string.Format(""));
+            list.Add(string.Format("TOP FLANGE PLATE = 1"));
+            list.Add(string.Format("TOP FLANGE BREADTH = {0:f3} FT", Bt / 12));
+            list.Add(string.Format("TOP FLANGE DEPTH = {0:f3} FT", Dt / 12));
+            Qt = NumberOfGirder * Length * 1 * Bt / 12 * Dt / 12;
+
+            list.Add(string.Format("TOP FLANGE QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                NumberOfGirder, Length, 1, Bt / 12, Dt / 12, Qt));
+            Wt = Qt * Steel_Unit_Weight;
+            list.Add(string.Format("TOTAL TOP FLANGE PKATE WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qt, Steel_Unit_Weight, Wt));
+            list.Add(string.Format(""));
+            list.Add(string.Format("BOTTOM FLANGE PLATE = 1"));
+            list.Add(string.Format("BOTTOM FLANGE BREADTH = {0:f3} FT", Bt / 12));
+            list.Add(string.Format("BOTTOM FLANGE DEPTH = {0:f3} FT", Dt / 12));
+            Qb = NumberOfGirder * Length * 1 * Bb / 12 * Db / 12;
+            list.Add(string.Format("BOTTOM FLANGE QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                NumberOfGirder, Length, 1, Bfb / 12, Dfb / 12, Qb));
+            Wb = Qb * Steel_Unit_Weight;
+            list.Add(string.Format("TOTAL BOTTOM FLANGE PLATE WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qb, Steel_Unit_Weight, Wb));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            double Qs1 = 0, Qs2 = 0, Qs3 = 0, Qs4 = 0;
+            double Ws1 = 0, Ws2 = 0, Ws3 = 0, Ws4 = 0;
+
+            if ((Bs1 * Ds1) != 0.0)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("SIDE PLATE1 = 1"));
+                list.Add(string.Format("SIDE PLATE1 BREADTH = {0:f3} FT", Bs1 / 12));
+                list.Add(string.Format("SIDE PLATE1 DEPTH = {0:f3} FT", Ds1 / 12));
+
+                Qs1 = NumberOfGirder * Length * 1 * Bs1 / 12 * Ds1 / 12;
+                list.Add(string.Format("SIDE PLATE1 QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                    NumberOfGirder, Length, 1, Bs1 / 12, Ds1 / 12, Qs1));
+                Ws1 = Qs1 * Steel_Unit_Weight;
+                list.Add(string.Format("TOTAL SIDE PLATE1 WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qs1, Steel_Unit_Weight, Ws1));
+                list.Add(string.Format(""));
+
+            }
+
+            if ((Bs2 * Ds2) != 0.0)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("SIDE PLATE2 = 1"));
+                list.Add(string.Format("SIDE PLATE2 BREADTH = {0:f3} FT", Bs2 / 12));
+                list.Add(string.Format("SIDE PLATE2 DEPTH = {0:f3} FT", Ds2 / 12));
+
+                Qs2 = NumberOfGirder * Length * 1 * Bs2 / 12 * Ds2 / 12;
+                list.Add(string.Format("SIDE PLATE2 QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                    NumberOfGirder, Length, 1, Bs2 / 12, Ds2 / 12, Qs2));
+                Ws2 = Qs2 * Steel_Unit_Weight;
+                list.Add(string.Format("TOTAL SIDE PLATE1 WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qs2, Steel_Unit_Weight, Ws2));
+                list.Add(string.Format(""));
+
+            }
+
+            if ((Bs3 * Ds3) != 0.0)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("SIDE PLATE3 = 1"));
+                list.Add(string.Format("SIDE PLATE3 BREADTH = {0:f3} FT", Bs3 / 12));
+                list.Add(string.Format("SIDE PLATE3 DEPTH = {0:f3} FT", Ds3 / 12));
+
+                Qs3 = NumberOfGirder * Length * 1 * Bs3 / 12 * Ds3 / 12;
+                list.Add(string.Format("SIDE PLATE3 QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                    NumberOfGirder, Length, 1, Bs3 / 12, Ds3 / 12, Qs3));
+                Ws3 = Qs3 * Steel_Unit_Weight;
+                list.Add(string.Format("TOTAL SIDE PLATE3 WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qs3, Steel_Unit_Weight, Ws3));
+                list.Add(string.Format(""));
+            }
+
+            if ((Bs4 * Ds4) != 0.0)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("SIDE PLATE4 = 1"));
+                list.Add(string.Format("SIDE PLATE4 BREADTH = {0:f3} FT", Bs4 / 12));
+                list.Add(string.Format("SIDE PLATE4 DEPTH = {0:f3} FT", Ds4 / 12));
+
+                Qs4 = NumberOfGirder * Length * 1 * Bs4 / 12 * Ds4 / 12;
+                list.Add(string.Format("SIDE PLATE2 QUANTITY = {0} X {1} X {2} X {3} X {4} = {5:f3} CU.FT. ",
+                    NumberOfGirder, Length, 1, Bs4 / 12, Ds4 / 12, Qs4));
+                Ws4 = Qs4 * Steel_Unit_Weight;
+                list.Add(string.Format("TOTAL SIDE PLATE1 WEIGHT = {0:f3} X {1} = {2:f3} KIP", Qs4, Steel_Unit_Weight, Ws4));
+                list.Add(string.Format(""));
+            }
+
+            if (AngleSection != null)
+            {
+
+                list.Add(string.Format("ANGLES NUMBERS  = 4, "));
+                list.Add(string.Format("ANGLES Size = {0} {1}X{2} ", AngleSection.SectionName, AngleSection.SectionSize, AngleSection.Thickness));
+                //list.Add(string.Format("ANGLE WEIGHT = 0.0146 TONS/M"));
+                list.Add(string.Format("ANGLE WEIGHT = {0:f6} KIP/FT", AngleSection.Weight * 0.13825495));
+
+                Wa = NumberOfGirder * Length * 4 * AngleSection.Weight *  0.13825495;
+                list.Add(string.Format("TOTAL ANGLES WEIGHT = {0}X{1}X4X{2:f5} = {3:f3} KIP",
+                    NumberOfGirder, Length, AngleSection.Weight * 0.13825495, Wa));
+                list.Add(string.Format(""));
+            }
+
+
+            double Total_W = Ww + Wt + Wb + Wft + Wfb + Wa + Ws1 + Ws2 + Ws3 + Ws4;
+
+
+
+            list.Add(string.Format(""));
+
+            if ((Qs1 != 0.0 || Qs2 != 0.0 || Qs3 != 0.0 || Qs4 != 0.0))
+            {
+                list.Add(string.Format("TOTAL WEIGHT = {0:f3} + {1:f3} + {2:f3} + {3:f3} + {4:f3}  + {5:f3} + {6:f3} + {7:f3} + {8:f3} + {9:f3}",
+                    Ww, Wft, Wfb, Wt, Wb, Wa, Ws1, Ws2, Ws3, Ws4, Total_W));
+            }
+            else if (Wa != 0.0)
+            {
+                list.Add(string.Format("TOTAL WEIGHT = {0:f3} + {1:f3} + {2:f3} + {3:f3} + {4:f3}  + {5:f3}",
+                    Ww, Wft, Wfb, Wt, Wb, Wa, Total_W));
+            }
+            else
+            {
+                list.Add(string.Format("TOTAL WEIGHT = {0:f3} + {1:f3} + {2:f3} + {3:f3} + {4:f3}",
+                    Ww, Wft, Wfb, Wt, Wb));
+            }
+
+            list.Add(string.Format("             = {0:f3} KIPS", Total_W));
+
+
+            //list.Add(string.Format("= [1]+[2]+[3]+[4]+[5]+[6] + [7]+[8]+[9]+[10]+[11]  "));
+            //list.Add(string.Format("= (74.880+24.960+24.96+19.968+19.968+9.344) + (7.020+2.340+2.340+2.250+2.250)"));
+            //list.Add(string.Format("= 174.08 + 16.20"));
+            //list.Add(string.Format("= 190.28 TONS"));
+            list.Add(string.Format(""));
+
+            #endregion Chiranjit [2013 06 25] Load Computation
+
+            return list;
+        }
+
+        public List<string> Composite_Results { get; set; }
+        
+        public double AX_Comp { get; set; }
+        public double IX_Comp { get; set; }
+        public double IY_Comp { get; set; }
+        public double IZ_Comp { get { return (IX_Comp + IY_Comp); } }
+        
+        public void Calculate_Composite_Section()
+        {
+            List<string> list = new List<string>();
+
+            side = Nb;
+
+
+            #region Chiranjit [2013 07 03]
+
+            if (Nb == 2)
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format("|<--------------------bs------------------------------>|"));
+                list.Add(string.Format("_______________________________________________________ ____________"));
+                list.Add(string.Format("|                                                      |   |        |"));
+                list.Add(string.Format("|                                                      |   | ds     |"));
+                list.Add(string.Format("|_____________________________________________________ |___|        |"));
+                list.Add(string.Format("      _|_________________________________________|_                 |"));
+                list.Add(string.Format("      |____________________|   |__________________|                 yt"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format(" X-------- | | |  | | |------------|-|-|--|-|-|-------------------- X  (Neutral Axis)"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("           | | |  | | |            | | |  | | |                     |"));
+                list.Add(string.Format("      _____|_|_|  |_|_|____     ___|_|_|__|_|_|___                  |"));
+                list.Add(string.Format("      |____________________|___|__________________|                 |"));
+                list.Add(string.Format("       |_________________________________________|    ______________|__"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+            }
+            else
+            {
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+                list.Add(string.Format("|<--------------------bs------------------>|"));
+                list.Add(string.Format("___________________________________________  __ _________"));
+                list.Add(string.Format("|                                         |   |        |"));
+                list.Add(string.Format("|                                         |   | ds     |"));
+                list.Add(string.Format("|________________________________________ |  _|        |"));
+                list.Add(string.Format("           ___|______________|___                      |"));
+                list.Add(string.Format("           |____________________|                      yt"));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format(" X------------- | | |  | | |---------------------------- X  (Neutral Axis)"));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           |                          "));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           yb"));
+                list.Add(string.Format("                | | |  | | |                           |                            "));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           |"));
+                list.Add(string.Format("                | | |  | | |                           |                             "));
+                list.Add(string.Format("            ____|_|_|  |_|_|_____                      |"));
+                list.Add(string.Format("           |____________________|                      |"));
+                list.Add(string.Format("              |_______________| ______________________ |__"));
+                list.Add(string.Format(""));
+                list.Add(string.Format(""));
+            }
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            double H = Ds + Dft + Dt + Dw + Dfb + Db;
+
+            list.Add(string.Format("H = Ds + Dft + Dt + Dw + Dfb + Db"));
+            list.Add(string.Format("   = {0} + {1} + {2} + {3} + {4} + {5}", Ds, Dft, Dt, Dw, Dfb, Db));
+            list.Add(string.Format("   = {0:f3} ", H));
+            list.Add(string.Format(""));
+
+            list.Add(string.Format("(i) For RCC Deck Slab"));
+            list.Add(string.Format(""));
+            //list.Add(string.Format("Modular Ratio = m = 10"));
+            //list.Add(string.Format("bs = bs/m"));e = Xs = ds/2 + Dt + dft + Dw + Dfb + Db"));
+
+
+
+
+            list.Add(string.Format("Modular Ratio = m = {0}", m));
+            list.Add(string.Format(""));
+
+            bs = Bs / m;
+            list.Add(string.Format("bs = bs/m = {0:f3}/{1:f3} = {2:f3}", Bs, m, bs));
+            double ds = Ds;
+            bs = double.Parse(bs.ToString("f3"));
+
+            double As = bs * Ds;
+            list.Add(string.Format("Area = As = bs x ds = {0} x {1} = {2}", bs, ds, As));
+            double Xs = ds / 2 + Dt + Dft + Dw + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = Xs = ds/2 + Dt + Dft + Dw + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2} + {3} + {4} + {5}", ds, Dt, Dft, Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", Xs));
+            list.Add(string.Format(""));
+
+            double Is = bs * Math.Pow(ds, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("Is = bs x ds^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", bs, ds, Is));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("(ii) For Additional Top Flange Plate"));
+            list.Add(string.Format(""));
+            double A1 = Bt * Dt;
+            list.Add(string.Format("Area = A1 = Bt x Dt = {0} x {1} = {2}", Bt, Dt, A1));
+            list.Add(string.Format(""));
+            double X1 = Dt / 2 + Dft + Dw + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X1 = Dt/2 + Dft + Dw + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2} + {3} + {4}", Dt, Dft, Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X1));
+            list.Add(string.Format(""));
+
+            double I1 = Bt * Math.Pow(Dt, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I1 = Bt x Dt^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bt, Dt, I1));
+            list.Add(string.Format(""));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(iii) For Top Flange Plate"));
+            list.Add(string.Format(""));
+            double A2 = Bft * Dft;
+            list.Add(string.Format("Area = A2 = Bft x Dft = {0} x {1} = {2}", Bft, Dft, A2));
+            list.Add(string.Format(""));
+            double X2 = Dft / 2 + Dw + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X1 = Dft/2  + Dw + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2} + {3}", Dft, Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X2));
+            list.Add(string.Format(""));
+
+            double I2 = Bft * Math.Pow(Dft, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I2 = Bft x Dft^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bft, Dft, I2));
+            list.Add(string.Format(""));
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(iv) For Central Web Plate"));
+            list.Add(string.Format(""));
+            double A3 = Bw * Dw;
+            list.Add(string.Format("Area = A3 = Bw x Dw = {0} x {1} = {2}", Bw, Dw, A3));
+            list.Add(string.Format(""));
+            double X3 = Dw / 2 + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X3 = Dw/2 + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2}", Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X3));
+            list.Add(string.Format(""));
+
+            double I3 = Bw * Math.Pow(Dw, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I3 = Bw x Dw^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bw, Dw, I3));
+            list.Add(string.Format(""));
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(v) For Left Side First additional Web Plate"));
+            list.Add(string.Format(""));
+            double A4 = Bs1 * Ds1;
+            list.Add(string.Format("Area = A4 = Bs1 x Ds1 = {0} x {1} = {2}", Bs1, Ds1, A4));
+            list.Add(string.Format(""));
+            double X4 = Dw / 2 + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X3 = Dw/2 + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2}", Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X4));
+            list.Add(string.Format(""));
+
+            double I4 = Bs1 * Math.Pow(Ds1, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I2 = Bs1 x Ds1^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bs1, Ds1, I4));
+            list.Add(string.Format(""));
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(vi) For Right Side First additional Web Plate"));
+            list.Add(string.Format(""));
+            double A5 = Bs2 * Ds2;
+            list.Add(string.Format("Area = A5 = Bs2 x Ds2 = {0} x {1} = {2}", Bs2, Ds2, A5));
+            list.Add(string.Format(""));
+            double X5 = Dw / 2 + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X5 = Dw/2 + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2}", Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X5));
+            list.Add(string.Format(""));
+
+            double I5 = Bs2 * Math.Pow(Ds2, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I5 = Bs2 x Ds2^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bs2, Ds2, I5));
+            list.Add(string.Format(""));
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(vii) For Left Side Second additional Web Plate"));
+            list.Add(string.Format(""));
+            double A6 = Bs3 * Ds3;
+            list.Add(string.Format("Area = A6 = Bs3 x Ds3 = {0} x {1} = {2}", Bs3, Ds3, A6));
+            list.Add(string.Format(""));
+            double X6 = Dw / 2 + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X6 = Dw/2 + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2}", Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X6));
+            list.Add(string.Format(""));
+
+            double I6 = Bs3 * Math.Pow(Ds3, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I6 = Bs3 x Ds3^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bs3, Ds3, I6));
+            list.Add(string.Format(""));
+
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(viii) For Right Side Second additional Web Plate"));
+            list.Add(string.Format(""));
+            double A7 = Bs4 * Ds4;
+            list.Add(string.Format("Area = A7 = Bs4 x Ds4 = {0} x {1} = {2}", Bs3, Ds3, A7));
+            list.Add(string.Format(""));
+            double X7 = Dw / 2 + Dfb + Db;
+            list.Add(string.Format("Distance from bottom edge = X7 = Dw/2 + Dfb + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} + {2}", Dw, Dfb, Db));
+            list.Add(string.Format("                               = {0}", X7));
+            list.Add(string.Format(""));
+
+            double I7 = Bs4 * Math.Pow(Ds4, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I7 = Bs4 x Ds4^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bs4, Ds4, I7));
+            list.Add(string.Format(""));
+
+
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(ix) For Bottom Flange Plate"));
+            list.Add(string.Format(""));
+            double A8 = Bfb * Dfb;
+            list.Add(string.Format("Area = A8 = Bs4 x Ds4 = {0} x {1} = {2}", Bfb, Dfb, A8));
+            list.Add(string.Format(""));
+            double X8 = Dfb / 2 + Db;
+            list.Add(string.Format("Distance from bottom edge = X8 = Dfb/2 + Db"));
+            list.Add(string.Format("                               = {0}/2 + {1} ", Dfb, Db));
+            list.Add(string.Format("                               = {0}", X8));
+            list.Add(string.Format(""));
+
+            double I8 = Bfb * Math.Pow(Dfb, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I8 = Bfb x Dfb^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bfb, Dfb, I8));
+            list.Add(string.Format(""));
+
+
+
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("(x) For Additional Bottom Flange Plate"));
+            list.Add(string.Format(""));
+            double A9 = Bb * Db;
+            list.Add(string.Format("Area = A8 = Bb x Ds4 = {0} x {1} = {2}", Bb, Dfb, A9));
+            list.Add(string.Format(""));
+            double X9 = Db / 2;
+            list.Add(string.Format("Distance from bottom edge = X9 = Db/2"));
+            list.Add(string.Format("                               = {0}/2 ", Db));
+            list.Add(string.Format("                               = {0}", X9));
+            list.Add(string.Format(""));
+
+            double I9 = Bb * Math.Pow(Db, 3.0) / 12.0;
+            list.Add(string.Format(""));
+            list.Add(string.Format("I9 = Bb x Db^3 / 12 = {0} x {1}^3 / 12 = {2:E3}", Bb, Db, I9));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+
+            double A_A = As + A1 + A2 + A3 + A4 + A5 + A6 + A7 + A8 + A9;
+            list.Add(string.Format("A  = As + A1 + A2 + A3 + A4 + A5 + A6 + A7 + A8 + A9"));
+            list.Add(string.Format("   = {0} + {1} + {2} + {3} + {4} + {5} + {6} + {7} + {8} + {9}",
+                As, A1, A2, A3, A4, A5, A6, A7, A8, A9));
+            list.Add(string.Format("   = {0} sq.in", A_A));
+            list.Add(string.Format(""));
+
+
+
+            AX_Comp = A_A / (12*12);
+            list.Add(string.Format("   = {0} sq.ft", AX_Comp));
+
+            double A_X = (As * Xs) + (A1 * X1) + (A2 * X2) + (A3 * X3) + (A4 * X4) + (A5 * X5) + (A6 * X6) + (A7 * X7) + (A8 * X8) + (A9 * X9);
+
+            A_X = A_X / (12 * 12 * 12);
+            list.Add(string.Format("Ax  = (As * Xs) + (A1 * X1) + (A2 * X2) + (A3 * X3) + (A4 * X4)"));
+            list.Add(string.Format("      + (A5 * X5) + (A6 * X6) + (A7 * X7) + (A8 * X8) + (A9 * X9)"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("    = ({0} * {1}) + ({2} * {3}) + ({4} * {5}) + ({6} * {7}) + ({8} * {9})",
+                As, Xs, A1, X1, A2, X2, A3, X3, A4, X4));
+            list.Add(string.Format("      + ({0} * {1}) + ({2} * {3}) + ({4} * {5}) + ({6} * {7}) + ({8} * {9})",
+                A5, X5, A6, X6, A7, X7, A8, X8, A9, X9));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0} cu.ft", A_X));
+            list.Add(string.Format(""));
+
+
+
+            double A_XX = (As * Xs * Xs) + (A1 * X1 * X1) + (A2 * X2 * X2) + (A3 * X3 * X3) + (A4 * X4 * X4)
+                           + (A5 * X5 * X5) + (A6 * X6 * X6) + (A7 * X7 * X7) + (A8 * X8 * X8) + (A9 * X9 * X9);
+
+            list.Add(string.Format("Axx  = (As * Xs * Xs) + (A1 * X1 * X1) + (A2 * X2 * X2) + (A3 * X3 * X3) + (A4 * X4 * X4)"));
+            list.Add(string.Format("       + (A5 * X5 * X5) + (A6 * X6 * X6) + (A7 * X7 * X7) + (A8 * X8 * X8) + (A9 * X9 * X9)"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("    = ({0} * {1} * {1}) + ({2} * {3} * {3}) + ({4} * {5} * {5}) + ({6} * {7} * {7}) + ({8} * {9} * {9})",
+                As, Xs, A1, X1, A2, X2, A3, X3, A4, X4));
+            list.Add(string.Format("       + ({0} * {1} * {1}) + ({2} * {3} * {3}) + ({4} * {5} * {5}) + ({6} * {7} * {7}) + ({8} * {9} * {9})",
+                A5, X5, A6, X6, A7, X7, A8, X8, A9, X9));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     = {0} sq.sq.in", A_XX));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            double Iself = Is + I1 + I2 + I3 + I4 + I5 + I6 + I7 + I8 + I9;
+            list.Add(string.Format("Iself = Is + I1 + I2 + I3 + I4 + I5 + I6 + I7 + I8 + I9"));
+            list.Add(string.Format("      = {0:E3} + {1:E3} + {2:E3} + {3:E3} + {4:E3} + {5:E3} + {6:E3} + {7:E3} + {8:E3} + {9:E3}",
+                Is, I1, I2, I3, I4, I5, I6, I7, I8, I9));
+            list.Add(string.Format(""));
+            list.Add(string.Format("      = {0} sq.sq.in", Iself));
+            list.Add(string.Format(""));
+
+
+
+            //IX_Comp = Iself / (12*12*12*12);
+            IX_Comp = Iself;
+
+            list.Add(string.Format("      = {0} sq.sq.in", IX_Comp));
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("Neutral Axis"));
+            list.Add(string.Format("-------------"));
+            list.Add(string.Format(""));
+
+            double Yb = A_X / A_A;
+            list.Add(string.Format("Yb = Distance of Neutral Axis (N-A) from bottom edge = Ax/A = {0}/{1} = {2:f3}", A_A, A_X, Yb));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            double Yt = H - Yb;
+            list.Add(string.Format("Yt = Distance of Neutral Axis (N-A) from top edge = H - Yb = {0} - {1:f3} = {2:f3}", H, Yb, Yt));
+
+            list.Add(string.Format(""));
+
+            list.Add(string.Format(""));
+
+
+
+
+            //Convert Unit sq.cm to sq.mm
+            double a = AngleSection.Area * 100;
+
+            //Convert Unit cm to mm
+            double cxx = AngleSection.Cxx * 10;
+            double cyy = AngleSection.Cyy * 10;
+
+
+            double Iy = Ds * Math.Pow(bs, 3) / 12
+     + (Dt * Math.Pow(Bt, 3) / 12) + (Db * Math.Pow(Bb, 3) / 12)
+     + (Dft * Math.Pow(Bft, 3) / 12) + (Dfb * Math.Pow(Bfb, 3) / 12)
+     + Bw * Math.Pow(Dw, 3) / 12
+
+
+     + Bs1 * Math.Pow(Ds1, 3) / 12 + (Bs1 * Ds1) * Math.Pow((Bw / 2 + Bs1 / 2), 2)
+     + Bs2 * Math.Pow(Ds2, 3) / 12 + (Bs2 * Ds2) * Math.Pow((Dw / 2 + Bs2 / 2), 2)
+     + Bs3 * Math.Pow(Ds3, 3) / 12 + (Bs3 * Ds3) * Math.Pow((Bw / 2 + Bs1 / 2 + Bs3 / 2), 2)
+     + Bs4 * Math.Pow(Ds4, 3) / 12 + (Bs4 * Ds4) * Math.Pow((Bw / 2 + Bs2 / 2 + Bs4 / 2), 2);
+
+
+
+            //+ side * (na / 2) * (AngleSection.Iyy * Math.Pow(0.00328084*12, 4) + a * Math.Pow(((Bw / 2) + Bs1 + Bs3 + cyy), 2))
+            //+ side * (na / 2) * (AngleSection.Iyy * Math.Pow(0.00328084 * 12, 4) + a * Math.Pow(((Bw / 2) + Bs2 + Bs4 + cyy), 2));
+
+
+            //+side * (na * (AngleSection.Iyy * 10000 + a * Math.Pow(cxx, 2)));
+
+
+            Iy = double.Parse(Iy.ToString("f3"));
+            Iy = double.Parse(Math.Abs(Iy).ToString("f3"));
+
+
+            Iy = Iy/(12*12*12*12);
+
+            list.Add(string.Format("Iy = {0} x {1}^3 / 12", Ds, bs));
+            list.Add(string.Format("     + ({0} x {1}^3 / 12) + ({2} x {3}^3 / 12)", Dt, Bt, Db, Bb));
+            list.Add(string.Format("     + ({0} x {1}^3 / 12) + ({2} x {3}^3 / 12)", Dft, Bft, Dfb, Bfb));
+            list.Add(string.Format(""));
+            list.Add(string.Format("     + {0} x {1}^3 / 12", Bw, Dw));
+            list.Add(string.Format(""));
+
+            list.Add(string.Format("     + {0} x {1}^3 / 12 + ({0} x {1}) x ({2} / 2 + {0} / 2)^2", Bs1, Ds1, Bw));
+            list.Add(string.Format("     + {0} x {1}^3 / 12 + ({0} x {1}) x ({2} / 2 + {0} / 2)^2", Bs2, Ds2, Bw));
+            list.Add(string.Format("     + {0} x {1}^3 / 12 + ({0} x {1}) x ({2} / 2 + {3} / 2 + {0} / 2)^2", Bs3, Ds3, Bw, Bs1));
+            list.Add(string.Format("     + {0} x {1}^3 / 12 + ({0} x {1}) x ({2} / 2 + {3} / 2 + {0} / 2)^2", Bs4, Ds4, Bw, Bs2));
+            list.Add(string.Format(""));
+
+
+            list.Add(string.Format("     + {0} x ({1}/2) x ({2} + a x (({3}/2) + {4} + {5} + {6})^2)",
+                side, na, AngleSection.Iyy * Math.Pow(0.00328084,4), a, Bw, Bs1, Bs3, cyy));
+            list.Add(string.Format("     + {0} x ({1}/2) x ({2} + a x (({3}/2) + {4} + {5} + {6})^2)",
+                side, na, AngleSection.Iyy * Math.Pow(0.00328084, 4), a, Bw, Bs2, Bs4, cyy));
+            list.Add(string.Format("     + {0} x ({1} x ({2} + {3} x {4}^2))", side, na, AngleSection.Iyy * Math.Pow(0.00328084, 4), a, cxx));
+            list.Add(string.Format(""));
+            list.Add(string.Format("   = {0:E3} sq.sq.ft", Iy));
+            list.Add(string.Format(""));
+
+            //IY_Comp = Iy / (12 * 12 * 12 * 12);
+            IX_Comp = IX_Comp/(12*12*12*12);
+            IY_Comp = Iy;
+            list.Add(string.Format("   = {0:f5} sq.sq.ft", IY_Comp));
+
+
+            list.Add(string.Format("Iz = Ix + Iy = {0:f5} + {1:f5} = {2:f5} sq.sq.ft", IX_Comp, IY_Comp, (IX_Comp + IY_Comp)));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+         
+            list.Add(string.Format(""));
+
+            #region Chiranjit [2013 07 07]
+
+            #endregion Chiranjit [2013 07 07]
+
+            #endregion Chiranjit [2013 07 03]
+
+            Composite_Results = list;
+        }
+
+    }
+
+    public class CompositeSection_AASHTO
+    {
+        public Steel_Girder_Section_AASHTO Section_Long_Girder_at_L4_Span { get; set; }
+        public Steel_Girder_Section_AASHTO Section_Long_Girder_at_End_Span { get; set; }
+        public Steel_Girder_Section_AASHTO Section_Long_Girder_at_Mid_Span { get; set; }
+        public Steel_Girder_Section_AASHTO Section_Cross_Girder { get; set; }
+
+        public CompositeSection_AASHTO()
+        {
+            Section_Long_Girder_at_L4_Span = new Steel_Girder_Section_AASHTO();
+            Section_Long_Girder_at_Mid_Span = new Steel_Girder_Section_AASHTO();
+            Section_Long_Girder_at_End_Span = new Steel_Girder_Section_AASHTO();
+            Section_Cross_Girder = new Steel_Girder_Section_AASHTO();
+        }
+
+
+        public double Area_End_Section
+        {
+            get
+            {
+                return (Section_Long_Girder_at_End_Span.Area_Total_Plate / (12*12));
+            }
+        }
+        public double Area_L4_Section
+        {
+            get
+            {
+                return (Section_Long_Girder_at_L4_Span.Area_Total_Plate / (12*12));
+            }
+        }
+        public double Area_Mid_Section
+        {
+            get
+            {
+                return (Section_Long_Girder_at_Mid_Span.Area_Total_Plate / (12 * 12));
+            }
+        }
+
+        public double Spacing_Long_Girder
+        {
+            set
+            {
+                try
+                {
+                    Section_Long_Girder_at_L4_Span.Bs = value * 12;
+                    Section_Long_Girder_at_End_Span.Bs = value * 12;
+                    Section_Long_Girder_at_Mid_Span.Bs = value * 12;
+                }
+                catch (Exception ex) { }
+            }
+            get
+            {
+                try
+                {
+                    return Section_Long_Girder_at_L4_Span.Bs / 12;
+
+                }
+                catch (Exception ex) { }
+                return 0;
+            }
+        }
+        public double Spacing_Cross_Girder { get; set; }
+
+
+        public double Ds
+        {
+            set
+            {
+                try
+                {
+                    Section_Long_Girder_at_L4_Span.Ds = value;
+                    Section_Long_Girder_at_End_Span.Ds = value;
+                    Section_Long_Girder_at_Mid_Span.Ds = value;
+                }
+                catch (Exception ex) { }
+            }
+            get
+            {
+                try
+                {
+                    return Section_Long_Girder_at_L4_Span.Ds;
+
+                }
+                catch (Exception ex) { }
+                return 0;
+            }
+        }
+        public RolledSteelAnglesRow Angle_Section
+        {
+            set
+            {
+                try
+                {
+                    Section_Long_Girder_at_L4_Span.AngleSection = value;
+                    Section_Long_Girder_at_End_Span.AngleSection = value;
+                    Section_Long_Girder_at_Mid_Span.AngleSection = value;
+                }
+                catch (Exception ex) { }
+            }
+            get
+            {
+                try
+                {
+                    return Section_Long_Girder_at_L4_Span.AngleSection;
+
+                }
+                catch (Exception ex) { }
+                return null;
+            }
+        }
+        public double m
+        {
+            set
+            {
+                try
+                {
+                    Section_Long_Girder_at_L4_Span.m = value;
+                    Section_Long_Girder_at_End_Span.m = value;
+                    Section_Long_Girder_at_Mid_Span.m = value;
+                }
+                catch (Exception ex) { }
+            }
+            get
+            {
+                try
+                {
+                    return Section_Long_Girder_at_L4_Span.m;
+
+                }
+                catch (Exception ex) { }
+                return 0;
+            }
+        }
+
+        public double Steel_Unit_Weight
+        {
+            set
+            {
+                try
+                {
+                    Section_Long_Girder_at_L4_Span.Steel_Unit_Weight = value;
+                    Section_Long_Girder_at_End_Span.Steel_Unit_Weight = value;
+                    Section_Long_Girder_at_Mid_Span.Steel_Unit_Weight = value;
+                }
+                catch (Exception ex) { }
+            }
+            get
+            {
+                try
+                {
+                    return Section_Long_Girder_at_L4_Span.Steel_Unit_Weight;
+
+                }
+                catch (Exception ex) { }
+                return 0;
+            }
+        }
+        public double Bs
+        {
+            set
+            {
+                try
+                {
+                    Spacing_Long_Girder = value;
+                }
+                catch (Exception ex) { }
+            }
+            get
+            {
+                try
+                {
+                    return Spacing_Long_Girder;
+                }
+                catch (Exception ex) { }
+                return 0;
+            }
+        }
+
+
+        public void Get_Weight_Calculation_Report(StreamWriter sw)
+        {
+            List<string> list = new List<string>();
+
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Number of Long Main Girder = {0}", Section_Long_Girder_at_Mid_Span.NumberOfGirder));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Centre to Centre spacing between Long Main Girders = {0:f3} in", Spacing_Long_Girder));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Total Number of Cross Girder = {0}", Section_Cross_Girder.NumberOfGirder));
+            list.Add(string.Format(""));
+            list.Add(string.Format("Centre to Centre spacing between Cross Girders = {0:f3} in", Spacing_Cross_Girder));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("--------------------------------------------------"));
+            list.Add(string.Format("Details for each Long Main Girder is given below :"));
+            list.Add(string.Format("--------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("USER INPUT DATA FOR LONG GIRDER SECTION AT END SPAN"));
+            list.Add(string.Format("----------------------------------------------------"));
+
+            Section_Long_Girder_at_End_Span.Get_Input_Data(ref list);
+            list.Add(string.Format(""));
+            list.Add(string.Format("USER INPUT DATA FOR LONG GIRDER SECTION AT PENULTIMATE SPAN"));
+            list.Add(string.Format("-----------------------------------------------------------"));
+
+            Section_Long_Girder_at_L4_Span.Get_Input_Data(ref list);
+            list.Add(string.Format(""));
+            list.Add(string.Format("USER INPUT DATA FOR LONG GIRDER SECTION AT MID SPAN"));
+            list.Add(string.Format("----------------------------------------------------"));
+            Section_Long_Girder_at_Mid_Span.Get_Input_Data(ref list);
+            list.Add(string.Format(""));
+            list.Add(string.Format("--------------------------------------------------"));
+            list.Add(string.Format("Details of Cross Girder is given below : "));
+            list.Add(string.Format("--------------------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("USER INPUT DATA FOR CROSS GIRDER "));
+            list.Add(string.Format("---------------------------------"));
+            Section_Cross_Girder.Get_Input_Data(ref list);
+            list.Add(string.Format(""));
+
+
+            list.Add("");
+            list.Add("------------------------------------------------------------");
+            list.Add("DESIGN CALCULATIONS");
+            list.Add("------------------------------------------------------------");
+            list.Add("");
+
+            list.Add(string.Format(""));
+            list.Add(string.Format("-----------------------------------------"));
+            list.Add(string.Format("COMPUTAION FOR WEIGHT OF STRUCTURAL STEEL"));
+            list.Add(string.Format("-----------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("UNIT WEIGHT OF STEEL = {0} TON/CU.M", Section_Long_Girder_at_Mid_Span.Steel_Unit_Weight));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format("LONG MAIN GIRDERS WEIGHT COMPUTAION"));
+            list.Add(string.Format("------------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("TYPE={0}", (Section_Long_Girder_at_Mid_Span.Nb == 1) ? "PLATE" : "BOX"));
+            list.Add(string.Format(""));
+            list.Add(string.Format("TOTAL NO: = {0}", Section_Long_Girder_at_Mid_Span.NumberOfGirder));
+            list.Add(string.Format(""));
+            list.Add(string.Format("LENGTH = {0:f3} M", Section_Long_Girder_at_Mid_Span.Length));
+            list.Add(string.Format(""));
+            list.AddRange(Section_Long_Girder_at_Mid_Span.Get_Weight_Calculation());
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("---------------------------------"));
+            list.Add(string.Format("CROSS GIRDERS WEIGHT COMPUTAION"));
+            list.Add(string.Format("---------------------------------"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            list.Add(string.Format("TOTAL NO: = {0}", Section_Cross_Girder.NumberOfGirder));
+            list.Add(string.Format(""));
+            list.Add(string.Format("LENGTH = {0:f3} FT", Section_Cross_Girder.Length));
+            list.Add(string.Format(""));
+            list.AddRange(Section_Cross_Girder.Get_Weight_Calculation());
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+
+            double total_weight = Section_Long_Girder_at_Mid_Span.Total_Weight + Section_Cross_Girder.Total_Weight;
+            list.Add(string.Format("TOTAL WEIGHT PER SPAN OF {0:f3} M  = {1:f3} + {2:f3} = {3:f3} KIP",
+                Section_Long_Girder_at_Mid_Span.Length,
+                Section_Long_Girder_at_Mid_Span.Total_Weight,
+                Section_Cross_Girder.Total_Weight, total_weight));
+
+            //list.Add(string.Format("   = [1]+[2]+[3]+[4]+[5]+[6] + [7]+[8]+[9]+[10]+[11]  "));
+
+            ////double w1 = Section_Long_Girder_at_Mid_Span.
+            //list.Add(string.Format("= (74.880+24.960+24.96+19.968+19.968+9.344) + (7.020+2.340+2.340+2.250+2.250)"));
+
+
+
+            //list.Add(string.Format("= 174.08 + 16.20"));
+            //list.Add(string.Format("= 190.28 TONS"));
+            list.Add(string.Format(""));
+            list.Add(string.Format(""));
+            double add_total = total_weight * 1.24;
+            list.Add(string.Format("ADD 24% FOR SPLICING, BOLTS etc. = {0:f3} X 1.24 = {1:f3} KIP.", total_weight, add_total));
             list.Add(string.Format(""));
 
             list.Add(string.Format(""));

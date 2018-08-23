@@ -75,10 +75,7 @@
         Steel_Column = 58,
         Stage_Analysis = 59,
 
-
         Retaining_Wall = 60,
-
-
     }
 
     public enum eSLAB

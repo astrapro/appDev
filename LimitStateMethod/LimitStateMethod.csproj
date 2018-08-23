@@ -134,6 +134,12 @@
     <Compile Include="Composite\frm_CompositeLSM_New.Designer.cs">
       <DependentUpon>frm_CompositeLSM_New.cs</DependentUpon>
     </Compile>
+    <Compile Include="Composite\frm_Composite_AASHTO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Composite\frm_Composite_AASHTO.Designer.cs">
+      <DependentUpon>frm_Composite_AASHTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Composite\frm_Composite_LS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,10 +213,22 @@
     <Compile Include="LoadCombinations\frm_LoadCombination.Designer.cs">
       <DependentUpon>frm_LoadCombination.cs</DependentUpon>
     </Compile>
-    <Compile Include="LS_Progress\frm_LS_Process.cs">
+    <Compile Include="PSC_Box_Girder\frm_PSC_Box_Girder_AASHTO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LS_Progress\frm_LS_Process.Designer.cs">
+    <Compile Include="PSC_Box_Girder\frm_PSC_Box_Girder_AASHTO.Designer.cs">
+      <DependentUpon>frm_PSC_Box_Girder_AASHTO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.Designer.cs">
+      <DependentUpon>frm_PSC_I_Girder_AASHTO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RccCulvert\LS_Progress\frm_LS_Process.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RccCulvert\LS_Progress\frm_LS_Process.Designer.cs">
       <DependentUpon>frm_LS_Process.cs</DependentUpon>
     </Compile>
     <Compile Include="Minor_Bridge\frm_MinorBridge_LS.cs">
@@ -470,6 +488,9 @@
     <EmbeddedResource Include="Composite\frm_CompositeLSM_New.resx">
       <DependentUpon>frm_CompositeLSM_New.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Composite\frm_Composite_AASHTO.resx">
+      <DependentUpon>frm_Composite_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Composite\frm_Composite_LS.resx">
       <DependentUpon>frm_Composite_LS.cs</DependentUpon>
     </EmbeddedResource>
@@ -506,7 +527,13 @@
     <EmbeddedResource Include="LoadCombinations\frm_LoadCombination.resx">
       <DependentUpon>frm_LoadCombination.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LS_Progress\frm_LS_Process.resx">
+    <EmbeddedResource Include="PSC_Box_Girder\frm_PSC_Box_Girder_AASHTO.resx">
+      <DependentUpon>frm_PSC_Box_Girder_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.resx">
+      <DependentUpon>frm_PSC_I_Girder_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RccCulvert\LS_Progress\frm_LS_Process.resx">
       <DependentUpon>frm_LS_Process.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Minor_Bridge\frm_MinorBridge_LS.resx">
@@ -844,6 +871,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ExtradossedCentralTowers.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LRFD_I_Section.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BOX_tab1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AASHTO_BOX_CROSSSECTION.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AASHTO_BOX_CROSSSECTION_SAMPLE.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BOX_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excel_note.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

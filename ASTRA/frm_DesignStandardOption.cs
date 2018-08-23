@@ -60,31 +60,27 @@ namespace AstraFunctionOne
         public bool IsAASTHO { get; set; }
         private void frm_DesignStandardOption_Load(object sender, EventArgs e)
         {
-
-            if (IsAASTHO)
-            {
-                rbtn_BS.Location = new Point(16, 20);
-                rbtn_IS.Location = new Point(16, 46);
-                rbtn_LRFD.Location = new Point(16, 72);
-                //rbtn_IS.Checked = false;
-                //rbtn_BS.Checked = true;
-            }
-            else
-            {
-                //rbtn_BS.Location = new Point(21, 53);
-                //rbtn_IS.Location = new Point(21, 27);
-                //rbtn_LRFD.Location = new Point(21, 61);
-
-
-                rbtn_IS.Location = new Point(16, 20);
-                rbtn_BS.Location = new Point(16, 46);
-                rbtn_LRFD.Location = new Point(16, 72);
-            }
+            //if (IsAASTHO)
+            //{
+            //    rbtn_BS.Location = new Point(16, 20);
+            //    rbtn_IS.Location = new Point(16, 46);
+            //    rbtn_LRFD.Location = new Point(16, 72);
+            //    //rbtn_IS.Checked = false;
+            //    //rbtn_BS.Checked = true;
+            //}
+            //else
+            //{
+            //    //rbtn_BS.Location = new Point(21, 53);
+            //    //rbtn_IS.Location = new Point(21, 27);
+            //    //rbtn_LRFD.Location = new Point(21, 61);
+            //    rbtn_IS.Location = new Point(16, 20);
+            //    rbtn_BS.Location = new Point(16, 46);
+            //    rbtn_LRFD.Location = new Point(16, 72);
+            //}
 
             rbtn_IS.Checked = (DesignStandard == eDesignStandard.IndianStandard);
             rbtn_BS.Checked = (DesignStandard == eDesignStandard.BritishStandard);
             rbtn_LRFD.Checked = (DesignStandard == eDesignStandard.LRFDStandard);
-
         }
 
     }

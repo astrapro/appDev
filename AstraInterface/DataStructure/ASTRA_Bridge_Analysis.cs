@@ -403,6 +403,76 @@ namespace AstraInterface.DataStructure
                     s1 = dgv[0, i].Value.ToString();
                     s2 = dgv[1, i].Value.ToString();
                     s3 = dgv[2, i].Value.ToString();
+
+                    if(dgv.ColumnCount == 4)
+                    {
+
+                        s2 = dgv[2, i].Value.ToString();
+                        s3 = dgv[3, i].Value.ToString();
+                    }
+                    //s4 = dgv_box_input_data[3, i].Value.ToString();
+                    if (s1 != "" && s2 == "")
+                    {
+                        dgv.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Yellow;
+                        dgv.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("Verdana", 9.0f, System.Drawing.FontStyle.Bold);
+                        sl_no = 1;
+
+                        dgv.Rows[i].ReadOnly = true;
+                    }
+                    else if (s1 == "" && s2 == "" && s3 == "")
+                    {
+                        dgv.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Gray;
+                        //dgv.Rows[i].DefaultCellStyle.Font = new System.Drawing.Font("Verdana", 9.0f, System.Drawing.FontStyle.Bold);
+                        sl_no = 1;
+
+                        dgv.Rows[i].ReadOnly = true;
+                    }
+
+                    //else
+                    //{
+                    //if (s2 != "") dgv[0, i].Value = sl_no++;
+                    //}
+                }
+                catch (Exception exx) { }
+            }
+
+            #endregion Format Input Data
+
+            //if (dgv[1, 0].Value == "") dgv[2, i].Value = "";
+
+        }
+
+        public static void Modified_Cell(DataGridView dgv, int value_index)
+        {
+            string s1, s2, s3, s4;
+            int sl_no = 1;
+
+
+
+
+            #region Format Input Data
+            //dgv = dgv_base_pressure;
+
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+
+                    if (dgv[0, i].Value == null) dgv[0, i].Value = "";
+                    if (dgv[1, i].Value == null) dgv[1, i].Value = "";
+                    if (dgv[2, i].Value == null) dgv[2, i].Value = "";
+
+                    if (dgv[0, i].Value == "") dgv[0, i].Value = "";
+                    if (dgv[1, i].Value == "") dgv[1, i].Value = "";
+                    if (dgv[2, i].Value == "") dgv[2, i].Value = "";
+
+                    //if (dgv_box_input_data[3, i].Value == "") dgv_box_input_data[3, i].Value = "";
+
+
+
+                    s1 = dgv[0, i].Value.ToString();
+                    s2 = dgv[value_index, i].Value.ToString();
+                    s3 = dgv[2, i].Value.ToString();
                     //s4 = dgv_box_input_data[3, i].Value.ToString();
                     if (s1 != "" && s2 == "")
                     {
@@ -4443,8 +4513,12 @@ namespace AstraInterface.DataStructure
         }
 
 
-
-        //Chiranjit [2013 09 30]
+        public MaxForce GetJoint_Max_Hogging(int joint_no, bool is_long_girder)
+        {
+            List<int> joint_array = new List<int>();
+            joint_array.Add(joint_no);
+            return GetJoint_Max_Hogging(joint_array, is_long_girder);
+        }
         public MaxForce GetJoint_Max_Hogging(List<int> joint_array, bool is_long_girder)
         {
             MaxForce mfrc = new MaxForce();
@@ -4508,6 +4582,13 @@ namespace AstraInterface.DataStructure
             return mfrc;
 
         }
+        
+        public MaxForce GetJoint_Max_Sagging(int joint_no, bool is_long_girder)
+        {
+            List<int> joint_array = new List<int>();
+            joint_array.Add(joint_no);
+            return GetJoint_Max_Sagging(joint_array, is_long_girder);
+        }
         public MaxForce GetJoint_Max_Sagging(List<int> joint_array, bool is_long_girder)
         {
             MaxForce mfrc = new MaxForce();
@@ -4569,6 +4650,428 @@ namespace AstraInterface.DataStructure
 
             return mfrc;
 
+        }
+
+        public MaxForce GetMember_Max_Positive_Moment(string members)
+        {
+            return GetMember_Max_Positive_Moment(MyList.Get_Array_Intiger(members));
+        }
+        public MaxForce GetMember_Max_Positive_Moment(List<int> member_array)
+        {
+            MaxForce mfrc = new MaxForce();
+
+            double max_moment = 0.0;
+
+            for (int i = 0; i < member_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.BeamNo == member_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxBendingMoment > 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.StartNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.StartNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                        if (bf.EndNodeForce.MaxBendingMoment > 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.EndNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.EndNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+
+                    }
+                }
+            }
+            return mfrc;
+        }
+
+        public MaxForce GetJoint_Max_Positive_Moment(List<int> joint_array)
+        {
+            MaxForce mfrc = new MaxForce();
+
+            double max_moment = 0.0;
+
+            for (int i = 0; i < joint_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.StartNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxBendingMoment > 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.StartNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.StartNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                    }
+                    else if (bf.EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.EndNodeForce.MaxBendingMoment > 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.EndNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.EndNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+
+                    }
+                }
+            }
+            return mfrc;
+        }
+
+
+        public MaxForce GetMember_Max_Negative_Moment(string members)
+        {
+            return GetMember_Max_Negative_Moment(MyList.Get_Array_Intiger(members));
+
+        }
+        public MaxForce GetMember_Max_Negative_Moment(List<int> member_array)
+        {
+            MaxForce mfrc = new MaxForce();
+
+            double max_moment = 0.0;
+
+            for (int i = 0; i < member_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.BeamNo == member_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxBendingMoment < 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.StartNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.StartNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                        if (bf.EndNodeForce.MaxBendingMoment < 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.EndNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.EndNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+
+                    }
+                }
+            }
+            return mfrc;
+        }
+
+        public MaxForce GetJoint_Max_Negative_Moment(List<int> joint_array)
+        {
+            MaxForce mfrc = new MaxForce();
+
+            double max_moment = 0.0;
+
+            for (int i = 0; i < joint_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.StartNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxBendingMoment < 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.StartNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.StartNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                    }
+                    if (bf.EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.EndNodeForce.MaxBendingMoment < 0)
+                        {
+                            if (Math.Abs(max_moment) < Math.Abs(bf.EndNodeForce.MaxBendingMoment))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_moment = bf.EndNodeForce.MaxBendingMoment;
+                                mfrc.Force = max_moment;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+
+                    }
+                }
+            }
+            return mfrc;
+        }
+
+        public MaxForce GetMember_Max_Positive_Shear(string members)
+        {
+            return GetMember_Max_Positive_Shear(MyList.Get_Array_Intiger(members));
+        }
+
+        public MaxForce GetMember_Max_Positive_Shear(List<int> member_array)
+        {
+            MaxForce mfrc = new MaxForce();
+
+            double max_shear = 0.0;
+
+            for (int i = 0; i < member_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.BeamNo == member_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxShearForce > 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.StartNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.StartNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                        if (bf.EndNodeForce.MaxShearForce > 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.EndNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.EndNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //return (max_moment == double.MinValue) ? 0.0d : max_moment;
+
+            return mfrc;
+
+        }
+
+        public MaxForce GetJoint_Max_Positive_Shear(List<int> joint_array)
+        {
+            MaxForce mfrc = new MaxForce();
+
+            double max_shear = 0.0;
+
+            for (int i = 0; i < joint_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.StartNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxShearForce > 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.StartNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.StartNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                    }
+                    if (bf.EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.EndNodeForce.MaxShearForce > 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.EndNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.EndNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //return (max_moment == double.MinValue) ? 0.0d : max_moment;
+
+            return mfrc;
+
+        }
+
+        public MaxForce GetMember_Max_Negative_Shear(string members)
+        {
+            return GetMember_Max_Negative_Shear(MyList.Get_Array_Intiger(members));
+
+        }
+        public MaxForce GetMember_Max_Negative_Shear(List<int> member_array)
+        {
+
+            MaxForce mfrc = new MaxForce();
+
+            double max_shear = 0.0;
+
+            for (int i = 0; i < member_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.BeamNo == member_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxShearForce < 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.StartNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.StartNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                        if (bf.EndNodeForce.MaxShearForce < 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.EndNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.EndNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+                    }
+                }
+            }
+            return mfrc;
+        }
+
+        public MaxForce GetJoint_Max_Negative_Shear(List<int> joint_array)
+        {
+
+            MaxForce mfrc = new MaxForce();
+
+            double max_shear = 0.0;
+
+            for (int i = 0; i < joint_array.Count; i++)
+            {
+                for (int j = 0; j < list_beams.Count; j++)
+                {
+                    AstraBeamMember bf = new AstraBeamMember(ForceType);
+                    bf = list_beams[j];
+                    bf.StartNodeForce.ForceType = ForceType;
+                    bf.EndNodeForce.ForceType = ForceType;
+
+                    if (bf.StartNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.StartNodeForce.MaxShearForce < 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.StartNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.StartNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.StartNodeForce.JointNo;
+                            }
+                        }
+                    }
+                    if (bf.EndNodeForce.JointNo == joint_array[i])
+                    {
+                        if (bf.EndNodeForce.MaxShearForce < 0)
+                        {
+                            if (Math.Abs(max_shear) < Math.Abs(bf.EndNodeForce.MaxShearForce))
+                            {
+                                //max_moment = Math.Abs(list_beams[j].StartNodeForce.MaxBendingMoment);
+                                max_shear = bf.EndNodeForce.MaxShearForce;
+                                mfrc.Force = max_shear;
+                                mfrc.MemberNo = list_beams[j].BeamNo;
+                                mfrc.Loadcase = list_beams[j].LoadNo;
+                                mfrc.NodeNo = bf.EndNodeForce.JointNo;
+                            }
+                        }
+                    }
+                }
+            }
+            return mfrc;
         }
 
         public MaxForce GetJoint_Max_Hogging(List<int> joint_array, List<int> loads)
@@ -4677,8 +5180,6 @@ namespace AstraInterface.DataStructure
             return mfrc;
 
         }
-
-
 
 
         //Chiranjit [2013 07 26]

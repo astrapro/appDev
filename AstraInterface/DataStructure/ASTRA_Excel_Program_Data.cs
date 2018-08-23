@@ -55,7 +55,26 @@ namespace AstraInterface.DataStructure
                 }
                 catch (Exception ex) { }
             }
+        }
+        public void Read_From_Grid(DataGridView dgv, int value_index, int UnitIndex)
+        {
+            this.Clear();
 
+            Excel_User_Input_Data di = new Excel_User_Input_Data();
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    di = new Excel_User_Input_Data();
+
+                    di.Input_Text = dgv[0, i].Value.ToString();
+                    di.Input_Value = dgv[value_index, i].Value.ToString().ToUpper().Replace("M", "").Replace("FE", "");
+                    di.Input_Unit = dgv[UnitIndex, i].Value.ToString();
+                    if (di.Input_Value != "")
+                        this.Add(di);
+                }
+                catch (Exception ex) { }
+            }
         }
 
         public string Type_of_Cable { get; set; }

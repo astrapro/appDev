@@ -40,6 +40,7 @@ using ASTR = AstraInterface.DataStructure;
 
 namespace ASTRAStructures
 {
+
     public partial class UCPostProcess : UserControl
     {
 
@@ -220,6 +221,8 @@ namespace ASTRAStructures
             AST_DOC = new ASTRADoc(file_name);
             AST_DOC_ORG = new ASTRADoc(file_name);
 
+
+            Load_ASTRA_Data();
             PP_Tab_Selection();
 
             if(cmb_pp_text_size.SelectedIndex == -1)
@@ -2259,4 +2262,5 @@ namespace ASTRAStructures
         }
 
     }
+
 }

@@ -32,7 +32,7 @@ namespace AstraFunctionOne
 
             if(File.Exists(file_path))
             {
-                lbl_release.Text = File.ReadAllText(file_path);
+                //lbl_release.Text = File.ReadAllText(file_path);
             }
         }
     }

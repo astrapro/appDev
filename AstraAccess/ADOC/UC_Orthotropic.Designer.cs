@@ -70,8 +70,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_gen_members = new System.Windows.Forms.Button();
-            this.btn_open_report = new System.Windows.Forms.Button();
+            this.btn_create_input_data = new System.Windows.Forms.Button();
+            this.btn_open_input_data = new System.Windows.Forms.Button();
             this.btn_run_analysis = new System.Windows.Forms.Button();
             this.btn_draw = new System.Windows.Forms.Button();
             this.uC_CAD1 = new AstraAccess.ADOC.UC_CAD();
@@ -129,8 +129,8 @@
             this.splitContainer2.Panel2.Controls.Add(this.chk_WB);
             this.splitContainer2.Panel2.Controls.Add(this.chk_DS);
             this.splitContainer2.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer2.Panel2.Controls.Add(this.btn_gen_members);
-            this.splitContainer2.Panel2.Controls.Add(this.btn_open_report);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_create_input_data);
+            this.splitContainer2.Panel2.Controls.Add(this.btn_open_input_data);
             this.splitContainer2.Panel2.Controls.Add(this.btn_run_analysis);
             this.splitContainer2.Panel2.Controls.Add(this.btn_draw);
             this.splitContainer2.Size = new System.Drawing.Size(210, 468);
@@ -157,7 +157,8 @@
                                                                                         ((object)(new object[] {
                                                                                                 ((object)(new object[] {
                                                                                                         ((object)(new object[] {
-                                                                                                                ((object)(new object[0]))}))}))}))}))}))}))}))}))}))}))}))}))}))};
+                                                                                                                ((object)(new object[] {
+                                                                                                                        ((object)(new object[0]))}))}))}))}))}))}))}))}))}))}))}))}))}))}))};
             this.vdPropertyGrid1.ShowSelectedItemComboBox = true;
             this.vdPropertyGrid1.Size = new System.Drawing.Size(208, 133);
             this.vdPropertyGrid1.TabIndex = 0;
@@ -582,25 +583,25 @@
             this.label11.TabIndex = 2;
             this.label11.Text = "Bottom Flange Thickness";
             // 
-            // btn_gen_members
+            // btn_create_input_data
             // 
-            this.btn_gen_members.Location = new System.Drawing.Point(3, 191);
-            this.btn_gen_members.Name = "btn_gen_members";
-            this.btn_gen_members.Size = new System.Drawing.Size(196, 28);
-            this.btn_gen_members.TabIndex = 0;
-            this.btn_gen_members.Text = "Create Input Data File";
-            this.btn_gen_members.UseVisualStyleBackColor = true;
-            this.btn_gen_members.Click += new System.EventHandler(this.btn_gen_members_Click);
+            this.btn_create_input_data.Location = new System.Drawing.Point(3, 191);
+            this.btn_create_input_data.Name = "btn_create_input_data";
+            this.btn_create_input_data.Size = new System.Drawing.Size(196, 28);
+            this.btn_create_input_data.TabIndex = 0;
+            this.btn_create_input_data.Text = "Create Input Data File";
+            this.btn_create_input_data.UseVisualStyleBackColor = true;
+            this.btn_create_input_data.Click += new System.EventHandler(this.btn_gen_members_Click);
             // 
-            // btn_open_report
+            // btn_open_input_data
             // 
-            this.btn_open_report.Location = new System.Drawing.Point(3, 225);
-            this.btn_open_report.Name = "btn_open_report";
-            this.btn_open_report.Size = new System.Drawing.Size(196, 28);
-            this.btn_open_report.TabIndex = 0;
-            this.btn_open_report.Text = "Open Input Data File";
-            this.btn_open_report.UseVisualStyleBackColor = true;
-            this.btn_open_report.Click += new System.EventHandler(this.btn_draw_Click);
+            this.btn_open_input_data.Location = new System.Drawing.Point(3, 225);
+            this.btn_open_input_data.Name = "btn_open_input_data";
+            this.btn_open_input_data.Size = new System.Drawing.Size(196, 28);
+            this.btn_open_input_data.TabIndex = 0;
+            this.btn_open_input_data.Text = "Open Input Data File";
+            this.btn_open_input_data.UseVisualStyleBackColor = true;
+            this.btn_open_input_data.Click += new System.EventHandler(this.btn_draw_Click);
             // 
             // btn_run_analysis
             // 
@@ -687,19 +688,19 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox1;
         private vdPropertyGrid.vdPropertyGrid vdPropertyGrid1;
-        private System.Windows.Forms.CheckBox chk_BF;
-        private System.Windows.Forms.CheckBox chk_SP;
-        private System.Windows.Forms.CheckBox chk_BP;
-        private System.Windows.Forms.CheckBox chk_TF;
-        private System.Windows.Forms.CheckBox chk_TP;
-        private System.Windows.Forms.CheckBox chk_WB;
-        private System.Windows.Forms.CheckBox chk_DS;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.Button btn_gen_members;
-        private System.Windows.Forms.Button btn_open_report;
-        private System.Windows.Forms.Button btn_run_analysis;
+        public System.Windows.Forms.CheckBox chk_BF;
+        public System.Windows.Forms.CheckBox chk_SP;
+        public System.Windows.Forms.CheckBox chk_BP;
+        public System.Windows.Forms.CheckBox chk_TF;
+        public System.Windows.Forms.CheckBox chk_TP;
+        public System.Windows.Forms.CheckBox chk_WB;
+        public System.Windows.Forms.CheckBox chk_DS;
+        public System.Windows.Forms.CheckBox checkBox1;
+        public System.Windows.Forms.CheckBox checkBox3;
+        public System.Windows.Forms.CheckBox checkBox2;
+        public System.Windows.Forms.CheckBox checkBox4;
+        public System.Windows.Forms.Button btn_create_input_data;
+        public System.Windows.Forms.Button btn_open_input_data;
+        public System.Windows.Forms.Button btn_run_analysis;
     }
 }

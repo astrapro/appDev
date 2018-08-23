@@ -63,9 +63,49 @@ namespace LimitStateMethod.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AASHTO_BOX_CROSSSECTION {
+            get {
+                object obj = ResourceManager.GetObject("AASHTO_BOX_CROSSSECTION", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AASHTO_BOX_CROSSSECTION_SAMPLE {
+            get {
+                object obj = ResourceManager.GetObject("AASHTO_BOX_CROSSSECTION_SAMPLE", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap abut_box_girder_section {
             get {
                 object obj = ResourceManager.GetObject("abut_box_girder_section", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BOX_1 {
+            get {
+                object obj = ResourceManager.GetObject("BOX_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BOX_tab1 {
+            get {
+                object obj = ResourceManager.GetObject("BOX_tab1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +296,16 @@ namespace LimitStateMethod.Properties {
         internal static System.Drawing.Bitmap End_Span_Long_Girder {
             get {
                 object obj = ResourceManager.GetObject("End_Span_Long_Girder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Excel_note {
+            get {
+                object obj = ResourceManager.GetObject("Excel_note", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -506,6 +556,16 @@ namespace LimitStateMethod.Properties {
         internal static System.Drawing.Bitmap K_truss_2 {
             get {
                 object obj = ResourceManager.GetObject("K_truss_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LRFD_I_Section {
+            get {
+                object obj = ResourceManager.GetObject("LRFD_I_Section", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

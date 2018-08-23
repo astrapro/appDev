@@ -58,8 +58,6 @@ namespace AstraFunctionOne
 {
     public partial class frmMain : Form, IApplication
     {
-        
-
         string msg = "";
 
         string flPath = "";
@@ -169,7 +167,6 @@ namespace AstraFunctionOne
 
             return false;
         }
-
 
         public void WriteFilePath()
         {
@@ -630,7 +627,6 @@ namespace AstraFunctionOne
 
                 }
 
-
                 //tsmi_workingFolder.Visible = false;
                 tsmi_openAnalysisExampleTXTDataFile.Visible = true;
 
@@ -639,11 +635,10 @@ namespace AstraFunctionOne
 
                 //Version_Type = eVersionType.High_Value_Version;
 
-                //IsAASTHO = true;
-                IsAASTHO = false;
+                IsAASTHO = true;
+                //IsAASTHO = false;
                 //bool IsDemo = true;
-
-                
+                DesignStandard = eDesignStandard.BritishStandard;
                 Version_Type = LockProgram.Get_LockedVersion();
 
                 IsDemo = (Version_Type == eVersionType.Demo);
@@ -2656,11 +2651,20 @@ namespace AstraFunctionOne
         {
             if (!Is_select_Design_Standard) SelectDesignStandard();
             ShowTimerScreen(eASTRAImage.PSC_Box_Girder);
-            //Chiranjit [2011 10 17] New PSC Box girder Analysis
-            //BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_BoxGirder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_BoxGirder(this);
-            BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder(this);
-            frm.Owner = this;
-            frm.Show();
+            if (DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                LimitStateMethod.PSC_Box_Girder.frm_PSC_Box_Girder_AASHTO frm = new LimitStateMethod.PSC_Box_Girder.frm_PSC_Box_Girder_AASHTO(this);
+                frm.Owner = this;
+                frm.Show();
+            }
+            else
+            {
+                //Chiranjit [2011 10 17] New PSC Box girder Analysis
+                //BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_BoxGirder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_BoxGirder(this);
+                BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder(this);
+                frm.Owner = this;
+                frm.Show();
+            }
         }
 
         private void tsmi_Rail_Bridge_Click(object sender, EventArgs e)
@@ -5753,9 +5757,19 @@ namespace AstraFunctionOne
 
             if (IsRelease_22)
             {
-                LimitStateMethod.Composite.frm_CompositeLSM_New frm = new LimitStateMethod.Composite.frm_CompositeLSM_New(this);
-                frm.Owner = this;
-                frm.Show();
+                if (DesignStandard == eDesignStandard.LRFDStandard)
+                {
+
+                    LimitStateMethod.Composite.frm_Composite_AASHTO frm = new LimitStateMethod.Composite.frm_Composite_AASHTO(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
+                else
+                {
+                    LimitStateMethod.Composite.frm_CompositeLSM_New frm = new LimitStateMethod.Composite.frm_CompositeLSM_New(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
             }
             else
             {
@@ -5780,9 +5794,18 @@ namespace AstraFunctionOne
 
             if (IsRelease_22)
             {
-                frm_PSC_I_Girder_LS_New frm = new frm_PSC_I_Girder_LS_New(this);
-                frm.Owner = this;
-                frm.Show();
+                if (DesignStandard == eDesignStandard.LRFDStandard)
+                {
+                    frm_PSC_I_Girder_AASHTO frm = new frm_PSC_I_Girder_AASHTO(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm_PSC_I_Girder_LS_New frm = new frm_PSC_I_Girder_LS_New(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
             }
             else
             {

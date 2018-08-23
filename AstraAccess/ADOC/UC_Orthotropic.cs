@@ -66,7 +66,7 @@ namespace AstraAccess.ADOC
                 if (OnRunAnalysis_Click != null) OnRunAnalysis_Click(sender, e);
                 Run_Analysis();
             }
-            else if (btn == btn_open_report)
+            else if (btn == btn_open_input_data)
             {
                 if (OnRunAnalysis_Click != null) OnRunAnalysis_Click(sender, e);
                 Open_Report();
@@ -76,7 +76,7 @@ namespace AstraAccess.ADOC
 
         void Button_Enable_Disable()
         {
-            btn_open_report.Enabled = File.Exists(Input_Data_File);
+            btn_open_input_data.Enabled = File.Exists(Input_Data_File);
             btn_run_analysis.Enabled = File.Exists(Input_Data_File);
         }
 
