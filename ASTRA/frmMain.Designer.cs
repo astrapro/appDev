@@ -294,9 +294,9 @@
             this.mns_ASTRA_menues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_file,
             this.tsmi_process_analysis,
+            this.tsmi_Process_Design,
             this.viewToolStripMenuItem,
             this.processAstFileToolStripMenuItem,
-            this.tsmi_Process_Design,
             this.tsmi_research_Studies,
             this.tsmi_CAD_Viewer,
             this.utilityToolStripMenuItem,

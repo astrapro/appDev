@@ -651,7 +651,7 @@ namespace ASTRAStructures
                 cmb_text_size.SelectedIndex = 0;
                 cmb_pp_text_size.SelectedIndex = 0;
 
-
+                
                 //if(ana)
             }
             catch (Exception exx) { }
@@ -940,8 +940,6 @@ namespace ASTRAStructures
                     //UC_SAP.Load_Initials();
                     //UC_SAP.Load_Initials();
                     //ucSapPostProcess1.Load_SAP_Events();
-
-
                     UC_SAP.Open_Data_File(File_Name);
                     IsFlag = true;
                 }
@@ -6076,7 +6074,6 @@ namespace ASTRAStructures
                 string st_file = Get_Straight_File(File_Name);
                 Save_Data(st_file, true);
 
-
                 #region Run Curve Analysis
 
                 if (File.Exists(st_file))
@@ -10424,7 +10421,7 @@ namespace ASTRAStructures
             ff.rbtn_TEXT.Enabled = false;
 
             ff.ShowDialog();
-
+            if (ff.Example_Title == null) return;
             txt_project_name.Text = ff.Example_Title;
             Create_Project();
 
@@ -10771,4 +10768,5 @@ namespace ASTRAStructures
 
 
     }
+
 }

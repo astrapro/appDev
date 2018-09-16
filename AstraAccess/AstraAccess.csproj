@@ -57,13 +57,9 @@
     </Reference>
     <Reference Include="RenderFormats, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53" />
     <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Tunnel_Lining">
@@ -283,12 +279,6 @@
     <Compile Include="StageAnalysis\frm_ProcessStageAnalysis.Designer.cs">
       <DependentUpon>frm_ProcessStageAnalysis.cs</DependentUpon>
     </Compile>
-    <Compile Include="StructureAnalysisDesign\frm_StructureDesign1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StructureAnalysisDesign\frm_StructureDesign1.Designer.cs">
-      <DependentUpon>frm_StructureDesign1.cs</DependentUpon>
-    </Compile>
     <Compile Include="StructureAnalysisDesign\frm_Tunnel_Design.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,9 +386,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StageAnalysis\frm_ProcessStageAnalysis.resx">
       <DependentUpon>frm_ProcessStageAnalysis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StructureAnalysisDesign\frm_StructureDesign1.resx">
-      <DependentUpon>frm_StructureDesign1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StructureAnalysisDesign\frm_Tunnel_Design.resx">
       <DependentUpon>frm_Tunnel_Design.cs</DependentUpon>

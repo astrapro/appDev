@@ -1351,6 +1351,11 @@ namespace AstraInterface.DataStructure
             if (!File.Exists(input_path)) return "";
             return Path.Combine(Path.GetDirectoryName(input_path), "ANALYSIS_REP.TXT");
         }
+        public static string Get_SAP_Analysis_Report_File(string input_path)
+        {
+            if (!File.Exists(input_path)) return "";
+            return Path.Combine(Path.GetDirectoryName(input_path), "SAP_ANALYSIS_REP.TXT");
+        }
         public static string Get_LL_TXT_File(string input_path)
         {
             if (!File.Exists(input_path)) return "";

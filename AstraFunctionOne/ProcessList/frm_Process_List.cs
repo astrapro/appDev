@@ -108,7 +108,9 @@ namespace AstraFunctionOne.ProcessList
                         else
                         {
                             if (File.Exists(flpath))
-                                Run_Exe(flpath);
+                            {
+                                Run_Exe(flpath, ProcessList.IsAst006);
+                            }
                         }
 
 
@@ -153,12 +155,17 @@ namespace AstraFunctionOne.ProcessList
 
         void Run_Exe(string flPath)
         {
+            Run_Exe(flPath, false);
+        }
+        void Run_Exe(string flPath, bool IsAst006)
+        {
             PRC = new Process();
 
             iapp.Delete_Temporary_Files(flPath);
 
             string exe_file = Path.Combine(Application.StartupPath, "AST001.EXE");
 
+            if (IsAst006) exe_file = Path.Combine(Application.StartupPath, "AST006.EXE");
 
             File.WriteAllText(Path.Combine(Path.GetDirectoryName(flPath), "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
             File.WriteAllText(Path.Combine(Application.StartupPath, "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");

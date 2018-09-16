@@ -10114,7 +10114,8 @@ namespace LimitStateMethod.Steel_Truss
                 pcol.Add(pd);
             }
 
-
+            //AST001 not working, AST006 used
+            pcol.IsAst006 = true;
 
 
             string ana_rep_file = Path.Combine(user_path, "ANALYSIS_REP.TXT");
@@ -12440,7 +12441,7 @@ namespace LimitStateMethod.Steel_Truss
 
 
 
-
+                    pcol.IsAst006 = true;
                     do
                     {
                         if (c == 0)

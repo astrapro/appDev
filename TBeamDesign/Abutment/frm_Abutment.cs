@@ -5616,9 +5616,9 @@ namespace BridgeAnalysisDesign.Abutment
                 if (IsExecuteBridge) file_path = Path.Combine(file_path, "Design of RCC Abutment");
                 else file_path = Path.Combine(user_path, "Design of Cantilever Abutment Wall");
 
-
-                //if (!Directory.Exists(file_path))
-                //    Directory.CreateDirectory(file_path);
+                system_path = file_path;
+                if (!Directory.Exists(file_path))
+                    Directory.CreateDirectory(file_path);
 
                 //system_path = Path.Combine(file_path, "AstraSys");
                 //if (!Directory.Exists(system_path))
@@ -5631,6 +5631,7 @@ namespace BridgeAnalysisDesign.Abutment
         public void Write_Cantilever_Drawing_File()
         {
 
+            system_path = file_path;
             drawing_path = Path.Combine(system_path, "ABUTMENT_DRAWING.FIL");
 
             if (!Directory.Exists(Path.GetDirectoryName(drawing_path)))  Directory.CreateDirectory(Path.GetDirectoryName(drawing_path));

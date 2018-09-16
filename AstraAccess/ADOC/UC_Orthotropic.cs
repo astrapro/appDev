@@ -310,10 +310,6 @@ namespace AstraAccess.ADOC
                 pf = new vdPolyface(vdoc);
                 pf.setDocumentDefaults();
 
-
-
-
-
                 pf.VertexList.Add(new gPoint(insPnt.x, insPnt.y + D, insPnt.z - FL_WD));  // ex 0.0, 1.0, 0.0 - 1.0
                 pf.VertexList.Add(new gPoint(insPnt.x + L, insPnt.y + D, insPnt.z - FL_WD));  // ex 10.0, 1.0, 0.0 - 1.0
                 pf.VertexList.Add(new gPoint(insPnt.x + L, insPnt.y + D, insPnt.z + B + FL_WD));  // ex 0.0 + 10, 1.0, 3.0+1

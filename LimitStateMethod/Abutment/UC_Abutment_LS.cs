@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using AstraInterface.DataStructure;
 using AstraInterface.Interface;
 
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Reflection;
 
 
 

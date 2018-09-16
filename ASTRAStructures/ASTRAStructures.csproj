@@ -62,10 +62,6 @@
       <HintPath>..\..\ASTRA Viewer Code\HeadsViewer\bin\x86\Debug\MovingLoadAnalysis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -126,6 +122,12 @@
     </Compile>
     <Compile Include="frmAnalysisWorkspace.Designer.cs">
       <DependentUpon>frmAnalysisWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnalysisWorkspaceNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnalysisWorkspaceNew.Designer.cs">
+      <DependentUpon>frmAnalysisWorkspaceNew.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCableCarTower.cs">
       <SubType>Form</SubType>
@@ -217,7 +219,14 @@
     <Compile Include="frm_StructuralDesign.Designer.cs">
       <DependentUpon>frm_StructuralDesign.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_StructuralDesignNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_StructuralDesignNew.Designer.cs">
+      <DependentUpon>frm_StructuralDesignNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructuralAnalysis.cs" />
     <Compile Include="TransmissionTower.cs" />
     <Compile Include="UCPostProcess.cs">
       <SubType>UserControl</SubType>
@@ -261,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAnalysisWorkspace.resx">
       <DependentUpon>frmAnalysisWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnalysisWorkspaceNew.resx">
+      <DependentUpon>frmAnalysisWorkspaceNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCableCarTower.resx">
       <DependentUpon>frmCableCarTower.cs</DependentUpon>
@@ -306,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_StructuralDesign.resx">
       <DependentUpon>frm_StructuralDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_StructuralDesignNew.resx">
+      <DependentUpon>frm_StructuralDesignNew.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

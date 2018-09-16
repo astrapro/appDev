@@ -241,17 +241,17 @@ namespace LimitStateMethod.PSC_I_Girder
 
             if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                //cmb_long_open_file.Items.Add(string.Format("TOTAL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
-                //cmb_long_open_file.Items.Add(string.Format("PSC GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                //cmb_long_open_file_process.Items.Add(string.Format("TOTAL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
+                //cmb_long_open_file_process.Items.Add(string.Format("PSC GIRDER ANALYSIS RESULTS"));
                 tbc_PSC_Girder.TabPages.Remove(tab_mov_data_Indian);
 
                 tc_limit_design.TabPages.Remove(tab_deck_slab_IS);
@@ -353,7 +353,7 @@ namespace LimitStateMethod.PSC_I_Girder
 
             #endregion Bearings
 
-            cmb_long_open_file.SelectedIndex = 0;
+            cmb_long_open_file_process.SelectedIndex = 0;
             cmb_deck_input_files.SelectedIndex = 0;
 
           
@@ -1278,41 +1278,37 @@ namespace LimitStateMethod.PSC_I_Girder
 
 
                 #region Chiranjit [2014 10 22]
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add("DEAD LOAD ANALYSIS");
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add("DEAD LOAD ANALYSIS");
 
-                //cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                //cmb_long_open_file.Items.Add(string.Format("TOTAL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("DL + LL COMBINE ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                //cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                //cmb_long_open_file_process.Items.Add(string.Format("TOTAL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("DL + LL COMBINE ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
 
                 for (int i = 0; i < all_loads.Count; i++)
                 {
                     if (ll_comb.Count == all_loads.Count)
                     {
-                        cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS " + (i + 1) + " (" + ll_comb[i] + ")");
+                        cmb_long_open_file_process.Items.Add("LIVE LOAD ANALYSIS " + (i + 1) + " (" + ll_comb[i] + ")");
 
                     }
                     else
                     {
-                        cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS " + (i + 1));
+                        cmb_long_open_file_process.Items.Add("LIVE LOAD ANALYSIS " + (i + 1));
                     }
 
                 }
-                cmb_long_open_file.SelectedIndex = 0;
+                cmb_long_open_file_process.SelectedIndex = 0;
 
 
 
 
 
                 cmb_long_open_file_analysis.Items.Clear();
-                cmb_long_open_file_process.Items.Clear();
-                cmb_long_open_file_post_process.Items.Clear();
-                for (int i = 0; i < cmb_long_open_file.Items.Count; i++)
+                for (int i = 0; i < cmb_long_open_file_process.Items.Count; i++)
                 {
-                    cmb_long_open_file_analysis.Items.Add(cmb_long_open_file.Items[i].ToString());
-                    cmb_long_open_file_process.Items.Add(cmb_long_open_file.Items[i].ToString());
-                    cmb_long_open_file_post_process.Items.Add(cmb_long_open_file.Items[i].ToString());
+                    cmb_long_open_file_analysis.Items.Add(cmb_long_open_file_process.Items[i].ToString());
                 }
 
                 cmb_long_open_file_analysis.SelectedIndex = 0;
@@ -1562,7 +1558,7 @@ namespace LimitStateMethod.PSC_I_Girder
                     pd = new ProcessData();
                     pd.Process_File_Name = flPath;
                     //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                    pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file.Items[i].ToString().ToUpper();
+                    pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file_process.Items[i].ToString().ToUpper();
 
 
                     //if(Ang > 0)
@@ -1574,7 +1570,7 @@ namespace LimitStateMethod.PSC_I_Girder
 
                     if (File.Exists(flPath))
                     {
-                        iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file.Items[i].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
+                        iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file_process.Items[i].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
                         //iApp.Progress_Works.Add("Reading Joint Coordinates and Member Connectivity");
                         //iApp.Progress_Works.Add("Reading Bending Moment & Shear Force from Analysis Result");
                     }
@@ -6298,7 +6294,7 @@ namespace LimitStateMethod.PSC_I_Girder
         public void Button_Enable_Disable()
         {
             btn_view_data.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
-            btn_view_structure.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
+            btn_view_preprocess.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
             btn_View_Moving_Load.Enabled = File.Exists(Bridge_Analysis.Total_Analysis_Report);
             btn_view_report.Enabled = File.Exists(Bridge_Analysis.Total_Analysis_Report);
             //btn_process_analysis.Enabled = File.Exists(Long_Girder_Analysis.TotalAnalysis_Input_File);
@@ -6351,7 +6347,7 @@ namespace LimitStateMethod.PSC_I_Girder
 
             if (File.Exists(analysis_file))
             {
-                btn_view_structure.Enabled = true;
+                btn_view_preprocess.Enabled = true;
                 Abut.FilePath = user_path;
                 rcc_pier.FilePath = user_path;
             }
@@ -11576,11 +11572,19 @@ namespace LimitStateMethod.PSC_I_Girder
                 //if (File.Exists(file_name))
                 //    iApp.RunExe(file_name);
             }
-            else if (btn.Name == btn_view_structure.Name)
+            else if (btn.Name == btn_view_preprocess.Name)
             {
                 if (File.Exists(file_name))
                 {
-                    iApp.OpenWork(file_name, false);
+                    iApp.View_PreProcess(file_name);
+                    btn_update_forces.Enabled = true;
+                }
+            }
+            else if (btn.Name == btn_view_postprocess.Name)
+            {
+                if (File.Exists(file_name))
+                {
+                    iApp.View_PostProcess(file_name);
                     btn_update_forces.Enabled = true;
                 }
             }
@@ -12071,43 +12075,20 @@ namespace LimitStateMethod.PSC_I_Girder
                 }
             }
 
-            if (cmb == cmb_long_open_file)
-            {
-                if (File.Exists(file_name))
-                {
-                    ucPreProcess1.FilePath = file_name;
-                    ucPreProcess1.IsFlag = false;
-                    ucPreProcess1.Load_Initials();
-                }
-            }
-            else if (cmb == cmb_long_open_file_process)
+            if (cmb == cmb_long_open_file_process)
             {
 
                 btn_view_data.Enabled = File.Exists(file_name);
                 btn_View_Moving_Load.Enabled = File.Exists(FILE_SUMMARY_RESULTS);
-                //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != 9;
+                //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file_process.SelectedIndex != 9;
                 btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
             }
             else if (cmb == cmb_long_open_file_analysis)
             {
                 btn_view_data_1.Enabled = File.Exists(file_name);
             }
-            else if (cmb == cmb_long_open_file_post_process)
-            {
-                if (File.Exists(file_name))
-                {
-
-                    ucPostProcess1.Load_Initials(file_name);
-                }
-            }
-             
-
-            #region Set File Name
-
-            #endregion Set File Name
 
         }
-        //Chiranjit [2012 06 20]
 
         private void rbtn_CheckedChanged(object sender, EventArgs e)
         {
@@ -13682,28 +13663,28 @@ namespace LimitStateMethod.PSC_I_Girder
 
             if (rbtn_HA_HB.Checked || rbtn_HB.Checked)
             {
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
-                cmb_long_open_file.Items.Add(string.Format("PSC GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
+                cmb_long_open_file_process.Items.Add(string.Format("PSC GIRDER ANALYSIS RESULTS"));
             }
             else if (rbtn_HA.Checked)
             {
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("PSC GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("PSC GIRDER ANALYSIS RESULTS"));
             }
             sp_hb.Visible = !rbtn_HA.Checked;
 
-            cmb_long_open_file.SelectedIndex = 0;
+            cmb_long_open_file_process.SelectedIndex = 0;
 
         }
         public bool IsRead = false;
@@ -14601,55 +14582,19 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void tc_AnaProcess_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (tc_AnaProcess.SelectedTab == tab_ana_preProcess)
+            if (tc_AnaProcess.SelectedTab == tab_ana_process)
             {
-
-                if (!ucPreProcess1.IsFlag)
-                {
-                    //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
-                    ucPreProcess1.Load_Initials();
-                    ucPreProcess1.IsFlag = true;
-                }
-            }
-            else if (tc_AnaProcess.SelectedTab == tab_ana_process)
-            {
-                //if (!ucPreProcess1.IsFlag)
-                //{
-                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
-                //ucPreProcess1.Load_Initials();
-                //ucPreProcess1.IsFlag = true;
+               
                 if (cmb_long_open_file_process.SelectedIndex == -1)
                 {
                     if (cmb_long_open_file_process.Items.Count > 0)
                         cmb_long_open_file_process.SelectedIndex = 0;
-                    //ucPostProcess1.Load_Initials(ucPreProcess1.FilePath);
                 }
-
-                //}
-            }
-            else if (tc_AnaProcess.SelectedTab == tab_ana_postProcess)
-            {
-                //if (!ucPreProcess1.IsFlag)
-                //{
-                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
-                //ucPreProcess1.Load_Initials();
-                //ucPreProcess1.IsFlag = true;
-                if (cmb_long_open_file_post_process.SelectedIndex == -1)
-                {
-                    if (cmb_long_open_file_post_process.Items.Count > 0)
-                        cmb_long_open_file_post_process.SelectedIndex = 0;
-                    //ucPostProcess1.Load_Initials(ucPreProcess1.FilePath);
-                }
-
-                //}
             }
         }
         public void Save_Input_Data()
         {
             List<string> list = new List<string>();
-
-
 
             list.Add(string.Format(""));
             list.Add(string.Format("BASIC INPUT DATA FOR {0}", Title));

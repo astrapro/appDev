@@ -582,22 +582,15 @@ namespace LimitStateMethod.PSC_Box_Girder
                 Create_Data_DL(Input_File_DL);
                 Create_Data_LL(Input_File_LL);
 
-                ucPreProcess1.IsFlag = false;
-                ucPostProcess1.IsFlag = false;
-
-                cmb_long_open_file_preprocess.Items.Clear();
-                cmb_long_open_file_post_process.Items.Clear();
+             
                 cmb_long_open_file_analysis.Items.Clear();
                
                 for (int i = 0; i < cmb_long_open_file_process.Items.Count; i++)
                 {
-                    cmb_long_open_file_preprocess.Items.Add(cmb_long_open_file_process.Items[i]);
-                    cmb_long_open_file_post_process.Items.Add(cmb_long_open_file_process.Items[i]);
                     cmb_long_open_file_analysis.Items.Add(cmb_long_open_file_process.Items[i]);
                 }
                 cmb_long_open_file_analysis.SelectedIndex = 0;
                 //cmb_long_open_file_post_process.SelectedIndex = 0;
-                cmb_long_open_file_preprocess.SelectedIndex = 0;
 
                 MessageBox.Show(this, "Dead Load and Live Load Analysis Input Data files are Created in Working folder.");
                 cmb_long_open_file_process.SelectedIndex = 0;
@@ -3554,7 +3547,7 @@ namespace LimitStateMethod.PSC_Box_Girder
             #endregion Set File Name
 
             btn_view_data.Enabled = File.Exists(file_name);
-            btn_view_structure.Enabled = File.Exists(file_name);
+            btn_view_preprocess.Enabled = File.Exists(file_name);
             btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
             btn_View_Result_summary.Enabled = File.Exists(FILE_SUMMARY_RESULTS);
 
@@ -3714,10 +3707,19 @@ namespace LimitStateMethod.PSC_Box_Girder
                 //else
                     iApp.View_Input_File(file_name);
             }
-            else if (btn.Name == btn_view_structure.Name)
+            else if (btn.Name == btn_view_preprocess.Name)
             {
                 if (File.Exists(file_name))
-                    iApp.OpenWork(file_name, false);
+                {
+                    iApp.View_PreProcess(file_name);
+                }
+            }
+            else if (btn.Name == btn_view_postprocess.Name)
+            {
+                if (File.Exists(file_name))
+                {
+                    iApp.View_PostProcess(file_name);
+                }
             }
             else if (btn.Name == btn_view_report.Name)
             {
@@ -4481,18 +4483,7 @@ namespace LimitStateMethod.PSC_Box_Girder
             {
                 if (File.Exists(file_name))
                 {
-                    ucPreProcess1.FilePath = file_name;
-                    ucPreProcess1.IsFlag = false;
-                    ucPreProcess1.Load_Initials();
-                }
-            }
-            else if (cmb_long_open_file_preprocess == cmb)
-            {
-                if (File.Exists(file_name))
-                {
-                    ucPreProcess1.FilePath = file_name;
-                    ucPreProcess1.IsFlag = false;
-                    ucPreProcess1.Load_Initials();
+                  
                 }
             }
             else if (cmb == cmb_long_open_file_process)
@@ -4501,19 +4492,6 @@ namespace LimitStateMethod.PSC_Box_Girder
                 btn_view_data.Enabled = File.Exists(file_name);
                 btn_View_Result_summary.Enabled = File.Exists(FILE_SUMMARY_RESULTS);
                 btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
-            }
-            else if (cmb == cmb_long_open_file_post_process)
-            {
-                if (File.Exists(file_name))
-                {
-
-                    
-                    ucPostProcess1.FilePath = file_name;
-                    ucPostProcess1.Curve_Radius = 0.0;
-                    ucPostProcess1.Load_Initials(file_name);
-                    //ucPostProcess1.PP_Tab_Selection();
-
-                }
             }
         }
 
@@ -4536,47 +4514,14 @@ namespace LimitStateMethod.PSC_Box_Girder
 
         }
         private void tc_AnaProcess_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tc_process.SelectedTab == tab_pre_process)
+        { 
+            if (tc_process.SelectedTab == tab_process)
             {
-                if (!ucPreProcess1.IsFlag)
-                {
-                    ucPreProcess1.FilePath = GetAnalysis_Input_File(cmb_long_open_file_preprocess.SelectedIndex);
-                    ucPreProcess1.Load_Initials();
-                    ucPreProcess1.IsFlag = true;
-                }
-            }
-            else if (tc_process.SelectedTab == tab_process)
-            {
-                //if (!ucPreProcess1.IsFlag)
-                //{
-                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
-                //ucPreProcess1.Load_Initials();
-                //ucPreProcess1.IsFlag = true;
                 if (cmb_long_open_file_process.SelectedIndex == -1)
                 {
                     if (cmb_long_open_file_process.Items.Count > 0)
                         cmb_long_open_file_process.SelectedIndex = 0;
-                    //ucPostProcess1.Load_Initials(ucPreProcess1.FilePath);
                 }
-                //btn_pro
-
-                //}
-            }
-            else if (tc_process.SelectedTab == tab_post_process)
-            {
-                //if (!ucPreProcess1.IsFlag)
-                //{
-                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
-                //ucPreProcess1.Load_Initials();
-                //ucPreProcess1.IsFlag = true;
-                if (cmb_long_open_file_post_process.SelectedIndex == -1)
-                {
-                    if (cmb_long_open_file_post_process.Items.Count > 0)
-                        cmb_long_open_file_post_process.SelectedIndex = 0;
-                    //ucPostProcess1.Load_Initials(ucPreProcess1.FilePath);
-                }
-                //}
             }
         }
 

@@ -51,27 +51,14 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HEADSNeed, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ASTRA Viewer Code\HeadsViewer\bin\x86\Debug\HEADSNeed.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
-    <Reference Include="MovingLoadAnalysis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ASTRA Viewer Code\HeadsViewer\bin\x86\Debug\MovingLoadAnalysis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="VDrawBaseControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
-    <Reference Include="vdScrollableControl, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
-    <Reference Include="VectorDraw.Geometry, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
-    <Reference Include="VectorDraw.Professional, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
-    <Reference Include="VectorDraw.Serialize, Version=6.6026.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abutment\Form1.cs">
@@ -121,12 +108,6 @@
     </Compile>
     <Compile Include="Composite\frmCompositeResults.Designer.cs">
       <DependentUpon>frmCompositeResults.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Composite\frm_CompositeLSM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Composite\frm_CompositeLSM.Designer.cs">
-      <DependentUpon>frm_CompositeLSM.cs</DependentUpon>
     </Compile>
     <Compile Include="Composite\frm_CompositeLSM_New.cs">
       <SubType>Form</SubType>
@@ -323,6 +304,7 @@
     <Compile Include="RCC_T_Girder\frm_RCC_T_Girder_LS_New.Designer.cs">
       <DependentUpon>frm_RCC_T_Girder_LS_New.cs</DependentUpon>
     </Compile>
+    <Compile Include="RCC_T_Girder\RCC_T_Girder.cs" />
     <Compile Include="RCC_T_Girder\RCC_T_Girder_Excel_Update.cs" />
     <Compile Include="SlabBridge\frmSlabBridge.cs">
       <SubType>Form</SubType>
@@ -448,10 +430,6 @@
       <Project>{39488388-529F-43F1-AAA5-03E17909B872}</Project>
       <Name>AstraInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ASTRAStructures\ASTRAStructures.csproj">
-      <Project>{3F32A706-7C84-40BD-81F5-30A7497F3253}</Project>
-      <Name>ASTRAStructures</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TBeamDesign\BridgeAnalysisDesign.csproj">
       <Project>{EBBAB6BD-2680-47C5-9E76-087A0D0DC9F7}</Project>
       <Name>BridgeAnalysisDesign</Name>
@@ -481,9 +459,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Composite\frmCompositeResults.resx">
       <DependentUpon>frmCompositeResults.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Composite\frm_CompositeLSM.resx">
-      <DependentUpon>frm_CompositeLSM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Composite\frm_CompositeLSM_New.resx">
       <DependentUpon>frm_CompositeLSM_New.cs</DependentUpon>

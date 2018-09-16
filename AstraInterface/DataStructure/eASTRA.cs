@@ -157,4 +157,21 @@
         Design_Drawings = 1,
         Cancel = 2
     }
+    public enum eProcessType
+    {
+          /*   
+             * 1 = TEXT PRE PROCESS
+             * 2 = TEXT POST PROCESS
+             * 3 = SAP PRE PROCESS
+             * 4 = SAP POST PROCESS
+             * 5 = TEXT DATA PROCESS
+             * 6 = SAP DATA PROCESS
+        */
+        TextPreProcess = 1,
+        TextPostProcess = 2,
+        SapPreProcess = 3,
+        SapPostProcess = 4,
+        TextProcess = 5,
+        SapProcess = 6,
+    }
 }

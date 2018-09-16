@@ -694,7 +694,6 @@ namespace AstraAccess.SAP_Classes
 
         }
 
-
         public void Read_SAP_Data(string file_name, bool fd)
         {
 

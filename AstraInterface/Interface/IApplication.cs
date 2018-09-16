@@ -12,7 +12,7 @@ namespace AstraInterface.Interface
 {
     public interface IApplication
     {
-        
+
         IDocument AppDocument { get; set; }
         Form AppWindow { get; }
         string AppFolder { get; }
@@ -151,20 +151,26 @@ namespace AstraInterface.Interface
         //Open Project Dialog
         string Open_Project_Dialog(string ProjectType, string WorkingFolder);
 
-         string Create_Project(string Title, string ProjectName, eASTRADesignType Project_Type);
-         string Set_Project_Name(string Title);
-         bool RunAnalysis(string fName);
+        string Create_Project(string Title, string ProjectName, eASTRADesignType Project_Type);
+        string Set_Project_Name(string Title);
+        bool RunAnalysis(string fName);
 
 
-         void Open_Excel_Macro_Notes();
+        void Open_Excel_Macro_Notes();
 
-         void Write_Data_to_File(string fname, string sap_path);
-         void Write_Skew_Data_to_File(string fname, string sap_path);
-         List<string> IRC_6_2014_Load_Combinations(double CW);
+        void Write_Data_to_File(string fname, string sap_path);
+        void Write_Skew_Data_to_File(string fname, string sap_path);
+        List<string> IRC_6_2014_Load_Combinations(double CW);
 
+        void View_Plan_Moving_Load(string inputFile, double skewAngle);
 
-         void View_Plan_Moving_Load(string inputFile, double skewAngle);
+        // Show Pre Process
+        void View_PreProcess(string file_name);
+        void View_SapPreProcess(string file_name);
 
+        // Show Post Process
+        void View_PostProcess(string file_name);
+        void View_SapPostProcess(string file_name);
     }
 
 }

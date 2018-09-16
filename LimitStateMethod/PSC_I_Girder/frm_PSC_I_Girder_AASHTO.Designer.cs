@@ -30,65 +30,65 @@ namespace LimitStateMethod.PSC_I_Girder
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_PSC_I_Girder_AASHTO));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle181 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle183 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle182 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle184 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle186 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle185 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle187 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle188 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle189 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle190 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle191 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle192 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle193 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle194 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle195 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle196 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle197 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle198 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle199 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle200 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle201 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle202 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle203 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle204 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle205 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle206 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle207 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle208 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle209 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle210 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle211 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle212 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle213 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle214 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle215 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle216 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle217 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle218 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle219 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle220 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle221 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle222 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle223 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle224 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle225 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle226 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle227 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle228 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle229 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle230 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle231 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle232 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle233 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle234 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle235 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle236 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle178 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle179 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle180 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tc_limit_design = new System.Windows.Forms.TabControl();
             this.tab_analysis_deck = new System.Windows.Forms.TabPage();
             this.tbc_PSC_Girder = new System.Windows.Forms.TabControl();
@@ -183,6 +183,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.txt_Ana_Wf = new System.Windows.Forms.TextBox();
             this.label527 = new System.Windows.Forms.Label();
             this.chk_cb_left = new System.Windows.Forms.CheckBox();
+            this.pic_diagram = new System.Windows.Forms.PictureBox();
             this.grb_ana_wc = new System.Windows.Forms.GroupBox();
             this.label520 = new System.Windows.Forms.Label();
             this.txt_Ana_Dw = new System.Windows.Forms.TextBox();
@@ -207,6 +208,8 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_gad = new System.Windows.Forms.TabPage();
             this.label794 = new System.Windows.Forms.Label();
             this.label793 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.tab_section_data = new System.Windows.Forms.TabPage();
             this.tab_sec_props = new System.Windows.Forms.TabControl();
             this.tab_main_girder_input = new System.Windows.Forms.TabPage();
@@ -320,6 +323,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label64 = new System.Windows.Forms.Label();
             this.txt_sec_b3 = new System.Windows.Forms.TextBox();
             this.txt_sec_b6 = new System.Windows.Forms.TextBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tab_cross_girder_input = new System.Windows.Forms.TabPage();
             this.groupBox32 = new System.Windows.Forms.GroupBox();
             this.label192 = new System.Windows.Forms.Label();
@@ -362,6 +366,8 @@ namespace LimitStateMethod.PSC_I_Girder
             this.txt_sec_int_cg_Ds = new System.Windows.Forms.TextBox();
             this.txt_sec_int_cg_D1 = new System.Windows.Forms.TextBox();
             this.label137 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox39 = new System.Windows.Forms.GroupBox();
             this.label168 = new System.Windows.Forms.Label();
@@ -518,22 +524,18 @@ namespace LimitStateMethod.PSC_I_Girder
             this.chk_ssprt_fixed_FY = new System.Windows.Forms.CheckBox();
             this.chk_ssprt_fixed_MX = new System.Windows.Forms.CheckBox();
             this.chk_ssprt_fixed_FX = new System.Windows.Forms.CheckBox();
-            this.tab_ana_preProcess = new System.Windows.Forms.TabPage();
-            this.ucPreProcess1 = new ASTRAStructures.UCPreProcess();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label480 = new System.Windows.Forms.Label();
-            this.cmb_long_open_file = new System.Windows.Forms.ComboBox();
             this.tab_ana_process = new System.Windows.Forms.TabPage();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox35 = new System.Windows.Forms.GroupBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.label532 = new System.Windows.Forms.Label();
+            this.btn_view_postprocess = new System.Windows.Forms.Button();
+            this.btn_view_preprocess = new System.Windows.Forms.Button();
             this.cmb_long_open_file_process = new System.Windows.Forms.ComboBox();
             this.btn_View_Moving_Load = new System.Windows.Forms.Button();
             this.btn_view_report = new System.Windows.Forms.Button();
             this.btn_view_data = new System.Windows.Forms.Button();
             this.btn_Ana_process_analysis = new System.Windows.Forms.Button();
-            this.btn_view_structure = new System.Windows.Forms.Button();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.button7 = new System.Windows.Forms.Button();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
@@ -862,12 +864,8 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label1117 = new System.Windows.Forms.Label();
             this.label1123 = new System.Windows.Forms.Label();
             this.label1108 = new System.Windows.Forms.Label();
-            this.tab_ana_postProcess = new System.Windows.Forms.TabPage();
-            this.ucPostProcess1 = new ASTRAStructures.UCPostProcess();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label481 = new System.Windows.Forms.Label();
-            this.cmb_long_open_file_post_process = new System.Windows.Forms.ComboBox();
             this.tab_deck_slab = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_deck_ws_open = new System.Windows.Forms.Button();
             this.btn_process_deck = new System.Windows.Forms.Button();
             this.btn_deck_open = new System.Windows.Forms.Button();
@@ -878,6 +876,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_psc_girder = new System.Windows.Forms.TabPage();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgv_psc_i_girder_input_data = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -888,6 +887,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.btn_process_steel_section = new System.Windows.Forms.Button();
             this.btn_steel_section_open = new System.Windows.Forms.Button();
             this.tab_rcc_abutment = new System.Windows.Forms.TabPage();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgv_abutment_input_data = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -898,6 +898,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.btn_process_abutment = new System.Windows.Forms.Button();
             this.btn_abutment_open = new System.Windows.Forms.Button();
             this.tab_rcc_pier = new System.Windows.Forms.TabPage();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.dgv_pier_input_data = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -908,6 +909,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.btn_process_pier = new System.Windows.Forms.Button();
             this.btn_pier_open = new System.Windows.Forms.Button();
             this.tab_bearing = new System.Windows.Forms.TabPage();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.dgv_bearing_input_data = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -927,17 +929,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.btn_dwg_rcc_abut = new System.Windows.Forms.Button();
             this.btn_dwg_open_consts = new System.Windows.Forms.Button();
             this.btn_dwg_open = new System.Windows.Forms.Button();
-            this.pic_diagram = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.tc_limit_design.SuspendLayout();
             this.tab_analysis_deck.SuspendLayout();
             this.tbc_PSC_Girder.SuspendLayout();
@@ -947,20 +938,26 @@ namespace LimitStateMethod.PSC_I_Girder
             this.grb_create_input_data.SuspendLayout();
             this.groupBox36.SuspendLayout();
             this.grb_ana_footpath.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).BeginInit();
             this.grb_ana_wc.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.grb_crash_barrier.SuspendLayout();
             this.tab_gad.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.tab_section_data.SuspendLayout();
             this.tab_sec_props.SuspendLayout();
             this.tab_main_girder_input.SuspendLayout();
             this.groupBox31.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tab_cross_girder_input.SuspendLayout();
             this.groupBox32.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.groupBox39.SuspendLayout();
             this.groupBox38.SuspendLayout();
@@ -982,8 +979,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox19.SuspendLayout();
             this.groupBox50.SuspendLayout();
             this.groupBox51.SuspendLayout();
-            this.tab_ana_preProcess.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.tab_ana_process.SuspendLayout();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
@@ -1048,35 +1043,27 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox134.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).BeginInit();
             this.groupBox129.SuspendLayout();
-            this.tab_ana_postProcess.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.tab_deck_slab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnl_deck.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_deck_input_data)).BeginInit();
             this.tab_psc_girder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_psc_i_girder_input_data)).BeginInit();
             this.tab_rcc_abutment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_abutment_input_data)).BeginInit();
             this.tab_rcc_pier.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pier_input_data)).BeginInit();
             this.tab_bearing.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bearing_input_data)).BeginInit();
             this.tab_drawings.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // tc_limit_design
@@ -2156,6 +2143,16 @@ namespace LimitStateMethod.PSC_I_Girder
             this.chk_cb_left.UseVisualStyleBackColor = true;
             this.chk_cb_left.CheckedChanged += new System.EventHandler(this.rbtn_CheckedChanged);
             // 
+            // pic_diagram
+            // 
+            this.pic_diagram.BackgroundImage = global::LimitStateMethod.Properties.Resources.case_1;
+            this.pic_diagram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_diagram.Location = new System.Drawing.Point(6, 385);
+            this.pic_diagram.Name = "pic_diagram";
+            this.pic_diagram.Size = new System.Drawing.Size(456, 242);
+            this.pic_diagram.TabIndex = 95;
+            this.pic_diagram.TabStop = false;
+            // 
             // grb_ana_wc
             // 
             this.grb_ana_wc.Controls.Add(this.label520);
@@ -2417,6 +2414,28 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label793.TabIndex = 2;
             this.label793.Text = "2-Lane Carriageway";
             this.label793.Visible = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = global::LimitStateMethod.Properties.Resources.PSC_I_Girder_Analysis_Image1;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox8.Location = new System.Drawing.Point(156, 31);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(626, 320);
+            this.pictureBox8.TabIndex = 1;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = global::LimitStateMethod.Properties.Resources.PSC_I_Girder_Analysis_Image2;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox7.Location = new System.Drawing.Point(9, 380);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(926, 257);
+            this.pictureBox7.TabIndex = 0;
+            this.pictureBox7.TabStop = false;
             // 
             // tab_section_data
             // 
@@ -3642,6 +3661,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.txt_sec_b6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_sec_b6.TextChanged += new System.EventHandler(this.txt_sec_in_mid_lg_w_TextChanged);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::LimitStateMethod.Properties.Resources.LRFD_I_Section;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox4.Location = new System.Drawing.Point(316, 65);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(301, 410);
+            this.pictureBox4.TabIndex = 7;
+            this.pictureBox4.TabStop = false;
+            // 
             // tab_cross_girder_input
             // 
             this.tab_cross_girder_input.Controls.Add(this.groupBox32);
@@ -4095,6 +4125,28 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label137.Size = new System.Drawing.Size(108, 13);
             this.label137.TabIndex = 6;
             this.label137.Text = "Width of Slab [W]";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::LimitStateMethod.Properties.Resources.End_Span_cross_Girder;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(376, 359);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 235);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::LimitStateMethod.Properties.Resources.Intermediate_cross_Girder;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox6.Location = new System.Drawing.Point(375, 78);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(286, 249);
+            this.pictureBox6.TabIndex = 14;
+            this.pictureBox6.TabStop = false;
             // 
             // tabPage1
             // 
@@ -5049,14 +5101,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.dgv_long_loads.AllowUserToAddRows = false;
             this.dgv_long_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle181.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle181.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle181.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle181.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle181.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle181.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle181.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle181;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_long_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn31,
@@ -5065,14 +5117,14 @@ namespace LimitStateMethod.PSC_I_Girder
             this.dataGridViewTextBoxColumn34,
             this.dataGridViewTextBoxColumn35,
             this.dataGridViewTextBoxColumn36});
-            dataGridViewCellStyle183.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle183.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle183.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle183.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle183.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle183.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle183.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_loads.DefaultCellStyle = dataGridViewCellStyle183;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_loads.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_long_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_loads.Name = "dgv_long_loads";
@@ -5082,9 +5134,9 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn31
             // 
-            dataGridViewCellStyle182.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle182.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle182;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -5188,14 +5240,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.dgv_long_liveloads.AllowUserToAddRows = false;
             this.dgv_long_liveloads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle184.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle184.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle184.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle184.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle184.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle184.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle184.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle184;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_long_liveloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_liveloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -5220,14 +5272,14 @@ namespace LimitStateMethod.PSC_I_Girder
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn22});
-            dataGridViewCellStyle186.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle186.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle186.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle186.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle186.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle186.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle186.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_liveloads.DefaultCellStyle = dataGridViewCellStyle186;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_liveloads.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_long_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
@@ -5237,9 +5289,9 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle185.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle185.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle185;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn1.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -5438,9 +5490,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // tc_AnaProcess
             // 
             this.tc_AnaProcess.Controls.Add(this.tab_ana_select);
-            this.tc_AnaProcess.Controls.Add(this.tab_ana_preProcess);
             this.tc_AnaProcess.Controls.Add(this.tab_ana_process);
-            this.tc_AnaProcess.Controls.Add(this.tab_ana_postProcess);
             this.tc_AnaProcess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_AnaProcess.Location = new System.Drawing.Point(0, 0);
             this.tc_AnaProcess.Name = "tc_AnaProcess";
@@ -5736,87 +5786,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.chk_ssprt_fixed_FX.Text = "FX";
             this.chk_ssprt_fixed_FX.UseVisualStyleBackColor = true;
             // 
-            // tab_ana_preProcess
-            // 
-            this.tab_ana_preProcess.Controls.Add(this.ucPreProcess1);
-            this.tab_ana_preProcess.Controls.Add(this.panel6);
-            this.tab_ana_preProcess.Location = new System.Drawing.Point(4, 22);
-            this.tab_ana_preProcess.Name = "tab_ana_preProcess";
-            this.tab_ana_preProcess.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ana_preProcess.Size = new System.Drawing.Size(932, 616);
-            this.tab_ana_preProcess.TabIndex = 1;
-            this.tab_ana_preProcess.Text = "Pre Process";
-            this.tab_ana_preProcess.UseVisualStyleBackColor = true;
-            // 
-            // ucPreProcess1
-            // 
-            this.ucPreProcess1.analysis_title = null;
-            this.ucPreProcess1.analysis_type = null;
-            this.ucPreProcess1.Current_LoadCase = null;
-            this.ucPreProcess1.CurrentLoadIndex = 0;
-            this.ucPreProcess1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucPreProcess1.FilePath = null;
-            this.ucPreProcess1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPreProcess1.INPUT_FILE = null;
-            this.ucPreProcess1.LL_Definition = null;
-            this.ucPreProcess1.LoadCases = null;
-            this.ucPreProcess1.Location = new System.Drawing.Point(3, 47);
-            this.ucPreProcess1.Materials = null;
-            this.ucPreProcess1.MovingLoads = null;
-            this.ucPreProcess1.Name = "ucPreProcess1";
-            this.ucPreProcess1.SeismicLoads = null;
-            this.ucPreProcess1.Size = new System.Drawing.Size(926, 566);
-            this.ucPreProcess1.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label480);
-            this.panel6.Controls.Add(this.cmb_long_open_file);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(926, 44);
-            this.panel6.TabIndex = 2;
-            // 
-            // label480
-            // 
-            this.label480.AutoSize = true;
-            this.label480.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label480.Location = new System.Drawing.Point(8, 14);
-            this.label480.Name = "label480";
-            this.label480.Size = new System.Drawing.Size(135, 16);
-            this.label480.TabIndex = 97;
-            this.label480.Text = "Select Analysis File";
-            // 
-            // cmb_long_open_file
-            // 
-            this.cmb_long_open_file.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_long_open_file.DropDownWidth = 453;
-            this.cmb_long_open_file.FormattingEnabled = true;
-            this.cmb_long_open_file.Items.AddRange(new object[] {
-            "DEAD LOAD ANALYSIS",
-            "TOTAL ANALYSIS",
-            "LIVE LOAD ANALYSIS",
-            "LIVE LOAD ANALYSIS 1  : 1 LANE TYPE 3 MOST ECCENTRIC",
-            "LIVE LOAD ANALYSIS 2  : 1 LANE TYPE 3 ON MEMBER",
-            "LIVE LOAD ANALYSIS 3  : 1 LANE TYPE 3 PLACED CONCENTRICALLY",
-            "LIVE LOAD ANALYSIS 4  : 1 LANE TYPE 1 PLACED MOST ECCENTRICALLY",
-            "LIVE LOAD ANALYSIS 5  : 2 LANE TYPE 1 PLACED MOST ECCENTRICALLY",
-            "LIVE LOAD ANALYSIS 6  : 3 LANE TYPE 1 PLACED MOST CONCENTRICALLY",
-            "LIVE LOAD ANALYSIS 7  : 1 LANE TYPE 1 + 1 LANE TYPE 3",
-            "LIVE LOAD ANALYSIS 8  : 1 LANE TYPE 3 + 1 LANE TYPE 1",
-            "LIVE LOAD ANALYSIS 9  : 1 LANE TYPE 3 + 1 LANE TYPE 1",
-            "LIVE LOAD ANALYSIS 10  : 2 LANE TYPE 1 PLACED AFTER TYPE 2",
-            "LIVE LOAD ANALYSIS 11  : 2 LANE TYPE 2 PLACED MOST ECCENTRICALLY",
-            "LIVE LOAD ANALYSIS 12  : 2 LANE TYPE 2 PLACED AT CENTER OF THE EACH LANE",
-            "LIVE LOAD ANALYSIS 13  : TYPE 2 PLACED AT THE CENTER OF INNER GIRDER",
-            "PSC GIRDER ANALYSIS RESULTS"});
-            this.cmb_long_open_file.Location = new System.Drawing.Point(154, 13);
-            this.cmb_long_open_file.Name = "cmb_long_open_file";
-            this.cmb_long_open_file.Size = new System.Drawing.Size(403, 21);
-            this.cmb_long_open_file.TabIndex = 9;
-            this.cmb_long_open_file.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
-            // 
             // tab_ana_process
             // 
             this.tab_ana_process.Controls.Add(this.splitContainer3);
@@ -5839,7 +5808,6 @@ namespace LimitStateMethod.PSC_I_Girder
             // splitContainer3.Panel1
             // 
             this.splitContainer3.Panel1.Controls.Add(this.groupBox35);
-            this.splitContainer3.Panel1.Controls.Add(this.btn_view_structure);
             this.splitContainer3.Panel1.Controls.Add(this.groupBox16);
             // 
             // splitContainer3.Panel2
@@ -5857,7 +5825,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox35.ForeColor = System.Drawing.Color.Navy;
             this.groupBox35.Location = new System.Drawing.Point(3, 3);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(882, 94);
+            this.groupBox35.Size = new System.Drawing.Size(912, 94);
             this.groupBox35.TabIndex = 95;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "Analysis";
@@ -5865,14 +5833,16 @@ namespace LimitStateMethod.PSC_I_Girder
             // groupBox14
             // 
             this.groupBox14.Controls.Add(this.label532);
+            this.groupBox14.Controls.Add(this.btn_view_postprocess);
+            this.groupBox14.Controls.Add(this.btn_view_preprocess);
             this.groupBox14.Controls.Add(this.cmb_long_open_file_process);
             this.groupBox14.Controls.Add(this.btn_View_Moving_Load);
             this.groupBox14.Controls.Add(this.btn_view_report);
             this.groupBox14.Controls.Add(this.btn_view_data);
             this.groupBox14.ForeColor = System.Drawing.Color.Black;
-            this.groupBox14.Location = new System.Drawing.Point(282, 11);
+            this.groupBox14.Location = new System.Drawing.Point(243, 11);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(569, 82);
+            this.groupBox14.Size = new System.Drawing.Size(663, 82);
             this.groupBox14.TabIndex = 8;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Open Analysis File";
@@ -5886,6 +5856,26 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label532.Size = new System.Drawing.Size(135, 16);
             this.label532.TabIndex = 101;
             this.label532.Text = "Select Analysis File";
+            // 
+            // btn_view_postprocess
+            // 
+            this.btn_view_postprocess.Location = new System.Drawing.Point(465, 46);
+            this.btn_view_postprocess.Name = "btn_view_postprocess";
+            this.btn_view_postprocess.Size = new System.Drawing.Size(176, 25);
+            this.btn_view_postprocess.TabIndex = 74;
+            this.btn_view_postprocess.Text = "View Post Process";
+            this.btn_view_postprocess.UseVisualStyleBackColor = true;
+            this.btn_view_postprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // btn_view_preprocess
+            // 
+            this.btn_view_preprocess.Location = new System.Drawing.Point(465, 15);
+            this.btn_view_preprocess.Name = "btn_view_preprocess";
+            this.btn_view_preprocess.Size = new System.Drawing.Size(176, 25);
+            this.btn_view_preprocess.TabIndex = 74;
+            this.btn_view_preprocess.Text = "View Pre Process";
+            this.btn_view_preprocess.UseVisualStyleBackColor = true;
+            this.btn_view_preprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // cmb_long_open_file_process
             // 
@@ -5948,16 +5938,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.btn_Ana_process_analysis.Text = "Process Analysis";
             this.btn_Ana_process_analysis.UseVisualStyleBackColor = true;
             this.btn_Ana_process_analysis.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
-            // 
-            // btn_view_structure
-            // 
-            this.btn_view_structure.Location = new System.Drawing.Point(631, 32);
-            this.btn_view_structure.Name = "btn_view_structure";
-            this.btn_view_structure.Size = new System.Drawing.Size(149, 20);
-            this.btn_view_structure.TabIndex = 74;
-            this.btn_view_structure.Text = "View Structure (GUI)";
-            this.btn_view_structure.UseVisualStyleBackColor = true;
-            this.btn_view_structure.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // groupBox16
             // 
@@ -6575,14 +6555,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_left_des_frc
             // 
             this.dgv_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle187.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle187.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle187.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle187.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle187.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle187.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle187.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle187;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn23,
@@ -6604,8 +6584,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn24
             // 
-            dataGridViewCellStyle188.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle188;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn24.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
             this.dataGridViewTextBoxColumn24.ReadOnly = true;
@@ -6613,8 +6593,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // col_Max_Mx
             // 
-            dataGridViewCellStyle189.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Max_Mx.DefaultCellStyle = dataGridViewCellStyle189;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Max_Mx.DefaultCellStyle = dataGridViewCellStyle9;
             this.col_Max_Mx.HeaderText = "Maximum    Mx   (Ton-m)";
             this.col_Max_Mx.Name = "col_Max_Mx";
             this.col_Max_Mx.ReadOnly = true;
@@ -6622,8 +6602,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // col_Max_Mz
             // 
-            dataGridViewCellStyle190.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Max_Mz.DefaultCellStyle = dataGridViewCellStyle190;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Max_Mz.DefaultCellStyle = dataGridViewCellStyle10;
             this.col_Max_Mz.HeaderText = "Maximum   Mz  (Ton-m)";
             this.col_Max_Mz.Name = "col_Max_Mz";
             this.col_Max_Mz.ReadOnly = true;
@@ -6688,14 +6668,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_right_des_frc
             // 
             this.dgv_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle191.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle191.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle191.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle191.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle191.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle191.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle191.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle191;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn25,
@@ -6717,8 +6697,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn26
             // 
-            dataGridViewCellStyle192.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle192;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewTextBoxColumn26.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
             this.dataGridViewTextBoxColumn26.ReadOnly = true;
@@ -6726,8 +6706,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn27
             // 
-            dataGridViewCellStyle193.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle193;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn27.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
@@ -6735,8 +6715,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn28
             // 
-            dataGridViewCellStyle194.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle194;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewTextBoxColumn28.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
             this.dataGridViewTextBoxColumn28.ReadOnly = true;
@@ -7320,14 +7300,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_sidl_left_des_frc
             // 
             this.dgv_sidl_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle195.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle195.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle195.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle195.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle195.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle195.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle195.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sidl_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle195;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sidl_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_sidl_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sidl_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn83,
@@ -7349,8 +7329,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn84
             // 
-            dataGridViewCellStyle196.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn84.DefaultCellStyle = dataGridViewCellStyle196;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn84.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn84.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn84.Name = "dataGridViewTextBoxColumn84";
             this.dataGridViewTextBoxColumn84.ReadOnly = true;
@@ -7358,8 +7338,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn85
             // 
-            dataGridViewCellStyle197.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn85.DefaultCellStyle = dataGridViewCellStyle197;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn85.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewTextBoxColumn85.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn85.Name = "dataGridViewTextBoxColumn85";
             this.dataGridViewTextBoxColumn85.ReadOnly = true;
@@ -7367,8 +7347,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn86
             // 
-            dataGridViewCellStyle198.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn86.DefaultCellStyle = dataGridViewCellStyle198;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn86.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewTextBoxColumn86.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn86.Name = "dataGridViewTextBoxColumn86";
             this.dataGridViewTextBoxColumn86.ReadOnly = true;
@@ -7436,14 +7416,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_sidl_right_des_frc
             // 
             this.dgv_sidl_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle199.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle199.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle199.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle199.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle199.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle199.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle199.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sidl_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle199;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sidl_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgv_sidl_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sidl_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn87,
@@ -7465,8 +7445,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn88
             // 
-            dataGridViewCellStyle200.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn88.DefaultCellStyle = dataGridViewCellStyle200;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn88.DefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewTextBoxColumn88.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn88.Name = "dataGridViewTextBoxColumn88";
             this.dataGridViewTextBoxColumn88.ReadOnly = true;
@@ -7474,8 +7454,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn89
             // 
-            dataGridViewCellStyle201.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn89.DefaultCellStyle = dataGridViewCellStyle201;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn89.DefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewTextBoxColumn89.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn89.Name = "dataGridViewTextBoxColumn89";
             this.dataGridViewTextBoxColumn89.ReadOnly = true;
@@ -7483,8 +7463,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn90
             // 
-            dataGridViewCellStyle202.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn90.DefaultCellStyle = dataGridViewCellStyle202;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn90.DefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewTextBoxColumn90.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn90.Name = "dataGridViewTextBoxColumn90";
             this.dataGridViewTextBoxColumn90.ReadOnly = true;
@@ -8179,14 +8159,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_ll_left_des_frc
             // 
             this.dgv_ll_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle203.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle203.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle203.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle203.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle203.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle203.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle203.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ll_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle203;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ll_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgv_ll_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ll_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn104,
@@ -8208,8 +8188,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn105
             // 
-            dataGridViewCellStyle204.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn105.DefaultCellStyle = dataGridViewCellStyle204;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn105.DefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewTextBoxColumn105.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn105.Name = "dataGridViewTextBoxColumn105";
             this.dataGridViewTextBoxColumn105.ReadOnly = true;
@@ -8217,8 +8197,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn106
             // 
-            dataGridViewCellStyle205.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn106.DefaultCellStyle = dataGridViewCellStyle205;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn106.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn106.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn106.Name = "dataGridViewTextBoxColumn106";
             this.dataGridViewTextBoxColumn106.ReadOnly = true;
@@ -8226,8 +8206,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn107
             // 
-            dataGridViewCellStyle206.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn107.DefaultCellStyle = dataGridViewCellStyle206;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn107.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn107.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn107.Name = "dataGridViewTextBoxColumn107";
             this.dataGridViewTextBoxColumn107.ReadOnly = true;
@@ -8284,14 +8264,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_ll_right_des_frc
             // 
             this.dgv_ll_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle207.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle207.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle207.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle207.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle207.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle207.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle207.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_ll_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle207;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_ll_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.dgv_ll_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_ll_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn108,
@@ -8313,8 +8293,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn109
             // 
-            dataGridViewCellStyle208.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn109.DefaultCellStyle = dataGridViewCellStyle208;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn109.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewTextBoxColumn109.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn109.Name = "dataGridViewTextBoxColumn109";
             this.dataGridViewTextBoxColumn109.ReadOnly = true;
@@ -8322,8 +8302,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn110
             // 
-            dataGridViewCellStyle209.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn110.DefaultCellStyle = dataGridViewCellStyle209;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn110.DefaultCellStyle = dataGridViewCellStyle29;
             this.dataGridViewTextBoxColumn110.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn110.Name = "dataGridViewTextBoxColumn110";
             this.dataGridViewTextBoxColumn110.ReadOnly = true;
@@ -8331,8 +8311,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn111
             // 
-            dataGridViewCellStyle210.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn111.DefaultCellStyle = dataGridViewCellStyle210;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn111.DefaultCellStyle = dataGridViewCellStyle30;
             this.dataGridViewTextBoxColumn111.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn111.Name = "dataGridViewTextBoxColumn111";
             this.dataGridViewTextBoxColumn111.ReadOnly = true;
@@ -8503,14 +8483,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_sidl_design_forces
             // 
             this.dgv_sidl_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle211.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle211.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle211.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle211.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle211.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle211.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle211.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_sidl_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle211;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_sidl_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             this.dgv_sidl_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_sidl_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn80,
@@ -8530,8 +8510,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn81
             // 
-            dataGridViewCellStyle212.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn81.DefaultCellStyle = dataGridViewCellStyle212;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn81.DefaultCellStyle = dataGridViewCellStyle32;
             this.dataGridViewTextBoxColumn81.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
             this.dataGridViewTextBoxColumn81.ReadOnly = true;
@@ -8759,14 +8739,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_right_end_design_forces
             // 
             this.dgv_right_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle213.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle213.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle213.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle213.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle213.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle213.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle213.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle213;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             this.dgv_right_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_right_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn29,
@@ -8786,8 +8766,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn30
             // 
-            dataGridViewCellStyle214.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle214;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridViewTextBoxColumn30.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
@@ -8908,14 +8888,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_left_end_design_forces
             // 
             this.dgv_left_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle215.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle215.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle215.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle215.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle215.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle215.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle215.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle215;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.dgv_left_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_left_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_Joints,
@@ -8935,8 +8915,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // col_Vert_Reaction
             // 
-            dataGridViewCellStyle216.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle216;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle36;
             this.col_Vert_Reaction.HeaderText = "Vertical Reaction (Ton)";
             this.col_Vert_Reaction.Name = "col_Vert_Reaction";
             this.col_Vert_Reaction.ReadOnly = true;
@@ -9256,14 +9236,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_mxf_left_des_frc
             // 
             this.dgv_mxf_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle217.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle217.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle217.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle217.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle217.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle217.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle217.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_mxf_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle217;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_mxf_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgv_mxf_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_mxf_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn112,
@@ -9285,8 +9265,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn113
             // 
-            dataGridViewCellStyle218.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn113.DefaultCellStyle = dataGridViewCellStyle218;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn113.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridViewTextBoxColumn113.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn113.Name = "dataGridViewTextBoxColumn113";
             this.dataGridViewTextBoxColumn113.ReadOnly = true;
@@ -9294,8 +9274,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn114
             // 
-            dataGridViewCellStyle219.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn114.DefaultCellStyle = dataGridViewCellStyle219;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn114.DefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridViewTextBoxColumn114.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn114.Name = "dataGridViewTextBoxColumn114";
             this.dataGridViewTextBoxColumn114.ReadOnly = true;
@@ -9303,8 +9283,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn115
             // 
-            dataGridViewCellStyle220.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn115.DefaultCellStyle = dataGridViewCellStyle220;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn115.DefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridViewTextBoxColumn115.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn115.Name = "dataGridViewTextBoxColumn115";
             this.dataGridViewTextBoxColumn115.ReadOnly = true;
@@ -9330,14 +9310,14 @@ namespace LimitStateMethod.PSC_I_Girder
             // dgv_mxf_right_des_frc
             // 
             this.dgv_mxf_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle221.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle221.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle221.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle221.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle221.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle221.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle221.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_mxf_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle221;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_mxf_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dgv_mxf_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_mxf_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn116,
@@ -9359,8 +9339,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn117
             // 
-            dataGridViewCellStyle222.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn117.DefaultCellStyle = dataGridViewCellStyle222;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn117.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridViewTextBoxColumn117.HeaderText = "Vertical Reaction (Ton)";
             this.dataGridViewTextBoxColumn117.Name = "dataGridViewTextBoxColumn117";
             this.dataGridViewTextBoxColumn117.ReadOnly = true;
@@ -9368,8 +9348,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn118
             // 
-            dataGridViewCellStyle223.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn118.DefaultCellStyle = dataGridViewCellStyle223;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn118.DefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridViewTextBoxColumn118.HeaderText = "Maximum    Mx   (Ton-m)";
             this.dataGridViewTextBoxColumn118.Name = "dataGridViewTextBoxColumn118";
             this.dataGridViewTextBoxColumn118.ReadOnly = true;
@@ -9377,8 +9357,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn119
             // 
-            dataGridViewCellStyle224.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn119.DefaultCellStyle = dataGridViewCellStyle224;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn119.DefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridViewTextBoxColumn119.HeaderText = "Maximum   Mz  (Ton-m)";
             this.dataGridViewTextBoxColumn119.Name = "dataGridViewTextBoxColumn119";
             this.dataGridViewTextBoxColumn119.ReadOnly = true;
@@ -9548,72 +9528,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label1108.TabIndex = 14;
             this.label1108.Text = "Ton";
             // 
-            // tab_ana_postProcess
-            // 
-            this.tab_ana_postProcess.Controls.Add(this.ucPostProcess1);
-            this.tab_ana_postProcess.Controls.Add(this.panel7);
-            this.tab_ana_postProcess.Location = new System.Drawing.Point(4, 22);
-            this.tab_ana_postProcess.Name = "tab_ana_postProcess";
-            this.tab_ana_postProcess.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ana_postProcess.Size = new System.Drawing.Size(932, 616);
-            this.tab_ana_postProcess.TabIndex = 3;
-            this.tab_ana_postProcess.Text = "Post Process";
-            this.tab_ana_postProcess.UseVisualStyleBackColor = true;
-            // 
-            // ucPostProcess1
-            // 
-            this.ucPostProcess1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucPostProcess1.File_Name = "";
-            this.ucPostProcess1.FilePath = null;
-            this.ucPostProcess1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPostProcess1.INPUT_FILE = null;
-            this.ucPostProcess1.Location = new System.Drawing.Point(3, 51);
-            this.ucPostProcess1.Name = "ucPostProcess1";
-            this.ucPostProcess1.Size = new System.Drawing.Size(926, 562);
-            this.ucPostProcess1.TabIndex = 4;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label481);
-            this.panel7.Controls.Add(this.cmb_long_open_file_post_process);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(926, 48);
-            this.panel7.TabIndex = 3;
-            // 
-            // label481
-            // 
-            this.label481.AutoSize = true;
-            this.label481.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label481.Location = new System.Drawing.Point(6, 16);
-            this.label481.Name = "label481";
-            this.label481.Size = new System.Drawing.Size(135, 16);
-            this.label481.TabIndex = 97;
-            this.label481.Text = "Select Analysis File";
-            // 
-            // cmb_long_open_file_post_process
-            // 
-            this.cmb_long_open_file_post_process.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_long_open_file_post_process.DropDownWidth = 398;
-            this.cmb_long_open_file_post_process.FormattingEnabled = true;
-            this.cmb_long_open_file_post_process.Items.AddRange(new object[] {
-            "Dead Load Analysis",
-            "Live Load Analysis",
-            "LL Analysis Load 1",
-            "LL Analysis Load 2",
-            "LL Analysis Load 3 ",
-            "LL Analysis Load 4 ",
-            "LL Analysis Load 5",
-            "LL Analysis Load 6",
-            "Total Analysis",
-            "Long Girder Analysis Results"});
-            this.cmb_long_open_file_post_process.Location = new System.Drawing.Point(147, 15);
-            this.cmb_long_open_file_post_process.Name = "cmb_long_open_file_post_process";
-            this.cmb_long_open_file_post_process.Size = new System.Drawing.Size(455, 21);
-            this.cmb_long_open_file_post_process.TabIndex = 9;
-            this.cmb_long_open_file_post_process.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
-            // 
             // tab_deck_slab
             // 
             this.tab_deck_slab.Controls.Add(this.pictureBox2);
@@ -9627,6 +9541,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_deck_slab.TabIndex = 2;
             this.tab_deck_slab.Text = "Deck Slab";
             this.tab_deck_slab.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(37, 487);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
             // 
             // btn_deck_ws_open
             // 
@@ -9691,16 +9616,16 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // Column17
             // 
-            dataGridViewCellStyle225.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column17.DefaultCellStyle = dataGridViewCellStyle225;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.Column17.DefaultCellStyle = dataGridViewCellStyle45;
             this.Column17.HeaderText = "Name";
             this.Column17.Name = "Column17";
             this.Column17.Width = 80;
             // 
             // dataGridViewTextBoxColumn38
             // 
-            dataGridViewCellStyle226.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle226;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridViewTextBoxColumn38.HeaderText = "Data";
             this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
             this.dataGridViewTextBoxColumn38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9708,8 +9633,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn39
             // 
-            dataGridViewCellStyle227.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle227;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridViewTextBoxColumn39.HeaderText = "Unit";
             this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
             this.dataGridViewTextBoxColumn39.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9729,6 +9654,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_psc_girder.TabIndex = 8;
             this.tab_psc_girder.Text = "PSC I Girder";
             this.tab_psc_girder.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox3.Location = new System.Drawing.Point(28, 490);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox3.TabIndex = 125;
+            this.pictureBox3.TabStop = false;
             // 
             // panel1
             // 
@@ -9763,16 +9699,16 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn41
             // 
-            dataGridViewCellStyle228.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle228;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridViewTextBoxColumn41.HeaderText = "Name";
             this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
             this.dataGridViewTextBoxColumn41.Width = 80;
             // 
             // dataGridViewTextBoxColumn42
             // 
-            dataGridViewCellStyle229.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn42.DefaultCellStyle = dataGridViewCellStyle229;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn42.DefaultCellStyle = dataGridViewCellStyle49;
             this.dataGridViewTextBoxColumn42.HeaderText = "Data";
             this.dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
             this.dataGridViewTextBoxColumn42.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9780,8 +9716,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn43
             // 
-            dataGridViewCellStyle230.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn43.DefaultCellStyle = dataGridViewCellStyle230;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn43.DefaultCellStyle = dataGridViewCellStyle50;
             this.dataGridViewTextBoxColumn43.HeaderText = "Unit";
             this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
             this.dataGridViewTextBoxColumn43.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9832,6 +9768,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_rcc_abutment.Text = "Abutment";
             this.tab_rcc_abutment.UseVisualStyleBackColor = true;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox5.Location = new System.Drawing.Point(37, 495);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox5.TabIndex = 126;
+            this.pictureBox5.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dgv_abutment_input_data);
@@ -9865,16 +9812,16 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn45
             // 
-            dataGridViewCellStyle231.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle231;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle51;
             this.dataGridViewTextBoxColumn45.HeaderText = "Name";
             this.dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
             this.dataGridViewTextBoxColumn45.Width = 80;
             // 
             // dataGridViewTextBoxColumn46
             // 
-            dataGridViewCellStyle232.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle232;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn46.DefaultCellStyle = dataGridViewCellStyle52;
             this.dataGridViewTextBoxColumn46.HeaderText = "Data";
             this.dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
             this.dataGridViewTextBoxColumn46.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9882,8 +9829,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn47
             // 
-            dataGridViewCellStyle233.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle233;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn47.DefaultCellStyle = dataGridViewCellStyle53;
             this.dataGridViewTextBoxColumn47.HeaderText = "Unit";
             this.dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
             this.dataGridViewTextBoxColumn47.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9933,6 +9880,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_rcc_pier.Text = "Pier";
             this.tab_rcc_pier.UseVisualStyleBackColor = true;
             // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox9.Location = new System.Drawing.Point(32, 496);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox9.TabIndex = 126;
+            this.pictureBox9.TabStop = false;
+            // 
             // panel11
             // 
             this.panel11.Controls.Add(this.dgv_pier_input_data);
@@ -9967,16 +9925,16 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn49
             // 
-            dataGridViewCellStyle234.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle234;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn49.DefaultCellStyle = dataGridViewCellStyle54;
             this.dataGridViewTextBoxColumn49.HeaderText = "Name";
             this.dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
             this.dataGridViewTextBoxColumn49.Width = 80;
             // 
             // dataGridViewTextBoxColumn50
             // 
-            dataGridViewCellStyle235.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn50.DefaultCellStyle = dataGridViewCellStyle235;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn50.DefaultCellStyle = dataGridViewCellStyle55;
             this.dataGridViewTextBoxColumn50.HeaderText = "Data";
             this.dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
             this.dataGridViewTextBoxColumn50.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -9984,8 +9942,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn51
             // 
-            dataGridViewCellStyle236.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn51.DefaultCellStyle = dataGridViewCellStyle236;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn51.DefaultCellStyle = dataGridViewCellStyle56;
             this.dataGridViewTextBoxColumn51.HeaderText = "Unit";
             this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
             this.dataGridViewTextBoxColumn51.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -10036,6 +9994,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_bearing.Text = "Bearing";
             this.tab_bearing.UseVisualStyleBackColor = true;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(38, 497);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox10.TabIndex = 126;
+            this.pictureBox10.TabStop = false;
+            // 
             // panel13
             // 
             this.panel13.Controls.Add(this.dgv_bearing_input_data);
@@ -10069,16 +10038,16 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn53
             // 
-            dataGridViewCellStyle178.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle178;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn53.DefaultCellStyle = dataGridViewCellStyle57;
             this.dataGridViewTextBoxColumn53.HeaderText = "Name";
             this.dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
             this.dataGridViewTextBoxColumn53.Width = 80;
             // 
             // dataGridViewTextBoxColumn54
             // 
-            dataGridViewCellStyle179.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn54.DefaultCellStyle = dataGridViewCellStyle179;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.dataGridViewTextBoxColumn54.DefaultCellStyle = dataGridViewCellStyle58;
             this.dataGridViewTextBoxColumn54.HeaderText = "Data";
             this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
             this.dataGridViewTextBoxColumn54.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -10086,8 +10055,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // dataGridViewTextBoxColumn55
             // 
-            dataGridViewCellStyle180.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle180;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle59;
             this.dataGridViewTextBoxColumn55.HeaderText = "Unit";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -10235,126 +10204,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.btn_dwg_open.UseVisualStyleBackColor = true;
             this.btn_dwg_open.Click += new System.EventHandler(this.btn_dwg_open_Click);
             // 
-            // pic_diagram
-            // 
-            this.pic_diagram.BackgroundImage = global::LimitStateMethod.Properties.Resources.case_1;
-            this.pic_diagram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_diagram.Location = new System.Drawing.Point(6, 385);
-            this.pic_diagram.Name = "pic_diagram";
-            this.pic_diagram.Size = new System.Drawing.Size(456, 242);
-            this.pic_diagram.TabIndex = 95;
-            this.pic_diagram.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = global::LimitStateMethod.Properties.Resources.PSC_I_Girder_Analysis_Image1;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Location = new System.Drawing.Point(156, 31);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(626, 320);
-            this.pictureBox8.TabIndex = 1;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = global::LimitStateMethod.Properties.Resources.PSC_I_Girder_Analysis_Image2;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Location = new System.Drawing.Point(9, 380);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(926, 257);
-            this.pictureBox7.TabIndex = 0;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::LimitStateMethod.Properties.Resources.LRFD_I_Section;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(316, 65);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(301, 410);
-            this.pictureBox4.TabIndex = 7;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::LimitStateMethod.Properties.Resources.End_Span_cross_Girder;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(376, 359);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(285, 235);
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::LimitStateMethod.Properties.Resources.Intermediate_cross_Girder;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(375, 78);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(286, 249);
-            this.pictureBox6.TabIndex = 14;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(37, 487);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(876, 69);
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(28, 490);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(876, 69);
-            this.pictureBox3.TabIndex = 125;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(37, 495);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(876, 69);
-            this.pictureBox5.TabIndex = 126;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox9.Location = new System.Drawing.Point(32, 496);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(876, 69);
-            this.pictureBox9.TabIndex = 126;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(38, 497);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(876, 69);
-            this.pictureBox10.TabIndex = 126;
-            this.pictureBox10.TabStop = false;
-            // 
             // frm_PSC_I_Girder_AASHTO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -10380,6 +10229,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox36.PerformLayout();
             this.grb_ana_footpath.ResumeLayout(false);
             this.grb_ana_footpath.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).EndInit();
             this.grb_ana_wc.ResumeLayout(false);
             this.grb_ana_wc.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -10388,6 +10238,8 @@ namespace LimitStateMethod.PSC_I_Girder
             this.grb_crash_barrier.PerformLayout();
             this.tab_gad.ResumeLayout(false);
             this.tab_gad.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.tab_section_data.ResumeLayout(false);
             this.tab_sec_props.ResumeLayout(false);
             this.tab_main_girder_input.ResumeLayout(false);
@@ -10397,6 +10249,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox1.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tab_cross_girder_input.ResumeLayout(false);
             this.tab_cross_girder_input.PerformLayout();
             this.groupBox32.ResumeLayout(false);
@@ -10405,6 +10258,8 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox20.PerformLayout();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox39.ResumeLayout(false);
@@ -10438,9 +10293,6 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox50.PerformLayout();
             this.groupBox51.ResumeLayout(false);
             this.groupBox51.PerformLayout();
-            this.tab_ana_preProcess.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.tab_ana_process.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -10548,36 +10400,27 @@ namespace LimitStateMethod.PSC_I_Girder
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).EndInit();
             this.groupBox129.ResumeLayout(false);
             this.groupBox129.PerformLayout();
-            this.tab_ana_postProcess.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.tab_deck_slab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnl_deck.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_deck_input_data)).EndInit();
             this.tab_psc_girder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_psc_i_girder_input_data)).EndInit();
             this.tab_rcc_abutment.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_abutment_input_data)).EndInit();
             this.tab_rcc_pier.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pier_input_data)).EndInit();
             this.tab_bearing.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_bearing_input_data)).EndInit();
             this.tab_drawings.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -10600,10 +10443,9 @@ namespace LimitStateMethod.PSC_I_Girder
         private System.Windows.Forms.DataGridView dgv_long_liveloads;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.Button btn_View_Moving_Load;
-        private System.Windows.Forms.ComboBox cmb_long_open_file;
         private System.Windows.Forms.Button btn_view_report;
         private System.Windows.Forms.Button btn_view_data;
-        private System.Windows.Forms.Button btn_view_structure;
+        private System.Windows.Forms.Button btn_view_preprocess;
         private System.Windows.Forms.TabPage tab_deck_slab;
         private System.Windows.Forms.TabPage tab_rcc_pier;
         private System.Windows.Forms.TabPage tab_drawings;
@@ -11292,18 +11134,9 @@ namespace LimitStateMethod.PSC_I_Girder
         private System.Windows.Forms.TextBox txt_sidl_right_max_total_vert_reac;
         private System.Windows.Forms.TabControl tc_AnaProcess;
         private System.Windows.Forms.TabPage tab_ana_select;
-        private System.Windows.Forms.TabPage tab_ana_preProcess;
-        private ASTRAStructures.UCPreProcess ucPreProcess1;
         private System.Windows.Forms.TabPage tab_ana_process;
-        private System.Windows.Forms.TabPage tab_ana_postProcess;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label480;
         private System.Windows.Forms.Label label532;
         private System.Windows.Forms.ComboBox cmb_long_open_file_process;
-        private ASTRAStructures.UCPostProcess ucPostProcess1;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label481;
-        private System.Windows.Forms.ComboBox cmb_long_open_file_post_process;
         private System.Windows.Forms.Label label295;
         private System.Windows.Forms.Label label296;
         private System.Windows.Forms.GroupBox groupBox19;
@@ -11433,6 +11266,7 @@ namespace LimitStateMethod.PSC_I_Girder
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Button btn_view_postprocess;
     }
 }
 

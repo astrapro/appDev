@@ -3461,8 +3461,6 @@ namespace ASTRAStructures
         {
             vdScrollableControl1.Dispose();
             //MyList.releaseObject(vdScrollableControl1);
-
-
         }
 
        public void ProcessAnalysis()

@@ -348,8 +348,8 @@ namespace LimitStateMethod.Composite
                 Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, false, 1);
                 Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
 
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add("DEAD LOAD ANALYSIS");
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add("DEAD LOAD ANALYSIS");
 
                 #region Chiranjit [2014 10 2]
                 for (int i = 0; i < all_loads.Count; i++)
@@ -362,15 +362,15 @@ namespace LimitStateMethod.Composite
 
                     if (ll_comb.Count == all_loads.Count)
                     {
-                        cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS (" + ll_comb[i] + ")");
+                        cmb_long_open_file_process.Items.Add("LIVE LOAD ANALYSIS (" + ll_comb[i] + ")");
 
                     }
                     else
-                        cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS " + (i + 1));
+                        cmb_long_open_file_process.Items.Add("LIVE LOAD ANALYSIS " + (i + 1));
                 }
 
-                //cmb_long_open_file.Items.Add("GIRDER ANALYSIS RESULTS");
-                cmb_long_open_file.Items.Add("DL + LL ANALYSIS");
+                //cmb_long_open_file_process.Items.Add("GIRDER ANALYSIS RESULTS");
+                cmb_long_open_file_process.Items.Add("DL + LL ANALYSIS");
 
                 #endregion Chiranjit [2014 10 2]
 
@@ -538,22 +538,14 @@ namespace LimitStateMethod.Composite
                 #endregion Chiranjit [2014 09 08] British Standard
 
             }
-            cmb_long_open_file.SelectedIndex = 0;
-
+            cmb_long_open_file_process.SelectedIndex = 0;
             cmb_long_open_file_analysis.Items.Clear();
-            cmb_long_open_file_process.Items.Clear();
-            cmb_long_open_file_post_process.Items.Clear();
-            for (int i = 0; i < cmb_long_open_file.Items.Count; i++)
+            for (int i = 0; i < cmb_long_open_file_process.Items.Count; i++)
             {
-                cmb_long_open_file_analysis.Items.Add(cmb_long_open_file.Items[i].ToString());
-                cmb_long_open_file_process.Items.Add(cmb_long_open_file.Items[i].ToString());
-                cmb_long_open_file_post_process.Items.Add(cmb_long_open_file.Items[i].ToString());
+                cmb_long_open_file_analysis.Items.Add(cmb_long_open_file_process.Items[i].ToString());
             }
 
-
             cmb_long_open_file_analysis.SelectedIndex = 0;
-
-
 
             //Create Orthotropic Data
             Bridge_Analysis.CreateData_Orthotropic();
@@ -707,7 +699,7 @@ namespace LimitStateMethod.Composite
                 //if (File.Exists(file_name))
                 //    iApp.RunExe(file_name);
             }
-            else if (btn.Name == btn_view_structure.Name)
+            else if (btn.Name == btn_view_preprocess.Name)
             {
                 //if (File.Exists(file_name))
                 //    iApp.OpenWork(file_name, false);
@@ -716,19 +708,15 @@ namespace LimitStateMethod.Composite
                 //Open File with Text Data Workspace
                 if (File.Exists(file_name))
                 {
-                    //if(cmb_ana)
-
-                    Form f = null;
-                    if (chk_curve.Checked)
-                    {
-                        f = iApp.Form_ASTRA_TEXT_Data(file_name);
-                    }
-                    else
-                    {
-                        f = iApp.Form_ASTRA_TEXT_Data(file_name, false);
-                    }
-                    f.Owner = this;
-                    f.Show();
+                    iApp.View_PreProcess(file_name);
+                    btn_update_forces.Enabled = true;
+                }
+            }
+            else if (btn.Name == btn_view_postprocess.Name)
+            {
+                if (File.Exists(file_name))
+                {
+                    iApp.View_PostProcess(file_name);
                     btn_update_forces.Enabled = true;
                 }
 
@@ -796,9 +784,9 @@ namespace LimitStateMethod.Composite
                     //flPath = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 2);
 
                     if (iApp.DesignStandard == eDesignStandard.IndianStandard)
-                        flPath = cmb_long_open_file.Items[i - 2].ToString().ToUpper();
+                        flPath = cmb_long_open_file_process.Items[i - 2].ToString().ToUpper();
                     else
-                        flPath = cmb_long_open_file.Items[i].ToString().ToUpper();
+                        flPath = cmb_long_open_file_process.Items[i].ToString().ToUpper();
                 }
 
 
@@ -1368,17 +1356,17 @@ namespace LimitStateMethod.Composite
 
                         if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                         {
-                            pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file.Items[i - 2].ToString().ToUpper();
+                            pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file_process.Items[i - 2].ToString().ToUpper();
                             pcol.Add(pd);
                             //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
-                            iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file.Items[i - 2].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
+                            iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file_process.Items[i - 2].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
                         }
                         else
                         {
-                            pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file.Items[i].ToString().ToUpper();
+                            pd.Process_Text = "PROCESS ANALYSIS FOR " + cmb_long_open_file_process.Items[i].ToString().ToUpper();
                             pcol.Add(pd);
                             //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
-                            iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file.Items[i].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
+                            iApp.Progress_Works.Add("Reading Analysis Data from " + cmb_long_open_file_process.Items[i].ToString().ToUpper() + " (ANALYSIS_REP.TXT)");
                         }
                     }
                     else
@@ -3194,7 +3182,7 @@ namespace LimitStateMethod.Composite
         public void Button_Enable_Disable()
         {
             btn_view_data.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
-            btn_view_structure.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
+            btn_view_preprocess.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
             btn_View_Moving_Load.Enabled = File.Exists(Bridge_Analysis.Total_Analysis_Report);
             btn_view_report.Enabled = File.Exists(Bridge_Analysis.Total_Analysis_Report);
             btn_Ana_process_analysis.Enabled = File.Exists(Bridge_Analysis.TotalAnalysis_Input_File);
@@ -3276,7 +3264,7 @@ namespace LimitStateMethod.Composite
 
             if (File.Exists(analysis_file))
             {
-                btn_view_structure.Enabled = true;
+                btn_view_preprocess.Enabled = true;
 
                 //Bridge_Analysis.Input_File = (analysis_file);
                 string rep_file = Bridge_Analysis.Total_Analysis_Report;
@@ -3357,7 +3345,7 @@ namespace LimitStateMethod.Composite
             user_path = Path.GetDirectoryName(analysis_file);
             if (File.Exists(analysis_file))
             {
-                btn_view_structure.Enabled = true;
+                btn_view_preprocess.Enabled = true;
 
                 Bridge_Analysis.Input_File = (analysis_file);
                 string rep_file = Bridge_Analysis.Total_Analysis_Report;
@@ -3545,7 +3533,7 @@ namespace LimitStateMethod.Composite
 
             if (File.Exists(analysis_file))
             {
-                btn_view_structure.Enabled = true;
+                btn_view_preprocess.Enabled = true;
 
                 Bridge_Analysis.Input_File = (file_name);
                 string rep_file = Path.Combine(user_path, "ANALYSIS_REP.TXT");
@@ -4309,17 +4297,17 @@ namespace LimitStateMethod.Composite
 
             if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                //cmb_long_open_file.Items.Add(string.Format("TOTAL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
-                //cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                //cmb_long_open_file_process.Items.Add(string.Format("TOTAL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
+                //cmb_long_open_file_process.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
                 pic_diagram.Size = new Size(pic_diagram.Size.Width, 280);
 
@@ -4337,11 +4325,11 @@ namespace LimitStateMethod.Composite
             else
             {
 
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                //cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                //cmb_long_open_file_process.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
                 tbc_girder.TabPages.Remove(tab_moving_data_british);
                 tabControl1.TabPages.Remove(tab_deckslab_BS);
@@ -4563,7 +4551,7 @@ namespace LimitStateMethod.Composite
             Button_Enable_Disable();
             Show_Steel_SectionProperties();
 
-            uC_Orthotropic1.SetApplication(iApp);
+            //uC_Orthotropic1.SetApplication(iApp);
 
 
             Set_Project_Name();
@@ -15010,16 +14998,16 @@ namespace LimitStateMethod.Composite
 
             if (rbtn_HA_HB.Checked || rbtn_HB.Checked)
             {
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
-                cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 3"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 4"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 5"));
+                cmb_long_open_file_process.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
 
                 if (IsRead) return;
@@ -15033,24 +15021,24 @@ namespace LimitStateMethod.Composite
             }
             else if (rbtn_HA.Checked)
             {
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
                 //tabCtrl.TabPages.Remove(tab_mov_data_Indian);
             }
             else if (rbtn_Rail_Load.Checked)
             {
                 lbl_HB.Text = "BS RAIL LOADINGS";
 
-                cmb_long_open_file.Items.Clear();
-                cmb_long_open_file.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
-                cmb_long_open_file.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
-                cmb_long_open_file.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
+                cmb_long_open_file_process.Items.Clear();
+                cmb_long_open_file_process.Items.Add(string.Format("DEAD LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("TOTAL DL + LL ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 1"));
+                cmb_long_open_file_process.Items.Add(string.Format("LIVE LOAD ANALYSIS 2"));
+                cmb_long_open_file_process.Items.Add(string.Format("GIRDER ANALYSIS RESULTS"));
 
 
                 if (IsRead) return;
@@ -16564,9 +16552,9 @@ namespace LimitStateMethod.Composite
                 else
                 {
                     file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb.SelectedIndex);
-                    //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    //if (cmb_long_open_file_process.SelectedIndex < cmb_long_open_file_process.Items.Count - 1)
                     //{
-                    //    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                    //    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file_process.SelectedIndex);
                     //}
                     //else
                     //{
@@ -16578,31 +16566,12 @@ namespace LimitStateMethod.Composite
             #endregion Set File Name
 
 
-            if (cmb == cmb_long_open_file)
-            {
-                if (File.Exists(file_name))
-                {
-                    ucPreProcess1.FilePath = file_name;
-                    ucPreProcess1.IsFlag = false;
-                    ucPreProcess1.Load_Initials();
-                }
-            }
-            else if (cmb == cmb_long_open_file_process)
+            if (cmb == cmb_long_open_file_process)
             {
 
                 btn_view_data.Enabled = File.Exists(file_name);
                 btn_View_Moving_Load.Enabled = File.Exists(FILE_SUMMARY_RESULTS);
                 btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
-            }
-            else if (cmb == cmb_long_open_file_post_process)
-            {
-                if (File.Exists(file_name))
-                {
-                    ucPostProcess1.Curve_Radius = Curve_Radius;
-                    ucPostProcess1.Load_Initials(file_name);
-                    //ucPostProcess1.PP_Tab_Selection();
-
-                }
             }
         }
 
@@ -16615,9 +16584,9 @@ namespace LimitStateMethod.Composite
             {
                 if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                 {
-                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    if (cmb_long_open_file_process.SelectedIndex < cmb_long_open_file_process.Items.Count - 1)
                     {
-                        file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                        file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file_process.SelectedIndex);
                     }
                     else
                     {
@@ -16626,10 +16595,10 @@ namespace LimitStateMethod.Composite
                 }
                 else
                 {
-                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
-                    //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
+                    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file_process.SelectedIndex);
+                    //if (cmb_long_open_file_process.SelectedIndex < cmb_long_open_file_process.Items.Count - 1)
                     //{
-                    //    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
+                    //    file_name = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file_process.SelectedIndex);
                     //}
                     //else
                     //{
@@ -16642,8 +16611,8 @@ namespace LimitStateMethod.Composite
 
             btn_view_data.Enabled = File.Exists(file_name);
             btn_View_Moving_Load.Enabled = File.Exists(MyList.Get_LL_TXT_File(file_name)) && File.Exists(MyList.Get_Analysis_Report_File(file_name));
-            //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
-            btn_view_structure.Enabled = File.Exists(file_name);
+            //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file_process.SelectedIndex != cmb_long_open_file_process.Items.Count - 1;
+            btn_view_preprocess.Enabled = File.Exists(file_name);
             btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
         }
 
@@ -17137,124 +17106,11 @@ namespace LimitStateMethod.Composite
 
             var cgrds = (int)(Bridge_Analysis.Spans.Count * NCG - 3);
 
-
-            if (false)
-            {
-                #region Draw Pen Ultimate Span
-                elmt.Curve_Radius = Curve_Radius;
-                elmt.L = L;
-                elmt.Z = CL;
-                elmt.Web_Thickness = ES.Bw / 1000;
-                elmt.Web_Depth = ES.Dw / 1000;
-
-                elmt.TF_THK = ES.Dft / 1000;
-                elmt.TF_WD = ES.Bft / 1000;
-                elmt.BF_THK = ES.Dfb / 1000;
-                elmt.BF_WD = ES.Bfb / 1000;
-
-                elmt.Lat_Spacing = ES.S / 1000;
-
-
-                elmt.TP_WD = ES.Bt / 1000;
-                elmt.TP_THK = ES.Dt / 1000;
-
-                elmt.BP_WD = ES.Bb / 1000;
-                elmt.BP_THK = ES.Db / 1000;
-
-                elmt.SP_1_THK = ES.Bs1 / 1000;
-                elmt.SP_2_THK = ES.Bs2 / 1000;
-                elmt.SP_3_THK = ES.Bs3 / 1000;
-                elmt.SP_4_THK = ES.Bs4 / 1000;
-
-                elmt.SP_1_WD = ES.Ds1 / 1000;
-                elmt.SP_2_WD = ES.Ds2 / 1000;
-                elmt.SP_3_WD = ES.Ds3 / 1000;
-                elmt.SP_4_WD = ES.Ds4 / 1000;
-
-
-
-                uC_Orthotropic1.DrawElement(elmt);
-
-                //return;
-
-
-
-                elmt.Z = CL + SMG;
-
-
-                elmt.L = L;
-                elmt.Web_Thickness = ES.Bw / 1000;
-                elmt.Web_Depth = ES.Dw / 1000;
-
-                elmt.TF_THK = ES.Dft / 1000;
-                elmt.TF_WD = ES.Bft / 1000;
-                elmt.BF_THK = ES.Dfb / 1000;
-                elmt.BF_WD = ES.Bfb / 1000;
-
-                elmt.Lat_Spacing = ES.S / 1000;
-
-
-                elmt.SP_1_THK = ES.Bs1 / 1000;
-                elmt.SP_2_THK = ES.Bs2 / 1000;
-                elmt.SP_3_THK = ES.Bs3 / 1000;
-                elmt.SP_4_THK = ES.Bs4 / 1000;
-
-                elmt.SP_1_WD = ES.Ds1 / 1000;
-                elmt.SP_2_WD = ES.Ds2 / 1000;
-                elmt.SP_3_WD = ES.Ds3 / 1000;
-                elmt.SP_4_WD = ES.Ds4 / 1000;
-
-
-
-
-
-                uC_Orthotropic1.DrawElement(elmt);
-
-
-
-
-                elmt.X = 0;
-                elmt.Y = 0;
-                elmt.Z = CL + SMG * 2;
-
-
-                elmt.L = L;
-                elmt.Web_Thickness = ES.Bw / 1000;
-                elmt.Web_Depth = ES.Dw / 1000;
-
-                elmt.TF_THK = ES.Dft / 1000;
-                elmt.TF_WD = ES.Bft / 1000;
-                elmt.BF_THK = ES.Dfb / 1000;
-                elmt.BF_WD = ES.Bfb / 1000;
-
-                elmt.Lat_Spacing = ES.S / 1000;
-
-
-                elmt.SP_1_THK = ES.Bs1 / 1000;
-                elmt.SP_2_THK = ES.Bs2 / 1000;
-                elmt.SP_3_THK = ES.Bs3 / 1000;
-                elmt.SP_4_THK = ES.Bs4 / 1000;
-
-                elmt.SP_1_WD = ES.Ds1 / 1000;
-                elmt.SP_2_WD = ES.Ds2 / 1000;
-                elmt.SP_3_WD = ES.Ds3 / 1000;
-                elmt.SP_4_WD = ES.Ds4 / 1000;
-
-
-                uC_Orthotropic1.DrawElement(elmt);
-
-
-                #endregion Draw Pen Ultimate Span
-            }
-
             for (int r = 0; r < (int)NMG; r++)
             {
-
-
                 elmt.Curve_Radius = Curve_Radius;
                 elmt.L = L;
                 elmt.Z = CL + SMG * r;
-
 
                 elmt._Columns = cgrds;
 
@@ -17285,7 +17141,7 @@ namespace LimitStateMethod.Composite
                 elmt.SP_3_WD = ES.Ds3 / 1000;
                 elmt.SP_4_WD = ES.Ds4 / 1000;
 
-                uC_Orthotropic1.DrawElement(elmt);
+                //uC_Orthotropic1.DrawElement(elmt);
 
             }
 
@@ -17307,7 +17163,7 @@ namespace LimitStateMethod.Composite
 
                 elmt.Color_Web_Plate = Color.White;
                 elmt._Columns = cgrds;
-                uC_Orthotropic1.DrawElement(elmt);
+                //uC_Orthotropic1.DrawElement(elmt);
 
                 #endregion Deckslab
                 ES = Bridge_Analysis.Steel_Section.Section_Cross_Girder;
@@ -17382,7 +17238,7 @@ namespace LimitStateMethod.Composite
                     elmt.SP_4_WD = ES.Ds4 / 1000;
 
 
-                    uC_Orthotropic1.DrawElement(elmt);
+                    //uC_Orthotropic1.DrawElement(elmt);
 
                     #endregion
                 }
@@ -17475,15 +17331,14 @@ namespace LimitStateMethod.Composite
             Ortho_Analysis.WriteData_Orthotropic_Analysis(Ortho_Analysis.Orthotropic_Input_File);
             //Ana_Write_Long_Girder_Load_Data(Ortho_Analysis.Orthotropic_Input_File, false, true, 1);
 
-            uC_Orthotropic1.Input_Data_File = Ortho_Analysis.Orthotropic_Input_File;
+            //uC_Orthotropic1.Input_Data_File = Ortho_Analysis.Orthotropic_Input_File;
 
             MessageBox.Show("Orthotropic Input Data created as \n\n" + Ortho_Analysis.Orthotropic_Input_File, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void uC_Orthotropic1_OnRunAnalysis_Click(object sender, EventArgs e)
         {
-
-            uC_Orthotropic1.Input_Data_File = Bridge_Analysis.Orthotropic_Input_File;
+            //uC_Orthotropic1.Input_Data_File = Bridge_Analysis.Orthotropic_Input_File;
         }
 
         private void uC_Orthotropic1_OnCreateData_Click(object sender, EventArgs e)
@@ -17493,20 +17348,11 @@ namespace LimitStateMethod.Composite
 
         private void tc_AnaProcess_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tc_AnaProcess.SelectedTab == tab_ana_preProcess)
-            {
-                if (!ucPreProcess1.IsFlag)
-                {
-                    ucPreProcess1.FilePath = Bridge_Analysis.GetAnalysis_Input_File(cmb_long_open_file.SelectedIndex);
-                    ucPreProcess1.Load_Initials();
-                    ucPreProcess1.IsFlag = true;
-                }
-            }
-            else if (tc_AnaProcess.SelectedTab == tab_ana_process)
+            if (tc_AnaProcess.SelectedTab == tab_ana_process)
             {
                 //if (!ucPreProcess1.IsFlag)
                 //{
-                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
+                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file_process.SelectedIndex);
                 //ucPreProcess1.Load_Initials();
                 //ucPreProcess1.IsFlag = true;
                 if (cmb_long_open_file_process.SelectedIndex == -1)
@@ -17515,24 +17361,6 @@ namespace LimitStateMethod.Composite
                         cmb_long_open_file_process.SelectedIndex = 0;
                     //ucPostProcess1.Load_Initials(ucPreProcess1.FilePath);
                 }
-
-                //}
-            }
-            else if (tc_AnaProcess.SelectedTab == tab_ana_postProcess)
-            {
-                //if (!ucPreProcess1.IsFlag)
-                //{
-                //ucPreProcess1.FilePath = Get_LongGirder_File(cmb_long_open_file.SelectedIndex);
-                //ucPreProcess1.Load_Initials();
-                //ucPreProcess1.IsFlag = true;
-                if (cmb_long_open_file_post_process.SelectedIndex == -1)
-                {
-                    if (cmb_long_open_file_post_process.Items.Count > 0)
-                        cmb_long_open_file_post_process.SelectedIndex = 0;
-                    //ucPostProcess1.Load_Initials(ucPreProcess1.FilePath);
-                }
-
-                //}
             }
         }
 

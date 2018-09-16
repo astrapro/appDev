@@ -7,10 +7,11 @@ namespace AstraInterface.DataStructure
 
     public class ProcessCollection : List<ProcessData>
     {
+        public bool IsAst006 { get; set; }
         public ProcessCollection()
             : base()
         {
-
+            IsAst006 = false;
         }
     }
     public class ProcessData

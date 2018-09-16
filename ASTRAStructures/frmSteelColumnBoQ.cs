@@ -15,8 +15,6 @@ using MovingLoadAnalysis;
 using MovingLoadAnalysis.DataStructure;
 using AstraInterface.Interface;
 
-
-
 namespace ASTRAStructures
 {
     public partial class frmSteelColumnBoQ : Form

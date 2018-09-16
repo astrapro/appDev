@@ -1,6 +1,6 @@
 ﻿namespace ASTRAStructures
 {
-    partial class frm_StructuralDesign
+    partial class frm_StructuralDesignNew
     {
         /// <summary>
         /// Required designer variable.
@@ -32,73 +32,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_StructuralDesign));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle65 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle66 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -121,57 +54,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tc_structure = new System.Windows.Forms.TabControl();
             this.tab_Analysis = new System.Windows.Forms.TabPage();
             this.tc_parrent = new System.Windows.Forms.TabControl();
-            this.tab_pre_process = new System.Windows.Forms.TabPage();
-            this.sc1 = new System.Windows.Forms.SplitContainer();
-            this.tc_prp_main = new System.Windows.Forms.TabControl();
-            this.tab_file_open = new System.Windows.Forms.TabPage();
+            this.tab_create_data = new System.Windows.Forms.TabPage();
             this.sc4 = new System.Windows.Forms.SplitContainer();
             this.rtb_input_file = new System.Windows.Forms.RichTextBox();
             this.panel24 = new System.Windows.Forms.Panel();
             this.btn_update_file = new System.Windows.Forms.Button();
             this.btn_create_data = new System.Windows.Forms.Button();
             this.btn_load_data = new System.Windows.Forms.Button();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.tsmi_file = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_newAnalysisTXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_data_open = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_openAnalysisTXTDataFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_file_open = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_openASTRAViewer = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_file_save = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_file_save_as = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_saveDXFDrawingFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_file_print = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_show_data = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_close = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_viewer = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsb_open_data = new System.Windows.Forms.ToolStripButton();
-            this.tsb_file_open = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_save_data = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_print = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_show_data = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.cmb_structure_type = new System.Windows.Forms.ComboBox();
-            this.label78 = new System.Windows.Forms.Label();
-            this.cmb_Base_LUnit = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUserTitle = new System.Windows.Forms.TextBox();
-            this.cmb_Base_MUnit = new System.Windows.Forms.ComboBox();
-            this.label77 = new System.Windows.Forms.Label();
             this.panel33 = new System.Windows.Forms.Panel();
             this.btn_new_design = new System.Windows.Forms.Button();
             this.btn_browse_design = new System.Windows.Forms.Button();
@@ -179,239 +71,6 @@
             this.label830 = new System.Windows.Forms.Label();
             this.rtb_ll_txt = new System.Windows.Forms.RichTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.tab_geom = new System.Windows.Forms.TabPage();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt_total_supps = new System.Windows.Forms.TextBox();
-            this.txt_total_elmts = new System.Windows.Forms.TextBox();
-            this.txt_total_mbrs = new System.Windows.Forms.TextBox();
-            this.txt_total_jnts = new System.Windows.Forms.TextBox();
-            this.tab_props = new System.Windows.Forms.TabPage();
-            this.cmb_Prop_LUnit = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tab_constants = new System.Windows.Forms.TabPage();
-            this.cmb_Const_LUnit = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.cmb_Const_MUnit = new System.Windows.Forms.ComboBox();
-            this.tab_supports = new System.Windows.Forms.TabPage();
-            this.tab_loads = new System.Windows.Forms.TabPage();
-            this.btn_sc_apply = new System.Windows.Forms.Button();
-            this.btn_sc_cal = new System.Windows.Forms.Button();
-            this.chk_seismic_coeeficient = new System.Windows.Forms.CheckBox();
-            this.label357 = new System.Windows.Forms.Label();
-            this.txt_seismic_coeeficient = new System.Windows.Forms.TextBox();
-            this.cmb_Load_LUnit = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmb_Load_MUnit = new System.Windows.Forms.ComboBox();
-            this.chk_selfweight = new System.Windows.Forms.CheckBox();
-            this.cmb_Self_Weight = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_seft_wt_Value = new System.Windows.Forms.TextBox();
-            this.tab_mov_load = new System.Windows.Forms.TabPage();
-            this.tab_dynamic = new System.Windows.Forms.TabPage();
-            this.tab_ana_spec = new System.Windows.Forms.TabPage();
-            this.sc2 = new System.Windows.Forms.SplitContainer();
-            this.tc_prp_panel = new System.Windows.Forms.TabControl();
-            this.tab1_geom = new System.Windows.Forms.TabPage();
-            this.tc3 = new System.Windows.Forms.TabControl();
-            this.tab2_joints = new System.Windows.Forms.TabPage();
-            this.dgv_joints = new System.Windows.Forms.DataGridView();
-            this.col_jno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_x = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_y = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_z = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_support = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.btn_jnt_delete = new System.Windows.Forms.Button();
-            this.btn_jnt_add = new System.Windows.Forms.Button();
-            this.btn_jnt_edit = new System.Windows.Forms.Button();
-            this.btn_jnt_insert = new System.Windows.Forms.Button();
-            this.tab2_members = new System.Windows.Forms.TabPage();
-            this.dgv_members = new System.Windows.Forms.DataGridView();
-            this.dgTxtMemberNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgTxtMember = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgTxtNode1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgTxtNode2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgTxtMAT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.btn_mbr_delete = new System.Windows.Forms.Button();
-            this.btn_mbr_add = new System.Windows.Forms.Button();
-            this.btn_mbr_edit = new System.Windows.Forms.Button();
-            this.btn_mbr_insert = new System.Windows.Forms.Button();
-            this.tab2_elements = new System.Windows.Forms.TabPage();
-            this.dgv_elements = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.btn_elmt_delete = new System.Windows.Forms.Button();
-            this.btn_elmt_add = new System.Windows.Forms.Button();
-            this.btn_elmt_edit = new System.Windows.Forms.Button();
-            this.btn_elmt_insert = new System.Windows.Forms.Button();
-            this.tab1_props = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tab_mem_props = new System.Windows.Forms.TabPage();
-            this.grb_mem_props = new System.Windows.Forms.GroupBox();
-            this.tv_mem_props = new System.Windows.Forms.TreeView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_props_edit = new System.Windows.Forms.Button();
-            this.btn_props_del = new System.Windows.Forms.Button();
-            this.btn_props_add = new System.Windows.Forms.Button();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.tv_elem_props = new System.Windows.Forms.TreeView();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.btn_elem_props_edit = new System.Windows.Forms.Button();
-            this.btn_elem_props_del = new System.Windows.Forms.Button();
-            this.btn_elem_props_add = new System.Windows.Forms.Button();
-            this.tab_mem_spec = new System.Windows.Forms.TabPage();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.tv_mem_spec_cable = new System.Windows.Forms.TreeView();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.btn_spec_edit_cable = new System.Windows.Forms.Button();
-            this.btn_spec_add_cable = new System.Windows.Forms.Button();
-            this.btn_spec_del_cable = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tv_mem_spec_truss = new System.Windows.Forms.TreeView();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_spec_edit_truss = new System.Windows.Forms.Button();
-            this.btn_spec_del_truss = new System.Windows.Forms.Button();
-            this.btn_spec_add_truss = new System.Windows.Forms.Button();
-            this.tab_mem_release = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tv_mem_release = new System.Windows.Forms.TreeView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.btn_release_edit = new System.Windows.Forms.Button();
-            this.btn_release_del = new System.Windows.Forms.Button();
-            this.btn_release_add = new System.Windows.Forms.Button();
-            this.grb_mem_groups = new System.Windows.Forms.GroupBox();
-            this.tv_mem_grps = new System.Windows.Forms.TreeView();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.btn_grps_edit = new System.Windows.Forms.Button();
-            this.btn_grps_del = new System.Windows.Forms.Button();
-            this.btn_grps_add = new System.Windows.Forms.Button();
-            this.tab1_const = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.tv_constants = new System.Windows.Forms.TreeView();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btn_cons_edit = new System.Windows.Forms.Button();
-            this.btn_cons_del = new System.Windows.Forms.Button();
-            this.btn_cons_add = new System.Windows.Forms.Button();
-            this.tab1_supports = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.tv_supports = new System.Windows.Forms.TreeView();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btn_supp_edit = new System.Windows.Forms.Button();
-            this.btn_supp_del = new System.Windows.Forms.Button();
-            this.btn_supp_add = new System.Windows.Forms.Button();
-            this.tab1_loads = new System.Windows.Forms.TabPage();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.tv_loads = new System.Windows.Forms.TreeView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.grb_def_loads = new System.Windows.Forms.GroupBox();
-            this.cmb_def_loads = new System.Windows.Forms.ComboBox();
-            this.btn_aload_add = new System.Windows.Forms.Button();
-            this.btn_aload_edit = new System.Windows.Forms.Button();
-            this.btn_aload_del = new System.Windows.Forms.Button();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.btn_ldc_add = new System.Windows.Forms.Button();
-            this.btn_ldc_edit = new System.Windows.Forms.Button();
-            this.btn_ldc_del = new System.Windows.Forms.Button();
-            this.tab1_moving = new System.Windows.Forms.TabPage();
-            this.sc3 = new System.Windows.Forms.SplitContainer();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tv_mov_loads = new System.Windows.Forms.TreeView();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btn_mov_load_edit = new System.Windows.Forms.Button();
-            this.btn_mov_load_del = new System.Windows.Forms.Button();
-            this.btn_mov_load_add = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.tv_mov_def_load = new System.Windows.Forms.TreeView();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btn_mov_def_load_edit = new System.Windows.Forms.Button();
-            this.btn_mov_def_load_del = new System.Windows.Forms.Button();
-            this.btn_mov_def_load_add = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_load_gen = new System.Windows.Forms.TextBox();
-            this.tab1_dynamic = new System.Windows.Forms.TabPage();
-            this.txt_dynamic = new System.Windows.Forms.TextBox();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.chk_dynamic_analysis = new System.Windows.Forms.CheckBox();
-            this.grb_dynamic = new System.Windows.Forms.GroupBox();
-            this.btn_dyn_add = new System.Windows.Forms.Button();
-            this.btn_dyn_del = new System.Windows.Forms.Button();
-            this.grb_dyna_analysis = new System.Windows.Forms.GroupBox();
-            this.txt_frequencies = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.rbtn_response_spectrum = new System.Windows.Forms.RadioButton();
-            this.rbtn_perform_time_history = new System.Windows.Forms.RadioButton();
-            this.rbtn_perform_eigen = new System.Windows.Forms.RadioButton();
-            this.tab1_ana_spec = new System.Windows.Forms.TabPage();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.grb_max_frc = new System.Windows.Forms.GroupBox();
-            this.tv_max_frc = new System.Windows.Forms.TreeView();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.btn_max_frc_del = new System.Windows.Forms.Button();
-            this.txt_max_frc_list = new System.Windows.Forms.TextBox();
-            this.btn_max_frc_add = new System.Windows.Forms.Button();
-            this.chk_perform_ana = new System.Windows.Forms.CheckBox();
-            this.chk_print_max_force = new System.Windows.Forms.CheckBox();
-            this.chk_print_ana_all = new System.Windows.Forms.CheckBox();
-            this.chk_print_static_check = new System.Windows.Forms.CheckBox();
-            this.chk_print_load_data = new System.Windows.Forms.CheckBox();
-            this.chk_print_supp_reac = new System.Windows.Forms.CheckBox();
-            this.vdScrollableControl1 = new vdScrollableControl.vdScrollableControl();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmb_text_size = new System.Windows.Forms.ComboBox();
-            this.chk_elems = new System.Windows.Forms.CheckBox();
-            this.chk_joints = new System.Windows.Forms.CheckBox();
-            this.chk_suprts = new System.Windows.Forms.CheckBox();
-            this.chk_mems = new System.Windows.Forms.CheckBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.tsb_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Wire = new System.Windows.Forms.ToolStripButton();
-            this.tss1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb_Edit = new System.Windows.Forms.ToolStripButton();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.tab_procees = new System.Windows.Forms.TabPage();
             this.spc_results = new System.Windows.Forms.SplitContainer();
             this.lsv_steps = new System.Windows.Forms.ListView();
@@ -427,218 +86,6 @@
             this.chk_show_steps = new System.Windows.Forms.CheckBox();
             this.btn_view_analysis = new System.Windows.Forms.Button();
             this.btn_process_analysis = new System.Windows.Forms.Button();
-            this.tab_post_procees = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.tc_pp_main = new System.Windows.Forms.TabControl();
-            this.tab_forces = new System.Windows.Forms.TabPage();
-            this.tab_load_deflection = new System.Windows.Forms.TabPage();
-            this.lbl_mode_shape = new System.Windows.Forms.Label();
-            this.lblLoadCase = new System.Windows.Forms.Label();
-            this.grb_Auto = new System.Windows.Forms.GroupBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.cmbInterval = new System.Windows.Forms.ComboBox();
-            this.btnStop = new System.Windows.Forms.Button();
-            this.btnPause = new System.Windows.Forms.Button();
-            this.btnAutoNext = new System.Windows.Forms.Button();
-            this.btnAutoPrev = new System.Windows.Forms.Button();
-            this.txtDefFactor = new System.Windows.Forms.TextBox();
-            this.grb_manual = new System.Windows.Forms.GroupBox();
-            this.btnFirst = new System.Windows.Forms.Button();
-            this.btnPrev = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnLast = new System.Windows.Forms.Button();
-            this.lblFactor = new System.Windows.Forms.Label();
-            this.cmbLoadCase = new System.Windows.Forms.ComboBox();
-            this.tab_max_force = new System.Windows.Forms.TabPage();
-            this.label22 = new System.Windows.Forms.Label();
-            this.tab_moving_load = new System.Windows.Forms.TabPage();
-            this.grb_moving_controls = new System.Windows.Forms.GroupBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.lbl_distance = new System.Windows.Forms.Label();
-            this.txt_dist = new System.Windows.Forms.TextBox();
-            this.cmb_mov_loadcase = new System.Windows.Forms.ComboBox();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.cmb_mov_time = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btn_mov_stop = new System.Windows.Forms.Button();
-            this.btn_mov_run = new System.Windows.Forms.Button();
-            this.btn_mov_pause = new System.Windows.Forms.Button();
-            this.tab_envelop = new System.Windows.Forms.TabPage();
-            this.label41 = new System.Windows.Forms.Label();
-            this.tab_diagram = new System.Windows.Forms.TabPage();
-            this.label40 = new System.Windows.Forms.Label();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.tc1_pp = new System.Windows.Forms.TabControl();
-            this.tab1_forces = new System.Windows.Forms.TabPage();
-            this.tc_forces = new System.Windows.Forms.TabControl();
-            this.tab_3_joint_frc = new System.Windows.Forms.TabPage();
-            this.dgv_joint_frcs = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab_3_mem_frc = new System.Windows.Forms.TabPage();
-            this.dgv_beam_frcs = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab_3_truss_frc = new System.Windows.Forms.TabPage();
-            this.dgv_truss_frcs = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgv_plate_frcs = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab1_load_deflection = new System.Windows.Forms.TabPage();
-            this.dgv_node_disp = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.txt_max_deflection_load = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.txt_max_deflection_node = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txt_max_deflection = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.tab1_max_force = new System.Windows.Forms.TabPage();
-            this.dgv_max_frc = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_cmf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_tf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_af = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_tor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_bm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_sf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tab1_moving_load = new System.Windows.Forms.TabPage();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.tv_ml_loads = new System.Windows.Forms.TreeView();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.tv_ml_def = new System.Windows.Forms.TreeView();
-            this.tab1_truss_env = new System.Windows.Forms.TabPage();
-            this.txt_env_mnos = new System.Windows.Forms.TextBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.rbtn_env_bottom = new System.Windows.Forms.RadioButton();
-            this.rbtn_env_top = new System.Windows.Forms.RadioButton();
-            this.btn_env_show = new System.Windows.Forms.Button();
-            this.tab1_diag = new System.Windows.Forms.TabPage();
-            this.label327 = new System.Windows.Forms.Label();
-            this.label329 = new System.Windows.Forms.Label();
-            this.cmb_diag_beam_no = new System.Windows.Forms.ComboBox();
-            this.cmb_diag_flr_lvl = new System.Windows.Forms.ComboBox();
-            this.btn_Draw_Forces = new System.Windows.Forms.Button();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.rbtn_diag_MZ = new System.Windows.Forms.RadioButton();
-            this.rbtn_diag_MY = new System.Windows.Forms.RadioButton();
-            this.rbtn_diag_MX = new System.Windows.Forms.RadioButton();
-            this.rbtn_diag_FZ = new System.Windows.Forms.RadioButton();
-            this.rbtn_diag_FY = new System.Windows.Forms.RadioButton();
-            this.rbtn_diag_FX = new System.Windows.Forms.RadioButton();
-            this.grb_diag_end = new System.Windows.Forms.GroupBox();
-            this.txt_diag_end_MZ = new System.Windows.Forms.TextBox();
-            this.txt_diag_end_FZ = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.txt_diag_end_MY = new System.Windows.Forms.TextBox();
-            this.txt_diag_end_FY = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.txt_diag_end_MX = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
-            this.txt_diag_end_FX = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.grb_diag_start = new System.Windows.Forms.GroupBox();
-            this.txt_diag_start_MZ = new System.Windows.Forms.TextBox();
-            this.txt_diag_start_FZ = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txt_diag_start_MY = new System.Windows.Forms.TextBox();
-            this.txt_diag_start_FY = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txt_diag_start_MX = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
-            this.txt_diag_start_FX = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.cmb_diag_mem_no = new System.Windows.Forms.ComboBox();
-            this.cmb_diag_ld_no = new System.Windows.Forms.ComboBox();
-            this.tc_docs = new System.Windows.Forms.TabControl();
-            this.tab_frcs_doc = new System.Windows.Forms.TabPage();
-            this.vdSC_frcs = new vdScrollableControl.vdScrollableControl();
-            this.tab_defl_doc = new System.Windows.Forms.TabPage();
-            this.vdSC_ldef = new vdScrollableControl.vdScrollableControl();
-            this.tab_max_doc = new System.Windows.Forms.TabPage();
-            this.vdSC_maxf = new vdScrollableControl.vdScrollableControl();
-            this.tab_mov_doc = new System.Windows.Forms.TabPage();
-            this.vdSC_mov = new vdScrollableControl.vdScrollableControl();
-            this.tab_evlp_doc = new System.Windows.Forms.TabPage();
-            this.vdSC_env = new vdScrollableControl.vdScrollableControl();
-            this.tab_diag_doc = new System.Windows.Forms.TabPage();
-            this.vdSC_diag = new vdScrollableControl.vdScrollableControl();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.label27 = new System.Windows.Forms.Label();
-            this.cmb_pp_text_size = new System.Windows.Forms.ComboBox();
-            this.chk_pp_elems = new System.Windows.Forms.CheckBox();
-            this.chk_pp_joints = new System.Windows.Forms.CheckBox();
-            this.chk_pp_suprts = new System.Windows.Forms.CheckBox();
-            this.chk_pp_mems = new System.Windows.Forms.CheckBox();
-            this.pnl_progress = new System.Windows.Forms.Panel();
-            this.pbLoadDeflection = new System.Windows.Forms.ProgressBar();
-            this.lblPleaseWait = new System.Windows.Forms.Label();
-            this.toolStrip3 = new System.Windows.Forms.ToolStrip();
-            this.tsb_pp_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_pp_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_Wire = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_pp_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb_pp_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb_pp_Edit = new System.Windows.Forms.ToolStripButton();
             this.tab_general_data = new System.Windows.Forms.TabPage();
             this.label328 = new System.Windows.Forms.Label();
             this.label217 = new System.Windows.Forms.Label();
@@ -658,7 +105,6 @@
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_slab = new System.Windows.Forms.TabPage();
-            this.sc_slab = new System.Windows.Forms.SplitContainer();
             this.chk_slab_individual = new System.Windows.Forms.CheckBox();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
@@ -695,18 +141,6 @@
             this.col_dl_names = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label286 = new System.Windows.Forms.Label();
-            this.grb_slab_individual = new System.Windows.Forms.GroupBox();
-            this.label359 = new System.Windows.Forms.Label();
-            this.cmb_slab_type = new System.Windows.Forms.ComboBox();
-            this.txt_slab_flv_lvl = new System.Windows.Forms.TextBox();
-            this.label358 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label228 = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.txt_slab_Ly = new System.Windows.Forms.TextBox();
-            this.txt_slab_Lx = new System.Windows.Forms.TextBox();
-            this.label229 = new System.Windows.Forms.Label();
-            this.label282 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.btn_slab_open_design = new System.Windows.Forms.Button();
             this.btn_slab_design = new System.Windows.Forms.Button();
@@ -725,42 +159,7 @@
             this.txt_slab_gamma = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
-            this.vdSC_slab = new vdScrollableControl.vdScrollableControl();
-            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
-            this.tsb1_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb1_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_Wire = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb1_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb1_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb1_Edit = new System.Windows.Forms.ToolStripButton();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.label74 = new System.Windows.Forms.Label();
-            this.cmb1_text_size = new System.Windows.Forms.ComboBox();
-            this.chk1_elements = new System.Windows.Forms.CheckBox();
-            this.chk1_joints = new System.Windows.Forms.CheckBox();
-            this.chk1_supports = new System.Windows.Forms.CheckBox();
-            this.chk1_members = new System.Windows.Forms.CheckBox();
             this.tab_beam = new System.Windows.Forms.TabPage();
-            this.sc_beam = new System.Windows.Forms.SplitContainer();
             this.tc_Beam = new System.Windows.Forms.TabControl();
             this.tab_concrete_beam = new System.Windows.Forms.TabPage();
             this.label72 = new System.Windows.Forms.Label();
@@ -941,42 +340,7 @@
             this.label381 = new System.Windows.Forms.Label();
             this.label382 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
-            this.vdSC_beam = new vdScrollableControl.vdScrollableControl();
-            this.panel28 = new System.Windows.Forms.Panel();
-            this.label75 = new System.Windows.Forms.Label();
-            this.cmb2_text_size = new System.Windows.Forms.ComboBox();
-            this.chk2_elements = new System.Windows.Forms.CheckBox();
-            this.chk2_joints = new System.Windows.Forms.CheckBox();
-            this.chk2_supports = new System.Windows.Forms.CheckBox();
-            this.chk2_members = new System.Windows.Forms.CheckBox();
-            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
-            this.tsb2_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb2_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_Wire = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator14 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb2_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb2_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb2_Edit = new System.Windows.Forms.ToolStripButton();
             this.tab_columns = new System.Windows.Forms.TabPage();
-            this.sc_column = new System.Windows.Forms.SplitContainer();
             this.tc_Column = new System.Windows.Forms.TabControl();
             this.tab_concrete_column = new System.Windows.Forms.TabPage();
             this.chk_column_individual = new System.Windows.Forms.CheckBox();
@@ -1075,40 +439,6 @@
             this.btn_steel_column_open_design = new System.Windows.Forms.Button();
             this.btn_steel_column_design = new System.Windows.Forms.Button();
             this.chk_column_steel_individual = new System.Windows.Forms.CheckBox();
-            this.vdSC_columns = new vdScrollableControl.vdScrollableControl();
-            this.panel29 = new System.Windows.Forms.Panel();
-            this.label122 = new System.Windows.Forms.Label();
-            this.cmb3_text_size = new System.Windows.Forms.ComboBox();
-            this.chk3_elements = new System.Windows.Forms.CheckBox();
-            this.chk3_joints = new System.Windows.Forms.CheckBox();
-            this.chk3_supports = new System.Windows.Forms.CheckBox();
-            this.chk3_members = new System.Windows.Forms.CheckBox();
-            this.toolStrip6 = new System.Windows.Forms.ToolStrip();
-            this.tsb3_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator16 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb3_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_Wire = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator17 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb3_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb3_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb3_Edit = new System.Windows.Forms.ToolStripButton();
             this.tab_staircase = new System.Windows.Forms.TabPage();
             this.chk_staircase_individual = new System.Windows.Forms.CheckBox();
             this.dgv_Staircase_Floors = new System.Windows.Forms.DataGridView();
@@ -1361,7 +691,6 @@
             this.label189 = new System.Windows.Forms.Label();
             this.label190 = new System.Windows.Forms.Label();
             this.label191 = new System.Windows.Forms.Label();
-            this.pic_pile = new System.Windows.Forms.PictureBox();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.label192 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
@@ -1374,6 +703,7 @@
             this.col_cons_adhe = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Cohesion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_gama_sub = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pic_pile = new System.Windows.Forms.PictureBox();
             this.panel30 = new System.Windows.Forms.Panel();
             this.btn_pile_design = new System.Windows.Forms.Button();
             this.btn_pile_open_design = new System.Windows.Forms.Button();
@@ -1426,37 +756,10 @@
             this.txt_raft_d1 = new System.Windows.Forms.TextBox();
             this.txt_raft_sbc = new System.Windows.Forms.TextBox();
             this.btn_raft_process_design = new System.Windows.Forms.Button();
-            this.vdRaft = new vdScrollableControl.vdScrollableControl();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label330 = new System.Windows.Forms.Label();
             this.cmb4_text_size = new System.Windows.Forms.ComboBox();
             this.btn_raft_draw_layout = new System.Windows.Forms.Button();
-            this.toolStrip8 = new System.Windows.Forms.ToolStrip();
-            this.tsb5_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb5_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_Wire = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb5_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator24 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb5_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb5_Edit = new System.Windows.Forms.ToolStripButton();
             this.tab_BOQ = new System.Windows.Forms.TabPage();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.btn_boq_open_pile_found = new System.Windows.Forms.Button();
@@ -1633,225 +936,49 @@
             this.btn_drawing_construction = new System.Windows.Forms.Button();
             this.btn_drawing_floor_plan = new System.Windows.Forms.Button();
             this.panel31 = new System.Windows.Forms.Panel();
-            this.vdDwg = new VectorDraw.Professional.Control.VectorDrawBaseControl();
-            this.toolStrip7 = new System.Windows.Forms.ToolStrip();
-            this.tsb4_3D_rotate = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VTop = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VBot = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VLeft = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VRight = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VFront = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VBack = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VNE = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VNW = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VSE = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_VSW = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb4_ShadeOn = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_Wire = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb4_ZoomA = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_ZoomE = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_ZoomP = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_ZoomW = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_ZoomIn = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_ZoomOut = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_Pan = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsb4_Save = new System.Windows.Forms.ToolStripButton();
-            this.tsb4_Edit = new System.Windows.Forms.ToolStripButton();
-            this.label356 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tmr_moving_load = new System.Windows.Forms.Timer(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmrLoadDeflection = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.tc_structure.SuspendLayout();
             this.tab_Analysis.SuspendLayout();
             this.tc_parrent.SuspendLayout();
-            this.tab_pre_process.SuspendLayout();
-            this.sc1.Panel1.SuspendLayout();
-            this.sc1.Panel2.SuspendLayout();
-            this.sc1.SuspendLayout();
-            this.tc_prp_main.SuspendLayout();
-            this.tab_file_open.SuspendLayout();
+            this.tab_create_data.SuspendLayout();
             this.sc4.Panel1.SuspendLayout();
             this.sc4.Panel2.SuspendLayout();
             this.sc4.SuspendLayout();
             this.panel24.SuspendLayout();
-            this.panel22.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.panel33.SuspendLayout();
-            this.tab_geom.SuspendLayout();
-            this.tab_props.SuspendLayout();
-            this.tab_constants.SuspendLayout();
-            this.tab_loads.SuspendLayout();
-            this.sc2.Panel1.SuspendLayout();
-            this.sc2.Panel2.SuspendLayout();
-            this.sc2.SuspendLayout();
-            this.tc_prp_panel.SuspendLayout();
-            this.tab1_geom.SuspendLayout();
-            this.tc3.SuspendLayout();
-            this.tab2_joints.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_joints)).BeginInit();
-            this.panel18.SuspendLayout();
-            this.tab2_members.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_members)).BeginInit();
-            this.panel19.SuspendLayout();
-            this.tab2_elements.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_elements)).BeginInit();
-            this.panel20.SuspendLayout();
-            this.tab1_props.SuspendLayout();
-            this.tabControl2.SuspendLayout();
-            this.tab_mem_props.SuspendLayout();
-            this.grb_mem_props.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.panel17.SuspendLayout();
-            this.tab_mem_spec.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.tab_mem_release.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.grb_mem_groups.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.tab1_const.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.tab1_supports.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.tab1_loads.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.grb_def_loads.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.tab1_moving.SuspendLayout();
-            this.sc3.Panel1.SuspendLayout();
-            this.sc3.Panel2.SuspendLayout();
-            this.sc3.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.tab1_dynamic.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.grb_dynamic.SuspendLayout();
-            this.grb_dyna_analysis.SuspendLayout();
-            this.tab1_ana_spec.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.grb_max_frc.SuspendLayout();
-            this.panel15.SuspendLayout();
-            this.panel21.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            this.toolStrip2.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.panel16.SuspendLayout();
             this.tab_procees.SuspendLayout();
             this.spc_results.Panel1.SuspendLayout();
             this.spc_results.Panel2.SuspendLayout();
             this.spc_results.SuspendLayout();
             this.grb_stage.SuspendLayout();
             this.panel23.SuspendLayout();
-            this.tab_post_procees.SuspendLayout();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.tc_pp_main.SuspendLayout();
-            this.tab_load_deflection.SuspendLayout();
-            this.grb_Auto.SuspendLayout();
-            this.grb_manual.SuspendLayout();
-            this.tab_max_force.SuspendLayout();
-            this.tab_moving_load.SuspendLayout();
-            this.grb_moving_controls.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.tab_envelop.SuspendLayout();
-            this.tab_diagram.SuspendLayout();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            this.tc1_pp.SuspendLayout();
-            this.tab1_forces.SuspendLayout();
-            this.tc_forces.SuspendLayout();
-            this.tab_3_joint_frc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_joint_frcs)).BeginInit();
-            this.tab_3_mem_frc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_beam_frcs)).BeginInit();
-            this.tab_3_truss_frc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_truss_frcs)).BeginInit();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_plate_frcs)).BeginInit();
-            this.tab1_load_deflection.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_node_disp)).BeginInit();
-            this.panel26.SuspendLayout();
-            this.tab1_max_force.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_max_frc)).BeginInit();
-            this.tab1_moving_load.SuspendLayout();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            this.tab1_truss_env.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.tab1_diag.SuspendLayout();
-            this.groupBox16.SuspendLayout();
-            this.grb_diag_end.SuspendLayout();
-            this.grb_diag_start.SuspendLayout();
-            this.tc_docs.SuspendLayout();
-            this.tab_frcs_doc.SuspendLayout();
-            this.tab_defl_doc.SuspendLayout();
-            this.tab_max_doc.SuspendLayout();
-            this.tab_mov_doc.SuspendLayout();
-            this.tab_evlp_doc.SuspendLayout();
-            this.tab_diag_doc.SuspendLayout();
-            this.panel27.SuspendLayout();
-            this.pnl_progress.SuspendLayout();
-            this.toolStrip3.SuspendLayout();
             this.tab_general_data.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GD_floor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_rebar_weight)).BeginInit();
             this.tab_slab.SuspendLayout();
-            this.sc_slab.Panel1.SuspendLayout();
-            this.sc_slab.Panel2.SuspendLayout();
-            this.sc_slab.SuspendLayout();
             this.groupBox30.SuspendLayout();
             this.groupBox29.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dls)).BeginInit();
-            this.grb_slab_individual.SuspendLayout();
-            this.toolStrip4.SuspendLayout();
-            this.panel25.SuspendLayout();
             this.tab_beam.SuspendLayout();
-            this.sc_beam.Panel1.SuspendLayout();
-            this.sc_beam.Panel2.SuspendLayout();
-            this.sc_beam.SuspendLayout();
             this.tc_Beam.SuspendLayout();
             this.tab_concrete_beam.SuspendLayout();
             this.grb_beam_individual.SuspendLayout();
             this.tab_steel_beam.SuspendLayout();
             this.groupBox28.SuspendLayout();
             this.groupBox38.SuspendLayout();
-            this.panel28.SuspendLayout();
-            this.toolStrip5.SuspendLayout();
             this.tab_columns.SuspendLayout();
-            this.sc_column.Panel1.SuspendLayout();
-            this.sc_column.Panel2.SuspendLayout();
-            this.sc_column.SuspendLayout();
             this.tc_Column.SuspendLayout();
             this.tab_concrete_column.SuspendLayout();
             this.grb_column_individual.SuspendLayout();
             this.tab_steel_column.SuspendLayout();
             this.groupBox31.SuspendLayout();
-            this.panel29.SuspendLayout();
-            this.toolStrip6.SuspendLayout();
             this.tab_staircase.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Staircase_Floors)).BeginInit();
             this.groupBox25.SuspendLayout();
@@ -1869,9 +996,9 @@
             this.groupBox22.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pile)).BeginInit();
             this.groupBox26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pile_soil_data)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pile)).BeginInit();
             this.panel30.SuspendLayout();
             this.tab_raft_foundation.SuspendLayout();
             this.sc_raft.Panel1.SuspendLayout();
@@ -1880,7 +1007,6 @@
             this.groupBox19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_raft_cols)).BeginInit();
             this.panel32.SuspendLayout();
-            this.toolStrip8.SuspendLayout();
             this.tab_BOQ.SuspendLayout();
             this.groupBox21.SuspendLayout();
             this.tc_BOQ.SuspendLayout();
@@ -1928,8 +1054,6 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.grb_dwg_open.SuspendLayout();
-            this.panel31.SuspendLayout();
-            this.toolStrip7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tc_structure
@@ -1964,9 +1088,8 @@
             // 
             // tc_parrent
             // 
-            this.tc_parrent.Controls.Add(this.tab_pre_process);
+            this.tc_parrent.Controls.Add(this.tab_create_data);
             this.tc_parrent.Controls.Add(this.tab_procees);
-            this.tc_parrent.Controls.Add(this.tab_post_procees);
             this.tc_parrent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_parrent.Location = new System.Drawing.Point(3, 3);
             this.tc_parrent.Name = "tc_parrent";
@@ -1975,66 +1098,16 @@
             this.tc_parrent.TabIndex = 1;
             this.tc_parrent.SelectedIndexChanged += new System.EventHandler(this.tc_pp_main_SelectedIndexChanged);
             // 
-            // tab_pre_process
+            // tab_create_data
             // 
-            this.tab_pre_process.Controls.Add(this.sc1);
-            this.tab_pre_process.Controls.Add(this.groupBox9);
-            this.tab_pre_process.Location = new System.Drawing.Point(4, 22);
-            this.tab_pre_process.Name = "tab_pre_process";
-            this.tab_pre_process.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_pre_process.Size = new System.Drawing.Size(930, 603);
-            this.tab_pre_process.TabIndex = 0;
-            this.tab_pre_process.Text = "Pre Process";
-            this.tab_pre_process.UseVisualStyleBackColor = true;
-            // 
-            // sc1
-            // 
-            this.sc1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sc1.Location = new System.Drawing.Point(3, 3);
-            this.sc1.Name = "sc1";
-            this.sc1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // sc1.Panel1
-            // 
-            this.sc1.Panel1.Controls.Add(this.tc_prp_main);
-            // 
-            // sc1.Panel2
-            // 
-            this.sc1.Panel2.Controls.Add(this.sc2);
-            this.sc1.Size = new System.Drawing.Size(924, 597);
-            this.sc1.SplitterDistance = 77;
-            this.sc1.TabIndex = 3;
-            // 
-            // tc_prp_main
-            // 
-            this.tc_prp_main.Controls.Add(this.tab_file_open);
-            this.tc_prp_main.Controls.Add(this.tab_geom);
-            this.tc_prp_main.Controls.Add(this.tab_props);
-            this.tc_prp_main.Controls.Add(this.tab_constants);
-            this.tc_prp_main.Controls.Add(this.tab_supports);
-            this.tc_prp_main.Controls.Add(this.tab_loads);
-            this.tc_prp_main.Controls.Add(this.tab_mov_load);
-            this.tc_prp_main.Controls.Add(this.tab_dynamic);
-            this.tc_prp_main.Controls.Add(this.tab_ana_spec);
-            this.tc_prp_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_prp_main.Location = new System.Drawing.Point(0, 0);
-            this.tc_prp_main.Name = "tc_prp_main";
-            this.tc_prp_main.SelectedIndex = 0;
-            this.tc_prp_main.Size = new System.Drawing.Size(922, 75);
-            this.tc_prp_main.TabIndex = 0;
-            this.tc_prp_main.SelectedIndexChanged += new System.EventHandler(this.tc1_SelectedIndexChanged);
-            // 
-            // tab_file_open
-            // 
-            this.tab_file_open.Controls.Add(this.sc4);
-            this.tab_file_open.Location = new System.Drawing.Point(4, 22);
-            this.tab_file_open.Name = "tab_file_open";
-            this.tab_file_open.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_file_open.Size = new System.Drawing.Size(914, 49);
-            this.tab_file_open.TabIndex = 9;
-            this.tab_file_open.Text = "Data File";
-            this.tab_file_open.UseVisualStyleBackColor = true;
+            this.tab_create_data.Controls.Add(this.sc4);
+            this.tab_create_data.Location = new System.Drawing.Point(4, 22);
+            this.tab_create_data.Name = "tab_create_data";
+            this.tab_create_data.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_create_data.Size = new System.Drawing.Size(930, 603);
+            this.tab_create_data.TabIndex = 0;
+            this.tab_create_data.Text = "Create Data";
+            this.tab_create_data.UseVisualStyleBackColor = true;
             // 
             // sc4
             // 
@@ -2047,7 +1120,6 @@
             // 
             this.sc4.Panel1.Controls.Add(this.rtb_input_file);
             this.sc4.Panel1.Controls.Add(this.panel24);
-            this.sc4.Panel1.Controls.Add(this.panel22);
             this.sc4.Panel1.Controls.Add(this.panel33);
             // 
             // sc4.Panel2
@@ -2055,7 +1127,7 @@
             this.sc4.Panel2.Controls.Add(this.rtb_ll_txt);
             this.sc4.Panel2.Controls.Add(this.label16);
             this.sc4.Panel2Collapsed = true;
-            this.sc4.Size = new System.Drawing.Size(908, 43);
+            this.sc4.Size = new System.Drawing.Size(924, 597);
             this.sc4.SplitterDistance = 535;
             this.sc4.TabIndex = 140;
             // 
@@ -2064,9 +1136,9 @@
             this.rtb_input_file.BackColor = System.Drawing.Color.AliceBlue;
             this.rtb_input_file.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtb_input_file.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_input_file.Location = new System.Drawing.Point(0, 166);
+            this.rtb_input_file.Location = new System.Drawing.Point(0, 107);
             this.rtb_input_file.Name = "rtb_input_file";
-            this.rtb_input_file.Size = new System.Drawing.Size(906, 0);
+            this.rtb_input_file.Size = new System.Drawing.Size(922, 488);
             this.rtb_input_file.TabIndex = 1;
             this.rtb_input_file.Text = "";
             this.rtb_input_file.WordWrap = false;
@@ -2078,9 +1150,9 @@
             this.panel24.Controls.Add(this.btn_create_data);
             this.panel24.Controls.Add(this.btn_load_data);
             this.panel24.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel24.Location = new System.Drawing.Point(0, 120);
+            this.panel24.Location = new System.Drawing.Point(0, 61);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(906, 46);
+            this.panel24.Size = new System.Drawing.Size(922, 46);
             this.panel24.TabIndex = 5;
             // 
             // btn_update_file
@@ -2116,339 +1188,6 @@
             this.btn_load_data.UseVisualStyleBackColor = true;
             this.btn_load_data.Click += new System.EventHandler(this.btn_load_data_Click);
             // 
-            // panel22
-            // 
-            this.panel22.Controls.Add(this.menuStrip1);
-            this.panel22.Controls.Add(this.toolStrip1);
-            this.panel22.Controls.Add(this.cmb_structure_type);
-            this.panel22.Controls.Add(this.label78);
-            this.panel22.Controls.Add(this.cmb_Base_LUnit);
-            this.panel22.Controls.Add(this.label3);
-            this.panel22.Controls.Add(this.label2);
-            this.panel22.Controls.Add(this.txtUserTitle);
-            this.panel22.Controls.Add(this.cmb_Base_MUnit);
-            this.panel22.Controls.Add(this.label77);
-            this.panel22.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel22.Location = new System.Drawing.Point(0, 61);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(906, 59);
-            this.panel22.TabIndex = 139;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_file,
-            this.tsmi_edit});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(45, 59);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // tsmi_file
-            // 
-            this.tsmi_file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_newAnalysisTXTDataFile,
-            this.tsmi_data_open,
-            this.tsmi_openAnalysisTXTDataFile,
-            this.tsmi_file_open,
-            this.tsmi_openASTRAViewer,
-            this.tsmi_file_save,
-            this.tsmi_file_save_as,
-            this.tsmi_saveDXFDrawingFile,
-            this.tsmi_file_print,
-            this.tsmi_show_data,
-            this.tsmi_close});
-            this.tsmi_file.Name = "tsmi_file";
-            this.tsmi_file.Size = new System.Drawing.Size(32, 19);
-            this.tsmi_file.Text = "File";
-            // 
-            // tsmi_newAnalysisTXTDataFile
-            // 
-            this.tsmi_newAnalysisTXTDataFile.Name = "tsmi_newAnalysisTXTDataFile";
-            this.tsmi_newAnalysisTXTDataFile.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_newAnalysisTXTDataFile.Text = "New Building Analysis && Design";
-            this.tsmi_newAnalysisTXTDataFile.Click += new System.EventHandler(this.tsmi_newAnalysisTXTDataFile_Click);
-            // 
-            // tsmi_data_open
-            // 
-            this.tsmi_data_open.Image = ((System.Drawing.Image)(resources.GetObject("tsmi_data_open.Image")));
-            this.tsmi_data_open.Name = "tsmi_data_open";
-            this.tsmi_data_open.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_data_open.Text = "Open Building Analysis && Design";
-            this.tsmi_data_open.Click += new System.EventHandler(this.tsmi_data_open_Click);
-            // 
-            // tsmi_openAnalysisTXTDataFile
-            // 
-            this.tsmi_openAnalysisTXTDataFile.Name = "tsmi_openAnalysisTXTDataFile";
-            this.tsmi_openAnalysisTXTDataFile.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_openAnalysisTXTDataFile.Text = "Open Example Building Analysis && Design";
-            this.tsmi_openAnalysisTXTDataFile.Click += new System.EventHandler(this.tsmi_openAnalysisTXTDataFile_Click);
-            // 
-            // tsmi_file_open
-            // 
-            this.tsmi_file_open.Image = ((System.Drawing.Image)(resources.GetObject("tsmi_file_open.Image")));
-            this.tsmi_file_open.Name = "tsmi_file_open";
-            this.tsmi_file_open.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_file_open.Text = "Open Structure Model Drawing File";
-            this.tsmi_file_open.Click += new System.EventHandler(this.tsmi_data_open_Click);
-            // 
-            // tsmi_openASTRAViewer
-            // 
-            this.tsmi_openASTRAViewer.Name = "tsmi_openASTRAViewer";
-            this.tsmi_openASTRAViewer.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_openASTRAViewer.Text = "Open ASTRA Viewer for Drawings";
-            this.tsmi_openASTRAViewer.Click += new System.EventHandler(this.tsmi_openASTRAViewer_Click);
-            // 
-            // tsmi_file_save
-            // 
-            this.tsmi_file_save.Image = ((System.Drawing.Image)(resources.GetObject("tsmi_file_save.Image")));
-            this.tsmi_file_save.Name = "tsmi_file_save";
-            this.tsmi_file_save.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_file_save.Text = "Save  Input Data File";
-            this.tsmi_file_save.Click += new System.EventHandler(this.tsmi_file_save_Click);
-            // 
-            // tsmi_file_save_as
-            // 
-            this.tsmi_file_save_as.Name = "tsmi_file_save_as";
-            this.tsmi_file_save_as.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_file_save_as.Text = "Save As Input Data File";
-            this.tsmi_file_save_as.Click += new System.EventHandler(this.tsmi_file_save_Click);
-            // 
-            // tsmi_saveDXFDrawingFile
-            // 
-            this.tsmi_saveDXFDrawingFile.Name = "tsmi_saveDXFDrawingFile";
-            this.tsmi_saveDXFDrawingFile.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_saveDXFDrawingFile.Text = "Save (DXF) Drawing File";
-            this.tsmi_saveDXFDrawingFile.Click += new System.EventHandler(this.tsmi_saveDXFDrawingFile_Click);
-            // 
-            // tsmi_file_print
-            // 
-            this.tsmi_file_print.Image = ((System.Drawing.Image)(resources.GetObject("tsmi_file_print.Image")));
-            this.tsmi_file_print.Name = "tsmi_file_print";
-            this.tsmi_file_print.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_file_print.Text = "Print Drawing";
-            this.tsmi_file_print.Click += new System.EventHandler(this.tsmi_file_print_Click);
-            // 
-            // tsmi_show_data
-            // 
-            this.tsmi_show_data.Image = ((System.Drawing.Image)(resources.GetObject("tsmi_show_data.Image")));
-            this.tsmi_show_data.ImageTransparentColor = System.Drawing.Color.Fuchsia;
-            this.tsmi_show_data.Name = "tsmi_show_data";
-            this.tsmi_show_data.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_show_data.Text = "Show Data";
-            this.tsmi_show_data.Visible = false;
-            this.tsmi_show_data.Click += new System.EventHandler(this.tsmi_show_data_Click);
-            // 
-            // tsmi_close
-            // 
-            this.tsmi_close.Image = ((System.Drawing.Image)(resources.GetObject("tsmi_close.Image")));
-            this.tsmi_close.Name = "tsmi_close";
-            this.tsmi_close.Size = new System.Drawing.Size(295, 22);
-            this.tsmi_close.Text = "Close";
-            this.tsmi_close.Click += new System.EventHandler(this.tsmi_close_Click);
-            // 
-            // tsmi_edit
-            // 
-            this.tsmi_edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmi_viewer});
-            this.tsmi_edit.Name = "tsmi_edit";
-            this.tsmi_edit.Size = new System.Drawing.Size(32, 19);
-            this.tsmi_edit.Text = "Edit";
-            // 
-            // tsmi_viewer
-            // 
-            this.tsmi_viewer.Name = "tsmi_viewer";
-            this.tsmi_viewer.Size = new System.Drawing.Size(148, 22);
-            this.tsmi_viewer.Text = "ASTRA Viewer";
-            this.tsmi_viewer.Click += new System.EventHandler(this.tsmi_viewer_Click);
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb_open_data,
-            this.tsb_file_open,
-            this.toolStripSeparator5,
-            this.tsb_save_data,
-            this.toolStripSeparator4,
-            this.tsb_print,
-            this.toolStripSeparator6,
-            this.tsb_show_data,
-            this.toolStripSeparator3});
-            this.toolStrip1.Location = new System.Drawing.Point(50, 8);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(151, 25);
-            this.toolStrip1.TabIndex = 138;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsb_open_data
-            // 
-            this.tsb_open_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_open_data.Image = ((System.Drawing.Image)(resources.GetObject("tsb_open_data.Image")));
-            this.tsb_open_data.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_open_data.Name = "tsb_open_data";
-            this.tsb_open_data.Size = new System.Drawing.Size(23, 22);
-            this.tsb_open_data.Text = "Open Analysis Input Data File";
-            this.tsb_open_data.Click += new System.EventHandler(this.tsmi_data_open_Click);
-            // 
-            // tsb_file_open
-            // 
-            this.tsb_file_open.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_file_open.Image = ((System.Drawing.Image)(resources.GetObject("tsb_file_open.Image")));
-            this.tsb_file_open.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_file_open.Name = "tsb_file_open";
-            this.tsb_file_open.Size = new System.Drawing.Size(23, 22);
-            this.tsb_file_open.Text = "Open Structure Model Drawing File";
-            this.tsb_file_open.Click += new System.EventHandler(this.tsmi_data_open_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_save_data
-            // 
-            this.tsb_save_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_save_data.Image = ((System.Drawing.Image)(resources.GetObject("tsb_save_data.Image")));
-            this.tsb_save_data.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_save_data.Name = "tsb_save_data";
-            this.tsb_save_data.Size = new System.Drawing.Size(23, 22);
-            this.tsb_save_data.Text = "Save Data File";
-            this.tsb_save_data.Click += new System.EventHandler(this.tsmi_file_save_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_print
-            // 
-            this.tsb_print.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_print.Image = ((System.Drawing.Image)(resources.GetObject("tsb_print.Image")));
-            this.tsb_print.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_print.Name = "tsb_print";
-            this.tsb_print.Size = new System.Drawing.Size(23, 22);
-            this.tsb_print.Text = "Print Drawing";
-            this.tsb_print.Click += new System.EventHandler(this.tsmi_file_print_Click);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_show_data
-            // 
-            this.tsb_show_data.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_show_data.Image = ((System.Drawing.Image)(resources.GetObject("tsb_show_data.Image")));
-            this.tsb_show_data.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_show_data.Name = "tsb_show_data";
-            this.tsb_show_data.Size = new System.Drawing.Size(23, 22);
-            this.tsb_show_data.Text = "Show Data";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // cmb_structure_type
-            // 
-            this.cmb_structure_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_structure_type.FormattingEnabled = true;
-            this.cmb_structure_type.Items.AddRange(new object[] {
-            "SPACE",
-            "FLOOR",
-            "PLANE"});
-            this.cmb_structure_type.Location = new System.Drawing.Point(330, 6);
-            this.cmb_structure_type.Name = "cmb_structure_type";
-            this.cmb_structure_type.Size = new System.Drawing.Size(92, 21);
-            this.cmb_structure_type.TabIndex = 135;
-            // 
-            // label78
-            // 
-            this.label78.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(454, 9);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(61, 13);
-            this.label78.TabIndex = 136;
-            this.label78.Text = "Mass Unit";
-            // 
-            // cmb_Base_LUnit
-            // 
-            this.cmb_Base_LUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Base_LUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Base_LUnit.FormattingEnabled = true;
-            this.cmb_Base_LUnit.Items.AddRange(new object[] {
-            "METRES",
-            "CM",
-            "MM",
-            "YDS",
-            "FT",
-            "INCH"});
-            this.cmb_Base_LUnit.Location = new System.Drawing.Point(664, 6);
-            this.cmb_Base_LUnit.Name = "cmb_Base_LUnit";
-            this.cmb_Base_LUnit.Size = new System.Drawing.Size(84, 21);
-            this.cmb_Base_LUnit.TabIndex = 135;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(289, 36);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(31, 13);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Title";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(233, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 13);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Structure Type";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtUserTitle
-            // 
-            this.txtUserTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUserTitle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUserTitle.Location = new System.Drawing.Point(330, 33);
-            this.txtUserTitle.Name = "txtUserTitle";
-            this.txtUserTitle.Size = new System.Drawing.Size(418, 21);
-            this.txtUserTitle.TabIndex = 21;
-            // 
-            // cmb_Base_MUnit
-            // 
-            this.cmb_Base_MUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Base_MUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Base_MUnit.FormattingEnabled = true;
-            this.cmb_Base_MUnit.Items.AddRange(new object[] {
-            "KG",
-            "KN",
-            "MTON",
-            "NEW",
-            "GMS",
-            "LBS",
-            "KIP"});
-            this.cmb_Base_MUnit.Location = new System.Drawing.Point(521, 6);
-            this.cmb_Base_MUnit.Name = "cmb_Base_MUnit";
-            this.cmb_Base_MUnit.Size = new System.Drawing.Size(67, 21);
-            this.cmb_Base_MUnit.TabIndex = 134;
-            // 
-            // label77
-            // 
-            this.label77.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(594, 9);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(71, 13);
-            this.label77.TabIndex = 137;
-            this.label77.Text = "Length Unit";
-            // 
             // panel33
             // 
             this.panel33.Controls.Add(this.btn_new_design);
@@ -2458,7 +1197,7 @@
             this.panel33.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel33.Location = new System.Drawing.Point(0, 0);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(906, 61);
+            this.panel33.Size = new System.Drawing.Size(922, 61);
             this.panel33.TabIndex = 182;
             // 
             // btn_new_design
@@ -2520,2619 +1259,6 @@
             this.label16.TabIndex = 3;
             this.label16.Text = "Moving Load Definition File (LL.TXT)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tab_geom
-            // 
-            this.tab_geom.Controls.Add(this.label14);
-            this.tab_geom.Controls.Add(this.label12);
-            this.tab_geom.Controls.Add(this.label10);
-            this.tab_geom.Controls.Add(this.label9);
-            this.tab_geom.Controls.Add(this.txt_total_supps);
-            this.tab_geom.Controls.Add(this.txt_total_elmts);
-            this.tab_geom.Controls.Add(this.txt_total_mbrs);
-            this.tab_geom.Controls.Add(this.txt_total_jnts);
-            this.tab_geom.Location = new System.Drawing.Point(4, 22);
-            this.tab_geom.Name = "tab_geom";
-            this.tab_geom.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_geom.Size = new System.Drawing.Size(914, 49);
-            this.tab_geom.TabIndex = 0;
-            this.tab_geom.Text = "Geometry";
-            this.tab_geom.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(531, 20);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(89, 13);
-            this.label14.TabIndex = 1;
-            this.label14.Text = "Total Supports";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(351, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(90, 13);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Total Elements";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(165, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 13);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Total Members";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(7, 20);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Total Joints";
-            // 
-            // txt_total_supps
-            // 
-            this.txt_total_supps.Location = new System.Drawing.Point(627, 17);
-            this.txt_total_supps.Name = "txt_total_supps";
-            this.txt_total_supps.ReadOnly = true;
-            this.txt_total_supps.Size = new System.Drawing.Size(65, 21);
-            this.txt_total_supps.TabIndex = 0;
-            // 
-            // txt_total_elmts
-            // 
-            this.txt_total_elmts.Location = new System.Drawing.Point(447, 17);
-            this.txt_total_elmts.Name = "txt_total_elmts";
-            this.txt_total_elmts.ReadOnly = true;
-            this.txt_total_elmts.Size = new System.Drawing.Size(65, 21);
-            this.txt_total_elmts.TabIndex = 0;
-            // 
-            // txt_total_mbrs
-            // 
-            this.txt_total_mbrs.Location = new System.Drawing.Point(261, 17);
-            this.txt_total_mbrs.Name = "txt_total_mbrs";
-            this.txt_total_mbrs.ReadOnly = true;
-            this.txt_total_mbrs.Size = new System.Drawing.Size(65, 21);
-            this.txt_total_mbrs.TabIndex = 0;
-            // 
-            // txt_total_jnts
-            // 
-            this.txt_total_jnts.Location = new System.Drawing.Point(83, 17);
-            this.txt_total_jnts.Name = "txt_total_jnts";
-            this.txt_total_jnts.ReadOnly = true;
-            this.txt_total_jnts.Size = new System.Drawing.Size(65, 21);
-            this.txt_total_jnts.TabIndex = 0;
-            // 
-            // tab_props
-            // 
-            this.tab_props.Controls.Add(this.cmb_Prop_LUnit);
-            this.tab_props.Controls.Add(this.label11);
-            this.tab_props.Location = new System.Drawing.Point(4, 22);
-            this.tab_props.Name = "tab_props";
-            this.tab_props.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_props.Size = new System.Drawing.Size(914, 49);
-            this.tab_props.TabIndex = 1;
-            this.tab_props.Text = "Properties";
-            this.tab_props.UseVisualStyleBackColor = true;
-            // 
-            // cmb_Prop_LUnit
-            // 
-            this.cmb_Prop_LUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Prop_LUnit.FormattingEnabled = true;
-            this.cmb_Prop_LUnit.Items.AddRange(new object[] {
-            "METRES",
-            "CM",
-            "MM",
-            "YDS",
-            "FT",
-            "INCH"});
-            this.cmb_Prop_LUnit.Location = new System.Drawing.Point(497, 16);
-            this.cmb_Prop_LUnit.Name = "cmb_Prop_LUnit";
-            this.cmb_Prop_LUnit.Size = new System.Drawing.Size(79, 21);
-            this.cmb_Prop_LUnit.TabIndex = 143;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(420, 19);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 13);
-            this.label11.TabIndex = 145;
-            this.label11.Text = "Length Unit";
-            // 
-            // tab_constants
-            // 
-            this.tab_constants.Controls.Add(this.cmb_Const_LUnit);
-            this.tab_constants.Controls.Add(this.label17);
-            this.tab_constants.Controls.Add(this.label18);
-            this.tab_constants.Controls.Add(this.cmb_Const_MUnit);
-            this.tab_constants.Location = new System.Drawing.Point(4, 22);
-            this.tab_constants.Name = "tab_constants";
-            this.tab_constants.Size = new System.Drawing.Size(914, 49);
-            this.tab_constants.TabIndex = 5;
-            this.tab_constants.Text = "Constants";
-            this.tab_constants.UseVisualStyleBackColor = true;
-            // 
-            // cmb_Const_LUnit
-            // 
-            this.cmb_Const_LUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Const_LUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Const_LUnit.FormattingEnabled = true;
-            this.cmb_Const_LUnit.Items.AddRange(new object[] {
-            "METRES",
-            "CM",
-            "MM",
-            "YDS",
-            "FT",
-            "INCH"});
-            this.cmb_Const_LUnit.Location = new System.Drawing.Point(576, 23);
-            this.cmb_Const_LUnit.Name = "cmb_Const_LUnit";
-            this.cmb_Const_LUnit.Size = new System.Drawing.Size(79, 21);
-            this.cmb_Const_LUnit.TabIndex = 139;
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(573, 7);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 13);
-            this.label17.TabIndex = 141;
-            this.label17.Text = "Length Unit";
-            // 
-            // label18
-            // 
-            this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(487, 7);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(61, 13);
-            this.label18.TabIndex = 140;
-            this.label18.Text = "Mass Unit";
-            // 
-            // cmb_Const_MUnit
-            // 
-            this.cmb_Const_MUnit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_Const_MUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Const_MUnit.FormattingEnabled = true;
-            this.cmb_Const_MUnit.Items.AddRange(new object[] {
-            "KG",
-            "KN",
-            "MTON",
-            "NEW",
-            "GMS",
-            "LBS",
-            "KIP"});
-            this.cmb_Const_MUnit.Location = new System.Drawing.Point(490, 23);
-            this.cmb_Const_MUnit.Name = "cmb_Const_MUnit";
-            this.cmb_Const_MUnit.Size = new System.Drawing.Size(67, 21);
-            this.cmb_Const_MUnit.TabIndex = 138;
-            // 
-            // tab_supports
-            // 
-            this.tab_supports.Location = new System.Drawing.Point(4, 22);
-            this.tab_supports.Name = "tab_supports";
-            this.tab_supports.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_supports.Size = new System.Drawing.Size(914, 49);
-            this.tab_supports.TabIndex = 8;
-            this.tab_supports.Text = "Supports";
-            this.tab_supports.UseVisualStyleBackColor = true;
-            // 
-            // tab_loads
-            // 
-            this.tab_loads.Controls.Add(this.btn_sc_apply);
-            this.tab_loads.Controls.Add(this.btn_sc_cal);
-            this.tab_loads.Controls.Add(this.chk_seismic_coeeficient);
-            this.tab_loads.Controls.Add(this.label357);
-            this.tab_loads.Controls.Add(this.txt_seismic_coeeficient);
-            this.tab_loads.Controls.Add(this.cmb_Load_LUnit);
-            this.tab_loads.Controls.Add(this.label7);
-            this.tab_loads.Controls.Add(this.label13);
-            this.tab_loads.Controls.Add(this.cmb_Load_MUnit);
-            this.tab_loads.Controls.Add(this.chk_selfweight);
-            this.tab_loads.Controls.Add(this.cmb_Self_Weight);
-            this.tab_loads.Controls.Add(this.label8);
-            this.tab_loads.Controls.Add(this.txt_seft_wt_Value);
-            this.tab_loads.Location = new System.Drawing.Point(4, 22);
-            this.tab_loads.Name = "tab_loads";
-            this.tab_loads.Size = new System.Drawing.Size(914, 49);
-            this.tab_loads.TabIndex = 3;
-            this.tab_loads.Text = "Loading";
-            this.tab_loads.UseVisualStyleBackColor = true;
-            // 
-            // btn_sc_apply
-            // 
-            this.btn_sc_apply.Location = new System.Drawing.Point(668, 21);
-            this.btn_sc_apply.Name = "btn_sc_apply";
-            this.btn_sc_apply.Size = new System.Drawing.Size(75, 23);
-            this.btn_sc_apply.TabIndex = 149;
-            this.btn_sc_apply.Text = "Apply";
-            this.btn_sc_apply.UseVisualStyleBackColor = true;
-            this.btn_sc_apply.Click += new System.EventHandler(this.btn_sc_cal_Click);
-            // 
-            // btn_sc_cal
-            // 
-            this.btn_sc_cal.Location = new System.Drawing.Point(572, 21);
-            this.btn_sc_cal.Name = "btn_sc_cal";
-            this.btn_sc_cal.Size = new System.Drawing.Size(75, 23);
-            this.btn_sc_cal.TabIndex = 149;
-            this.btn_sc_cal.Text = "Help";
-            this.btn_sc_cal.UseVisualStyleBackColor = true;
-            this.btn_sc_cal.Click += new System.EventHandler(this.btn_sc_cal_Click);
-            // 
-            // chk_seismic_coeeficient
-            // 
-            this.chk_seismic_coeeficient.AutoSize = true;
-            this.chk_seismic_coeeficient.Checked = true;
-            this.chk_seismic_coeeficient.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_seismic_coeeficient.Location = new System.Drawing.Point(372, 6);
-            this.chk_seismic_coeeficient.Name = "chk_seismic_coeeficient";
-            this.chk_seismic_coeeficient.Size = new System.Drawing.Size(105, 17);
-            this.chk_seismic_coeeficient.TabIndex = 148;
-            this.chk_seismic_coeeficient.Text = "Seismic Force";
-            this.chk_seismic_coeeficient.UseVisualStyleBackColor = true;
-            this.chk_seismic_coeeficient.CheckedChanged += new System.EventHandler(this.chk_seismic_coeeficient_CheckedChanged);
-            // 
-            // label357
-            // 
-            this.label357.AutoSize = true;
-            this.label357.Location = new System.Drawing.Point(375, 26);
-            this.label357.Name = "label357";
-            this.label357.Size = new System.Drawing.Size(116, 13);
-            this.label357.TabIndex = 147;
-            this.label357.Text = "Seismic Coefficient";
-            // 
-            // txt_seismic_coeeficient
-            // 
-            this.txt_seismic_coeeficient.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_seismic_coeeficient.Location = new System.Drawing.Point(497, 23);
-            this.txt_seismic_coeeficient.Name = "txt_seismic_coeeficient";
-            this.txt_seismic_coeeficient.Size = new System.Drawing.Size(69, 21);
-            this.txt_seismic_coeeficient.TabIndex = 146;
-            this.txt_seismic_coeeficient.Text = "0.12";
-            this.txt_seismic_coeeficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cmb_Load_LUnit
-            // 
-            this.cmb_Load_LUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Load_LUnit.FormattingEnabled = true;
-            this.cmb_Load_LUnit.Items.AddRange(new object[] {
-            "METRES",
-            "CM",
-            "MM",
-            "YDS",
-            "FT",
-            "INCH"});
-            this.cmb_Load_LUnit.Location = new System.Drawing.Point(272, 29);
-            this.cmb_Load_LUnit.Name = "cmb_Load_LUnit";
-            this.cmb_Load_LUnit.Size = new System.Drawing.Size(79, 21);
-            this.cmb_Load_LUnit.TabIndex = 143;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(195, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 13);
-            this.label7.TabIndex = 145;
-            this.label7.Text = "Length Unit";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(206, 10);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 13);
-            this.label13.TabIndex = 144;
-            this.label13.Text = "Load Unit";
-            // 
-            // cmb_Load_MUnit
-            // 
-            this.cmb_Load_MUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Load_MUnit.FormattingEnabled = true;
-            this.cmb_Load_MUnit.Items.AddRange(new object[] {
-            "KG",
-            "KN",
-            "MTON",
-            "NEW",
-            "GMS",
-            "LBS",
-            "KIP"});
-            this.cmb_Load_MUnit.Location = new System.Drawing.Point(272, 4);
-            this.cmb_Load_MUnit.Name = "cmb_Load_MUnit";
-            this.cmb_Load_MUnit.Size = new System.Drawing.Size(79, 21);
-            this.cmb_Load_MUnit.TabIndex = 142;
-            // 
-            // chk_selfweight
-            // 
-            this.chk_selfweight.AutoSize = true;
-            this.chk_selfweight.Checked = true;
-            this.chk_selfweight.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_selfweight.Location = new System.Drawing.Point(6, 6);
-            this.chk_selfweight.Name = "chk_selfweight";
-            this.chk_selfweight.Size = new System.Drawing.Size(90, 17);
-            this.chk_selfweight.TabIndex = 36;
-            this.chk_selfweight.Text = "Self Weight";
-            this.chk_selfweight.UseVisualStyleBackColor = true;
-            // 
-            // cmb_Self_Weight
-            // 
-            this.cmb_Self_Weight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_Self_Weight.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_Self_Weight.FormattingEnabled = true;
-            this.cmb_Self_Weight.Items.AddRange(new object[] {
-            "X",
-            "Y",
-            "Z"});
-            this.cmb_Self_Weight.Location = new System.Drawing.Point(102, 4);
-            this.cmb_Self_Weight.Name = "cmb_Self_Weight";
-            this.cmb_Self_Weight.Size = new System.Drawing.Size(69, 21);
-            this.cmb_Self_Weight.TabIndex = 35;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(58, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(38, 13);
-            this.label8.TabIndex = 34;
-            this.label8.Text = "Value";
-            // 
-            // txt_seft_wt_Value
-            // 
-            this.txt_seft_wt_Value.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_seft_wt_Value.Location = new System.Drawing.Point(102, 29);
-            this.txt_seft_wt_Value.Name = "txt_seft_wt_Value";
-            this.txt_seft_wt_Value.Size = new System.Drawing.Size(69, 21);
-            this.txt_seft_wt_Value.TabIndex = 33;
-            this.txt_seft_wt_Value.Text = "-1.4";
-            this.txt_seft_wt_Value.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tab_mov_load
-            // 
-            this.tab_mov_load.Location = new System.Drawing.Point(4, 22);
-            this.tab_mov_load.Name = "tab_mov_load";
-            this.tab_mov_load.Size = new System.Drawing.Size(914, 49);
-            this.tab_mov_load.TabIndex = 4;
-            this.tab_mov_load.Text = "Moving Load";
-            this.tab_mov_load.UseVisualStyleBackColor = true;
-            // 
-            // tab_dynamic
-            // 
-            this.tab_dynamic.Location = new System.Drawing.Point(4, 22);
-            this.tab_dynamic.Name = "tab_dynamic";
-            this.tab_dynamic.Size = new System.Drawing.Size(914, 49);
-            this.tab_dynamic.TabIndex = 6;
-            this.tab_dynamic.Text = "Dynamic Analysis";
-            this.tab_dynamic.UseVisualStyleBackColor = true;
-            // 
-            // tab_ana_spec
-            // 
-            this.tab_ana_spec.Location = new System.Drawing.Point(4, 22);
-            this.tab_ana_spec.Name = "tab_ana_spec";
-            this.tab_ana_spec.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ana_spec.Size = new System.Drawing.Size(914, 49);
-            this.tab_ana_spec.TabIndex = 7;
-            this.tab_ana_spec.Text = "Analysis Specifications";
-            this.tab_ana_spec.UseVisualStyleBackColor = true;
-            // 
-            // sc2
-            // 
-            this.sc2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sc2.Location = new System.Drawing.Point(0, 0);
-            this.sc2.Name = "sc2";
-            // 
-            // sc2.Panel1
-            // 
-            this.sc2.Panel1.Controls.Add(this.tc_prp_panel);
-            // 
-            // sc2.Panel2
-            // 
-            this.sc2.Panel2.Controls.Add(this.vdScrollableControl1);
-            this.sc2.Panel2.Controls.Add(this.panel21);
-            this.sc2.Panel2.Controls.Add(this.statusStrip1);
-            this.sc2.Panel2.Controls.Add(this.toolStrip2);
-            this.sc2.Size = new System.Drawing.Size(922, 514);
-            this.sc2.SplitterDistance = 315;
-            this.sc2.TabIndex = 0;
-            // 
-            // tc_prp_panel
-            // 
-            this.tc_prp_panel.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tc_prp_panel.Controls.Add(this.tab1_geom);
-            this.tc_prp_panel.Controls.Add(this.tab1_props);
-            this.tc_prp_panel.Controls.Add(this.tab1_const);
-            this.tc_prp_panel.Controls.Add(this.tab1_supports);
-            this.tc_prp_panel.Controls.Add(this.tab1_loads);
-            this.tc_prp_panel.Controls.Add(this.tab1_moving);
-            this.tc_prp_panel.Controls.Add(this.tab1_dynamic);
-            this.tc_prp_panel.Controls.Add(this.tab1_ana_spec);
-            this.tc_prp_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_prp_panel.Location = new System.Drawing.Point(0, 0);
-            this.tc_prp_panel.Multiline = true;
-            this.tc_prp_panel.Name = "tc_prp_panel";
-            this.tc_prp_panel.SelectedIndex = 0;
-            this.tc_prp_panel.Size = new System.Drawing.Size(315, 514);
-            this.tc_prp_panel.TabIndex = 1;
-            // 
-            // tab1_geom
-            // 
-            this.tab1_geom.Controls.Add(this.tc3);
-            this.tab1_geom.Location = new System.Drawing.Point(24, 4);
-            this.tab1_geom.Name = "tab1_geom";
-            this.tab1_geom.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_geom.Size = new System.Drawing.Size(287, 506);
-            this.tab1_geom.TabIndex = 0;
-            this.tab1_geom.Text = "Geometry";
-            this.tab1_geom.UseVisualStyleBackColor = true;
-            // 
-            // tc3
-            // 
-            this.tc3.Controls.Add(this.tab2_joints);
-            this.tc3.Controls.Add(this.tab2_members);
-            this.tc3.Controls.Add(this.tab2_elements);
-            this.tc3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc3.Location = new System.Drawing.Point(3, 3);
-            this.tc3.Name = "tc3";
-            this.tc3.SelectedIndex = 0;
-            this.tc3.Size = new System.Drawing.Size(281, 500);
-            this.tc3.TabIndex = 1;
-            // 
-            // tab2_joints
-            // 
-            this.tab2_joints.Controls.Add(this.dgv_joints);
-            this.tab2_joints.Controls.Add(this.panel18);
-            this.tab2_joints.Location = new System.Drawing.Point(4, 22);
-            this.tab2_joints.Name = "tab2_joints";
-            this.tab2_joints.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2_joints.Size = new System.Drawing.Size(273, 474);
-            this.tab2_joints.TabIndex = 0;
-            this.tab2_joints.Text = "Joints";
-            this.tab2_joints.UseVisualStyleBackColor = true;
-            // 
-            // dgv_joints
-            // 
-            this.dgv_joints.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_joints.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_joints.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_joints.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col_jno,
-            this.col_x,
-            this.col_y,
-            this.col_z,
-            this.col_support});
-            this.dgv_joints.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_joints.Location = new System.Drawing.Point(3, 3);
-            this.dgv_joints.Name = "dgv_joints";
-            this.dgv_joints.RowHeadersWidth = 21;
-            this.dgv_joints.RowTemplate.Height = 15;
-            this.dgv_joints.RowTemplate.ReadOnly = true;
-            this.dgv_joints.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_joints.Size = new System.Drawing.Size(267, 429);
-            this.dgv_joints.TabIndex = 0;
-            this.dgv_joints.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_joints_CellEnter);
-            // 
-            // col_jno
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.col_jno.DefaultCellStyle = dataGridViewCellStyle2;
-            this.col_jno.Frozen = true;
-            this.col_jno.HeaderText = "Joint#";
-            this.col_jno.Name = "col_jno";
-            this.col_jno.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_jno.Width = 40;
-            // 
-            // col_x
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_x.DefaultCellStyle = dataGridViewCellStyle3;
-            this.col_x.HeaderText = "X";
-            this.col_x.Name = "col_x";
-            this.col_x.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_x.Width = 57;
-            // 
-            // col_y
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_y.DefaultCellStyle = dataGridViewCellStyle4;
-            this.col_y.HeaderText = "Y";
-            this.col_y.Name = "col_y";
-            this.col_y.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_y.Width = 57;
-            // 
-            // col_z
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_z.DefaultCellStyle = dataGridViewCellStyle5;
-            this.col_z.HeaderText = "Z";
-            this.col_z.Name = "col_z";
-            this.col_z.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_z.Width = 57;
-            // 
-            // col_support
-            // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.col_support.DefaultCellStyle = dataGridViewCellStyle6;
-            this.col_support.HeaderText = "Support";
-            this.col_support.Name = "col_support";
-            this.col_support.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_support.Visible = false;
-            this.col_support.Width = 70;
-            // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.btn_jnt_delete);
-            this.panel18.Controls.Add(this.btn_jnt_add);
-            this.panel18.Controls.Add(this.btn_jnt_edit);
-            this.panel18.Controls.Add(this.btn_jnt_insert);
-            this.panel18.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel18.Location = new System.Drawing.Point(3, 432);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(267, 39);
-            this.panel18.TabIndex = 2;
-            // 
-            // btn_jnt_delete
-            // 
-            this.btn_jnt_delete.Location = new System.Drawing.Point(102, 6);
-            this.btn_jnt_delete.Name = "btn_jnt_delete";
-            this.btn_jnt_delete.Size = new System.Drawing.Size(64, 23);
-            this.btn_jnt_delete.TabIndex = 1;
-            this.btn_jnt_delete.Text = "DELETE";
-            this.btn_jnt_delete.UseVisualStyleBackColor = true;
-            this.btn_jnt_delete.Click += new System.EventHandler(this.btn_jnt_add_Click);
-            // 
-            // btn_jnt_add
-            // 
-            this.btn_jnt_add.Location = new System.Drawing.Point(7, 6);
-            this.btn_jnt_add.Name = "btn_jnt_add";
-            this.btn_jnt_add.Size = new System.Drawing.Size(43, 23);
-            this.btn_jnt_add.TabIndex = 1;
-            this.btn_jnt_add.Text = "ADD";
-            this.btn_jnt_add.UseVisualStyleBackColor = true;
-            this.btn_jnt_add.Click += new System.EventHandler(this.btn_jnt_add_Click);
-            // 
-            // btn_jnt_edit
-            // 
-            this.btn_jnt_edit.Location = new System.Drawing.Point(56, 6);
-            this.btn_jnt_edit.Name = "btn_jnt_edit";
-            this.btn_jnt_edit.Size = new System.Drawing.Size(43, 23);
-            this.btn_jnt_edit.TabIndex = 1;
-            this.btn_jnt_edit.Text = "EDIT";
-            this.btn_jnt_edit.UseVisualStyleBackColor = true;
-            this.btn_jnt_edit.Click += new System.EventHandler(this.btn_jnt_add_Click);
-            // 
-            // btn_jnt_insert
-            // 
-            this.btn_jnt_insert.Location = new System.Drawing.Point(172, 6);
-            this.btn_jnt_insert.Name = "btn_jnt_insert";
-            this.btn_jnt_insert.Size = new System.Drawing.Size(64, 23);
-            this.btn_jnt_insert.TabIndex = 1;
-            this.btn_jnt_insert.Text = "INSERT";
-            this.btn_jnt_insert.UseVisualStyleBackColor = true;
-            this.btn_jnt_insert.Click += new System.EventHandler(this.btn_jnt_add_Click);
-            // 
-            // tab2_members
-            // 
-            this.tab2_members.Controls.Add(this.dgv_members);
-            this.tab2_members.Controls.Add(this.panel19);
-            this.tab2_members.Location = new System.Drawing.Point(4, 22);
-            this.tab2_members.Name = "tab2_members";
-            this.tab2_members.Padding = new System.Windows.Forms.Padding(3);
-            this.tab2_members.Size = new System.Drawing.Size(274, 474);
-            this.tab2_members.TabIndex = 1;
-            this.tab2_members.Text = "Members ";
-            this.tab2_members.UseVisualStyleBackColor = true;
-            // 
-            // dgv_members
-            // 
-            this.dgv_members.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_members.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgv_members.ColumnHeadersHeight = 36;
-            this.dgv_members.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgTxtMemberNo,
-            this.dgTxtMember,
-            this.dgTxtNode1,
-            this.dgTxtNode2,
-            this.dgTxtMAT});
-            this.dgv_members.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_members.Location = new System.Drawing.Point(3, 3);
-            this.dgv_members.Name = "dgv_members";
-            this.dgv_members.RowHeadersWidth = 20;
-            this.dgv_members.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_members.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgv_members.RowTemplate.Height = 14;
-            this.dgv_members.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_members.Size = new System.Drawing.Size(268, 431);
-            this.dgv_members.TabIndex = 1;
-            this.dgv_members.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMemberGrid_CellEnter);
-            // 
-            // dgTxtMemberNo
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dgTxtMemberNo.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgTxtMemberNo.Frozen = true;
-            this.dgTxtMemberNo.HeaderText = "Member#";
-            this.dgTxtMemberNo.Name = "dgTxtMemberNo";
-            this.dgTxtMemberNo.Width = 63;
-            // 
-            // dgTxtMember
-            // 
-            this.dgTxtMember.HeaderText = "Type";
-            this.dgTxtMember.Name = "dgTxtMember";
-            this.dgTxtMember.Width = 60;
-            // 
-            // dgTxtNode1
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgTxtNode1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dgTxtNode1.HeaderText = "Start Node";
-            this.dgTxtNode1.Name = "dgTxtNode1";
-            this.dgTxtNode1.Width = 44;
-            // 
-            // dgTxtNode2
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgTxtNode2.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dgTxtNode2.HeaderText = "End Node";
-            this.dgTxtNode2.Name = "dgTxtNode2";
-            this.dgTxtNode2.Width = 44;
-            // 
-            // dgTxtMAT
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dgTxtMAT.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgTxtMAT.HeaderText = "Length";
-            this.dgTxtMAT.Name = "dgTxtMAT";
-            this.dgTxtMAT.ReadOnly = true;
-            this.dgTxtMAT.Visible = false;
-            this.dgTxtMAT.Width = 65;
-            // 
-            // panel19
-            // 
-            this.panel19.Controls.Add(this.btn_mbr_delete);
-            this.panel19.Controls.Add(this.btn_mbr_add);
-            this.panel19.Controls.Add(this.btn_mbr_edit);
-            this.panel19.Controls.Add(this.btn_mbr_insert);
-            this.panel19.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel19.Location = new System.Drawing.Point(3, 434);
-            this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(268, 37);
-            this.panel19.TabIndex = 5;
-            // 
-            // btn_mbr_delete
-            // 
-            this.btn_mbr_delete.Location = new System.Drawing.Point(102, 6);
-            this.btn_mbr_delete.Name = "btn_mbr_delete";
-            this.btn_mbr_delete.Size = new System.Drawing.Size(64, 23);
-            this.btn_mbr_delete.TabIndex = 4;
-            this.btn_mbr_delete.Text = "DELETE";
-            this.btn_mbr_delete.UseVisualStyleBackColor = true;
-            this.btn_mbr_delete.Click += new System.EventHandler(this.btn_mbr_add_Click);
-            // 
-            // btn_mbr_add
-            // 
-            this.btn_mbr_add.Location = new System.Drawing.Point(7, 6);
-            this.btn_mbr_add.Name = "btn_mbr_add";
-            this.btn_mbr_add.Size = new System.Drawing.Size(43, 23);
-            this.btn_mbr_add.TabIndex = 5;
-            this.btn_mbr_add.Text = "ADD";
-            this.btn_mbr_add.UseVisualStyleBackColor = true;
-            this.btn_mbr_add.Click += new System.EventHandler(this.btn_mbr_add_Click);
-            // 
-            // btn_mbr_edit
-            // 
-            this.btn_mbr_edit.Location = new System.Drawing.Point(56, 6);
-            this.btn_mbr_edit.Name = "btn_mbr_edit";
-            this.btn_mbr_edit.Size = new System.Drawing.Size(43, 23);
-            this.btn_mbr_edit.TabIndex = 2;
-            this.btn_mbr_edit.Text = "EDIT";
-            this.btn_mbr_edit.UseVisualStyleBackColor = true;
-            this.btn_mbr_edit.Click += new System.EventHandler(this.btn_mbr_add_Click);
-            // 
-            // btn_mbr_insert
-            // 
-            this.btn_mbr_insert.Location = new System.Drawing.Point(172, 6);
-            this.btn_mbr_insert.Name = "btn_mbr_insert";
-            this.btn_mbr_insert.Size = new System.Drawing.Size(64, 23);
-            this.btn_mbr_insert.TabIndex = 3;
-            this.btn_mbr_insert.Text = "INSERT";
-            this.btn_mbr_insert.UseVisualStyleBackColor = true;
-            this.btn_mbr_insert.Click += new System.EventHandler(this.btn_mbr_add_Click);
-            // 
-            // tab2_elements
-            // 
-            this.tab2_elements.Controls.Add(this.dgv_elements);
-            this.tab2_elements.Controls.Add(this.panel20);
-            this.tab2_elements.Location = new System.Drawing.Point(4, 22);
-            this.tab2_elements.Name = "tab2_elements";
-            this.tab2_elements.Size = new System.Drawing.Size(274, 474);
-            this.tab2_elements.TabIndex = 2;
-            this.tab2_elements.Text = "Elements";
-            this.tab2_elements.UseVisualStyleBackColor = true;
-            // 
-            // dgv_elements
-            // 
-            this.dgv_elements.AllowUserToAddRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_elements.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgv_elements.ColumnHeadersHeight = 36;
-            this.dgv_elements.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14});
-            this.dgv_elements.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_elements.Location = new System.Drawing.Point(0, 0);
-            this.dgv_elements.Name = "dgv_elements";
-            this.dgv_elements.RowHeadersWidth = 13;
-            this.dgv_elements.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_elements.RowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.dgv_elements.RowTemplate.Height = 14;
-            this.dgv_elements.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_elements.Size = new System.Drawing.Size(274, 437);
-            this.dgv_elements.TabIndex = 2;
-            this.dgv_elements.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvElementGrid_CellEnter);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewTextBoxColumn1.Frozen = true;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Element#";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Node 1";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle16;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Node 2";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle17;
-            this.dataGridViewTextBoxColumn12.HeaderText = "Node 3";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn13.DefaultCellStyle = dataGridViewCellStyle18;
-            this.dataGridViewTextBoxColumn13.HeaderText = "Node 4";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle19;
-            this.dataGridViewTextBoxColumn14.HeaderText = "Thickness";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 70;
-            // 
-            // panel20
-            // 
-            this.panel20.Controls.Add(this.btn_elmt_delete);
-            this.panel20.Controls.Add(this.btn_elmt_add);
-            this.panel20.Controls.Add(this.btn_elmt_edit);
-            this.panel20.Controls.Add(this.btn_elmt_insert);
-            this.panel20.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel20.Location = new System.Drawing.Point(0, 437);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(274, 37);
-            this.panel20.TabIndex = 6;
-            // 
-            // btn_elmt_delete
-            // 
-            this.btn_elmt_delete.Location = new System.Drawing.Point(102, 6);
-            this.btn_elmt_delete.Name = "btn_elmt_delete";
-            this.btn_elmt_delete.Size = new System.Drawing.Size(64, 23);
-            this.btn_elmt_delete.TabIndex = 4;
-            this.btn_elmt_delete.Text = "DELETE";
-            this.btn_elmt_delete.UseVisualStyleBackColor = true;
-            this.btn_elmt_delete.Click += new System.EventHandler(this.btn_elmt_add_Click);
-            // 
-            // btn_elmt_add
-            // 
-            this.btn_elmt_add.Location = new System.Drawing.Point(7, 6);
-            this.btn_elmt_add.Name = "btn_elmt_add";
-            this.btn_elmt_add.Size = new System.Drawing.Size(43, 23);
-            this.btn_elmt_add.TabIndex = 5;
-            this.btn_elmt_add.Text = "ADD";
-            this.btn_elmt_add.UseVisualStyleBackColor = true;
-            this.btn_elmt_add.Click += new System.EventHandler(this.btn_elmt_add_Click);
-            // 
-            // btn_elmt_edit
-            // 
-            this.btn_elmt_edit.Location = new System.Drawing.Point(56, 6);
-            this.btn_elmt_edit.Name = "btn_elmt_edit";
-            this.btn_elmt_edit.Size = new System.Drawing.Size(43, 23);
-            this.btn_elmt_edit.TabIndex = 2;
-            this.btn_elmt_edit.Text = "EDIT";
-            this.btn_elmt_edit.UseVisualStyleBackColor = true;
-            this.btn_elmt_edit.Click += new System.EventHandler(this.btn_elmt_add_Click);
-            // 
-            // btn_elmt_insert
-            // 
-            this.btn_elmt_insert.Location = new System.Drawing.Point(172, 6);
-            this.btn_elmt_insert.Name = "btn_elmt_insert";
-            this.btn_elmt_insert.Size = new System.Drawing.Size(64, 23);
-            this.btn_elmt_insert.TabIndex = 3;
-            this.btn_elmt_insert.Text = "INSERT";
-            this.btn_elmt_insert.UseVisualStyleBackColor = true;
-            this.btn_elmt_insert.Click += new System.EventHandler(this.btn_elmt_add_Click);
-            // 
-            // tab1_props
-            // 
-            this.tab1_props.Controls.Add(this.tabControl2);
-            this.tab1_props.Controls.Add(this.grb_mem_groups);
-            this.tab1_props.Location = new System.Drawing.Point(23, 4);
-            this.tab1_props.Name = "tab1_props";
-            this.tab1_props.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_props.Size = new System.Drawing.Size(288, 506);
-            this.tab1_props.TabIndex = 1;
-            this.tab1_props.Text = "Properties";
-            this.tab1_props.UseVisualStyleBackColor = true;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tab_mem_props);
-            this.tabControl2.Controls.Add(this.tab_mem_spec);
-            this.tabControl2.Controls.Add(this.tab_mem_release);
-            this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl2.Location = new System.Drawing.Point(3, 3);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(282, 348);
-            this.tabControl2.TabIndex = 2;
-            // 
-            // tab_mem_props
-            // 
-            this.tab_mem_props.Controls.Add(this.grb_mem_props);
-            this.tab_mem_props.Controls.Add(this.groupBox10);
-            this.tab_mem_props.Location = new System.Drawing.Point(4, 22);
-            this.tab_mem_props.Name = "tab_mem_props";
-            this.tab_mem_props.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mem_props.Size = new System.Drawing.Size(274, 322);
-            this.tab_mem_props.TabIndex = 0;
-            this.tab_mem_props.Text = "Properties";
-            this.tab_mem_props.UseVisualStyleBackColor = true;
-            // 
-            // grb_mem_props
-            // 
-            this.grb_mem_props.Controls.Add(this.tv_mem_props);
-            this.grb_mem_props.Controls.Add(this.panel2);
-            this.grb_mem_props.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grb_mem_props.Location = new System.Drawing.Point(3, 3);
-            this.grb_mem_props.Name = "grb_mem_props";
-            this.grb_mem_props.Size = new System.Drawing.Size(268, 199);
-            this.grb_mem_props.TabIndex = 0;
-            this.grb_mem_props.TabStop = false;
-            this.grb_mem_props.Text = "SECTION PROPERTIES";
-            // 
-            // tv_mem_props
-            // 
-            this.tv_mem_props.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mem_props.Location = new System.Drawing.Point(3, 17);
-            this.tv_mem_props.Name = "tv_mem_props";
-            this.tv_mem_props.Size = new System.Drawing.Size(262, 139);
-            this.tv_mem_props.TabIndex = 1;
-            this.tv_mem_props.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_mem_props_AfterSelect);
-            this.tv_mem_props.Click += new System.EventHandler(this.tv_mem_props_Click);
-            this.tv_mem_props.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btn_props_edit);
-            this.panel2.Controls.Add(this.btn_props_del);
-            this.panel2.Controls.Add(this.btn_props_add);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 156);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(262, 40);
-            this.panel2.TabIndex = 0;
-            // 
-            // btn_props_edit
-            // 
-            this.btn_props_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_props_edit.Location = new System.Drawing.Point(95, 9);
-            this.btn_props_edit.Name = "btn_props_edit";
-            this.btn_props_edit.Size = new System.Drawing.Size(70, 23);
-            this.btn_props_edit.TabIndex = 0;
-            this.btn_props_edit.Text = "Edit";
-            this.btn_props_edit.UseVisualStyleBackColor = true;
-            this.btn_props_edit.Click += new System.EventHandler(this.btn_props_Click);
-            // 
-            // btn_props_del
-            // 
-            this.btn_props_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_props_del.Location = new System.Drawing.Point(169, 9);
-            this.btn_props_del.Name = "btn_props_del";
-            this.btn_props_del.Size = new System.Drawing.Size(70, 23);
-            this.btn_props_del.TabIndex = 0;
-            this.btn_props_del.Text = "Delete";
-            this.btn_props_del.UseVisualStyleBackColor = true;
-            this.btn_props_del.Click += new System.EventHandler(this.btn_props_Click);
-            // 
-            // btn_props_add
-            // 
-            this.btn_props_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_props_add.Location = new System.Drawing.Point(20, 9);
-            this.btn_props_add.Name = "btn_props_add";
-            this.btn_props_add.Size = new System.Drawing.Size(70, 23);
-            this.btn_props_add.TabIndex = 0;
-            this.btn_props_add.Text = "Add";
-            this.btn_props_add.UseVisualStyleBackColor = true;
-            this.btn_props_add.Click += new System.EventHandler(this.btn_props_Click);
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.tv_elem_props);
-            this.groupBox10.Controls.Add(this.panel17);
-            this.groupBox10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox10.Location = new System.Drawing.Point(3, 202);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(268, 117);
-            this.groupBox10.TabIndex = 1;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Element Properties";
-            // 
-            // tv_elem_props
-            // 
-            this.tv_elem_props.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_elem_props.Location = new System.Drawing.Point(3, 17);
-            this.tv_elem_props.Name = "tv_elem_props";
-            this.tv_elem_props.Size = new System.Drawing.Size(262, 57);
-            this.tv_elem_props.TabIndex = 1;
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.btn_elem_props_edit);
-            this.panel17.Controls.Add(this.btn_elem_props_del);
-            this.panel17.Controls.Add(this.btn_elem_props_add);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel17.Location = new System.Drawing.Point(3, 74);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(262, 40);
-            this.panel17.TabIndex = 0;
-            // 
-            // btn_elem_props_edit
-            // 
-            this.btn_elem_props_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_elem_props_edit.Location = new System.Drawing.Point(95, 9);
-            this.btn_elem_props_edit.Name = "btn_elem_props_edit";
-            this.btn_elem_props_edit.Size = new System.Drawing.Size(70, 23);
-            this.btn_elem_props_edit.TabIndex = 0;
-            this.btn_elem_props_edit.Text = "Edit";
-            this.btn_elem_props_edit.UseVisualStyleBackColor = true;
-            this.btn_elem_props_edit.Click += new System.EventHandler(this.btn_elem_props_add_Click);
-            // 
-            // btn_elem_props_del
-            // 
-            this.btn_elem_props_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_elem_props_del.Location = new System.Drawing.Point(169, 9);
-            this.btn_elem_props_del.Name = "btn_elem_props_del";
-            this.btn_elem_props_del.Size = new System.Drawing.Size(70, 23);
-            this.btn_elem_props_del.TabIndex = 0;
-            this.btn_elem_props_del.Text = "Delete";
-            this.btn_elem_props_del.UseVisualStyleBackColor = true;
-            this.btn_elem_props_del.Click += new System.EventHandler(this.btn_elem_props_add_Click);
-            // 
-            // btn_elem_props_add
-            // 
-            this.btn_elem_props_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_elem_props_add.Location = new System.Drawing.Point(20, 9);
-            this.btn_elem_props_add.Name = "btn_elem_props_add";
-            this.btn_elem_props_add.Size = new System.Drawing.Size(70, 23);
-            this.btn_elem_props_add.TabIndex = 0;
-            this.btn_elem_props_add.Text = "Add";
-            this.btn_elem_props_add.UseVisualStyleBackColor = true;
-            this.btn_elem_props_add.Click += new System.EventHandler(this.btn_elem_props_add_Click);
-            // 
-            // tab_mem_spec
-            // 
-            this.tab_mem_spec.Controls.Add(this.groupBox8);
-            this.tab_mem_spec.Controls.Add(this.groupBox1);
-            this.tab_mem_spec.Location = new System.Drawing.Point(4, 22);
-            this.tab_mem_spec.Name = "tab_mem_spec";
-            this.tab_mem_spec.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mem_spec.Size = new System.Drawing.Size(274, 322);
-            this.tab_mem_spec.TabIndex = 1;
-            this.tab_mem_spec.Text = "Specification";
-            this.tab_mem_spec.UseVisualStyleBackColor = true;
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.tv_mem_spec_cable);
-            this.groupBox8.Controls.Add(this.panel11);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox8.Location = new System.Drawing.Point(3, 155);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(268, 164);
-            this.groupBox8.TabIndex = 0;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Cable Member Specifications";
-            // 
-            // tv_mem_spec_cable
-            // 
-            this.tv_mem_spec_cable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mem_spec_cable.Location = new System.Drawing.Point(3, 17);
-            this.tv_mem_spec_cable.Name = "tv_mem_spec_cable";
-            this.tv_mem_spec_cable.Size = new System.Drawing.Size(262, 103);
-            this.tv_mem_spec_cable.TabIndex = 1;
-            this.tv_mem_spec_cable.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_mem_props_AfterSelect);
-            this.tv_mem_spec_cable.Click += new System.EventHandler(this.tv_mem_props_Click);
-            // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.btn_spec_edit_cable);
-            this.panel11.Controls.Add(this.btn_spec_add_cable);
-            this.panel11.Controls.Add(this.btn_spec_del_cable);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel11.Location = new System.Drawing.Point(3, 120);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(262, 41);
-            this.panel11.TabIndex = 0;
-            // 
-            // btn_spec_edit_cable
-            // 
-            this.btn_spec_edit_cable.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_spec_edit_cable.Location = new System.Drawing.Point(93, 6);
-            this.btn_spec_edit_cable.Name = "btn_spec_edit_cable";
-            this.btn_spec_edit_cable.Size = new System.Drawing.Size(59, 23);
-            this.btn_spec_edit_cable.TabIndex = 0;
-            this.btn_spec_edit_cable.Text = "Edit";
-            this.btn_spec_edit_cable.UseVisualStyleBackColor = true;
-            this.btn_spec_edit_cable.Click += new System.EventHandler(this.btn_spec_Click);
-            // 
-            // btn_spec_add_cable
-            // 
-            this.btn_spec_add_cable.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_spec_add_cable.Location = new System.Drawing.Point(20, 6);
-            this.btn_spec_add_cable.Name = "btn_spec_add_cable";
-            this.btn_spec_add_cable.Size = new System.Drawing.Size(59, 23);
-            this.btn_spec_add_cable.TabIndex = 0;
-            this.btn_spec_add_cable.Text = "Add";
-            this.btn_spec_add_cable.UseVisualStyleBackColor = true;
-            this.btn_spec_add_cable.Click += new System.EventHandler(this.btn_spec_Click);
-            // 
-            // btn_spec_del_cable
-            // 
-            this.btn_spec_del_cable.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_spec_del_cable.Location = new System.Drawing.Point(169, 6);
-            this.btn_spec_del_cable.Name = "btn_spec_del_cable";
-            this.btn_spec_del_cable.Size = new System.Drawing.Size(59, 23);
-            this.btn_spec_del_cable.TabIndex = 0;
-            this.btn_spec_del_cable.Text = "Delete";
-            this.btn_spec_del_cable.UseVisualStyleBackColor = true;
-            this.btn_spec_del_cable.Click += new System.EventHandler(this.btn_spec_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.tv_mem_spec_truss);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(268, 152);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Truss Member Specifications";
-            // 
-            // tv_mem_spec_truss
-            // 
-            this.tv_mem_spec_truss.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mem_spec_truss.Location = new System.Drawing.Point(3, 17);
-            this.tv_mem_spec_truss.Name = "tv_mem_spec_truss";
-            this.tv_mem_spec_truss.Size = new System.Drawing.Size(262, 97);
-            this.tv_mem_spec_truss.TabIndex = 1;
-            this.tv_mem_spec_truss.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_mem_props_AfterSelect);
-            this.tv_mem_spec_truss.Click += new System.EventHandler(this.tv_mem_props_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btn_spec_edit_truss);
-            this.panel4.Controls.Add(this.btn_spec_del_truss);
-            this.panel4.Controls.Add(this.btn_spec_add_truss);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 114);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(262, 35);
-            this.panel4.TabIndex = 0;
-            // 
-            // btn_spec_edit_truss
-            // 
-            this.btn_spec_edit_truss.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_spec_edit_truss.Location = new System.Drawing.Point(93, 6);
-            this.btn_spec_edit_truss.Name = "btn_spec_edit_truss";
-            this.btn_spec_edit_truss.Size = new System.Drawing.Size(59, 23);
-            this.btn_spec_edit_truss.TabIndex = 0;
-            this.btn_spec_edit_truss.Text = "Edit";
-            this.btn_spec_edit_truss.UseVisualStyleBackColor = true;
-            this.btn_spec_edit_truss.Click += new System.EventHandler(this.btn_spec_Click);
-            // 
-            // btn_spec_del_truss
-            // 
-            this.btn_spec_del_truss.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_spec_del_truss.Location = new System.Drawing.Point(169, 6);
-            this.btn_spec_del_truss.Name = "btn_spec_del_truss";
-            this.btn_spec_del_truss.Size = new System.Drawing.Size(59, 23);
-            this.btn_spec_del_truss.TabIndex = 0;
-            this.btn_spec_del_truss.Text = "Delete";
-            this.btn_spec_del_truss.UseVisualStyleBackColor = true;
-            this.btn_spec_del_truss.Click += new System.EventHandler(this.btn_spec_Click);
-            // 
-            // btn_spec_add_truss
-            // 
-            this.btn_spec_add_truss.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_spec_add_truss.Location = new System.Drawing.Point(20, 6);
-            this.btn_spec_add_truss.Name = "btn_spec_add_truss";
-            this.btn_spec_add_truss.Size = new System.Drawing.Size(59, 23);
-            this.btn_spec_add_truss.TabIndex = 0;
-            this.btn_spec_add_truss.Text = "Add ";
-            this.btn_spec_add_truss.UseVisualStyleBackColor = true;
-            this.btn_spec_add_truss.Click += new System.EventHandler(this.btn_spec_Click);
-            // 
-            // tab_mem_release
-            // 
-            this.tab_mem_release.Controls.Add(this.groupBox2);
-            this.tab_mem_release.Location = new System.Drawing.Point(4, 22);
-            this.tab_mem_release.Name = "tab_mem_release";
-            this.tab_mem_release.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mem_release.Size = new System.Drawing.Size(274, 322);
-            this.tab_mem_release.TabIndex = 2;
-            this.tab_mem_release.Text = "Release";
-            this.tab_mem_release.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tv_mem_release);
-            this.groupBox2.Controls.Add(this.panel5);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(268, 316);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Member Release";
-            // 
-            // tv_mem_release
-            // 
-            this.tv_mem_release.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mem_release.Location = new System.Drawing.Point(3, 17);
-            this.tv_mem_release.Name = "tv_mem_release";
-            this.tv_mem_release.Size = new System.Drawing.Size(262, 256);
-            this.tv_mem_release.TabIndex = 1;
-            this.tv_mem_release.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_mem_props_AfterSelect);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btn_release_edit);
-            this.panel5.Controls.Add(this.btn_release_del);
-            this.panel5.Controls.Add(this.btn_release_add);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(3, 273);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(262, 40);
-            this.panel5.TabIndex = 0;
-            // 
-            // btn_release_edit
-            // 
-            this.btn_release_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_release_edit.Location = new System.Drawing.Point(93, 9);
-            this.btn_release_edit.Name = "btn_release_edit";
-            this.btn_release_edit.Size = new System.Drawing.Size(70, 23);
-            this.btn_release_edit.TabIndex = 0;
-            this.btn_release_edit.Text = "Edit";
-            this.btn_release_edit.UseVisualStyleBackColor = true;
-            this.btn_release_edit.Click += new System.EventHandler(this.btn_release_Click);
-            // 
-            // btn_release_del
-            // 
-            this.btn_release_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_release_del.Location = new System.Drawing.Point(167, 9);
-            this.btn_release_del.Name = "btn_release_del";
-            this.btn_release_del.Size = new System.Drawing.Size(70, 23);
-            this.btn_release_del.TabIndex = 0;
-            this.btn_release_del.Text = "Delete";
-            this.btn_release_del.UseVisualStyleBackColor = true;
-            this.btn_release_del.Click += new System.EventHandler(this.btn_release_Click);
-            // 
-            // btn_release_add
-            // 
-            this.btn_release_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_release_add.Location = new System.Drawing.Point(18, 9);
-            this.btn_release_add.Name = "btn_release_add";
-            this.btn_release_add.Size = new System.Drawing.Size(70, 23);
-            this.btn_release_add.TabIndex = 0;
-            this.btn_release_add.Text = "Add";
-            this.btn_release_add.UseVisualStyleBackColor = true;
-            this.btn_release_add.Click += new System.EventHandler(this.btn_release_Click);
-            // 
-            // grb_mem_groups
-            // 
-            this.grb_mem_groups.Controls.Add(this.tv_mem_grps);
-            this.grb_mem_groups.Controls.Add(this.panel3);
-            this.grb_mem_groups.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grb_mem_groups.Location = new System.Drawing.Point(3, 351);
-            this.grb_mem_groups.Name = "grb_mem_groups";
-            this.grb_mem_groups.Size = new System.Drawing.Size(282, 152);
-            this.grb_mem_groups.TabIndex = 1;
-            this.grb_mem_groups.TabStop = false;
-            this.grb_mem_groups.Text = "Member Groups";
-            // 
-            // tv_mem_grps
-            // 
-            this.tv_mem_grps.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mem_grps.Location = new System.Drawing.Point(3, 17);
-            this.tv_mem_grps.Name = "tv_mem_grps";
-            this.tv_mem_grps.Size = new System.Drawing.Size(276, 92);
-            this.tv_mem_grps.TabIndex = 1;
-            this.tv_mem_grps.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_mem_props_AfterSelect);
-            this.tv_mem_grps.Click += new System.EventHandler(this.tv_mem_props_Click);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btn_grps_edit);
-            this.panel3.Controls.Add(this.btn_grps_del);
-            this.panel3.Controls.Add(this.btn_grps_add);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 109);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(276, 40);
-            this.panel3.TabIndex = 0;
-            // 
-            // btn_grps_edit
-            // 
-            this.btn_grps_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_grps_edit.Enabled = false;
-            this.btn_grps_edit.Location = new System.Drawing.Point(100, 5);
-            this.btn_grps_edit.Name = "btn_grps_edit";
-            this.btn_grps_edit.Size = new System.Drawing.Size(59, 23);
-            this.btn_grps_edit.TabIndex = 0;
-            this.btn_grps_edit.Text = "Edit";
-            this.btn_grps_edit.UseVisualStyleBackColor = true;
-            this.btn_grps_edit.Click += new System.EventHandler(this.btn_grps_add_Click);
-            // 
-            // btn_grps_del
-            // 
-            this.btn_grps_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_grps_del.Enabled = false;
-            this.btn_grps_del.Location = new System.Drawing.Point(176, 6);
-            this.btn_grps_del.Name = "btn_grps_del";
-            this.btn_grps_del.Size = new System.Drawing.Size(59, 23);
-            this.btn_grps_del.TabIndex = 0;
-            this.btn_grps_del.Text = "Delete";
-            this.btn_grps_del.UseVisualStyleBackColor = true;
-            this.btn_grps_del.Click += new System.EventHandler(this.btn_grps_add_Click);
-            // 
-            // btn_grps_add
-            // 
-            this.btn_grps_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_grps_add.Location = new System.Drawing.Point(27, 6);
-            this.btn_grps_add.Name = "btn_grps_add";
-            this.btn_grps_add.Size = new System.Drawing.Size(59, 23);
-            this.btn_grps_add.TabIndex = 0;
-            this.btn_grps_add.Text = "Add";
-            this.btn_grps_add.UseVisualStyleBackColor = true;
-            this.btn_grps_add.Click += new System.EventHandler(this.btn_grps_add_Click);
-            // 
-            // tab1_const
-            // 
-            this.tab1_const.Controls.Add(this.groupBox3);
-            this.tab1_const.Location = new System.Drawing.Point(23, 4);
-            this.tab1_const.Name = "tab1_const";
-            this.tab1_const.Size = new System.Drawing.Size(288, 506);
-            this.tab1_const.TabIndex = 5;
-            this.tab1_const.Text = "Constants";
-            this.tab1_const.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.tv_constants);
-            this.groupBox3.Controls.Add(this.panel6);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(288, 506);
-            this.groupBox3.TabIndex = 2;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Constants";
-            // 
-            // tv_constants
-            // 
-            this.tv_constants.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_constants.Location = new System.Drawing.Point(3, 17);
-            this.tv_constants.Name = "tv_constants";
-            this.tv_constants.Size = new System.Drawing.Size(282, 446);
-            this.tv_constants.TabIndex = 1;
-            this.tv_constants.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btn_cons_edit);
-            this.panel6.Controls.Add(this.btn_cons_del);
-            this.panel6.Controls.Add(this.btn_cons_add);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 463);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(282, 40);
-            this.panel6.TabIndex = 0;
-            // 
-            // btn_cons_edit
-            // 
-            this.btn_cons_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_cons_edit.Location = new System.Drawing.Point(111, 9);
-            this.btn_cons_edit.Name = "btn_cons_edit";
-            this.btn_cons_edit.Size = new System.Drawing.Size(79, 23);
-            this.btn_cons_edit.TabIndex = 0;
-            this.btn_cons_edit.Text = "Edit";
-            this.btn_cons_edit.UseVisualStyleBackColor = true;
-            this.btn_cons_edit.Click += new System.EventHandler(this.btn_constant_Click);
-            // 
-            // btn_cons_del
-            // 
-            this.btn_cons_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_cons_del.Location = new System.Drawing.Point(193, 9);
-            this.btn_cons_del.Name = "btn_cons_del";
-            this.btn_cons_del.Size = new System.Drawing.Size(66, 23);
-            this.btn_cons_del.TabIndex = 0;
-            this.btn_cons_del.Text = "Delete";
-            this.btn_cons_del.UseVisualStyleBackColor = true;
-            this.btn_cons_del.Click += new System.EventHandler(this.btn_constant_Click);
-            // 
-            // btn_cons_add
-            // 
-            this.btn_cons_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_cons_add.Location = new System.Drawing.Point(28, 9);
-            this.btn_cons_add.Name = "btn_cons_add";
-            this.btn_cons_add.Size = new System.Drawing.Size(80, 23);
-            this.btn_cons_add.TabIndex = 0;
-            this.btn_cons_add.Text = "Add";
-            this.btn_cons_add.UseVisualStyleBackColor = true;
-            this.btn_cons_add.Click += new System.EventHandler(this.btn_constant_Click);
-            // 
-            // tab1_supports
-            // 
-            this.tab1_supports.Controls.Add(this.groupBox4);
-            this.tab1_supports.Location = new System.Drawing.Point(23, 4);
-            this.tab1_supports.Name = "tab1_supports";
-            this.tab1_supports.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_supports.Size = new System.Drawing.Size(288, 506);
-            this.tab1_supports.TabIndex = 8;
-            this.tab1_supports.Text = "Supports";
-            this.tab1_supports.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.tv_supports);
-            this.groupBox4.Controls.Add(this.panel7);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(3, 3);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(282, 500);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Supports";
-            // 
-            // tv_supports
-            // 
-            this.tv_supports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_supports.Location = new System.Drawing.Point(3, 17);
-            this.tv_supports.Name = "tv_supports";
-            this.tv_supports.Size = new System.Drawing.Size(276, 440);
-            this.tv_supports.TabIndex = 1;
-            this.tv_supports.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btn_supp_edit);
-            this.panel7.Controls.Add(this.btn_supp_del);
-            this.panel7.Controls.Add(this.btn_supp_add);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(3, 457);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(276, 40);
-            this.panel7.TabIndex = 0;
-            // 
-            // btn_supp_edit
-            // 
-            this.btn_supp_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_supp_edit.Location = new System.Drawing.Point(108, 9);
-            this.btn_supp_edit.Name = "btn_supp_edit";
-            this.btn_supp_edit.Size = new System.Drawing.Size(79, 23);
-            this.btn_supp_edit.TabIndex = 0;
-            this.btn_supp_edit.Text = "Edit";
-            this.btn_supp_edit.UseVisualStyleBackColor = true;
-            this.btn_supp_edit.Click += new System.EventHandler(this.btn_supp_Click);
-            // 
-            // btn_supp_del
-            // 
-            this.btn_supp_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_supp_del.Location = new System.Drawing.Point(190, 9);
-            this.btn_supp_del.Name = "btn_supp_del";
-            this.btn_supp_del.Size = new System.Drawing.Size(66, 23);
-            this.btn_supp_del.TabIndex = 0;
-            this.btn_supp_del.Text = "Delete";
-            this.btn_supp_del.UseVisualStyleBackColor = true;
-            this.btn_supp_del.Click += new System.EventHandler(this.btn_supp_Click);
-            // 
-            // btn_supp_add
-            // 
-            this.btn_supp_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_supp_add.Location = new System.Drawing.Point(25, 9);
-            this.btn_supp_add.Name = "btn_supp_add";
-            this.btn_supp_add.Size = new System.Drawing.Size(80, 23);
-            this.btn_supp_add.TabIndex = 0;
-            this.btn_supp_add.Text = "Add";
-            this.btn_supp_add.UseVisualStyleBackColor = true;
-            this.btn_supp_add.Click += new System.EventHandler(this.btn_supp_Click);
-            // 
-            // tab1_loads
-            // 
-            this.tab1_loads.Controls.Add(this.panel8);
-            this.tab1_loads.Controls.Add(this.groupBox14);
-            this.tab1_loads.Location = new System.Drawing.Point(23, 4);
-            this.tab1_loads.Name = "tab1_loads";
-            this.tab1_loads.Size = new System.Drawing.Size(288, 506);
-            this.tab1_loads.TabIndex = 3;
-            this.tab1_loads.Text = "Loading";
-            this.tab1_loads.UseVisualStyleBackColor = true;
-            // 
-            // panel8
-            // 
-            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel8.Controls.Add(this.groupBox5);
-            this.panel8.Controls.Add(this.label6);
-            this.panel8.Controls.Add(this.grb_def_loads);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 41);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(288, 465);
-            this.panel8.TabIndex = 0;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.tv_loads);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(0, 99);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(286, 364);
-            this.groupBox5.TabIndex = 3;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Load Cases";
-            // 
-            // tv_loads
-            // 
-            this.tv_loads.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_loads.Location = new System.Drawing.Point(3, 17);
-            this.tv_loads.Name = "tv_loads";
-            this.tv_loads.Size = new System.Drawing.Size(280, 344);
-            this.tv_loads.TabIndex = 1;
-            this.tv_loads.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_loadings_AfterSelect);
-            this.tv_loads.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(0, 76);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(286, 23);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Select a Load case and then add Loads";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // grb_def_loads
-            // 
-            this.grb_def_loads.Controls.Add(this.cmb_def_loads);
-            this.grb_def_loads.Controls.Add(this.btn_aload_add);
-            this.grb_def_loads.Controls.Add(this.btn_aload_edit);
-            this.grb_def_loads.Controls.Add(this.btn_aload_del);
-            this.grb_def_loads.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grb_def_loads.Enabled = false;
-            this.grb_def_loads.Location = new System.Drawing.Point(0, 0);
-            this.grb_def_loads.Name = "grb_def_loads";
-            this.grb_def_loads.Size = new System.Drawing.Size(286, 76);
-            this.grb_def_loads.TabIndex = 1;
-            this.grb_def_loads.TabStop = false;
-            this.grb_def_loads.Text = "Define Load";
-            // 
-            // cmb_def_loads
-            // 
-            this.cmb_def_loads.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_def_loads.FormattingEnabled = true;
-            this.cmb_def_loads.Items.AddRange(new object[] {
-            "Joint Load",
-            "Joint Weight",
-            "Support Displacement Load",
-            "Member Load",
-            "Element Load",
-            "Repeat Load",
-            "Area Load",
-            "Floor Load",
-            "Temperature Load",
-            "Combination Load",
-            "Seismic Load",
-            "Wind Load"});
-            this.cmb_def_loads.Location = new System.Drawing.Point(6, 20);
-            this.cmb_def_loads.Name = "cmb_def_loads";
-            this.cmb_def_loads.Size = new System.Drawing.Size(265, 21);
-            this.cmb_def_loads.TabIndex = 1;
-            // 
-            // btn_aload_add
-            // 
-            this.btn_aload_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_aload_add.Location = new System.Drawing.Point(42, 47);
-            this.btn_aload_add.Name = "btn_aload_add";
-            this.btn_aload_add.Size = new System.Drawing.Size(64, 23);
-            this.btn_aload_add.TabIndex = 0;
-            this.btn_aload_add.Text = "Add";
-            this.btn_aload_add.UseVisualStyleBackColor = true;
-            this.btn_aload_add.Click += new System.EventHandler(this.btn_load_Click);
-            // 
-            // btn_aload_edit
-            // 
-            this.btn_aload_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_aload_edit.Enabled = false;
-            this.btn_aload_edit.Location = new System.Drawing.Point(112, 47);
-            this.btn_aload_edit.Name = "btn_aload_edit";
-            this.btn_aload_edit.Size = new System.Drawing.Size(64, 23);
-            this.btn_aload_edit.TabIndex = 0;
-            this.btn_aload_edit.Text = "Edit";
-            this.btn_aload_edit.UseVisualStyleBackColor = true;
-            this.btn_aload_edit.Click += new System.EventHandler(this.btn_load_Click);
-            // 
-            // btn_aload_del
-            // 
-            this.btn_aload_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_aload_del.Enabled = false;
-            this.btn_aload_del.Location = new System.Drawing.Point(182, 47);
-            this.btn_aload_del.Name = "btn_aload_del";
-            this.btn_aload_del.Size = new System.Drawing.Size(64, 23);
-            this.btn_aload_del.TabIndex = 0;
-            this.btn_aload_del.Text = "Delete";
-            this.btn_aload_del.UseVisualStyleBackColor = true;
-            this.btn_aload_del.Click += new System.EventHandler(this.btn_load_Click);
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.btn_ldc_add);
-            this.groupBox14.Controls.Add(this.btn_ldc_edit);
-            this.groupBox14.Controls.Add(this.btn_ldc_del);
-            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox14.Location = new System.Drawing.Point(0, 0);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(288, 41);
-            this.groupBox14.TabIndex = 3;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Define Load Case";
-            // 
-            // btn_ldc_add
-            // 
-            this.btn_ldc_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_ldc_add.Location = new System.Drawing.Point(43, 15);
-            this.btn_ldc_add.Name = "btn_ldc_add";
-            this.btn_ldc_add.Size = new System.Drawing.Size(64, 23);
-            this.btn_ldc_add.TabIndex = 0;
-            this.btn_ldc_add.Text = "Add";
-            this.btn_ldc_add.UseVisualStyleBackColor = true;
-            this.btn_ldc_add.Click += new System.EventHandler(this.btn_load_Click);
-            // 
-            // btn_ldc_edit
-            // 
-            this.btn_ldc_edit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_ldc_edit.Location = new System.Drawing.Point(113, 15);
-            this.btn_ldc_edit.Name = "btn_ldc_edit";
-            this.btn_ldc_edit.Size = new System.Drawing.Size(64, 23);
-            this.btn_ldc_edit.TabIndex = 0;
-            this.btn_ldc_edit.Text = "Edit";
-            this.btn_ldc_edit.UseVisualStyleBackColor = true;
-            this.btn_ldc_edit.Click += new System.EventHandler(this.btn_load_Click);
-            // 
-            // btn_ldc_del
-            // 
-            this.btn_ldc_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_ldc_del.Location = new System.Drawing.Point(183, 15);
-            this.btn_ldc_del.Name = "btn_ldc_del";
-            this.btn_ldc_del.Size = new System.Drawing.Size(64, 23);
-            this.btn_ldc_del.TabIndex = 0;
-            this.btn_ldc_del.Text = "Delete";
-            this.btn_ldc_del.UseVisualStyleBackColor = true;
-            this.btn_ldc_del.Click += new System.EventHandler(this.btn_load_Click);
-            // 
-            // tab1_moving
-            // 
-            this.tab1_moving.Controls.Add(this.sc3);
-            this.tab1_moving.Location = new System.Drawing.Point(23, 4);
-            this.tab1_moving.Name = "tab1_moving";
-            this.tab1_moving.Size = new System.Drawing.Size(288, 506);
-            this.tab1_moving.TabIndex = 4;
-            this.tab1_moving.Text = "Moving";
-            this.tab1_moving.UseVisualStyleBackColor = true;
-            // 
-            // sc3
-            // 
-            this.sc3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sc3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sc3.Location = new System.Drawing.Point(0, 0);
-            this.sc3.Name = "sc3";
-            this.sc3.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // sc3.Panel1
-            // 
-            this.sc3.Panel1.Controls.Add(this.groupBox6);
-            // 
-            // sc3.Panel2
-            // 
-            this.sc3.Panel2.Controls.Add(this.groupBox7);
-            this.sc3.Panel2.Controls.Add(this.panel12);
-            this.sc3.Size = new System.Drawing.Size(288, 506);
-            this.sc3.SplitterDistance = 247;
-            this.sc3.TabIndex = 0;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.tv_mov_loads);
-            this.groupBox6.Controls.Add(this.panel9);
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(0, 0);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(286, 245);
-            this.groupBox6.TabIndex = 4;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Define Vehicle Axle Loads";
-            // 
-            // tv_mov_loads
-            // 
-            this.tv_mov_loads.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mov_loads.Location = new System.Drawing.Point(3, 17);
-            this.tv_mov_loads.Name = "tv_mov_loads";
-            this.tv_mov_loads.Size = new System.Drawing.Size(280, 191);
-            this.tv_mov_loads.TabIndex = 1;
-            this.tv_mov_loads.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.btn_mov_load_edit);
-            this.panel9.Controls.Add(this.btn_mov_load_del);
-            this.panel9.Controls.Add(this.btn_mov_load_add);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 208);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(280, 34);
-            this.panel9.TabIndex = 0;
-            // 
-            // btn_mov_load_edit
-            // 
-            this.btn_mov_load_edit.Enabled = false;
-            this.btn_mov_load_edit.Location = new System.Drawing.Point(97, 6);
-            this.btn_mov_load_edit.Name = "btn_mov_load_edit";
-            this.btn_mov_load_edit.Size = new System.Drawing.Size(79, 23);
-            this.btn_mov_load_edit.TabIndex = 0;
-            this.btn_mov_load_edit.Text = "Edit";
-            this.btn_mov_load_edit.UseVisualStyleBackColor = true;
-            this.btn_mov_load_edit.Click += new System.EventHandler(this.btn_mov_load_add_Click);
-            // 
-            // btn_mov_load_del
-            // 
-            this.btn_mov_load_del.Enabled = false;
-            this.btn_mov_load_del.Location = new System.Drawing.Point(179, 6);
-            this.btn_mov_load_del.Name = "btn_mov_load_del";
-            this.btn_mov_load_del.Size = new System.Drawing.Size(66, 23);
-            this.btn_mov_load_del.TabIndex = 0;
-            this.btn_mov_load_del.Text = "Delete";
-            this.btn_mov_load_del.UseVisualStyleBackColor = true;
-            this.btn_mov_load_del.Click += new System.EventHandler(this.btn_mov_load_add_Click);
-            // 
-            // btn_mov_load_add
-            // 
-            this.btn_mov_load_add.Location = new System.Drawing.Point(14, 6);
-            this.btn_mov_load_add.Name = "btn_mov_load_add";
-            this.btn_mov_load_add.Size = new System.Drawing.Size(80, 23);
-            this.btn_mov_load_add.TabIndex = 0;
-            this.btn_mov_load_add.Text = "Add";
-            this.btn_mov_load_add.UseVisualStyleBackColor = true;
-            this.btn_mov_load_add.Click += new System.EventHandler(this.btn_mov_load_add_Click);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.tv_mov_def_load);
-            this.groupBox7.Controls.Add(this.panel10);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox7.Location = new System.Drawing.Point(0, 33);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(286, 220);
-            this.groupBox7.TabIndex = 4;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Define Load Start position";
-            // 
-            // tv_mov_def_load
-            // 
-            this.tv_mov_def_load.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_mov_def_load.Location = new System.Drawing.Point(3, 17);
-            this.tv_mov_def_load.Name = "tv_mov_def_load";
-            this.tv_mov_def_load.Size = new System.Drawing.Size(280, 165);
-            this.tv_mov_def_load.TabIndex = 1;
-            this.tv_mov_def_load.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tv_mem_grps_MouseMove);
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.btn_mov_def_load_edit);
-            this.panel10.Controls.Add(this.btn_mov_def_load_del);
-            this.panel10.Controls.Add(this.btn_mov_def_load_add);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(3, 182);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(280, 35);
-            this.panel10.TabIndex = 0;
-            // 
-            // btn_mov_def_load_edit
-            // 
-            this.btn_mov_def_load_edit.Location = new System.Drawing.Point(97, 6);
-            this.btn_mov_def_load_edit.Name = "btn_mov_def_load_edit";
-            this.btn_mov_def_load_edit.Size = new System.Drawing.Size(79, 23);
-            this.btn_mov_def_load_edit.TabIndex = 0;
-            this.btn_mov_def_load_edit.Text = "Edit";
-            this.btn_mov_def_load_edit.UseVisualStyleBackColor = true;
-            this.btn_mov_def_load_edit.Click += new System.EventHandler(this.btn_mov_def_load_add_Click);
-            // 
-            // btn_mov_def_load_del
-            // 
-            this.btn_mov_def_load_del.Location = new System.Drawing.Point(179, 6);
-            this.btn_mov_def_load_del.Name = "btn_mov_def_load_del";
-            this.btn_mov_def_load_del.Size = new System.Drawing.Size(66, 23);
-            this.btn_mov_def_load_del.TabIndex = 0;
-            this.btn_mov_def_load_del.Text = "Delete";
-            this.btn_mov_def_load_del.UseVisualStyleBackColor = true;
-            this.btn_mov_def_load_del.Click += new System.EventHandler(this.btn_mov_def_load_add_Click);
-            // 
-            // btn_mov_def_load_add
-            // 
-            this.btn_mov_def_load_add.Location = new System.Drawing.Point(14, 6);
-            this.btn_mov_def_load_add.Name = "btn_mov_def_load_add";
-            this.btn_mov_def_load_add.Size = new System.Drawing.Size(80, 23);
-            this.btn_mov_def_load_add.TabIndex = 0;
-            this.btn_mov_def_load_add.Text = "Add";
-            this.btn_mov_def_load_add.UseVisualStyleBackColor = true;
-            this.btn_mov_def_load_add.Click += new System.EventHandler(this.btn_mov_def_load_add_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel12.Controls.Add(this.label1);
-            this.panel12.Controls.Add(this.txt_load_gen);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(286, 33);
-            this.panel12.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 13);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Load Generation";
-            // 
-            // txt_load_gen
-            // 
-            this.txt_load_gen.Location = new System.Drawing.Point(144, 5);
-            this.txt_load_gen.Name = "txt_load_gen";
-            this.txt_load_gen.Size = new System.Drawing.Size(66, 21);
-            this.txt_load_gen.TabIndex = 5;
-            this.txt_load_gen.Text = "99";
-            this.txt_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tab1_dynamic
-            // 
-            this.tab1_dynamic.Controls.Add(this.txt_dynamic);
-            this.tab1_dynamic.Controls.Add(this.panel13);
-            this.tab1_dynamic.Location = new System.Drawing.Point(23, 4);
-            this.tab1_dynamic.Name = "tab1_dynamic";
-            this.tab1_dynamic.Size = new System.Drawing.Size(288, 506);
-            this.tab1_dynamic.TabIndex = 6;
-            this.tab1_dynamic.Text = "Dynamic";
-            this.tab1_dynamic.UseVisualStyleBackColor = true;
-            // 
-            // txt_dynamic
-            // 
-            this.txt_dynamic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_dynamic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txt_dynamic.Location = new System.Drawing.Point(0, 214);
-            this.txt_dynamic.Multiline = true;
-            this.txt_dynamic.Name = "txt_dynamic";
-            this.txt_dynamic.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txt_dynamic.Size = new System.Drawing.Size(288, 292);
-            this.txt_dynamic.TabIndex = 6;
-            this.txt_dynamic.WordWrap = false;
-            // 
-            // panel13
-            // 
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.chk_dynamic_analysis);
-            this.panel13.Controls.Add(this.grb_dynamic);
-            this.panel13.Controls.Add(this.grb_dyna_analysis);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(288, 214);
-            this.panel13.TabIndex = 5;
-            // 
-            // chk_dynamic_analysis
-            // 
-            this.chk_dynamic_analysis.AutoSize = true;
-            this.chk_dynamic_analysis.Location = new System.Drawing.Point(18, 12);
-            this.chk_dynamic_analysis.Name = "chk_dynamic_analysis";
-            this.chk_dynamic_analysis.Size = new System.Drawing.Size(127, 17);
-            this.chk_dynamic_analysis.TabIndex = 6;
-            this.chk_dynamic_analysis.Text = "Dynamic Analysis";
-            this.chk_dynamic_analysis.UseVisualStyleBackColor = true;
-            this.chk_dynamic_analysis.CheckedChanged += new System.EventHandler(this.chk_dynamic_analysis_CheckedChanged);
-            // 
-            // grb_dynamic
-            // 
-            this.grb_dynamic.Controls.Add(this.btn_dyn_add);
-            this.grb_dynamic.Controls.Add(this.btn_dyn_del);
-            this.grb_dynamic.Enabled = false;
-            this.grb_dynamic.Location = new System.Drawing.Point(2, 156);
-            this.grb_dynamic.Name = "grb_dynamic";
-            this.grb_dynamic.Size = new System.Drawing.Size(258, 48);
-            this.grb_dynamic.TabIndex = 4;
-            this.grb_dynamic.TabStop = false;
-            // 
-            // btn_dyn_add
-            // 
-            this.btn_dyn_add.Location = new System.Drawing.Point(17, 15);
-            this.btn_dyn_add.Name = "btn_dyn_add";
-            this.btn_dyn_add.Size = new System.Drawing.Size(80, 23);
-            this.btn_dyn_add.TabIndex = 0;
-            this.btn_dyn_add.Text = "Add";
-            this.btn_dyn_add.UseVisualStyleBackColor = true;
-            this.btn_dyn_add.Click += new System.EventHandler(this.btn_dyn_add_Click);
-            // 
-            // btn_dyn_del
-            // 
-            this.btn_dyn_del.Location = new System.Drawing.Point(153, 15);
-            this.btn_dyn_del.Name = "btn_dyn_del";
-            this.btn_dyn_del.Size = new System.Drawing.Size(80, 23);
-            this.btn_dyn_del.TabIndex = 0;
-            this.btn_dyn_del.Text = "Delete";
-            this.btn_dyn_del.UseVisualStyleBackColor = true;
-            this.btn_dyn_del.Click += new System.EventHandler(this.btn_dyn_del_Click);
-            // 
-            // grb_dyna_analysis
-            // 
-            this.grb_dyna_analysis.Controls.Add(this.txt_frequencies);
-            this.grb_dyna_analysis.Controls.Add(this.label4);
-            this.grb_dyna_analysis.Controls.Add(this.rbtn_response_spectrum);
-            this.grb_dyna_analysis.Controls.Add(this.rbtn_perform_time_history);
-            this.grb_dyna_analysis.Controls.Add(this.rbtn_perform_eigen);
-            this.grb_dyna_analysis.Enabled = false;
-            this.grb_dyna_analysis.Location = new System.Drawing.Point(3, 35);
-            this.grb_dyna_analysis.Name = "grb_dyna_analysis";
-            this.grb_dyna_analysis.Size = new System.Drawing.Size(258, 115);
-            this.grb_dyna_analysis.TabIndex = 4;
-            this.grb_dyna_analysis.TabStop = false;
-            // 
-            // txt_frequencies
-            // 
-            this.txt_frequencies.Location = new System.Drawing.Point(149, 33);
-            this.txt_frequencies.Name = "txt_frequencies";
-            this.txt_frequencies.Size = new System.Drawing.Size(60, 21);
-            this.txt_frequencies.TabIndex = 5;
-            this.txt_frequencies.Text = "3";
-            this.txt_frequencies.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(54, 36);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "FREQUENCIES";
-            // 
-            // rbtn_response_spectrum
-            // 
-            this.rbtn_response_spectrum.AutoSize = true;
-            this.rbtn_response_spectrum.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_response_spectrum.Location = new System.Drawing.Point(6, 84);
-            this.rbtn_response_spectrum.Name = "rbtn_response_spectrum";
-            this.rbtn_response_spectrum.Size = new System.Drawing.Size(226, 18);
-            this.rbtn_response_spectrum.TabIndex = 3;
-            this.rbtn_response_spectrum.Text = "RESPONSE SPECTRUM ANALYSIS";
-            this.rbtn_response_spectrum.UseVisualStyleBackColor = true;
-            this.rbtn_response_spectrum.CheckedChanged += new System.EventHandler(this.rbtn_perform_eigen_CheckedChanged);
-            // 
-            // rbtn_perform_time_history
-            // 
-            this.rbtn_perform_time_history.AutoSize = true;
-            this.rbtn_perform_time_history.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_perform_time_history.Location = new System.Drawing.Point(6, 60);
-            this.rbtn_perform_time_history.Name = "rbtn_perform_time_history";
-            this.rbtn_perform_time_history.Size = new System.Drawing.Size(239, 18);
-            this.rbtn_perform_time_history.TabIndex = 1;
-            this.rbtn_perform_time_history.Text = "PERFORM TIME HISTORY ANALYSIS";
-            this.rbtn_perform_time_history.UseVisualStyleBackColor = true;
-            this.rbtn_perform_time_history.CheckedChanged += new System.EventHandler(this.rbtn_perform_eigen_CheckedChanged);
-            // 
-            // rbtn_perform_eigen
-            // 
-            this.rbtn_perform_eigen.AutoSize = true;
-            this.rbtn_perform_eigen.Checked = true;
-            this.rbtn_perform_eigen.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtn_perform_eigen.Location = new System.Drawing.Point(6, 11);
-            this.rbtn_perform_eigen.Name = "rbtn_perform_eigen";
-            this.rbtn_perform_eigen.Size = new System.Drawing.Size(234, 18);
-            this.rbtn_perform_eigen.TabIndex = 0;
-            this.rbtn_perform_eigen.TabStop = true;
-            this.rbtn_perform_eigen.Text = "PERFORM EIGEN VALUE ANALYSIS";
-            this.rbtn_perform_eigen.UseVisualStyleBackColor = true;
-            this.rbtn_perform_eigen.CheckedChanged += new System.EventHandler(this.rbtn_perform_eigen_CheckedChanged);
-            // 
-            // tab1_ana_spec
-            // 
-            this.tab1_ana_spec.Controls.Add(this.panel14);
-            this.tab1_ana_spec.Controls.Add(this.chk_perform_ana);
-            this.tab1_ana_spec.Controls.Add(this.chk_print_max_force);
-            this.tab1_ana_spec.Controls.Add(this.chk_print_ana_all);
-            this.tab1_ana_spec.Controls.Add(this.chk_print_static_check);
-            this.tab1_ana_spec.Controls.Add(this.chk_print_load_data);
-            this.tab1_ana_spec.Controls.Add(this.chk_print_supp_reac);
-            this.tab1_ana_spec.Location = new System.Drawing.Point(23, 4);
-            this.tab1_ana_spec.Name = "tab1_ana_spec";
-            this.tab1_ana_spec.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_ana_spec.Size = new System.Drawing.Size(288, 506);
-            this.tab1_ana_spec.TabIndex = 7;
-            this.tab1_ana_spec.Text = "Analysis";
-            this.tab1_ana_spec.UseVisualStyleBackColor = true;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.grb_max_frc);
-            this.panel14.Location = new System.Drawing.Point(8, 156);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(251, 212);
-            this.panel14.TabIndex = 12;
-            // 
-            // grb_max_frc
-            // 
-            this.grb_max_frc.Controls.Add(this.tv_max_frc);
-            this.grb_max_frc.Controls.Add(this.panel15);
-            this.grb_max_frc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grb_max_frc.Location = new System.Drawing.Point(0, 0);
-            this.grb_max_frc.Name = "grb_max_frc";
-            this.grb_max_frc.Size = new System.Drawing.Size(251, 212);
-            this.grb_max_frc.TabIndex = 1;
-            this.grb_max_frc.TabStop = false;
-            this.grb_max_frc.Text = "Member List";
-            // 
-            // tv_max_frc
-            // 
-            this.tv_max_frc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_max_frc.Location = new System.Drawing.Point(3, 17);
-            this.tv_max_frc.Name = "tv_max_frc";
-            this.tv_max_frc.Size = new System.Drawing.Size(245, 161);
-            this.tv_max_frc.TabIndex = 1;
-            // 
-            // panel15
-            // 
-            this.panel15.Controls.Add(this.btn_max_frc_del);
-            this.panel15.Controls.Add(this.txt_max_frc_list);
-            this.panel15.Controls.Add(this.btn_max_frc_add);
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel15.Location = new System.Drawing.Point(3, 178);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(245, 31);
-            this.panel15.TabIndex = 0;
-            // 
-            // btn_max_frc_del
-            // 
-            this.btn_max_frc_del.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_max_frc_del.Location = new System.Drawing.Point(187, 4);
-            this.btn_max_frc_del.Name = "btn_max_frc_del";
-            this.btn_max_frc_del.Size = new System.Drawing.Size(55, 23);
-            this.btn_max_frc_del.TabIndex = 0;
-            this.btn_max_frc_del.Text = "Delete";
-            this.btn_max_frc_del.UseVisualStyleBackColor = true;
-            // 
-            // txt_max_frc_list
-            // 
-            this.txt_max_frc_list.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_max_frc_list.Enabled = false;
-            this.txt_max_frc_list.Location = new System.Drawing.Point(8, 6);
-            this.txt_max_frc_list.Name = "txt_max_frc_list";
-            this.txt_max_frc_list.Size = new System.Drawing.Size(122, 21);
-            this.txt_max_frc_list.TabIndex = 9;
-            // 
-            // btn_max_frc_add
-            // 
-            this.btn_max_frc_add.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_max_frc_add.Location = new System.Drawing.Point(136, 4);
-            this.btn_max_frc_add.Name = "btn_max_frc_add";
-            this.btn_max_frc_add.Size = new System.Drawing.Size(48, 23);
-            this.btn_max_frc_add.TabIndex = 0;
-            this.btn_max_frc_add.Text = "Add";
-            this.btn_max_frc_add.UseVisualStyleBackColor = true;
-            // 
-            // chk_perform_ana
-            // 
-            this.chk_perform_ana.AutoSize = true;
-            this.chk_perform_ana.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_perform_ana.Location = new System.Drawing.Point(6, 6);
-            this.chk_perform_ana.Name = "chk_perform_ana";
-            this.chk_perform_ana.Size = new System.Drawing.Size(148, 18);
-            this.chk_perform_ana.TabIndex = 10;
-            this.chk_perform_ana.Text = "PERFORM ANALYSIS";
-            this.chk_perform_ana.UseVisualStyleBackColor = true;
-            // 
-            // chk_print_max_force
-            // 
-            this.chk_print_max_force.AutoSize = true;
-            this.chk_print_max_force.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_print_max_force.Location = new System.Drawing.Point(6, 132);
-            this.chk_print_max_force.Name = "chk_print_max_force";
-            this.chk_print_max_force.Size = new System.Drawing.Size(240, 18);
-            this.chk_print_max_force.TabIndex = 8;
-            this.chk_print_max_force.Text = "PRINT MAX FORCE ENVELOPE LIST";
-            this.chk_print_max_force.UseVisualStyleBackColor = true;
-            // 
-            // chk_print_ana_all
-            // 
-            this.chk_print_ana_all.AutoSize = true;
-            this.chk_print_ana_all.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_print_ana_all.Location = new System.Drawing.Point(6, 105);
-            this.chk_print_ana_all.Name = "chk_print_ana_all";
-            this.chk_print_ana_all.Size = new System.Drawing.Size(152, 18);
-            this.chk_print_ana_all.TabIndex = 7;
-            this.chk_print_ana_all.Text = "PRINT ANALYSIS ALL";
-            this.chk_print_ana_all.UseVisualStyleBackColor = true;
-            // 
-            // chk_print_static_check
-            // 
-            this.chk_print_static_check.AutoSize = true;
-            this.chk_print_static_check.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_print_static_check.Location = new System.Drawing.Point(6, 81);
-            this.chk_print_static_check.Name = "chk_print_static_check";
-            this.chk_print_static_check.Size = new System.Drawing.Size(156, 18);
-            this.chk_print_static_check.TabIndex = 7;
-            this.chk_print_static_check.Text = "PRINT STATIC CHECK";
-            this.chk_print_static_check.UseVisualStyleBackColor = true;
-            // 
-            // chk_print_load_data
-            // 
-            this.chk_print_load_data.AutoSize = true;
-            this.chk_print_load_data.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_print_load_data.Location = new System.Drawing.Point(6, 57);
-            this.chk_print_load_data.Name = "chk_print_load_data";
-            this.chk_print_load_data.Size = new System.Drawing.Size(135, 18);
-            this.chk_print_load_data.TabIndex = 7;
-            this.chk_print_load_data.Text = "PRINT LOAD DATA";
-            this.chk_print_load_data.UseVisualStyleBackColor = true;
-            // 
-            // chk_print_supp_reac
-            // 
-            this.chk_print_supp_reac.AutoSize = true;
-            this.chk_print_supp_reac.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_print_supp_reac.Location = new System.Drawing.Point(6, 30);
-            this.chk_print_supp_reac.Name = "chk_print_supp_reac";
-            this.chk_print_supp_reac.Size = new System.Drawing.Size(201, 18);
-            this.chk_print_supp_reac.TabIndex = 7;
-            this.chk_print_supp_reac.Text = "PRINT SUPPORT REACTIONS";
-            this.chk_print_supp_reac.UseVisualStyleBackColor = true;
-            // 
-            // vdScrollableControl1
-            // 
-            this.vdScrollableControl1.BackColor = System.Drawing.SystemColors.Control;
-            this.vdScrollableControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.vdScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdScrollableControl1.Location = new System.Drawing.Point(0, 25);
-            this.vdScrollableControl1.Name = "vdScrollableControl1";
-            this.vdScrollableControl1.ShowLayoutPopupMenu = true;
-            this.vdScrollableControl1.Size = new System.Drawing.Size(603, 466);
-            this.vdScrollableControl1.TabIndex = 3;
-            // 
-            // panel21
-            // 
-            this.panel21.Controls.Add(this.label5);
-            this.panel21.Controls.Add(this.cmb_text_size);
-            this.panel21.Controls.Add(this.chk_elems);
-            this.panel21.Controls.Add(this.chk_joints);
-            this.panel21.Controls.Add(this.chk_suprts);
-            this.panel21.Controls.Add(this.chk_mems);
-            this.panel21.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel21.Location = new System.Drawing.Point(0, 491);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(603, 23);
-            this.panel21.TabIndex = 5;
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(446, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 13);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Text Size";
-            // 
-            // cmb_text_size
-            // 
-            this.cmb_text_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_text_size.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_text_size.FormattingEnabled = true;
-            this.cmb_text_size.Location = new System.Drawing.Point(515, 2);
-            this.cmb_text_size.Name = "cmb_text_size";
-            this.cmb_text_size.Size = new System.Drawing.Size(52, 21);
-            this.cmb_text_size.TabIndex = 9;
-            this.cmb_text_size.SelectedIndexChanged += new System.EventHandler(this.cmb_size_Click);
-            this.cmb_text_size.Click += new System.EventHandler(this.cmb_size_Click);
-            // 
-            // chk_elems
-            // 
-            this.chk_elems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_elems.AutoSize = true;
-            this.chk_elems.Checked = true;
-            this.chk_elems.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_elems.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_elems.Location = new System.Drawing.Point(227, 4);
-            this.chk_elems.Name = "chk_elems";
-            this.chk_elems.Size = new System.Drawing.Size(78, 17);
-            this.chk_elems.TabIndex = 7;
-            this.chk_elems.Text = "Elements";
-            this.chk_elems.UseVisualStyleBackColor = true;
-            this.chk_elems.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk_joints
-            // 
-            this.chk_joints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_joints.AutoSize = true;
-            this.chk_joints.Checked = true;
-            this.chk_joints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_joints.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_joints.Location = new System.Drawing.Point(58, 4);
-            this.chk_joints.Name = "chk_joints";
-            this.chk_joints.Size = new System.Drawing.Size(61, 17);
-            this.chk_joints.TabIndex = 8;
-            this.chk_joints.Text = "Nodes";
-            this.chk_joints.UseVisualStyleBackColor = true;
-            this.chk_joints.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk_suprts
-            // 
-            this.chk_suprts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_suprts.AutoSize = true;
-            this.chk_suprts.Checked = true;
-            this.chk_suprts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_suprts.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_suprts.Location = new System.Drawing.Point(328, 4);
-            this.chk_suprts.Name = "chk_suprts";
-            this.chk_suprts.Size = new System.Drawing.Size(77, 17);
-            this.chk_suprts.TabIndex = 6;
-            this.chk_suprts.Text = "Supports";
-            this.chk_suprts.UseVisualStyleBackColor = true;
-            this.chk_suprts.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk_mems
-            // 
-            this.chk_mems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_mems.AutoSize = true;
-            this.chk_mems.Checked = true;
-            this.chk_mems.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_mems.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_mems.Location = new System.Drawing.Point(126, 4);
-            this.chk_mems.Name = "chk_mems";
-            this.chk_mems.Size = new System.Drawing.Size(78, 17);
-            this.chk_mems.TabIndex = 5;
-            this.chk_mems.Text = "Members";
-            this.chk_mems.UseVisualStyleBackColor = true;
-            this.chk_mems.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel3,
-            this.toolStripStatusLabel2,
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 491);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(583, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.Visible = false;
-            // 
-            // toolStripStatusLabel3
-            // 
-            this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(133, 17);
-            this.toolStripStatusLabel3.Text = "Click on object to select";
-            // 
-            // toolStripStatusLabel2
-            // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(10, 17);
-            this.toolStripStatusLabel2.Text = "|";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(163, 17);
-            this.toolStripStatusLabel1.Text = "Press \'Esc\' to release selection";
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb_3D_rotate,
-            this.tsb_VTop,
-            this.tsb_VBot,
-            this.tsb_VLeft,
-            this.tsb_VRight,
-            this.tsb_VFront,
-            this.tsb_VBack,
-            this.tsb_VNE,
-            this.tsb_VNW,
-            this.tsb_VSE,
-            this.tsb_VSW,
-            this.toolStripSeparator2,
-            this.tsb_ShadeOn,
-            this.tsb_Wire,
-            this.tss1,
-            this.tsb_ZoomA,
-            this.tsb_ZoomE,
-            this.tsb_ZoomP,
-            this.tsb_ZoomW,
-            this.tsb_ZoomIn,
-            this.tsb_ZoomOut,
-            this.tsb_Pan,
-            this.toolStripSeparator1,
-            this.tsb_Save,
-            this.tsb_Edit});
-            this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(603, 25);
-            this.toolStrip2.TabIndex = 2;
-            // 
-            // tsb_3D_rotate
-            // 
-            this.tsb_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_3D_rotate.Image = global::ASTRAStructures.Properties.Resources._3D_orbit;
-            this.tsb_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_3D_rotate.Name = "tsb_3D_rotate";
-            this.tsb_3D_rotate.Size = new System.Drawing.Size(23, 22);
-            this.tsb_3D_rotate.Text = "Rotate 3D";
-            this.tsb_3D_rotate.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VTop
-            // 
-            this.tsb_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VTop.Image = global::ASTRAStructures.Properties.Resources._3DVTOP;
-            this.tsb_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VTop.Name = "tsb_VTop";
-            this.tsb_VTop.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VTop.Text = "View Top";
-            this.tsb_VTop.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VBot
-            // 
-            this.tsb_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VBot.Image")));
-            this.tsb_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VBot.Name = "tsb_VBot";
-            this.tsb_VBot.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VBot.Text = "View Bottom";
-            this.tsb_VBot.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VLeft
-            // 
-            this.tsb_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VLeft.Image")));
-            this.tsb_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VLeft.Name = "tsb_VLeft";
-            this.tsb_VLeft.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VLeft.Text = "View Left";
-            this.tsb_VLeft.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VRight
-            // 
-            this.tsb_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VRight.Image")));
-            this.tsb_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VRight.Name = "tsb_VRight";
-            this.tsb_VRight.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VRight.Text = "View Right";
-            this.tsb_VRight.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VFront
-            // 
-            this.tsb_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VFront.Image")));
-            this.tsb_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VFront.Name = "tsb_VFront";
-            this.tsb_VFront.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VFront.Text = "View Front";
-            this.tsb_VFront.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VBack
-            // 
-            this.tsb_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VBack.Image")));
-            this.tsb_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VBack.Name = "tsb_VBack";
-            this.tsb_VBack.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VBack.Text = "View Back";
-            this.tsb_VBack.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VNE
-            // 
-            this.tsb_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VNE.Image")));
-            this.tsb_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VNE.Name = "tsb_VNE";
-            this.tsb_VNE.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VNE.Text = "View NE";
-            this.tsb_VNE.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VNW
-            // 
-            this.tsb_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VNW.Image")));
-            this.tsb_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VNW.Name = "tsb_VNW";
-            this.tsb_VNW.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VNW.Text = "View NW";
-            this.tsb_VNW.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VSE
-            // 
-            this.tsb_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VSE.Image")));
-            this.tsb_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VSE.Name = "tsb_VSE";
-            this.tsb_VSE.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VSE.Text = "View SE";
-            this.tsb_VSE.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_VSW
-            // 
-            this.tsb_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb_VSW.Image")));
-            this.tsb_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_VSW.Name = "tsb_VSW";
-            this.tsb_VSW.Size = new System.Drawing.Size(23, 22);
-            this.tsb_VSW.Text = "View SW";
-            this.tsb_VSW.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_ShadeOn
-            // 
-            this.tsb_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ShadeOn.Image")));
-            this.tsb_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ShadeOn.Name = "tsb_ShadeOn";
-            this.tsb_ShadeOn.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ShadeOn.Text = "Shade On";
-            this.tsb_ShadeOn.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_Wire
-            // 
-            this.tsb_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Wire.Image")));
-            this.tsb_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Wire.Name = "tsb_Wire";
-            this.tsb_Wire.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Wire.Text = "Wire";
-            this.tsb_Wire.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tss1
-            // 
-            this.tss1.Name = "tss1";
-            this.tss1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_ZoomA
-            // 
-            this.tsb_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ZoomA.Image")));
-            this.tsb_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ZoomA.Name = "tsb_ZoomA";
-            this.tsb_ZoomA.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ZoomA.Text = "Zom All";
-            this.tsb_ZoomA.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_ZoomE
-            // 
-            this.tsb_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ZoomE.Image")));
-            this.tsb_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ZoomE.Name = "tsb_ZoomE";
-            this.tsb_ZoomE.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ZoomE.Text = "Zoom Extent";
-            this.tsb_ZoomE.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_ZoomP
-            // 
-            this.tsb_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ZoomP.Image")));
-            this.tsb_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ZoomP.Name = "tsb_ZoomP";
-            this.tsb_ZoomP.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ZoomP.Text = "Zoom Previous";
-            this.tsb_ZoomP.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_ZoomW
-            // 
-            this.tsb_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ZoomW.Image")));
-            this.tsb_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ZoomW.Name = "tsb_ZoomW";
-            this.tsb_ZoomW.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ZoomW.Text = "Zoom Window";
-            this.tsb_ZoomW.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_ZoomIn
-            // 
-            this.tsb_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ZoomIn.Image")));
-            this.tsb_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ZoomIn.Name = "tsb_ZoomIn";
-            this.tsb_ZoomIn.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ZoomIn.Text = "Zoom In";
-            this.tsb_ZoomIn.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_ZoomOut
-            // 
-            this.tsb_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb_ZoomOut.Image")));
-            this.tsb_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ZoomOut.Name = "tsb_ZoomOut";
-            this.tsb_ZoomOut.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ZoomOut.Text = "Zoom Out";
-            this.tsb_ZoomOut.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_Pan
-            // 
-            this.tsb_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Pan.Image")));
-            this.tsb_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Pan.Name = "tsb_Pan";
-            this.tsb_Pan.Size = new System.Drawing.Size(23, 22);
-            this.tsb_Pan.Text = "Pan";
-            this.tsb_Pan.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb_Save
-            // 
-            this.tsb_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Save.Image")));
-            this.tsb_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Save.Name = "tsb_Save";
-            this.tsb_Save.Size = new System.Drawing.Size(51, 22);
-            this.tsb_Save.Text = "Save";
-            this.tsb_Save.Click += new System.EventHandler(this.toolStripButtons_Click);
-            // 
-            // tsb_Edit
-            // 
-            this.tsb_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb_Edit.Image")));
-            this.tsb_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_Edit.Name = "tsb_Edit";
-            this.tsb_Edit.Size = new System.Drawing.Size(47, 22);
-            this.tsb_Edit.Text = "Edit";
-            this.tsb_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb_Edit.Click += new System.EventHandler(this.tsmi_viewer_Click);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.treeView1);
-            this.groupBox9.Controls.Add(this.panel16);
-            this.groupBox9.Location = new System.Drawing.Point(3, 3);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(245, 153);
-            this.groupBox9.TabIndex = 2;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Member Property";
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(3, 17);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(239, 93);
-            this.treeView1.TabIndex = 1;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.button1);
-            this.panel16.Controls.Add(this.button2);
-            this.panel16.Controls.Add(this.button3);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel16.Location = new System.Drawing.Point(3, 110);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(239, 40);
-            this.panel16.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Location = new System.Drawing.Point(88, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Edit";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Location = new System.Drawing.Point(170, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(66, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button3.Location = new System.Drawing.Point(5, 9);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 23);
-            this.button3.TabIndex = 0;
-            this.button3.Text = "Add";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // tab_procees
             // 
@@ -5252,6 +1378,7 @@
             // panel23
             // 
             this.panel23.Controls.Add(this.btn_open_data);
+            this.panel23.Controls.Add(this.button1);
             this.panel23.Controls.Add(this.btn_update_data);
             this.panel23.Controls.Add(this.chk_show_steps);
             this.panel23.Controls.Add(this.btn_view_analysis);
@@ -5265,9 +1392,9 @@
             // btn_open_data
             // 
             this.btn_open_data.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_open_data.Location = new System.Drawing.Point(392, 3);
+            this.btn_open_data.Location = new System.Drawing.Point(427, 2);
             this.btn_open_data.Name = "btn_open_data";
-            this.btn_open_data.Size = new System.Drawing.Size(156, 38);
+            this.btn_open_data.Size = new System.Drawing.Size(119, 38);
             this.btn_open_data.TabIndex = 2;
             this.btn_open_data.Text = "Open Analysis Input Data";
             this.btn_open_data.UseVisualStyleBackColor = true;
@@ -5276,11 +1403,11 @@
             // btn_update_data
             // 
             this.btn_update_data.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_update_data.Location = new System.Drawing.Point(230, 3);
+            this.btn_update_data.Location = new System.Drawing.Point(302, 2);
             this.btn_update_data.Name = "btn_update_data";
-            this.btn_update_data.Size = new System.Drawing.Size(156, 38);
+            this.btn_update_data.Size = new System.Drawing.Size(119, 38);
             this.btn_update_data.TabIndex = 2;
-            this.btn_update_data.Text = "Create / Update Analysis Input Data";
+            this.btn_update_data.Text = "View Pre Process";
             this.btn_update_data.UseVisualStyleBackColor = true;
             this.btn_update_data.Click += new System.EventHandler(this.btn_create_data_Click);
             // 
@@ -5300,9 +1427,9 @@
             // btn_view_analysis
             // 
             this.btn_view_analysis.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_view_analysis.Location = new System.Drawing.Point(716, 3);
+            this.btn_view_analysis.Location = new System.Drawing.Point(802, 3);
             this.btn_view_analysis.Name = "btn_view_analysis";
-            this.btn_view_analysis.Size = new System.Drawing.Size(156, 38);
+            this.btn_view_analysis.Size = new System.Drawing.Size(119, 38);
             this.btn_view_analysis.TabIndex = 0;
             this.btn_view_analysis.Text = "View Analysis Report File";
             this.btn_view_analysis.UseVisualStyleBackColor = true;
@@ -5311,2456 +1438,13 @@
             // btn_process_analysis
             // 
             this.btn_process_analysis.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_process_analysis.Location = new System.Drawing.Point(554, 3);
+            this.btn_process_analysis.Location = new System.Drawing.Point(552, 2);
             this.btn_process_analysis.Name = "btn_process_analysis";
-            this.btn_process_analysis.Size = new System.Drawing.Size(156, 38);
+            this.btn_process_analysis.Size = new System.Drawing.Size(119, 38);
             this.btn_process_analysis.TabIndex = 0;
             this.btn_process_analysis.Text = "Process Analysis";
             this.btn_process_analysis.UseVisualStyleBackColor = true;
             this.btn_process_analysis.Click += new System.EventHandler(this.btn_process_analysis_Click);
-            // 
-            // tab_post_procees
-            // 
-            this.tab_post_procees.Controls.Add(this.splitContainer1);
-            this.tab_post_procees.Location = new System.Drawing.Point(4, 22);
-            this.tab_post_procees.Name = "tab_post_procees";
-            this.tab_post_procees.Size = new System.Drawing.Size(930, 603);
-            this.tab_post_procees.TabIndex = 2;
-            this.tab_post_procees.Text = "Post Process";
-            this.tab_post_procees.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.tc_pp_main);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer1.Size = new System.Drawing.Size(930, 603);
-            this.splitContainer1.SplitterDistance = 75;
-            this.splitContainer1.TabIndex = 5;
-            // 
-            // tc_pp_main
-            // 
-            this.tc_pp_main.Controls.Add(this.tab_forces);
-            this.tc_pp_main.Controls.Add(this.tab_load_deflection);
-            this.tc_pp_main.Controls.Add(this.tab_max_force);
-            this.tc_pp_main.Controls.Add(this.tab_moving_load);
-            this.tc_pp_main.Controls.Add(this.tab_envelop);
-            this.tc_pp_main.Controls.Add(this.tab_diagram);
-            this.tc_pp_main.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tc_pp_main.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_pp_main.Location = new System.Drawing.Point(0, 0);
-            this.tc_pp_main.Name = "tc_pp_main";
-            this.tc_pp_main.SelectedIndex = 0;
-            this.tc_pp_main.Size = new System.Drawing.Size(928, 80);
-            this.tc_pp_main.TabIndex = 1;
-            this.tc_pp_main.SelectedIndexChanged += new System.EventHandler(this.tc_pp_main_SelectedIndexChanged);
-            // 
-            // tab_forces
-            // 
-            this.tab_forces.Location = new System.Drawing.Point(4, 22);
-            this.tab_forces.Name = "tab_forces";
-            this.tab_forces.Size = new System.Drawing.Size(920, 54);
-            this.tab_forces.TabIndex = 4;
-            this.tab_forces.Text = "Forces";
-            this.tab_forces.UseVisualStyleBackColor = true;
-            // 
-            // tab_load_deflection
-            // 
-            this.tab_load_deflection.Controls.Add(this.lbl_mode_shape);
-            this.tab_load_deflection.Controls.Add(this.lblLoadCase);
-            this.tab_load_deflection.Controls.Add(this.grb_Auto);
-            this.tab_load_deflection.Controls.Add(this.txtDefFactor);
-            this.tab_load_deflection.Controls.Add(this.grb_manual);
-            this.tab_load_deflection.Controls.Add(this.lblFactor);
-            this.tab_load_deflection.Controls.Add(this.cmbLoadCase);
-            this.tab_load_deflection.Location = new System.Drawing.Point(4, 22);
-            this.tab_load_deflection.Name = "tab_load_deflection";
-            this.tab_load_deflection.Size = new System.Drawing.Size(920, 54);
-            this.tab_load_deflection.TabIndex = 5;
-            this.tab_load_deflection.Text = "Load Deflection";
-            this.tab_load_deflection.UseVisualStyleBackColor = true;
-            // 
-            // lbl_mode_shape
-            // 
-            this.lbl_mode_shape.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_mode_shape.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_mode_shape.Location = new System.Drawing.Point(685, 7);
-            this.lbl_mode_shape.Name = "lbl_mode_shape";
-            this.lbl_mode_shape.Size = new System.Drawing.Size(204, 39);
-            this.lbl_mode_shape.TabIndex = 33;
-            this.lbl_mode_shape.Text = "(MODE SHPAES)";
-            this.lbl_mode_shape.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.lbl_mode_shape.Visible = false;
-            // 
-            // lblLoadCase
-            // 
-            this.lblLoadCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblLoadCase.AutoSize = true;
-            this.lblLoadCase.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoadCase.Location = new System.Drawing.Point(546, 30);
-            this.lblLoadCase.Name = "lblLoadCase";
-            this.lblLoadCase.Size = new System.Drawing.Size(73, 13);
-            this.lblLoadCase.TabIndex = 23;
-            this.lblLoadCase.Text = "Load Case";
-            // 
-            // grb_Auto
-            // 
-            this.grb_Auto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grb_Auto.Controls.Add(this.label21);
-            this.grb_Auto.Controls.Add(this.cmbInterval);
-            this.grb_Auto.Controls.Add(this.btnStop);
-            this.grb_Auto.Controls.Add(this.btnPause);
-            this.grb_Auto.Controls.Add(this.btnAutoNext);
-            this.grb_Auto.Controls.Add(this.btnAutoPrev);
-            this.grb_Auto.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_Auto.Location = new System.Drawing.Point(189, 3);
-            this.grb_Auto.Name = "grb_Auto";
-            this.grb_Auto.Size = new System.Drawing.Size(351, 49);
-            this.grb_Auto.TabIndex = 23;
-            this.grb_Auto.TabStop = false;
-            this.grb_Auto.Text = "Auto";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(155, 9);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(55, 14);
-            this.label21.TabIndex = 22;
-            this.label21.Text = "Interval";
-            // 
-            // cmbInterval
-            // 
-            this.cmbInterval.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbInterval.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbInterval.FormattingEnabled = true;
-            this.cmbInterval.Items.AddRange(new object[] {
-            "0.1 Sec",
-            "0.2 Sec",
-            "0.3 Sec",
-            "0.4 Sec",
-            "0.5 Sec",
-            "0.6 Sec",
-            "0.7 Sec",
-            "0.8 Sec",
-            "0.9 Sec",
-            "1 Sec",
-            "2 Sec",
-            "3 Sec",
-            "4 Sec",
-            "5 Sec",
-            "6 Sec",
-            "7 Sec",
-            "8 Sec",
-            "9 Sec",
-            "10 Sec",
-            "15 Sec",
-            "20 Sec",
-            "25 Sec",
-            "30 Sec"});
-            this.cmbInterval.Location = new System.Drawing.Point(143, 23);
-            this.cmbInterval.Name = "cmbInterval";
-            this.cmbInterval.Size = new System.Drawing.Size(73, 21);
-            this.cmbInterval.TabIndex = 24;
-            // 
-            // btnStop
-            // 
-            this.btnStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnStop.Location = new System.Drawing.Point(301, 24);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(45, 22);
-            this.btnStop.TabIndex = 20;
-            this.btnStop.Text = "Stop";
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnPause
-            // 
-            this.btnPause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPause.Location = new System.Drawing.Point(6, 24);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(45, 22);
-            this.btnPause.TabIndex = 15;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
-            // btnAutoNext
-            // 
-            this.btnAutoNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAutoNext.Location = new System.Drawing.Point(222, 24);
-            this.btnAutoNext.Name = "btnAutoNext";
-            this.btnAutoNext.Size = new System.Drawing.Size(77, 22);
-            this.btnAutoNext.TabIndex = 22;
-            this.btnAutoNext.Text = "Run Forward";
-            this.btnAutoNext.UseVisualStyleBackColor = true;
-            this.btnAutoNext.Click += new System.EventHandler(this.btnNextAuto_Click);
-            // 
-            // btnAutoPrev
-            // 
-            this.btnAutoPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAutoPrev.Location = new System.Drawing.Point(52, 24);
-            this.btnAutoPrev.Name = "btnAutoPrev";
-            this.btnAutoPrev.Size = new System.Drawing.Size(89, 22);
-            this.btnAutoPrev.TabIndex = 21;
-            this.btnAutoPrev.Text = "Run Backward";
-            this.btnAutoPrev.UseVisualStyleBackColor = true;
-            this.btnAutoPrev.Click += new System.EventHandler(this.btnAutoPrev_Click);
-            // 
-            // txtDefFactor
-            // 
-            this.txtDefFactor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDefFactor.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDefFactor.Location = new System.Drawing.Point(628, 3);
-            this.txtDefFactor.Name = "txtDefFactor";
-            this.txtDefFactor.Size = new System.Drawing.Size(50, 21);
-            this.txtDefFactor.TabIndex = 32;
-            this.txtDefFactor.Text = "300";
-            this.txtDefFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // grb_manual
-            // 
-            this.grb_manual.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grb_manual.Controls.Add(this.btnFirst);
-            this.grb_manual.Controls.Add(this.btnPrev);
-            this.grb_manual.Controls.Add(this.btnNext);
-            this.grb_manual.Controls.Add(this.btnLast);
-            this.grb_manual.Location = new System.Drawing.Point(24, 3);
-            this.grb_manual.Name = "grb_manual";
-            this.grb_manual.Size = new System.Drawing.Size(159, 49);
-            this.grb_manual.TabIndex = 22;
-            this.grb_manual.TabStop = false;
-            this.grb_manual.Text = "Manual";
-            // 
-            // btnFirst
-            // 
-            this.btnFirst.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnFirst.BackgroundImage")));
-            this.btnFirst.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnFirst.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnFirst.Location = new System.Drawing.Point(6, 15);
-            this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(30, 28);
-            this.btnFirst.TabIndex = 27;
-            this.btnFirst.UseVisualStyleBackColor = true;
-            this.btnFirst.Click += new System.EventHandler(this.btnFirst_Click);
-            // 
-            // btnPrev
-            // 
-            this.btnPrev.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPrev.BackgroundImage")));
-            this.btnPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnPrev.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPrev.Location = new System.Drawing.Point(42, 15);
-            this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(30, 28);
-            this.btnPrev.TabIndex = 30;
-            this.btnPrev.UseVisualStyleBackColor = true;
-            this.btnPrev.Click += new System.EventHandler(this.btnPrev_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnNext.BackgroundImage")));
-            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnNext.Location = new System.Drawing.Point(78, 15);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(30, 28);
-            this.btnNext.TabIndex = 29;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnLast
-            // 
-            this.btnLast.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLast.BackgroundImage")));
-            this.btnLast.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnLast.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLast.Location = new System.Drawing.Point(118, 15);
-            this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(30, 28);
-            this.btnLast.TabIndex = 28;
-            this.btnLast.UseVisualStyleBackColor = true;
-            this.btnLast.Click += new System.EventHandler(this.btnLast_Click);
-            // 
-            // lblFactor
-            // 
-            this.lblFactor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblFactor.AutoSize = true;
-            this.lblFactor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFactor.Location = new System.Drawing.Point(546, 6);
-            this.lblFactor.Name = "lblFactor";
-            this.lblFactor.Size = new System.Drawing.Size(43, 13);
-            this.lblFactor.TabIndex = 31;
-            this.lblFactor.Text = "Factor";
-            // 
-            // cmbLoadCase
-            // 
-            this.cmbLoadCase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbLoadCase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLoadCase.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbLoadCase.FormattingEnabled = true;
-            this.cmbLoadCase.Location = new System.Drawing.Point(629, 26);
-            this.cmbLoadCase.Name = "cmbLoadCase";
-            this.cmbLoadCase.Size = new System.Drawing.Size(50, 22);
-            this.cmbLoadCase.TabIndex = 8;
-            this.cmbLoadCase.SelectedIndexChanged += new System.EventHandler(this.cmbLoadCase_SelectedIndexChanged);
-            // 
-            // tab_max_force
-            // 
-            this.tab_max_force.Controls.Add(this.label22);
-            this.tab_max_force.Location = new System.Drawing.Point(4, 22);
-            this.tab_max_force.Name = "tab_max_force";
-            this.tab_max_force.Size = new System.Drawing.Size(920, 54);
-            this.tab_max_force.TabIndex = 6;
-            this.tab_max_force.Text = "Max Force";
-            this.tab_max_force.UseVisualStyleBackColor = true;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Verdana", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(271, 19);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(293, 13);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Click on the Member to get forces in the List.";
-            // 
-            // tab_moving_load
-            // 
-            this.tab_moving_load.Controls.Add(this.grb_moving_controls);
-            this.tab_moving_load.Location = new System.Drawing.Point(4, 22);
-            this.tab_moving_load.Name = "tab_moving_load";
-            this.tab_moving_load.Size = new System.Drawing.Size(920, 54);
-            this.tab_moving_load.TabIndex = 7;
-            this.tab_moving_load.Text = "Moving Load";
-            this.tab_moving_load.UseVisualStyleBackColor = true;
-            // 
-            // grb_moving_controls
-            // 
-            this.grb_moving_controls.Controls.Add(this.groupBox11);
-            this.grb_moving_controls.Controls.Add(this.groupBox12);
-            this.grb_moving_controls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.grb_moving_controls.Location = new System.Drawing.Point(0, 0);
-            this.grb_moving_controls.Name = "grb_moving_controls";
-            this.grb_moving_controls.Size = new System.Drawing.Size(920, 59);
-            this.grb_moving_controls.TabIndex = 31;
-            this.grb_moving_controls.TabStop = false;
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox11.Controls.Add(this.lbl_distance);
-            this.groupBox11.Controls.Add(this.txt_dist);
-            this.groupBox11.Controls.Add(this.cmb_mov_loadcase);
-            this.groupBox11.Location = new System.Drawing.Point(362, 4);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(192, 44);
-            this.groupBox11.TabIndex = 6;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Tag = "";
-            this.groupBox11.Text = "Load Case";
-            // 
-            // lbl_distance
-            // 
-            this.lbl_distance.AutoSize = true;
-            this.lbl_distance.Location = new System.Drawing.Point(161, 19);
-            this.lbl_distance.Name = "lbl_distance";
-            this.lbl_distance.Size = new System.Drawing.Size(18, 13);
-            this.lbl_distance.TabIndex = 9;
-            this.lbl_distance.Text = "m";
-            // 
-            // txt_dist
-            // 
-            this.txt_dist.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_dist.Location = new System.Drawing.Point(99, 16);
-            this.txt_dist.Name = "txt_dist";
-            this.txt_dist.Size = new System.Drawing.Size(56, 21);
-            this.txt_dist.TabIndex = 27;
-            this.txt_dist.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cmb_mov_loadcase
-            // 
-            this.cmb_mov_loadcase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmb_mov_loadcase.Enabled = false;
-            this.cmb_mov_loadcase.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_mov_loadcase.FormattingEnabled = true;
-            this.cmb_mov_loadcase.Location = new System.Drawing.Point(15, 15);
-            this.cmb_mov_loadcase.Name = "cmb_mov_loadcase";
-            this.cmb_mov_loadcase.Size = new System.Drawing.Size(78, 22);
-            this.cmb_mov_loadcase.TabIndex = 8;
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox12.Controls.Add(this.cmb_mov_time);
-            this.groupBox12.Controls.Add(this.label23);
-            this.groupBox12.Controls.Add(this.btn_mov_stop);
-            this.groupBox12.Controls.Add(this.btn_mov_run);
-            this.groupBox12.Controls.Add(this.btn_mov_pause);
-            this.groupBox12.Location = new System.Drawing.Point(559, 7);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(355, 41);
-            this.groupBox12.TabIndex = 21;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Run Moving Load";
-            // 
-            // cmb_mov_time
-            // 
-            this.cmb_mov_time.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_mov_time.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_mov_time.FormattingEnabled = true;
-            this.cmb_mov_time.Items.AddRange(new object[] {
-            "0.1 s",
-            "0.2 s",
-            "0.3 s",
-            "0.4 s",
-            "0.5 s",
-            "0.6 s",
-            "0.7 s",
-            "0.8 s",
-            "0.9 s",
-            "1 s",
-            "2 s",
-            "3 s",
-            "4 s",
-            "5 s",
-            "6 Sec",
-            "7 Sec",
-            "8 Sec",
-            "9 Sec",
-            "10 Sec",
-            "15 Sec",
-            "20 Sec",
-            "25 Sec",
-            "30 Sec"});
-            this.cmb_mov_time.Location = new System.Drawing.Point(109, 13);
-            this.cmb_mov_time.Name = "cmb_mov_time";
-            this.cmb_mov_time.Size = new System.Drawing.Size(65, 21);
-            this.cmb_mov_time.TabIndex = 24;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(19, 18);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(84, 13);
-            this.label23.TabIndex = 22;
-            this.label23.Text = "Time Interval";
-            // 
-            // btn_mov_stop
-            // 
-            this.btn_mov_stop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_mov_stop.Location = new System.Drawing.Point(292, 11);
-            this.btn_mov_stop.Name = "btn_mov_stop";
-            this.btn_mov_stop.Size = new System.Drawing.Size(50, 23);
-            this.btn_mov_stop.TabIndex = 20;
-            this.btn_mov_stop.Text = "Stop";
-            this.btn_mov_stop.UseVisualStyleBackColor = true;
-            this.btn_mov_stop.Click += new System.EventHandler(this.btn_mov_stop_Click);
-            // 
-            // btn_mov_run
-            // 
-            this.btn_mov_run.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_mov_run.Location = new System.Drawing.Point(180, 11);
-            this.btn_mov_run.Name = "btn_mov_run";
-            this.btn_mov_run.Size = new System.Drawing.Size(50, 23);
-            this.btn_mov_run.TabIndex = 22;
-            this.btn_mov_run.Text = "Run";
-            this.btn_mov_run.UseVisualStyleBackColor = true;
-            this.btn_mov_run.Click += new System.EventHandler(this.btn_mov_run_Click);
-            // 
-            // btn_mov_pause
-            // 
-            this.btn_mov_pause.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_mov_pause.Location = new System.Drawing.Point(236, 11);
-            this.btn_mov_pause.Name = "btn_mov_pause";
-            this.btn_mov_pause.Size = new System.Drawing.Size(50, 23);
-            this.btn_mov_pause.TabIndex = 15;
-            this.btn_mov_pause.Text = "Pause";
-            this.btn_mov_pause.UseVisualStyleBackColor = true;
-            this.btn_mov_pause.Click += new System.EventHandler(this.btn_mov_pause_Click);
-            // 
-            // tab_envelop
-            // 
-            this.tab_envelop.Controls.Add(this.label41);
-            this.tab_envelop.Location = new System.Drawing.Point(4, 22);
-            this.tab_envelop.Name = "tab_envelop";
-            this.tab_envelop.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_envelop.Size = new System.Drawing.Size(920, 54);
-            this.tab_envelop.TabIndex = 8;
-            this.tab_envelop.Text = "Truss Envelope";
-            this.tab_envelop.UseVisualStyleBackColor = true;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(268, 20);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(371, 14);
-            this.label41.TabIndex = 4;
-            this.label41.Text = "Envelopes are available for Truss Member Forces Only.\r\n";
-            // 
-            // tab_diagram
-            // 
-            this.tab_diagram.Controls.Add(this.label40);
-            this.tab_diagram.Location = new System.Drawing.Point(4, 22);
-            this.tab_diagram.Name = "tab_diagram";
-            this.tab_diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_diagram.Size = new System.Drawing.Size(920, 54);
-            this.tab_diagram.TabIndex = 9;
-            this.tab_diagram.Text = "Forces Diagrams";
-            this.tab_diagram.UseVisualStyleBackColor = true;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(268, 20);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(368, 14);
-            this.label40.TabIndex = 3;
-            this.label40.Text = "Diagrams are available for Beam Member Forces Only.\r\n";
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.tc1_pp);
-            this.splitContainer3.Panel1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.tc_docs);
-            this.splitContainer3.Panel2.Controls.Add(this.panel27);
-            this.splitContainer3.Panel2.Controls.Add(this.pnl_progress);
-            this.splitContainer3.Panel2.Controls.Add(this.toolStrip3);
-            this.splitContainer3.Size = new System.Drawing.Size(930, 524);
-            this.splitContainer3.SplitterDistance = 255;
-            this.splitContainer3.TabIndex = 2;
-            // 
-            // tc1_pp
-            // 
-            this.tc1_pp.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.tc1_pp.Controls.Add(this.tab1_forces);
-            this.tc1_pp.Controls.Add(this.tab1_load_deflection);
-            this.tc1_pp.Controls.Add(this.tab1_max_force);
-            this.tc1_pp.Controls.Add(this.tab1_moving_load);
-            this.tc1_pp.Controls.Add(this.tab1_truss_env);
-            this.tc1_pp.Controls.Add(this.tab1_diag);
-            this.tc1_pp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc1_pp.Location = new System.Drawing.Point(0, 0);
-            this.tc1_pp.Multiline = true;
-            this.tc1_pp.Name = "tc1_pp";
-            this.tc1_pp.SelectedIndex = 0;
-            this.tc1_pp.Size = new System.Drawing.Size(253, 522);
-            this.tc1_pp.TabIndex = 0;
-            // 
-            // tab1_forces
-            // 
-            this.tab1_forces.Controls.Add(this.tc_forces);
-            this.tab1_forces.Location = new System.Drawing.Point(24, 4);
-            this.tab1_forces.Name = "tab1_forces";
-            this.tab1_forces.Size = new System.Drawing.Size(225, 514);
-            this.tab1_forces.TabIndex = 2;
-            this.tab1_forces.Text = "Analysis Forces";
-            this.tab1_forces.UseVisualStyleBackColor = true;
-            // 
-            // tc_forces
-            // 
-            this.tc_forces.Controls.Add(this.tab_3_joint_frc);
-            this.tc_forces.Controls.Add(this.tab_3_mem_frc);
-            this.tc_forces.Controls.Add(this.tab_3_truss_frc);
-            this.tc_forces.Controls.Add(this.tabPage1);
-            this.tc_forces.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_forces.Location = new System.Drawing.Point(0, 0);
-            this.tc_forces.Multiline = true;
-            this.tc_forces.Name = "tc_forces";
-            this.tc_forces.SelectedIndex = 0;
-            this.tc_forces.Size = new System.Drawing.Size(225, 514);
-            this.tc_forces.TabIndex = 0;
-            // 
-            // tab_3_joint_frc
-            // 
-            this.tab_3_joint_frc.Controls.Add(this.dgv_joint_frcs);
-            this.tab_3_joint_frc.Location = new System.Drawing.Point(4, 58);
-            this.tab_3_joint_frc.Name = "tab_3_joint_frc";
-            this.tab_3_joint_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_3_joint_frc.Size = new System.Drawing.Size(217, 452);
-            this.tab_3_joint_frc.TabIndex = 0;
-            this.tab_3_joint_frc.Text = "Joint Forces";
-            this.tab_3_joint_frc.UseVisualStyleBackColor = true;
-            // 
-            // dgv_joint_frcs
-            // 
-            this.dgv_joint_frcs.AllowUserToAddRows = false;
-            this.dgv_joint_frcs.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_joint_frcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.dgv_joint_frcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_joint_frcs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn25,
-            this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27,
-            this.dataGridViewTextBoxColumn28,
-            this.dataGridViewTextBoxColumn29,
-            this.dataGridViewTextBoxColumn30,
-            this.dataGridViewTextBoxColumn31});
-            this.dgv_joint_frcs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_joint_frcs.Location = new System.Drawing.Point(3, 3);
-            this.dgv_joint_frcs.Name = "dgv_joint_frcs";
-            this.dgv_joint_frcs.RowHeadersWidth = 21;
-            this.dgv_joint_frcs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_joint_frcs.Size = new System.Drawing.Size(211, 446);
-            this.dgv_joint_frcs.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn24.DefaultCellStyle = dataGridViewCellStyle22;
-            this.dataGridViewTextBoxColumn24.Frozen = true;
-            this.dataGridViewTextBoxColumn24.HeaderText = "Joint#";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn24.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGridViewTextBoxColumn25.DefaultCellStyle = dataGridViewCellStyle23;
-            this.dataGridViewTextBoxColumn25.Frozen = true;
-            this.dataGridViewTextBoxColumn25.HeaderText = "Load No";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            this.dataGridViewTextBoxColumn25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn25.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn26.DefaultCellStyle = dataGridViewCellStyle24;
-            this.dataGridViewTextBoxColumn26.HeaderText = "FX";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn26.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn27.DefaultCellStyle = dataGridViewCellStyle25;
-            this.dataGridViewTextBoxColumn27.HeaderText = "FY";
-            this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            this.dataGridViewTextBoxColumn27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn27.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn28.DefaultCellStyle = dataGridViewCellStyle26;
-            this.dataGridViewTextBoxColumn28.HeaderText = "FZ";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn28.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn29
-            // 
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn29.DefaultCellStyle = dataGridViewCellStyle27;
-            this.dataGridViewTextBoxColumn29.HeaderText = "MX";
-            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
-            this.dataGridViewTextBoxColumn29.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn29.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn30.DefaultCellStyle = dataGridViewCellStyle28;
-            this.dataGridViewTextBoxColumn30.HeaderText = "MY";
-            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            this.dataGridViewTextBoxColumn30.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn30.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle29;
-            this.dataGridViewTextBoxColumn31.HeaderText = "MZ";
-            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn31.Width = 70;
-            // 
-            // tab_3_mem_frc
-            // 
-            this.tab_3_mem_frc.Controls.Add(this.dgv_beam_frcs);
-            this.tab_3_mem_frc.Location = new System.Drawing.Point(4, 58);
-            this.tab_3_mem_frc.Name = "tab_3_mem_frc";
-            this.tab_3_mem_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_3_mem_frc.Size = new System.Drawing.Size(217, 452);
-            this.tab_3_mem_frc.TabIndex = 1;
-            this.tab_3_mem_frc.Text = "Beam Forces";
-            this.tab_3_mem_frc.UseVisualStyleBackColor = true;
-            // 
-            // dgv_beam_frcs
-            // 
-            this.dgv_beam_frcs.AllowUserToAddRows = false;
-            this.dgv_beam_frcs.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_beam_frcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
-            this.dgv_beam_frcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_beam_frcs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn32,
-            this.dataGridViewTextBoxColumn33,
-            this.dataGridViewTextBoxColumn34,
-            this.dataGridViewTextBoxColumn35,
-            this.dataGridViewTextBoxColumn36,
-            this.dataGridViewTextBoxColumn37,
-            this.dataGridViewTextBoxColumn38,
-            this.dataGridViewTextBoxColumn39,
-            this.Column13});
-            this.dgv_beam_frcs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_beam_frcs.Location = new System.Drawing.Point(3, 3);
-            this.dgv_beam_frcs.Name = "dgv_beam_frcs";
-            this.dgv_beam_frcs.RowHeadersWidth = 21;
-            this.dgv_beam_frcs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_beam_frcs.Size = new System.Drawing.Size(211, 446);
-            this.dgv_beam_frcs.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn32.DefaultCellStyle = dataGridViewCellStyle31;
-            this.dataGridViewTextBoxColumn32.Frozen = true;
-            this.dataGridViewTextBoxColumn32.HeaderText = "Beam#";
-            this.dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            this.dataGridViewTextBoxColumn32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn32.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGridViewTextBoxColumn33.DefaultCellStyle = dataGridViewCellStyle32;
-            this.dataGridViewTextBoxColumn33.Frozen = true;
-            this.dataGridViewTextBoxColumn33.HeaderText = "Load No";
-            this.dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            this.dataGridViewTextBoxColumn33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn33.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle33;
-            this.dataGridViewTextBoxColumn34.HeaderText = "Node No";
-            this.dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            this.dataGridViewTextBoxColumn34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn34.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn35.DefaultCellStyle = dataGridViewCellStyle34;
-            this.dataGridViewTextBoxColumn35.HeaderText = "FX / AXIAL";
-            this.dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            this.dataGridViewTextBoxColumn35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn35.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn36
-            // 
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle35;
-            this.dataGridViewTextBoxColumn36.HeaderText = "FY / SHEAR";
-            this.dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            this.dataGridViewTextBoxColumn36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn36.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn37
-            // 
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle36;
-            this.dataGridViewTextBoxColumn37.HeaderText = "FZ / SHEAR";
-            this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
-            this.dataGridViewTextBoxColumn37.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn37.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn38
-            // 
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn38.DefaultCellStyle = dataGridViewCellStyle37;
-            this.dataGridViewTextBoxColumn38.HeaderText = "MX / TORSION";
-            this.dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
-            this.dataGridViewTextBoxColumn38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn38.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn39
-            // 
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn39.DefaultCellStyle = dataGridViewCellStyle38;
-            this.dataGridViewTextBoxColumn39.HeaderText = "MY / MOMENT";
-            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
-            this.dataGridViewTextBoxColumn39.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn39.Width = 70;
-            // 
-            // Column13
-            // 
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column13.DefaultCellStyle = dataGridViewCellStyle39;
-            this.Column13.HeaderText = "MZ / MOMENT";
-            this.Column13.Name = "Column13";
-            this.Column13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column13.Width = 70;
-            // 
-            // tab_3_truss_frc
-            // 
-            this.tab_3_truss_frc.Controls.Add(this.dgv_truss_frcs);
-            this.tab_3_truss_frc.Location = new System.Drawing.Point(4, 58);
-            this.tab_3_truss_frc.Name = "tab_3_truss_frc";
-            this.tab_3_truss_frc.Size = new System.Drawing.Size(217, 452);
-            this.tab_3_truss_frc.TabIndex = 2;
-            this.tab_3_truss_frc.Text = "Truss / Cable Forces";
-            this.tab_3_truss_frc.UseVisualStyleBackColor = true;
-            // 
-            // dgv_truss_frcs
-            // 
-            this.dgv_truss_frcs.AllowUserToAddRows = false;
-            this.dgv_truss_frcs.AllowUserToDeleteRows = false;
-            this.dgv_truss_frcs.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_truss_frcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
-            this.dgv_truss_frcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_truss_frcs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dgv_truss_frcs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_truss_frcs.Location = new System.Drawing.Point(0, 0);
-            this.dgv_truss_frcs.Name = "dgv_truss_frcs";
-            this.dgv_truss_frcs.RowHeadersWidth = 21;
-            this.dgv_truss_frcs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_truss_frcs.Size = new System.Drawing.Size(217, 452);
-            this.dgv_truss_frcs.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle41;
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "Member#";
-            this.Column1.Name = "Column1";
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column1.Width = 70;
-            // 
-            // Column2
-            // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle42;
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "Load Case";
-            this.Column2.Name = "Column2";
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column2.Width = 50;
-            // 
-            // Column3
-            // 
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle43;
-            this.Column3.HeaderText = "Stress";
-            this.Column3.Name = "Column3";
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column3.Width = 99;
-            // 
-            // Column4
-            // 
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle44;
-            this.Column4.HeaderText = "Force";
-            this.Column4.Name = "Column4";
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column4.Width = 99;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dgv_plate_frcs);
-            this.tabPage1.Location = new System.Drawing.Point(4, 58);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(217, 452);
-            this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Element Forces";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dgv_plate_frcs
-            // 
-            this.dgv_plate_frcs.AllowUserToAddRows = false;
-            this.dgv_plate_frcs.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_plate_frcs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
-            this.dgv_plate_frcs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_plate_frcs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn60,
-            this.dataGridViewTextBoxColumn61,
-            this.dataGridViewTextBoxColumn62,
-            this.dataGridViewTextBoxColumn63,
-            this.dataGridViewTextBoxColumn64,
-            this.dataGridViewTextBoxColumn65,
-            this.dataGridViewTextBoxColumn66,
-            this.dataGridViewTextBoxColumn67});
-            this.dgv_plate_frcs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_plate_frcs.Location = new System.Drawing.Point(3, 3);
-            this.dgv_plate_frcs.Name = "dgv_plate_frcs";
-            this.dgv_plate_frcs.RowHeadersWidth = 21;
-            this.dgv_plate_frcs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_plate_frcs.Size = new System.Drawing.Size(211, 446);
-            this.dgv_plate_frcs.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn60
-            // 
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn60.DefaultCellStyle = dataGridViewCellStyle46;
-            this.dataGridViewTextBoxColumn60.Frozen = true;
-            this.dataGridViewTextBoxColumn60.HeaderText = "Plate#";
-            this.dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
-            this.dataGridViewTextBoxColumn60.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn60.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn61
-            // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGridViewTextBoxColumn61.DefaultCellStyle = dataGridViewCellStyle47;
-            this.dataGridViewTextBoxColumn61.Frozen = true;
-            this.dataGridViewTextBoxColumn61.HeaderText = "Load No";
-            this.dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
-            this.dataGridViewTextBoxColumn61.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn61.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn62
-            // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn62.DefaultCellStyle = dataGridViewCellStyle48;
-            this.dataGridViewTextBoxColumn62.HeaderText = "SXX";
-            this.dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
-            this.dataGridViewTextBoxColumn62.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn62.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn63
-            // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn63.DefaultCellStyle = dataGridViewCellStyle49;
-            this.dataGridViewTextBoxColumn63.HeaderText = "SYY";
-            this.dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
-            this.dataGridViewTextBoxColumn63.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn63.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn64
-            // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn64.DefaultCellStyle = dataGridViewCellStyle50;
-            this.dataGridViewTextBoxColumn64.HeaderText = "SXY";
-            this.dataGridViewTextBoxColumn64.Name = "dataGridViewTextBoxColumn64";
-            this.dataGridViewTextBoxColumn64.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn64.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn65
-            // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn65.DefaultCellStyle = dataGridViewCellStyle51;
-            this.dataGridViewTextBoxColumn65.HeaderText = "MXX";
-            this.dataGridViewTextBoxColumn65.Name = "dataGridViewTextBoxColumn65";
-            this.dataGridViewTextBoxColumn65.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn65.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn66
-            // 
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn66.DefaultCellStyle = dataGridViewCellStyle52;
-            this.dataGridViewTextBoxColumn66.HeaderText = "MYY";
-            this.dataGridViewTextBoxColumn66.Name = "dataGridViewTextBoxColumn66";
-            this.dataGridViewTextBoxColumn66.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn66.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn67
-            // 
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle53;
-            this.dataGridViewTextBoxColumn67.HeaderText = "MXY";
-            this.dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
-            this.dataGridViewTextBoxColumn67.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn67.Width = 70;
-            // 
-            // tab1_load_deflection
-            // 
-            this.tab1_load_deflection.Controls.Add(this.dgv_node_disp);
-            this.tab1_load_deflection.Controls.Add(this.panel26);
-            this.tab1_load_deflection.Location = new System.Drawing.Point(24, 4);
-            this.tab1_load_deflection.Name = "tab1_load_deflection";
-            this.tab1_load_deflection.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_load_deflection.Size = new System.Drawing.Size(225, 514);
-            this.tab1_load_deflection.TabIndex = 3;
-            this.tab1_load_deflection.Text = "Deflection";
-            this.tab1_load_deflection.UseVisualStyleBackColor = true;
-            // 
-            // dgv_node_disp
-            // 
-            this.dgv_node_disp.AllowUserToAddRows = false;
-            this.dgv_node_disp.AllowUserToDeleteRows = false;
-            this.dgv_node_disp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_node_disp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10,
-            this.Column11,
-            this.Column12});
-            this.dgv_node_disp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_node_disp.Location = new System.Drawing.Point(3, 3);
-            this.dgv_node_disp.Name = "dgv_node_disp";
-            this.dgv_node_disp.ReadOnly = true;
-            this.dgv_node_disp.RowHeadersWidth = 21;
-            this.dgv_node_disp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_node_disp.Size = new System.Drawing.Size(219, 442);
-            this.dgv_node_disp.TabIndex = 0;
-            // 
-            // Column5
-            // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle54;
-            this.Column5.Frozen = true;
-            this.Column5.HeaderText = "Node#";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column5.Width = 50;
-            // 
-            // Column6
-            // 
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle55;
-            this.Column6.Frozen = true;
-            this.Column6.HeaderText = "Load Case";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column6.Width = 50;
-            // 
-            // Column7
-            // 
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle56;
-            this.Column7.HeaderText = "X-Translation";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column7.Width = 90;
-            // 
-            // Column8
-            // 
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle57;
-            this.Column8.HeaderText = "Y-Translation";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column8.Width = 90;
-            // 
-            // Column9
-            // 
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle58;
-            this.Column9.HeaderText = "Z-Translation";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column9.Width = 90;
-            // 
-            // Column10
-            // 
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column10.DefaultCellStyle = dataGridViewCellStyle59;
-            this.Column10.HeaderText = "X-Rotation";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            this.Column10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column10.Width = 90;
-            // 
-            // Column11
-            // 
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column11.DefaultCellStyle = dataGridViewCellStyle60;
-            this.Column11.HeaderText = "Y-Rotation";
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column11.Width = 90;
-            // 
-            // Column12
-            // 
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.Column12.DefaultCellStyle = dataGridViewCellStyle61;
-            this.Column12.HeaderText = "Z-Rotation";
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column12.Width = 90;
-            // 
-            // panel26
-            // 
-            this.panel26.Controls.Add(this.txt_max_deflection_load);
-            this.panel26.Controls.Add(this.label24);
-            this.panel26.Controls.Add(this.txt_max_deflection_node);
-            this.panel26.Controls.Add(this.label25);
-            this.panel26.Controls.Add(this.txt_max_deflection);
-            this.panel26.Controls.Add(this.label26);
-            this.panel26.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel26.Location = new System.Drawing.Point(3, 445);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(219, 66);
-            this.panel26.TabIndex = 5;
-            // 
-            // txt_max_deflection_load
-            // 
-            this.txt_max_deflection_load.Location = new System.Drawing.Point(242, 35);
-            this.txt_max_deflection_load.Name = "txt_max_deflection_load";
-            this.txt_max_deflection_load.ReadOnly = true;
-            this.txt_max_deflection_load.Size = new System.Drawing.Size(55, 21);
-            this.txt_max_deflection_load.TabIndex = 4;
-            this.txt_max_deflection_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(242, 19);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 13);
-            this.label24.TabIndex = 3;
-            this.label24.Text = "Load No";
-            // 
-            // txt_max_deflection_node
-            // 
-            this.txt_max_deflection_node.Location = new System.Drawing.Point(151, 35);
-            this.txt_max_deflection_node.Name = "txt_max_deflection_node";
-            this.txt_max_deflection_node.ReadOnly = true;
-            this.txt_max_deflection_node.Size = new System.Drawing.Size(55, 21);
-            this.txt_max_deflection_node.TabIndex = 4;
-            this.txt_max_deflection_node.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(151, 19);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(55, 13);
-            this.label25.TabIndex = 3;
-            this.label25.Text = "Node No";
-            // 
-            // txt_max_deflection
-            // 
-            this.txt_max_deflection.Location = new System.Drawing.Point(12, 35);
-            this.txt_max_deflection.Name = "txt_max_deflection";
-            this.txt_max_deflection.ReadOnly = true;
-            this.txt_max_deflection.Size = new System.Drawing.Size(108, 21);
-            this.txt_max_deflection.TabIndex = 2;
-            this.txt_max_deflection.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(9, 3);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(108, 26);
-            this.label26.TabIndex = 1;
-            this.label26.Text = "Maximum Vertical\r\n Deflection";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tab1_max_force
-            // 
-            this.tab1_max_force.Controls.Add(this.dgv_max_frc);
-            this.tab1_max_force.Location = new System.Drawing.Point(24, 4);
-            this.tab1_max_force.Name = "tab1_max_force";
-            this.tab1_max_force.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_max_force.Size = new System.Drawing.Size(225, 514);
-            this.tab1_max_force.TabIndex = 4;
-            this.tab1_max_force.Text = "Max Force";
-            this.tab1_max_force.UseVisualStyleBackColor = true;
-            // 
-            // dgv_max_frc
-            // 
-            this.dgv_max_frc.AllowUserToAddRows = false;
-            this.dgv_max_frc.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle62.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_max_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
-            this.dgv_max_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_max_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn40,
-            this.dataGridViewTextBoxColumn41,
-            this.col_cmf,
-            this.col_tf,
-            this.col_af,
-            this.col_tor,
-            this.col_bm,
-            this.col_sf});
-            this.dgv_max_frc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_max_frc.Location = new System.Drawing.Point(3, 3);
-            this.dgv_max_frc.Name = "dgv_max_frc";
-            this.dgv_max_frc.RowHeadersWidth = 21;
-            this.dgv_max_frc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_max_frc.Size = new System.Drawing.Size(219, 508);
-            this.dgv_max_frc.TabIndex = 1;
-            this.dgv_max_frc.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_max_frc_SelectionChanged);
-            // 
-            // dataGridViewTextBoxColumn40
-            // 
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridViewTextBoxColumn40.DefaultCellStyle = dataGridViewCellStyle63;
-            this.dataGridViewTextBoxColumn40.Frozen = true;
-            this.dataGridViewTextBoxColumn40.HeaderText = "Member#";
-            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
-            this.dataGridViewTextBoxColumn40.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn40.Width = 70;
-            // 
-            // dataGridViewTextBoxColumn41
-            // 
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle64.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.dataGridViewTextBoxColumn41.DefaultCellStyle = dataGridViewCellStyle64;
-            this.dataGridViewTextBoxColumn41.Frozen = true;
-            this.dataGridViewTextBoxColumn41.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            this.dataGridViewTextBoxColumn41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn41.Width = 50;
-            // 
-            // col_cmf
-            // 
-            dataGridViewCellStyle65.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle65.Format = "N3";
-            this.col_cmf.DefaultCellStyle = dataGridViewCellStyle65;
-            this.col_cmf.HeaderText = "Compressive Force";
-            this.col_cmf.Name = "col_cmf";
-            this.col_cmf.Width = 5;
-            // 
-            // col_tf
-            // 
-            dataGridViewCellStyle66.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle66.Format = "N3";
-            this.col_tf.DefaultCellStyle = dataGridViewCellStyle66;
-            this.col_tf.HeaderText = "Tensile Force";
-            this.col_tf.Name = "col_tf";
-            this.col_tf.Width = 5;
-            // 
-            // col_af
-            // 
-            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle67.Format = "N3";
-            dataGridViewCellStyle67.NullValue = null;
-            this.col_af.DefaultCellStyle = dataGridViewCellStyle67;
-            this.col_af.HeaderText = "Axial Force";
-            this.col_af.Name = "col_af";
-            this.col_af.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_af.Width = 99;
-            // 
-            // col_tor
-            // 
-            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle68.Format = "N3";
-            this.col_tor.DefaultCellStyle = dataGridViewCellStyle68;
-            this.col_tor.HeaderText = "Torsion";
-            this.col_tor.Name = "col_tor";
-            this.col_tor.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_tor.Width = 99;
-            // 
-            // col_bm
-            // 
-            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle69.Format = "N3";
-            this.col_bm.DefaultCellStyle = dataGridViewCellStyle69;
-            this.col_bm.HeaderText = "Bending Moment";
-            this.col_bm.Name = "col_bm";
-            this.col_bm.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_bm.Width = 99;
-            // 
-            // col_sf
-            // 
-            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle70.Format = "N3";
-            this.col_sf.DefaultCellStyle = dataGridViewCellStyle70;
-            this.col_sf.HeaderText = "Shear Force";
-            this.col_sf.Name = "col_sf";
-            this.col_sf.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.col_sf.Width = 99;
-            // 
-            // tab1_moving_load
-            // 
-            this.tab1_moving_load.Controls.Add(this.splitContainer4);
-            this.tab1_moving_load.Location = new System.Drawing.Point(24, 4);
-            this.tab1_moving_load.Name = "tab1_moving_load";
-            this.tab1_moving_load.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_moving_load.Size = new System.Drawing.Size(225, 514);
-            this.tab1_moving_load.TabIndex = 5;
-            this.tab1_moving_load.Text = "Moving Load";
-            this.tab1_moving_load.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer4.Name = "splitContainer4";
-            this.splitContainer4.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.groupBox17);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.groupBox18);
-            this.splitContainer4.Size = new System.Drawing.Size(219, 508);
-            this.splitContainer4.SplitterDistance = 335;
-            this.splitContainer4.TabIndex = 10;
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.tv_ml_loads);
-            this.groupBox17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox17.Location = new System.Drawing.Point(0, 0);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(217, 333);
-            this.groupBox17.TabIndex = 1;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Define Vehicle Axle Loads";
-            // 
-            // tv_ml_loads
-            // 
-            this.tv_ml_loads.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_ml_loads.Location = new System.Drawing.Point(3, 17);
-            this.tv_ml_loads.Name = "tv_ml_loads";
-            this.tv_ml_loads.Size = new System.Drawing.Size(211, 313);
-            this.tv_ml_loads.TabIndex = 0;
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.tv_ml_def);
-            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox18.ForeColor = System.Drawing.Color.Black;
-            this.groupBox18.Location = new System.Drawing.Point(0, 0);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(217, 167);
-            this.groupBox18.TabIndex = 9;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Define Load Start position";
-            // 
-            // tv_ml_def
-            // 
-            this.tv_ml_def.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tv_ml_def.Location = new System.Drawing.Point(3, 17);
-            this.tv_ml_def.Name = "tv_ml_def";
-            this.tv_ml_def.Size = new System.Drawing.Size(211, 147);
-            this.tv_ml_def.TabIndex = 1;
-            // 
-            // tab1_truss_env
-            // 
-            this.tab1_truss_env.Controls.Add(this.txt_env_mnos);
-            this.tab1_truss_env.Controls.Add(this.groupBox13);
-            this.tab1_truss_env.Controls.Add(this.btn_env_show);
-            this.tab1_truss_env.Location = new System.Drawing.Point(24, 4);
-            this.tab1_truss_env.Name = "tab1_truss_env";
-            this.tab1_truss_env.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_truss_env.Size = new System.Drawing.Size(225, 514);
-            this.tab1_truss_env.TabIndex = 6;
-            this.tab1_truss_env.Text = "Envelop";
-            this.tab1_truss_env.UseVisualStyleBackColor = true;
-            // 
-            // txt_env_mnos
-            // 
-            this.txt_env_mnos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_env_mnos.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_env_mnos.Location = new System.Drawing.Point(321, 26);
-            this.txt_env_mnos.Name = "txt_env_mnos";
-            this.txt_env_mnos.Size = new System.Drawing.Size(211, 21);
-            this.txt_env_mnos.TabIndex = 2;
-            this.txt_env_mnos.Visible = false;
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.rbtn_env_bottom);
-            this.groupBox13.Controls.Add(this.rbtn_env_top);
-            this.groupBox13.Location = new System.Drawing.Point(6, 53);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(233, 38);
-            this.groupBox13.TabIndex = 5;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Select Member";
-            // 
-            // rbtn_env_bottom
-            // 
-            this.rbtn_env_bottom.AutoSize = true;
-            this.rbtn_env_bottom.Location = new System.Drawing.Point(107, 15);
-            this.rbtn_env_bottom.Name = "rbtn_env_bottom";
-            this.rbtn_env_bottom.Size = new System.Drawing.Size(105, 17);
-            this.rbtn_env_bottom.TabIndex = 4;
-            this.rbtn_env_bottom.TabStop = true;
-            this.rbtn_env_bottom.Text = "Bottom Chord";
-            this.rbtn_env_bottom.UseVisualStyleBackColor = true;
-            // 
-            // rbtn_env_top
-            // 
-            this.rbtn_env_top.AutoSize = true;
-            this.rbtn_env_top.Checked = true;
-            this.rbtn_env_top.Location = new System.Drawing.Point(17, 15);
-            this.rbtn_env_top.Name = "rbtn_env_top";
-            this.rbtn_env_top.Size = new System.Drawing.Size(84, 17);
-            this.rbtn_env_top.TabIndex = 4;
-            this.rbtn_env_top.TabStop = true;
-            this.rbtn_env_top.Text = "Top Chord";
-            this.rbtn_env_top.UseVisualStyleBackColor = true;
-            // 
-            // btn_env_show
-            // 
-            this.btn_env_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_env_show.Location = new System.Drawing.Point(355, 97);
-            this.btn_env_show.Name = "btn_env_show";
-            this.btn_env_show.Size = new System.Drawing.Size(121, 23);
-            this.btn_env_show.TabIndex = 0;
-            this.btn_env_show.Text = "Show Envelope";
-            this.btn_env_show.UseVisualStyleBackColor = true;
-            this.btn_env_show.Click += new System.EventHandler(this.btn_env_show_Click);
-            // 
-            // tab1_diag
-            // 
-            this.tab1_diag.Controls.Add(this.label327);
-            this.tab1_diag.Controls.Add(this.label329);
-            this.tab1_diag.Controls.Add(this.cmb_diag_beam_no);
-            this.tab1_diag.Controls.Add(this.cmb_diag_flr_lvl);
-            this.tab1_diag.Controls.Add(this.btn_Draw_Forces);
-            this.tab1_diag.Controls.Add(this.groupBox16);
-            this.tab1_diag.Controls.Add(this.grb_diag_end);
-            this.tab1_diag.Controls.Add(this.grb_diag_start);
-            this.tab1_diag.Controls.Add(this.label38);
-            this.tab1_diag.Controls.Add(this.label39);
-            this.tab1_diag.Controls.Add(this.cmb_diag_mem_no);
-            this.tab1_diag.Controls.Add(this.cmb_diag_ld_no);
-            this.tab1_diag.Location = new System.Drawing.Point(24, 4);
-            this.tab1_diag.Name = "tab1_diag";
-            this.tab1_diag.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1_diag.Size = new System.Drawing.Size(225, 514);
-            this.tab1_diag.TabIndex = 7;
-            this.tab1_diag.Text = "Diagrams";
-            this.tab1_diag.UseVisualStyleBackColor = true;
-            // 
-            // label327
-            // 
-            this.label327.AutoSize = true;
-            this.label327.Location = new System.Drawing.Point(21, 128);
-            this.label327.Name = "label327";
-            this.label327.Size = new System.Drawing.Size(69, 13);
-            this.label327.TabIndex = 17;
-            this.label327.Text = "Floor Level";
-            // 
-            // label329
-            // 
-            this.label329.AutoSize = true;
-            this.label329.Location = new System.Drawing.Point(125, 128);
-            this.label329.Name = "label329";
-            this.label329.Size = new System.Drawing.Size(59, 13);
-            this.label329.TabIndex = 16;
-            this.label329.Text = "Beam No";
-            // 
-            // cmb_diag_beam_no
-            // 
-            this.cmb_diag_beam_no.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_diag_beam_no.FormattingEnabled = true;
-            this.cmb_diag_beam_no.Location = new System.Drawing.Point(119, 144);
-            this.cmb_diag_beam_no.Name = "cmb_diag_beam_no";
-            this.cmb_diag_beam_no.Size = new System.Drawing.Size(74, 21);
-            this.cmb_diag_beam_no.TabIndex = 14;
-            this.cmb_diag_beam_no.SelectedIndexChanged += new System.EventHandler(this.cmb_diag_beam_no_SelectedIndexChanged);
-            // 
-            // cmb_diag_flr_lvl
-            // 
-            this.cmb_diag_flr_lvl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_diag_flr_lvl.FormattingEnabled = true;
-            this.cmb_diag_flr_lvl.Location = new System.Drawing.Point(19, 144);
-            this.cmb_diag_flr_lvl.Name = "cmb_diag_flr_lvl";
-            this.cmb_diag_flr_lvl.Size = new System.Drawing.Size(74, 21);
-            this.cmb_diag_flr_lvl.TabIndex = 15;
-            this.cmb_diag_flr_lvl.SelectedIndexChanged += new System.EventHandler(this.cmb_diag_flr_lvl_SelectedIndexChanged);
-            // 
-            // btn_Draw_Forces
-            // 
-            this.btn_Draw_Forces.Location = new System.Drawing.Point(19, 94);
-            this.btn_Draw_Forces.Name = "btn_Draw_Forces";
-            this.btn_Draw_Forces.Size = new System.Drawing.Size(174, 31);
-            this.btn_Draw_Forces.TabIndex = 13;
-            this.btn_Draw_Forces.Text = "Draw Forces";
-            this.btn_Draw_Forces.UseVisualStyleBackColor = true;
-            this.btn_Draw_Forces.Visible = false;
-            this.btn_Draw_Forces.Click += new System.EventHandler(this.btn_Draw_Forces_Click);
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.rbtn_diag_MZ);
-            this.groupBox16.Controls.Add(this.rbtn_diag_MY);
-            this.groupBox16.Controls.Add(this.rbtn_diag_MX);
-            this.groupBox16.Controls.Add(this.rbtn_diag_FZ);
-            this.groupBox16.Controls.Add(this.rbtn_diag_FY);
-            this.groupBox16.Controls.Add(this.rbtn_diag_FX);
-            this.groupBox16.Location = new System.Drawing.Point(8, 244);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(253, 19);
-            this.groupBox16.TabIndex = 12;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Diagram Option";
-            this.groupBox16.Visible = false;
-            // 
-            // rbtn_diag_MZ
-            // 
-            this.rbtn_diag_MZ.AutoSize = true;
-            this.rbtn_diag_MZ.Location = new System.Drawing.Point(178, 42);
-            this.rbtn_diag_MZ.Name = "rbtn_diag_MZ";
-            this.rbtn_diag_MZ.Size = new System.Drawing.Size(42, 17);
-            this.rbtn_diag_MZ.TabIndex = 0;
-            this.rbtn_diag_MZ.Text = "MZ";
-            this.rbtn_diag_MZ.UseVisualStyleBackColor = true;
-            this.rbtn_diag_MZ.CheckedChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // rbtn_diag_MY
-            // 
-            this.rbtn_diag_MY.AutoSize = true;
-            this.rbtn_diag_MY.Location = new System.Drawing.Point(102, 42);
-            this.rbtn_diag_MY.Name = "rbtn_diag_MY";
-            this.rbtn_diag_MY.Size = new System.Drawing.Size(41, 17);
-            this.rbtn_diag_MY.TabIndex = 0;
-            this.rbtn_diag_MY.Text = "MY";
-            this.rbtn_diag_MY.UseVisualStyleBackColor = true;
-            this.rbtn_diag_MY.CheckedChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // rbtn_diag_MX
-            // 
-            this.rbtn_diag_MX.AutoSize = true;
-            this.rbtn_diag_MX.Location = new System.Drawing.Point(6, 43);
-            this.rbtn_diag_MX.Name = "rbtn_diag_MX";
-            this.rbtn_diag_MX.Size = new System.Drawing.Size(42, 17);
-            this.rbtn_diag_MX.TabIndex = 0;
-            this.rbtn_diag_MX.Text = "MX";
-            this.rbtn_diag_MX.UseVisualStyleBackColor = true;
-            this.rbtn_diag_MX.CheckedChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // rbtn_diag_FZ
-            // 
-            this.rbtn_diag_FZ.AutoSize = true;
-            this.rbtn_diag_FZ.Location = new System.Drawing.Point(178, 19);
-            this.rbtn_diag_FZ.Name = "rbtn_diag_FZ";
-            this.rbtn_diag_FZ.Size = new System.Drawing.Size(39, 17);
-            this.rbtn_diag_FZ.TabIndex = 0;
-            this.rbtn_diag_FZ.Text = "FZ";
-            this.rbtn_diag_FZ.UseVisualStyleBackColor = true;
-            this.rbtn_diag_FZ.CheckedChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // rbtn_diag_FY
-            // 
-            this.rbtn_diag_FY.AutoSize = true;
-            this.rbtn_diag_FY.Location = new System.Drawing.Point(102, 19);
-            this.rbtn_diag_FY.Name = "rbtn_diag_FY";
-            this.rbtn_diag_FY.Size = new System.Drawing.Size(38, 17);
-            this.rbtn_diag_FY.TabIndex = 0;
-            this.rbtn_diag_FY.Text = "FY";
-            this.rbtn_diag_FY.UseVisualStyleBackColor = true;
-            this.rbtn_diag_FY.CheckedChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // rbtn_diag_FX
-            // 
-            this.rbtn_diag_FX.AutoSize = true;
-            this.rbtn_diag_FX.Checked = true;
-            this.rbtn_diag_FX.Location = new System.Drawing.Point(6, 20);
-            this.rbtn_diag_FX.Name = "rbtn_diag_FX";
-            this.rbtn_diag_FX.Size = new System.Drawing.Size(39, 17);
-            this.rbtn_diag_FX.TabIndex = 0;
-            this.rbtn_diag_FX.TabStop = true;
-            this.rbtn_diag_FX.Text = "FX";
-            this.rbtn_diag_FX.UseVisualStyleBackColor = true;
-            this.rbtn_diag_FX.CheckedChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // grb_diag_end
-            // 
-            this.grb_diag_end.Controls.Add(this.txt_diag_end_MZ);
-            this.grb_diag_end.Controls.Add(this.txt_diag_end_FZ);
-            this.grb_diag_end.Controls.Add(this.label30);
-            this.grb_diag_end.Controls.Add(this.label31);
-            this.grb_diag_end.Controls.Add(this.txt_diag_end_MY);
-            this.grb_diag_end.Controls.Add(this.txt_diag_end_FY);
-            this.grb_diag_end.Controls.Add(this.label32);
-            this.grb_diag_end.Controls.Add(this.label33);
-            this.grb_diag_end.Controls.Add(this.txt_diag_end_MX);
-            this.grb_diag_end.Controls.Add(this.label34);
-            this.grb_diag_end.Controls.Add(this.txt_diag_end_FX);
-            this.grb_diag_end.Controls.Add(this.label35);
-            this.grb_diag_end.Location = new System.Drawing.Point(8, 288);
-            this.grb_diag_end.Name = "grb_diag_end";
-            this.grb_diag_end.Size = new System.Drawing.Size(253, 18);
-            this.grb_diag_end.TabIndex = 10;
-            this.grb_diag_end.TabStop = false;
-            this.grb_diag_end.Text = "END NODE";
-            this.grb_diag_end.Visible = false;
-            // 
-            // txt_diag_end_MZ
-            // 
-            this.txt_diag_end_MZ.Location = new System.Drawing.Point(168, 79);
-            this.txt_diag_end_MZ.Name = "txt_diag_end_MZ";
-            this.txt_diag_end_MZ.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_end_MZ.TabIndex = 3;
-            this.txt_diag_end_MZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_diag_end_FZ
-            // 
-            this.txt_diag_end_FZ.Location = new System.Drawing.Point(168, 36);
-            this.txt_diag_end_FZ.Name = "txt_diag_end_FZ";
-            this.txt_diag_end_FZ.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_end_FZ.TabIndex = 3;
-            this.txt_diag_end_FZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(196, 63);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(24, 13);
-            this.label30.TabIndex = 2;
-            this.label30.Text = "MZ";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(196, 20);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(21, 13);
-            this.label31.TabIndex = 2;
-            this.label31.Text = "FZ";
-            // 
-            // txt_diag_end_MY
-            // 
-            this.txt_diag_end_MY.Location = new System.Drawing.Point(87, 79);
-            this.txt_diag_end_MY.Name = "txt_diag_end_MY";
-            this.txt_diag_end_MY.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_end_MY.TabIndex = 3;
-            this.txt_diag_end_MY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_diag_end_FY
-            // 
-            this.txt_diag_end_FY.Location = new System.Drawing.Point(87, 36);
-            this.txt_diag_end_FY.Name = "txt_diag_end_FY";
-            this.txt_diag_end_FY.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_end_FY.TabIndex = 3;
-            this.txt_diag_end_FY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(110, 63);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(23, 13);
-            this.label32.TabIndex = 2;
-            this.label32.Text = "MY";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(110, 20);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(20, 13);
-            this.label33.TabIndex = 2;
-            this.label33.Text = "FY";
-            // 
-            // txt_diag_end_MX
-            // 
-            this.txt_diag_end_MX.Location = new System.Drawing.Point(6, 79);
-            this.txt_diag_end_MX.Name = "txt_diag_end_MX";
-            this.txt_diag_end_MX.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_end_MX.TabIndex = 3;
-            this.txt_diag_end_MX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(31, 63);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(24, 13);
-            this.label34.TabIndex = 2;
-            this.label34.Text = "MX";
-            // 
-            // txt_diag_end_FX
-            // 
-            this.txt_diag_end_FX.Location = new System.Drawing.Point(6, 36);
-            this.txt_diag_end_FX.Name = "txt_diag_end_FX";
-            this.txt_diag_end_FX.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_end_FX.TabIndex = 3;
-            this.txt_diag_end_FX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(31, 20);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(21, 13);
-            this.label35.TabIndex = 2;
-            this.label35.Text = "FX";
-            // 
-            // grb_diag_start
-            // 
-            this.grb_diag_start.Controls.Add(this.txt_diag_start_MZ);
-            this.grb_diag_start.Controls.Add(this.txt_diag_start_FZ);
-            this.grb_diag_start.Controls.Add(this.label29);
-            this.grb_diag_start.Controls.Add(this.label19);
-            this.grb_diag_start.Controls.Add(this.txt_diag_start_MY);
-            this.grb_diag_start.Controls.Add(this.txt_diag_start_FY);
-            this.grb_diag_start.Controls.Add(this.label28);
-            this.grb_diag_start.Controls.Add(this.label20);
-            this.grb_diag_start.Controls.Add(this.txt_diag_start_MX);
-            this.grb_diag_start.Controls.Add(this.label36);
-            this.grb_diag_start.Controls.Add(this.txt_diag_start_FX);
-            this.grb_diag_start.Controls.Add(this.label37);
-            this.grb_diag_start.Location = new System.Drawing.Point(8, 268);
-            this.grb_diag_start.Name = "grb_diag_start";
-            this.grb_diag_start.Size = new System.Drawing.Size(253, 12);
-            this.grb_diag_start.TabIndex = 11;
-            this.grb_diag_start.TabStop = false;
-            this.grb_diag_start.Text = "START NODE";
-            this.grb_diag_start.Visible = false;
-            // 
-            // txt_diag_start_MZ
-            // 
-            this.txt_diag_start_MZ.Location = new System.Drawing.Point(168, 79);
-            this.txt_diag_start_MZ.Name = "txt_diag_start_MZ";
-            this.txt_diag_start_MZ.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_start_MZ.TabIndex = 3;
-            this.txt_diag_start_MZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_diag_start_FZ
-            // 
-            this.txt_diag_start_FZ.Location = new System.Drawing.Point(168, 36);
-            this.txt_diag_start_FZ.Name = "txt_diag_start_FZ";
-            this.txt_diag_start_FZ.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_start_FZ.TabIndex = 3;
-            this.txt_diag_start_FZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(196, 63);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(24, 13);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "MZ";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(196, 20);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(21, 13);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "FZ";
-            // 
-            // txt_diag_start_MY
-            // 
-            this.txt_diag_start_MY.Location = new System.Drawing.Point(87, 79);
-            this.txt_diag_start_MY.Name = "txt_diag_start_MY";
-            this.txt_diag_start_MY.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_start_MY.TabIndex = 3;
-            this.txt_diag_start_MY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_diag_start_FY
-            // 
-            this.txt_diag_start_FY.Location = new System.Drawing.Point(87, 36);
-            this.txt_diag_start_FY.Name = "txt_diag_start_FY";
-            this.txt_diag_start_FY.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_start_FY.TabIndex = 3;
-            this.txt_diag_start_FY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(110, 63);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(23, 13);
-            this.label28.TabIndex = 2;
-            this.label28.Text = "MY";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(110, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(20, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "FY";
-            // 
-            // txt_diag_start_MX
-            // 
-            this.txt_diag_start_MX.Location = new System.Drawing.Point(6, 79);
-            this.txt_diag_start_MX.Name = "txt_diag_start_MX";
-            this.txt_diag_start_MX.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_start_MX.TabIndex = 3;
-            this.txt_diag_start_MX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(31, 63);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(24, 13);
-            this.label36.TabIndex = 2;
-            this.label36.Text = "MX";
-            // 
-            // txt_diag_start_FX
-            // 
-            this.txt_diag_start_FX.Location = new System.Drawing.Point(6, 36);
-            this.txt_diag_start_FX.Name = "txt_diag_start_FX";
-            this.txt_diag_start_FX.Size = new System.Drawing.Size(75, 21);
-            this.txt_diag_start_FX.TabIndex = 3;
-            this.txt_diag_start_FX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(31, 20);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(21, 13);
-            this.label37.TabIndex = 2;
-            this.label37.Text = "FX";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(140, 191);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(67, 13);
-            this.label38.TabIndex = 9;
-            this.label38.Text = "Load Case";
-            this.label38.Visible = false;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(44, 191);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(72, 13);
-            this.label39.TabIndex = 8;
-            this.label39.Text = "Member No";
-            this.label39.Visible = false;
-            // 
-            // cmb_diag_mem_no
-            // 
-            this.cmb_diag_mem_no.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_diag_mem_no.FormattingEnabled = true;
-            this.cmb_diag_mem_no.Location = new System.Drawing.Point(42, 207);
-            this.cmb_diag_mem_no.Name = "cmb_diag_mem_no";
-            this.cmb_diag_mem_no.Size = new System.Drawing.Size(74, 21);
-            this.cmb_diag_mem_no.TabIndex = 6;
-            this.cmb_diag_mem_no.Visible = false;
-            this.cmb_diag_mem_no.SelectedIndexChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // cmb_diag_ld_no
-            // 
-            this.cmb_diag_ld_no.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_diag_ld_no.FormattingEnabled = true;
-            this.cmb_diag_ld_no.Location = new System.Drawing.Point(138, 207);
-            this.cmb_diag_ld_no.Name = "cmb_diag_ld_no";
-            this.cmb_diag_ld_no.Size = new System.Drawing.Size(74, 21);
-            this.cmb_diag_ld_no.TabIndex = 7;
-            this.cmb_diag_ld_no.Visible = false;
-            this.cmb_diag_ld_no.SelectedIndexChanged += new System.EventHandler(this.cmb_diag_mem_no_SelectedIndexChanged);
-            // 
-            // tc_docs
-            // 
-            this.tc_docs.Controls.Add(this.tab_frcs_doc);
-            this.tc_docs.Controls.Add(this.tab_defl_doc);
-            this.tc_docs.Controls.Add(this.tab_max_doc);
-            this.tc_docs.Controls.Add(this.tab_mov_doc);
-            this.tc_docs.Controls.Add(this.tab_evlp_doc);
-            this.tc_docs.Controls.Add(this.tab_diag_doc);
-            this.tc_docs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_docs.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_docs.Location = new System.Drawing.Point(0, 23);
-            this.tc_docs.Name = "tc_docs";
-            this.tc_docs.SelectedIndex = 0;
-            this.tc_docs.Size = new System.Drawing.Size(669, 448);
-            this.tc_docs.TabIndex = 3;
-            // 
-            // tab_frcs_doc
-            // 
-            this.tab_frcs_doc.Controls.Add(this.vdSC_frcs);
-            this.tab_frcs_doc.Location = new System.Drawing.Point(4, 22);
-            this.tab_frcs_doc.Name = "tab_frcs_doc";
-            this.tab_frcs_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_frcs_doc.Size = new System.Drawing.Size(661, 422);
-            this.tab_frcs_doc.TabIndex = 0;
-            this.tab_frcs_doc.Text = "Analysis Forces ";
-            this.tab_frcs_doc.UseVisualStyleBackColor = true;
-            // 
-            // vdSC_frcs
-            // 
-            this.vdSC_frcs.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_frcs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.vdSC_frcs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_frcs.Location = new System.Drawing.Point(3, 3);
-            this.vdSC_frcs.Name = "vdSC_frcs";
-            this.vdSC_frcs.ShowLayoutPopupMenu = true;
-            this.vdSC_frcs.Size = new System.Drawing.Size(655, 416);
-            this.vdSC_frcs.TabIndex = 0;
-            // 
-            // tab_defl_doc
-            // 
-            this.tab_defl_doc.Controls.Add(this.vdSC_ldef);
-            this.tab_defl_doc.Location = new System.Drawing.Point(4, 22);
-            this.tab_defl_doc.Name = "tab_defl_doc";
-            this.tab_defl_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_defl_doc.Size = new System.Drawing.Size(661, 422);
-            this.tab_defl_doc.TabIndex = 1;
-            this.tab_defl_doc.Text = "Load Deflection";
-            this.tab_defl_doc.UseVisualStyleBackColor = true;
-            // 
-            // vdSC_ldef
-            // 
-            this.vdSC_ldef.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_ldef.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_ldef.Location = new System.Drawing.Point(3, 3);
-            this.vdSC_ldef.Name = "vdSC_ldef";
-            this.vdSC_ldef.ShowLayoutPopupMenu = true;
-            this.vdSC_ldef.Size = new System.Drawing.Size(655, 416);
-            this.vdSC_ldef.TabIndex = 0;
-            // 
-            // tab_max_doc
-            // 
-            this.tab_max_doc.Controls.Add(this.vdSC_maxf);
-            this.tab_max_doc.Location = new System.Drawing.Point(4, 22);
-            this.tab_max_doc.Name = "tab_max_doc";
-            this.tab_max_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_max_doc.Size = new System.Drawing.Size(661, 422);
-            this.tab_max_doc.TabIndex = 4;
-            this.tab_max_doc.Text = "Max Force";
-            this.tab_max_doc.UseVisualStyleBackColor = true;
-            // 
-            // vdSC_maxf
-            // 
-            this.vdSC_maxf.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_maxf.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_maxf.Location = new System.Drawing.Point(3, 3);
-            this.vdSC_maxf.Name = "vdSC_maxf";
-            this.vdSC_maxf.ShowLayoutPopupMenu = true;
-            this.vdSC_maxf.Size = new System.Drawing.Size(655, 416);
-            this.vdSC_maxf.TabIndex = 0;
-            // 
-            // tab_mov_doc
-            // 
-            this.tab_mov_doc.Controls.Add(this.vdSC_mov);
-            this.tab_mov_doc.Location = new System.Drawing.Point(4, 22);
-            this.tab_mov_doc.Name = "tab_mov_doc";
-            this.tab_mov_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_mov_doc.Size = new System.Drawing.Size(661, 422);
-            this.tab_mov_doc.TabIndex = 3;
-            this.tab_mov_doc.Text = "Moving Load";
-            this.tab_mov_doc.UseVisualStyleBackColor = true;
-            // 
-            // vdSC_mov
-            // 
-            this.vdSC_mov.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_mov.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_mov.Location = new System.Drawing.Point(3, 3);
-            this.vdSC_mov.Name = "vdSC_mov";
-            this.vdSC_mov.ShowLayoutPopupMenu = true;
-            this.vdSC_mov.Size = new System.Drawing.Size(655, 416);
-            this.vdSC_mov.TabIndex = 0;
-            // 
-            // tab_evlp_doc
-            // 
-            this.tab_evlp_doc.Controls.Add(this.vdSC_env);
-            this.tab_evlp_doc.Location = new System.Drawing.Point(4, 22);
-            this.tab_evlp_doc.Name = "tab_evlp_doc";
-            this.tab_evlp_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_evlp_doc.Size = new System.Drawing.Size(661, 422);
-            this.tab_evlp_doc.TabIndex = 2;
-            this.tab_evlp_doc.Text = "Truss Envelope";
-            this.tab_evlp_doc.UseVisualStyleBackColor = true;
-            // 
-            // vdSC_env
-            // 
-            this.vdSC_env.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_env.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_env.Location = new System.Drawing.Point(3, 3);
-            this.vdSC_env.Name = "vdSC_env";
-            this.vdSC_env.ShowLayoutPopupMenu = true;
-            this.vdSC_env.Size = new System.Drawing.Size(655, 416);
-            this.vdSC_env.TabIndex = 0;
-            // 
-            // tab_diag_doc
-            // 
-            this.tab_diag_doc.Controls.Add(this.vdSC_diag);
-            this.tab_diag_doc.Location = new System.Drawing.Point(4, 22);
-            this.tab_diag_doc.Name = "tab_diag_doc";
-            this.tab_diag_doc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_diag_doc.Size = new System.Drawing.Size(661, 422);
-            this.tab_diag_doc.TabIndex = 5;
-            this.tab_diag_doc.Text = "Diagrams";
-            this.tab_diag_doc.UseVisualStyleBackColor = true;
-            // 
-            // vdSC_diag
-            // 
-            this.vdSC_diag.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_diag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_diag.Location = new System.Drawing.Point(3, 3);
-            this.vdSC_diag.Name = "vdSC_diag";
-            this.vdSC_diag.ShowLayoutPopupMenu = true;
-            this.vdSC_diag.Size = new System.Drawing.Size(655, 416);
-            this.vdSC_diag.TabIndex = 1;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.label27);
-            this.panel27.Controls.Add(this.cmb_pp_text_size);
-            this.panel27.Controls.Add(this.chk_pp_elems);
-            this.panel27.Controls.Add(this.chk_pp_joints);
-            this.panel27.Controls.Add(this.chk_pp_suprts);
-            this.panel27.Controls.Add(this.chk_pp_mems);
-            this.panel27.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel27.Location = new System.Drawing.Point(0, 471);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(669, 25);
-            this.panel27.TabIndex = 4;
-            // 
-            // label27
-            // 
-            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(541, 6);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(59, 13);
-            this.label27.TabIndex = 4;
-            this.label27.Text = "Text Size";
-            // 
-            // cmb_pp_text_size
-            // 
-            this.cmb_pp_text_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb_pp_text_size.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_pp_text_size.FormattingEnabled = true;
-            this.cmb_pp_text_size.Location = new System.Drawing.Point(610, 3);
-            this.cmb_pp_text_size.Name = "cmb_pp_text_size";
-            this.cmb_pp_text_size.Size = new System.Drawing.Size(52, 21);
-            this.cmb_pp_text_size.TabIndex = 3;
-            this.cmb_pp_text_size.SelectedIndexChanged += new System.EventHandler(this.cmb_text_size_SelectedIndexChanged);
-            // 
-            // chk_pp_elems
-            // 
-            this.chk_pp_elems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_pp_elems.AutoSize = true;
-            this.chk_pp_elems.Checked = true;
-            this.chk_pp_elems.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_pp_elems.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_pp_elems.Location = new System.Drawing.Point(322, 5);
-            this.chk_pp_elems.Name = "chk_pp_elems";
-            this.chk_pp_elems.Size = new System.Drawing.Size(78, 17);
-            this.chk_pp_elems.TabIndex = 2;
-            this.chk_pp_elems.Text = "Elements";
-            this.chk_pp_elems.UseVisualStyleBackColor = true;
-            this.chk_pp_elems.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk_pp_joints
-            // 
-            this.chk_pp_joints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_pp_joints.AutoSize = true;
-            this.chk_pp_joints.Checked = true;
-            this.chk_pp_joints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_pp_joints.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_pp_joints.Location = new System.Drawing.Point(153, 5);
-            this.chk_pp_joints.Name = "chk_pp_joints";
-            this.chk_pp_joints.Size = new System.Drawing.Size(61, 17);
-            this.chk_pp_joints.TabIndex = 2;
-            this.chk_pp_joints.Text = "Nodes";
-            this.chk_pp_joints.UseVisualStyleBackColor = true;
-            this.chk_pp_joints.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk_pp_suprts
-            // 
-            this.chk_pp_suprts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_pp_suprts.AutoSize = true;
-            this.chk_pp_suprts.Checked = true;
-            this.chk_pp_suprts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_pp_suprts.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_pp_suprts.Location = new System.Drawing.Point(423, 5);
-            this.chk_pp_suprts.Name = "chk_pp_suprts";
-            this.chk_pp_suprts.Size = new System.Drawing.Size(77, 17);
-            this.chk_pp_suprts.TabIndex = 2;
-            this.chk_pp_suprts.Text = "Supports";
-            this.chk_pp_suprts.UseVisualStyleBackColor = true;
-            this.chk_pp_suprts.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk_pp_mems
-            // 
-            this.chk_pp_mems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk_pp_mems.AutoSize = true;
-            this.chk_pp_mems.Checked = true;
-            this.chk_pp_mems.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_pp_mems.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk_pp_mems.Location = new System.Drawing.Point(221, 5);
-            this.chk_pp_mems.Name = "chk_pp_mems";
-            this.chk_pp_mems.Size = new System.Drawing.Size(78, 17);
-            this.chk_pp_mems.TabIndex = 2;
-            this.chk_pp_mems.Text = "Members";
-            this.chk_pp_mems.UseVisualStyleBackColor = true;
-            this.chk_pp_mems.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // pnl_progress
-            // 
-            this.pnl_progress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnl_progress.Controls.Add(this.pbLoadDeflection);
-            this.pnl_progress.Controls.Add(this.lblPleaseWait);
-            this.pnl_progress.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnl_progress.Location = new System.Drawing.Point(0, 496);
-            this.pnl_progress.Name = "pnl_progress";
-            this.pnl_progress.Size = new System.Drawing.Size(669, 26);
-            this.pnl_progress.TabIndex = 2;
-            // 
-            // pbLoadDeflection
-            // 
-            this.pbLoadDeflection.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbLoadDeflection.Location = new System.Drawing.Point(0, 0);
-            this.pbLoadDeflection.Name = "pbLoadDeflection";
-            this.pbLoadDeflection.Size = new System.Drawing.Size(667, 24);
-            this.pbLoadDeflection.TabIndex = 24;
-            // 
-            // lblPleaseWait
-            // 
-            this.lblPleaseWait.AutoSize = true;
-            this.lblPleaseWait.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPleaseWait.Location = new System.Drawing.Point(3, 5);
-            this.lblPleaseWait.Name = "lblPleaseWait";
-            this.lblPleaseWait.Size = new System.Drawing.Size(120, 16);
-            this.lblPleaseWait.TabIndex = 25;
-            this.lblPleaseWait.Text = "Please wait...";
-            this.lblPleaseWait.Visible = false;
-            // 
-            // toolStrip3
-            // 
-            this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb_pp_3D_rotate,
-            this.tsb_pp_VTop,
-            this.tsb_pp_VBot,
-            this.tsb_pp_VLeft,
-            this.tsb_pp_VRight,
-            this.tsb_pp_VFront,
-            this.tsb_pp_VBack,
-            this.tsb_pp_VNE,
-            this.tsb_pp_VNW,
-            this.tsb_pp_VSE,
-            this.tsb_pp_VSW,
-            this.toolStripSeparator7,
-            this.tsb_pp_ShadeOn,
-            this.tsb_pp_Wire,
-            this.toolStripSeparator8,
-            this.tsb_pp_ZoomA,
-            this.tsb_pp_ZoomE,
-            this.tsb_pp_ZoomP,
-            this.tsb_pp_ZoomW,
-            this.tsb_pp_ZoomIn,
-            this.tsb_pp_ZoomOut,
-            this.tsb_pp_Pan,
-            this.toolStripSeparator9,
-            this.tsb_pp_Save,
-            this.tsb_pp_Edit});
-            this.toolStrip3.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
-            this.toolStrip3.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(669, 23);
-            this.toolStrip3.TabIndex = 1;
-            this.toolStrip3.Text = "ts_1";
-            // 
-            // tsb_pp_3D_rotate
-            // 
-            this.tsb_pp_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_3D_rotate.Image = global::ASTRAStructures.Properties.Resources._3D_orbit;
-            this.tsb_pp_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_3D_rotate.Name = "tsb_pp_3D_rotate";
-            this.tsb_pp_3D_rotate.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_3D_rotate.Text = "Rotate 3D";
-            this.tsb_pp_3D_rotate.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VTop
-            // 
-            this.tsb_pp_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VTop.Image = global::ASTRAStructures.Properties.Resources._3DVTOP;
-            this.tsb_pp_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VTop.Name = "tsb_pp_VTop";
-            this.tsb_pp_VTop.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VTop.Text = "View Top";
-            this.tsb_pp_VTop.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VBot
-            // 
-            this.tsb_pp_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VBot.Image")));
-            this.tsb_pp_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VBot.Name = "tsb_pp_VBot";
-            this.tsb_pp_VBot.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VBot.Text = "View Bottom";
-            this.tsb_pp_VBot.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VLeft
-            // 
-            this.tsb_pp_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VLeft.Image")));
-            this.tsb_pp_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VLeft.Name = "tsb_pp_VLeft";
-            this.tsb_pp_VLeft.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VLeft.Text = "View Left";
-            this.tsb_pp_VLeft.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VRight
-            // 
-            this.tsb_pp_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VRight.Image")));
-            this.tsb_pp_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VRight.Name = "tsb_pp_VRight";
-            this.tsb_pp_VRight.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VRight.Text = "View Right";
-            this.tsb_pp_VRight.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VFront
-            // 
-            this.tsb_pp_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VFront.Image")));
-            this.tsb_pp_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VFront.Name = "tsb_pp_VFront";
-            this.tsb_pp_VFront.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VFront.Text = "View Front";
-            this.tsb_pp_VFront.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VBack
-            // 
-            this.tsb_pp_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VBack.Image")));
-            this.tsb_pp_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VBack.Name = "tsb_pp_VBack";
-            this.tsb_pp_VBack.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VBack.Text = "View Back";
-            this.tsb_pp_VBack.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VNE
-            // 
-            this.tsb_pp_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VNE.Image")));
-            this.tsb_pp_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VNE.Name = "tsb_pp_VNE";
-            this.tsb_pp_VNE.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VNE.Text = "View NE";
-            this.tsb_pp_VNE.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VNW
-            // 
-            this.tsb_pp_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VNW.Image")));
-            this.tsb_pp_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VNW.Name = "tsb_pp_VNW";
-            this.tsb_pp_VNW.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VNW.Text = "View NW";
-            this.tsb_pp_VNW.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VSE
-            // 
-            this.tsb_pp_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VSE.Image")));
-            this.tsb_pp_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VSE.Name = "tsb_pp_VSE";
-            this.tsb_pp_VSE.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VSE.Text = "View SE";
-            this.tsb_pp_VSE.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_VSW
-            // 
-            this.tsb_pp_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_VSW.Image")));
-            this.tsb_pp_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_VSW.Name = "tsb_pp_VSW";
-            this.tsb_pp_VSW.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_VSW.Text = "View SW";
-            this.tsb_pp_VSW.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 23);
-            // 
-            // tsb_pp_ShadeOn
-            // 
-            this.tsb_pp_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ShadeOn.Image")));
-            this.tsb_pp_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ShadeOn.Name = "tsb_pp_ShadeOn";
-            this.tsb_pp_ShadeOn.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ShadeOn.Text = "Shade On";
-            this.tsb_pp_ShadeOn.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_Wire
-            // 
-            this.tsb_pp_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_Wire.Image")));
-            this.tsb_pp_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_Wire.Name = "tsb_pp_Wire";
-            this.tsb_pp_Wire.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_Wire.Text = "Wire";
-            this.tsb_pp_Wire.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 23);
-            // 
-            // tsb_pp_ZoomA
-            // 
-            this.tsb_pp_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ZoomA.Image")));
-            this.tsb_pp_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ZoomA.Name = "tsb_pp_ZoomA";
-            this.tsb_pp_ZoomA.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ZoomA.Text = "Zom All";
-            this.tsb_pp_ZoomA.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_ZoomE
-            // 
-            this.tsb_pp_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ZoomE.Image")));
-            this.tsb_pp_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ZoomE.Name = "tsb_pp_ZoomE";
-            this.tsb_pp_ZoomE.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ZoomE.Text = "Zoom Extent";
-            this.tsb_pp_ZoomE.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_ZoomP
-            // 
-            this.tsb_pp_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ZoomP.Image")));
-            this.tsb_pp_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ZoomP.Name = "tsb_pp_ZoomP";
-            this.tsb_pp_ZoomP.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ZoomP.Text = "Zoom Previous";
-            this.tsb_pp_ZoomP.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_ZoomW
-            // 
-            this.tsb_pp_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ZoomW.Image")));
-            this.tsb_pp_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ZoomW.Name = "tsb_pp_ZoomW";
-            this.tsb_pp_ZoomW.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ZoomW.Text = "Zoom Window";
-            this.tsb_pp_ZoomW.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_ZoomIn
-            // 
-            this.tsb_pp_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ZoomIn.Image")));
-            this.tsb_pp_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ZoomIn.Name = "tsb_pp_ZoomIn";
-            this.tsb_pp_ZoomIn.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ZoomIn.Text = "Zoom In";
-            this.tsb_pp_ZoomIn.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_ZoomOut
-            // 
-            this.tsb_pp_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_ZoomOut.Image")));
-            this.tsb_pp_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_ZoomOut.Name = "tsb_pp_ZoomOut";
-            this.tsb_pp_ZoomOut.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_ZoomOut.Text = "Zoom Out";
-            this.tsb_pp_ZoomOut.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_Pan
-            // 
-            this.tsb_pp_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_pp_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_Pan.Image")));
-            this.tsb_pp_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_Pan.Name = "tsb_pp_Pan";
-            this.tsb_pp_Pan.Size = new System.Drawing.Size(23, 20);
-            this.tsb_pp_Pan.Text = "Pan";
-            this.tsb_pp_Pan.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 23);
-            // 
-            // tsb_pp_Save
-            // 
-            this.tsb_pp_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_Save.Image")));
-            this.tsb_pp_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_Save.Name = "tsb_pp_Save";
-            this.tsb_pp_Save.Size = new System.Drawing.Size(51, 20);
-            this.tsb_pp_Save.Text = "Save";
-            this.tsb_pp_Save.Click += new System.EventHandler(this.PP_toolStripButtons_Click);
-            // 
-            // tsb_pp_Edit
-            // 
-            this.tsb_pp_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb_pp_Edit.Image")));
-            this.tsb_pp_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_pp_Edit.Name = "tsb_pp_Edit";
-            this.tsb_pp_Edit.Size = new System.Drawing.Size(47, 20);
-            this.tsb_pp_Edit.Text = "Edit";
-            this.tsb_pp_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb_pp_Edit.Click += new System.EventHandler(this.tsmi_viewer_Click);
             // 
             // tab_general_data
             // 
@@ -7891,14 +1575,14 @@
             // dgv_GD_floor
             // 
             this.dgv_GD_floor.AllowUserToAddRows = false;
-            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle71.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle71.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle71.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle71.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle71.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle71.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_GD_floor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle67.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_GD_floor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.dgv_GD_floor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_GD_floor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn100,
@@ -7910,30 +1594,30 @@
             // 
             // dataGridViewTextBoxColumn100
             // 
-            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn100.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn100.DefaultCellStyle = dataGridViewCellStyle68;
             this.dataGridViewTextBoxColumn100.HeaderText = "Floor Nos";
             this.dataGridViewTextBoxColumn100.Name = "dataGridViewTextBoxColumn100";
             this.dataGridViewTextBoxColumn100.Width = 80;
             // 
             // dataGridViewTextBoxColumn101
             // 
-            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn101.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn101.DefaultCellStyle = dataGridViewCellStyle69;
             this.dataGridViewTextBoxColumn101.HeaderText = "Floor Elevation (m)";
             this.dataGridViewTextBoxColumn101.Name = "dataGridViewTextBoxColumn101";
             this.dataGridViewTextBoxColumn101.Width = 90;
             // 
             // dgv_rebar_weight
             // 
-            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle74.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle74.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle74.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_rebar_weight.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_rebar_weight.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle70;
             this.dgv_rebar_weight.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_rebar_weight.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column23,
@@ -7945,23 +1629,49 @@
             // 
             // Column23
             // 
-            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column23.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column23.DefaultCellStyle = dataGridViewCellStyle71;
             this.Column23.HeaderText = "Bar Diameter (mm)";
             this.Column23.Name = "Column23";
             this.Column23.Width = 80;
             // 
             // Column24
             // 
-            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column24.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column24.DefaultCellStyle = dataGridViewCellStyle72;
             this.Column24.HeaderText = "Weight  (Ton/m)";
             this.Column24.Name = "Column24";
             this.Column24.Width = 90;
             // 
             // tab_slab
             // 
-            this.tab_slab.Controls.Add(this.sc_slab);
+            this.tab_slab.Controls.Add(this.chk_slab_individual);
+            this.tab_slab.Controls.Add(this.label53);
+            this.tab_slab.Controls.Add(this.label52);
+            this.tab_slab.Controls.Add(this.label50);
+            this.tab_slab.Controls.Add(this.groupBox30);
+            this.tab_slab.Controls.Add(this.label46);
+            this.tab_slab.Controls.Add(this.groupBox29);
+            this.tab_slab.Controls.Add(this.txt_slab_gamma);
+            this.tab_slab.Controls.Add(this.groupBox20);
+            this.tab_slab.Controls.Add(this.txt_slab_LLF);
+            this.tab_slab.Controls.Add(this.groupBox15);
+            this.tab_slab.Controls.Add(this.txt_slab_DLF);
+            this.tab_slab.Controls.Add(this.groupBox23);
+            this.tab_slab.Controls.Add(this.label54);
+            this.tab_slab.Controls.Add(this.label286);
+            this.tab_slab.Controls.Add(this.txt_slab_c);
+            this.tab_slab.Controls.Add(this.label55);
+            this.tab_slab.Controls.Add(this.label48);
+            this.tab_slab.Controls.Add(this.label56);
+            this.tab_slab.Controls.Add(this.btn_slab_open_design);
+            this.tab_slab.Controls.Add(this.label47);
+            this.tab_slab.Controls.Add(this.btn_slab_design);
+            this.tab_slab.Controls.Add(this.cmb_slab_fck);
+            this.tab_slab.Controls.Add(this.cmb_slab_fy);
+            this.tab_slab.Controls.Add(this.txt_slab_wll);
+            this.tab_slab.Controls.Add(this.txt_slab_D);
+            this.tab_slab.Controls.Add(this.label49);
             this.tab_slab.Location = new System.Drawing.Point(4, 22);
             this.tab_slab.Name = "tab_slab";
             this.tab_slab.Size = new System.Drawing.Size(944, 635);
@@ -7969,57 +1679,10 @@
             this.tab_slab.Text = "Floor Slab Design";
             this.tab_slab.UseVisualStyleBackColor = true;
             // 
-            // sc_slab
-            // 
-            this.sc_slab.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sc_slab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sc_slab.Location = new System.Drawing.Point(0, 0);
-            this.sc_slab.Name = "sc_slab";
-            // 
-            // sc_slab.Panel1
-            // 
-            this.sc_slab.Panel1.Controls.Add(this.chk_slab_individual);
-            this.sc_slab.Panel1.Controls.Add(this.label53);
-            this.sc_slab.Panel1.Controls.Add(this.label52);
-            this.sc_slab.Panel1.Controls.Add(this.groupBox30);
-            this.sc_slab.Panel1.Controls.Add(this.groupBox29);
-            this.sc_slab.Panel1.Controls.Add(this.groupBox20);
-            this.sc_slab.Panel1.Controls.Add(this.groupBox15);
-            this.sc_slab.Panel1.Controls.Add(this.groupBox23);
-            this.sc_slab.Panel1.Controls.Add(this.label286);
-            this.sc_slab.Panel1.Controls.Add(this.grb_slab_individual);
-            this.sc_slab.Panel1.Controls.Add(this.label48);
-            this.sc_slab.Panel1.Controls.Add(this.btn_slab_open_design);
-            this.sc_slab.Panel1.Controls.Add(this.btn_slab_design);
-            this.sc_slab.Panel1.Controls.Add(this.cmb_slab_fy);
-            this.sc_slab.Panel1.Controls.Add(this.txt_slab_D);
-            this.sc_slab.Panel1.Controls.Add(this.label49);
-            this.sc_slab.Panel1.Controls.Add(this.txt_slab_wll);
-            this.sc_slab.Panel1.Controls.Add(this.cmb_slab_fck);
-            this.sc_slab.Panel1.Controls.Add(this.label47);
-            this.sc_slab.Panel1.Controls.Add(this.label56);
-            this.sc_slab.Panel1.Controls.Add(this.label55);
-            this.sc_slab.Panel1.Controls.Add(this.txt_slab_c);
-            this.sc_slab.Panel1.Controls.Add(this.label54);
-            this.sc_slab.Panel1.Controls.Add(this.txt_slab_DLF);
-            this.sc_slab.Panel1.Controls.Add(this.txt_slab_LLF);
-            this.sc_slab.Panel1.Controls.Add(this.txt_slab_gamma);
-            this.sc_slab.Panel1.Controls.Add(this.label46);
-            this.sc_slab.Panel1.Controls.Add(this.label50);
-            // 
-            // sc_slab.Panel2
-            // 
-            this.sc_slab.Panel2.Controls.Add(this.vdSC_slab);
-            this.sc_slab.Panel2.Controls.Add(this.toolStrip4);
-            this.sc_slab.Panel2.Controls.Add(this.panel25);
-            this.sc_slab.Size = new System.Drawing.Size(944, 635);
-            this.sc_slab.SplitterDistance = 440;
-            this.sc_slab.TabIndex = 6;
-            // 
             // chk_slab_individual
             // 
             this.chk_slab_individual.AutoSize = true;
-            this.chk_slab_individual.Location = new System.Drawing.Point(46, 8);
+            this.chk_slab_individual.Location = new System.Drawing.Point(35, 4);
             this.chk_slab_individual.Name = "chk_slab_individual";
             this.chk_slab_individual.Size = new System.Drawing.Size(154, 17);
             this.chk_slab_individual.TabIndex = 11;
@@ -8030,7 +1693,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(334, 149);
+            this.label53.Location = new System.Drawing.Point(323, 145);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(62, 13);
             this.label53.TabIndex = 10;
@@ -8039,7 +1702,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(333, 101);
+            this.label52.Location = new System.Drawing.Point(322, 97);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(59, 13);
             this.label52.TabIndex = 9;
@@ -8053,7 +1716,7 @@
             this.groupBox30.Controls.Add(this.label299);
             this.groupBox30.Controls.Add(this.txt_slab_d4);
             this.groupBox30.Controls.Add(this.label300);
-            this.groupBox30.Location = new System.Drawing.Point(14, 394);
+            this.groupBox30.Location = new System.Drawing.Point(3, 390);
             this.groupBox30.Name = "groupBox30";
             this.groupBox30.Size = new System.Drawing.Size(394, 40);
             this.groupBox30.TabIndex = 8;
@@ -8122,7 +1785,7 @@
             this.groupBox29.Controls.Add(this.label295);
             this.groupBox29.Controls.Add(this.txt_slab_d3);
             this.groupBox29.Controls.Add(this.label296);
-            this.groupBox29.Location = new System.Drawing.Point(14, 348);
+            this.groupBox29.Location = new System.Drawing.Point(3, 344);
             this.groupBox29.Name = "groupBox29";
             this.groupBox29.Size = new System.Drawing.Size(394, 40);
             this.groupBox29.TabIndex = 8;
@@ -8191,7 +1854,7 @@
             this.groupBox20.Controls.Add(this.label291);
             this.groupBox20.Controls.Add(this.txt_slab_d2);
             this.groupBox20.Controls.Add(this.label292);
-            this.groupBox20.Location = new System.Drawing.Point(14, 302);
+            this.groupBox20.Location = new System.Drawing.Point(3, 298);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(394, 40);
             this.groupBox20.TabIndex = 8;
@@ -8260,7 +1923,7 @@
             this.groupBox15.Controls.Add(this.label288);
             this.groupBox15.Controls.Add(this.txt_slab_d1);
             this.groupBox15.Controls.Add(this.label283);
-            this.groupBox15.Location = new System.Drawing.Point(14, 256);
+            this.groupBox15.Location = new System.Drawing.Point(3, 252);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(394, 40);
             this.groupBox15.TabIndex = 8;
@@ -8324,7 +1987,7 @@
             // groupBox23
             // 
             this.groupBox23.Controls.Add(this.dgv_dls);
-            this.groupBox23.Location = new System.Drawing.Point(14, 440);
+            this.groupBox23.Location = new System.Drawing.Point(3, 436);
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.Size = new System.Drawing.Size(352, 155);
             this.groupBox23.TabIndex = 6;
@@ -8359,149 +2022,16 @@
             // label286
             // 
             this.label286.AutoSize = true;
-            this.label286.Location = new System.Drawing.Point(333, 222);
+            this.label286.Location = new System.Drawing.Point(322, 218);
             this.label286.Name = "label286";
             this.label286.Size = new System.Drawing.Size(29, 13);
             this.label286.TabIndex = 7;
             this.label286.Text = "mm";
             // 
-            // grb_slab_individual
-            // 
-            this.grb_slab_individual.Controls.Add(this.label359);
-            this.grb_slab_individual.Controls.Add(this.cmb_slab_type);
-            this.grb_slab_individual.Controls.Add(this.txt_slab_flv_lvl);
-            this.grb_slab_individual.Controls.Add(this.label358);
-            this.grb_slab_individual.Controls.Add(this.label57);
-            this.grb_slab_individual.Controls.Add(this.label228);
-            this.grb_slab_individual.Controls.Add(this.label42);
-            this.grb_slab_individual.Controls.Add(this.txt_slab_Ly);
-            this.grb_slab_individual.Controls.Add(this.txt_slab_Lx);
-            this.grb_slab_individual.Controls.Add(this.label229);
-            this.grb_slab_individual.Controls.Add(this.label282);
-            this.grb_slab_individual.Enabled = false;
-            this.grb_slab_individual.Location = new System.Drawing.Point(460, 51);
-            this.grb_slab_individual.Name = "grb_slab_individual";
-            this.grb_slab_individual.Size = new System.Drawing.Size(336, 139);
-            this.grb_slab_individual.TabIndex = 0;
-            this.grb_slab_individual.TabStop = false;
-            this.grb_slab_individual.Text = "SLAB";
-            // 
-            // label359
-            // 
-            this.label359.AutoSize = true;
-            this.label359.Location = new System.Drawing.Point(175, 101);
-            this.label359.Name = "label359";
-            this.label359.Size = new System.Drawing.Size(18, 13);
-            this.label359.TabIndex = 14;
-            this.label359.Text = "m";
-            // 
-            // cmb_slab_type
-            // 
-            this.cmb_slab_type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_slab_type.DropDownWidth = 400;
-            this.cmb_slab_type.FormattingEnabled = true;
-            this.cmb_slab_type.Items.AddRange(new object[] {
-            "Interior Panels",
-            "One Short Edge Discontinuous",
-            "One Long Edge Discontinuous",
-            "Two Adjacent Edges Discontinuous",
-            "Two Short Edges Discontinuous",
-            "Two Long Edges Discontinuous",
-            "Three Edges Discontinuous (One Long Edge Discontinuous)",
-            "Three Edges Discontinuous (One Short Edge Discontinuous)",
-            "Four Edges Discontinuous"});
-            this.cmb_slab_type.Location = new System.Drawing.Point(12, 55);
-            this.cmb_slab_type.Name = "cmb_slab_type";
-            this.cmb_slab_type.Size = new System.Drawing.Size(305, 21);
-            this.cmb_slab_type.TabIndex = 6;
-            // 
-            // txt_slab_flv_lvl
-            // 
-            this.txt_slab_flv_lvl.Location = new System.Drawing.Point(112, 98);
-            this.txt_slab_flv_lvl.Name = "txt_slab_flv_lvl";
-            this.txt_slab_flv_lvl.Size = new System.Drawing.Size(57, 21);
-            this.txt_slab_flv_lvl.TabIndex = 12;
-            this.txt_slab_flv_lvl.Text = "1.5";
-            this.txt_slab_flv_lvl.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label358
-            // 
-            this.label358.AutoSize = true;
-            this.label358.Location = new System.Drawing.Point(26, 101);
-            this.label358.Name = "label358";
-            this.label358.Size = new System.Drawing.Size(69, 13);
-            this.label358.TabIndex = 13;
-            this.label358.Text = "Floor Level";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(9, 38);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(123, 13);
-            this.label57.TabIndex = 1;
-            this.label57.Text = "Select Type of Panel";
-            // 
-            // label228
-            // 
-            this.label228.AutoSize = true;
-            this.label228.Location = new System.Drawing.Point(19, 17);
-            this.label228.Name = "label228";
-            this.label228.Size = new System.Drawing.Size(20, 13);
-            this.label228.TabIndex = 1;
-            this.label228.Text = "Lx";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(215, 17);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(19, 13);
-            this.label42.TabIndex = 1;
-            this.label42.Text = "Ly";
-            // 
-            // txt_slab_Ly
-            // 
-            this.txt_slab_Ly.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_slab_Ly.Location = new System.Drawing.Point(240, 14);
-            this.txt_slab_Ly.Name = "txt_slab_Ly";
-            this.txt_slab_Ly.Size = new System.Drawing.Size(57, 21);
-            this.txt_slab_Ly.TabIndex = 0;
-            this.txt_slab_Ly.Text = "5.0";
-            this.txt_slab_Ly.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_slab_Lx
-            // 
-            this.txt_slab_Lx.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txt_slab_Lx.Location = new System.Drawing.Point(45, 14);
-            this.txt_slab_Lx.Name = "txt_slab_Lx";
-            this.txt_slab_Lx.Size = new System.Drawing.Size(57, 21);
-            this.txt_slab_Lx.TabIndex = 0;
-            this.txt_slab_Lx.Text = "4.0";
-            this.txt_slab_Lx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label229
-            // 
-            this.label229.AutoSize = true;
-            this.label229.Location = new System.Drawing.Point(299, 17);
-            this.label229.Name = "label229";
-            this.label229.Size = new System.Drawing.Size(18, 13);
-            this.label229.TabIndex = 7;
-            this.label229.Text = "m";
-            // 
-            // label282
-            // 
-            this.label282.AutoSize = true;
-            this.label282.Location = new System.Drawing.Point(109, 17);
-            this.label282.Name = "label282";
-            this.label282.Size = new System.Drawing.Size(18, 13);
-            this.label282.TabIndex = 7;
-            this.label282.Text = "m";
-            // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(19, 101);
+            this.label48.Location = new System.Drawing.Point(8, 97);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(142, 13);
             this.label48.TabIndex = 4;
@@ -8509,7 +2039,7 @@
             // 
             // btn_slab_open_design
             // 
-            this.btn_slab_open_design.Location = new System.Drawing.Point(195, 599);
+            this.btn_slab_open_design.Location = new System.Drawing.Point(184, 595);
             this.btn_slab_open_design.Name = "btn_slab_open_design";
             this.btn_slab_open_design.Size = new System.Drawing.Size(132, 27);
             this.btn_slab_open_design.TabIndex = 1;
@@ -8519,7 +2049,7 @@
             // 
             // btn_slab_design
             // 
-            this.btn_slab_design.Location = new System.Drawing.Point(46, 599);
+            this.btn_slab_design.Location = new System.Drawing.Point(35, 595);
             this.btn_slab_design.Name = "btn_slab_design";
             this.btn_slab_design.Size = new System.Drawing.Size(132, 27);
             this.btn_slab_design.TabIndex = 1;
@@ -8535,14 +2065,14 @@
             "Fe240",
             "Fe415",
             "Fe500"});
-            this.cmb_slab_fy.Location = new System.Drawing.Point(266, 122);
+            this.cmb_slab_fy.Location = new System.Drawing.Point(255, 118);
             this.cmb_slab_fy.Name = "cmb_slab_fy";
             this.cmb_slab_fy.Size = new System.Drawing.Size(61, 21);
             this.cmb_slab_fy.TabIndex = 5;
             // 
             // txt_slab_D
             // 
-            this.txt_slab_D.Location = new System.Drawing.Point(266, 50);
+            this.txt_slab_D.Location = new System.Drawing.Point(255, 46);
             this.txt_slab_D.Name = "txt_slab_D";
             this.txt_slab_D.Size = new System.Drawing.Size(61, 21);
             this.txt_slab_D.TabIndex = 3;
@@ -8552,7 +2082,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(19, 125);
+            this.label49.Location = new System.Drawing.Point(8, 121);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(100, 13);
             this.label49.TabIndex = 4;
@@ -8560,7 +2090,7 @@
             // 
             // txt_slab_wll
             // 
-            this.txt_slab_wll.Location = new System.Drawing.Point(266, 146);
+            this.txt_slab_wll.Location = new System.Drawing.Point(255, 142);
             this.txt_slab_wll.Name = "txt_slab_wll";
             this.txt_slab_wll.Size = new System.Drawing.Size(61, 21);
             this.txt_slab_wll.TabIndex = 3;
@@ -8582,7 +2112,7 @@
             "M50",
             "M55",
             "M60"});
-            this.cmb_slab_fck.Location = new System.Drawing.Point(266, 74);
+            this.cmb_slab_fck.Location = new System.Drawing.Point(255, 70);
             this.cmb_slab_fck.Name = "cmb_slab_fck";
             this.cmb_slab_fck.Size = new System.Drawing.Size(61, 21);
             this.cmb_slab_fck.TabIndex = 5;
@@ -8590,7 +2120,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(19, 77);
+            this.label47.Location = new System.Drawing.Point(8, 73);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(129, 13);
             this.label47.TabIndex = 4;
@@ -8599,7 +2129,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(19, 198);
+            this.label56.Location = new System.Drawing.Point(8, 194);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(131, 13);
             this.label56.TabIndex = 4;
@@ -8608,7 +2138,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(19, 174);
+            this.label55.Location = new System.Drawing.Point(8, 170);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(141, 13);
             this.label55.TabIndex = 4;
@@ -8616,7 +2146,7 @@
             // 
             // txt_slab_c
             // 
-            this.txt_slab_c.Location = new System.Drawing.Point(266, 219);
+            this.txt_slab_c.Location = new System.Drawing.Point(255, 215);
             this.txt_slab_c.Name = "txt_slab_c";
             this.txt_slab_c.Size = new System.Drawing.Size(61, 21);
             this.txt_slab_c.TabIndex = 3;
@@ -8626,7 +2156,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(19, 222);
+            this.label54.Location = new System.Drawing.Point(8, 218);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(169, 13);
             this.label54.TabIndex = 4;
@@ -8634,7 +2164,7 @@
             // 
             // txt_slab_DLF
             // 
-            this.txt_slab_DLF.Location = new System.Drawing.Point(266, 171);
+            this.txt_slab_DLF.Location = new System.Drawing.Point(255, 167);
             this.txt_slab_DLF.Name = "txt_slab_DLF";
             this.txt_slab_DLF.Size = new System.Drawing.Size(61, 21);
             this.txt_slab_DLF.TabIndex = 3;
@@ -8643,7 +2173,7 @@
             // 
             // txt_slab_LLF
             // 
-            this.txt_slab_LLF.Location = new System.Drawing.Point(266, 195);
+            this.txt_slab_LLF.Location = new System.Drawing.Point(255, 191);
             this.txt_slab_LLF.Name = "txt_slab_LLF";
             this.txt_slab_LLF.Size = new System.Drawing.Size(61, 21);
             this.txt_slab_LLF.TabIndex = 3;
@@ -8652,7 +2182,7 @@
             // 
             // txt_slab_gamma
             // 
-            this.txt_slab_gamma.Location = new System.Drawing.Point(266, 98);
+            this.txt_slab_gamma.Location = new System.Drawing.Point(255, 94);
             this.txt_slab_gamma.Name = "txt_slab_gamma";
             this.txt_slab_gamma.Size = new System.Drawing.Size(61, 21);
             this.txt_slab_gamma.TabIndex = 3;
@@ -8662,7 +2192,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(19, 53);
+            this.label46.Location = new System.Drawing.Point(8, 49);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(130, 13);
             this.label46.TabIndex = 4;
@@ -8671,415 +2201,21 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(19, 149);
+            this.label50.Location = new System.Drawing.Point(8, 145);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(90, 13);
             this.label50.TabIndex = 4;
             this.label50.Text = "Live Load [wll]";
             // 
-            // vdSC_slab
-            // 
-            this.vdSC_slab.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_slab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_slab.Location = new System.Drawing.Point(0, 25);
-            this.vdSC_slab.Name = "vdSC_slab";
-            this.vdSC_slab.ShowLayoutPopupMenu = true;
-            this.vdSC_slab.Size = new System.Drawing.Size(498, 583);
-            this.vdSC_slab.TabIndex = 0;
-            // 
-            // toolStrip4
-            // 
-            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb1_3D_rotate,
-            this.tsb1_VTop,
-            this.tsb1_VBot,
-            this.tsb1_VLeft,
-            this.tsb1_VRight,
-            this.tsb1_VFront,
-            this.tsb1_VBack,
-            this.tsb1_VNE,
-            this.tsb1_VNW,
-            this.tsb1_VSE,
-            this.tsb1_VSW,
-            this.toolStripSeparator10,
-            this.tsb1_ShadeOn,
-            this.tsb1_Wire,
-            this.toolStripSeparator11,
-            this.tsb1_ZoomA,
-            this.tsb1_ZoomE,
-            this.tsb1_ZoomP,
-            this.tsb1_ZoomW,
-            this.tsb1_ZoomIn,
-            this.tsb1_ZoomOut,
-            this.tsb1_Pan,
-            this.toolStripSeparator12,
-            this.tsb1_Save,
-            this.tsb1_Edit});
-            this.toolStrip4.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip4.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip4.Name = "toolStrip4";
-            this.toolStrip4.Size = new System.Drawing.Size(498, 25);
-            this.toolStrip4.TabIndex = 4;
-            // 
-            // tsb1_3D_rotate
-            // 
-            this.tsb1_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_3D_rotate.Image = global::ASTRAStructures.Properties.Resources._3D_orbit;
-            this.tsb1_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_3D_rotate.Name = "tsb1_3D_rotate";
-            this.tsb1_3D_rotate.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_3D_rotate.Text = "Rotate 3D";
-            this.tsb1_3D_rotate.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VTop
-            // 
-            this.tsb1_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VTop.Image = global::ASTRAStructures.Properties.Resources._3DVTOP;
-            this.tsb1_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VTop.Name = "tsb1_VTop";
-            this.tsb1_VTop.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VTop.Text = "View Top";
-            this.tsb1_VTop.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VBot
-            // 
-            this.tsb1_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VBot.Image")));
-            this.tsb1_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VBot.Name = "tsb1_VBot";
-            this.tsb1_VBot.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VBot.Text = "View Bottom";
-            this.tsb1_VBot.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VLeft
-            // 
-            this.tsb1_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VLeft.Image")));
-            this.tsb1_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VLeft.Name = "tsb1_VLeft";
-            this.tsb1_VLeft.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VLeft.Text = "View Left";
-            this.tsb1_VLeft.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VRight
-            // 
-            this.tsb1_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VRight.Image")));
-            this.tsb1_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VRight.Name = "tsb1_VRight";
-            this.tsb1_VRight.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VRight.Text = "View Right";
-            this.tsb1_VRight.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VFront
-            // 
-            this.tsb1_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VFront.Image")));
-            this.tsb1_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VFront.Name = "tsb1_VFront";
-            this.tsb1_VFront.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VFront.Text = "View Front";
-            this.tsb1_VFront.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VBack
-            // 
-            this.tsb1_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VBack.Image")));
-            this.tsb1_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VBack.Name = "tsb1_VBack";
-            this.tsb1_VBack.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VBack.Text = "View Back";
-            this.tsb1_VBack.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VNE
-            // 
-            this.tsb1_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VNE.Image")));
-            this.tsb1_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VNE.Name = "tsb1_VNE";
-            this.tsb1_VNE.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VNE.Text = "View NE";
-            this.tsb1_VNE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VNW
-            // 
-            this.tsb1_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VNW.Image")));
-            this.tsb1_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VNW.Name = "tsb1_VNW";
-            this.tsb1_VNW.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VNW.Text = "View NW";
-            this.tsb1_VNW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VSE
-            // 
-            this.tsb1_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VSE.Image")));
-            this.tsb1_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VSE.Name = "tsb1_VSE";
-            this.tsb1_VSE.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VSE.Text = "View SE";
-            this.tsb1_VSE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_VSW
-            // 
-            this.tsb1_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_VSW.Image")));
-            this.tsb1_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_VSW.Name = "tsb1_VSW";
-            this.tsb1_VSW.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_VSW.Text = "View SW";
-            this.tsb1_VSW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb1_ShadeOn
-            // 
-            this.tsb1_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ShadeOn.Image")));
-            this.tsb1_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ShadeOn.Name = "tsb1_ShadeOn";
-            this.tsb1_ShadeOn.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ShadeOn.Text = "Shade On";
-            this.tsb1_ShadeOn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_Wire
-            // 
-            this.tsb1_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_Wire.Image")));
-            this.tsb1_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_Wire.Name = "tsb1_Wire";
-            this.tsb1_Wire.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_Wire.Text = "Wire";
-            this.tsb1_Wire.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb1_ZoomA
-            // 
-            this.tsb1_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ZoomA.Image")));
-            this.tsb1_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ZoomA.Name = "tsb1_ZoomA";
-            this.tsb1_ZoomA.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ZoomA.Text = "Zom All";
-            this.tsb1_ZoomA.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_ZoomE
-            // 
-            this.tsb1_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ZoomE.Image")));
-            this.tsb1_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ZoomE.Name = "tsb1_ZoomE";
-            this.tsb1_ZoomE.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ZoomE.Text = "Zoom Extent";
-            this.tsb1_ZoomE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_ZoomP
-            // 
-            this.tsb1_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ZoomP.Image")));
-            this.tsb1_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ZoomP.Name = "tsb1_ZoomP";
-            this.tsb1_ZoomP.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ZoomP.Text = "Zoom Previous";
-            this.tsb1_ZoomP.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_ZoomW
-            // 
-            this.tsb1_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ZoomW.Image")));
-            this.tsb1_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ZoomW.Name = "tsb1_ZoomW";
-            this.tsb1_ZoomW.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ZoomW.Text = "Zoom Window";
-            this.tsb1_ZoomW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_ZoomIn
-            // 
-            this.tsb1_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ZoomIn.Image")));
-            this.tsb1_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ZoomIn.Name = "tsb1_ZoomIn";
-            this.tsb1_ZoomIn.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ZoomIn.Text = "Zoom In";
-            this.tsb1_ZoomIn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_ZoomOut
-            // 
-            this.tsb1_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_ZoomOut.Image")));
-            this.tsb1_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_ZoomOut.Name = "tsb1_ZoomOut";
-            this.tsb1_ZoomOut.Size = new System.Drawing.Size(23, 22);
-            this.tsb1_ZoomOut.Text = "Zoom Out";
-            this.tsb1_ZoomOut.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_Pan
-            // 
-            this.tsb1_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb1_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_Pan.Image")));
-            this.tsb1_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_Pan.Name = "tsb1_Pan";
-            this.tsb1_Pan.Size = new System.Drawing.Size(23, 20);
-            this.tsb1_Pan.Text = "Pan";
-            this.tsb1_Pan.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator12
-            // 
-            this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb1_Save
-            // 
-            this.tsb1_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_Save.Image")));
-            this.tsb1_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_Save.Name = "tsb1_Save";
-            this.tsb1_Save.Size = new System.Drawing.Size(51, 20);
-            this.tsb1_Save.Text = "Save";
-            this.tsb1_Save.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb1_Edit
-            // 
-            this.tsb1_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb1_Edit.Image")));
-            this.tsb1_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb1_Edit.Name = "tsb1_Edit";
-            this.tsb1_Edit.Size = new System.Drawing.Size(47, 20);
-            this.tsb1_Edit.Text = "Edit";
-            this.tsb1_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb1_Edit.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // panel25
-            // 
-            this.panel25.Controls.Add(this.label74);
-            this.panel25.Controls.Add(this.cmb1_text_size);
-            this.panel25.Controls.Add(this.chk1_elements);
-            this.panel25.Controls.Add(this.chk1_joints);
-            this.panel25.Controls.Add(this.chk1_supports);
-            this.panel25.Controls.Add(this.chk1_members);
-            this.panel25.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel25.Location = new System.Drawing.Point(0, 608);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(498, 25);
-            this.panel25.TabIndex = 6;
-            // 
-            // label74
-            // 
-            this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(370, 6);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(59, 13);
-            this.label74.TabIndex = 4;
-            this.label74.Text = "Text Size";
-            // 
-            // cmb1_text_size
-            // 
-            this.cmb1_text_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb1_text_size.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb1_text_size.FormattingEnabled = true;
-            this.cmb1_text_size.Location = new System.Drawing.Point(439, 3);
-            this.cmb1_text_size.Name = "cmb1_text_size";
-            this.cmb1_text_size.Size = new System.Drawing.Size(52, 21);
-            this.cmb1_text_size.TabIndex = 3;
-            this.cmb1_text_size.SelectedIndexChanged += new System.EventHandler(this.cmb_text_size_SelectedIndexChanged);
-            // 
-            // chk1_elements
-            // 
-            this.chk1_elements.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk1_elements.AutoSize = true;
-            this.chk1_elements.Checked = true;
-            this.chk1_elements.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk1_elements.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk1_elements.Location = new System.Drawing.Point(186, 5);
-            this.chk1_elements.Name = "chk1_elements";
-            this.chk1_elements.Size = new System.Drawing.Size(78, 17);
-            this.chk1_elements.TabIndex = 2;
-            this.chk1_elements.Text = "Elements";
-            this.chk1_elements.UseVisualStyleBackColor = true;
-            this.chk1_elements.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk1_joints
-            // 
-            this.chk1_joints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk1_joints.AutoSize = true;
-            this.chk1_joints.Checked = true;
-            this.chk1_joints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk1_joints.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk1_joints.Location = new System.Drawing.Point(17, 5);
-            this.chk1_joints.Name = "chk1_joints";
-            this.chk1_joints.Size = new System.Drawing.Size(61, 17);
-            this.chk1_joints.TabIndex = 2;
-            this.chk1_joints.Text = "Nodes";
-            this.chk1_joints.UseVisualStyleBackColor = true;
-            this.chk1_joints.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk1_supports
-            // 
-            this.chk1_supports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk1_supports.AutoSize = true;
-            this.chk1_supports.Checked = true;
-            this.chk1_supports.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk1_supports.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk1_supports.Location = new System.Drawing.Point(287, 5);
-            this.chk1_supports.Name = "chk1_supports";
-            this.chk1_supports.Size = new System.Drawing.Size(77, 17);
-            this.chk1_supports.TabIndex = 2;
-            this.chk1_supports.Text = "Supports";
-            this.chk1_supports.UseVisualStyleBackColor = true;
-            this.chk1_supports.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk1_members
-            // 
-            this.chk1_members.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk1_members.AutoSize = true;
-            this.chk1_members.Checked = true;
-            this.chk1_members.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk1_members.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk1_members.Location = new System.Drawing.Point(85, 5);
-            this.chk1_members.Name = "chk1_members";
-            this.chk1_members.Size = new System.Drawing.Size(78, 17);
-            this.chk1_members.TabIndex = 2;
-            this.chk1_members.Text = "Members";
-            this.chk1_members.UseVisualStyleBackColor = true;
-            this.chk1_members.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
             // tab_beam
             // 
-            this.tab_beam.Controls.Add(this.sc_beam);
+            this.tab_beam.Controls.Add(this.tc_Beam);
             this.tab_beam.Location = new System.Drawing.Point(4, 22);
             this.tab_beam.Name = "tab_beam";
             this.tab_beam.Size = new System.Drawing.Size(944, 635);
             this.tab_beam.TabIndex = 3;
             this.tab_beam.Text = "Beam Design";
             this.tab_beam.UseVisualStyleBackColor = true;
-            // 
-            // sc_beam
-            // 
-            this.sc_beam.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sc_beam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sc_beam.Location = new System.Drawing.Point(0, 0);
-            this.sc_beam.Name = "sc_beam";
-            // 
-            // sc_beam.Panel1
-            // 
-            this.sc_beam.Panel1.Controls.Add(this.tc_Beam);
-            // 
-            // sc_beam.Panel2
-            // 
-            this.sc_beam.Panel2.Controls.Add(this.vdSC_beam);
-            this.sc_beam.Panel2.Controls.Add(this.panel28);
-            this.sc_beam.Panel2.Controls.Add(this.toolStrip5);
-            this.sc_beam.Size = new System.Drawing.Size(944, 635);
-            this.sc_beam.SplitterDistance = 403;
-            this.sc_beam.TabIndex = 7;
-            this.sc_beam.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer5_SplitterMoved);
             // 
             // tc_Beam
             // 
@@ -9089,7 +2225,7 @@
             this.tc_Beam.Location = new System.Drawing.Point(0, 0);
             this.tc_Beam.Name = "tc_Beam";
             this.tc_Beam.SelectedIndex = 0;
-            this.tc_Beam.Size = new System.Drawing.Size(401, 633);
+            this.tc_Beam.Size = new System.Drawing.Size(944, 635);
             this.tc_Beam.TabIndex = 26;
             this.tc_Beam.SelectedIndexChanged += new System.EventHandler(this.tab_structure_SelectedIndexChanged);
             // 
@@ -9161,7 +2297,7 @@
             this.tab_concrete_beam.Location = new System.Drawing.Point(4, 22);
             this.tab_concrete_beam.Name = "tab_concrete_beam";
             this.tab_concrete_beam.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_concrete_beam.Size = new System.Drawing.Size(393, 607);
+            this.tab_concrete_beam.Size = new System.Drawing.Size(936, 609);
             this.tab_concrete_beam.TabIndex = 0;
             this.tab_concrete_beam.Text = "RCC Concrete Beam";
             this.tab_concrete_beam.UseVisualStyleBackColor = true;
@@ -10155,7 +3291,7 @@
             this.tab_steel_beam.Location = new System.Drawing.Point(4, 22);
             this.tab_steel_beam.Name = "tab_steel_beam";
             this.tab_steel_beam.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_steel_beam.Size = new System.Drawing.Size(393, 607);
+            this.tab_steel_beam.Size = new System.Drawing.Size(936, 609);
             this.tab_steel_beam.TabIndex = 1;
             this.tab_steel_beam.Text = "Steel Beam";
             this.tab_steel_beam.UseVisualStyleBackColor = true;
@@ -10163,10 +3299,10 @@
             // uC_SteelSections_Beam
             // 
             this.uC_SteelSections_Beam.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_SteelSections_Beam.Location = new System.Drawing.Point(369, 12);
+            this.uC_SteelSections_Beam.Location = new System.Drawing.Point(0, 0);
             this.uC_SteelSections_Beam.Name = "uC_SteelSections_Beam";
-            this.uC_SteelSections_Beam.Size = new System.Drawing.Size(534, 341);
-            this.uC_SteelSections_Beam.TabIndex = 63;
+            this.uC_SteelSections_Beam.Size = new System.Drawing.Size(533, 347);
+            this.uC_SteelSections_Beam.TabIndex = 0;
             // 
             // groupBox28
             // 
@@ -10491,12 +3627,11 @@
             this.groupBox38.Controls.Add(this.label381);
             this.groupBox38.Controls.Add(this.label382);
             this.groupBox38.Controls.Add(this.textBox5);
-            this.groupBox38.Location = new System.Drawing.Point(546, 51);
+            this.groupBox38.Location = new System.Drawing.Point(527, 12);
             this.groupBox38.Name = "groupBox38";
-            this.groupBox38.Size = new System.Drawing.Size(173, 19);
+            this.groupBox38.Size = new System.Drawing.Size(403, 285);
             this.groupBox38.TabIndex = 64;
             this.groupBox38.TabStop = false;
-            this.groupBox38.Text = "groupBox38";
             this.groupBox38.Visible = false;
             // 
             // label363
@@ -10928,408 +4063,15 @@
             this.textBox5.Text = "25";
             this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // vdSC_beam
-            // 
-            this.vdSC_beam.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_beam.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_beam.Location = new System.Drawing.Point(0, 25);
-            this.vdSC_beam.Name = "vdSC_beam";
-            this.vdSC_beam.ShowLayoutPopupMenu = true;
-            this.vdSC_beam.Size = new System.Drawing.Size(535, 583);
-            this.vdSC_beam.TabIndex = 0;
-            // 
-            // panel28
-            // 
-            this.panel28.Controls.Add(this.label75);
-            this.panel28.Controls.Add(this.cmb2_text_size);
-            this.panel28.Controls.Add(this.chk2_elements);
-            this.panel28.Controls.Add(this.chk2_joints);
-            this.panel28.Controls.Add(this.chk2_supports);
-            this.panel28.Controls.Add(this.chk2_members);
-            this.panel28.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel28.Location = new System.Drawing.Point(0, 608);
-            this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(535, 25);
-            this.panel28.TabIndex = 6;
-            // 
-            // label75
-            // 
-            this.label75.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(404, 6);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(59, 13);
-            this.label75.TabIndex = 4;
-            this.label75.Text = "Text Size";
-            // 
-            // cmb2_text_size
-            // 
-            this.cmb2_text_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb2_text_size.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb2_text_size.FormattingEnabled = true;
-            this.cmb2_text_size.Location = new System.Drawing.Point(473, 3);
-            this.cmb2_text_size.Name = "cmb2_text_size";
-            this.cmb2_text_size.Size = new System.Drawing.Size(52, 21);
-            this.cmb2_text_size.TabIndex = 3;
-            this.cmb2_text_size.SelectedIndexChanged += new System.EventHandler(this.cmb_text_size_SelectedIndexChanged);
-            // 
-            // chk2_elements
-            // 
-            this.chk2_elements.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk2_elements.AutoSize = true;
-            this.chk2_elements.Checked = true;
-            this.chk2_elements.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk2_elements.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk2_elements.Location = new System.Drawing.Point(185, 5);
-            this.chk2_elements.Name = "chk2_elements";
-            this.chk2_elements.Size = new System.Drawing.Size(78, 17);
-            this.chk2_elements.TabIndex = 2;
-            this.chk2_elements.Text = "Elements";
-            this.chk2_elements.UseVisualStyleBackColor = true;
-            this.chk2_elements.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk2_joints
-            // 
-            this.chk2_joints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk2_joints.AutoSize = true;
-            this.chk2_joints.Checked = true;
-            this.chk2_joints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk2_joints.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk2_joints.Location = new System.Drawing.Point(16, 5);
-            this.chk2_joints.Name = "chk2_joints";
-            this.chk2_joints.Size = new System.Drawing.Size(61, 17);
-            this.chk2_joints.TabIndex = 2;
-            this.chk2_joints.Text = "Nodes";
-            this.chk2_joints.UseVisualStyleBackColor = true;
-            this.chk2_joints.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk2_supports
-            // 
-            this.chk2_supports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk2_supports.AutoSize = true;
-            this.chk2_supports.Checked = true;
-            this.chk2_supports.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk2_supports.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk2_supports.Location = new System.Drawing.Point(286, 5);
-            this.chk2_supports.Name = "chk2_supports";
-            this.chk2_supports.Size = new System.Drawing.Size(77, 17);
-            this.chk2_supports.TabIndex = 2;
-            this.chk2_supports.Text = "Supports";
-            this.chk2_supports.UseVisualStyleBackColor = true;
-            this.chk2_supports.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk2_members
-            // 
-            this.chk2_members.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk2_members.AutoSize = true;
-            this.chk2_members.Checked = true;
-            this.chk2_members.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk2_members.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk2_members.Location = new System.Drawing.Point(84, 5);
-            this.chk2_members.Name = "chk2_members";
-            this.chk2_members.Size = new System.Drawing.Size(78, 17);
-            this.chk2_members.TabIndex = 2;
-            this.chk2_members.Text = "Members";
-            this.chk2_members.UseVisualStyleBackColor = true;
-            this.chk2_members.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // toolStrip5
-            // 
-            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb2_3D_rotate,
-            this.tsb2_VTop,
-            this.tsb2_VBot,
-            this.tsb2_VLeft,
-            this.tsb2_VRight,
-            this.tsb2_VFront,
-            this.tsb2_VBack,
-            this.tsb2_VNE,
-            this.tsb2_VNW,
-            this.tsb2_VSE,
-            this.tsb2_VSW,
-            this.toolStripSeparator13,
-            this.tsb2_ShadeOn,
-            this.tsb2_Wire,
-            this.toolStripSeparator14,
-            this.tsb2_ZoomA,
-            this.tsb2_ZoomE,
-            this.tsb2_ZoomP,
-            this.tsb2_ZoomW,
-            this.tsb2_ZoomIn,
-            this.tsb2_ZoomOut,
-            this.tsb2_Pan,
-            this.toolStripSeparator15,
-            this.tsb2_Save,
-            this.tsb2_Edit});
-            this.toolStrip5.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip5.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip5.Name = "toolStrip5";
-            this.toolStrip5.Size = new System.Drawing.Size(535, 25);
-            this.toolStrip5.TabIndex = 4;
-            // 
-            // tsb2_3D_rotate
-            // 
-            this.tsb2_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_3D_rotate.Image = global::ASTRAStructures.Properties.Resources._3D_orbit;
-            this.tsb2_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_3D_rotate.Name = "tsb2_3D_rotate";
-            this.tsb2_3D_rotate.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_3D_rotate.Text = "Rotate 3D";
-            this.tsb2_3D_rotate.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VTop
-            // 
-            this.tsb2_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VTop.Image = global::ASTRAStructures.Properties.Resources._3DVTOP;
-            this.tsb2_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VTop.Name = "tsb2_VTop";
-            this.tsb2_VTop.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VTop.Text = "View Top";
-            this.tsb2_VTop.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VBot
-            // 
-            this.tsb2_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VBot.Image")));
-            this.tsb2_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VBot.Name = "tsb2_VBot";
-            this.tsb2_VBot.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VBot.Text = "View Bottom";
-            this.tsb2_VBot.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VLeft
-            // 
-            this.tsb2_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VLeft.Image")));
-            this.tsb2_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VLeft.Name = "tsb2_VLeft";
-            this.tsb2_VLeft.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VLeft.Text = "View Left";
-            this.tsb2_VLeft.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VRight
-            // 
-            this.tsb2_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VRight.Image")));
-            this.tsb2_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VRight.Name = "tsb2_VRight";
-            this.tsb2_VRight.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VRight.Text = "View Right";
-            this.tsb2_VRight.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VFront
-            // 
-            this.tsb2_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VFront.Image")));
-            this.tsb2_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VFront.Name = "tsb2_VFront";
-            this.tsb2_VFront.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VFront.Text = "View Front";
-            this.tsb2_VFront.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VBack
-            // 
-            this.tsb2_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VBack.Image")));
-            this.tsb2_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VBack.Name = "tsb2_VBack";
-            this.tsb2_VBack.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VBack.Text = "View Back";
-            this.tsb2_VBack.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VNE
-            // 
-            this.tsb2_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VNE.Image")));
-            this.tsb2_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VNE.Name = "tsb2_VNE";
-            this.tsb2_VNE.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VNE.Text = "View NE";
-            this.tsb2_VNE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VNW
-            // 
-            this.tsb2_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VNW.Image")));
-            this.tsb2_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VNW.Name = "tsb2_VNW";
-            this.tsb2_VNW.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VNW.Text = "View NW";
-            this.tsb2_VNW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VSE
-            // 
-            this.tsb2_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VSE.Image")));
-            this.tsb2_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VSE.Name = "tsb2_VSE";
-            this.tsb2_VSE.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VSE.Text = "View SE";
-            this.tsb2_VSE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_VSW
-            // 
-            this.tsb2_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_VSW.Image")));
-            this.tsb2_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_VSW.Name = "tsb2_VSW";
-            this.tsb2_VSW.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_VSW.Text = "View SW";
-            this.tsb2_VSW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator13
-            // 
-            this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb2_ShadeOn
-            // 
-            this.tsb2_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ShadeOn.Image")));
-            this.tsb2_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ShadeOn.Name = "tsb2_ShadeOn";
-            this.tsb2_ShadeOn.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ShadeOn.Text = "Shade On";
-            this.tsb2_ShadeOn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_Wire
-            // 
-            this.tsb2_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_Wire.Image")));
-            this.tsb2_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_Wire.Name = "tsb2_Wire";
-            this.tsb2_Wire.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_Wire.Text = "Wire";
-            this.tsb2_Wire.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator14
-            // 
-            this.toolStripSeparator14.Name = "toolStripSeparator14";
-            this.toolStripSeparator14.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb2_ZoomA
-            // 
-            this.tsb2_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ZoomA.Image")));
-            this.tsb2_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ZoomA.Name = "tsb2_ZoomA";
-            this.tsb2_ZoomA.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ZoomA.Text = "Zom All";
-            this.tsb2_ZoomA.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_ZoomE
-            // 
-            this.tsb2_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ZoomE.Image")));
-            this.tsb2_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ZoomE.Name = "tsb2_ZoomE";
-            this.tsb2_ZoomE.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ZoomE.Text = "Zoom Extent";
-            this.tsb2_ZoomE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_ZoomP
-            // 
-            this.tsb2_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ZoomP.Image")));
-            this.tsb2_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ZoomP.Name = "tsb2_ZoomP";
-            this.tsb2_ZoomP.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ZoomP.Text = "Zoom Previous";
-            this.tsb2_ZoomP.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_ZoomW
-            // 
-            this.tsb2_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ZoomW.Image")));
-            this.tsb2_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ZoomW.Name = "tsb2_ZoomW";
-            this.tsb2_ZoomW.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ZoomW.Text = "Zoom Window";
-            this.tsb2_ZoomW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_ZoomIn
-            // 
-            this.tsb2_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ZoomIn.Image")));
-            this.tsb2_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ZoomIn.Name = "tsb2_ZoomIn";
-            this.tsb2_ZoomIn.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ZoomIn.Text = "Zoom In";
-            this.tsb2_ZoomIn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_ZoomOut
-            // 
-            this.tsb2_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_ZoomOut.Image")));
-            this.tsb2_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_ZoomOut.Name = "tsb2_ZoomOut";
-            this.tsb2_ZoomOut.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_ZoomOut.Text = "Zoom Out";
-            this.tsb2_ZoomOut.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_Pan
-            // 
-            this.tsb2_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb2_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_Pan.Image")));
-            this.tsb2_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_Pan.Name = "tsb2_Pan";
-            this.tsb2_Pan.Size = new System.Drawing.Size(23, 22);
-            this.tsb2_Pan.Text = "Pan";
-            this.tsb2_Pan.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator15
-            // 
-            this.toolStripSeparator15.Name = "toolStripSeparator15";
-            this.toolStripSeparator15.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb2_Save
-            // 
-            this.tsb2_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_Save.Image")));
-            this.tsb2_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_Save.Name = "tsb2_Save";
-            this.tsb2_Save.Size = new System.Drawing.Size(51, 20);
-            this.tsb2_Save.Text = "Save";
-            this.tsb2_Save.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb2_Edit
-            // 
-            this.tsb2_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb2_Edit.Image")));
-            this.tsb2_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb2_Edit.Name = "tsb2_Edit";
-            this.tsb2_Edit.Size = new System.Drawing.Size(47, 20);
-            this.tsb2_Edit.Text = "Edit";
-            this.tsb2_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb2_Edit.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
             // tab_columns
             // 
-            this.tab_columns.Controls.Add(this.sc_column);
+            this.tab_columns.Controls.Add(this.tc_Column);
             this.tab_columns.Location = new System.Drawing.Point(4, 22);
             this.tab_columns.Name = "tab_columns";
             this.tab_columns.Size = new System.Drawing.Size(944, 635);
             this.tab_columns.TabIndex = 4;
             this.tab_columns.Text = "Column Design";
             this.tab_columns.UseVisualStyleBackColor = true;
-            // 
-            // sc_column
-            // 
-            this.sc_column.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.sc_column.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sc_column.Location = new System.Drawing.Point(0, 0);
-            this.sc_column.Name = "sc_column";
-            // 
-            // sc_column.Panel1
-            // 
-            this.sc_column.Panel1.Controls.Add(this.tc_Column);
-            // 
-            // sc_column.Panel2
-            // 
-            this.sc_column.Panel2.Controls.Add(this.vdSC_columns);
-            this.sc_column.Panel2.Controls.Add(this.panel29);
-            this.sc_column.Panel2.Controls.Add(this.toolStrip6);
-            this.sc_column.Size = new System.Drawing.Size(944, 635);
-            this.sc_column.SplitterDistance = 382;
-            this.sc_column.TabIndex = 9;
             // 
             // tc_Column
             // 
@@ -11339,7 +4081,7 @@
             this.tc_Column.Location = new System.Drawing.Point(0, 0);
             this.tc_Column.Name = "tc_Column";
             this.tc_Column.SelectedIndex = 0;
-            this.tc_Column.Size = new System.Drawing.Size(380, 633);
+            this.tc_Column.Size = new System.Drawing.Size(944, 635);
             this.tc_Column.TabIndex = 24;
             this.tc_Column.SelectedIndexChanged += new System.EventHandler(this.tab_structure_SelectedIndexChanged);
             // 
@@ -11377,7 +4119,7 @@
             this.tab_concrete_column.Location = new System.Drawing.Point(4, 22);
             this.tab_concrete_column.Name = "tab_concrete_column";
             this.tab_concrete_column.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_concrete_column.Size = new System.Drawing.Size(372, 607);
+            this.tab_concrete_column.Size = new System.Drawing.Size(936, 609);
             this.tab_concrete_column.TabIndex = 0;
             this.tab_concrete_column.Text = "RCC Concrete Column";
             this.tab_concrete_column.UseVisualStyleBackColor = true;
@@ -11843,7 +4585,7 @@
             this.tab_steel_column.Location = new System.Drawing.Point(4, 22);
             this.tab_steel_column.Name = "tab_steel_column";
             this.tab_steel_column.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_steel_column.Size = new System.Drawing.Size(372, 607);
+            this.tab_steel_column.Size = new System.Drawing.Size(936, 609);
             this.tab_steel_column.TabIndex = 1;
             this.tab_steel_column.Text = "Steel Column";
             this.tab_steel_column.UseVisualStyleBackColor = true;
@@ -12307,10 +5049,10 @@
             // uC_SteelSections_Column
             // 
             this.uC_SteelSections_Column.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_SteelSections_Column.Location = new System.Drawing.Point(421, 7);
+            this.uC_SteelSections_Column.Location = new System.Drawing.Point(430, 6);
             this.uC_SteelSections_Column.Name = "uC_SteelSections_Column";
             this.uC_SteelSections_Column.Size = new System.Drawing.Size(533, 347);
-            this.uC_SteelSections_Column.TabIndex = 52;
+            this.uC_SteelSections_Column.TabIndex = 101;
             // 
             // btn_steel_column_open_design
             // 
@@ -12344,379 +5086,6 @@
             this.chk_column_steel_individual.Text = "Design of an Individual Column";
             this.chk_column_steel_individual.UseVisualStyleBackColor = true;
             this.chk_column_steel_individual.CheckedChanged += new System.EventHandler(this.chk_slab_individual_CheckedChanged);
-            // 
-            // vdSC_columns
-            // 
-            this.vdSC_columns.BackColor = System.Drawing.SystemColors.Control;
-            this.vdSC_columns.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdSC_columns.Location = new System.Drawing.Point(0, 25);
-            this.vdSC_columns.Name = "vdSC_columns";
-            this.vdSC_columns.ShowLayoutPopupMenu = true;
-            this.vdSC_columns.Size = new System.Drawing.Size(556, 583);
-            this.vdSC_columns.TabIndex = 0;
-            // 
-            // panel29
-            // 
-            this.panel29.Controls.Add(this.label122);
-            this.panel29.Controls.Add(this.cmb3_text_size);
-            this.panel29.Controls.Add(this.chk3_elements);
-            this.panel29.Controls.Add(this.chk3_joints);
-            this.panel29.Controls.Add(this.chk3_supports);
-            this.panel29.Controls.Add(this.chk3_members);
-            this.panel29.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel29.Location = new System.Drawing.Point(0, 608);
-            this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(556, 25);
-            this.panel29.TabIndex = 6;
-            // 
-            // label122
-            // 
-            this.label122.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label122.AutoSize = true;
-            this.label122.Location = new System.Drawing.Point(428, 6);
-            this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(59, 13);
-            this.label122.TabIndex = 4;
-            this.label122.Text = "Text Size";
-            // 
-            // cmb3_text_size
-            // 
-            this.cmb3_text_size.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmb3_text_size.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb3_text_size.FormattingEnabled = true;
-            this.cmb3_text_size.Location = new System.Drawing.Point(497, 3);
-            this.cmb3_text_size.Name = "cmb3_text_size";
-            this.cmb3_text_size.Size = new System.Drawing.Size(52, 21);
-            this.cmb3_text_size.TabIndex = 3;
-            this.cmb3_text_size.SelectedIndexChanged += new System.EventHandler(this.cmb_text_size_SelectedIndexChanged);
-            // 
-            // chk3_elements
-            // 
-            this.chk3_elements.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk3_elements.AutoSize = true;
-            this.chk3_elements.Checked = true;
-            this.chk3_elements.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk3_elements.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk3_elements.Location = new System.Drawing.Point(209, 5);
-            this.chk3_elements.Name = "chk3_elements";
-            this.chk3_elements.Size = new System.Drawing.Size(78, 17);
-            this.chk3_elements.TabIndex = 2;
-            this.chk3_elements.Text = "Elements";
-            this.chk3_elements.UseVisualStyleBackColor = true;
-            this.chk3_elements.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk3_joints
-            // 
-            this.chk3_joints.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk3_joints.AutoSize = true;
-            this.chk3_joints.Checked = true;
-            this.chk3_joints.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk3_joints.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk3_joints.Location = new System.Drawing.Point(40, 5);
-            this.chk3_joints.Name = "chk3_joints";
-            this.chk3_joints.Size = new System.Drawing.Size(61, 17);
-            this.chk3_joints.TabIndex = 2;
-            this.chk3_joints.Text = "Nodes";
-            this.chk3_joints.UseVisualStyleBackColor = true;
-            this.chk3_joints.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk3_supports
-            // 
-            this.chk3_supports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk3_supports.AutoSize = true;
-            this.chk3_supports.Checked = true;
-            this.chk3_supports.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk3_supports.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk3_supports.Location = new System.Drawing.Point(310, 5);
-            this.chk3_supports.Name = "chk3_supports";
-            this.chk3_supports.Size = new System.Drawing.Size(77, 17);
-            this.chk3_supports.TabIndex = 2;
-            this.chk3_supports.Text = "Supports";
-            this.chk3_supports.UseVisualStyleBackColor = true;
-            this.chk3_supports.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // chk3_members
-            // 
-            this.chk3_members.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.chk3_members.AutoSize = true;
-            this.chk3_members.Checked = true;
-            this.chk3_members.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk3_members.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chk3_members.Location = new System.Drawing.Point(108, 5);
-            this.chk3_members.Name = "chk3_members";
-            this.chk3_members.Size = new System.Drawing.Size(78, 17);
-            this.chk3_members.TabIndex = 2;
-            this.chk3_members.Text = "Members";
-            this.chk3_members.UseVisualStyleBackColor = true;
-            this.chk3_members.CheckedChanged += new System.EventHandler(this.chk_joints_CheckedChanged);
-            // 
-            // toolStrip6
-            // 
-            this.toolStrip6.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb3_3D_rotate,
-            this.tsb3_VTop,
-            this.tsb3_VBot,
-            this.tsb3_VLeft,
-            this.tsb3_VRight,
-            this.tsb3_VFront,
-            this.tsb3_VBack,
-            this.tsb3_VNE,
-            this.tsb3_VNW,
-            this.tsb3_VSE,
-            this.tsb3_VSW,
-            this.toolStripSeparator16,
-            this.tsb3_ShadeOn,
-            this.tsb3_Wire,
-            this.toolStripSeparator17,
-            this.tsb3_ZoomA,
-            this.tsb3_ZoomE,
-            this.tsb3_ZoomP,
-            this.tsb3_ZoomW,
-            this.tsb3_ZoomIn,
-            this.tsb3_ZoomOut,
-            this.tsb3_Pan,
-            this.toolStripSeparator18,
-            this.tsb3_Save,
-            this.tsb3_Edit});
-            this.toolStrip6.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip6.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip6.Name = "toolStrip6";
-            this.toolStrip6.Size = new System.Drawing.Size(556, 25);
-            this.toolStrip6.TabIndex = 4;
-            // 
-            // tsb3_3D_rotate
-            // 
-            this.tsb3_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_3D_rotate.Image = global::ASTRAStructures.Properties.Resources._3D_orbit;
-            this.tsb3_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_3D_rotate.Name = "tsb3_3D_rotate";
-            this.tsb3_3D_rotate.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_3D_rotate.Text = "Rotate 3D";
-            this.tsb3_3D_rotate.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VTop
-            // 
-            this.tsb3_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VTop.Image = global::ASTRAStructures.Properties.Resources._3DVTOP;
-            this.tsb3_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VTop.Name = "tsb3_VTop";
-            this.tsb3_VTop.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VTop.Text = "View Top";
-            this.tsb3_VTop.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VBot
-            // 
-            this.tsb3_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VBot.Image")));
-            this.tsb3_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VBot.Name = "tsb3_VBot";
-            this.tsb3_VBot.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VBot.Text = "View Bottom";
-            this.tsb3_VBot.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VLeft
-            // 
-            this.tsb3_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VLeft.Image")));
-            this.tsb3_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VLeft.Name = "tsb3_VLeft";
-            this.tsb3_VLeft.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VLeft.Text = "View Left";
-            this.tsb3_VLeft.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VRight
-            // 
-            this.tsb3_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VRight.Image")));
-            this.tsb3_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VRight.Name = "tsb3_VRight";
-            this.tsb3_VRight.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VRight.Text = "View Right";
-            this.tsb3_VRight.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VFront
-            // 
-            this.tsb3_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VFront.Image")));
-            this.tsb3_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VFront.Name = "tsb3_VFront";
-            this.tsb3_VFront.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VFront.Text = "View Front";
-            this.tsb3_VFront.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VBack
-            // 
-            this.tsb3_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VBack.Image")));
-            this.tsb3_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VBack.Name = "tsb3_VBack";
-            this.tsb3_VBack.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VBack.Text = "View Back";
-            this.tsb3_VBack.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VNE
-            // 
-            this.tsb3_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VNE.Image")));
-            this.tsb3_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VNE.Name = "tsb3_VNE";
-            this.tsb3_VNE.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VNE.Text = "View NE";
-            this.tsb3_VNE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VNW
-            // 
-            this.tsb3_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VNW.Image")));
-            this.tsb3_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VNW.Name = "tsb3_VNW";
-            this.tsb3_VNW.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VNW.Text = "View NW";
-            this.tsb3_VNW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VSE
-            // 
-            this.tsb3_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VSE.Image")));
-            this.tsb3_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VSE.Name = "tsb3_VSE";
-            this.tsb3_VSE.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VSE.Text = "View SE";
-            this.tsb3_VSE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_VSW
-            // 
-            this.tsb3_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_VSW.Image")));
-            this.tsb3_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_VSW.Name = "tsb3_VSW";
-            this.tsb3_VSW.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_VSW.Text = "View SW";
-            this.tsb3_VSW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator16
-            // 
-            this.toolStripSeparator16.Name = "toolStripSeparator16";
-            this.toolStripSeparator16.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb3_ShadeOn
-            // 
-            this.tsb3_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ShadeOn.Image")));
-            this.tsb3_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ShadeOn.Name = "tsb3_ShadeOn";
-            this.tsb3_ShadeOn.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ShadeOn.Text = "Shade On";
-            this.tsb3_ShadeOn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_Wire
-            // 
-            this.tsb3_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_Wire.Image")));
-            this.tsb3_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_Wire.Name = "tsb3_Wire";
-            this.tsb3_Wire.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_Wire.Text = "Wire";
-            this.tsb3_Wire.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator17
-            // 
-            this.toolStripSeparator17.Name = "toolStripSeparator17";
-            this.toolStripSeparator17.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb3_ZoomA
-            // 
-            this.tsb3_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ZoomA.Image")));
-            this.tsb3_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ZoomA.Name = "tsb3_ZoomA";
-            this.tsb3_ZoomA.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ZoomA.Text = "Zom All";
-            this.tsb3_ZoomA.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_ZoomE
-            // 
-            this.tsb3_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ZoomE.Image")));
-            this.tsb3_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ZoomE.Name = "tsb3_ZoomE";
-            this.tsb3_ZoomE.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ZoomE.Text = "Zoom Extent";
-            this.tsb3_ZoomE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_ZoomP
-            // 
-            this.tsb3_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ZoomP.Image")));
-            this.tsb3_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ZoomP.Name = "tsb3_ZoomP";
-            this.tsb3_ZoomP.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ZoomP.Text = "Zoom Previous";
-            this.tsb3_ZoomP.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_ZoomW
-            // 
-            this.tsb3_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ZoomW.Image")));
-            this.tsb3_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ZoomW.Name = "tsb3_ZoomW";
-            this.tsb3_ZoomW.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ZoomW.Text = "Zoom Window";
-            this.tsb3_ZoomW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_ZoomIn
-            // 
-            this.tsb3_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ZoomIn.Image")));
-            this.tsb3_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ZoomIn.Name = "tsb3_ZoomIn";
-            this.tsb3_ZoomIn.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ZoomIn.Text = "Zoom In";
-            this.tsb3_ZoomIn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_ZoomOut
-            // 
-            this.tsb3_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_ZoomOut.Image")));
-            this.tsb3_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_ZoomOut.Name = "tsb3_ZoomOut";
-            this.tsb3_ZoomOut.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_ZoomOut.Text = "Zoom Out";
-            this.tsb3_ZoomOut.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_Pan
-            // 
-            this.tsb3_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb3_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_Pan.Image")));
-            this.tsb3_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_Pan.Name = "tsb3_Pan";
-            this.tsb3_Pan.Size = new System.Drawing.Size(23, 22);
-            this.tsb3_Pan.Text = "Pan";
-            this.tsb3_Pan.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator18
-            // 
-            this.toolStripSeparator18.Name = "toolStripSeparator18";
-            this.toolStripSeparator18.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb3_Save
-            // 
-            this.tsb3_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_Save.Image")));
-            this.tsb3_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_Save.Name = "tsb3_Save";
-            this.tsb3_Save.Size = new System.Drawing.Size(51, 22);
-            this.tsb3_Save.Text = "Save";
-            this.tsb3_Save.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb3_Edit
-            // 
-            this.tsb3_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb3_Edit.Image")));
-            this.tsb3_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb3_Edit.Name = "tsb3_Edit";
-            this.tsb3_Edit.Size = new System.Drawing.Size(47, 20);
-            this.tsb3_Edit.Text = "Edit";
-            this.tsb3_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb3_Edit.Click += new System.EventHandler(this.toolStrip_deign_Click);
             // 
             // tab_staircase
             // 
@@ -12806,14 +5175,14 @@
             // dgv_Staircase_Floors
             // 
             this.dgv_Staircase_Floors.AllowUserToAddRows = false;
-            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle77.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_Staircase_Floors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle73.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle73.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle73.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_Staircase_Floors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle73;
             this.dgv_Staircase_Floors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Staircase_Floors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn102,
@@ -12826,24 +5195,24 @@
             // 
             // dataGridViewTextBoxColumn102
             // 
-            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn102.DefaultCellStyle = dataGridViewCellStyle74;
             this.dataGridViewTextBoxColumn102.HeaderText = "Floor Nos";
             this.dataGridViewTextBoxColumn102.Name = "dataGridViewTextBoxColumn102";
             this.dataGridViewTextBoxColumn102.Width = 80;
             // 
             // dataGridViewTextBoxColumn103
             // 
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewTextBoxColumn103.DefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewTextBoxColumn103.DefaultCellStyle = dataGridViewCellStyle75;
             this.dataGridViewTextBoxColumn103.HeaderText = "Floor Elevation (m)";
             this.dataGridViewTextBoxColumn103.Name = "dataGridViewTextBoxColumn103";
             this.dataGridViewTextBoxColumn103.Width = 90;
             // 
             // Column25
             // 
-            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Column25.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Column25.DefaultCellStyle = dataGridViewCellStyle76;
             this.Column25.HeaderText = "Height (m)";
             this.Column25.Name = "Column25";
             this.Column25.Width = 80;
@@ -15430,8 +7799,8 @@
             this.tabPage6.Controls.Add(this.label189);
             this.tabPage6.Controls.Add(this.label190);
             this.tabPage6.Controls.Add(this.label191);
-            this.tabPage6.Controls.Add(this.pic_pile);
             this.tabPage6.Controls.Add(this.groupBox26);
+            this.tabPage6.Controls.Add(this.pic_pile);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -15476,16 +7845,6 @@
             this.label191.TabIndex = 171;
             this.label191.Text = "All User Input Data";
             // 
-            // pic_pile
-            // 
-            this.pic_pile.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pic_pile.BackgroundImage")));
-            this.pic_pile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_pile.Location = new System.Drawing.Point(560, 54);
-            this.pic_pile.Name = "pic_pile";
-            this.pic_pile.Size = new System.Drawing.Size(325, 368);
-            this.pic_pile.TabIndex = 170;
-            this.pic_pile.TabStop = false;
-            // 
             // groupBox26
             // 
             this.groupBox26.Controls.Add(this.label192);
@@ -15519,14 +7878,14 @@
             // 
             // dgv_pile_soil_data
             // 
-            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle81.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle81.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle81.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle81.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_pile_soil_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_pile_soil_data.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
             this.dgv_pile_soil_data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_pile_soil_data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_SL_N,
@@ -15548,16 +7907,16 @@
             // 
             // col_SL_N
             // 
-            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_SL_N.DefaultCellStyle = dataGridViewCellStyle82;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_SL_N.DefaultCellStyle = dataGridViewCellStyle78;
             this.col_SL_N.HeaderText = "S.No.";
             this.col_SL_N.Name = "col_SL_N";
             this.col_SL_N.Width = 37;
             // 
             // col_Layers
             // 
-            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Layers.DefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Layers.DefaultCellStyle = dataGridViewCellStyle79;
             this.col_Layers.HeaderText = "Layer No. from Top";
             this.col_Layers.Name = "col_Layers";
             this.col_Layers.Width = 50;
@@ -15570,44 +7929,53 @@
             // 
             // col_Thickness
             // 
-            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle84.ForeColor = System.Drawing.Color.Blue;
-            this.col_Thickness.DefaultCellStyle = dataGridViewCellStyle84;
+            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle80.ForeColor = System.Drawing.Color.Blue;
+            this.col_Thickness.DefaultCellStyle = dataGridViewCellStyle80;
             this.col_Thickness.HeaderText = "Layer Thickness";
             this.col_Thickness.Name = "col_Thickness";
             this.col_Thickness.Width = 60;
             // 
             // col_ang_fric
             // 
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_ang_fric.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_ang_fric.DefaultCellStyle = dataGridViewCellStyle81;
             this.col_ang_fric.HeaderText = "Angle of Internal Friction [φ]";
             this.col_ang_fric.Name = "col_ang_fric";
             this.col_ang_fric.Width = 60;
             // 
             // col_cons_adhe
             // 
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_cons_adhe.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_cons_adhe.DefaultCellStyle = dataGridViewCellStyle82;
             this.col_cons_adhe.HeaderText = "Constant for Adhesion [α]";
             this.col_cons_adhe.Name = "col_cons_adhe";
             this.col_cons_adhe.Width = 70;
             // 
             // col_Cohesion
             // 
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Cohesion.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_Cohesion.DefaultCellStyle = dataGridViewCellStyle83;
             this.col_Cohesion.HeaderText = "Cohesion [C] (Ton/sq.m)";
             this.col_Cohesion.Name = "col_Cohesion";
             this.col_Cohesion.Width = 70;
             // 
             // col_gama_sub
             // 
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_gama_sub.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.col_gama_sub.DefaultCellStyle = dataGridViewCellStyle84;
             this.col_gama_sub.HeaderText = "Submerged Bulk Density [γ_sub] (Ton/cu.m)";
             this.col_gama_sub.Name = "col_gama_sub";
             this.col_gama_sub.Width = 80;
+            // 
+            // pic_pile
+            // 
+            this.pic_pile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_pile.Location = new System.Drawing.Point(560, 54);
+            this.pic_pile.Name = "pic_pile";
+            this.pic_pile.Size = new System.Drawing.Size(325, 368);
+            this.pic_pile.TabIndex = 170;
+            this.pic_pile.TabStop = false;
             // 
             // panel30
             // 
@@ -15698,9 +8066,7 @@
             // 
             // sc_raft.Panel2
             // 
-            this.sc_raft.Panel2.Controls.Add(this.vdRaft);
             this.sc_raft.Panel2.Controls.Add(this.panel32);
-            this.sc_raft.Panel2.Controls.Add(this.toolStrip8);
             this.sc_raft.Size = new System.Drawing.Size(930, 603);
             this.sc_raft.SplitterDistance = 413;
             this.sc_raft.TabIndex = 9;
@@ -15781,28 +8147,28 @@
             // 
             // dgv_raft_cols
             // 
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle89.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_raft_cols.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle85.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle85.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle85.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle85.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_raft_cols.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle85;
             this.dgv_raft_cols.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_raft_cols.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column28,
             this.Column30,
             this.Column29,
             this.Column31});
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle90.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle90.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle90.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_raft_cols.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle86.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle86.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle86.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_raft_cols.DefaultCellStyle = dataGridViewCellStyle86;
             this.dgv_raft_cols.Location = new System.Drawing.Point(4, 60);
             this.dgv_raft_cols.Name = "dgv_raft_cols";
             this.dgv_raft_cols.RowHeadersWidth = 31;
@@ -16174,16 +8540,6 @@
             this.btn_raft_process_design.UseVisualStyleBackColor = true;
             this.btn_raft_process_design.Click += new System.EventHandler(this.btn_raft_process_design_Click);
             // 
-            // vdRaft
-            // 
-            this.vdRaft.BackColor = System.Drawing.SystemColors.Control;
-            this.vdRaft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdRaft.Location = new System.Drawing.Point(0, 25);
-            this.vdRaft.Name = "vdRaft";
-            this.vdRaft.ShowLayoutPopupMenu = true;
-            this.vdRaft.Size = new System.Drawing.Size(511, 532);
-            this.vdRaft.TabIndex = 0;
-            // 
             // panel32
             // 
             this.panel32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -16215,7 +8571,6 @@
             this.cmb4_text_size.Name = "cmb4_text_size";
             this.cmb4_text_size.Size = new System.Drawing.Size(52, 21);
             this.cmb4_text_size.TabIndex = 6;
-            this.cmb4_text_size.SelectedIndexChanged += new System.EventHandler(this.cmb_text_size_SelectedIndexChanged);
             // 
             // btn_raft_draw_layout
             // 
@@ -16226,272 +8581,6 @@
             this.btn_raft_draw_layout.Text = "Draw Layout";
             this.btn_raft_draw_layout.UseVisualStyleBackColor = true;
             this.btn_raft_draw_layout.Click += new System.EventHandler(this.btn_raft_draw_layout_Click);
-            // 
-            // toolStrip8
-            // 
-            this.toolStrip8.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb5_3D_rotate,
-            this.tsb5_VTop,
-            this.tsb5_VBot,
-            this.tsb5_VLeft,
-            this.tsb5_VRight,
-            this.tsb5_VFront,
-            this.tsb5_VBack,
-            this.tsb5_VNE,
-            this.tsb5_VNW,
-            this.tsb5_VSE,
-            this.tsb5_VSW,
-            this.toolStripSeparator22,
-            this.tsb5_ShadeOn,
-            this.tsb5_Wire,
-            this.toolStripSeparator23,
-            this.tsb5_ZoomA,
-            this.tsb5_ZoomE,
-            this.tsb5_ZoomP,
-            this.tsb5_ZoomW,
-            this.tsb5_ZoomIn,
-            this.tsb5_ZoomOut,
-            this.tsb5_Pan,
-            this.toolStripSeparator24,
-            this.tsb5_Save,
-            this.tsb5_Edit});
-            this.toolStrip8.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip8.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip8.Name = "toolStrip8";
-            this.toolStrip8.Size = new System.Drawing.Size(511, 25);
-            this.toolStrip8.TabIndex = 4;
-            // 
-            // tsb5_3D_rotate
-            // 
-            this.tsb5_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_3D_rotate.Name = "tsb5_3D_rotate";
-            this.tsb5_3D_rotate.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_3D_rotate.Text = "Rotate 3D";
-            this.tsb5_3D_rotate.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VTop
-            // 
-            this.tsb5_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VTop.Name = "tsb5_VTop";
-            this.tsb5_VTop.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VTop.Text = "View Top";
-            this.tsb5_VTop.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VBot
-            // 
-            this.tsb5_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VBot.Image")));
-            this.tsb5_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VBot.Name = "tsb5_VBot";
-            this.tsb5_VBot.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VBot.Text = "View Bottom";
-            this.tsb5_VBot.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VLeft
-            // 
-            this.tsb5_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VLeft.Image")));
-            this.tsb5_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VLeft.Name = "tsb5_VLeft";
-            this.tsb5_VLeft.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VLeft.Text = "View Left";
-            this.tsb5_VLeft.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VRight
-            // 
-            this.tsb5_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VRight.Image")));
-            this.tsb5_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VRight.Name = "tsb5_VRight";
-            this.tsb5_VRight.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VRight.Text = "View Right";
-            this.tsb5_VRight.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VFront
-            // 
-            this.tsb5_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VFront.Image")));
-            this.tsb5_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VFront.Name = "tsb5_VFront";
-            this.tsb5_VFront.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VFront.Text = "View Front";
-            this.tsb5_VFront.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VBack
-            // 
-            this.tsb5_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VBack.Image")));
-            this.tsb5_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VBack.Name = "tsb5_VBack";
-            this.tsb5_VBack.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VBack.Text = "View Back";
-            this.tsb5_VBack.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VNE
-            // 
-            this.tsb5_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VNE.Image")));
-            this.tsb5_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VNE.Name = "tsb5_VNE";
-            this.tsb5_VNE.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VNE.Text = "View NE";
-            this.tsb5_VNE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VNW
-            // 
-            this.tsb5_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VNW.Image")));
-            this.tsb5_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VNW.Name = "tsb5_VNW";
-            this.tsb5_VNW.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VNW.Text = "View NW";
-            this.tsb5_VNW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VSE
-            // 
-            this.tsb5_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VSE.Image")));
-            this.tsb5_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VSE.Name = "tsb5_VSE";
-            this.tsb5_VSE.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VSE.Text = "View SE";
-            this.tsb5_VSE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_VSW
-            // 
-            this.tsb5_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_VSW.Image")));
-            this.tsb5_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_VSW.Name = "tsb5_VSW";
-            this.tsb5_VSW.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_VSW.Text = "View SW";
-            this.tsb5_VSW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator22
-            // 
-            this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb5_ShadeOn
-            // 
-            this.tsb5_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ShadeOn.Image")));
-            this.tsb5_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ShadeOn.Name = "tsb5_ShadeOn";
-            this.tsb5_ShadeOn.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ShadeOn.Text = "Shade On";
-            this.tsb5_ShadeOn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_Wire
-            // 
-            this.tsb5_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_Wire.Image")));
-            this.tsb5_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_Wire.Name = "tsb5_Wire";
-            this.tsb5_Wire.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_Wire.Text = "Wire";
-            this.tsb5_Wire.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator23
-            // 
-            this.toolStripSeparator23.Name = "toolStripSeparator23";
-            this.toolStripSeparator23.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb5_ZoomA
-            // 
-            this.tsb5_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ZoomA.Image")));
-            this.tsb5_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ZoomA.Name = "tsb5_ZoomA";
-            this.tsb5_ZoomA.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ZoomA.Text = "Zom All";
-            this.tsb5_ZoomA.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_ZoomE
-            // 
-            this.tsb5_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ZoomE.Image")));
-            this.tsb5_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ZoomE.Name = "tsb5_ZoomE";
-            this.tsb5_ZoomE.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ZoomE.Text = "Zoom Extent";
-            this.tsb5_ZoomE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_ZoomP
-            // 
-            this.tsb5_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ZoomP.Image")));
-            this.tsb5_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ZoomP.Name = "tsb5_ZoomP";
-            this.tsb5_ZoomP.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ZoomP.Text = "Zoom Previous";
-            this.tsb5_ZoomP.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_ZoomW
-            // 
-            this.tsb5_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ZoomW.Image")));
-            this.tsb5_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ZoomW.Name = "tsb5_ZoomW";
-            this.tsb5_ZoomW.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ZoomW.Text = "Zoom Window";
-            this.tsb5_ZoomW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_ZoomIn
-            // 
-            this.tsb5_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ZoomIn.Image")));
-            this.tsb5_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ZoomIn.Name = "tsb5_ZoomIn";
-            this.tsb5_ZoomIn.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ZoomIn.Text = "Zoom In";
-            this.tsb5_ZoomIn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_ZoomOut
-            // 
-            this.tsb5_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_ZoomOut.Image")));
-            this.tsb5_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_ZoomOut.Name = "tsb5_ZoomOut";
-            this.tsb5_ZoomOut.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_ZoomOut.Text = "Zoom Out";
-            this.tsb5_ZoomOut.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_Pan
-            // 
-            this.tsb5_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb5_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_Pan.Image")));
-            this.tsb5_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_Pan.Name = "tsb5_Pan";
-            this.tsb5_Pan.Size = new System.Drawing.Size(23, 22);
-            this.tsb5_Pan.Text = "Pan";
-            this.tsb5_Pan.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator24
-            // 
-            this.toolStripSeparator24.Name = "toolStripSeparator24";
-            this.toolStripSeparator24.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb5_Save
-            // 
-            this.tsb5_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_Save.Image")));
-            this.tsb5_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_Save.Name = "tsb5_Save";
-            this.tsb5_Save.Size = new System.Drawing.Size(51, 20);
-            this.tsb5_Save.Text = "Save";
-            this.tsb5_Save.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb5_Edit
-            // 
-            this.tsb5_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb5_Edit.Image")));
-            this.tsb5_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb5_Edit.Name = "tsb5_Edit";
-            this.tsb5_Edit.Size = new System.Drawing.Size(47, 20);
-            this.tsb5_Edit.Text = "Edit";
-            this.tsb5_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb5_Edit.Click += new System.EventHandler(this.toolStrip_deign_Click);
             // 
             // tab_BOQ
             // 
@@ -16790,14 +8879,14 @@
             // 
             this.dgv_slab_steel.AllowUserToAddRows = false;
             this.dgv_slab_steel.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle91.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle91.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle91.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle91.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_slab_steel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle87.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle87.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle87.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_slab_steel.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle87;
             this.dgv_slab_steel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_slab_steel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2,
@@ -16807,14 +8896,14 @@
             this.Column32,
             this.dataGridViewTextBoxColumn8,
             this.Column20});
-            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle92.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle92.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle92.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle92.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_slab_steel.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle88.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle88.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle88.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle88.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_slab_steel.DefaultCellStyle = dataGridViewCellStyle88;
             this.dgv_slab_steel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_slab_steel.Location = new System.Drawing.Point(0, 24);
             this.dgv_slab_steel.Name = "dgv_slab_steel";
@@ -17936,7 +10025,6 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel31);
-            this.splitContainer2.Panel2.Controls.Add(this.label356);
             this.splitContainer2.Size = new System.Drawing.Size(944, 635);
             this.splitContainer2.SplitterDistance = 223;
             this.splitContainer2.TabIndex = 15;
@@ -18114,432 +10202,48 @@
             // panel31
             // 
             this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel31.Controls.Add(this.vdDwg);
-            this.panel31.Controls.Add(this.toolStrip7);
             this.panel31.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel31.Location = new System.Drawing.Point(0, 23);
+            this.panel31.Location = new System.Drawing.Point(0, 0);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(715, 610);
+            this.panel31.Size = new System.Drawing.Size(715, 633);
             this.panel31.TabIndex = 11;
-            // 
-            // vdDwg
-            // 
-            this.vdDwg.AccessibleRole = System.Windows.Forms.AccessibleRole.Window;
-            this.vdDwg.AllowDrop = true;
-            this.vdDwg.Cursor = System.Windows.Forms.Cursors.Default;
-            this.vdDwg.DisableVdrawDxf = false;
-            this.vdDwg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vdDwg.EnableAutoGripOn = true;
-            this.vdDwg.Location = new System.Drawing.Point(0, 25);
-            this.vdDwg.Name = "vdDwg";
-            this.vdDwg.Size = new System.Drawing.Size(713, 583);
-            this.vdDwg.TabIndex = 6;
-            // 
-            // toolStrip7
-            // 
-            this.toolStrip7.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsb4_3D_rotate,
-            this.tsb4_VTop,
-            this.tsb4_VBot,
-            this.tsb4_VLeft,
-            this.tsb4_VRight,
-            this.tsb4_VFront,
-            this.tsb4_VBack,
-            this.tsb4_VNE,
-            this.tsb4_VNW,
-            this.tsb4_VSE,
-            this.tsb4_VSW,
-            this.toolStripSeparator19,
-            this.tsb4_ShadeOn,
-            this.tsb4_Wire,
-            this.toolStripSeparator20,
-            this.tsb4_ZoomA,
-            this.tsb4_ZoomE,
-            this.tsb4_ZoomP,
-            this.tsb4_ZoomW,
-            this.tsb4_ZoomIn,
-            this.tsb4_ZoomOut,
-            this.tsb4_Pan,
-            this.toolStripSeparator21,
-            this.tsb4_Save,
-            this.tsb4_Edit});
-            this.toolStrip7.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip7.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip7.Name = "toolStrip7";
-            this.toolStrip7.Size = new System.Drawing.Size(713, 25);
-            this.toolStrip7.TabIndex = 5;
-            // 
-            // tsb4_3D_rotate
-            // 
-            this.tsb4_3D_rotate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_3D_rotate.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_3D_rotate.Name = "tsb4_3D_rotate";
-            this.tsb4_3D_rotate.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_3D_rotate.Text = "Rotate 3D";
-            this.tsb4_3D_rotate.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VTop
-            // 
-            this.tsb4_VTop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VTop.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VTop.Name = "tsb4_VTop";
-            this.tsb4_VTop.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VTop.Text = "View Top";
-            this.tsb4_VTop.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VBot
-            // 
-            this.tsb4_VBot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VBot.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VBot.Image")));
-            this.tsb4_VBot.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VBot.Name = "tsb4_VBot";
-            this.tsb4_VBot.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VBot.Text = "View Bottom";
-            this.tsb4_VBot.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VLeft
-            // 
-            this.tsb4_VLeft.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VLeft.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VLeft.Image")));
-            this.tsb4_VLeft.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VLeft.Name = "tsb4_VLeft";
-            this.tsb4_VLeft.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VLeft.Text = "View Left";
-            this.tsb4_VLeft.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VRight
-            // 
-            this.tsb4_VRight.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VRight.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VRight.Image")));
-            this.tsb4_VRight.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VRight.Name = "tsb4_VRight";
-            this.tsb4_VRight.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VRight.Text = "View Right";
-            this.tsb4_VRight.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VFront
-            // 
-            this.tsb4_VFront.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VFront.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VFront.Image")));
-            this.tsb4_VFront.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VFront.Name = "tsb4_VFront";
-            this.tsb4_VFront.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VFront.Text = "View Front";
-            this.tsb4_VFront.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VBack
-            // 
-            this.tsb4_VBack.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VBack.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VBack.Image")));
-            this.tsb4_VBack.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VBack.Name = "tsb4_VBack";
-            this.tsb4_VBack.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VBack.Text = "View Back";
-            this.tsb4_VBack.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VNE
-            // 
-            this.tsb4_VNE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VNE.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VNE.Image")));
-            this.tsb4_VNE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VNE.Name = "tsb4_VNE";
-            this.tsb4_VNE.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VNE.Text = "View NE";
-            this.tsb4_VNE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VNW
-            // 
-            this.tsb4_VNW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VNW.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VNW.Image")));
-            this.tsb4_VNW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VNW.Name = "tsb4_VNW";
-            this.tsb4_VNW.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VNW.Text = "View NW";
-            this.tsb4_VNW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VSE
-            // 
-            this.tsb4_VSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VSE.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VSE.Image")));
-            this.tsb4_VSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VSE.Name = "tsb4_VSE";
-            this.tsb4_VSE.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VSE.Text = "View SE";
-            this.tsb4_VSE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_VSW
-            // 
-            this.tsb4_VSW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_VSW.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_VSW.Image")));
-            this.tsb4_VSW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_VSW.Name = "tsb4_VSW";
-            this.tsb4_VSW.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_VSW.Text = "View SW";
-            this.tsb4_VSW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator19
-            // 
-            this.toolStripSeparator19.Name = "toolStripSeparator19";
-            this.toolStripSeparator19.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb4_ShadeOn
-            // 
-            this.tsb4_ShadeOn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ShadeOn.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ShadeOn.Image")));
-            this.tsb4_ShadeOn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ShadeOn.Name = "tsb4_ShadeOn";
-            this.tsb4_ShadeOn.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ShadeOn.Text = "Shade On";
-            this.tsb4_ShadeOn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_Wire
-            // 
-            this.tsb4_Wire.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_Wire.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_Wire.Image")));
-            this.tsb4_Wire.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_Wire.Name = "tsb4_Wire";
-            this.tsb4_Wire.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_Wire.Text = "Wire";
-            this.tsb4_Wire.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator20
-            // 
-            this.toolStripSeparator20.Name = "toolStripSeparator20";
-            this.toolStripSeparator20.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb4_ZoomA
-            // 
-            this.tsb4_ZoomA.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ZoomA.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ZoomA.Image")));
-            this.tsb4_ZoomA.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ZoomA.Name = "tsb4_ZoomA";
-            this.tsb4_ZoomA.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ZoomA.Text = "Zom All";
-            this.tsb4_ZoomA.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_ZoomE
-            // 
-            this.tsb4_ZoomE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ZoomE.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ZoomE.Image")));
-            this.tsb4_ZoomE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ZoomE.Name = "tsb4_ZoomE";
-            this.tsb4_ZoomE.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ZoomE.Text = "Zoom Extent";
-            this.tsb4_ZoomE.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_ZoomP
-            // 
-            this.tsb4_ZoomP.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ZoomP.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ZoomP.Image")));
-            this.tsb4_ZoomP.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ZoomP.Name = "tsb4_ZoomP";
-            this.tsb4_ZoomP.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ZoomP.Text = "Zoom Previous";
-            this.tsb4_ZoomP.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_ZoomW
-            // 
-            this.tsb4_ZoomW.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ZoomW.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ZoomW.Image")));
-            this.tsb4_ZoomW.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ZoomW.Name = "tsb4_ZoomW";
-            this.tsb4_ZoomW.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ZoomW.Text = "Zoom Window";
-            this.tsb4_ZoomW.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_ZoomIn
-            // 
-            this.tsb4_ZoomIn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ZoomIn.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ZoomIn.Image")));
-            this.tsb4_ZoomIn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ZoomIn.Name = "tsb4_ZoomIn";
-            this.tsb4_ZoomIn.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ZoomIn.Text = "Zoom In";
-            this.tsb4_ZoomIn.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_ZoomOut
-            // 
-            this.tsb4_ZoomOut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_ZoomOut.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_ZoomOut.Image")));
-            this.tsb4_ZoomOut.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_ZoomOut.Name = "tsb4_ZoomOut";
-            this.tsb4_ZoomOut.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_ZoomOut.Text = "Zoom Out";
-            this.tsb4_ZoomOut.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_Pan
-            // 
-            this.tsb4_Pan.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb4_Pan.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_Pan.Image")));
-            this.tsb4_Pan.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_Pan.Name = "tsb4_Pan";
-            this.tsb4_Pan.Size = new System.Drawing.Size(23, 22);
-            this.tsb4_Pan.Text = "Pan";
-            this.tsb4_Pan.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // toolStripSeparator21
-            // 
-            this.toolStripSeparator21.Name = "toolStripSeparator21";
-            this.toolStripSeparator21.Size = new System.Drawing.Size(6, 25);
-            // 
-            // tsb4_Save
-            // 
-            this.tsb4_Save.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_Save.Image")));
-            this.tsb4_Save.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_Save.Name = "tsb4_Save";
-            this.tsb4_Save.Size = new System.Drawing.Size(51, 22);
-            this.tsb4_Save.Text = "Save";
-            this.tsb4_Save.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // tsb4_Edit
-            // 
-            this.tsb4_Edit.Image = ((System.Drawing.Image)(resources.GetObject("tsb4_Edit.Image")));
-            this.tsb4_Edit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb4_Edit.Name = "tsb4_Edit";
-            this.tsb4_Edit.Size = new System.Drawing.Size(47, 22);
-            this.tsb4_Edit.Text = "Edit";
-            this.tsb4_Edit.ToolTipText = "Edit Drawing with ASTRA Viewer";
-            this.tsb4_Edit.Click += new System.EventHandler(this.toolStrip_deign_Click);
-            // 
-            // label356
-            // 
-            this.label356.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label356.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label356.Location = new System.Drawing.Point(0, 0);
-            this.label356.Name = "label356";
-            this.label356.Size = new System.Drawing.Size(715, 23);
-            this.label356.TabIndex = 13;
-            this.label356.Text = "Preview";
-            // 
-            // tmr_moving_load
-            // 
-            this.tmr_moving_load.Tick += new System.EventHandler(this.PP_tmr_moving_load_Tick);
             // 
             // timer1
             // 
             this.timer1.Interval = 999;
-            this.timer1.Tick += new System.EventHandler(this.PP_timer1_Tick);
             // 
-            // tmrLoadDeflection
+            // button1
             // 
-            this.tmrLoadDeflection.Tick += new System.EventHandler(this.tmrLoadDeflection_Tick);
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.button1.Location = new System.Drawing.Point(677, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 38);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "View Post Process";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btn_create_data_Click);
             // 
-            // frm_StructuralDesign
+            // frm_StructuralDesignNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(952, 661);
             this.Controls.Add(this.tc_structure);
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frm_StructuralDesign";
+            this.Name = "frm_StructuralDesignNew";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Structural Design";
             this.Load += new System.EventHandler(this.frm_ASTRA_Inputs_Load);
             this.tc_structure.ResumeLayout(false);
             this.tab_Analysis.ResumeLayout(false);
             this.tc_parrent.ResumeLayout(false);
-            this.tab_pre_process.ResumeLayout(false);
-            this.sc1.Panel1.ResumeLayout(false);
-            this.sc1.Panel2.ResumeLayout(false);
-            this.sc1.ResumeLayout(false);
-            this.tc_prp_main.ResumeLayout(false);
-            this.tab_file_open.ResumeLayout(false);
+            this.tab_create_data.ResumeLayout(false);
             this.sc4.Panel1.ResumeLayout(false);
             this.sc4.Panel2.ResumeLayout(false);
             this.sc4.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.panel33.ResumeLayout(false);
             this.panel33.PerformLayout();
-            this.tab_geom.ResumeLayout(false);
-            this.tab_geom.PerformLayout();
-            this.tab_props.ResumeLayout(false);
-            this.tab_props.PerformLayout();
-            this.tab_constants.ResumeLayout(false);
-            this.tab_constants.PerformLayout();
-            this.tab_loads.ResumeLayout(false);
-            this.tab_loads.PerformLayout();
-            this.sc2.Panel1.ResumeLayout(false);
-            this.sc2.Panel2.ResumeLayout(false);
-            this.sc2.Panel2.PerformLayout();
-            this.sc2.ResumeLayout(false);
-            this.tc_prp_panel.ResumeLayout(false);
-            this.tab1_geom.ResumeLayout(false);
-            this.tc3.ResumeLayout(false);
-            this.tab2_joints.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_joints)).EndInit();
-            this.panel18.ResumeLayout(false);
-            this.tab2_members.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_members)).EndInit();
-            this.panel19.ResumeLayout(false);
-            this.tab2_elements.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_elements)).EndInit();
-            this.panel20.ResumeLayout(false);
-            this.tab1_props.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
-            this.tab_mem_props.ResumeLayout(false);
-            this.grb_mem_props.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.groupBox10.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            this.tab_mem_spec.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.tab_mem_release.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.grb_mem_groups.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.tab1_const.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.tab1_supports.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.tab1_loads.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.grb_def_loads.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.tab1_moving.ResumeLayout(false);
-            this.sc3.Panel1.ResumeLayout(false);
-            this.sc3.Panel2.ResumeLayout(false);
-            this.sc3.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
-            this.tab1_dynamic.ResumeLayout(false);
-            this.tab1_dynamic.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.grb_dynamic.ResumeLayout(false);
-            this.grb_dyna_analysis.ResumeLayout(false);
-            this.grb_dyna_analysis.PerformLayout();
-            this.tab1_ana_spec.ResumeLayout(false);
-            this.tab1_ana_spec.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.grb_max_frc.ResumeLayout(false);
-            this.panel15.ResumeLayout(false);
-            this.panel15.PerformLayout();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
             this.tab_procees.ResumeLayout(false);
             this.spc_results.Panel1.ResumeLayout(false);
             this.spc_results.Panel2.ResumeLayout(false);
@@ -18548,90 +10252,12 @@
             this.grb_stage.PerformLayout();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
-            this.tab_post_procees.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.ResumeLayout(false);
-            this.tc_pp_main.ResumeLayout(false);
-            this.tab_load_deflection.ResumeLayout(false);
-            this.tab_load_deflection.PerformLayout();
-            this.grb_Auto.ResumeLayout(false);
-            this.grb_Auto.PerformLayout();
-            this.grb_manual.ResumeLayout(false);
-            this.tab_max_force.ResumeLayout(false);
-            this.tab_max_force.PerformLayout();
-            this.tab_moving_load.ResumeLayout(false);
-            this.grb_moving_controls.ResumeLayout(false);
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.tab_envelop.ResumeLayout(false);
-            this.tab_envelop.PerformLayout();
-            this.tab_diagram.ResumeLayout(false);
-            this.tab_diagram.PerformLayout();
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            this.splitContainer3.Panel2.PerformLayout();
-            this.splitContainer3.ResumeLayout(false);
-            this.tc1_pp.ResumeLayout(false);
-            this.tab1_forces.ResumeLayout(false);
-            this.tc_forces.ResumeLayout(false);
-            this.tab_3_joint_frc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_joint_frcs)).EndInit();
-            this.tab_3_mem_frc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_beam_frcs)).EndInit();
-            this.tab_3_truss_frc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_truss_frcs)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_plate_frcs)).EndInit();
-            this.tab1_load_deflection.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_node_disp)).EndInit();
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
-            this.tab1_max_force.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_max_frc)).EndInit();
-            this.tab1_moving_load.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.ResumeLayout(false);
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox18.ResumeLayout(false);
-            this.tab1_truss_env.ResumeLayout(false);
-            this.tab1_truss_env.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.tab1_diag.ResumeLayout(false);
-            this.tab1_diag.PerformLayout();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            this.grb_diag_end.ResumeLayout(false);
-            this.grb_diag_end.PerformLayout();
-            this.grb_diag_start.ResumeLayout(false);
-            this.grb_diag_start.PerformLayout();
-            this.tc_docs.ResumeLayout(false);
-            this.tab_frcs_doc.ResumeLayout(false);
-            this.tab_defl_doc.ResumeLayout(false);
-            this.tab_max_doc.ResumeLayout(false);
-            this.tab_mov_doc.ResumeLayout(false);
-            this.tab_evlp_doc.ResumeLayout(false);
-            this.tab_diag_doc.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel27.PerformLayout();
-            this.pnl_progress.ResumeLayout(false);
-            this.pnl_progress.PerformLayout();
-            this.toolStrip3.ResumeLayout(false);
-            this.toolStrip3.PerformLayout();
             this.tab_general_data.ResumeLayout(false);
             this.tab_general_data.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_GD_floor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_rebar_weight)).EndInit();
             this.tab_slab.ResumeLayout(false);
-            this.sc_slab.Panel1.ResumeLayout(false);
-            this.sc_slab.Panel1.PerformLayout();
-            this.sc_slab.Panel2.ResumeLayout(false);
-            this.sc_slab.Panel2.PerformLayout();
-            this.sc_slab.ResumeLayout(false);
+            this.tab_slab.PerformLayout();
             this.groupBox30.ResumeLayout(false);
             this.groupBox30.PerformLayout();
             this.groupBox29.ResumeLayout(false);
@@ -18642,17 +10268,7 @@
             this.groupBox15.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dls)).EndInit();
-            this.grb_slab_individual.ResumeLayout(false);
-            this.grb_slab_individual.PerformLayout();
-            this.toolStrip4.ResumeLayout(false);
-            this.toolStrip4.PerformLayout();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
             this.tab_beam.ResumeLayout(false);
-            this.sc_beam.Panel1.ResumeLayout(false);
-            this.sc_beam.Panel2.ResumeLayout(false);
-            this.sc_beam.Panel2.PerformLayout();
-            this.sc_beam.ResumeLayout(false);
             this.tc_Beam.ResumeLayout(false);
             this.tab_concrete_beam.ResumeLayout(false);
             this.tab_concrete_beam.PerformLayout();
@@ -18664,15 +10280,7 @@
             this.groupBox28.PerformLayout();
             this.groupBox38.ResumeLayout(false);
             this.groupBox38.PerformLayout();
-            this.panel28.ResumeLayout(false);
-            this.panel28.PerformLayout();
-            this.toolStrip5.ResumeLayout(false);
-            this.toolStrip5.PerformLayout();
             this.tab_columns.ResumeLayout(false);
-            this.sc_column.Panel1.ResumeLayout(false);
-            this.sc_column.Panel2.ResumeLayout(false);
-            this.sc_column.Panel2.PerformLayout();
-            this.sc_column.ResumeLayout(false);
             this.tc_Column.ResumeLayout(false);
             this.tab_concrete_column.ResumeLayout(false);
             this.tab_concrete_column.PerformLayout();
@@ -18682,10 +10290,6 @@
             this.tab_steel_column.PerformLayout();
             this.groupBox31.ResumeLayout(false);
             this.groupBox31.PerformLayout();
-            this.panel29.ResumeLayout(false);
-            this.panel29.PerformLayout();
-            this.toolStrip6.ResumeLayout(false);
-            this.toolStrip6.PerformLayout();
             this.tab_staircase.ResumeLayout(false);
             this.tab_staircase.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Staircase_Floors)).EndInit();
@@ -18715,24 +10319,21 @@
             this.groupBox24.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pile)).EndInit();
             this.groupBox26.ResumeLayout(false);
             this.groupBox26.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pile_soil_data)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_pile)).EndInit();
             this.panel30.ResumeLayout(false);
             this.tab_raft_foundation.ResumeLayout(false);
             this.sc_raft.Panel1.ResumeLayout(false);
             this.sc_raft.Panel1.PerformLayout();
             this.sc_raft.Panel2.ResumeLayout(false);
-            this.sc_raft.Panel2.PerformLayout();
             this.sc_raft.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_raft_cols)).EndInit();
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
-            this.toolStrip8.ResumeLayout(false);
-            this.toolStrip8.PerformLayout();
             this.tab_BOQ.ResumeLayout(false);
             this.groupBox21.ResumeLayout(false);
             this.tc_BOQ.ResumeLayout(false);
@@ -18781,12 +10382,13 @@
             this.splitContainer2.ResumeLayout(false);
             this.grb_dwg_open.ResumeLayout(false);
             this.grb_dwg_open.PerformLayout();
-            this.panel31.ResumeLayout(false);
-            this.panel31.PerformLayout();
-            this.toolStrip7.ResumeLayout(false);
-            this.toolStrip7.PerformLayout();
             this.ResumeLayout(false);
 
+        }
+
+        private void tsmi_show_data_Click(object sender, System.EventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion
@@ -18794,275 +10396,12 @@
         private System.Windows.Forms.TabControl tc_structure;
         private System.Windows.Forms.TabPage tab_Analysis;
         private System.Windows.Forms.TabControl tc_parrent;
-        private System.Windows.Forms.TabPage tab_pre_process;
-        private System.Windows.Forms.SplitContainer sc1;
-        private System.Windows.Forms.TabControl tc_prp_main;
-        private System.Windows.Forms.TabPage tab_file_open;
+        private System.Windows.Forms.TabPage tab_create_data;
         private System.Windows.Forms.SplitContainer sc4;
         private System.Windows.Forms.RichTextBox rtb_input_file;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.RichTextBox rtb_ll_txt;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_file;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_newAnalysisTXTDataFile;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_data_open;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_openAnalysisTXTDataFile;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_file_open;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_file_save;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_file_save_as;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_saveDXFDrawingFile;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_file_print;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_show_data;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_close;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_edit;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_viewer;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsb_open_data;
-        private System.Windows.Forms.ToolStripButton tsb_file_open;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton tsb_save_data;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripButton tsb_print;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripButton tsb_show_data;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ComboBox cmb_structure_type;
-        private System.Windows.Forms.ComboBox cmb_Base_LUnit;
-        private System.Windows.Forms.TextBox txtUserTitle;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmb_Base_MUnit;
-        private System.Windows.Forms.TabPage tab_geom;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_total_supps;
-        private System.Windows.Forms.TextBox txt_total_elmts;
-        private System.Windows.Forms.TextBox txt_total_mbrs;
-        private System.Windows.Forms.TextBox txt_total_jnts;
-        private System.Windows.Forms.TabPage tab_props;
-        private System.Windows.Forms.ComboBox cmb_Prop_LUnit;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TabPage tab_constants;
-        private System.Windows.Forms.ComboBox cmb_Const_LUnit;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox cmb_Const_MUnit;
-        private System.Windows.Forms.TabPage tab_supports;
-        private System.Windows.Forms.TabPage tab_loads;
-        private System.Windows.Forms.ComboBox cmb_Load_LUnit;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cmb_Load_MUnit;
-        private System.Windows.Forms.CheckBox chk_selfweight;
-        private System.Windows.Forms.ComboBox cmb_Self_Weight;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_seft_wt_Value;
-        private System.Windows.Forms.TabPage tab_mov_load;
-        private System.Windows.Forms.TabPage tab_dynamic;
-        private System.Windows.Forms.TabPage tab_ana_spec;
-        private System.Windows.Forms.SplitContainer sc2;
-        private System.Windows.Forms.TabControl tc_prp_panel;
-        private System.Windows.Forms.TabPage tab1_geom;
-        private System.Windows.Forms.TabControl tc3;
-        private System.Windows.Forms.TabPage tab2_joints;
-        private System.Windows.Forms.DataGridView dgv_joints;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_jno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_x;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_y;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_z;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_support;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button btn_jnt_delete;
-        private System.Windows.Forms.Button btn_jnt_add;
-        private System.Windows.Forms.Button btn_jnt_edit;
-        private System.Windows.Forms.Button btn_jnt_insert;
-        private System.Windows.Forms.TabPage tab2_members;
-        private System.Windows.Forms.DataGridView dgv_members;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgTxtMemberNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgTxtMember;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgTxtNode1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgTxtNode2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgTxtMAT;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Button btn_mbr_delete;
-        private System.Windows.Forms.Button btn_mbr_add;
-        private System.Windows.Forms.Button btn_mbr_edit;
-        private System.Windows.Forms.Button btn_mbr_insert;
-        private System.Windows.Forms.TabPage tab2_elements;
-        private System.Windows.Forms.DataGridView dgv_elements;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Button btn_elmt_delete;
-        private System.Windows.Forms.Button btn_elmt_add;
-        private System.Windows.Forms.Button btn_elmt_edit;
-        private System.Windows.Forms.Button btn_elmt_insert;
-        private System.Windows.Forms.TabPage tab1_props;
-        private System.Windows.Forms.TabControl tabControl2;
-        private System.Windows.Forms.TabPage tab_mem_props;
-        private System.Windows.Forms.GroupBox grb_mem_props;
-        private System.Windows.Forms.TreeView tv_mem_props;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btn_props_edit;
-        private System.Windows.Forms.Button btn_props_del;
-        private System.Windows.Forms.Button btn_props_add;
-        private System.Windows.Forms.GroupBox groupBox10;
-        private System.Windows.Forms.TreeView tv_elem_props;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button btn_elem_props_edit;
-        private System.Windows.Forms.Button btn_elem_props_del;
-        private System.Windows.Forms.Button btn_elem_props_add;
-        private System.Windows.Forms.TabPage tab_mem_spec;
-        private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.TreeView tv_mem_spec_cable;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Button btn_spec_edit_cable;
-        private System.Windows.Forms.Button btn_spec_add_cable;
-        private System.Windows.Forms.Button btn_spec_del_cable;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView tv_mem_spec_truss;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button btn_spec_edit_truss;
-        private System.Windows.Forms.Button btn_spec_del_truss;
-        private System.Windows.Forms.Button btn_spec_add_truss;
-        private System.Windows.Forms.TabPage tab_mem_release;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TreeView tv_mem_release;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button btn_release_edit;
-        private System.Windows.Forms.Button btn_release_del;
-        private System.Windows.Forms.Button btn_release_add;
-        private System.Windows.Forms.GroupBox grb_mem_groups;
-        private System.Windows.Forms.TreeView tv_mem_grps;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button btn_grps_edit;
-        private System.Windows.Forms.Button btn_grps_del;
-        private System.Windows.Forms.Button btn_grps_add;
-        private System.Windows.Forms.TabPage tab1_const;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TreeView tv_constants;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btn_cons_edit;
-        private System.Windows.Forms.Button btn_cons_del;
-        private System.Windows.Forms.Button btn_cons_add;
-        private System.Windows.Forms.TabPage tab1_supports;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TreeView tv_supports;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btn_supp_edit;
-        private System.Windows.Forms.Button btn_supp_del;
-        private System.Windows.Forms.Button btn_supp_add;
-        private System.Windows.Forms.TabPage tab1_loads;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TreeView tv_loads;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox grb_def_loads;
-        private System.Windows.Forms.Button btn_aload_add;
-        private System.Windows.Forms.Button btn_aload_edit;
-        private System.Windows.Forms.Button btn_aload_del;
-        private System.Windows.Forms.GroupBox groupBox14;
-        private System.Windows.Forms.Button btn_ldc_add;
-        private System.Windows.Forms.Button btn_ldc_edit;
-        private System.Windows.Forms.Button btn_ldc_del;
-        private System.Windows.Forms.TabPage tab1_moving;
-        private System.Windows.Forms.SplitContainer sc3;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TreeView tv_mov_loads;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button btn_mov_load_edit;
-        private System.Windows.Forms.Button btn_mov_load_del;
-        private System.Windows.Forms.Button btn_mov_load_add;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TreeView tv_mov_def_load;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button btn_mov_def_load_edit;
-        private System.Windows.Forms.Button btn_mov_def_load_del;
-        private System.Windows.Forms.Button btn_mov_def_load_add;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_load_gen;
-        private System.Windows.Forms.TabPage tab1_dynamic;
-        private System.Windows.Forms.TextBox txt_dynamic;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.CheckBox chk_dynamic_analysis;
-        private System.Windows.Forms.GroupBox grb_dynamic;
-        private System.Windows.Forms.Button btn_dyn_add;
-        private System.Windows.Forms.Button btn_dyn_del;
-        private System.Windows.Forms.GroupBox grb_dyna_analysis;
-        private System.Windows.Forms.TextBox txt_frequencies;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton rbtn_response_spectrum;
-        private System.Windows.Forms.RadioButton rbtn_perform_time_history;
-        private System.Windows.Forms.RadioButton rbtn_perform_eigen;
-        private System.Windows.Forms.TabPage tab1_ana_spec;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.GroupBox grb_max_frc;
-        private System.Windows.Forms.TreeView tv_max_frc;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Button btn_max_frc_del;
-        private System.Windows.Forms.TextBox txt_max_frc_list;
-        private System.Windows.Forms.Button btn_max_frc_add;
-        private System.Windows.Forms.CheckBox chk_perform_ana;
-        private System.Windows.Forms.CheckBox chk_print_max_force;
-        private System.Windows.Forms.CheckBox chk_print_ana_all;
-        private System.Windows.Forms.CheckBox chk_print_static_check;
-        private System.Windows.Forms.CheckBox chk_print_load_data;
-        private System.Windows.Forms.CheckBox chk_print_supp_reac;
-        private vdScrollableControl.vdScrollableControl vdScrollableControl1;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmb_text_size;
-        private System.Windows.Forms.CheckBox chk_elems;
-        private System.Windows.Forms.CheckBox chk_joints;
-        private System.Windows.Forms.CheckBox chk_suprts;
-        private System.Windows.Forms.CheckBox chk_mems;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStrip toolStrip2;
-        private System.Windows.Forms.ToolStripButton tsb_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb_VTop;
-        private System.Windows.Forms.ToolStripButton tsb_VBot;
-        private System.Windows.Forms.ToolStripButton tsb_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb_VRight;
-        private System.Windows.Forms.ToolStripButton tsb_VFront;
-        private System.Windows.Forms.ToolStripButton tsb_VBack;
-        private System.Windows.Forms.ToolStripButton tsb_VNE;
-        private System.Windows.Forms.ToolStripButton tsb_VNW;
-        private System.Windows.Forms.ToolStripButton tsb_VSE;
-        private System.Windows.Forms.ToolStripButton tsb_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripButton tsb_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb_Wire;
-        private System.Windows.Forms.ToolStripSeparator tss1;
-        private System.Windows.Forms.ToolStripButton tsb_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsb_Save;
-        private System.Windows.Forms.ToolStripButton tsb_Edit;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TabPage tab_procees;
         private System.Windows.Forms.SplitContainer spc_results;
         private System.Windows.Forms.ListView lsv_steps;
@@ -19072,213 +10411,11 @@
         private System.Windows.Forms.CheckBox chk_show_steps;
         private System.Windows.Forms.Button btn_view_analysis;
         private System.Windows.Forms.Button btn_process_analysis;
-        private System.Windows.Forms.TabPage tab_post_procees;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TabControl tc_pp_main;
-        private System.Windows.Forms.TabPage tab_forces;
-        private System.Windows.Forms.TabPage tab_load_deflection;
-        private System.Windows.Forms.Label lbl_mode_shape;
-        private System.Windows.Forms.Label lblLoadCase;
-        private System.Windows.Forms.GroupBox grb_Auto;
-        private System.Windows.Forms.Label label21;
-        public System.Windows.Forms.ComboBox cmbInterval;
-        private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.Button btnPause;
-        private System.Windows.Forms.Button btnAutoNext;
-        private System.Windows.Forms.Button btnAutoPrev;
-        private System.Windows.Forms.TextBox txtDefFactor;
-        private System.Windows.Forms.GroupBox grb_manual;
-        private System.Windows.Forms.Button btnFirst;
-        private System.Windows.Forms.Button btnPrev;
-        private System.Windows.Forms.Button btnNext;
-        private System.Windows.Forms.Button btnLast;
-        private System.Windows.Forms.Label lblFactor;
-        public System.Windows.Forms.ComboBox cmbLoadCase;
-        private System.Windows.Forms.TabPage tab_max_force;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TabPage tab_moving_load;
-        private System.Windows.Forms.GroupBox grb_moving_controls;
-        private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.Label lbl_distance;
-        private System.Windows.Forms.TextBox txt_dist;
-        public System.Windows.Forms.ComboBox cmb_mov_loadcase;
-        private System.Windows.Forms.GroupBox groupBox12;
-        public System.Windows.Forms.ComboBox cmb_mov_time;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button btn_mov_stop;
-        private System.Windows.Forms.Button btn_mov_run;
-        private System.Windows.Forms.Button btn_mov_pause;
-        private System.Windows.Forms.TabPage tab_envelop;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TabPage tab_diagram;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.TabControl tc1_pp;
-        private System.Windows.Forms.TabPage tab1_forces;
-        private System.Windows.Forms.TabControl tc_forces;
-        private System.Windows.Forms.TabPage tab_3_joint_frc;
-        private System.Windows.Forms.DataGridView dgv_joint_frcs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private System.Windows.Forms.TabPage tab_3_mem_frc;
-        private System.Windows.Forms.DataGridView dgv_beam_frcs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.TabPage tab_3_truss_frc;
-        private System.Windows.Forms.DataGridView dgv_truss_frcs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dgv_plate_frcs;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn64;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn65;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn66;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
-        private System.Windows.Forms.TabPage tab1_load_deflection;
-        private System.Windows.Forms.DataGridView dgv_node_disp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.TextBox txt_max_deflection_load;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txt_max_deflection_node;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt_max_deflection;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TabPage tab1_max_force;
-        private System.Windows.Forms.DataGridView dgv_max_frc;
-        private System.Windows.Forms.TabPage tab1_moving_load;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.GroupBox groupBox17;
-        private System.Windows.Forms.TreeView tv_ml_loads;
-        private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.TreeView tv_ml_def;
-        private System.Windows.Forms.TabPage tab1_truss_env;
-        private System.Windows.Forms.TextBox txt_env_mnos;
-        private System.Windows.Forms.GroupBox groupBox13;
-        private System.Windows.Forms.RadioButton rbtn_env_bottom;
-        private System.Windows.Forms.RadioButton rbtn_env_top;
-        private System.Windows.Forms.Button btn_env_show;
-        private System.Windows.Forms.TabPage tab1_diag;
-        private System.Windows.Forms.GroupBox groupBox16;
-        private System.Windows.Forms.RadioButton rbtn_diag_MZ;
-        private System.Windows.Forms.RadioButton rbtn_diag_MY;
-        private System.Windows.Forms.RadioButton rbtn_diag_MX;
-        private System.Windows.Forms.RadioButton rbtn_diag_FZ;
-        private System.Windows.Forms.RadioButton rbtn_diag_FY;
-        private System.Windows.Forms.RadioButton rbtn_diag_FX;
-        private System.Windows.Forms.GroupBox grb_diag_end;
-        private System.Windows.Forms.TextBox txt_diag_end_MZ;
-        private System.Windows.Forms.TextBox txt_diag_end_FZ;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox txt_diag_end_MY;
-        private System.Windows.Forms.TextBox txt_diag_end_FY;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox txt_diag_end_MX;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox txt_diag_end_FX;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.GroupBox grb_diag_start;
-        private System.Windows.Forms.TextBox txt_diag_start_MZ;
-        private System.Windows.Forms.TextBox txt_diag_start_FZ;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txt_diag_start_MY;
-        private System.Windows.Forms.TextBox txt_diag_start_FY;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txt_diag_start_MX;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox txt_diag_start_FX;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox cmb_diag_mem_no;
-        private System.Windows.Forms.ComboBox cmb_diag_ld_no;
-        private System.Windows.Forms.TabControl tc_docs;
-        private System.Windows.Forms.TabPage tab_frcs_doc;
-        private vdScrollableControl.vdScrollableControl vdSC_frcs;
-        private System.Windows.Forms.TabPage tab_defl_doc;
-        private vdScrollableControl.vdScrollableControl vdSC_ldef;
-        private System.Windows.Forms.TabPage tab_max_doc;
-        private vdScrollableControl.vdScrollableControl vdSC_maxf;
-        private System.Windows.Forms.TabPage tab_mov_doc;
-        private vdScrollableControl.vdScrollableControl vdSC_mov;
-        private System.Windows.Forms.TabPage tab_evlp_doc;
-        private vdScrollableControl.vdScrollableControl vdSC_env;
-        private System.Windows.Forms.TabPage tab_diag_doc;
-        private vdScrollableControl.vdScrollableControl vdSC_diag;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox cmb_pp_text_size;
-        private System.Windows.Forms.CheckBox chk_pp_elems;
-        private System.Windows.Forms.CheckBox chk_pp_joints;
-        private System.Windows.Forms.CheckBox chk_pp_suprts;
-        private System.Windows.Forms.CheckBox chk_pp_mems;
-        private System.Windows.Forms.Panel pnl_progress;
-        private System.Windows.Forms.ProgressBar pbLoadDeflection;
-        private System.Windows.Forms.Label lblPleaseWait;
-        private System.Windows.Forms.ToolStrip toolStrip3;
-        private System.Windows.Forms.ToolStripButton tsb_pp_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VTop;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VBot;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VRight;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VFront;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VBack;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VNE;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VNW;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VSE;
-        private System.Windows.Forms.ToolStripButton tsb_pp_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb_pp_Wire;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb_pp_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb_pp_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.ToolStripButton tsb_pp_Save;
-        private System.Windows.Forms.ToolStripButton tsb_pp_Edit;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Timer tmr_moving_load;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer tmrLoadDeflection;
         private System.Windows.Forms.Button btn_slab_design;
-        private System.Windows.Forms.GroupBox grb_slab_individual;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox txt_slab_Lx;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.TextBox txt_slab_D;
@@ -19297,11 +10434,6 @@
         private System.Windows.Forms.TextBox txt_slab_LLF;
         private System.Windows.Forms.TextBox txt_slab_DLF;
         private System.Windows.Forms.TextBox txt_slab_c;
-        private System.Windows.Forms.ComboBox cmb_slab_type;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.SplitContainer sc_slab;
-        private vdScrollableControl.vdScrollableControl vdSC_slab;
-        private System.Windows.Forms.SplitContainer sc_beam;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Button btn_conc_beam_design;
         private System.Windows.Forms.ComboBox cmb_beam_fy;
@@ -19323,73 +10455,6 @@
         private System.Windows.Forms.TextBox txt_beam_Shear_Bar_dia;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label72;
-        private vdScrollableControl.vdScrollableControl vdSC_beam;
-        private System.Windows.Forms.ToolStrip toolStrip4;
-        private System.Windows.Forms.ToolStripButton tsb1_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb1_VTop;
-        private System.Windows.Forms.ToolStripButton tsb1_VBot;
-        private System.Windows.Forms.ToolStripButton tsb1_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb1_VRight;
-        private System.Windows.Forms.ToolStripButton tsb1_VFront;
-        private System.Windows.Forms.ToolStripButton tsb1_VBack;
-        private System.Windows.Forms.ToolStripButton tsb1_VNE;
-        private System.Windows.Forms.ToolStripButton tsb1_VNW;
-        private System.Windows.Forms.ToolStripButton tsb1_VSE;
-        private System.Windows.Forms.ToolStripButton tsb1_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
-        private System.Windows.Forms.ToolStripButton tsb1_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb1_Wire;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator11;
-        private System.Windows.Forms.ToolStripButton tsb1_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb1_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb1_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb1_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb1_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb1_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb1_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator12;
-        private System.Windows.Forms.ToolStripButton tsb1_Save;
-        private System.Windows.Forms.ToolStripButton tsb1_Edit;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.ComboBox cmb1_text_size;
-        private System.Windows.Forms.CheckBox chk1_elements;
-        private System.Windows.Forms.CheckBox chk1_joints;
-        private System.Windows.Forms.CheckBox chk1_supports;
-        private System.Windows.Forms.CheckBox chk1_members;
-        private System.Windows.Forms.ToolStrip toolStrip5;
-        private System.Windows.Forms.ToolStripButton tsb2_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb2_VTop;
-        private System.Windows.Forms.ToolStripButton tsb2_VBot;
-        private System.Windows.Forms.ToolStripButton tsb2_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb2_VRight;
-        private System.Windows.Forms.ToolStripButton tsb2_VFront;
-        private System.Windows.Forms.ToolStripButton tsb2_VBack;
-        private System.Windows.Forms.ToolStripButton tsb2_VNE;
-        private System.Windows.Forms.ToolStripButton tsb2_VNW;
-        private System.Windows.Forms.ToolStripButton tsb2_VSE;
-        private System.Windows.Forms.ToolStripButton tsb2_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator13;
-        private System.Windows.Forms.ToolStripButton tsb2_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb2_Wire;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
-        private System.Windows.Forms.ToolStripButton tsb2_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb2_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb2_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb2_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb2_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb2_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb2_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator15;
-        private System.Windows.Forms.ToolStripButton tsb2_Save;
-        private System.Windows.Forms.ToolStripButton tsb2_Edit;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.ComboBox cmb2_text_size;
-        private System.Windows.Forms.CheckBox chk2_elements;
-        private System.Windows.Forms.CheckBox chk2_joints;
-        private System.Windows.Forms.CheckBox chk2_supports;
-        private System.Windows.Forms.CheckBox chk2_members;
         private System.Windows.Forms.TextBox txt_beam_W_LL1;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TextBox txt_beam_face_wall;
@@ -19419,7 +10484,6 @@
         private System.Windows.Forms.TabPage tab_staircase;
         private System.Windows.Forms.TabPage tab_BOQ;
         private System.Windows.Forms.TabPage tab_drawings;
-        private System.Windows.Forms.SplitContainer sc_column;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.Label label95;
         private System.Windows.Forms.Label label96;
@@ -19451,40 +10515,6 @@
         private System.Windows.Forms.Label label118;
         private System.Windows.Forms.Label label119;
         private System.Windows.Forms.Label label120;
-        private vdScrollableControl.vdScrollableControl vdSC_columns;
-        private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Label label122;
-        private System.Windows.Forms.ComboBox cmb3_text_size;
-        private System.Windows.Forms.CheckBox chk3_elements;
-        private System.Windows.Forms.CheckBox chk3_joints;
-        private System.Windows.Forms.CheckBox chk3_supports;
-        private System.Windows.Forms.CheckBox chk3_members;
-        private System.Windows.Forms.ToolStrip toolStrip6;
-        private System.Windows.Forms.ToolStripButton tsb3_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb3_VTop;
-        private System.Windows.Forms.ToolStripButton tsb3_VBot;
-        private System.Windows.Forms.ToolStripButton tsb3_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb3_VRight;
-        private System.Windows.Forms.ToolStripButton tsb3_VFront;
-        private System.Windows.Forms.ToolStripButton tsb3_VBack;
-        private System.Windows.Forms.ToolStripButton tsb3_VNE;
-        private System.Windows.Forms.ToolStripButton tsb3_VNW;
-        private System.Windows.Forms.ToolStripButton tsb3_VSE;
-        private System.Windows.Forms.ToolStripButton tsb3_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator16;
-        private System.Windows.Forms.ToolStripButton tsb3_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb3_Wire;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator17;
-        private System.Windows.Forms.ToolStripButton tsb3_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb3_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb3_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb3_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb3_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb3_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb3_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator18;
-        private System.Windows.Forms.ToolStripButton tsb3_Save;
-        private System.Windows.Forms.ToolStripButton tsb3_Edit;
         private System.Windows.Forms.TabControl tc_footing;
         private System.Windows.Forms.TabPage tab_iso_footing;
         private System.Windows.Forms.TabPage tab_pile_foundation;
@@ -19776,7 +10806,6 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_dl_names;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.ComboBox cmb_def_loads;
         private System.Windows.Forms.Button btn_drawing_floor_plan;
         private System.Windows.Forms.Button btn_drawing_beam_force;
         private System.Windows.Forms.TabControl tc_BOQ;
@@ -19933,11 +10962,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn116;
         private System.Windows.Forms.Button btn_update_data;
         private System.Windows.Forms.Button btn_update_file;
-        private VectorDraw.Professional.Control.VectorDrawBaseControl vdDwg;
         private System.Windows.Forms.Label label216;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cmb_dwg_flr_lvl;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_openASTRAViewer;
         private System.Windows.Forms.Label label217;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label218;
@@ -19945,32 +10972,6 @@
         private System.Windows.Forms.TextBox txt_column_bar_nos;
         private System.Windows.Forms.Label label219;
         private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.ToolStrip toolStrip7;
-        private System.Windows.Forms.ToolStripButton tsb4_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb4_VTop;
-        private System.Windows.Forms.ToolStripButton tsb4_VBot;
-        private System.Windows.Forms.ToolStripButton tsb4_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb4_VRight;
-        private System.Windows.Forms.ToolStripButton tsb4_VFront;
-        private System.Windows.Forms.ToolStripButton tsb4_VBack;
-        private System.Windows.Forms.ToolStripButton tsb4_VNE;
-        private System.Windows.Forms.ToolStripButton tsb4_VNW;
-        private System.Windows.Forms.ToolStripButton tsb4_VSE;
-        private System.Windows.Forms.ToolStripButton tsb4_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator19;
-        private System.Windows.Forms.ToolStripButton tsb4_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb4_Wire;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
-        private System.Windows.Forms.ToolStripButton tsb4_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb4_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb4_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb4_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb4_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb4_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb4_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator21;
-        private System.Windows.Forms.ToolStripButton tsb4_Save;
-        private System.Windows.Forms.ToolStripButton tsb4_Edit;
         private System.Windows.Forms.GroupBox grb_dwg_open;
         private System.Windows.Forms.Label label223;
         private System.Windows.Forms.ComboBox cmb_dwg_beam_frc;
@@ -19991,10 +10992,6 @@
         private System.Windows.Forms.Button btn_drawing_typical_structure_slab;
         private System.Windows.Forms.Button btn_drawing_create;
         private System.Windows.Forms.Button btn_drawing_construction;
-        private System.Windows.Forms.Label label228;
-        private System.Windows.Forms.TextBox txt_slab_Ly;
-        private System.Windows.Forms.Label label229;
-        private System.Windows.Forms.Label label282;
         private System.Windows.Forms.CheckBox chk_slab_individual;
         private System.Windows.Forms.CheckBox chk_beam_individual;
         private System.Windows.Forms.Label label302;
@@ -20051,34 +11048,7 @@
         private System.Windows.Forms.CheckBox chk_pile_individual;
         private System.Windows.Forms.TabPage tab_raft_foundation;
         private System.Windows.Forms.SplitContainer sc_raft;
-        private vdScrollableControl.vdScrollableControl vdRaft;
         private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.ToolStrip toolStrip8;
-        private System.Windows.Forms.ToolStripButton tsb5_3D_rotate;
-        private System.Windows.Forms.ToolStripButton tsb5_VTop;
-        private System.Windows.Forms.ToolStripButton tsb5_VBot;
-        private System.Windows.Forms.ToolStripButton tsb5_VLeft;
-        private System.Windows.Forms.ToolStripButton tsb5_VRight;
-        private System.Windows.Forms.ToolStripButton tsb5_VFront;
-        private System.Windows.Forms.ToolStripButton tsb5_VBack;
-        private System.Windows.Forms.ToolStripButton tsb5_VNE;
-        private System.Windows.Forms.ToolStripButton tsb5_VNW;
-        private System.Windows.Forms.ToolStripButton tsb5_VSE;
-        private System.Windows.Forms.ToolStripButton tsb5_VSW;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator22;
-        private System.Windows.Forms.ToolStripButton tsb5_ShadeOn;
-        private System.Windows.Forms.ToolStripButton tsb5_Wire;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator23;
-        private System.Windows.Forms.ToolStripButton tsb5_ZoomA;
-        private System.Windows.Forms.ToolStripButton tsb5_ZoomE;
-        private System.Windows.Forms.ToolStripButton tsb5_ZoomP;
-        private System.Windows.Forms.ToolStripButton tsb5_ZoomW;
-        private System.Windows.Forms.ToolStripButton tsb5_ZoomIn;
-        private System.Windows.Forms.ToolStripButton tsb5_ZoomOut;
-        private System.Windows.Forms.ToolStripButton tsb5_Pan;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator24;
-        private System.Windows.Forms.ToolStripButton tsb5_Save;
-        private System.Windows.Forms.ToolStripButton tsb5_Edit;
         private System.Windows.Forms.Label label123;
         private System.Windows.Forms.TextBox txt_raft_cols;
         private System.Windows.Forms.Button btn_rft_next;
@@ -20126,7 +11096,6 @@
         private System.Windows.Forms.Button btn_raft_delete_all;
         private System.Windows.Forms.Button btn_raft_delete;
         private System.Windows.Forms.Button btn_raft_insert;
-        private System.Windows.Forms.Label label356;
         private System.Windows.Forms.Button btn_drawing_typical_structure_beam;
         private System.Windows.Forms.Button btn_drawing_typical_structure_staircase;
         private System.Windows.Forms.Button btn_drawing_typical_structure_column;
@@ -20141,10 +11110,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
         private System.Windows.Forms.Button btn_open_data;
-        private System.Windows.Forms.CheckBox chk_seismic_coeeficient;
-        private System.Windows.Forms.Label label357;
-        private System.Windows.Forms.TextBox txt_seismic_coeeficient;
-        private System.Windows.Forms.Button btn_sc_cal;
         private System.Windows.Forms.GroupBox groupBox21;
         private System.Windows.Forms.Button btn_boq_create_pile_found;
         private System.Windows.Forms.Button btn_boq_create_iso_found;
@@ -20160,26 +11125,10 @@
         private System.Windows.Forms.Button btn_boq_open_slab;
         private System.Windows.Forms.Button btn_boq_open_raft_found;
         private System.Windows.Forms.Button btn_boq_open_beam;
-        private System.Windows.Forms.TextBox txt_slab_flv_lvl;
-        private System.Windows.Forms.Label label358;
-        private System.Windows.Forms.Label label359;
         private System.Windows.Forms.Label label361;
         private System.Windows.Forms.TextBox txt_beam_D_;
         private System.Windows.Forms.Label label360;
         private System.Windows.Forms.Label label328;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_cmf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_tf;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_af;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_tor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_bm;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_sf;
-        private System.Windows.Forms.Button btn_Draw_Forces;
-        private System.Windows.Forms.Label label327;
-        private System.Windows.Forms.Label label329;
-        private System.Windows.Forms.ComboBox cmb_diag_beam_no;
-        private System.Windows.Forms.ComboBox cmb_diag_flr_lvl;
         private System.Windows.Forms.Label label330;
         private System.Windows.Forms.ComboBox cmb4_text_size;
         private System.Windows.Forms.Button btn_sample_drawings;
@@ -20188,7 +11137,6 @@
         private System.Windows.Forms.Button btn_browse_design;
         private System.Windows.Forms.TextBox txt_project_name;
         private System.Windows.Forms.Label label830;
-        private System.Windows.Forms.Button btn_sc_apply;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox grb_stage;
         private System.Windows.Forms.Label label362;
@@ -20331,7 +11279,9 @@
         private System.Windows.Forms.GroupBox groupBox31;
         private System.Windows.Forms.ComboBox cmb_steel_column_no;
         private System.Windows.Forms.Label label440;
+        private System.Windows.Forms.Button button1;
     }
+
 
 
 }

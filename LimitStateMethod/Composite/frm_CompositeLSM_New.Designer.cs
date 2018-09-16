@@ -985,22 +985,18 @@
             this.chk_ssprt_fixed_FY = new System.Windows.Forms.CheckBox();
             this.chk_ssprt_fixed_MX = new System.Windows.Forms.CheckBox();
             this.chk_ssprt_fixed_FX = new System.Windows.Forms.CheckBox();
-            this.tab_ana_preProcess = new System.Windows.Forms.TabPage();
-            this.ucPreProcess1 = new ASTRAStructures.UCPreProcess();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.cmb_long_open_file = new System.Windows.Forms.ComboBox();
-            this.label1169 = new System.Windows.Forms.Label();
             this.tab_ana_process = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox109 = new System.Windows.Forms.GroupBox();
             this.label1116 = new System.Windows.Forms.Label();
             this.cmb_long_open_file_process = new System.Windows.Forms.ComboBox();
+            this.btn_view_postprocess = new System.Windows.Forms.Button();
+            this.btn_view_preprocess = new System.Windows.Forms.Button();
             this.btn_View_Moving_Load = new System.Windows.Forms.Button();
             this.btn_view_report = new System.Windows.Forms.Button();
             this.btn_view_data = new System.Windows.Forms.Button();
             this.btn_Ana_process_analysis = new System.Windows.Forms.Button();
-            this.btn_view_structure = new System.Windows.Forms.Button();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -1533,14 +1529,6 @@
             this.label1109 = new System.Windows.Forms.Label();
             this.label1110 = new System.Windows.Forms.Label();
             this.label1111 = new System.Windows.Forms.Label();
-            this.tab_ana_postProcess = new System.Windows.Forms.TabPage();
-            this.ucPostProcess1 = new ASTRAStructures.UCPostProcess();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label1168 = new System.Windows.Forms.Label();
-            this.cmb_long_open_file_post_process = new System.Windows.Forms.ComboBox();
-            this.tab_orthotropic = new System.Windows.Forms.TabPage();
-            this.uC_Orthotropic1 = new AstraAccess.ADOC.UC_Orthotropic();
-            this.lbl_orthotropic = new System.Windows.Forms.Label();
             this.tab_DeckSlab_Steel_Girder = new System.Windows.Forms.TabPage();
             this.tc_steel = new System.Windows.Forms.TabControl();
             this.tab_SteelWorksheet = new System.Windows.Forms.TabPage();
@@ -2623,8 +2611,6 @@
             this.groupBox136.SuspendLayout();
             this.groupBox40.SuspendLayout();
             this.groupBox43.SuspendLayout();
-            this.tab_ana_preProcess.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.tab_ana_process.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -2693,9 +2679,6 @@
             this.groupBox134.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).BeginInit();
             this.groupBox129.SuspendLayout();
-            this.tab_ana_postProcess.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.tab_orthotropic.SuspendLayout();
             this.tab_DeckSlab_Steel_Girder.SuspendLayout();
             this.tc_steel.SuspendLayout();
             this.tab_SteelWorksheet.SuspendLayout();
@@ -2829,7 +2812,6 @@
             this.tbc_girder.Controls.Add(this.tab_LL_IRC);
             this.tbc_girder.Controls.Add(this.tab_moving_data_british);
             this.tbc_girder.Controls.Add(this.tab_Analysis_Result);
-            this.tbc_girder.Controls.Add(this.tab_orthotropic);
             this.tbc_girder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbc_girder.Location = new System.Drawing.Point(3, 3);
             this.tbc_girder.Name = "tbc_girder";
@@ -12028,9 +12010,7 @@
             // tc_AnaProcess
             // 
             this.tc_AnaProcess.Controls.Add(this.tab_ana_select);
-            this.tc_AnaProcess.Controls.Add(this.tab_ana_preProcess);
             this.tc_AnaProcess.Controls.Add(this.tab_ana_process);
-            this.tc_AnaProcess.Controls.Add(this.tab_ana_postProcess);
             this.tc_AnaProcess.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_AnaProcess.Location = new System.Drawing.Point(3, 3);
             this.tc_AnaProcess.Name = "tc_AnaProcess";
@@ -12321,74 +12301,6 @@
             this.chk_ssprt_fixed_FX.Text = "FX";
             this.chk_ssprt_fixed_FX.UseVisualStyleBackColor = true;
             // 
-            // tab_ana_preProcess
-            // 
-            this.tab_ana_preProcess.Controls.Add(this.ucPreProcess1);
-            this.tab_ana_preProcess.Controls.Add(this.panel10);
-            this.tab_ana_preProcess.ForeColor = System.Drawing.Color.Black;
-            this.tab_ana_preProcess.Location = new System.Drawing.Point(4, 22);
-            this.tab_ana_preProcess.Name = "tab_ana_preProcess";
-            this.tab_ana_preProcess.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ana_preProcess.Size = new System.Drawing.Size(926, 610);
-            this.tab_ana_preProcess.TabIndex = 1;
-            this.tab_ana_preProcess.Text = "Pre Process";
-            this.tab_ana_preProcess.UseVisualStyleBackColor = true;
-            // 
-            // ucPreProcess1
-            // 
-            this.ucPreProcess1.analysis_title = null;
-            this.ucPreProcess1.analysis_type = null;
-            this.ucPreProcess1.Current_LoadCase = null;
-            this.ucPreProcess1.CurrentLoadIndex = 0;
-            this.ucPreProcess1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucPreProcess1.FilePath = null;
-            this.ucPreProcess1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPreProcess1.ForeColor = System.Drawing.Color.Black;
-            this.ucPreProcess1.INPUT_FILE = null;
-            this.ucPreProcess1.LL_Definition = null;
-            this.ucPreProcess1.LoadCases = null;
-            this.ucPreProcess1.Location = new System.Drawing.Point(3, 51);
-            this.ucPreProcess1.Materials = null;
-            this.ucPreProcess1.MovingLoads = null;
-            this.ucPreProcess1.Name = "ucPreProcess1";
-            this.ucPreProcess1.SeismicLoads = null;
-            this.ucPreProcess1.Size = new System.Drawing.Size(920, 556);
-            this.ucPreProcess1.TabIndex = 0;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.cmb_long_open_file);
-            this.panel10.Controls.Add(this.label1169);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel10.Location = new System.Drawing.Point(3, 3);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(920, 48);
-            this.panel10.TabIndex = 4;
-            // 
-            // cmb_long_open_file
-            // 
-            this.cmb_long_open_file.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_long_open_file.FormattingEnabled = true;
-            this.cmb_long_open_file.Items.AddRange(new object[] {
-            "Dead Load Analysis",
-            "Live Load Analysis",
-            "Total DL+SIDL+LL Analysis"});
-            this.cmb_long_open_file.Location = new System.Drawing.Point(163, 15);
-            this.cmb_long_open_file.Name = "cmb_long_open_file";
-            this.cmb_long_open_file.Size = new System.Drawing.Size(470, 21);
-            this.cmb_long_open_file.TabIndex = 79;
-            this.cmb_long_open_file.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
-            // 
-            // label1169
-            // 
-            this.label1169.AutoSize = true;
-            this.label1169.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1169.Location = new System.Drawing.Point(6, 16);
-            this.label1169.Name = "label1169";
-            this.label1169.Size = new System.Drawing.Size(135, 16);
-            this.label1169.TabIndex = 97;
-            this.label1169.Text = "Select Analysis File";
-            // 
             // tab_ana_process
             // 
             this.tab_ana_process.Controls.Add(this.splitContainer1);
@@ -12423,11 +12335,10 @@
             // 
             this.groupBox2.Controls.Add(this.groupBox109);
             this.groupBox2.Controls.Add(this.btn_Ana_process_analysis);
-            this.groupBox2.Controls.Add(this.btn_view_structure);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(1, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(842, 105);
+            this.groupBox2.Size = new System.Drawing.Size(918, 105);
             this.groupBox2.TabIndex = 103;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Analysis";
@@ -12436,12 +12347,14 @@
             // 
             this.groupBox109.Controls.Add(this.label1116);
             this.groupBox109.Controls.Add(this.cmb_long_open_file_process);
+            this.groupBox109.Controls.Add(this.btn_view_postprocess);
+            this.groupBox109.Controls.Add(this.btn_view_preprocess);
             this.groupBox109.Controls.Add(this.btn_View_Moving_Load);
             this.groupBox109.Controls.Add(this.btn_view_report);
             this.groupBox109.Controls.Add(this.btn_view_data);
-            this.groupBox109.Location = new System.Drawing.Point(304, 10);
+            this.groupBox109.Location = new System.Drawing.Point(223, 17);
             this.groupBox109.Name = "groupBox109";
-            this.groupBox109.Size = new System.Drawing.Size(530, 88);
+            this.groupBox109.Size = new System.Drawing.Size(696, 88);
             this.groupBox109.TabIndex = 80;
             this.groupBox109.TabStop = false;
             this.groupBox109.Text = "Open Analysis File";
@@ -12469,6 +12382,26 @@
             this.cmb_long_open_file_process.Size = new System.Drawing.Size(365, 21);
             this.cmb_long_open_file_process.TabIndex = 79;
             this.cmb_long_open_file_process.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
+            // 
+            // btn_view_postprocess
+            // 
+            this.btn_view_postprocess.Location = new System.Drawing.Point(530, 51);
+            this.btn_view_postprocess.Name = "btn_view_postprocess";
+            this.btn_view_postprocess.Size = new System.Drawing.Size(157, 28);
+            this.btn_view_postprocess.TabIndex = 74;
+            this.btn_view_postprocess.Text = "View Post Process";
+            this.btn_view_postprocess.UseVisualStyleBackColor = true;
+            this.btn_view_postprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
+            // btn_view_preprocess
+            // 
+            this.btn_view_preprocess.Location = new System.Drawing.Point(530, 19);
+            this.btn_view_preprocess.Name = "btn_view_preprocess";
+            this.btn_view_preprocess.Size = new System.Drawing.Size(157, 28);
+            this.btn_view_preprocess.TabIndex = 74;
+            this.btn_view_preprocess.Text = "View Pre Process";
+            this.btn_view_preprocess.UseVisualStyleBackColor = true;
+            this.btn_view_preprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // btn_View_Moving_Load
             // 
@@ -12504,21 +12437,11 @@
             // 
             this.btn_Ana_process_analysis.Location = new System.Drawing.Point(15, 42);
             this.btn_Ana_process_analysis.Name = "btn_Ana_process_analysis";
-            this.btn_Ana_process_analysis.Size = new System.Drawing.Size(251, 46);
+            this.btn_Ana_process_analysis.Size = new System.Drawing.Size(194, 46);
             this.btn_Ana_process_analysis.TabIndex = 75;
             this.btn_Ana_process_analysis.Text = "Process Analysis\r\n(for all data files)";
             this.btn_Ana_process_analysis.UseVisualStyleBackColor = true;
             this.btn_Ana_process_analysis.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
-            // 
-            // btn_view_structure
-            // 
-            this.btn_view_structure.Location = new System.Drawing.Point(775, 43);
-            this.btn_view_structure.Name = "btn_view_structure";
-            this.btn_view_structure.Size = new System.Drawing.Size(18, 22);
-            this.btn_view_structure.TabIndex = 74;
-            this.btn_view_structure.Text = "View Structure (GUI)";
-            this.btn_view_structure.UseVisualStyleBackColor = true;
-            this.btn_view_structure.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // tabControl5
             // 
@@ -18235,111 +18158,6 @@
             this.label1111.TabIndex = 14;
             this.label1111.Text = "Maximum Horizontal Reaction (Trans. Direction)";
             // 
-            // tab_ana_postProcess
-            // 
-            this.tab_ana_postProcess.Controls.Add(this.ucPostProcess1);
-            this.tab_ana_postProcess.Controls.Add(this.panel9);
-            this.tab_ana_postProcess.ForeColor = System.Drawing.Color.Black;
-            this.tab_ana_postProcess.Location = new System.Drawing.Point(4, 22);
-            this.tab_ana_postProcess.Name = "tab_ana_postProcess";
-            this.tab_ana_postProcess.Size = new System.Drawing.Size(926, 610);
-            this.tab_ana_postProcess.TabIndex = 3;
-            this.tab_ana_postProcess.Text = "Post Process";
-            this.tab_ana_postProcess.UseVisualStyleBackColor = true;
-            // 
-            // ucPostProcess1
-            // 
-            this.ucPostProcess1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucPostProcess1.File_Name = "";
-            this.ucPostProcess1.FilePath = null;
-            this.ucPostProcess1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucPostProcess1.INPUT_FILE = null;
-            this.ucPostProcess1.Location = new System.Drawing.Point(0, 48);
-            this.ucPostProcess1.Name = "ucPostProcess1";
-            this.ucPostProcess1.Size = new System.Drawing.Size(926, 562);
-            this.ucPostProcess1.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.label1168);
-            this.panel9.Controls.Add(this.cmb_long_open_file_post_process);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(926, 48);
-            this.panel9.TabIndex = 3;
-            // 
-            // label1168
-            // 
-            this.label1168.AutoSize = true;
-            this.label1168.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1168.Location = new System.Drawing.Point(6, 16);
-            this.label1168.Name = "label1168";
-            this.label1168.Size = new System.Drawing.Size(135, 16);
-            this.label1168.TabIndex = 97;
-            this.label1168.Text = "Select Analysis File";
-            // 
-            // cmb_long_open_file_post_process
-            // 
-            this.cmb_long_open_file_post_process.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_long_open_file_post_process.DropDownWidth = 398;
-            this.cmb_long_open_file_post_process.FormattingEnabled = true;
-            this.cmb_long_open_file_post_process.Items.AddRange(new object[] {
-            "Dead Load Analysis",
-            "Live Load Analysis",
-            "LL Analysis Load 1",
-            "LL Analysis Load 2",
-            "LL Analysis Load 3 ",
-            "LL Analysis Load 4 ",
-            "LL Analysis Load 5",
-            "LL Analysis Load 6",
-            "Total Analysis",
-            "Long Girder Analysis Results"});
-            this.cmb_long_open_file_post_process.Location = new System.Drawing.Point(147, 15);
-            this.cmb_long_open_file_post_process.Name = "cmb_long_open_file_post_process";
-            this.cmb_long_open_file_post_process.Size = new System.Drawing.Size(455, 21);
-            this.cmb_long_open_file_post_process.TabIndex = 9;
-            this.cmb_long_open_file_post_process.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
-            // 
-            // tab_orthotropic
-            // 
-            this.tab_orthotropic.Controls.Add(this.uC_Orthotropic1);
-            this.tab_orthotropic.Controls.Add(this.lbl_orthotropic);
-            this.tab_orthotropic.Location = new System.Drawing.Point(4, 22);
-            this.tab_orthotropic.Name = "tab_orthotropic";
-            this.tab_orthotropic.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_orthotropic.Size = new System.Drawing.Size(940, 642);
-            this.tab_orthotropic.TabIndex = 5;
-            this.tab_orthotropic.Text = "Orthotropic Model Analysis";
-            this.tab_orthotropic.UseVisualStyleBackColor = true;
-            // 
-            // uC_Orthotropic1
-            // 
-            this.uC_Orthotropic1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Orthotropic1.Input_Data_File = null;
-            this.uC_Orthotropic1.Location = new System.Drawing.Point(3, 36);
-            this.uC_Orthotropic1.Name = "uC_Orthotropic1";
-            this.uC_Orthotropic1.Size = new System.Drawing.Size(934, 603);
-            this.uC_Orthotropic1.TabIndex = 1;
-            this.uC_Orthotropic1.OnDraw_Click += new System.EventHandler(this.uC_Orthotropic1_OnDraw_Click);
-            this.uC_Orthotropic1.OnRunAnalysis_Click += new System.EventHandler(this.uC_Orthotropic1_OnRunAnalysis_Click);
-            this.uC_Orthotropic1.OnCreateData_Click += new System.EventHandler(this.uC_Orthotropic1_OnCreateData_Click);
-            // 
-            // lbl_orthotropic
-            // 
-            this.lbl_orthotropic.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbl_orthotropic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbl_orthotropic.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_orthotropic.ForeColor = System.Drawing.Color.Red;
-            this.lbl_orthotropic.Location = new System.Drawing.Point(3, 3);
-            this.lbl_orthotropic.Name = "lbl_orthotropic";
-            this.lbl_orthotropic.Size = new System.Drawing.Size(934, 33);
-            this.lbl_orthotropic.TabIndex = 0;
-            this.lbl_orthotropic.Text = "The Module is not attached for large size.";
-            this.lbl_orthotropic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lbl_orthotropic.Visible = false;
-            this.lbl_orthotropic.Click += new System.EventHandler(this.lbl_orthotropic_Click);
-            // 
             // tab_DeckSlab_Steel_Girder
             // 
             this.tab_DeckSlab_Steel_Girder.Controls.Add(this.tc_steel);
@@ -18392,7 +18210,7 @@
             this.tab_SteelAlternative.Location = new System.Drawing.Point(4, 22);
             this.tab_SteelAlternative.Name = "tab_SteelAlternative";
             this.tab_SteelAlternative.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_SteelAlternative.Size = new System.Drawing.Size(940, 642);
+            this.tab_SteelAlternative.Size = new System.Drawing.Size(178, 42);
             this.tab_SteelAlternative.TabIndex = 0;
             this.tab_SteelAlternative.Text = "Alternative Design";
             this.tab_SteelAlternative.UseVisualStyleBackColor = true;
@@ -18406,7 +18224,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(934, 601);
+            this.tabControl2.Size = new System.Drawing.Size(172, 1);
             this.tabControl2.TabIndex = 5;
             // 
             // tab_frc
@@ -18417,7 +18235,7 @@
             this.tab_frc.Location = new System.Drawing.Point(4, 22);
             this.tab_frc.Name = "tab_frc";
             this.tab_frc.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_frc.Size = new System.Drawing.Size(926, 575);
+            this.tab_frc.Size = new System.Drawing.Size(164, 0);
             this.tab_frc.TabIndex = 0;
             this.tab_frc.Text = "Steel Girder Design Force Data";
             this.tab_frc.UseVisualStyleBackColor = true;
@@ -18443,7 +18261,7 @@
             this.groupBox13.Controls.Add(this.label7);
             this.groupBox13.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox13.ForeColor = System.Drawing.Color.Red;
-            this.groupBox13.Location = new System.Drawing.Point(229, 159);
+            this.groupBox13.Location = new System.Drawing.Point(-152, -128);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(469, 364);
             this.groupBox13.TabIndex = 98;
@@ -23890,9 +23708,9 @@
             this.panel2.Controls.Add(this.btnReport);
             this.panel2.Controls.Add(this.btnProcess);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(3, 604);
+            this.panel2.Location = new System.Drawing.Point(3, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(934, 35);
+            this.panel2.Size = new System.Drawing.Size(172, 35);
             this.panel2.TabIndex = 6;
             // 
             // label140
@@ -23909,7 +23727,7 @@
             // btnReport
             // 
             this.btnReport.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnReport.Location = new System.Drawing.Point(479, 4);
+            this.btnReport.Location = new System.Drawing.Point(98, 4);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(153, 27);
             this.btnReport.TabIndex = 4;
@@ -23920,7 +23738,7 @@
             // btnProcess
             // 
             this.btnProcess.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnProcess.Location = new System.Drawing.Point(303, 4);
+            this.btnProcess.Location = new System.Drawing.Point(-78, 4);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(153, 27);
             this.btnProcess.TabIndex = 3;
@@ -29423,9 +29241,6 @@
             this.groupBox40.PerformLayout();
             this.groupBox43.ResumeLayout(false);
             this.groupBox43.PerformLayout();
-            this.tab_ana_preProcess.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
             this.tab_ana_process.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -29542,10 +29357,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_mxf_right_des_frc)).EndInit();
             this.groupBox129.ResumeLayout(false);
             this.groupBox129.PerformLayout();
-            this.tab_ana_postProcess.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.tab_orthotropic.ResumeLayout(false);
             this.tab_DeckSlab_Steel_Girder.ResumeLayout(false);
             this.tc_steel.ResumeLayout(false);
             this.tab_SteelWorksheet.ResumeLayout(false);
@@ -30335,7 +30146,7 @@
         private System.Windows.Forms.Button btn_View_Moving_Load;
         private System.Windows.Forms.Button btn_view_report;
         private System.Windows.Forms.Button btn_view_data;
-        private System.Windows.Forms.Button btn_view_structure;
+        private System.Windows.Forms.Button btn_view_preprocess;
         private System.Windows.Forms.Button btn_Ana_create_data;
         private System.Windows.Forms.Button btn_Ana_process_analysis;
         private System.Windows.Forms.GroupBox groupBox25;
@@ -31515,7 +31326,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private System.Windows.Forms.TabPage tab_moving_data_british;
         private System.Windows.Forms.GroupBox groupBox109;
-        private System.Windows.Forms.ComboBox cmb_long_open_file;
         private System.Windows.Forms.GroupBox groupBox45;
         private System.Windows.Forms.SplitContainer spc_HB;
         private System.Windows.Forms.GroupBox groupBox105;
@@ -31890,8 +31700,6 @@
         private System.Windows.Forms.Label label1121;
         private System.Windows.Forms.Label label1122;
         private System.Windows.Forms.Label label1125;
-        private System.Windows.Forms.TabPage tab_orthotropic;
-        private System.Windows.Forms.Label lbl_orthotropic;
         private System.Windows.Forms.RadioButton rbtn_multiSpan;
         private System.Windows.Forms.RadioButton rbtn_singleSpan;
         public System.Windows.Forms.TextBox txt_brg_max_VR_kN;
@@ -31905,7 +31713,6 @@
         private System.Windows.Forms.Label label1126;
         private System.Windows.Forms.Label label1124;
         private System.Windows.Forms.Label label1123;
-        private AstraAccess.ADOC.UC_Orthotropic uC_Orthotropic1;
         private System.Windows.Forms.GroupBox groupBox37;
         private System.Windows.Forms.RadioButton rbtn_concrete_deck;
         private System.Windows.Forms.RadioButton rbtn_steel_deck;
@@ -32109,17 +31916,8 @@
         private System.Windows.Forms.Label label1167;
         private System.Windows.Forms.TabControl tc_AnaProcess;
         private System.Windows.Forms.TabPage tab_ana_select;
-        private System.Windows.Forms.TabPage tab_ana_preProcess;
-        private ASTRAStructures.UCPreProcess ucPreProcess1;
         private System.Windows.Forms.TabPage tab_ana_process;
         private System.Windows.Forms.ComboBox cmb_long_open_file_process;
-        private System.Windows.Forms.TabPage tab_ana_postProcess;
-        private ASTRAStructures.UCPostProcess ucPostProcess1;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label1169;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label1168;
-        private System.Windows.Forms.ComboBox cmb_long_open_file_post_process;
         private System.Windows.Forms.Label label1116;
         private System.Windows.Forms.Label label1170;
         private System.Windows.Forms.Label label1172;
@@ -32137,6 +31935,7 @@
         private System.Windows.Forms.Button btn_long_restore_ll_BS;
         private System.Windows.Forms.Label label1176;
         private System.Windows.Forms.Label label1177;
+        private System.Windows.Forms.Button btn_view_postprocess;
     }
 
 }

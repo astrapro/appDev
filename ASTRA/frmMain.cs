@@ -49,10 +49,7 @@ using LimitStateMethod.Steel_Truss;
 using LimitStateMethod.JettyDesign;
 using BridgeAnalysisDesign.RE_Wall;
 
-//using AstraAccess;
-
 using ASTRAStructures;
-
 
 namespace AstraFunctionOne
 {
@@ -99,16 +96,6 @@ namespace AstraFunctionOne
             InitializeComponent();
             //FileInfo fl = new FileInfo("ASTRA.exe");
             currentDirectory = Application.StartupPath;
-            msg = "The Data for moving Load analysis is given as file INPUT7.TXT and load data for width of Axle.";
-            msg += "\n\nLoad's in Tonnes and distances in metres are given as file LL.TXT in folder \"Example 7\" and INPUT8.txt";
-            msg += "\n\nwith load file LL.TXT is given in folder \"Example 8\". The folders are available in Tutorial Data and ";
-            msg += "\n\nalso in application Folder of ASTRA for Example \"C:\\Program Files\\ASTRA Pro Release  4.0\\ASTRA Pro Examples\\\"";
-            msg += "\n\nuser has to Select the input file (INPUT7.TXT) using ASTRA Pro menu option \"File-Open\", ";
-            msg += "\n\nopen TXT file, and Run menu option \"Run TXT File\". The Analysis will take a few minutes time and the Report";
-            msg += "\n\nfile is Created as \"Analysis.REP\", from which user has to take Values for Bending Moment and Shear Force";
-            msg += "\n\nat desired nodes of Girder for Permanent Load + Super Imposed Dead Load (D.L. + SIDL) and in a separate run for ";
-            msg += "\n\n(D.L. + SIDL + Moving Load) using Load Generation Data.";
-            msg += "\n\n\nUser may view the moving Load Analysis by using ASTRA Pro Viewer (CAD) menu Option \"ASTRA-Load Deflection\"";
             LastDesignWorkingFolder = "";
 
             Version_Type = eVersionType.Enterprise_Bridge;
@@ -285,6 +272,11 @@ namespace AstraFunctionOne
         public void OpenWork(string opnfileName, bool IsOpenWithMovingLoad)
         {
 
+            if (IsOpenWithMovingLoad)
+                View_PostProcess(opnfileName);
+            else
+                View_ASTRAGUI(eProcessType.TextProcess, opnfileName);
+            return;
             string rad_file = Path.Combine(Path.GetDirectoryName(opnfileName), "radius.fil");
             if (File.Exists(rad_file)) File.Delete(rad_file);
             Environment.SetEnvironmentVariable("COMP_RAD", "");
@@ -656,19 +648,10 @@ namespace AstraFunctionOne
                 //    LiveLoads = new LiveLoadCollections(ll_txt_file);
                 //}
                 Set_Bridge_Design_Menu();
-                //If visible set to false then menu will be R21
                 IsRelease_22 = true;
-                //IsRelease_22 = false;
-                if (IsRelease_22)
-                {
+               
                     Load_ASTRA_R22_Menu();
-                }
-                else
-                {
-                    tsmi_structure_text.Visible = false;
-                    tsmi_steel_beam.Visible = false;
-                    tsmi_steel_column.Visible = false;
-                }
+                
                 helpProvider1.HelpNamespace = Path.Combine(Application.StartupPath, "ASTRAHelp\\AstraPro.chm");
                 //TechSOFT_Demo();
                 try
@@ -2525,13 +2508,13 @@ namespace AstraFunctionOne
         private void Set_Bridge_Design_Menu()
         {
             tsmi_selectDesignStandard.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
-
             tsmi_Bridge_Design.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             tsmi_RCC_Structural_Design.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             tsmi_structure_text.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             tsmi_structure_sap.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             tsmi_research_Studies.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             tsmi_structureModeling.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
+
 
             tsmi_openStageAnalysisTEXTDataFile.Enabled = Directory.Exists(this.LastDesignWorkingFolder);
             return;
@@ -2622,9 +2605,9 @@ namespace AstraFunctionOne
 
             ShowTimerScreen(eASTRAImage.Composite_Bridge);
             //LimitStateMethod.Composite.frm_Composite_LS frm = new LimitStateMethod.Composite.frm_Composite_LS(this);
-            LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
-            frm.Owner = this;
-            frm.Show();
+            //LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
+            //frm.Owner = this;
+            //frm.Show();
         }
 
         private void tsmi_Pre_Stressed_Bridge_Click(object sender, EventArgs e)
@@ -5752,7 +5735,6 @@ namespace AstraFunctionOne
 
         private void Show_Composite_Bridge_Limit_State()
         {
-
             ShowTimerScreen(eASTRAImage.Composite_Bridge);
 
             if (IsRelease_22)
@@ -5770,13 +5752,6 @@ namespace AstraFunctionOne
                     frm.Owner = this;
                     frm.Show();
                 }
-            }
-            else
-            {
-                //LimitStateMethod.Composite.frm_Composite_LS frm = new LimitStateMethod.Composite.frm_Composite_LS(this);
-                LimitStateMethod.Composite.frm_CompositeLSM frm = new LimitStateMethod.Composite.frm_CompositeLSM(this);
-                frm.Owner = this;
-                frm.Show();
             }
         }
         private void Show_Composite_Bridge_Working_Stress()
@@ -6157,7 +6132,8 @@ namespace AstraFunctionOne
             }
             else
             {
-                frmAnalysisWorkspace frm = new frmAnalysisWorkspace(this, tsmi.Name + " : " + tsmi.Text);
+                //frmAnalysisWorkspace frm = new frmAnalysisWorkspace(this, tsmi.Name + " : " + tsmi.Text);
+                frmAnalysisWorkspaceNew frm = new frmAnalysisWorkspaceNew(this, tsmi.Name + " : " + tsmi.Text);
                 frm.Owner = this;
                 frm.Show();
             }
@@ -6233,6 +6209,132 @@ namespace AstraFunctionOne
                 ff.Show();
             }
         }
+
+        #region IApplication Members
+
+
+
+        public void View_ASTRAGUI(eProcessType processType , string file_name)
+        {
+            //throw new NotImplementedException();
+            string exe_file = Path.Combine(Application.StartupPath, "ASTRAGUI.EXE");
+
+            int code = (int) processType;
+
+            //if (processType == "PREPROCESS")
+            //{
+            //    code = 1;
+            //}
+            //else if (processType == "POSTPROCESS")
+            //{
+            //    code = 2;
+            //}
+            //else if (processType == "SAPPREPROCESS")
+            //{
+            //    code = 3;
+            //}
+            //else if (processType == "SAPPOSTPROCESS")
+            //{
+            //    code = 4;
+            //}
+
+            if (File.Exists(exe_file))
+            {
+                //Environment.SetEnvironmentVariable("PREPROCESS", file_name);
+
+                Environment.SetEnvironmentVariable("ASTRAGUI", code + "$" + file_name);
+                Process.Start(exe_file);
+                //Environment.SetEnvironmentVariable("ASTRAGUI", "");
+
+                //Process prs = new Process();
+                //prs.StartInfo.FileName = exe_file;
+                //prs.StartInfo.Arguments = file_name;
+
+                //prs.Start();
+            }
+        }
+        public void View_PreProcess(string file_name)
+        {
+
+            View_ASTRAGUI(eProcessType.TextPreProcess, file_name);
+
+            return;
+
+            //throw new NotImplementedException();
+            string exe_file = Path.Combine(Application.StartupPath, "PreProcess.exe");
+
+            if(File.Exists(exe_file))
+            {
+                Environment.SetEnvironmentVariable("PREPROCESS", file_name);
+                Environment.SetEnvironmentVariable("PREPROCESS", file_name);
+                Process.Start(exe_file);
+                Environment.SetEnvironmentVariable("PREPROCESS", "");
+
+                //Process prs = new Process();
+                //prs.StartInfo.FileName = exe_file;
+                //prs.StartInfo.Arguments = file_name;
+
+                //prs.Start();
+            }
+        }
+        public void View_SapPreProcess(string file_name)
+        {
+
+            View_ASTRAGUI(eProcessType.SapPreProcess, file_name);
+
+            return;
+
+            //throw new NotImplementedException();
+            string exe_file = Path.Combine(Application.StartupPath, "SapPreProcess.exe");
+
+            if (File.Exists(exe_file))
+            {
+                Environment.SetEnvironmentVariable("SAPPREPROCESS", file_name);
+                Process.Start(exe_file);
+                Environment.SetEnvironmentVariable("SAPPREPROCESS", "");
+
+                //Process prs = new Process();
+                //prs.StartInfo.FileName = exe_file;
+                //prs.StartInfo.Arguments = file_name;
+
+                //prs.Start();
+            }
+        }
+
+
+        public void View_PostProcess(string file_name)
+        {
+
+            View_ASTRAGUI(eProcessType.TextPostProcess, file_name);
+
+            return;
+
+            string exe_file = Path.Combine(Application.StartupPath, "PostProcess.exe");
+
+            if (File.Exists(exe_file))
+            {
+                Environment.SetEnvironmentVariable("PREPROCESS", file_name);
+                Process.Start(exe_file);
+                Environment.SetEnvironmentVariable("PREPROCESS", "");
+            }
+        }
+
+        public void View_SapPostProcess(string file_name)
+        {
+            View_ASTRAGUI(eProcessType.SapPostProcess, file_name);
+            return;
+
+            string exe_file = Path.Combine(Application.StartupPath, "SapPostProcess.exe");
+
+            if (File.Exists(exe_file))
+            {
+                Environment.SetEnvironmentVariable("SAPPREPROCESS", file_name);
+                Process.Start(exe_file);
+                Environment.SetEnvironmentVariable("SAPPREPROCESS", "");
+            }
+        }
+        #endregion
+
     }
 
 }
