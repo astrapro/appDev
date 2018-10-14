@@ -36,7 +36,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
         BridgeMemberAnalysis Truss_Analysis = null;
         ICompleteDesign complete_design = null;
-        
+
 
         List<LoadData> LoadList = null;
         List<LoadData> Live_Load_List = null;
@@ -230,10 +230,10 @@ namespace BridgeAnalysisDesign.SteelTruss
             Project_Type = eASTRADesignType.Steel_Truss_Bridge_Warren_2;
         }
 
-        
+
         public frm_Steel_Warren(IApplication app, eASTRADesignType proj_type)
         {
-            
+
             InitializeComponent();
             this.iApp = app;
             user_path = app.LastDesignWorkingFolder;
@@ -278,7 +278,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 {
                     cmb_select_standard.SelectedIndex = 1;
                 }
-                else 
+                else
                 {
                     cmb_select_standard.SelectedIndex = 2;
                 }
@@ -295,19 +295,19 @@ namespace BridgeAnalysisDesign.SteelTruss
 
                 //if (!(chk_chng_mode.Checked && chk_chng_mode.Visible))
                 //{
-                    txt_tp_width.Text = Complete_Design.Members[indx].SectionDetails.TopPlate.Width.ToString("0");
-                    txt_tp_thk.Text = Complete_Design.Members[indx].SectionDetails.TopPlate.Thickness.ToString("0");
-                    txt_bp_wd.Text = Complete_Design.Members[indx].SectionDetails.BottomPlate.Width.ToString("0");
-                    txt_bp_thk.Text = Complete_Design.Members[indx].SectionDetails.BottomPlate.Thickness.ToString("0");
+                txt_tp_width.Text = Complete_Design.Members[indx].SectionDetails.TopPlate.Width.ToString("0");
+                txt_tp_thk.Text = Complete_Design.Members[indx].SectionDetails.TopPlate.Thickness.ToString("0");
+                txt_bp_wd.Text = Complete_Design.Members[indx].SectionDetails.BottomPlate.Width.ToString("0");
+                txt_bp_thk.Text = Complete_Design.Members[indx].SectionDetails.BottomPlate.Thickness.ToString("0");
 
-                    txt_sp_wd.Text = Complete_Design.Members[indx].SectionDetails.SidePlate.Width.ToString("0");
-                    txt_sp_thk.Text = Complete_Design.Members[indx].SectionDetails.SidePlate.Thickness.ToString("0");
-                    txt_vsp_wd.Text = Complete_Design.Members[indx].SectionDetails.VerticalStiffenerPlate.Width.ToString("0");
-                    txt_vsp_thk.Text = Complete_Design.Members[indx].SectionDetails.VerticalStiffenerPlate.Thickness.ToString("0");
+                txt_sp_wd.Text = Complete_Design.Members[indx].SectionDetails.SidePlate.Width.ToString("0");
+                txt_sp_thk.Text = Complete_Design.Members[indx].SectionDetails.SidePlate.Thickness.ToString("0");
+                txt_vsp_wd.Text = Complete_Design.Members[indx].SectionDetails.VerticalStiffenerPlate.Width.ToString("0");
+                txt_vsp_thk.Text = Complete_Design.Members[indx].SectionDetails.VerticalStiffenerPlate.Thickness.ToString("0");
 
-                    txt_sec_lat_spac.Text = Complete_Design.Members[indx].SectionDetails.LateralSpacing.ToString();
-                    txt_sec_bolt_dia.Text = Complete_Design.Members[indx].SectionDetails.BoltDia.ToString();
-                    txt_sec_nb.Text = Complete_Design.Members[indx].SectionDetails.NoOfBolts.ToString();
+                txt_sec_lat_spac.Text = Complete_Design.Members[indx].SectionDetails.LateralSpacing.ToString();
+                txt_sec_bolt_dia.Text = Complete_Design.Members[indx].SectionDetails.BoltDia.ToString();
+                txt_sec_nb.Text = Complete_Design.Members[indx].SectionDetails.NoOfBolts.ToString();
                 //}
             }
             catch (Exception ex) { }
@@ -752,25 +752,6 @@ namespace BridgeAnalysisDesign.SteelTruss
                         case "shr_code":
                             cmb_Shr_Con_Section_Code.SelectedItem = mList.StringList[1];
                             break;
-                        case "ll_default_data":
-                            rbtn_LL_fill_data.Checked = (mList.StringList[1].ToLower() == "true");
-                            rbtn_custom_LL.Checked = !rbtn_LL_fill_data.Checked;
-                            break;
-                        case "ll_default_data_load_type":
-                            cmb_custom_LL_type.Text = mList.StringList[1];
-                            break;
-                        case "ll_default_data_clearance":
-                            txt_custom_LL_lat_clrns.Text = mList.StringList[1];
-                            break;
-                        case "ll_default_data_lanes":
-                            cmb_custom_LL_lanes.Text = mList.StringList[1];
-                            break;
-                        case "ll_default_data_xincr":
-                            txt_custom_LL_Xcrmt.Text = mList.StringList[1];
-                            break;
-                        case "ll_default_data_load_gen":
-                            txt_custom_LL_load_gen.Text = mList.StringList[1];
-                            break;
                     }
                     #endregion
                 }
@@ -830,15 +811,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 sw.WriteLine("shr_section={0}", cmb_Shr_Con_Section_name.Text);
                 sw.WriteLine("shr_code={0}", cmb_Shr_Con_Section_Code.Text);
 
-                sw.WriteLine("ll_default_data={0}", rbtn_LL_fill_data.Checked);
-                sw.WriteLine("ll_default_data_load_type={0}", cmb_custom_LL_type.Text);
-                sw.WriteLine("ll_default_data_clearance={0}", txt_custom_LL_lat_clrns.Text);
-                sw.WriteLine("ll_default_data_lanes={0}", cmb_custom_LL_lanes.Text);
-                sw.WriteLine("ll_default_data_xincr={0}", txt_custom_LL_Xcrmt.Text);
-                sw.WriteLine("ll_default_data_load_gen={0}", txt_custom_LL_load_gen.Text);
 
-                //sw.WriteLine("member_load_file = {0}", cmb_Shr_Con_Section_Code.Text);
-                //sw.WriteLine("{0}", Path.Combine();
                 SaveMemberLoads(Path.Combine(system_path, "MEMBER_LOAD_DATA.txt"));
 
             }
@@ -914,7 +887,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
             //string file_name = Path.Combine(user_path, "MembersDesign.txt");
             rep_file_name = Truss_Analysis.Analysis.Length.ToString("0") + "m Bridge " + ((cmb_design_member.Text.ToUpper() == "ALL") ? "Complete" : cmb_design_member.Text.Replace("Member", "")) + " Member Design Report.TXT";
-            rep_file_name = Path.Combine(user_path, "Design of Steel Members\\" +  rep_file_name);
+            rep_file_name = Path.Combine(user_path, "Design of Steel Members\\" + rep_file_name);
 
 
 
@@ -1465,7 +1438,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         {
             double wt_p_m = 0.0;
 
-            if (m.SectionDetails.SectionName.EndsWith("B") 
+            if (m.SectionDetails.SectionName.EndsWith("B")
                 || m.SectionDetails.SectionName.StartsWith("W")
                  || m.SectionDetails.SectionName.StartsWith("S"))
             {
@@ -4580,11 +4553,9 @@ namespace BridgeAnalysisDesign.SteelTruss
             if (Live_Load_List == null) return;
 
             cmb_load_type.Items.Clear();
-            cmb_custom_LL_type.Items.Clear();
             for (int i = 0; i < Live_Load_List.Count; i++)
             {
                 cmb_load_type.Items.Add(Live_Load_List[i].TypeNo + " : " + Live_Load_List[i].Code);
-                cmb_custom_LL_type.Items.Add(Live_Load_List[i].TypeNo + " : " + Live_Load_List[i].Code);
             }
             if (cmb_load_type.Items.Count > 1)
             {
@@ -4596,13 +4567,19 @@ namespace BridgeAnalysisDesign.SteelTruss
                     if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     {
 
-                        //dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), iApp.LiveLoads[0].Distance, 0, 1.5, 0.5, iApp.LiveLoads[0].ImpactFactor);
-                        //dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), iApp.LiveLoads[0].Distance, 0, 4.5, 0.5, iApp.LiveLoads[0].ImpactFactor);
-                        //dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), txt_X.Text, 0, 1.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
-                        //dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), txt_X.Text, 0, 4.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
-
                         #region Chiranjit [2017 01 11]
                         cmb_load_type.SelectedIndex = 18;
+
+                        dgv_live_load.Rows.Add(cmb_load_type.Text, txt_X.Text, 0, 1.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
+                        dgv_live_load.Rows.Add(cmb_load_type.Text, txt_X.Text, 0, 4.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
+                        #endregion Chiranjit [2017 01 11]
+
+                    }
+                    if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+                    {
+
+                        #region Chiranjit [2017 01 11]
+                        cmb_load_type.SelectedIndex = 0;
 
                         dgv_live_load.Rows.Add(cmb_load_type.Text, txt_X.Text, 0, 1.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
                         dgv_live_load.Rows.Add(cmb_load_type.Text, txt_X.Text, 0, 4.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
@@ -5356,7 +5333,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             //    mem.SectionDetails.DefineSection != eDefineSection.Section13 &&
             //    mem.SectionDetails.DefineSection != eDefineSection.Section14)
             //{
-            
+
             if (true)
             {
                 #region Plate Details
@@ -7507,7 +7484,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                     mem.Result = "NOT OK";
                     Check_Comp = false;
                 }
-                else 
+                else
                 {
                     mem.DesignReport.Add(string.Format("                                   = {0:f3} kN = {1:f3} kN,  Maximum Group [{2}] Compressive Force NOT OK", comp_load_cap, mem.MaxCompForce, mem.Group.MemberNosText));
                     mem.Result = "NOT OK";
@@ -10464,7 +10441,9 @@ namespace BridgeAnalysisDesign.SteelTruss
             {
                 sec_code = tbl_rolledSteelAngles.List_Table[i].SectionCode;
                 sec_name = tbl_rolledSteelAngles.List_Table[i].SectionName;
-                if (sec_name == "ISA" && sec_name != "")
+                lbl_ISA.Text = sec_name;
+                //if (sec_name == "ISA" && sec_name != "")
+                if (sec_name != "")
                 {
                     if (cmb.Items.Contains(sec_code) == false)
                     {
@@ -10739,6 +10718,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 //chk_inverted.Visible = false;
             }
 
+
             if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_1)
                 pcb_images.BackgroundImage = global::AstraFunctionOne.ImageCollection.Warren1;
             else if (Project_Type == eASTRADesignType.Steel_Truss_Bridge_Warren_2)
@@ -10796,6 +10776,16 @@ namespace BridgeAnalysisDesign.SteelTruss
 
             cmb_design_member.SelectedIndex = 0;
             complete_design = new CompleteDesign_LS();
+
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                cmb_select_standard.SelectedIndex = 0;
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                cmb_select_standard.SelectedIndex = 1;
+            if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+                cmb_select_standard.SelectedIndex = 2;
+
+
             cmb_Shr_Con_Section_name.Items.Clear();
             cmb_Shr_Con_Section_name.Items.AddRange(tbl_rolledSteelChannels.Get_Channels().ToArray());
             if (cmb_Shr_Con_Section_name.Items.Count > 0)
@@ -11978,7 +11968,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
         private void Open_Project()
         {
-            string file_name =  Path.Combine(user_path, "ANALYSIS PROCESS\\INPUT_DATA.TXT");
+            string file_name = Path.Combine(user_path, "ANALYSIS PROCESS\\INPUT_DATA.TXT");
 
             INPUT_FILE = file_name;
             //IsWarren2
@@ -12175,7 +12165,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             {
                 //angle thickness not comming
                 SetCompleteDesign(kFile);
-                    
+
                 ReadResult();
             }
             dgv_mem_details.Rows.Clear();
@@ -12410,7 +12400,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             load_lst.Add("JOINT LOAD");
 
             List<string> lst = new List<string>();
-            if(rbtn_vert_axis_Y.Checked)
+            if (rbtn_vert_axis_Y.Checked)
                 lst.AddRange(Truss_Analysis.Analysis.Joints.Get_Joints_Load_as_String(complete_design.ForceEachInsideJoints, complete_design.ForceEachEndJoint).ToArray());
             else
                 lst.AddRange(Truss_Analysis.Analysis.Joints.Get_Joints_Load_as_String(complete_design.ForceEachInsideJoints, complete_design.ForceEachEndJoint, "FZ").ToArray());
@@ -12481,7 +12471,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         private void btn_open_analysis_file_Click(object sender, EventArgs e)
         {
             string kFile = Path.Combine(Path.GetDirectoryName(INPUT_FILE), "ANALYSIS_REP.TXT");
-            
+
             if (File.Exists(kFile))
                 System.Diagnostics.Process.Start(kFile); ;
 
@@ -12756,18 +12746,8 @@ namespace BridgeAnalysisDesign.SteelTruss
 
                     iApp.LiveLoads.Save_LL_TXT(Path.GetDirectoryName(input_file), false);
 
-                    //iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(input_file), false, iApp.DesignStandard);
-
-
                     string src_file = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Steel Truss Warren 1\MEMBER_LOAD_DATA.txt");
                     string des_file = Path.Combine(Path.GetDirectoryName(input_file), @"MEMBER_LOAD_DATA.txt");
-
-                    //if (File.Exists(src_file))
-                    //    File.Copy(src_file, des_file, true);
-
-                    rbtn_custom_LL.Checked = true;
-                    //MessageBox.Show(this, "Analysis Input data is created as \n\r \"ANALYSIS OF STEEL TRUSS BRIDGE WARREN 1\\INPUT_DATA.TXT\"\n\rinside the working folder",Title);
-
                 }
                 #endregion Warren 1
             }
@@ -12813,8 +12793,6 @@ namespace BridgeAnalysisDesign.SteelTruss
                     if (File.Exists(src_file))
                         File.Copy(src_file, des_file, true);
 
-                    rbtn_custom_LL.Checked = true;
-                    //chk_SIDL.Checked = false;
                 }
                 #endregion Warren 2
                 //txt_analysis_file.Text = input_file;
@@ -12855,17 +12833,9 @@ namespace BridgeAnalysisDesign.SteelTruss
 
                     iApp.LiveLoads.Save_LL_TXT(Path.GetDirectoryName(input_file), false);
 
-                    //iApp.Write_LiveLoad_LL_TXT(Path.GetDirectoryName(input_file), false, iApp.DesignStandard);
-
-
                     string src_file = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Steel Truss Warren 1\MEMBER_LOAD_DATA.txt");
                     string des_file = Path.Combine(Path.GetDirectoryName(input_file), @"MEMBER_LOAD_DATA.txt");
 
-                    //if (File.Exists(src_file))
-                    //    File.Copy(src_file, des_file, true);
-
-                    rbtn_custom_LL.Checked = true;
-                    //MessageBox.Show(this, "Analysis Input data is created as \n\r \"ANALYSIS OF STEEL TRUSS BRIDGE WARREN 1\\INPUT_DATA.TXT\"\n\rinside the working folder",Title);
                 }
                 #endregion Warren 3
                 //txt_analysis_file.Text = input_file;
@@ -12905,15 +12875,6 @@ namespace BridgeAnalysisDesign.SteelTruss
                         string src_file = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Steel Truss Warren 1\MEMBER_LOAD_DATA.txt");
                         string des_file = Path.Combine(Path.GetDirectoryName(INPUT_FILE), @"MEMBER_LOAD_DATA.txt");
 
-                        rbtn_custom_LL.Checked = true;
-                        //MessageBox.Show(this, "Analysis Input data is created as \"" + Title + "\\INPUT_DATA.TXT\" inside the working folder. \n\r\n\rNote :\n\r" +
-                        //"User has to observe the data displayed in the Tabs " +
-                        //"'Steel Strsucture Load [DL]', 'Super Imposed Dead Load [SIDL]' and 'Moving Load [LL]'." +
-                        //" User may modify the data if so desired." +
-                        //" Next, User has to open the tab 'Analysis + Design' and Process the buttons" +
-                        //"'Save Section + Load Data', 'Process Analysis' and 'Process Design' in sequence." +
-                        //" This will complete the Design Process.", Title);
-
                     }
                 }
                 else if (iApp.DesignStandard == eDesignStandard.BritishStandard)
@@ -12927,15 +12888,6 @@ namespace BridgeAnalysisDesign.SteelTruss
 
                         string src_file = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Steel Truss Warren 1\MEMBER_LOAD_DATA.txt");
                         string des_file = Path.Combine(Path.GetDirectoryName(INPUT_FILE), @"MEMBER_LOAD_DATA.txt");
-
-                        rbtn_custom_LL.Checked = true;
-                            //MessageBox.Show(this, "Analysis Input data is created as \"" + Title + "\\INPUT_DATA.TXT\" inside the working folder. \n\r\n\rNote :\n\r" +
-                            //"User has to observe the data displayed in the Tabs " +
-                            //"'Steel Strsucture Load [DL]', 'Super Imposed Dead Load [SIDL]' and 'Moving Load [LL]'." +
-                            //" User may modify the data if so desired." +
-                            //" Next, User has to open the tab 'Analysis + Design' and Process the buttons" +
-                            //"'Save Section + Load Data', 'Process Analysis' and 'Process Design' in sequence." +
-                            //" This will complete the Design Process.", Title);
                     }
                 }
                 else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
@@ -12949,15 +12901,6 @@ namespace BridgeAnalysisDesign.SteelTruss
 
                         string src_file = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Steel Truss Warren 1\MEMBER_LOAD_DATA.txt");
                         string des_file = Path.Combine(Path.GetDirectoryName(INPUT_FILE), @"MEMBER_LOAD_DATA.txt");
-
-                        rbtn_custom_LL.Checked = true;
-                        //MessageBox.Show(this, "Analysis Input data is created as \"" + Title + "\\INPUT_DATA.TXT\" inside the working folder. \n\r\n\rNote :\n\r" +
-                        //"User has to observe the data displayed in the Tabs " +
-                        //"'Steel Strsucture Load [DL]', 'Super Imposed Dead Load [SIDL]' and 'Moving Load [LL]'." +
-                        //" User may modify the data if so desired." +
-                        //" Next, User has to open the tab 'Analysis + Design' and Process the buttons" +
-                        //"'Save Section + Load Data', 'Process Analysis' and 'Process Design' in sequence." +
-                        //" This will complete the Design Process.", Title);
                     }
                 }
                 #endregion Warren 3
@@ -12976,6 +12919,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             {
                 OpenAnalysisFile(input_file);
                 Show_Total_Weight();
+                Text_Changed_11();
 
                 prss = 1;
 
@@ -13025,30 +12969,6 @@ namespace BridgeAnalysisDesign.SteelTruss
         private void rbtn_LL_fill_data_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rbtn = sender as RadioButton;
-            if (rbtn.Name == rbtn_custom_LL.Name && rbtn.Checked)
-            {
-                grb_load.Enabled = true;
-                grb_custom.Enabled = false;
-            }
-            else if (rbtn.Name == rbtn_LL_fill_data.Name && rbtn.Checked)
-            {
-
-                grb_load.Enabled = false;
-                grb_custom.Enabled = true;
-                cmb_custom_LL_type.Items.Clear();
-                for (int i = 0; i < Live_Load_List.Count; i++)
-                {
-                    cmb_custom_LL_type.Items.Add(Live_Load_List[i].TypeNo + " : " + Live_Load_List[i].Code);
-                }
-                if (cmb_custom_LL_type.Items.Count > 0)
-                {
-                    cmb_custom_LL_type.SelectedIndex = 0;
-                    cmb_custom_LL_lanes.Text = "2";
-                }
-                txt_custom_LL_Xcrmt.Text = "";
-                txt_custom_LL_Xcrmt.Text = "0.5";
-            }
-
         }
 
 
@@ -13059,22 +12979,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         public string[] Get_MovingLoad_Data(List<LoadData> lst_load_data)
         {
             List<string> load_lst = new List<string>();
-            //load_lst.Add("DEFINE MOVING LOAD FILE LL.TXT");
-            //load_lst.Add("TYPE 1 CLA 1.179");
-            //load_lst.Add("TYPE 2 CLB 1.188");
-            //load_lst.Add("TYPE 3 A70RT 1.10");
-            //load_lst.Add("TYPE 4 CLAR 1.179");
-            //load_lst.Add("TYPE 5 A70RR 1.188");
-            //load_lst.Add("TYPE 6 IRC24RTRACK 1.188");
-            //load_lst.Add("TYPE 7 AASHTO_LFRD_HL93_H20_TRUCK 1.25");
-            //load_lst.Add("TYPE 8 AASHTO_LFRD_HL93_HS20_TRUCK 1.25");
-            //load_lst.Add("TYPE 9 AASHTO_LFRD_HTL57_TRUCK 1.25");
-            //load_lst.Add("TYPE 10 BG_RAIL_1 1.9");
-            //load_lst.Add("TYPE 11 BG_RAIL_2 1.90");
-            //load_lst.Add("TYPE 12 MG_RAIL_1 1.90");
-            //load_lst.Add("TYPE 13 MG_RAIL_2 1.90");
-            //iApp.LiveLoads.Impact_Factor(ref load_lst, iApp.DesignStandard);
-
+           
             double lat_clrns = 0.5;
             int total_lanes = 1;
             double xincr = 0.5;
@@ -13082,7 +12987,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
             double vehicle_width = 0.0;
             double calc_width = 0;
-            MyList mlist = new MyList(MyList.RemoveAllSpaces(cmb_custom_LL_type.Text.ToUpper()), ':');
+            MyList mlist = new MyList(cmb_load_type.Text, ':');
             string load_type = mlist.StringList[0].Trim().TrimEnd();
 
             foreach (var item in lst_load_data)
@@ -13095,54 +13000,26 @@ namespace BridgeAnalysisDesign.SteelTruss
             }
 
 
-            if (rbtn_custom_LL.Checked == false)
+            load_lst.Add("DEFINE MOVING LOAD FILE LL.TXT");
+
+            LoadReadFromGrid();
+
+            foreach (LoadData ld in LoadList)
             {
-
-
-                load_lst.Add("LOAD GENERATION " + txt_custom_LL_load_gen.Text);
-                lat_clrns = MyList.StringToDouble(txt_custom_LL_lat_clrns.Text, 0.5);
-                total_lanes = MyList.StringToInt(cmb_custom_LL_lanes.Text, 1);
-                xincr = MyList.StringToDouble(txt_custom_LL_Xcrmt.Text, 0.5);
-                z = lat_clrns;
-
-                for (int i = 0; i < total_lanes; i++)
-                {
-                    x = -Truss_Analysis.Analysis.Length;
-                    y = 0;
-                    z = (i + 1) * lat_clrns + i * vehicle_width;
-
-                    //TYPE 6  -60.000 0 1.000 XINC 0.5
-                    //load_lst.Add(string.Format("TYPE 6  -60.000 0 1.000 XINC 0.5"));
-                    load_lst.Add(string.Format("{0}  {1} 0 {2} XINC {3}", load_type, x, z, xincr));
-                }
-
-
-                calc_width = lat_clrns * (total_lanes + 1) + vehicle_width * total_lanes;
+                //sw.WriteLine("TYPE 6 -60.0 0 1.00 XINC 0.5");
+                if (!load_lst.Contains(ld.ToString())) load_lst.Add(ld.ToString());
             }
-            else
+
+            load_lst.Add("LOAD GENERATION " + txt_LL_load_gen.Text);
+            //load_lst.Add("TYPE 7  -69.500 0 1.000 XINC 0.5");
+
+            foreach (LoadData ld in LoadList)
             {
-
-
-                load_lst.Add("DEFINE MOVING LOAD FILE LL.TXT");
-
-                LoadReadFromGrid();
-
-                foreach (LoadData ld in LoadList)
-                {
-                    //sw.WriteLine("TYPE 6 -60.0 0 1.00 XINC 0.5");
-                    if (!load_lst.Contains(ld.ToString())) load_lst.Add(ld.ToString());
-                }
-
-                load_lst.Add("LOAD GENERATION " + txt_LL_load_gen.Text);
-                //load_lst.Add("TYPE 7  -69.500 0 1.000 XINC 0.5");
-
-                foreach (LoadData ld in LoadList)
-                {
-                    //sw.WriteLine("TYPE 6 -60.0 0 1.00 XINC 0.5");
-                    load_lst.Add(string.Format("{0} {1:f3} {2} {3:f3} XINC {4}", ld.TypeNo, ld.X, ld.Y, ld.Z, ld.XINC));
-                }
-
+                //sw.WriteLine("TYPE 6 -60.0 0 1.00 XINC 0.5");
+                load_lst.Add(string.Format("{0} {1:f3} {2} {3:f3} XINC {4}", ld.TypeNo, ld.X, ld.Y, ld.Z, ld.XINC));
             }
+
+
             if (calc_width > Truss_Analysis.Analysis.Width)
             {
                 string str = "In case Total Calculated Width " + calc_width + " > Width of Bridge " + Truss_Analysis.Analysis.Width;
@@ -13157,10 +13034,6 @@ namespace BridgeAnalysisDesign.SteelTruss
         private void btn_Show_MovingLoad_Click(object sender, EventArgs e)
         {
             txt_LL_Input_data.Lines = Get_MovingLoad_Data(Live_Load_List);
-        }
-        private void txt_custom_LL_Xcrmt_TextChanged(object sender, EventArgs e)
-        {
-            txt_custom_LL_load_gen.Text = ((int)(Truss_Analysis.Analysis.Length / MyList.StringToDouble(txt_custom_LL_Xcrmt.Text, 0.0))).ToString();
         }
         private void btn_open_UG_Click(object sender, EventArgs e)
         {
@@ -13828,16 +13701,16 @@ namespace BridgeAnalysisDesign.SteelTruss
             //BridgeMemberAnalysis DeadLoadAnalysis = new BridgeMemberAnalysis(iApp, DL_Analysis_Rep);
 
 
-             string s1, s2;
-             s1 = s2 = "";
+            string s1, s2;
+            s1 = s2 = "";
 
-             for (int j = 0; j < Truss_Analysis.Analysis.Supports.Count; j++)
-             {
-                 if (j < Truss_Analysis.Analysis.Supports.Count / 2)
-                     s1 += Truss_Analysis.Analysis.Supports[j].NodeNo + ",";
-                 else
-                     s2 += Truss_Analysis.Analysis.Supports[j].NodeNo + ",";
-             }
+            for (int j = 0; j < Truss_Analysis.Analysis.Supports.Count; j++)
+            {
+                if (j < Truss_Analysis.Analysis.Supports.Count / 2)
+                    s1 += Truss_Analysis.Analysis.Supports[j].NodeNo + ",";
+                else
+                    s2 += Truss_Analysis.Analysis.Supports[j].NodeNo + ",";
+            }
 
 
             dgv_left_end_design_forces.Rows.Clear();
@@ -13885,7 +13758,7 @@ namespace BridgeAnalysisDesign.SteelTruss
         {
             try
             {
-                txt_LL_load_gen.Text = ((MyList.StringToDouble(txt_L.Text, 1) / MyList.StringToDouble(txt_XINCR.Text, 1)) + 1).ToString("f0");
+                txt_LL_load_gen.Text = (((MyList.StringToDouble(txt_L.Text, 1) + Math.Abs(MyList.StringToDouble(txt_X.Text, 1))) / MyList.StringToDouble(txt_XINCR.Text, 1)) + 1).ToString("f0");
 
                 for (int i = 0; i < dgv_live_load.RowCount; i++)
                 {
@@ -14123,7 +13996,7 @@ namespace BridgeAnalysisDesign.SteelTruss
                 var mz = DeadLoad_Analysis.GetJoint_MomentForce(_jnt_no, 1);
 
 
-                _vert_load = shr.Force/10;
+                _vert_load = shr.Force / 10;
                 _mx = mx.Force / 10;
                 _mz = mz.Force / 10;
 
@@ -14210,10 +14083,10 @@ namespace BridgeAnalysisDesign.SteelTruss
             txt_final_vert_reac.Text = (tot_right_vert_reac + tot_left_vert_reac).ToString("0.000");
             txt_final_vert_rec_kN.Text = ((tot_right_vert_reac + tot_left_vert_reac) * 10).ToString("0.000");
 
-             
+
             txt_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
             txt_max_vert_reac_kN.Text = (MyList.StringToDouble(txt_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
-          
+
 
 
 
@@ -14233,7 +14106,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
 
 
-             
+
             txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
             txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
 
@@ -14248,11 +14121,11 @@ namespace BridgeAnalysisDesign.SteelTruss
             txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
             txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
-             
+
             //txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
-             
+
 
 
 
@@ -14410,30 +14283,30 @@ namespace BridgeAnalysisDesign.SteelTruss
 
 
                 #region Get Node results from Dead load analysis
-                    //Get Node results from Dead load analysis
-                    var mxf = LiveLoadAnalysis.GetJoint_R2_Shear(jnt);
-                    if (_vert_load < Math.Abs(mxf.Force))
-                    {
-                        _vert_load = Math.Abs(mxf.Force);
-                    }
-                    //Get Node results from Dead load analysis
-                    mxf = LiveLoadAnalysis.GetJoint_Torsion(jnt);
-                    if (_mx < Math.Abs(mxf.Force))
-                    {
-                        _mx = Math.Abs(mxf.Force);
-                    }
-                    //Get Node results from Dead load analysis
-                    mxf = LiveLoadAnalysis.GetJoint_MomentForce(jnt);
-                    if (_mz < Math.Abs(mxf.Force))
-                    {
-                        _mz = Math.Abs(mxf.Force);
-                    }
+                //Get Node results from Dead load analysis
+                var mxf = LiveLoadAnalysis.GetJoint_R2_Shear(jnt);
+                if (_vert_load < Math.Abs(mxf.Force))
+                {
+                    _vert_load = Math.Abs(mxf.Force);
+                }
+                //Get Node results from Dead load analysis
+                mxf = LiveLoadAnalysis.GetJoint_Torsion(jnt);
+                if (_mx < Math.Abs(mxf.Force))
+                {
+                    _mx = Math.Abs(mxf.Force);
+                }
+                //Get Node results from Dead load analysis
+                mxf = LiveLoadAnalysis.GetJoint_MomentForce(jnt);
+                if (_mz < Math.Abs(mxf.Force))
+                {
+                    _mz = Math.Abs(mxf.Force);
+                }
 
-                    #endregion Get Forces LL ANALYSIS
+                #endregion Get Forces LL ANALYSIS
 
-                    _vert_load = _vert_load / 10;
-                    _mx = _mx / 10;
-                    _mz = _mz / 10;
+                _vert_load = _vert_load / 10;
+                _mx = _mx / 10;
+                _mz = _mz / 10;
 
                 dgv_ll_left_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
 
@@ -14465,33 +14338,33 @@ namespace BridgeAnalysisDesign.SteelTruss
                 _mx = 0;
                 _mz = 0;
 
-                    #region Get Node results from Dead load analysis
-                    //Get Node results from Dead load analysis
-                    var mxf = LiveLoadAnalysis.GetJoint_R2_Shear(jnt);
-                    if (_vert_load < Math.Abs(mxf.Force))
-                    {
-                        _vert_load = Math.Abs(mxf.Force);
-                    }
-                    //Get Node results from Dead load analysis
-                    mxf = LiveLoadAnalysis.GetJoint_Torsion(jnt);
-                    if (_mx < Math.Abs(mxf.Force))
-                    {
-                        _mx = Math.Abs(mxf.Force);
-                    }
-                    //Get Node results from Dead load analysis
-                    mxf = LiveLoadAnalysis.GetJoint_MomentForce(jnt);
-                    if (_mz < Math.Abs(mxf.Force))
-                    {
-                        _mz = Math.Abs(mxf.Force);
-                    }
+                #region Get Node results from Dead load analysis
+                //Get Node results from Dead load analysis
+                var mxf = LiveLoadAnalysis.GetJoint_R2_Shear(jnt);
+                if (_vert_load < Math.Abs(mxf.Force))
+                {
+                    _vert_load = Math.Abs(mxf.Force);
+                }
+                //Get Node results from Dead load analysis
+                mxf = LiveLoadAnalysis.GetJoint_Torsion(jnt);
+                if (_mx < Math.Abs(mxf.Force))
+                {
+                    _mx = Math.Abs(mxf.Force);
+                }
+                //Get Node results from Dead load analysis
+                mxf = LiveLoadAnalysis.GetJoint_MomentForce(jnt);
+                if (_mz < Math.Abs(mxf.Force))
+                {
+                    _mz = Math.Abs(mxf.Force);
+                }
 
-                    #endregion Get Forces LL ANALYSIS
+                #endregion Get Forces LL ANALYSIS
 
 
 
-                    _vert_load = _vert_load / 10;
-                    _mx = _mx / 10;
-                    _mz = _mz / 10;
+                _vert_load = _vert_load / 10;
+                _mx = _mx / 10;
+                _mz = _mz / 10;
 
                 dgv_ll_right_des_frc.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
 
@@ -14993,7 +14866,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
 
 
-                _vert_load = shr.Force/10;
+                _vert_load = shr.Force / 10;
                 _mx = mx.Force / 10;
                 _mz = mz.Force / 10;
 
@@ -15175,7 +15048,7 @@ namespace BridgeAnalysisDesign.SteelTruss
 
             #region Chiranjit [2017 06 11]
 
-            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             #endregion Chiranjit [2017 06 11]
@@ -15561,10 +15434,10 @@ namespace BridgeAnalysisDesign.SteelTruss
             load_lst.Add("JOINT LOAD");
 
             List<string> lst = Truss_Analysis.Analysis.Joints.Get_Joints_Load_as_String(complete_design.ForceEachInsideJoints, complete_design.ForceEachEndJoint);
-           
-           
-            
-            
+
+
+
+
             //double dl = complete_design.DeadLoads.TotalWeight + complete_design.TotalSteelWeight + complete_design.GussetAndLacingWeight;
 
             //dl = dl / (complete_design.NoOfInsideJointsOnBothSideAtBottomChord + 2);
@@ -17156,7 +17029,7 @@ namespace BridgeAnalysisDesign.SteelTruss
             {
                 pty = value;
             }
-        
+
         }
 
         public void Delete_Folder(string folder)
@@ -17196,6 +17069,152 @@ namespace BridgeAnalysisDesign.SteelTruss
 
 
             }
+        }
+
+        private void btn_irc_view_moving_load_Click(object sender, EventArgs e)
+        {
+
+            if (!Check_Project_Folder()) return;
+            Write_All_Data();
+            string file_name = txt_analysis_file.Text;
+            file_name = txt_analysis_file.Text;
+            if (!File.Exists(file_name))
+            {
+                MessageBox.Show(this, "The Analysis Input data File is not created. \n\n" +
+                                    "In Tab 'Structure Geometry' the button 'Create Analysis Input data File' " +
+                                    "is to be used for creating the Analysis Input data\",",
+                                    "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            string load_file = Path.Combine(file_path, "MEMBER_LOAD_DATA.txt");
+
+            if (!SaveMemberLoads(load_file)) return;
+
+            load_file = Path.Combine(system_path, "MEMBER_LOAD_DATA.txt");
+
+            if (!SaveMemberLoads(load_file)) return;
+
+            iApp.LiveLoads.Save_LL_TXT(Path.GetDirectoryName(file_name), false);
+
+            List<string> inp_file_cont = new List<string>(File.ReadAllLines(file_name));
+            string kStr = "";
+            int indx = -1;
+            bool flag = false;
+            MyList mlist = null;
+            int i = 0;
+
+            bool isMoving_load = false;
+            for (i = 0; i < inp_file_cont.Count; i++)
+            {
+                kStr = MyList.RemoveAllSpaces(inp_file_cont[i].ToUpper());
+                mlist = new MyList(kStr, ' ');
+
+                List<string> mem_lst = new List<string>();
+
+
+
+                if (kStr.StartsWith("MEMBER PROPER"))
+                {
+                    i++;
+                    mem_lst.Clear();
+
+                    while (!inp_file_cont[i].StartsWith("MEMBER TRUSS"))
+                    {
+                        mem_lst.Add(inp_file_cont[i]);
+                        inp_file_cont.RemoveAt(i);
+                    }
+                    CMember mbr = null;
+
+                    for (int j = 0; j < mem_lst.Count; j++)
+                    {
+                        kStr = MyList.RemoveAllSpaces(mem_lst[j]);
+                        mlist = new MyList(kStr, ' ');
+
+                        mbr = Complete_Design.Members.Get_Member(mlist[0]);
+                        mbr.iApp = iApp;
+
+                        if (mbr != null)
+                        {
+                            mem_lst[j] = (string.Format("{0} PRI AX {1:f6} IX 0.00001 IY {2:f6} IZ 0.001",
+                                mbr.Group.GroupName,
+                                mbr.Area,
+                                mbr.IYY));
+                        }
+                    }
+
+                    if (mem_lst.Count == 0)
+                    {
+                        for (int j = 0; j < Complete_Design.Members.Count; j++)
+                        {
+
+                            Complete_Design.Members[j].iApp = iApp;
+
+                            mem_lst.Add(string.Format("{0} PRI AX {1:f6} IX 0.00001 IY {2:f6} IZ 0.001",
+                                Complete_Design.Members[j].Group.GroupName,
+                                Complete_Design.Members[j].Area,
+                                Complete_Design.Members[j].IYY));
+                        }
+                    }
+                    inp_file_cont.InsertRange(i, mem_lst.ToArray());
+                }
+
+
+                if (mlist.StringList[0].StartsWith("LOAD") && flag == false)
+                {
+                    if (indx == -1)
+                        indx = i;
+                    flag = true;
+                }
+                if (kStr.Contains("ANALYSIS") || kStr.Contains("PRINT"))
+                {
+                    flag = false;
+                }
+                if (flag)
+                {
+                    inp_file_cont.RemoveAt(i);
+                    i--;
+                }
+
+            }
+
+            List<string> load_lst = new List<string>();
+
+            string s = "DL ";
+
+            s = chk_DL.Checked ? "DL " : "";
+            s += chk_SIDL.Checked ? chk_DL.Checked ? " + SIDL " : "SIDL" : "";
+           
+            load_lst.Add("LOAD 1 " + MyList.RemoveAllSpaces(s));
+            load_lst.Add("JOINT LOAD");
+
+            List<string> lst = new List<string>();
+            if (rbtn_vert_axis_Y.Checked)
+                lst.AddRange(Truss_Analysis.Analysis.Joints.Get_Joints_Load_as_String(complete_design.ForceEachInsideJoints, complete_design.ForceEachEndJoint).ToArray());
+            else
+                lst.AddRange(Truss_Analysis.Analysis.Joints.Get_Joints_Load_as_String(complete_design.ForceEachInsideJoints, complete_design.ForceEachEndJoint, "FZ").ToArray());
+
+            load_lst.AddRange(lst.ToArray());
+          
+            if (dgv_live_load.RowCount != 0)
+            {
+                if (!File.Exists(load_file))
+                {
+                    MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + user_path);
+                }
+
+                LoadReadFromGrid();
+               
+            }
+            //if (complete_design.Is_Live_Load && Live_Load_List != null)
+                load_lst.AddRange(Get_MovingLoad_Data(Live_Load_List));
+            if (indx != -1)
+                inp_file_cont.InsertRange(indx, load_lst);
+            File.WriteAllLines(file_name, inp_file_cont.ToArray());
+            Button_Enable_Disable();
+
+
+            iApp.View_MovingLoad(file_name,0.0, MyList.StringToDouble(txt_irc_vehicle_gap.Text, 0.0));
         }
     }
 

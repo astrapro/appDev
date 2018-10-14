@@ -1999,11 +1999,7 @@ namespace LimitStateMethod.Extradossed
             else
             {
                 Extradosed.IsCentral_Cable = true;
-
-                //Extradosed.Create_Extradossed_CentralCable_Data();
-                //Extradosed.Create_Extradossed_Data_1_Side();
                 Extradosed.Create_Extradossed_Data_1_Side_Centre();
-                //Extradosed.Create_Extradossed_Linear_Data();
             }
 
 
@@ -2034,25 +2030,8 @@ namespace LimitStateMethod.Extradossed
             for (int i = 0; i < all_loads.Count; i++)
             {
                 Extradosed.WriteData_LiveLoad(Extradosed.Get_LL_Analysis_Input_File(i + 1), long_ll);
-                //Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), true, true, i + 1);
-                //Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), false, true, i + 1);
                 Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
             }
-
-
-
-            //Extradosed.WriteData_LiveLoad(Extradosed.LiveLoadAnalysis_Input_File, long_ll);
-
-            //Extradosed.WriteData_LiveLoad(Extradosed.TotalAnalysis_Input_File, long_ll);
-            ////Extradosed.
-
-            //Write_Ana_Load_Data(true);
-            //Deck_Analysis_LL.Bridge_Analysis = new BridgeMemberAnalysis(iApp, Deck_Analysis_LL.Input_File);
-
-            //string ll_txt = Deck_Analysis_LL.LiveLoad_File;
-
-            //Deck_Analysis_DL.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
-
 
             Button_Enable_Disable();
 
@@ -4843,9 +4822,34 @@ namespace LimitStateMethod.Extradossed
             }
             #endregion Add Limit State Method Live Loads
 
-
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                Select_Moving_Load_Combo(dgv_british_loads, cmb_bs_view_moving_load);
+            }
+            else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                Select_Moving_Load_Combo(dgv_british_loads, cmb_bs_view_moving_load);
+            }
+            else
+                Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
         }
 
+        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
+        {
+            string load = "";
+            cmb.Items.Clear();
+            for (int i = 0; i < dgv.RowCount - 1; i++)
+            {
+                load = dgv[0, i].Value.ToString();
+                if (load.StartsWith("LOAD"))
+                {
+                    if (!cmb.Items.Contains(load))
+                        cmb.Items.Add(load);
+                }
+            }
+            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
+
+        }
         void Cable_Structure_Load()
         {
 
@@ -5212,9 +5216,25 @@ namespace LimitStateMethod.Extradossed
 
 
 
+            if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                //txt_LRFD_LL_load_gen.Text = (MyList.StringToDouble(txt_Ana_L1.Text, 0.0) / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.2)).ToString("f0");
+
+                //if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+                //{
+                txt_LRFD_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.2)).ToString("f0");
+                //}
+            }
+            else if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                //textBox1.Text = (MyList.StringToDouble(txt_Ana_L1.Text, 0.0) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
+                txt_IRC_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
+            }
+
 
             //double B = MyList.StringToDouble(txt_Ana_B.Text, 0.0);
-            txt_LRFD_LL_load_gen.Text = (L / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.0)).ToString("f0");
+            txt_LRFD_LL_load_gen.Text = (L + Get_Max_Vehicle_Length()  / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.0)).ToString("f0");
+            txt_IRC_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
 
 
             txt_tab1_Lo.Text = L.ToString("f3");
@@ -5592,6 +5612,86 @@ namespace LimitStateMethod.Extradossed
             }
         }
 
+
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+
+            List<double> lst_mvl = new List<double>();
+            DataGridView dgv = dgv_long_liveloads;
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                dgv = dgv_long_british_loads;
+            }
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
+                    {
+                        mvl = 0;
+                        for (int c = 1; c < dgv.ColumnCount; c++)
+                        {
+                            try
+                            {
+                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
+                            }
+                            catch (Exception exx)
+                            {
+
+                            }
+                        }
+                        lst_mvl.Add(mvl);
+                    }
+                }
+                catch (Exception ex1) { }
+
+            }
+            if (lst_mvl.Count > 0)
+            {
+                lst_mvl.Sort();
+                lst_mvl.Reverse();
+                mvl = lst_mvl[0];
+            }
+            return mvl;
+
+
+
+            double veh_len, veh_gap, train_length;
+
+            veh_len = mvl;
+            veh_gap = mvl;
+            //train_length = veh_len;
+            train_length = 0.0;
+            double eff = L;
+            bool fl = false;
+            while (train_length <= eff)
+            {
+                fl = !fl;
+                if (fl)
+                {
+                    train_length += veh_gap;
+                    //if (train_length > L)
+                    //{
+                    //    train_length = train_length - veh_gap;
+                    //}
+                }
+                else
+                {
+                    train_length += veh_len;
+                }
+            }
+
+
+
+            //return mvl;
+
+            return train_length;
+
+
+        }
+
         private void txt_Ana_DL_length_TextChanged(object sender, EventArgs e)
         {
             if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
@@ -5600,13 +5700,13 @@ namespace LimitStateMethod.Extradossed
 
                 //if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
                 //{
-                txt_LRFD_LL_load_gen.Text = (L / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.2)).ToString("f0");
+                txt_LRFD_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.2)).ToString("f0");
                 //}
             }
             else if (iApp.DesignStandard == eDesignStandard.IndianStandard)
             {
                 //textBox1.Text = (MyList.StringToDouble(txt_Ana_L1.Text, 0.0) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
-                textBox1.Text = (L / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
+                txt_IRC_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
             }
 
             uC_BoxGirder1.Span = L1;
@@ -6471,7 +6571,7 @@ namespace LimitStateMethod.Extradossed
             incr = MyList.StringToDouble(txt_ll_british_incr.Text, 0.0);
 
             if (incr == 0) incr = 1;
-            lgen = ((int)(L / incr)) + 1;
+            lgen = ((int)((L + Get_Max_Vehicle_Length()) / incr)) + 1;
 
             nos_lane = (int)(d / lane_width);
 
@@ -7895,9 +7995,9 @@ namespace LimitStateMethod.Extradossed
             {
                 if (File.Exists(file_name))
                 {
-                    iApp.Form_ASTRA_Input_Data(file_name, false).ShowDialog();
+                    //iApp.Form_ASTRA_Input_Data(file_name, false).ShowDialog();
 
-                    //iApp.OpenWork(file_name, false);
+                    iApp.OpenWork(file_name, false);
                 }
             }
             else if (btn.Name == btn_view_report.Name)
@@ -8633,7 +8733,7 @@ namespace LimitStateMethod.Extradossed
                     if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
                         list.Add("LOAD GENERATION " + txt_LRFD_LL_load_gen.Text);
                     else
-                        list.Add("LOAD GENERATION " + textBox1.Text);
+                        list.Add("LOAD GENERATION " + txt_IRC_LL_load_gen.Text);
 
 
                     string fn = "";
@@ -8811,6 +8911,114 @@ namespace LimitStateMethod.Extradossed
         private void uC_PierDesignLimitState1_OnProcess(object sender, EventArgs e)
         {
             Write_All_Data();
+        }
+
+        private void btn_irc_view_moving_load_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (!Check_Project_Folder()) return;
+                Show_Section_Result();
+
+                if (Path.GetFileName(user_path) != Project_Name)
+                {
+                    Create_Project();
+                }
+
+
+                if (!Directory.Exists(user_path))
+                {
+                    Directory.CreateDirectory(user_path);
+                }
+                Write_All_Data();
+                Analysis_Initialize_InputData();
+
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                {
+                    British_Interactive();
+
+                    LONG_GIRDER_BRITISH_LL_TXT();
+                }
+                else
+                {
+                    Text_Changed();
+                    LONG_GIRDER_LL_TXT();
+                }
+
+                if (cmb_cable_type.SelectedIndex == 2)
+                {
+                    if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                    {
+                        Create_Data_LL(Input_File_LL);
+                    }
+                    else
+                    {
+                        Create_Data_LL_British(Input_File_LL);
+                    }
+                    Create_Data_DL(Input_File_DL);
+                }
+                else
+                {
+                    Create_Data_Extradossed(Input_File);
+
+                    string ll_file = Extradosed.Get_LL_Analysis_Input_File(cmb_irc_view_moving_load.SelectedIndex + 1);
+                    //iApp.View_MovingLoad(ll_file);
+                    iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_irc_vehicle_gap.Text));
+                }
+
+            }
+            catch (Exception ex) { }
+        }
+
+        private void btn_bs_view_moving_load_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Check_Project_Folder()) return;
+                Show_Section_Result();
+
+                if (Path.GetFileName(user_path) != Project_Name)
+                {
+                    Create_Project();
+                }
+
+
+                if (!Directory.Exists(user_path))
+                {
+                    Directory.CreateDirectory(user_path);
+                }
+                Write_All_Data();
+                Analysis_Initialize_InputData();
+
+                if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                    LONG_GIRDER_BRITISH_LL_TXT();
+                else
+                    LONG_GIRDER_LL_TXT();
+
+                if (cmb_cable_type.SelectedIndex == 2)
+                {
+                    if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                    {
+                        Create_Data_LL(Input_File_LL);
+                    }
+                    else
+                    {
+                        Create_Data_LL_British(Input_File_LL);
+                    }
+                    Create_Data_DL(Input_File_DL);
+                }
+                else
+                {
+                    Create_Data_Extradossed(Input_File);
+
+                    string ll_file = Extradosed.Get_LL_Analysis_Input_File(cmb_bs_view_moving_load.SelectedIndex + 1);
+                    //iApp.View_MovingLoad(ll_file);
+                    iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+                }
+
+            }
+            catch (Exception ex) { }
         }
 
 

@@ -1024,6 +1024,9 @@
             this.btn_dwg_abut = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmr_blink = new System.Windows.Forms.Timer(this.components);
+            this.btn_irc_view_moving_load = new System.Windows.Forms.Button();
+            this.label569 = new System.Windows.Forms.Label();
+            this.txt_irc_vehicle_gap = new System.Windows.Forms.TextBox();
             this.tab_des.SuspendLayout();
             this.tab_ana.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -3817,6 +3820,9 @@
             // 
             // grb_load
             // 
+            this.grb_load.Controls.Add(this.btn_irc_view_moving_load);
+            this.grb_load.Controls.Add(this.label569);
+            this.grb_load.Controls.Add(this.txt_irc_vehicle_gap);
             this.grb_load.Controls.Add(this.btn_def_mov_load);
             this.grb_load.Controls.Add(this.label75);
             this.grb_load.Controls.Add(this.btn_live_load_remove_all);
@@ -3840,7 +3846,7 @@
             this.grb_load.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_load.Location = new System.Drawing.Point(34, 116);
             this.grb_load.Name = "grb_load";
-            this.grb_load.Size = new System.Drawing.Size(550, 329);
+            this.grb_load.Size = new System.Drawing.Size(550, 395);
             this.grb_load.TabIndex = 68;
             this.grb_load.TabStop = false;
             this.grb_load.Text = "Define user\'s custom data";
@@ -11610,6 +11616,37 @@
             this.tmr_blink.Interval = 900;
             this.tmr_blink.Tick += new System.EventHandler(this.tmr_blink_Tick);
             // 
+            // btn_irc_view_moving_load
+            // 
+            this.btn_irc_view_moving_load.Location = new System.Drawing.Point(162, 360);
+            this.btn_irc_view_moving_load.Name = "btn_irc_view_moving_load";
+            this.btn_irc_view_moving_load.Size = new System.Drawing.Size(204, 29);
+            this.btn_irc_view_moving_load.TabIndex = 140;
+            this.btn_irc_view_moving_load.Text = "View Moving Load";
+            this.btn_irc_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_irc_view_moving_load.Click += new System.EventHandler(this.btn_irc_view_moving_load_Click);
+            // 
+            // label569
+            // 
+            this.label569.AutoSize = true;
+            this.label569.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label569.Location = new System.Drawing.Point(7, 327);
+            this.label569.Name = "label569";
+            this.label569.Size = new System.Drawing.Size(421, 13);
+            this.label569.TabIndex = 139;
+            this.label569.Text = "Longitudinal Separating distance between two vehicle in a Lane";
+            // 
+            // txt_irc_vehicle_gap
+            // 
+            this.txt_irc_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_irc_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_irc_vehicle_gap.Location = new System.Drawing.Point(434, 326);
+            this.txt_irc_vehicle_gap.Name = "txt_irc_vehicle_gap";
+            this.txt_irc_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_irc_vehicle_gap.TabIndex = 138;
+            this.txt_irc_vehicle_gap.Text = "18.8";
+            this.txt_irc_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frm_Arch_Cable_Bridge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -12717,5 +12754,8 @@
         private System.Windows.Forms.Label label213;
         private System.Windows.Forms.TextBox txt_pier_2_sdia;
         private System.Windows.Forms.Label label217;
+        private System.Windows.Forms.Button btn_irc_view_moving_load;
+        private System.Windows.Forms.Label label569;
+        private System.Windows.Forms.TextBox txt_irc_vehicle_gap;
     }
 }

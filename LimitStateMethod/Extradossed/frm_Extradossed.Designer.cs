@@ -232,32 +232,19 @@
             this.label226 = new System.Windows.Forms.Label();
             this.tab_moving_data_british = new System.Windows.Forms.TabPage();
             this.groupBox45 = new System.Windows.Forms.GroupBox();
+            this.label561 = new System.Windows.Forms.Label();
+            this.label557 = new System.Windows.Forms.Label();
+            this.label558 = new System.Windows.Forms.Label();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.label559 = new System.Windows.Forms.Label();
+            this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
+            this.btn_bs_view_moving_load = new System.Windows.Forms.Button();
+            this.label1190 = new System.Windows.Forms.Label();
+            this.txt_ll_british_incr = new System.Windows.Forms.TextBox();
+            this.cmb_bs_view_moving_load = new System.Windows.Forms.ComboBox();
+            this.txt_bs_vehicle_gap = new System.Windows.Forms.TextBox();
+            this.label1191 = new System.Windows.Forms.Label();
             this.spc_HB = new System.Windows.Forms.SplitContainer();
-            this.groupBox105 = new System.Windows.Forms.GroupBox();
-            this.dgv_long_british_loads = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label247 = new System.Windows.Forms.Label();
             this.groupBox106 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label38 = new System.Windows.Forms.Label();
@@ -286,6 +273,31 @@
             this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label248 = new System.Windows.Forms.Label();
+            this.groupBox105 = new System.Windows.Forms.GroupBox();
+            this.dgv_long_british_loads = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label247 = new System.Windows.Forms.Label();
             this.lbl_HB = new System.Windows.Forms.Label();
             this.groupBox107 = new System.Windows.Forms.GroupBox();
             this.groupBox108 = new System.Windows.Forms.GroupBox();
@@ -296,10 +308,7 @@
             this.rbtn_HB = new System.Windows.Forms.RadioButton();
             this.txt_LL_lf = new System.Windows.Forms.TextBox();
             this.txt_LL_impf = new System.Windows.Forms.TextBox();
-            this.label249 = new System.Windows.Forms.Label();
             this.txt_no_lanes = new System.Windows.Forms.TextBox();
-            this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
-            this.label252 = new System.Windows.Forms.Label();
             this.grb_ha = new System.Windows.Forms.GroupBox();
             this.grb_ha_aply = new System.Windows.Forms.GroupBox();
             this.chk_HA_7L = new System.Windows.Forms.CheckBox();
@@ -332,7 +341,6 @@
             this.chk_HB_1L = new System.Windows.Forms.CheckBox();
             this.label261 = new System.Windows.Forms.Label();
             this.cmb_HB = new System.Windows.Forms.ComboBox();
-            this.txt_ll_british_incr = new System.Windows.Forms.TextBox();
             this.txt_lane_width = new System.Windows.Forms.TextBox();
             this.label262 = new System.Windows.Forms.Label();
             this.txt_deck_width = new System.Windows.Forms.TextBox();
@@ -342,6 +350,11 @@
             this.label266 = new System.Windows.Forms.Label();
             this.tab_moving_data_indian = new System.Windows.Forms.TabPage();
             this.groupBox79 = new System.Windows.Forms.GroupBox();
+            this.btn_irc_view_moving_load = new System.Windows.Forms.Button();
+            this.label568 = new System.Windows.Forms.Label();
+            this.cmb_irc_view_moving_load = new System.Windows.Forms.ComboBox();
+            this.txt_irc_vehicle_gap = new System.Windows.Forms.TextBox();
+            this.label569 = new System.Windows.Forms.Label();
             this.label299 = new System.Windows.Forms.Label();
             this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
             this.btn_edit_load_combs = new System.Windows.Forms.Button();
@@ -384,7 +397,7 @@
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label304 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_IRC_LL_load_gen = new System.Windows.Forms.TextBox();
             this.txt_IRC_XINCR = new System.Windows.Forms.TextBox();
             this.tab_moving_data_LRFD = new System.Windows.Forms.TabPage();
             this.groupBox47 = new System.Windows.Forms.GroupBox();
@@ -526,6 +539,7 @@
             this.txt_Ana_live_inner_long_3L_8_shear = new System.Windows.Forms.TextBox();
             this.txt_Ana_live_inner_long_3L_8_moment = new System.Windows.Forms.TextBox();
             this.label154 = new System.Windows.Forms.Label();
+            this.label322 = new System.Windows.Forms.Label();
             this.label156 = new System.Windows.Forms.Label();
             this.label158 = new System.Windows.Forms.Label();
             this.label159 = new System.Windows.Forms.Label();
@@ -1221,7 +1235,6 @@
             this.btn_construction_drawings = new System.Windows.Forms.Button();
             this.btn_open_drawings = new System.Windows.Forms.Button();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
-            this.label322 = new System.Windows.Forms.Label();
             this.groupBox9.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1251,11 +1264,11 @@
             this.spc_HB.Panel1.SuspendLayout();
             this.spc_HB.Panel2.SuspendLayout();
             this.spc_HB.SuspendLayout();
-            this.groupBox105.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).BeginInit();
             this.groupBox106.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_british_loads)).BeginInit();
+            this.groupBox105.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).BeginInit();
             this.groupBox107.SuspendLayout();
             this.groupBox108.SuspendLayout();
             this.grb_ha.SuspendLayout();
@@ -3111,6 +3124,18 @@
             // 
             // groupBox45
             // 
+            this.groupBox45.Controls.Add(this.label561);
+            this.groupBox45.Controls.Add(this.label557);
+            this.groupBox45.Controls.Add(this.label558);
+            this.groupBox45.Controls.Add(this.textBox22);
+            this.groupBox45.Controls.Add(this.label559);
+            this.groupBox45.Controls.Add(this.txt_ll_british_lgen);
+            this.groupBox45.Controls.Add(this.btn_bs_view_moving_load);
+            this.groupBox45.Controls.Add(this.label1190);
+            this.groupBox45.Controls.Add(this.txt_ll_british_incr);
+            this.groupBox45.Controls.Add(this.cmb_bs_view_moving_load);
+            this.groupBox45.Controls.Add(this.txt_bs_vehicle_gap);
+            this.groupBox45.Controls.Add(this.label1191);
             this.groupBox45.Controls.Add(this.spc_HB);
             this.groupBox45.Controls.Add(this.lbl_HB);
             this.groupBox45.Controls.Add(this.groupBox107);
@@ -3121,23 +3146,387 @@
             this.groupBox45.TabIndex = 86;
             this.groupBox45.TabStop = false;
             // 
+            // label561
+            // 
+            this.label561.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label561.ForeColor = System.Drawing.Color.Red;
+            this.label561.Location = new System.Drawing.Point(5, 592);
+            this.label561.Name = "label561";
+            this.label561.Size = new System.Drawing.Size(614, 33);
+            this.label561.TabIndex = 127;
+            this.label561.Text = resources.GetString("label561.Text");
+            // 
+            // label557
+            // 
+            this.label557.AutoSize = true;
+            this.label557.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label557.Location = new System.Drawing.Point(720, 608);
+            this.label557.Name = "label557";
+            this.label557.Size = new System.Drawing.Size(170, 13);
+            this.label557.TabIndex = 124;
+            this.label557.Text = "DL + LL Combine Load No";
+            // 
+            // label558
+            // 
+            this.label558.AutoSize = true;
+            this.label558.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label558.Location = new System.Drawing.Point(776, 586);
+            this.label558.Name = "label558";
+            this.label558.Size = new System.Drawing.Size(114, 13);
+            this.label558.TabIndex = 126;
+            this.label558.Text = "Load Generation";
+            // 
+            // textBox22
+            // 
+            this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox22.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox22.Location = new System.Drawing.Point(896, 607);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(39, 18);
+            this.textBox22.TabIndex = 123;
+            this.textBox22.Text = "1";
+            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label559
+            // 
+            this.label559.AutoSize = true;
+            this.label559.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label559.Location = new System.Drawing.Point(656, 586);
+            this.label559.Name = "label559";
+            this.label559.Size = new System.Drawing.Size(50, 13);
+            this.label559.TabIndex = 125;
+            this.label559.Text = "X INCR";
+            // 
+            // txt_ll_british_lgen
+            // 
+            this.txt_ll_british_lgen.Enabled = false;
+            this.txt_ll_british_lgen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ll_british_lgen.Location = new System.Drawing.Point(896, 580);
+            this.txt_ll_british_lgen.Name = "txt_ll_british_lgen";
+            this.txt_ll_british_lgen.Size = new System.Drawing.Size(39, 21);
+            this.txt_ll_british_lgen.TabIndex = 79;
+            this.txt_ll_british_lgen.Text = "191";
+            this.txt_ll_british_lgen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_ll_british_lgen.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
+            // 
+            // btn_bs_view_moving_load
+            // 
+            this.btn_bs_view_moving_load.Location = new System.Drawing.Point(68, 561);
+            this.btn_bs_view_moving_load.Name = "btn_bs_view_moving_load";
+            this.btn_bs_view_moving_load.Size = new System.Drawing.Size(204, 21);
+            this.btn_bs_view_moving_load.TabIndex = 122;
+            this.btn_bs_view_moving_load.Text = "View Moving Load";
+            this.btn_bs_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_bs_view_moving_load.Click += new System.EventHandler(this.btn_bs_view_moving_load_Click);
+            // 
+            // label1190
+            // 
+            this.label1190.AutoSize = true;
+            this.label1190.Location = new System.Drawing.Point(30, 540);
+            this.label1190.Name = "label1190";
+            this.label1190.Size = new System.Drawing.Size(166, 13);
+            this.label1190.TabIndex = 121;
+            this.label1190.Text = "Select to view Moving Load ";
+            // 
+            // txt_ll_british_incr
+            // 
+            this.txt_ll_british_incr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ll_british_incr.Location = new System.Drawing.Point(708, 583);
+            this.txt_ll_british_incr.Name = "txt_ll_british_incr";
+            this.txt_ll_british_incr.Size = new System.Drawing.Size(43, 18);
+            this.txt_ll_british_incr.TabIndex = 58;
+            this.txt_ll_british_incr.Text = "0.5";
+            this.txt_ll_british_incr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_ll_british_incr.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
+            // 
+            // cmb_bs_view_moving_load
+            // 
+            this.cmb_bs_view_moving_load.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_bs_view_moving_load.FormattingEnabled = true;
+            this.cmb_bs_view_moving_load.Location = new System.Drawing.Point(210, 537);
+            this.cmb_bs_view_moving_load.Name = "cmb_bs_view_moving_load";
+            this.cmb_bs_view_moving_load.Size = new System.Drawing.Size(84, 21);
+            this.cmb_bs_view_moving_load.TabIndex = 120;
+            // 
+            // txt_bs_vehicle_gap
+            // 
+            this.txt_bs_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_bs_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_bs_vehicle_gap.Location = new System.Drawing.Point(754, 539);
+            this.txt_bs_vehicle_gap.Name = "txt_bs_vehicle_gap";
+            this.txt_bs_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_bs_vehicle_gap.TabIndex = 118;
+            this.txt_bs_vehicle_gap.Text = "18.8";
+            this.txt_bs_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1191
+            // 
+            this.label1191.AutoSize = true;
+            this.label1191.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1191.Location = new System.Drawing.Point(327, 540);
+            this.label1191.Name = "label1191";
+            this.label1191.Size = new System.Drawing.Size(421, 13);
+            this.label1191.TabIndex = 119;
+            this.label1191.Text = "Longitudinal Separating distance between two vehicle in a Lane";
+            // 
             // spc_HB
             // 
             this.spc_HB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.spc_HB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.spc_HB.Dock = System.Windows.Forms.DockStyle.Top;
             this.spc_HB.Location = new System.Drawing.Point(3, 274);
             this.spc_HB.Name = "spc_HB";
             // 
             // spc_HB.Panel1
             // 
-            this.spc_HB.Panel1.Controls.Add(this.groupBox105);
+            this.spc_HB.Panel1.Controls.Add(this.groupBox106);
             // 
             // spc_HB.Panel2
             // 
-            this.spc_HB.Panel2.Controls.Add(this.groupBox106);
-            this.spc_HB.Size = new System.Drawing.Size(943, 351);
-            this.spc_HB.SplitterDistance = 525;
+            this.spc_HB.Panel2.Controls.Add(this.groupBox105);
+            this.spc_HB.Size = new System.Drawing.Size(943, 254);
+            this.spc_HB.SplitterDistance = 395;
             this.spc_HB.TabIndex = 83;
+            // 
+            // groupBox106
+            // 
+            this.groupBox106.Controls.Add(this.panel3);
+            this.groupBox106.Controls.Add(this.dgv_british_loads);
+            this.groupBox106.Controls.Add(this.label248);
+            this.groupBox106.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox106.ForeColor = System.Drawing.Color.Black;
+            this.groupBox106.Location = new System.Drawing.Point(0, 0);
+            this.groupBox106.Name = "groupBox106";
+            this.groupBox106.Size = new System.Drawing.Size(393, 252);
+            this.groupBox106.TabIndex = 8;
+            this.groupBox106.TabStop = false;
+            this.groupBox106.Text = "Define Load Start position";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label38);
+            this.panel3.Controls.Add(this.label267);
+            this.panel3.Controls.Add(this.label282);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 51);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(387, 23);
+            this.panel3.TabIndex = 16;
+            // 
+            // label38
+            // 
+            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label38.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(291, 0);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(104, 21);
+            this.label38.TabIndex = 12;
+            this.label38.Text = "Lane 3";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label267
+            // 
+            this.label267.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label267.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label267.Location = new System.Drawing.Point(77, 0);
+            this.label267.Name = "label267";
+            this.label267.Size = new System.Drawing.Size(104, 21);
+            this.label267.TabIndex = 12;
+            this.label267.Text = "Lane 1";
+            this.label267.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label282
+            // 
+            this.label282.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label282.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label282.Location = new System.Drawing.Point(184, 0);
+            this.label282.Name = "label282";
+            this.label282.Size = new System.Drawing.Size(104, 21);
+            this.label282.TabIndex = 12;
+            this.label282.Text = "Lane 2";
+            this.label282.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgv_british_loads
+            // 
+            this.dgv_british_loads.AllowUserToAddRows = false;
+            this.dgv_british_loads.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn77,
+            this.dataGridViewTextBoxColumn78,
+            this.dataGridViewTextBoxColumn79,
+            this.dataGridViewTextBoxColumn80,
+            this.dataGridViewTextBoxColumn81,
+            this.dataGridViewTextBoxColumn82,
+            this.Column28,
+            this.Column29,
+            this.Column30,
+            this.Column31,
+            this.Column32,
+            this.Column33,
+            this.Column34,
+            this.Column35,
+            this.Column36,
+            this.Column37,
+            this.Column38,
+            this.Column39,
+            this.Column40,
+            this.Column41,
+            this.Column42});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgv_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_british_loads.Location = new System.Drawing.Point(3, 51);
+            this.dgv_british_loads.Name = "dgv_british_loads";
+            this.dgv_british_loads.RowHeadersWidth = 21;
+            this.dgv_british_loads.Size = new System.Drawing.Size(387, 198);
+            this.dgv_british_loads.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn77
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn77.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn77.HeaderText = "Moving Load";
+            this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
+            this.dataGridViewTextBoxColumn77.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn77.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn78
+            // 
+            this.dataGridViewTextBoxColumn78.HeaderText = "1";
+            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
+            this.dataGridViewTextBoxColumn78.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn78.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn79
+            // 
+            this.dataGridViewTextBoxColumn79.HeaderText = "2";
+            this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
+            this.dataGridViewTextBoxColumn79.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn79.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn80
+            // 
+            this.dataGridViewTextBoxColumn80.HeaderText = "3";
+            this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
+            this.dataGridViewTextBoxColumn80.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn80.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn81
+            // 
+            this.dataGridViewTextBoxColumn81.HeaderText = "4";
+            this.dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
+            this.dataGridViewTextBoxColumn81.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn81.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn82
+            // 
+            this.dataGridViewTextBoxColumn82.HeaderText = "5";
+            this.dataGridViewTextBoxColumn82.Name = "dataGridViewTextBoxColumn82";
+            this.dataGridViewTextBoxColumn82.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dataGridViewTextBoxColumn82.Width = 50;
+            // 
+            // Column28
+            // 
+            this.Column28.HeaderText = "6";
+            this.Column28.Name = "Column28";
+            // 
+            // Column29
+            // 
+            this.Column29.HeaderText = "7";
+            this.Column29.Name = "Column29";
+            // 
+            // Column30
+            // 
+            this.Column30.HeaderText = "8";
+            this.Column30.Name = "Column30";
+            // 
+            // Column31
+            // 
+            this.Column31.HeaderText = "9";
+            this.Column31.Name = "Column31";
+            // 
+            // Column32
+            // 
+            this.Column32.HeaderText = "10";
+            this.Column32.Name = "Column32";
+            // 
+            // Column33
+            // 
+            this.Column33.HeaderText = "11";
+            this.Column33.Name = "Column33";
+            // 
+            // Column34
+            // 
+            this.Column34.HeaderText = "12";
+            this.Column34.Name = "Column34";
+            // 
+            // Column35
+            // 
+            this.Column35.HeaderText = "13";
+            this.Column35.Name = "Column35";
+            // 
+            // Column36
+            // 
+            this.Column36.HeaderText = "14";
+            this.Column36.Name = "Column36";
+            // 
+            // Column37
+            // 
+            this.Column37.HeaderText = "15";
+            this.Column37.Name = "Column37";
+            // 
+            // Column38
+            // 
+            this.Column38.HeaderText = "16";
+            this.Column38.Name = "Column38";
+            // 
+            // Column39
+            // 
+            this.Column39.HeaderText = "17";
+            this.Column39.Name = "Column39";
+            // 
+            // Column40
+            // 
+            this.Column40.HeaderText = "18";
+            this.Column40.Name = "Column40";
+            // 
+            // Column41
+            // 
+            this.Column41.HeaderText = "19";
+            this.Column41.Name = "Column41";
+            // 
+            // Column42
+            // 
+            this.Column42.HeaderText = "20";
+            this.Column42.Name = "Column42";
+            // 
+            // label248
+            // 
+            this.label248.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label248.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label248.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label248.ForeColor = System.Drawing.Color.Black;
+            this.label248.Location = new System.Drawing.Point(3, 17);
+            this.label248.Name = "label248";
+            this.label248.Size = new System.Drawing.Size(387, 34);
+            this.label248.TabIndex = 11;
+            this.label248.Text = "(Refer to Page 100, ASTRA Pro User Manual)";
+            this.label248.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox105
             // 
@@ -3148,7 +3537,7 @@
             this.groupBox105.ForeColor = System.Drawing.Color.Black;
             this.groupBox105.Location = new System.Drawing.Point(0, 0);
             this.groupBox105.Name = "groupBox105";
-            this.groupBox105.Size = new System.Drawing.Size(523, 349);
+            this.groupBox105.Size = new System.Drawing.Size(542, 252);
             this.groupBox105.TabIndex = 7;
             this.groupBox105.TabStop = false;
             this.groupBox105.Text = "Define Vehicle Axle Loads";
@@ -3157,14 +3546,14 @@
             // 
             this.dgv_long_british_loads.AllowUserToAddRows = false;
             this.dgv_long_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_long_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn55,
@@ -3189,26 +3578,26 @@
             this.dataGridViewTextBoxColumn74,
             this.dataGridViewTextBoxColumn75,
             this.dataGridViewTextBoxColumn76});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_long_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_long_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_long_british_loads.Name = "dgv_long_british_loads";
             this.dgv_long_british_loads.RowHeadersWidth = 21;
-            this.dgv_long_british_loads.Size = new System.Drawing.Size(517, 295);
+            this.dgv_long_british_loads.Size = new System.Drawing.Size(536, 198);
             this.dgv_long_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn55
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn55.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -3370,252 +3759,11 @@
             this.label247.ForeColor = System.Drawing.Color.Black;
             this.label247.Location = new System.Drawing.Point(3, 17);
             this.label247.Name = "label247";
-            this.label247.Size = new System.Drawing.Size(517, 34);
+            this.label247.Size = new System.Drawing.Size(536, 34);
             this.label247.TabIndex = 10;
             this.label247.Text = "(USER MAY CHANGE THE VAUES IN THE CELLS, THE DATA WILL BE SAVED IN FILE \"LL.TXT\" " +
     "FOR USE)";
             this.label247.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox106
-            // 
-            this.groupBox106.Controls.Add(this.panel3);
-            this.groupBox106.Controls.Add(this.dgv_british_loads);
-            this.groupBox106.Controls.Add(this.label248);
-            this.groupBox106.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox106.ForeColor = System.Drawing.Color.Black;
-            this.groupBox106.Location = new System.Drawing.Point(0, 0);
-            this.groupBox106.Name = "groupBox106";
-            this.groupBox106.Size = new System.Drawing.Size(412, 349);
-            this.groupBox106.TabIndex = 8;
-            this.groupBox106.TabStop = false;
-            this.groupBox106.Text = "Define Load Start position";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label38);
-            this.panel3.Controls.Add(this.label267);
-            this.panel3.Controls.Add(this.label282);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 51);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(406, 23);
-            this.panel3.TabIndex = 16;
-            // 
-            // label38
-            // 
-            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label38.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(291, 0);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(104, 21);
-            this.label38.TabIndex = 12;
-            this.label38.Text = "Lane 3";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label267
-            // 
-            this.label267.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label267.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label267.Location = new System.Drawing.Point(77, 0);
-            this.label267.Name = "label267";
-            this.label267.Size = new System.Drawing.Size(104, 21);
-            this.label267.TabIndex = 12;
-            this.label267.Text = "Lane 1";
-            this.label267.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label282
-            // 
-            this.label282.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label282.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label282.Location = new System.Drawing.Point(184, 0);
-            this.label282.Name = "label282";
-            this.label282.Size = new System.Drawing.Size(104, 21);
-            this.label282.TabIndex = 12;
-            this.label282.Text = "Lane 2";
-            this.label282.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dgv_british_loads
-            // 
-            this.dgv_british_loads.AllowUserToAddRows = false;
-            this.dgv_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgv_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn77,
-            this.dataGridViewTextBoxColumn78,
-            this.dataGridViewTextBoxColumn79,
-            this.dataGridViewTextBoxColumn80,
-            this.dataGridViewTextBoxColumn81,
-            this.dataGridViewTextBoxColumn82,
-            this.Column28,
-            this.Column29,
-            this.Column30,
-            this.Column31,
-            this.Column32,
-            this.Column33,
-            this.Column34,
-            this.Column35,
-            this.Column36,
-            this.Column37,
-            this.Column38,
-            this.Column39,
-            this.Column40,
-            this.Column41,
-            this.Column42});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dgv_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv_british_loads.Location = new System.Drawing.Point(3, 51);
-            this.dgv_british_loads.Name = "dgv_british_loads";
-            this.dgv_british_loads.RowHeadersWidth = 21;
-            this.dgv_british_loads.Size = new System.Drawing.Size(406, 295);
-            this.dgv_british_loads.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn77
-            // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn77.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewTextBoxColumn77.HeaderText = "Moving Load";
-            this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
-            this.dataGridViewTextBoxColumn77.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn77.Width = 90;
-            // 
-            // dataGridViewTextBoxColumn78
-            // 
-            this.dataGridViewTextBoxColumn78.HeaderText = "1";
-            this.dataGridViewTextBoxColumn78.Name = "dataGridViewTextBoxColumn78";
-            this.dataGridViewTextBoxColumn78.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn78.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn79
-            // 
-            this.dataGridViewTextBoxColumn79.HeaderText = "2";
-            this.dataGridViewTextBoxColumn79.Name = "dataGridViewTextBoxColumn79";
-            this.dataGridViewTextBoxColumn79.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn79.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn80
-            // 
-            this.dataGridViewTextBoxColumn80.HeaderText = "3";
-            this.dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
-            this.dataGridViewTextBoxColumn80.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn80.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn81
-            // 
-            this.dataGridViewTextBoxColumn81.HeaderText = "4";
-            this.dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
-            this.dataGridViewTextBoxColumn81.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn81.Width = 50;
-            // 
-            // dataGridViewTextBoxColumn82
-            // 
-            this.dataGridViewTextBoxColumn82.HeaderText = "5";
-            this.dataGridViewTextBoxColumn82.Name = "dataGridViewTextBoxColumn82";
-            this.dataGridViewTextBoxColumn82.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.dataGridViewTextBoxColumn82.Width = 50;
-            // 
-            // Column28
-            // 
-            this.Column28.HeaderText = "6";
-            this.Column28.Name = "Column28";
-            // 
-            // Column29
-            // 
-            this.Column29.HeaderText = "7";
-            this.Column29.Name = "Column29";
-            // 
-            // Column30
-            // 
-            this.Column30.HeaderText = "8";
-            this.Column30.Name = "Column30";
-            // 
-            // Column31
-            // 
-            this.Column31.HeaderText = "9";
-            this.Column31.Name = "Column31";
-            // 
-            // Column32
-            // 
-            this.Column32.HeaderText = "10";
-            this.Column32.Name = "Column32";
-            // 
-            // Column33
-            // 
-            this.Column33.HeaderText = "11";
-            this.Column33.Name = "Column33";
-            // 
-            // Column34
-            // 
-            this.Column34.HeaderText = "12";
-            this.Column34.Name = "Column34";
-            // 
-            // Column35
-            // 
-            this.Column35.HeaderText = "13";
-            this.Column35.Name = "Column35";
-            // 
-            // Column36
-            // 
-            this.Column36.HeaderText = "14";
-            this.Column36.Name = "Column36";
-            // 
-            // Column37
-            // 
-            this.Column37.HeaderText = "15";
-            this.Column37.Name = "Column37";
-            // 
-            // Column38
-            // 
-            this.Column38.HeaderText = "16";
-            this.Column38.Name = "Column38";
-            // 
-            // Column39
-            // 
-            this.Column39.HeaderText = "17";
-            this.Column39.Name = "Column39";
-            // 
-            // Column40
-            // 
-            this.Column40.HeaderText = "18";
-            this.Column40.Name = "Column40";
-            // 
-            // Column41
-            // 
-            this.Column41.HeaderText = "19";
-            this.Column41.Name = "Column41";
-            // 
-            // Column42
-            // 
-            this.Column42.HeaderText = "20";
-            this.Column42.Name = "Column42";
-            // 
-            // label248
-            // 
-            this.label248.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label248.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label248.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label248.ForeColor = System.Drawing.Color.Black;
-            this.label248.Location = new System.Drawing.Point(3, 17);
-            this.label248.Name = "label248";
-            this.label248.Size = new System.Drawing.Size(406, 34);
-            this.label248.TabIndex = 11;
-            this.label248.Text = "(Refer to Page 100, ASTRA Pro User Manual)";
-            this.label248.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_HB
             // 
@@ -3634,13 +3782,9 @@
             this.groupBox107.Controls.Add(this.groupBox108);
             this.groupBox107.Controls.Add(this.txt_LL_lf);
             this.groupBox107.Controls.Add(this.txt_LL_impf);
-            this.groupBox107.Controls.Add(this.label249);
             this.groupBox107.Controls.Add(this.txt_no_lanes);
-            this.groupBox107.Controls.Add(this.txt_ll_british_lgen);
-            this.groupBox107.Controls.Add(this.label252);
             this.groupBox107.Controls.Add(this.grb_ha);
             this.groupBox107.Controls.Add(this.grb_hb);
-            this.groupBox107.Controls.Add(this.txt_ll_british_incr);
             this.groupBox107.Controls.Add(this.txt_lane_width);
             this.groupBox107.Controls.Add(this.label262);
             this.groupBox107.Controls.Add(this.txt_deck_width);
@@ -3733,7 +3877,7 @@
             // 
             // txt_LL_lf
             // 
-            this.txt_LL_lf.Location = new System.Drawing.Point(177, 137);
+            this.txt_LL_lf.Location = new System.Drawing.Point(177, 176);
             this.txt_LL_lf.Name = "txt_LL_lf";
             this.txt_LL_lf.Size = new System.Drawing.Size(59, 21);
             this.txt_LL_lf.TabIndex = 3;
@@ -3743,7 +3887,7 @@
             // 
             // txt_LL_impf
             // 
-            this.txt_LL_impf.Location = new System.Drawing.Point(177, 110);
+            this.txt_LL_impf.Location = new System.Drawing.Point(177, 135);
             this.txt_LL_impf.Name = "txt_LL_impf";
             this.txt_LL_impf.Size = new System.Drawing.Size(59, 21);
             this.txt_LL_impf.TabIndex = 3;
@@ -3751,48 +3895,16 @@
             this.txt_LL_impf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_LL_impf.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
             // 
-            // label249
-            // 
-            this.label249.AutoSize = true;
-            this.label249.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label249.Location = new System.Drawing.Point(27, 196);
-            this.label249.Name = "label249";
-            this.label249.Size = new System.Drawing.Size(101, 13);
-            this.label249.TabIndex = 80;
-            this.label249.Text = "Load Generation";
-            // 
             // txt_no_lanes
             // 
             this.txt_no_lanes.Enabled = false;
-            this.txt_no_lanes.Location = new System.Drawing.Point(177, 83);
+            this.txt_no_lanes.Location = new System.Drawing.Point(177, 104);
             this.txt_no_lanes.Name = "txt_no_lanes";
             this.txt_no_lanes.Size = new System.Drawing.Size(59, 21);
             this.txt_no_lanes.TabIndex = 3;
             this.txt_no_lanes.Text = "3";
             this.txt_no_lanes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_no_lanes.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
-            // txt_ll_british_lgen
-            // 
-            this.txt_ll_british_lgen.Enabled = false;
-            this.txt_ll_british_lgen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ll_british_lgen.Location = new System.Drawing.Point(177, 193);
-            this.txt_ll_british_lgen.Name = "txt_ll_british_lgen";
-            this.txt_ll_british_lgen.Size = new System.Drawing.Size(59, 21);
-            this.txt_ll_british_lgen.TabIndex = 79;
-            this.txt_ll_british_lgen.Text = "191";
-            this.txt_ll_british_lgen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ll_british_lgen.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
-            // label252
-            // 
-            this.label252.AutoSize = true;
-            this.label252.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label252.Location = new System.Drawing.Point(27, 175);
-            this.label252.Name = "label252";
-            this.label252.Size = new System.Drawing.Size(110, 13);
-            this.label252.TabIndex = 60;
-            this.label252.Text = "Moving Increment";
             // 
             // grb_ha
             // 
@@ -4166,21 +4278,10 @@
             this.cmb_HB.TabIndex = 0;
             this.cmb_HB.SelectedIndexChanged += new System.EventHandler(this.cmb_HB_SelectedIndexChanged);
             // 
-            // txt_ll_british_incr
-            // 
-            this.txt_ll_british_incr.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ll_british_incr.Location = new System.Drawing.Point(177, 170);
-            this.txt_ll_british_incr.Name = "txt_ll_british_incr";
-            this.txt_ll_british_incr.Size = new System.Drawing.Size(59, 18);
-            this.txt_ll_british_incr.TabIndex = 58;
-            this.txt_ll_british_incr.Text = "0.5";
-            this.txt_ll_british_incr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ll_british_incr.TextChanged += new System.EventHandler(this.txt_deck_width_TextChanged);
-            // 
             // txt_lane_width
             // 
             this.txt_lane_width.Enabled = false;
-            this.txt_lane_width.Location = new System.Drawing.Point(177, 56);
+            this.txt_lane_width.Location = new System.Drawing.Point(177, 72);
             this.txt_lane_width.Name = "txt_lane_width";
             this.txt_lane_width.Size = new System.Drawing.Size(59, 21);
             this.txt_lane_width.TabIndex = 3;
@@ -4191,7 +4292,7 @@
             // label262
             // 
             this.label262.AutoSize = true;
-            this.label262.Location = new System.Drawing.Point(27, 140);
+            this.label262.Location = new System.Drawing.Point(27, 179);
             this.label262.Name = "label262";
             this.label262.Size = new System.Drawing.Size(72, 13);
             this.label262.TabIndex = 1;
@@ -4210,7 +4311,7 @@
             // label263
             // 
             this.label263.AutoSize = true;
-            this.label263.Location = new System.Drawing.Point(27, 113);
+            this.label263.Location = new System.Drawing.Point(27, 138);
             this.label263.Name = "label263";
             this.label263.Size = new System.Drawing.Size(85, 13);
             this.label263.TabIndex = 1;
@@ -4219,7 +4320,7 @@
             // label264
             // 
             this.label264.AutoSize = true;
-            this.label264.Location = new System.Drawing.Point(27, 84);
+            this.label264.Location = new System.Drawing.Point(27, 105);
             this.label264.Name = "label264";
             this.label264.Size = new System.Drawing.Size(109, 13);
             this.label264.TabIndex = 1;
@@ -4228,7 +4329,7 @@
             // label265
             // 
             this.label265.AutoSize = true;
-            this.label265.Location = new System.Drawing.Point(27, 57);
+            this.label265.Location = new System.Drawing.Point(27, 73);
             this.label265.Name = "label265";
             this.label265.Size = new System.Drawing.Size(101, 13);
             this.label265.TabIndex = 1;
@@ -4256,6 +4357,11 @@
             // 
             // groupBox79
             // 
+            this.groupBox79.Controls.Add(this.btn_irc_view_moving_load);
+            this.groupBox79.Controls.Add(this.label568);
+            this.groupBox79.Controls.Add(this.cmb_irc_view_moving_load);
+            this.groupBox79.Controls.Add(this.txt_irc_vehicle_gap);
+            this.groupBox79.Controls.Add(this.label569);
             this.groupBox79.Controls.Add(this.label299);
             this.groupBox79.Controls.Add(this.txt_dl_ll_comb);
             this.groupBox79.Controls.Add(this.btn_edit_load_combs);
@@ -4266,7 +4372,7 @@
             this.groupBox79.Controls.Add(this.label302);
             this.groupBox79.Controls.Add(this.groupBox46);
             this.groupBox79.Controls.Add(this.label304);
-            this.groupBox79.Controls.Add(this.textBox1);
+            this.groupBox79.Controls.Add(this.txt_IRC_LL_load_gen);
             this.groupBox79.Controls.Add(this.txt_IRC_XINCR);
             this.groupBox79.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox79.Location = new System.Drawing.Point(3, 3);
@@ -4274,6 +4380,55 @@
             this.groupBox79.Size = new System.Drawing.Size(949, 628);
             this.groupBox79.TabIndex = 82;
             this.groupBox79.TabStop = false;
+            // 
+            // btn_irc_view_moving_load
+            // 
+            this.btn_irc_view_moving_load.Location = new System.Drawing.Point(48, 540);
+            this.btn_irc_view_moving_load.Name = "btn_irc_view_moving_load";
+            this.btn_irc_view_moving_load.Size = new System.Drawing.Size(204, 29);
+            this.btn_irc_view_moving_load.TabIndex = 125;
+            this.btn_irc_view_moving_load.Text = "View Moving Load";
+            this.btn_irc_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_irc_view_moving_load.Click += new System.EventHandler(this.btn_irc_view_moving_load_Click);
+            // 
+            // label568
+            // 
+            this.label568.AutoSize = true;
+            this.label568.Location = new System.Drawing.Point(10, 519);
+            this.label568.Name = "label568";
+            this.label568.Size = new System.Drawing.Size(166, 13);
+            this.label568.TabIndex = 124;
+            this.label568.Text = "Select to view Moving Load ";
+            // 
+            // cmb_irc_view_moving_load
+            // 
+            this.cmb_irc_view_moving_load.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_irc_view_moving_load.FormattingEnabled = true;
+            this.cmb_irc_view_moving_load.Location = new System.Drawing.Point(190, 516);
+            this.cmb_irc_view_moving_load.Name = "cmb_irc_view_moving_load";
+            this.cmb_irc_view_moving_load.Size = new System.Drawing.Size(84, 21);
+            this.cmb_irc_view_moving_load.TabIndex = 123;
+            // 
+            // txt_irc_vehicle_gap
+            // 
+            this.txt_irc_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_irc_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_irc_vehicle_gap.Location = new System.Drawing.Point(734, 518);
+            this.txt_irc_vehicle_gap.Name = "txt_irc_vehicle_gap";
+            this.txt_irc_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_irc_vehicle_gap.TabIndex = 121;
+            this.txt_irc_vehicle_gap.Text = "18.8";
+            this.txt_irc_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label569
+            // 
+            this.label569.AutoSize = true;
+            this.label569.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label569.Location = new System.Drawing.Point(307, 519);
+            this.label569.Name = "label569";
+            this.label569.Size = new System.Drawing.Size(421, 13);
+            this.label569.TabIndex = 122;
+            this.label569.Text = "Longitudinal Separating distance between two vehicle in a Lane";
             // 
             // label299
             // 
@@ -4330,9 +4485,9 @@
             this.groupBox31.Controls.Add(this.label300);
             this.groupBox31.Controls.Add(this.dgv_long_loads);
             this.groupBox31.ForeColor = System.Drawing.Color.Black;
-            this.groupBox31.Location = new System.Drawing.Point(665, 47);
+            this.groupBox31.Location = new System.Drawing.Point(6, 33);
             this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(269, 522);
+            this.groupBox31.Size = new System.Drawing.Size(269, 477);
             this.groupBox31.TabIndex = 8;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Define Load Start position";
@@ -4380,7 +4535,7 @@
             this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_loads.Name = "dgv_long_loads";
             this.dgv_long_loads.RowHeadersWidth = 21;
-            this.dgv_long_loads.Size = new System.Drawing.Size(263, 486);
+            this.dgv_long_loads.Size = new System.Drawing.Size(263, 441);
             this.dgv_long_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn31
@@ -4456,9 +4611,9 @@
             this.groupBox46.Controls.Add(this.dgv_long_liveloads);
             this.groupBox46.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox46.ForeColor = System.Drawing.Color.Black;
-            this.groupBox46.Location = new System.Drawing.Point(3, 47);
+            this.groupBox46.Location = new System.Drawing.Point(279, 33);
             this.groupBox46.Name = "groupBox46";
-            this.groupBox46.Size = new System.Drawing.Size(656, 522);
+            this.groupBox46.Size = new System.Drawing.Size(664, 477);
             this.groupBox46.TabIndex = 7;
             this.groupBox46.TabStop = false;
             this.groupBox46.Text = "Define Vehicle Axle Loads";
@@ -4523,7 +4678,7 @@
             this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
             this.dgv_long_liveloads.RowHeadersWidth = 21;
-            this.dgv_long_liveloads.Size = new System.Drawing.Size(650, 486);
+            this.dgv_long_liveloads.Size = new System.Drawing.Size(658, 441);
             this.dgv_long_liveloads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -4694,15 +4849,15 @@
             this.label304.TabIndex = 60;
             this.label304.Text = "X INCR";
             // 
-            // textBox1
+            // txt_IRC_LL_load_gen
             // 
-            this.textBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(874, 575);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(39, 21);
-            this.textBox1.TabIndex = 79;
-            this.textBox1.Text = "191";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_IRC_LL_load_gen.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_IRC_LL_load_gen.Location = new System.Drawing.Point(874, 575);
+            this.txt_IRC_LL_load_gen.Name = "txt_IRC_LL_load_gen";
+            this.txt_IRC_LL_load_gen.Size = new System.Drawing.Size(39, 21);
+            this.txt_IRC_LL_load_gen.TabIndex = 79;
+            this.txt_IRC_LL_load_gen.Text = "191";
+            this.txt_IRC_LL_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_IRC_XINCR
             // 
@@ -6243,6 +6398,15 @@
             this.label154.Size = new System.Drawing.Size(37, 13);
             this.label154.TabIndex = 33;
             this.label154.Text = "(Ton)";
+            // 
+            // label322
+            // 
+            this.label322.AutoSize = true;
+            this.label322.Location = new System.Drawing.Point(193, 19);
+            this.label322.Name = "label322";
+            this.label322.Size = new System.Drawing.Size(41, 13);
+            this.label322.TabIndex = 28;
+            this.label322.Text = "Shear";
             // 
             // label156
             // 
@@ -13856,15 +14020,6 @@
             this.btn_open_drawings.UseVisualStyleBackColor = true;
             this.btn_open_drawings.Click += new System.EventHandler(this.btn_open_drawings_Click);
             // 
-            // label322
-            // 
-            this.label322.AutoSize = true;
-            this.label322.Location = new System.Drawing.Point(193, 19);
-            this.label322.Name = "label322";
-            this.label322.Size = new System.Drawing.Size(41, 13);
-            this.label322.TabIndex = 28;
-            this.label322.Text = "Shear";
-            // 
             // frm_Extradossed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -13914,14 +14069,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tab_moving_data_british.ResumeLayout(false);
             this.groupBox45.ResumeLayout(false);
+            this.groupBox45.PerformLayout();
             this.spc_HB.Panel1.ResumeLayout(false);
             this.spc_HB.Panel2.ResumeLayout(false);
             this.spc_HB.ResumeLayout(false);
-            this.groupBox105.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).EndInit();
             this.groupBox106.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_british_loads)).EndInit();
+            this.groupBox105.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_long_british_loads)).EndInit();
             this.groupBox107.ResumeLayout(false);
             this.groupBox107.PerformLayout();
             this.groupBox108.ResumeLayout(false);
@@ -14979,10 +15135,8 @@
         private System.Windows.Forms.RadioButton rbtn_HA_HB;
         private System.Windows.Forms.TextBox txt_LL_lf;
         private System.Windows.Forms.TextBox txt_LL_impf;
-        private System.Windows.Forms.Label label249;
         private System.Windows.Forms.TextBox txt_no_lanes;
         private System.Windows.Forms.TextBox txt_ll_british_lgen;
-        private System.Windows.Forms.Label label252;
         private System.Windows.Forms.GroupBox grb_ha;
         private System.Windows.Forms.GroupBox grb_ha_aply;
         private System.Windows.Forms.CheckBox chk_HA_7L;
@@ -15145,7 +15299,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.Label label304;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_IRC_LL_load_gen;
         private System.Windows.Forms.TextBox txt_IRC_XINCR;
         private System.Windows.Forms.GroupBox groupBox47;
         private System.Windows.Forms.Label label305;
@@ -15255,6 +15409,21 @@
         private BridgeAnalysisDesign.Abutment.UC_AbutmentPileLS uC_AbutmentPileLS1;
         private BridgeAnalysisDesign.Pier.UC_PierOpenLS uC_PierOpenLS1;
         private System.Windows.Forms.Label label322;
+        private System.Windows.Forms.Button btn_irc_view_moving_load;
+        private System.Windows.Forms.Label label568;
+        private System.Windows.Forms.ComboBox cmb_irc_view_moving_load;
+        private System.Windows.Forms.TextBox txt_irc_vehicle_gap;
+        private System.Windows.Forms.Label label569;
+        private System.Windows.Forms.Button btn_bs_view_moving_load;
+        private System.Windows.Forms.Label label1190;
+        private System.Windows.Forms.ComboBox cmb_bs_view_moving_load;
+        private System.Windows.Forms.TextBox txt_bs_vehicle_gap;
+        private System.Windows.Forms.Label label1191;
+        private System.Windows.Forms.Label label561;
+        private System.Windows.Forms.Label label557;
+        private System.Windows.Forms.Label label558;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.Label label559;
     }
 
 

@@ -17,11 +17,12 @@ using AstraAccess.SAP_Classes;
 
 using BridgeAnalysisDesign.CableStayed;
 using LimitStateMethod.SuspensionBridge;
+using LimitStateMethod.PSC_Box_Girder;
 
 
 namespace LimitStateMethod.CableStayed
 {
-    public partial class frmCableStayed_LS : Form
+    public partial class frmCableStayed_AASHTO : Form
     {
         IApplication iApp = null;
 
@@ -47,7 +48,9 @@ namespace LimitStateMethod.CableStayed
                       
                     case eDesignStandard.BritishStandard:
                         return iApp.Tables.BS_SteelBeams;
-                   
+                                         
+                    case eDesignStandard.LRFDStandard:
+                        return iApp.Tables.AISC_SteelBeams;
                 }
                 return iApp.Tables.IS_SteelBeams;
             }
@@ -60,10 +63,10 @@ namespace LimitStateMethod.CableStayed
                 {
                     case eDesignStandard.IndianStandard:
                         return iApp.Tables.IS_SteelChannels;
-                        break;
+                       
                     case eDesignStandard.BritishStandard:
                         return iApp.Tables.BS_SteelChannels;
-                        break;
+                       
                 }
                 return iApp.Tables.IS_SteelChannels;
             }
@@ -616,7 +619,7 @@ namespace LimitStateMethod.CableStayed
         #endregion Members
 
         #region User Events
-        public frmCableStayed_LS(IApplication app)
+        public frmCableStayed_AASHTO(IApplication app)
         {
             InitializeComponent();
             iApp = app;
@@ -1820,9 +1823,15 @@ namespace LimitStateMethod.CableStayed
             pylon.Clear();
             tie_beam.Clear();
 
+
+            List<List<int>> list_long_mems = new List<List<int>>();
+            List<int> mems = new List<int>();
+
             #region Long Girders
             for (i = 0; i < list_z_values.Count; i++)
             {
+                mems = new List<int>();
+                list_long_mems.Add(mems);
                 for (j = 1; j < list_x_values.Count; j++)
                 {
                     mbr = new Member();
@@ -1842,7 +1851,7 @@ namespace LimitStateMethod.CableStayed
 
                     long_girders.Add(mbr);
 
-
+                    mems.Add(mbr.MemberNo);
 
                     //if (HA_Dists.Contains(mbr.EndNode.Z) && HA_Dists.Contains(mbr.StartNode.Z))
 
@@ -1874,12 +1883,32 @@ namespace LimitStateMethod.CableStayed
                 }
             }
             list_member_group.Clear();
-            kStr = MyList.Get_Array_Text(list_side_mem_no);
-            list_member_group.Add(string.Format("_LGIRDER1 {0}", kStr));
+          
 
-            kStr = MyList.Get_Array_Text(list_center_mem_no);
-            list_member_group.Add(string.Format("_LGIRDER2 {0}", kStr));
 
+            if(list_long_mems.Count > 0)
+            {
+                kStr = MyList.Get_Array_Text(list_long_mems[0]);
+                kStr = kStr + " " + MyList.Get_Array_Text(list_long_mems[4]);
+                list_member_group.Add(string.Format("_LGIRDER1 {0}", kStr));
+
+
+                kStr = MyList.Get_Array_Text(list_long_mems[1]);
+                kStr = kStr + " " + MyList.Get_Array_Text(list_long_mems[3]);
+                list_member_group.Add(string.Format("_LGIRDER2 {0}", kStr));
+
+                kStr = MyList.Get_Array_Text(list_long_mems[2]);
+                list_member_group.Add(string.Format("_LGIRDER3 {0}", kStr));
+            }
+            else
+            {
+                kStr = MyList.Get_Array_Text(list_side_mem_no);
+                list_member_group.Add(string.Format("_LGIRDER1 {0}", kStr));
+
+                kStr = MyList.Get_Array_Text(list_center_mem_no);
+                list_member_group.Add(string.Format("_LGIRDER2 {0}", kStr));
+
+            }
             #endregion Long Girders
 
             #region Cross Girder
@@ -7885,7 +7914,7 @@ namespace LimitStateMethod.CableStayed
             {
                 kStr = MyList.RemoveAllSpaces(list[i].Trim().TrimStart().TrimEnd().ToUpper());
                 mlist = new MyList(kStr, '=');
-
+                
 
                 if (mlist.StringList[0].StartsWith("GEN") && !IsCreateData)
                 {
@@ -8729,20 +8758,30 @@ namespace LimitStateMethod.CableStayed
                 Live_Load_List = LoadData.GetLiveLoads(Path.Combine(Path.GetDirectoryName(file_name), "ll.txt"));
                 if (dgv_Ana_live_load.RowCount != 0)
                 {
+                    //load_lst.AddRange(Get_MovingLoad_Data(Live_Load_List));
                     lst_mll.AddRange(Get_MovingLoad_Data(Live_Load_List));
                 }
             }
 
             load_lst.Remove("");
             inp_file_cont.InsertRange(indx, load_lst);
+            //inp_file_cont.InsertRange(indx, );
+
+            //File.WriteAllLines(Input_Data_Nonlinear, inp_file_cont.ToArray());
 
             indx = indx + load_lst.Count;
 
             inp_file_cont.InsertRange(indx, lst_mll);
 
+
             while (inp_file_cont.Contains("")) inp_file_cont.Remove("");
 
+
             File.WriteAllLines(file_name, inp_file_cont.ToArray());
+
+
+
+
         }
         public void Show_ReadMemberLoad(string file_name)
         {
@@ -10338,6 +10377,14 @@ namespace LimitStateMethod.CableStayed
                     iApp.Tables.BS_SteelAngles.Read_Angle_Sections(ref cmb_cross_ang_section_name, true);
                     iApp.Tables.IS_SteelAngles.Read_Angle_Sections(ref cmb_cross_ang_section_name, false);
                 }
+                else if (iApp.Tables.DesignStandard == eDesignStandard.LRFDStandard)
+                {
+                    iApp.Tables.AISC_SteelAngles.Read_Angle_Sections(ref cmb_Long_ang_section_name, true);
+                    iApp.Tables.AISC_SteelAngles.Read_Angle_Sections(ref cmb_Long_ang_section_name, false);
+
+                    iApp.Tables.AISC_SteelAngles.Read_Angle_Sections(ref cmb_cross_ang_section_name, true);
+                    iApp.Tables.AISC_SteelAngles.Read_Angle_Sections(ref cmb_cross_ang_section_name, false);
+                }
                 else
                 {
                     iApp.Tables.IS_SteelAngles.Read_Angle_Sections(ref cmb_Long_ang_section_name, true);
@@ -10428,8 +10475,8 @@ namespace LimitStateMethod.CableStayed
 
                 }
                 #endregion Add Limit State Method Live Loads
-    
 
+                Section2_Section_Properties();
 
                 #region Deckslab
                 uC_Deckslab_BS1.iApp = iApp;
@@ -10506,32 +10553,9 @@ namespace LimitStateMethod.CableStayed
             #endregion Design Option
 
 
-            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-            {
-                Select_Moving_Load_Combo(dgv_british_loads, cmb_bs_view_moving_load);
-            }
-            else
-                Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
+
 
         }
-
-        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
-        {
-            string load = "";
-            cmb.Items.Clear();
-            for (int i = 0; i < dgv.RowCount - 1; i++)
-            {
-                load = dgv[0, i].Value.ToString();
-                if (load.StartsWith("LOAD"))
-                {
-                    if (!cmb.Items.Contains(load))
-                        cmb.Items.Add(load);
-                }
-            }
-            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
-
-        }
-
         private void dgv_section_property_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -13083,82 +13107,11 @@ namespace LimitStateMethod.CableStayed
             Text_Changed();
         }
 
-
-        double Get_Max_Vehicle_Length()
-        {
-            double mvl = 13.4;
-
-            List<double> lst_mvl = new List<double>();
-            DataGridView dgv = dgv_long_liveloads;
-
-            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-            {
-                dgv = dgv_long_british_loads;
-            }
-            for (int i = 0; i < dgv.RowCount; i++)
-            {
-                try
-                {
-                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
-                    {
-                        mvl = 0;
-                        for (int c = 1; c < dgv.ColumnCount; c++)
-                        {
-                            try
-                            {
-                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
-                            }
-                            catch (Exception exx)
-                            {
-
-                            }
-                        }
-                        lst_mvl.Add(mvl);
-                    }
-                }
-                catch (Exception ex1) { }
-
-            }
-            if (lst_mvl.Count > 0)
-            {
-                lst_mvl.Sort();
-                lst_mvl.Reverse();
-                mvl = lst_mvl[0];
-            }
-            return mvl;
-
-            double veh_len, veh_gap, train_length;
-
-            veh_len = mvl;
-            veh_gap = mvl;
-            train_length = veh_len;
-            double eff = L1;
-            bool fl = false;
-            while (train_length <= eff)
-            {
-                fl = !fl;
-                if (fl)
-                {
-                    train_length += veh_gap;
-                    if (train_length > eff)
-                    {
-                        train_length = train_length - veh_gap;
-                    }
-                }
-                else
-                {
-                    train_length += veh_len;
-                }
-            }
-
-            return train_length;
-        }
-
         void Text_Changed()
         {
             double L = L1 + L2 + L3;
 
-            txt_LL_load_gen.Text = (((L + Get_Max_Vehicle_Length()) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))) + 1).ToString("f0");
+            txt_LL_load_gen.Text = ((L) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))).ToString("f0");
 
             uC_RCC_Abut1.Length = L;
             uC_RCC_Abut1.Width = B;
@@ -13753,6 +13706,7 @@ namespace LimitStateMethod.CableStayed
         private void txt_deck_width_TextChanged(object sender, EventArgs e)
         {
             British_Interactive();
+
         }
 
 
@@ -13807,7 +13761,7 @@ namespace LimitStateMethod.CableStayed
             incr = MyList.StringToDouble(txt_ll_british_incr.Text, 0.0);
 
             if (incr == 0) incr = 1;
-            lgen = (int)(((L + Get_Max_Vehicle_Length()) / incr) + 1);
+            lgen = ((int)(L / incr)) + 1;
 
             nos_lane = (int)(d / lane_width);
 
@@ -14686,588 +14640,87 @@ namespace LimitStateMethod.CableStayed
             }
         }
 
-        private void btn_irc_view_moving_load_Click(object sender, EventArgs e)
+        AASHTO_Box_Section aashto_box;
+        void Section2_Section_Properties()
         {
+            aashto_box = new AASHTO_Box_Section();
 
-            Button btn = sender as Button;
+            int cs_cell_nos = MyList.StringToInt(txt_box_cs2_cell_nos.Text, 0);
+            double cs_b1 = MyList.StringToDouble(txt_box_cs2_b1.Text, 0.0);
+            double cs_b2 = MyList.StringToDouble(txt_box_cs2_b2.Text, 0.0);
+            double cs_b3 = MyList.StringToDouble(txt_box_cs2_b3.Text, 0.0);
+            double cs_b4 = MyList.StringToDouble(txt_box_cs2_b4.Text, 0.0);
+            double cs_b5 = MyList.StringToDouble(txt_box_cs2_b5.Text, 0.0);
+            double cs_b6 = MyList.StringToDouble(txt_box_cs2_b6.Text, 0.0);
+            double cs_b7 = MyList.StringToDouble(txt_box_cs2_b7.Text, 0.0);
+            double cs_b8 = MyList.StringToDouble(txt_box_cs2_b8.Text, 0.0);
 
-            if (!Check_Project_Folder()) return;
-            if (Path.GetFileName(user_path) != Project_Name)
-            {
 
-                Create_Project();
-
-            }
-            if (!Directory.Exists(user_path))
-                Directory.CreateDirectory(user_path);
-
-            Input_Data = Path.Combine(user_path, "INPUT_DATA.TXT");
-
-            if (!File.Exists(CSB_DATA_File))
-            {
-                string sf = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Cable Stayed Bridge\" + Path.GetFileName(CSB_DATA_File));
-
-                if (File.Exists(sf))
-                    File.Copy(sf, CSB_DATA_File);
-            }
-
-            Text_Changed();
-            if (dgv_section_property.RowCount < 2)
-                ReadData();
-
-            try
-            {
-
-                CreateData_Total_Structure();
-                CreateData_Total_Structure_LL();
-
-                Bridge_Analysis = new BridgeMemberAnalysis(iApp, Input_Data);
-                Calculate_Total_Weight();
-
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.TotalAnalysis_Input_File, true, true, 1);
-
-                File.WriteAllLines(Input_Data_Nonlinear, File.ReadAllLines(CS_Analysis.DeadLoadAnalysis_Input_File));
-
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.Input_File, true, true);
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.TotalAnalysis_Input_File, true, true);
-
-                for (int i = 0; i < all_loads.Count; i++)
-                {
-                    Ana_Write_Long_Girder_Load_Data(CS_Analysis.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
-
-                }
+            double cs_d1 = MyList.StringToDouble(txt_box_cs2_d1.Text, 0.0);
+            double cs_d2 = MyList.StringToDouble(txt_box_cs2_d2.Text, 0.0);
+            double cs_d3 = MyList.StringToDouble(txt_box_cs2_d3.Text, 0.0);
+            double cs_d4 = MyList.StringToDouble(txt_box_cs2_d4.Text, 0.0);
+            double cs_d5 = MyList.StringToDouble(txt_box_cs2_d5.Text, 0.0);
 
 
 
-            }
-            catch (Exception exx)
-            {
-                MessageBox.Show("Wrong Input Data", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            aashto_box.Cell_Nos = cs_cell_nos;
+            aashto_box.b1 = cs_b3;
+            aashto_box.d1 = cs_d3;
 
 
-            Write_Ana_Load_Data();
+
+            aashto_box.b2 = cs_b4;
+            aashto_box.d2 = cs_d4 - cs_d3 - cs_d5;
+
+            aashto_box.b3 = cs_b8;
+            aashto_box.d3 = cs_d5;
 
 
-            string ll_file = CS_Analysis.Get_LL_Analysis_Input_File(cmb_irc_view_moving_load.SelectedIndex + 1);
+            aashto_box.b4 = cs_b6;
+            aashto_box.d4 = cs_d1;
 
-            //iApp.View_MovingLoad(ll_file);
-            iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_irc_vehicle_gap.Text));
+            aashto_box.b5 = cs_b6;
+            aashto_box.d5 = cs_d2 - cs_d1;
+
+            aashto_box.b6 = cs_b5;
+            //aashto_box.d6 = cs_d;
+
+            aashto_box.b7 = cs_b7;
+            aashto_box.d7 = cs_d3;
+
+            aashto_box.b8 = cs_b7;
+            aashto_box.d8 = cs_d2 - cs_d3;
+
+            double val = cs_d4 - cs_d3 - cs_d5;
+
+            double theta = Math.Atan(cs_b7 / val);
+            aashto_box.theta_radian = theta;
+
+
+            double b10 = Math.Tan(theta) * cs_d5;
+
+            aashto_box.b9 = cs_b5 - b10;
+            aashto_box.d9 = cs_d5;
+
+            aashto_box.b10 = b10;
+            aashto_box.d10 = cs_d5;
+
+
+            txt_box_cs2_AX.Text = aashto_box.AX.ToString("f0");
+            txt_box_cs2_IXX.Text = aashto_box.IXX.ToString("f0");
+            txt_box_cs2_IYY.Text = aashto_box.IYY.ToString("f0");
+
+
 
         }
 
-        private void btn_bs_view_moving_load_Click(object sender, EventArgs e)
+        private void txt_box_cs2_b1_TextChanged(object sender, EventArgs e)
         {
-
-            Button btn = sender as Button;
-
-            if (!Check_Project_Folder()) return;
-            if (Path.GetFileName(user_path) != Project_Name)
-            {
-
-                Create_Project();
-
-            }
-            if (!Directory.Exists(user_path))
-                Directory.CreateDirectory(user_path);
-
-            Input_Data = Path.Combine(user_path, "INPUT_DATA.TXT");
-
-
-            British_Interactive();
-
-            if (!File.Exists(CSB_DATA_File))
-            {
-                string sf = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Cable Stayed Bridge\" + Path.GetFileName(CSB_DATA_File));
-
-                if (File.Exists(sf))
-                    File.Copy(sf, CSB_DATA_File);
-            }
-            if (dgv_section_property.RowCount < 2)
-                ReadData();
-
-            try
-            {
-
-                CreateData_Total_Structure();
-                CreateData_Total_Structure_LL();
-
-                Bridge_Analysis = new BridgeMemberAnalysis(iApp, Input_Data);
-                Calculate_Total_Weight();
-
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.TotalAnalysis_Input_File, true, true, 1);
-
-                File.WriteAllLines(Input_Data_Nonlinear, File.ReadAllLines(CS_Analysis.DeadLoadAnalysis_Input_File));
-
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.Input_File, true, true);
-                Ana_Write_Long_Girder_Load_Data(CS_Analysis.TotalAnalysis_Input_File, true, true);
-
-                for (int i = 0; i < all_loads.Count; i++)
-                {
-                    Ana_Write_Long_Girder_Load_Data(CS_Analysis.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
-
-                }
-
-
-
-            }
-            catch (Exception exx)
-            {
-                MessageBox.Show("Wrong Input Data", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            Write_Ana_Load_Data();
-
-            string ll_file = CS_Analysis.Get_LL_Analysis_Input_File(cmb_bs_view_moving_load.SelectedIndex + 1);
-
-            //iApp.View_MovingLoad(ll_file);
-            iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
-
+            Section2_Section_Properties();
         }
+
 
     }
-
-    public class CABLE_STAYED_LS_Analysis
-    {
-        IApplication iApp;
-        public JointNodeCollection Joints { get; set; }
-       
-        public MemberCollection MemColls { get; set; }
-
-        public BridgeMemberAnalysis TotalLoad_Analysis = null;
-        public BridgeMemberAnalysis LiveLoad_Analysis = null;
-
-        public BridgeMemberAnalysis LiveLoad_1_Analysis = null;
-        public BridgeMemberAnalysis LiveLoad_2_Analysis = null;
-        public BridgeMemberAnalysis LiveLoad_3_Analysis = null;
-        public BridgeMemberAnalysis LiveLoad_4_Analysis = null;
-        public BridgeMemberAnalysis LiveLoad_5_Analysis = null;
-        public BridgeMemberAnalysis LiveLoad_6_Analysis = null;
-
-        public List<BridgeMemberAnalysis> All_LL_Analysis = null;
-
-
-
-
-
-        public BridgeMemberAnalysis DeadLoad_Analysis = null;
-
-        public List<LoadData> LoadList_1 = null;
-        public List<LoadData> LoadList_2 = null;
-        public List<LoadData> LoadList_3 = null;
-        public List<LoadData> LoadList_4 = null;
-        public List<LoadData> LoadList_5 = null;
-        public List<LoadData> LoadList_6 = null;
-
-
-
-        public List<LoadData> Live_Load_List = null;
-        TotalDeadLoad SIDL = null;
-
-        public int _Columns = 0, _Rows = 0;
-
-        double span_length = 0.0;
-
-
-        List<MemberSectionProperty> SectionProperty { get; set; }
-
-
-
-        //Chiranjit [2013 06 06] Kolkata
-
-        public string List_Envelop_Inner { get; set; }
-        public string List_Envelop_Outer { get; set; }
-
-        public string Start_Support { get; set; }
-        public string End_Support { get; set; }
-
-
-        public string LiveLoad_File
-        {
-            get
-            {
-                return Path.Combine(Working_Folder, "LL.TXT");
-            }
-        }
-        public string Analysis_Report
-        {
-            get
-            {
-                return Path.Combine(Working_Folder, "ANALYSIS_REP.TXT");
-            }
-        }
-        #region Analysis Input File
-        #endregion Analysis Input File
-        public string Input_File
-        {
-            get
-            {
-                return input_file;
-            }
-            set
-            {
-                input_file = value;
-                if (File.Exists(value))
-                    user_path = Path.GetDirectoryName(input_file);
-            }
-        }
-        //Chiranjit [2012 05 27]
-        public string TotalAnalysis_Input_File
-        {
-            get
-            {
-                if (Directory.Exists(Working_Folder))
-                {
-                    string pd = Path.Combine(Working_Folder, "DL + LL Combine Analysis");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
-                    return Path.Combine(pd, "DL_LL_Combine_Input_File.txt");
-                }
-                return "";
-            }
-        }
-        //Chiranjit [2012 05 27]
-        public string LiveLoadAnalysis_Input_File
-        {
-            get
-            {
-                if (Directory.Exists(Working_Folder))
-                {
-                    string pd = Path.Combine(Working_Folder, "Live Load Analysis");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
-                    return Path.Combine(pd, "LiveLoad_Analysis_Input_File.txt");
-                }
-                return "";
-            }
-        }
-
-        public string DeadLoadAnalysis_Input_File
-        {
-            get
-            {
-                if (Directory.Exists(Working_Folder))
-                {
-                    string pd = Path.Combine(Working_Folder, "Dead Load Analysis");
-                    if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
-                    return Path.Combine(pd, "DeadLoad_Analysis_Input_File.txt");
-                }
-                return "";
-            }
-        }
-
-        //Chiranjit [2014 10 22]
-        public string Get_LL_Analysis_Input_File(int AnalysisNo)
-        {
-            if (AnalysisNo <= 0) return "";
-
-            if (Directory.Exists(Working_Folder))
-            {
-                string pd = Path.Combine(Working_Folder, "LL Analysis Load " + AnalysisNo);
-                if (!Directory.Exists(pd)) Directory.CreateDirectory(pd);
-                return Path.Combine(pd, "LL_Load_" + AnalysisNo + "_Input_File.txt");
-            }
-            return "";
-        }
-        public string Working_Folder
-        {
-            get
-            {
-                if (File.Exists(Input_File))
-                    return Path.GetDirectoryName(Input_File);
-                return "";
-            }
-        }
-
-
-        string input_file, user_path;
-        public CABLE_STAYED_LS_Analysis(IApplication thisApp)
-        {
-            iApp = thisApp;
-            input_file = "";
-            //Length = WidthBridge = Effective_Depth = Skew_Angle = Width_LeftCantilever = 0.0;
-            //Input_File = "";
-
-            Joints = new JointNodeCollection();
-            MemColls = new MemberCollection();
-            List_Envelop_Inner = "";
-            List_Envelop_Outer = "";
-        }
-
-
-        //Chiranjit [2013 05 03]
-        public List<string> joints_list_for_load = new List<string>();
-
-        #region Chiranjit [2014 09 02] For British Standard
-
-        public List<int> HA_Lanes;
-
-        public string HA_Loading_Members;
-        public void CreateData_British()
-        {
-
-            //double x_incr = (Length / (Total_Columns - 1));
-            //double z_incr = (WidthBridge / (Total_Rows - 1));
-
-            JointNode nd;
-            //Joints_Array = new JointNode[Total_Rows, Total_Columns];
-            //Long_Girder_Members_Array = new Member[Total_Rows, Total_Columns - 1];
-            //Cross_Girder_Members_Array = new Member[Total_Rows - 1, Total_Columns];
-
-
-            int iCols = 0;
-            int iRows = 0;
-
-            if (Joints == null)
-                Joints = new JointNodeCollection();
-            Joints.Clear();
-
-
-            double last_x = 0.0;
-            double last_z = 0.0;
-
-            List<double> list_x = new List<double>();
-            List<double> list_z = new List<double>();
-            Hashtable z_table = new Hashtable();
-
-            //Store Joint Coordinates
-            double L_2, L_4, eff_d;
-            double x_max, x_min;
-
-            //int _Columns, _Rows;
-
-            //_Columns = Total_Columns;
-            //_Rows = Total_Rows;
-
-            last_x = 0.0;
-
-            #region Chiranjit [2011 09 23] Correct Create Data
-
-
-            List<double> HA_distances = new List<double>();
-            if (HA_Lanes.Count > 0)
-            {
-                double ha = 0.0;
-
-                for (int i = 0; i < HA_Lanes.Count; i++)
-                {
-                    ha = 1.75 + (HA_Lanes[i] - 1) * 3.5;
-                    if (!list_z.Contains(ha))
-                    {
-                        list_z.Add(ha);
-                        HA_distances.Add(ha);
-                    }
-                }
-            }
-
-            list_z.Sort();
-
-            #endregion Chiranjit [2011 09 23] Correct Create Data
-
-            _Columns = list_x.Count;
-            _Rows = list_z.Count;
-
-            //int i = 0;
-
-            List<double> list = new List<double>();
-
-            for (iRows = 0; iRows < _Rows; iRows++)
-            {
-                list = new List<double>();
-                for (iCols = 0; iCols < _Columns; iCols++)
-                {
-                    list.Add(list_x[iCols] + list_z[iRows]);
-                }
-                z_table.Add(list_z[iRows], list);
-            }
-
-            int nodeNo = 0;
-            Joints.Clear();
-
-
-            #region Chiranjit [2013 05 30]
-          
-            #endregion Chiranjit [2013 05 30]
-
-            #region Chiranjit [2013 06 06]
-
-            #endregion Chiranjit [2013 06 06]
-        }
-
-        #endregion Chiranjit [2014 09 02] For British Standard
-
-        public void Clear()
-        {
-            MemColls.Clear();
-            MemColls = null;
-        }
-        public void LoadReadFromGrid(DataGridView dgv_live_load)
-        {
-            LoadData ld = new LoadData();
-            int i = 0;
-            LoadList_1 = new List<LoadData>();
-            //LoadList.Clear();
-            MyList mlist = null;
-            for (i = 0; i < dgv_live_load.RowCount; i++)
-            {
-                try
-                {
-                    ld = new LoadData();
-                    mlist = new MyList(MyList.RemoveAllSpaces(dgv_live_load[0, i].Value.ToString().ToUpper()), ':');
-                    ld.TypeNo = mlist.StringList[0];
-                    ld.Code = mlist.StringList[1];
-                    ld.X = MyList.StringToDouble(dgv_live_load[1, i].Value.ToString(), -60.0);
-                    ld.Y = MyList.StringToDouble(dgv_live_load[2, i].Value.ToString(), 0.0);
-                    ld.Z = MyList.StringToDouble(dgv_live_load[3, i].Value.ToString(), 1.0);
-                    for (int j = 0; j < Live_Load_List.Count; j++)
-                    {
-                        if (Live_Load_List[j].TypeNo == ld.TypeNo)
-                        {
-                            ld.LoadWidth = Live_Load_List[j].LoadWidth;
-                            break;
-                        }
-                    }
-                    if ((ld.Z + ld.LoadWidth) > WidthBridge)
-                    {
-                        throw new Exception("Width of Bridge Deck is insufficient to accommodate \ngiven numbers of Lanes of Vehicle Load. \n\nBridge Width = " + WidthBridge + " <  Load Width (" + ld.Z + " + " + ld.LoadWidth + ") = " + (ld.Z + ld.LoadWidth));
-                    }
-                    else
-                    {
-                        ld.XINC = MyList.StringToDouble(dgv_live_load[4, i].Value.ToString(), 0.5);
-                        ld.ImpactFactor = MyList.StringToDouble(dgv_live_load[5, i].Value.ToString(), 0.5);
-                        LoadList_1.Add(ld);
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show(ex.Message, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            #region Set Loads
-
-            List<LoadData> LoadList_tmp = new List<LoadData>(LoadList_1.ToArray());
-
-            LoadList_2 = new List<LoadData>();
-            LoadList_3 = new List<LoadData>();
-            LoadList_4 = new List<LoadData>();
-            LoadList_5 = new List<LoadData>();
-            LoadList_6 = new List<LoadData>();
-
-            LoadList_1.Clear();
-
-            //70 R Wheel
-            ld = new LoadData(Live_Load_List[2]);
-
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[0].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_1.Add(ld);
-
-
-            //1 Lane Class A
-            ld = new LoadData(Live_Load_List[0]);
-
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[0].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_2.Add(ld);
-
-
-
-            //2 Lane Class A
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[0].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_3.Add(ld);
-
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[1].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_3.Add(ld);
-
-
-
-            //3 Lane Class A
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[0].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_4.Add(ld);
-
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[1].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_4.Add(ld);
-
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[2].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_4.Add(ld);
-
-
-            //1 Lane Class A + 70 RW
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[0].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_5.Add(ld);
-
-            ld = new LoadData(Live_Load_List[2]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[1].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_5.Add(ld);
-
-
-
-            //70 RW + 1 Lane Class A 
-            ld = new LoadData(Live_Load_List[2]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[0].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_6.Add(ld);
-
-            ld = new LoadData(Live_Load_List[0]);
-            ld.X = ld.Distance;
-            ld.Y = LoadList_tmp[0].Y;
-            ld.Z = LoadList_tmp[1].Z;
-            ld.XINC = LoadList_tmp[0].XINC;
-
-            LoadList_6.Add(ld);
-
-            #endregion Set Loads
-
-        }
-
-        public double WidthBridge { get; set; }
-    }
-
 
 }

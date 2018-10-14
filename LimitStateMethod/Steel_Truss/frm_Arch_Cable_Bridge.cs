@@ -45,7 +45,7 @@ namespace LimitStateMethod.Steel_Truss
         //TableRolledSteelAngles tbl_rolledSteelAngles = null;
 
         BridgeMemberAnalysis Truss_Analysis = null;
-        
+
         List<BridgeMemberAnalysis> List_Analysis = null;
 
 
@@ -525,14 +525,14 @@ namespace LimitStateMethod.Steel_Truss
                 {
                     //if (complete_design.Members.Count == 0)
                     //{
-                        complete_design = new CompleteDesign();
-                        complete_design.ReadFromFile(file_name);
+                    complete_design = new CompleteDesign();
+                    complete_design.ReadFromFile(file_name);
 
-                        foreach (var item in complete_design.Members)
-                        {
-                            item.Calculate_Area_Properties(iApp);
+                    foreach (var item in complete_design.Members)
+                    {
+                        item.Calculate_Area_Properties(iApp);
 
-                        }
+                    }
                     //}
                     SetMemberDetails();
                     dgv_mem_details.Rows.Clear();
@@ -903,7 +903,7 @@ namespace LimitStateMethod.Steel_Truss
                         sw.WriteLine("MAXIMUM  NODE DISPLACEMENTS = {0:f5} M. > {1:f5} M. ", Max_Node_Displacement.Max_Translation, val);
                         //sw.WriteLine("MAXIMUM  NODE DISPLACEMENTS = {0:f5} M. > {1:f5} M.    NOT OK.", Max_Node_Displacement.Max_Translation, val);
                     }
-                   
+
                     #endregion CHECK FOR LIVE LOAD DEFLECTION
 
                     sw.WriteLine();
@@ -1031,7 +1031,7 @@ namespace LimitStateMethod.Steel_Truss
                 sw.WriteLine("---------------------       END OF REPORT        --------------------------");
                 sw.WriteLine("---------------------------------------------------------------------------");
                 #endregion
-                
+
             }
             catch (Exception ex) { }
             finally
@@ -1064,7 +1064,7 @@ namespace LimitStateMethod.Steel_Truss
             set
             {
                 user_path = value;
-             
+
                 this.Text = "DESIGN OF ARCH CABLE SUSPENSION BRIDGE : " + MyList.Get_Modified_Path(value);
 
                 file_path = user_path;
@@ -1153,7 +1153,7 @@ namespace LimitStateMethod.Steel_Truss
 
             //member.Weight = MyList.StringToDouble(txt_cd_wgt.Text, 0.0);
 
-            
+
 
             member.SectionDetails.TopPlate.Width = MyList.StringToDouble(txt_tp_width.Text, 0.0);
             member.SectionDetails.TopPlate.Thickness = MyList.StringToDouble(txt_tp_thk.Text, 0.0);
@@ -1174,14 +1174,14 @@ namespace LimitStateMethod.Steel_Truss
                 || member.SectionDetails.DefineSection == eDefineSection.Section12
                 || member.SectionDetails.DefineSection == eDefineSection.Section13
                 || member.SectionDetails.DefineSection == eDefineSection.Section14
-                
+
                 )
             {
                 member.SectionDetails.SidePlate.TotalPlates = 1;
             }
             else
                 member.SectionDetails.SidePlate.TotalPlates = 2;
-            
+
             member.SectionDetails.VerticalStiffenerPlate.Width = MyList.StringToDouble(txt_vsp_wd.Text, 0.0);
             member.SectionDetails.VerticalStiffenerPlate.Thickness = MyList.StringToDouble(txt_vsp_thk.Text, 0.0);
             member.SectionDetails.VerticalStiffenerPlate.Length = member.Length;
@@ -1215,7 +1215,7 @@ namespace LimitStateMethod.Steel_Truss
             double wt_p_m = 0.0;
             try
             {
-                if(m.SectionDetails.DefineSection == eDefineSection.Section16 ||
+                if (m.SectionDetails.DefineSection == eDefineSection.Section16 ||
                     m.SectionDetails.DefineSection == eDefineSection.Section17)
                 {
                     wt_p_m = m.SectionDetails.Cables_Strands.WeightPerMetre * 1000.0;
@@ -1482,32 +1482,32 @@ namespace LimitStateMethod.Steel_Truss
             }
             else if (member.Group.GroupName.StartsWith("_STRIN"))
             {
-                
-                    member.SectionDetails.NoOfElements = 1.0;
-                    member.SectionDetails.DefineSection = eDefineSection.Section5;
-                    member.SectionDetails.SectionName = "ISMB";
-                    member.SectionDetails.SectionCode = "300";
-                    //mem.SectionDetails.AngleThickness = 10.0d;
 
-                    member.SectionDetails.TopPlate.Width = 0;
-                    member.SectionDetails.TopPlate.Thickness = 0.0;
+                member.SectionDetails.NoOfElements = 1.0;
+                member.SectionDetails.DefineSection = eDefineSection.Section5;
+                member.SectionDetails.SectionName = "ISMB";
+                member.SectionDetails.SectionCode = "300";
+                //mem.SectionDetails.AngleThickness = 10.0d;
 
-                    member.SectionDetails.SidePlate.Width = 0.0;
-                    member.SectionDetails.SidePlate.Thickness = 0.0;
+                member.SectionDetails.TopPlate.Width = 0;
+                member.SectionDetails.TopPlate.Thickness = 0.0;
 
-
-                    member.SectionDetails.VerticalStiffenerPlate.Width = 0;
-                    member.SectionDetails.VerticalStiffenerPlate.Thickness = 0;
-
-                    member.SectionDetails.BottomPlate.Width = 0.0;
-                    member.SectionDetails.BottomPlate.Thickness = 0.0;
-                    //member.SectionDetails.BottomPlate.Width = 150.0;
-                    //member.SectionDetails.BottomPlate.Thickness = 40.0;
+                member.SectionDetails.SidePlate.Width = 0.0;
+                member.SectionDetails.SidePlate.Thickness = 0.0;
 
 
-                    member.SectionDetails.LateralSpacing = 0.0;
-                    member.SectionDetails.NoOfBolts = 0;
-                    member.SectionDetails.BoltDia = 0;
+                member.SectionDetails.VerticalStiffenerPlate.Width = 0;
+                member.SectionDetails.VerticalStiffenerPlate.Thickness = 0;
+
+                member.SectionDetails.BottomPlate.Width = 0.0;
+                member.SectionDetails.BottomPlate.Thickness = 0.0;
+                //member.SectionDetails.BottomPlate.Width = 150.0;
+                //member.SectionDetails.BottomPlate.Thickness = 40.0;
+
+
+                member.SectionDetails.LateralSpacing = 0.0;
+                member.SectionDetails.NoOfBolts = 0;
+                member.SectionDetails.BoltDia = 0;
 
             }
             else if (member.Group.GroupName.StartsWith("_XGIR"))
@@ -1571,7 +1571,7 @@ namespace LimitStateMethod.Steel_Truss
 
             }
             #endregion Chiranjit [2014 01 20]
-            
+
             switch (member.Group.GroupName)
             {
                 #region Bottom Chord
@@ -2140,7 +2140,7 @@ namespace LimitStateMethod.Steel_Truss
                     member.SectionDetails.NoOfBolts = 2;
                     member.SectionDetails.BoltDia = 20;
 
-                    
+
                     break;
                 #endregion Vertical
 
@@ -3064,7 +3064,7 @@ namespace LimitStateMethod.Steel_Truss
                         //dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), iApp.LiveLoads[0].Distance, 0, 4.5, 0.5, iApp.LiveLoads[0].ImpactFactor);
                         dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), txt_X.Text, 0, 1.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
                         dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), txt_X.Text, 0, 4.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
-              
+
                     }
                     if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                     {
@@ -3082,9 +3082,9 @@ namespace LimitStateMethod.Steel_Truss
                         //Chiranjit [2013 08 19]
                         dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), txt_X.Text, 0, 2.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
                         dgv_live_load.Rows.Add(cmb_load_type.Items[0].ToString(), txt_X.Text, 0, 5.5, 0.5, iApp.LiveLoads[0].ImpactFactor); //Chiranjit [2013 05 31]
-                  
-                    
-                    
+
+
+
                     }
                 }
             }
@@ -3119,8 +3119,8 @@ namespace LimitStateMethod.Steel_Truss
                 btn_View_Moving_Load.Enabled = File.Exists(MyList.Get_LL_TXT_File(Truss_Analysis.Analysis_File)) &&
                                             File.Exists(MyList.Get_Analysis_Report_File(Truss_Analysis.Analysis_File));
 
-            
-                
+
+
                 btn_input_open.Enabled = File.Exists(Truss_Analysis.Analysis_File);
 
                 btn_open_analysis.Enabled = File.Exists(MyList.Get_Analysis_Report_File(Get_User_Input_File_Name(0)));
@@ -3752,12 +3752,12 @@ namespace LimitStateMethod.Steel_Truss
                 mem.DesignReport.Add(string.Format("Obtained from Analysis Report File."));
                 mem.DesignReport.Add(string.Format(""));
                 if (mem.MaxTensionForce.Force != 0.0)
-                {   
+                {
                     //[MemberNo = {1} , LoadNo = {2}]", mem.MaxCompForce.Force, mem.MaxCompForce.MemberNo, mem.MaxCompForce.Loadcase));
                     mem.DesignReport.Add(string.Format("MAXIMUM TENSILE FORCE = {0:f3} kN      [MemberNo = {1} , LoadNo = {2}  in {3}]", mem.MaxTensionForce,
                         mem.MaxTensionForce.MemberNo, mem.MaxTensionForce.Loadcase, Path.GetFileNameWithoutExtension(Get_User_Input_File_Name(mem.MaxBendingMoment.File_Index))));
                     mem.DesignReport.Add(string.Format(""));
-                    mem.DesignReport.Add(string.Format("CORRESPONDING TENSILE STRESS = {0:f3} kN/sq.m       [MemberNo = {1} , LoadNo = {2}]", 
+                    mem.DesignReport.Add(string.Format("CORRESPONDING TENSILE STRESS = {0:f3} kN/sq.m       [MemberNo = {1} , LoadNo = {2}]",
                         mem.MaxTensionForce.Stress, mem.MaxTensionForce.MemberNo,
                         mem.MaxTensionForce.Loadcase));
                     mem.DesignReport.Add(string.Format(""));
@@ -3770,7 +3770,7 @@ namespace LimitStateMethod.Steel_Truss
                         mem.MaxCompForce, mem.MaxCompForce.MemberNo,
                         mem.MaxCompForce.Loadcase, Path.GetFileNameWithoutExtension(Get_User_Input_File_Name(mem.MaxCompForce.File_Index))));
                     mem.DesignReport.Add(string.Format(""));
-                    mem.DesignReport.Add(string.Format("CORRESPONDING COMPRESSIVE STRESS = {0:f3} kN/sq.m  [MemberNo = {1} , LoadNo = {2}]", 
+                    mem.DesignReport.Add(string.Format("CORRESPONDING COMPRESSIVE STRESS = {0:f3} kN/sq.m  [MemberNo = {1} , LoadNo = {2}]",
                         mem.MaxCompForce.Stress, mem.MaxCompForce.MemberNo, mem.MaxCompForce.Loadcase));
                     mem.DesignReport.Add(string.Format(""));
                 }
@@ -3785,8 +3785,8 @@ namespace LimitStateMethod.Steel_Truss
             mem.DesignReport.Add(string.Format(""));
             if (mem.Length != 0.0)
                 mem.DesignReport.Add(string.Format("Length of Member = ly = {0:f3} m", mem.Length));
-            if(bolt_dia != 0.0)
-            mem.DesignReport.Add(string.Format("Diameter of Bolt = bolt_dia = {0} mm", bolt_dia));
+            if (bolt_dia != 0.0)
+                mem.DesignReport.Add(string.Format("Diameter of Bolt = bolt_dia = {0} mm", bolt_dia));
             if (nb != 0.0)
                 mem.DesignReport.Add(string.Format("No of Bolt in a Section = nb = {0} ", nb));
             mem.DesignReport.Add(string.Format(""));
@@ -6142,7 +6142,7 @@ namespace LimitStateMethod.Steel_Truss
 
                     mem.Secondary_Stress_Ratio = ss_out;
                     mem.Secondary_Stress_Ratio_Capacity = 1.0;
-                    
+
                     mem.DesignReport.Add(string.Format("Secondary Stress Ratio = (fa / Fa) + (fb / Fb)"));
                     mem.DesignReport.Add(string.Format("                       = ({0:f3} / {1:f3}) + ({2:f3} / {3:f3})", fa, Fa, fb, Fb));
                     mem.DesignReport.Add(string.Format("                       = {0:f3} + {1:f3}", (fa / Fa), (fb / Fb)));
@@ -6316,7 +6316,7 @@ namespace LimitStateMethod.Steel_Truss
                     double Bolt_Grade = MyList.StringToDouble(txt_conn_Bolt_Grade.Text, 10.9);
                     mem.DesignReport.Add(string.Format("Bolt Grade = {0:f3}", Bolt_Grade));
 
-                  
+
                     mem.DesignReport.Add(string.Format("Permissible Shear Strength of Bolt = {0} N/Sq.mm", conn_fs));
                     mem.DesignReport.Add(string.Format(""));
 
@@ -6366,7 +6366,7 @@ namespace LimitStateMethod.Steel_Truss
                     mem.DesignReport.Add(string.Format("Number of Bolts Required = {0:f3} / {1:f3} = {2:f3} Nos", F, least, bolt_req));
                     mem.DesignReport.Add(string.Format(""));
                     if (nb > bolt_req)
-                        mem.DesignReport.Add(string.Format("Number of Bolts Provided = {0} nos  >  {1:f3} nos,   So, OK",nb , bolt_req));
+                        mem.DesignReport.Add(string.Format("Number of Bolts Provided = {0} nos  >  {1:f3} nos,   So, OK", nb, bolt_req));
                     else
                         mem.DesignReport.Add(string.Format("Number of Bolts Provided = {0} nos  <  {1:f3} nos,   So, NOT OK, change Bolt Grade", nb, bolt_req));
 
@@ -6406,7 +6406,7 @@ namespace LimitStateMethod.Steel_Truss
                     mem.DesignReport.Add(string.Format(""));
                     mem.DesignReport.Add(string.Format(""));
                     if (F < ld_wcc)
-                    mem.DesignReport.Add(string.Format("Actual Load through the Weld = {0:f3} kN  <  {1:f3} kN,   So,  OK", F, ld_wcc));
+                        mem.DesignReport.Add(string.Format("Actual Load through the Weld = {0:f3} kN  <  {1:f3} kN,   So,  OK", F, ld_wcc));
                     else
                         mem.DesignReport.Add(string.Format("Actual Load through the Weld = {0:f3} kN  >  {1:f3} kN,   So,  NOT OK", F, ld_wcc));
                     mem.DesignReport.Add(string.Format(""));
@@ -8232,7 +8232,7 @@ namespace LimitStateMethod.Steel_Truss
 
                             axial = Complete_Design.Members[i].MaxAxialForce;
 
-                            if(axial.ToString("f3") == "0.000")
+                            if (axial.ToString("f3") == "0.000")
                                 axial = Complete_Design.Members[i].MaxShearForce;
 
                             dgv_member_Results_arch_cables.Rows.Add(Complete_Design.Members[i].Group.GroupName,
@@ -8326,7 +8326,7 @@ namespace LimitStateMethod.Steel_Truss
         {
             try
             {
-                
+
                 for (int i = 0; i < dgv_member_Results_others.RowCount; i++)
                 {
                     for (int j = 0; j < dgv_member_Results_others.ColumnCount; j++)
@@ -8335,8 +8335,8 @@ namespace LimitStateMethod.Steel_Truss
                             dgv_member_Results_others[j, i].Value.ToString() == "0.000E+000")
                             dgv_member_Results_others[j, i].Value = "";
                     }
-                     
-                    if (dgv_member_Results_others[dgv_member_Results_others.ColumnCount -1, i].Value.ToString().ToUpper() == "NOT OK")
+
+                    if (dgv_member_Results_others[dgv_member_Results_others.ColumnCount - 1, i].Value.ToString().ToUpper() == "NOT OK")
                     {
                         SetGroupResultColor(dgv_member_Results_others[0, i].Value.ToString(), Color.Red);
                         dgv_member_Results_others.Rows[i].DefaultCellStyle.ForeColor = Color.Red;
@@ -8504,7 +8504,7 @@ namespace LimitStateMethod.Steel_Truss
                     }
                     catch (Exception eee) { }
                     sw.WriteLine(kStr);
-                     
+
                 }
             }
             catch (Exception ex) { }
@@ -8596,7 +8596,7 @@ namespace LimitStateMethod.Steel_Truss
 
             string kFile = Path.Combine(system_path, "Live_load.csv");
             StreamWriter sw = new StreamWriter(new FileStream(kFile, FileMode.Create));
-            
+
             try
             {
                 string s = "";
@@ -8802,7 +8802,7 @@ namespace LimitStateMethod.Steel_Truss
         {
             this.Close();
 
-            
+
         }
         private void btnDrawing_Click(object sender, EventArgs e)
         {
@@ -8907,7 +8907,7 @@ namespace LimitStateMethod.Steel_Truss
             complete_design = new CompleteDesign();
             cmb_Shr_Con_Section_name.Items.Clear();
 
-            if(iApp.DesignStandard == eDesignStandard.IndianStandard)
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                 cmb_select_standard.SelectedIndex = 1;
             else
                 cmb_select_standard.SelectedIndex = 0;
@@ -8981,18 +8981,18 @@ namespace LimitStateMethod.Steel_Truss
                 Abut.FilePath = user_path;
                 Deck.FilePath = user_path;
                 rcc_pier.FilePath = user_path;
-                    string chk_file = "";
+                string chk_file = "";
 
 
-                    //Read_All_Data();
-                    dgv_member_Results_arch_cables.Rows.Clear();
-                    dgv_member_Results_others.Rows.Clear();
-                    dgv_mem_details.Rows.Clear();
+                //Read_All_Data();
+                dgv_member_Results_arch_cables.Rows.Clear();
+                dgv_member_Results_others.Rows.Clear();
+                dgv_mem_details.Rows.Clear();
 
-                    txt_analysis_file.Text = Path.Combine(user_path, "INPUT_DATA.TXT");
-                    OpenAnalysisFile(txt_analysis_file.Text);
+                txt_analysis_file.Text = Path.Combine(user_path, "INPUT_DATA.TXT");
+                OpenAnalysisFile(txt_analysis_file.Text);
 
-                    prss = 1;
+                prss = 1;
                 //}
 
 
@@ -9050,7 +9050,7 @@ namespace LimitStateMethod.Steel_Truss
             }
             else
             {
-               
+
                 pnl_truss.Visible = true;
                 grb_cables.Visible = false;
             }
@@ -9438,7 +9438,7 @@ namespace LimitStateMethod.Steel_Truss
                     tbl_rolledSteelChannels.Read_Channel_Sections(ref cmb_section_name);
                     cmb_section_name.SelectedIndex = cmb_section_name.Items.Count > 0 ? 0 : -1;
 
-                    
+
                     txt_cab_dia.Text = "42";
                     txt_cab_thk.Text = "0";
                     break;
@@ -9918,7 +9918,7 @@ namespace LimitStateMethod.Steel_Truss
 
                 //System.Diagnostics.Process.Start(fn);
                 //iApp.RunExe(Path.Combine(Path.GetDirectoryName(fn), "LL.TXT"));
-                
+
                 //System.Diagnostics.Process.Start(Inpu);
             }
             catch (Exception ex) { }
@@ -9995,7 +9995,7 @@ namespace LimitStateMethod.Steel_Truss
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Text File (*.txt)|*.txt";
-                ofd.InitialDirectory =  Analysis_Path;
+                ofd.InitialDirectory = Analysis_Path;
                 if (ofd.ShowDialog() != DialogResult.Cancel)
                 {
                     isCreateData = false;
@@ -10071,7 +10071,7 @@ namespace LimitStateMethod.Steel_Truss
             {
                 MessageBox.Show(this, "The Load Data is not saved in the Analysis Input data File. \n\nThe button 'Save Section + Load data' is to be used to save Load Data in the Analysis Input data File",
                                     "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
+
                 //tabControl1.SelectedTab = tab_GD;
                 return;
             }
@@ -10085,7 +10085,7 @@ namespace LimitStateMethod.Steel_Truss
             //System.Environment.SetEnvironmentVariable("SURVEY", flPath);
             //System.Environment.SetEnvironmentVariable("ASTRA", flPath);
 
-            
+
 
 
             //prs.StartInfo.FileName = Path.Combine(Application.StartupPath, "ast001.exe");
@@ -10243,13 +10243,13 @@ namespace LimitStateMethod.Steel_Truss
 
             //for (int i = 0; i < Complete_Design.Members.Count; i++)
             //{
-                //CMember member = Complete_Design.Members[i];
-                //if (Truss_Analysis != null)
-                //{
-                //    member.Group = Truss_Analysis.Analysis.MemberGroups.GetMemberGroup(member.Group.GroupName);
-                //}
-                //member.Force = Truss_Analysis.GetForce(ref member);
-                //AddMemberRow(member);
+            //CMember member = Complete_Design.Members[i];
+            //if (Truss_Analysis != null)
+            //{
+            //    member.Group = Truss_Analysis.Analysis.MemberGroups.GetMemberGroup(member.Group.GroupName);
+            //}
+            //member.Force = Truss_Analysis.GetForce(ref member);
+            //AddMemberRow(member);
             //}
 
 
@@ -10282,7 +10282,7 @@ namespace LimitStateMethod.Steel_Truss
                         mbrs.Add(lst_mbrs[f][i]);
                     }
                 }
-                if(!flag)
+                if (!flag)
                     mbrs.Add(new CMember());
 
             }
@@ -10303,7 +10303,7 @@ namespace LimitStateMethod.Steel_Truss
                 flag = false;
                 for (int i = 0; i < lst_mbrs[f].Count; i++)
                 {
-                    if(lst_mbrs[f][i].Group.GroupName == mbr.Group.GroupName)
+                    if (lst_mbrs[f][i].Group.GroupName == mbr.Group.GroupName)
                     {
                         flag = true;
                         mbrs.Add(lst_mbrs[f][i]);
@@ -10322,7 +10322,7 @@ namespace LimitStateMethod.Steel_Truss
             kStr = "";
 
 
-            for(int i = 0; i < mbrs.Count;i++)
+            for (int i = 0; i < mbrs.Count; i++)
             {
                 if (i == 0)
                 {
@@ -10375,7 +10375,7 @@ namespace LimitStateMethod.Steel_Truss
                 }
             }
 
-            
+
             mbr.MaxCompForce = m.MaxCompForce;
             mbr.MaxTorsion = m.MaxTorsion;
             mbr.MaxBendingMoment = m.MaxBendingMoment;
@@ -10384,7 +10384,7 @@ namespace LimitStateMethod.Steel_Truss
             mbr.MaxStress = m.MaxStress;
             mbr.MaxTensionForce = m.MaxTensionForce;
 
-            if(mbr.Group.GroupName.StartsWith("_ICAB") ||
+            if (mbr.Group.GroupName.StartsWith("_ICAB") ||
                 mbr.Group.GroupName.StartsWith("_OCAB"))
             {
                 mbr.MaxCompForce = 0.0;
@@ -10689,7 +10689,7 @@ namespace LimitStateMethod.Steel_Truss
             string s = "DL ";
 
             bool isMoving_load = false;
-                int grp_count = 0;
+            int grp_count = 0;
 
             for (int f = 0; f < 5; f++)
             {
@@ -10709,11 +10709,11 @@ namespace LimitStateMethod.Steel_Truss
                 {
                     kStr = MyList.RemoveAllSpaces(inp_file_cont[i].ToUpper());
                     mlist = new MyList(kStr, ' ');
-                    if(i > 434)
+                    if (i > 434)
                         mlist = new MyList(kStr, ' ');
                     //if (kStr.Contains("LOAD GEN"))
                     //    isMoving_load = true;
-                    if(kStr.StartsWith("START GROUP"))
+                    if (kStr.StartsWith("START GROUP"))
                     {
                         do
                         {
@@ -10731,7 +10731,7 @@ namespace LimitStateMethod.Steel_Truss
                         i++;
                         for (int j = 0; j < grp_count; j++, i++)
                         {
-                            mlist = new MyList(MyList.RemoveAllSpaces( inp_file_cont[i]), ' ');
+                            mlist = new MyList(MyList.RemoveAllSpaces(inp_file_cont[i]), ' ');
                             CMember cm = Complete_Design.Members.Get_Member(mlist[0]);
                             if (cm != null)
                             {
@@ -10747,7 +10747,7 @@ namespace LimitStateMethod.Steel_Truss
                                 // cm.IXX == 0.0 ? cm.IYY : cm.IXX,
                                 // cm.IYY*10));
                             }
-                            
+
                         }
 
                     }
@@ -11325,13 +11325,13 @@ namespace LimitStateMethod.Steel_Truss
             _cw = MyList.StringToDouble(txt_cw.Text, 0.0);
             _rw = MyList.StringToDouble(txt_rw.Text, 0.0);
             _NP = MyList.StringToDouble(cmb_panel_nos.Text, 12.0);
-             _NS= MyList.StringToDouble(txt_stringers_nos.Text, 4.0);
+            _NS = MyList.StringToDouble(txt_stringers_nos.Text, 4.0);
 
 
-             txt_panel_Width.Text = (_cw / (_NS - 1)).ToString("f3");
+            txt_panel_Width.Text = (_cw / (_NS - 1)).ToString("f3");
 
-             _cgw = (int)(_L / _NP);
-            
+            _cgw = (int)(_L / _NP);
+
             txt_cgw.Text = (_cgw).ToString("f3");
 
 
@@ -11340,17 +11340,6 @@ namespace LimitStateMethod.Steel_Truss
 
 
 
-
-
-
-
-            txt_LL_load_gen.Text = (_L / MyList.StringToDouble(txt_XINCR.Text, 0.5)).ToString("f0");
-            
-            //txt_X.Text = "-" + txt_L.Text; //Chiranjit  [2013 05 28]
-
-
-            
-            //double 
 
 
             for (int i = 0; i < dgv_SIDL.RowCount - 1; i++)
@@ -11574,7 +11563,7 @@ namespace LimitStateMethod.Steel_Truss
             Abut.gamma_c = MyList.StringToDouble(txt_abut_gamma_c.Text, 0.0);
             Abut.phi = MyList.StringToDouble(txt_abut_phi.Text, 0.0);
             Abut.p = MyList.StringToDouble(txt_abut_p_bearing_capacity.Text, 0.0);
-  
+
             Abut.w6 = MyList.StringToDouble(txt_abut_w6.Text, 0.0);
             Abut.w5 = MyList.StringToDouble(txt_abut_w5.Text, 0.0);
             Abut.F = MyList.StringToDouble(txt_abut_F.Text, 0.0);
@@ -11921,8 +11910,8 @@ namespace LimitStateMethod.Steel_Truss
                 tot_live_vert_reac += Math.Abs(sr.Max_Reaction);
             }
 
-            txt_dead_vert_reac_ton.Text = (tot_dead_vert_reac/10).ToString("f3");
-            txt_live_vert_rec_Ton.Text = (tot_live_vert_reac/10).ToString("f3");
+            txt_dead_vert_reac_ton.Text = (tot_dead_vert_reac / 10).ToString("f3");
+            txt_live_vert_rec_Ton.Text = (tot_live_vert_reac / 10).ToString("f3");
         }
 
 
@@ -11941,7 +11930,11 @@ namespace LimitStateMethod.Steel_Truss
         {
             try
             {
-                txt_LL_load_gen.Text = ((MyList.StringToDouble(txt_L.Text, 1) / MyList.StringToDouble(txt_XINCR.Text, 1)) + 1).ToString("f0");
+                double _L = MyList.StringToDouble(txt_L.Text, 1) + Math.Abs(MyList.StringToDouble(txt_X.Text, 0.0));
+
+                txt_LL_load_gen.Text = (_L / MyList.StringToDouble(txt_XINCR.Text, 0.5)).ToString("f0");
+
+                //txt_LL_load_gen.Text = ((MyList.StringToDouble(txt_L.Text, 1) / MyList.StringToDouble(txt_XINCR.Text, 1)) + 1).ToString("f0");
 
                 for (int i = 0; i < dgv_live_load.RowCount; i++)
                 {
@@ -12003,9 +11996,9 @@ namespace LimitStateMethod.Steel_Truss
         string Right_support = "";
         public void frm_Pier_ViewDesign_Forces(string ANALYSIS_REPort_file, string left_support, string right_support)
         {
-           
+
             ANALYSIS_REP = ANALYSIS_REPort_file;
-            
+
             Left_support = left_support.Replace(",", " ");
             Right_support = right_support.Replace(",", " ");
         }
@@ -12038,7 +12031,7 @@ namespace LimitStateMethod.Steel_Truss
             list_arr.Add("");
             SupportReactionData sr = null;
 
-            MyList mlist = new MyList(MyList.RemoveAllSpaces( Left_support), ' ');
+            MyList mlist = new MyList(MyList.RemoveAllSpaces(Left_support), ' ');
 
             double tot_left_vert_reac = 0.0;
             double tot_right_vert_reac = 0.0;
@@ -12079,7 +12072,7 @@ namespace LimitStateMethod.Steel_Truss
             list_arr.Add(string.Format(format, "TOTAL", tot_left_vert_reac, tot_left_Mx, tot_left_Mz));
             list_arr.Add("");
 
-             mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
+            mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
             list_arr.Add("RIGHT END");
             list_arr.Add("--------");
             for (int i = 0; i < mlist.Count; i++)
@@ -12129,7 +12122,7 @@ namespace LimitStateMethod.Steel_Truss
 
 
             list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_max_Mx_kN.Text + " kN-m");
-            txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
             txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
 
             list_arr.Add("        MAXIMUM  MZ     = " + txt_final_Mz.Text + " Ton-M" + "  =  " + txt_max_Mz_kN.Text + " kN-m");
@@ -12139,7 +12132,7 @@ namespace LimitStateMethod.Steel_Truss
             list_arr.Add("                  END OF DESIGN FORCES FOR RCC PIER DESIGN");
             list_arr.Add("                  ========================================");
             list_arr.Add("");
-            
+
 
 
 
@@ -12244,7 +12237,7 @@ namespace LimitStateMethod.Steel_Truss
             else
                 load_lst.Add(string.Format("{0} TO {1} FY -0.0001", Truss_Analysis.Analysis.Joints[0].NodeNo,
                      Truss_Analysis.Analysis.Joints[Truss_Analysis.Analysis.Joints.Count - 1].NodeNo));
-           
+
             //load_lst.Add("1                11                12                22                FY                -49.831                ");
             //load_lst.Add("2                TO                10                13                TO                21                FY                -99.661");
             //load_lst.Add("1                11                12                22                FY                -49.831                ");
@@ -12293,7 +12286,7 @@ namespace LimitStateMethod.Steel_Truss
             get
             {
                 string kstr = File.Exists(user_path) ? Path.GetDirectoryName(user_path) : user_path;
-                  kstr = Path.Combine(user_path, "DL AND LL ANALYSIS");
+                kstr = Path.Combine(user_path, "DL AND LL ANALYSIS");
                 if (!Directory.Exists(kstr)) Directory.CreateDirectory(kstr);
 
 
@@ -12355,8 +12348,8 @@ namespace LimitStateMethod.Steel_Truss
 
 
 
-                    MessageBox.Show(this, "In Tab \"Analysis & Design of Steel Truss Bridge\" >> \"Structure Geometry\"\n\n" + 
-                                        "the button \"Create Analysis Input Data File\" is to be used to Create the \n\n"+
+                    MessageBox.Show(this, "In Tab \"Analysis & Design of Steel Truss Bridge\" >> \"Structure Geometry\"\n\n" +
+                                        "the button \"Create Analysis Input Data File\" is to be used to Create the \n\n" +
                                         "Load Data file before Processing the present option",
                         "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -12374,8 +12367,8 @@ namespace LimitStateMethod.Steel_Truss
                 string load_file = Path.Combine(user_path, "MEMBER_LOAD_DATA.txt");
 
                 //if (!SaveMemberLoads(load_file)) return;
-                if(!File.Exists(load_file))
-                load_file = Path.Combine(system_path, "MEMBER_LOAD_DATA.txt");
+                if (!File.Exists(load_file))
+                    load_file = Path.Combine(system_path, "MEMBER_LOAD_DATA.txt");
 
                 if (!SaveMemberLoads(load_file)) return;
 
@@ -12408,7 +12401,7 @@ namespace LimitStateMethod.Steel_Truss
                 //        i--;
                 //    }
                 //}
-                
+
                 //if (dgv_live_load.RowCount != 0)
                 //{
                 //    LoadReadFromGrid();
@@ -12429,7 +12422,7 @@ namespace LimitStateMethod.Steel_Truss
 
                     File.Copy(kStr, DL_Input_Analysis_File, true);
                     Write_Load(DL_Input_Analysis_File, false, true);
-                    
+
                     string flPath = txt_analysis_file.Text;
 
                     int c = 0;
@@ -12597,25 +12590,25 @@ namespace LimitStateMethod.Steel_Truss
 
             file_content.Add(string.Format(kFormat, "Concrete Grade", "fck", cmb_deck_fck.Text));
             file_content.Add(string.Format(kFormat, "Steel Grade", "fy", cmb_deck_fy.Text));
-            file_content.Add(string.Format(kFormat,"Permissible Stress in Concrete","σ_cb", txt_deck_sigma_c.Text));
-            file_content.Add(string.Format(kFormat,"Permissible Stress in Steel","σ_st",txt_Deck_sigma_st.Text));
-            file_content.Add(string.Format(kFormat,"Modular ratio","m", txt_deck_m.Text));
-            file_content.Add(string.Format(kFormat,"Lever arm factor","j", txt_Deck_j.Text));
+            file_content.Add(string.Format(kFormat, "Permissible Stress in Concrete", "σ_cb", txt_deck_sigma_c.Text));
+            file_content.Add(string.Format(kFormat, "Permissible Stress in Steel", "σ_st", txt_Deck_sigma_st.Text));
+            file_content.Add(string.Format(kFormat, "Modular ratio", "m", txt_deck_m.Text));
+            file_content.Add(string.Format(kFormat, "Lever arm factor", "j", txt_Deck_j.Text));
             file_content.Add(string.Format(kFormat, "Moment factor", "Q", txt_Deck_Q.Text));
 
-            file_content.Add(string.Format(kFormat,"Minimum Cover","mc", txt_Deck_minimum_cover.Text));
+            file_content.Add(string.Format(kFormat, "Minimum Cover", "mc", txt_Deck_minimum_cover.Text));
 
             file_content.Add(string.Format(kFormat, "Select Load", "SL", cmb_deck_select_load.Text));
             file_content.Add(string.Format(kFormat, "Applied Load", "AL", txt_Deck_applied_load.Text));
-            file_content.Add(string.Format(kFormat,"Width of Load","a", txt_Deck_load_width.Text));
-            file_content.Add(string.Format(kFormat,"Length of Load","b", txt_Deck_load_length.Text));
-            file_content.Add(string.Format(kFormat,"Impact Factor","IF", txt_Deck_impact_factor.Text));
-            file_content.Add(string.Format(kFormat,"Continuity Factor","CF", txt_Deck_continuity_factor.Text));
-            file_content.Add(string.Format(kFormat,"Constant [µ]","mu", txt_Deck_mu.Text));
+            file_content.Add(string.Format(kFormat, "Width of Load", "a", txt_Deck_load_width.Text));
+            file_content.Add(string.Format(kFormat, "Length of Load", "b", txt_Deck_load_length.Text));
+            file_content.Add(string.Format(kFormat, "Impact Factor", "IF", txt_Deck_impact_factor.Text));
+            file_content.Add(string.Format(kFormat, "Continuity Factor", "CF", txt_Deck_continuity_factor.Text));
+            file_content.Add(string.Format(kFormat, "Constant [µ]", "mu", txt_Deck_mu.Text));
 
-            file_content.Add(string.Format(kFormat,"Thickness of concrete Deck Slab","Ds", txt_Deck_Ds.Text));
-            file_content.Add(string.Format(kFormat,"Unit weight of concrete Deck Slab","γ_c", txt_Deck_gamma_c.Text));
-            file_content.Add(string.Format(kFormat,"Thickness of Asphalt Wearing Course","Dwc", txt_Deck_Dwc.Text));
+            file_content.Add(string.Format(kFormat, "Thickness of concrete Deck Slab", "Ds", txt_Deck_Ds.Text));
+            file_content.Add(string.Format(kFormat, "Unit weight of concrete Deck Slab", "γ_c", txt_Deck_gamma_c.Text));
+            file_content.Add(string.Format(kFormat, "Thickness of Asphalt Wearing Course", "Dwc", txt_Deck_Dwc.Text));
             file_content.Add(string.Format(kFormat, "Unit weight of Asphalt Wearing Course", "γ_wc", txt_Deck_gamma_wc.Text));
 
 
@@ -12625,7 +12618,7 @@ namespace LimitStateMethod.Steel_Truss
 
             file_content.Add(string.Format(""));
             file_content.Add(string.Format("ABUTMENT USER INPUT"));
-            file_content.Add(string.Format( "--------------------"));
+            file_content.Add(string.Format("--------------------"));
             file_content.Add(string.Format(""));
             file_content.Add(string.Format(kFormat, "Depth of Girder Seat", "DMG", txt_abut_DMG.Text));
             file_content.Add(string.Format(""));
@@ -12928,9 +12921,9 @@ namespace LimitStateMethod.Steel_Truss
                     }
                     #endregion Select Option
 
-                 
 
-                    if (mlist.Count == 3 )
+
+                    if (mlist.Count == 3)
                     {
                         try
                         {
@@ -12939,7 +12932,7 @@ namespace LimitStateMethod.Steel_Truss
                             switch (TOpt)
                             {
                                 #region Chiranjit Select Data
-                       
+
                                 case eSteelTrussOption.RCCDeckSlab:
                                     #region DECK SLAB USER INPUT
                                     switch (kStr)
@@ -13857,6 +13850,189 @@ namespace LimitStateMethod.Steel_Truss
         }
 
         #endregion Chiranjit [2016 09 07]
+
+        private void btn_irc_view_moving_load_Click(object sender, EventArgs e)
+        {
+
+            Write_All_Data();
+            string file_name = txt_analysis_file.Text;
+
+
+            file_name = txt_analysis_file.Text;
+
+
+            if (!File.Exists(file_name))
+            {
+                MessageBox.Show(this, "The Analysis Input data File is not created. \n\n" +
+                                    "In Tab 'Structure Geometry' the button 'Create Analysis Input data File' " +
+                                    "is to be used for creating the Analysis Input data\",",
+                                    "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //tabControl1.SelectedTab = tab_GD;
+                return;
+            }
+            Text_Changed();
+            string load_file = Path.Combine(Path.GetDirectoryName(file_name), "MEMBER_LOAD_DATA.txt");
+
+            if (!SaveMemberLoads(load_file)) return;
+
+            load_file = Path.Combine(system_path, "MEMBER_LOAD_DATA.txt");
+
+            if (!SaveMemberLoads(load_file)) return;
+
+            iApp.LiveLoads.Save_LL_TXT(Path.GetDirectoryName(file_name), false);
+
+
+            List<string> inp_file_cont = new List<string>(File.ReadAllLines(file_name));
+            string kStr = "";
+            int indx = -1;
+            bool flag = false;
+            MyList mlist = null;
+            int i = 0;
+            List<string> load_lst = new List<string>();
+            string s = "DL ";
+
+            bool isMoving_load = false;
+            int grp_count = 0;
+
+            for (int f = 0; f < 5; f++)
+            {
+                #region Chiranjit [2014 01 23]
+
+                iApp.LiveLoads.Save_LL_TXT(Path.GetDirectoryName(Get_User_Input_File_Name(f)), false);
+
+                inp_file_cont = new List<string>(File.ReadAllLines(Get_User_Input_File_Name(f)));
+                kStr = "";
+                indx = -1;
+                flag = false;
+                mlist = null;
+                i = 0;
+                isMoving_load = false;
+                grp_count = -1;
+                for (i = 0; i < inp_file_cont.Count; i++)
+                {
+                    kStr = MyList.RemoveAllSpaces(inp_file_cont[i].ToUpper());
+                    mlist = new MyList(kStr, ' ');
+                    if (i > 434)
+                        mlist = new MyList(kStr, ' ');
+                    //if (kStr.Contains("LOAD GEN"))
+                    //    isMoving_load = true;
+                    if (kStr.StartsWith("START GROUP"))
+                    {
+                        do
+                        {
+                            grp_count++;
+                            kStr = MyList.RemoveAllSpaces(inp_file_cont[++i].ToUpper());
+                        }
+                        while (!kStr.StartsWith("END"));
+                    }
+
+
+                    List<string> mem_lst = new List<string>();
+
+                    if (kStr.StartsWith("MEMBER PROPER"))
+                    {
+                        i++;
+                        for (int j = 0; j < grp_count; j++, i++)
+                        {
+                            mlist = new MyList(MyList.RemoveAllSpaces(inp_file_cont[i]), ' ');
+                            CMember cm = Complete_Design.Members.Get_Member(mlist[0]);
+                            if (cm != null)
+                            {
+                                //mem_lst.Add(string.Format("_L0L1       PRI    AX    0.0362    IX    0.00001    IY    0.000741    IZ    0.001"));
+                                inp_file_cont[i] = (string.Format("{0}       PRI    AX    {1:f6}     IX    0.00001    IY    {2:E3}    IZ    0.001",
+                                    cm.Group.GroupName,
+                                    cm.Area,
+                                    cm.IYY));
+
+                                //inp_file_cont[i] = (string.Format("{0}       PRI    AX    {1:f6}     IX    {2:f6}    IY    {3:E3}    IZ    0.001",
+                                // cm.Group.GroupName,
+                                // cm.Area,
+                                // cm.IXX == 0.0 ? cm.IYY : cm.IXX,
+                                // cm.IYY*10));
+                            }
+
+                        }
+
+                    }
+
+                    if (mlist.StringList[0].StartsWith("LOAD") && flag == false)
+                    {
+                        if (indx == -1)
+                            indx = i;
+                        flag = true;
+                    }
+                    if (kStr.Contains("ANALYSIS") || kStr.Contains("PRINT"))
+                    {
+                        flag = false;
+                    }
+                    if (flag)
+                    {
+                        inp_file_cont.RemoveAt(i);
+                        i--;
+                    }
+
+                }
+
+
+                if (f == 0)
+                {
+                    load_lst = new List<string>();
+
+                    s = "DL ";
+
+                    s = chk_DL.Checked ? "DL " : "";
+                    s += chk_SIDL.Checked ? chk_DL.Checked ? " + SIDL " : "SIDL" : "";
+                    //s += chk_LL.Checked ? (chk_DL.Checked || chk_SIDL.Checked) ? " + LL " : "LL" : "";
+
+
+                    load_lst.Add("LOAD 1 " + s);
+                    load_lst.Add("JOINT LOAD");
+                    List<int> lst = new List<int>();
+                    for (int j = 1; j < truss_data.Bottom_Chord1.Count; j++)
+                    {
+                        //truss_data.
+                        lst.Add(truss_data.Bottom_Chord1[j].StartNode.NodeNo);
+                        lst.Add(truss_data.Bottom_Chord2[j].StartNode.NodeNo);
+                    }
+                    //load_lst.Add(string.Format("2   TO  10  13   TO  21      FY  -392.556", Truss_Analysis. ));
+                    load_lst.Add(string.Format("{0} FY  -{1:f3}", MyList.Get_Array_Text(lst), complete_design.ForceEachInsideJoints));
+                    load_lst.Add(string.Format("{0}  {1}  {2}  {3}     FY  -{4:f4}", Truss_Analysis.Analysis.Supports[0].NodeNo
+                        , Truss_Analysis.Analysis.Supports[1].NodeNo, Truss_Analysis.Analysis.Supports[2].NodeNo,
+                        Truss_Analysis.Analysis.Supports[3].NodeNo, complete_design.ForceEachEndJoint));
+
+
+                    if (dgv_live_load.RowCount != 0)
+                    {
+                        if (!File.Exists(load_file))
+                        {
+                            MessageBox.Show(this, "Load data file \"LL.TXT\" not found in working folder " + user_path);
+                        }
+                        LoadReadFromGrid();
+                    }
+                    if (complete_design.Is_Live_Load && Live_Load_List != null)
+                        load_lst.AddRange(Get_MovingLoad_Data(Live_Load_List));
+                    if (indx != -1)
+                        inp_file_cont.InsertRange(indx, load_lst);
+                }
+                else
+                {
+                    if (indx != -1)
+                        inp_file_cont.InsertRange(indx, load_lst);
+                }
+                File.WriteAllLines(Get_User_Input_File_Name(f), inp_file_cont.ToArray());
+                Button_Enable_Disable();
+                #endregion Chiranjit [2014 01 23]
+            }
+
+            file_name = Get_User_Input_File_Name(0);
+
+            //iApp.View_MovingLoad(file_name);
+            iApp.View_MovingLoad(file_name, 0.0, MyList.StringToDouble(txt_irc_vehicle_gap.Text));
+
+            Write_All_Data();
+
+        }
 
     }
 }

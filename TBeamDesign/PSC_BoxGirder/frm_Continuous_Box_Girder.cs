@@ -1260,7 +1260,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             txt_9_L2_20.Text = (9 * L2 / 20).ToString("f3");
             txt_10_L2_20.Text = (10 * L2 / 20).ToString("f3");
 
-            txt_LL_load_gen.Text = ((L1 * 2 + L2) / MyList.StringToDouble(txt_XINCR.Text, 0.2)).ToString("0");
+            txt_LL_load_gen.Text = ((((L1 * 2 + L2 + 2) + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_XINCR.Text, 0.2)) + 1).ToString("0");
         }
 
         private void Update_Loads()
@@ -1964,8 +1964,28 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
             Set_Project_Name();
 
+            //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            //{
+                Select_Moving_Load_Combo(dgv_long_loads, cmb_bs_view_moving_load);
+            //}
         }
 
+        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
+        {
+            string load = "";
+            cmb.Items.Clear();
+            for (int i = 0; i < dgv.RowCount - 1; i++)
+            {
+                load = dgv[0, i].Value.ToString();
+                if (load.StartsWith("LOAD"))
+                {
+                    if (!cmb.Items.Contains(load))
+                        cmb.Items.Add(load);
+                }
+            }
+            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
+
+        }
         private void Open_Project()
         {
 
@@ -2589,6 +2609,84 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
         }
 
 
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+
+            List<double> lst_mvl = new List<double>();
+            DataGridView dgv = dgv_long_liveloads;
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                dgv = dgv_long_loads;
+            }
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
+                    {
+                        mvl = 0;
+                        for (int c = 1; c < dgv.ColumnCount; c++)
+                        {
+                            try
+                            {
+                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
+                            }
+                            catch (Exception exx)
+                            {
+
+                            }
+                        }
+                        lst_mvl.Add(mvl);
+                    }
+                }
+                catch (Exception ex1) { }
+
+            }
+            if (lst_mvl.Count > 0)
+            {
+                lst_mvl.Sort();
+                lst_mvl.Reverse();
+                mvl = lst_mvl[0];
+            }
+            return mvl;
+
+
+
+            double veh_len, veh_gap, train_length;
+
+            veh_len = mvl;
+            veh_gap = mvl;
+            //train_length = veh_len;
+            train_length = 0.0;
+            double eff = L1;
+            bool fl = false;
+            while (train_length <= eff)
+            {
+                fl = !fl;
+                if (fl)
+                {
+                    train_length += veh_gap;
+                    //if (train_length > L)
+                    //{
+                    //    train_length = train_length - veh_gap;
+                    //}
+                }
+                else
+                {
+                    train_length += veh_len;
+                }
+            }
+
+
+
+            //return mvl;
+
+            return train_length;
+
+
+        }
         void Text_Changed()
         {
             double x_incr = MyList.StringToDouble(txt_XINCR.Text, 0.2);
@@ -3575,6 +3673,39 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
         }
 
         #endregion Chiranjit [2016 09 07]
+
+        private void btn_bs_view_moving_load_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (!Check_Project_Folder()) return;
+                if (Path.GetFileName(user_path) != Project_Name)
+                {
+                    Create_Project();
+                }
+
+                if (!Directory.Exists(user_path))
+                {
+                    Directory.CreateDirectory(user_path);
+                }
+                Update_Loads();
+                Update_Lengths();
+                Create_Analysis_Data();
+           
+                string file_name = Analysis.Get_Analysis_LiveLoad_Files(cmb_bs_view_moving_load.SelectedIndex+1);
+
+                iApp.View_MovingLoad(file_name, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+                //iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+                
+                #region Save Data
+
+                #endregion Save Data
+
+            }
+            catch (Exception ex) { }
+
+        }
 
 
     }

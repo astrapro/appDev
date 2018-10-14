@@ -135,7 +135,7 @@ namespace BridgeAnalysisDesign.Abutment
             //if (!Directory.Exists(file_path)) Directory.CreateDirectory(file_path);
 
             //file_path = Path.Combine(file_path, "Abutment with Open Foundation.xlsm");
-            file_path = Path.Combine(file_path, "Wall Type Abutment in LSM IRC.xlsm");
+            file_path = Path.Combine(file_path, "Wall Type Abutment in LSM.xlsm");
 
             //file_path = Path.Combine(file_path, "BoQ_Flyover_ROB_RUBs.xlsx");
             //file_path = Path.Combine(file_path, "BoQ for " + cmb_boq_item.Text + ".xlsx");
@@ -144,7 +144,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Slab Bridge\Wall Type Abutment.xlsm");
 
-            if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
                 file_path = Path.Combine(Application.StartupPath, @"DESIGN\Limit State Method\Slab Bridge\Wall Type Abutment BS.xlsm");
             }

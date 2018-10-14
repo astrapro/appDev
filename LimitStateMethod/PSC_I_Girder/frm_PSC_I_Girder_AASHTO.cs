@@ -114,10 +114,10 @@ namespace LimitStateMethod.PSC_I_Girder
         //public double Y_w { get { return 22.0; } }
 
         public double Y_w { get { return MyList.StringToDouble(txt_Ana_FWS_Weight.Text, 0.0); } set { txt_Ana_FWS_Weight.Text = value.ToString("f3"); } }
-        public double Hc { get { return MyList.StringToDouble(txt_Ana_Crash_Barier_Height.Text, 0.0); } set { txt_Ana_Crash_Barier_Height.Text = value.ToString("f3"); } }
-        public double Wc { get { return MyList.StringToDouble(txt_Ana_Crash_Barier_Width.Text, 0.0); } set { txt_Ana_Crash_Barier_Width.Text = value.ToString("f3"); } }
-        public double Wf { get { return MyList.StringToDouble(txt_Ana_Wf.Text, 0.0); } set { txt_Ana_Wf.Text = value.ToString("f3"); } }
-        public double Hs { get { return MyList.StringToDouble(txt_Ana_Hf.Text, 0.0); } set { txt_Ana_Hf.Text = value.ToString("f3"); } }
+        public double Hc { get { return MyList.StringToDouble(txt_Ana_Hc_LHS.Text, 0.0); } set { txt_Ana_Hc_LHS.Text = value.ToString("f3"); } }
+        public double Wc { get { return MyList.StringToDouble(txt_Ana_Wc_LHS.Text, 0.0); } set { txt_Ana_Wc_LHS.Text = value.ToString("f3"); } }
+        public double Wf { get { return MyList.StringToDouble(txt_Ana_Wf_LHS.Text, 0.0); } set { txt_Ana_Wf_LHS.Text = value.ToString("f3"); } }
+        public double Hs { get { return MyList.StringToDouble(txt_Ana_Hf_LHS.Text, 0.0); } set { txt_Ana_Hf_LHS.Text = value.ToString("f3"); } }
         public double Wk { get { return MyList.StringToDouble(txt_Ana_Wk.Text, 0.0); } set { txt_Ana_Wk.Text = value.ToString("f3"); } }
         public double Wr { get { return MyList.StringToDouble(txt_Ana_Wr.Text, 0.0); } set { txt_Ana_Wr.Text = value.ToString("f3"); } }
         //public double swf { get { return MyList.StringToDouble(txt_Ana_swf.Text, 0.0); } set { txt_Ana_swf.Text = value.ToString("f3"); } }
@@ -205,6 +205,8 @@ namespace LimitStateMethod.PSC_I_Girder
             //cmb_NMG.SelectedIndex = 1;
             cmb_NMG.SelectedIndex = 3;
 
+
+
             Bridge_Analysis = new PSC_I_Girder_Analysis_AASHTO(iApp);
             Default_Moving_LoadData(dgv_long_liveloads);
             Default_Moving_Type_LoadData(dgv_long_loads);
@@ -227,12 +229,12 @@ namespace LimitStateMethod.PSC_I_Girder
             #endregion Initialise default input data
 
 
-          
+
             Button_Enable_Disable();
 
             txt_Ana_B.Text = txt_Ana_B.Text + "";
             txt_LL_load_gen.Text = (L / 0.2).ToString("0");
-           
+
             Text_Changed();
             Button_Enable_Disable();
 
@@ -247,6 +249,33 @@ namespace LimitStateMethod.PSC_I_Girder
             tab_sec_props.TabPages.Remove(tab_details);
 
             Set_Project_Name();
+
+
+            chk_crash_barrier.Checked = true;
+            chk_cb_left.Checked = true;
+            chk_cb_right.Checked = false;
+            chk_footpath.Checked = false;
+
+
+            Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
+
+        }
+
+        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
+        {
+            string load = "";
+            cmb.Items.Clear();
+            for (int i = 0; i < dgv.RowCount - 1; i++)
+            {
+                load = dgv[0, i].Value.ToString();
+                if (load.StartsWith("LOAD"))
+                {
+                    if (!cmb.Items.Contains(load))
+                        cmb.Items.Add(load);
+                }
+            }
+            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
+
         }
 
         private void Open_Project()
@@ -343,6 +372,71 @@ namespace LimitStateMethod.PSC_I_Girder
              
         }
 
+
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+
+            List<double> lst_mvl = new List<double>();
+            DataGridView dgv = dgv_long_liveloads;
+
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
+                    {
+                        mvl = 0;
+                        for (int c = 1; c < dgv.ColumnCount; c++)
+                        {
+                            try
+                            {
+                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
+                            }
+                            catch (Exception exx)
+                            {
+
+                            }
+                        }
+                        lst_mvl.Add(mvl);
+                    }
+                }
+                catch (Exception ex1) { }
+
+            }
+            if (lst_mvl.Count > 0)
+            {
+                lst_mvl.Sort();
+                lst_mvl.Reverse();
+                mvl = lst_mvl[0];
+            }
+            return mvl;
+
+            double veh_len, veh_gap, train_length;
+            veh_len = mvl;
+            veh_gap = mvl;
+            train_length = veh_len;
+            double eff = L;
+            bool fl = false;
+            while (train_length <= eff)
+            {
+                fl = !fl;
+                if (fl)
+                {
+                    train_length += veh_gap;
+                    if (train_length > L)
+                    {
+                        train_length = train_length - veh_gap;
+                    }
+                }
+                else
+                {
+                    train_length += veh_len;
+                }
+            }
+            return train_length;
+        }
+
         void Text_Changed()
         {
 
@@ -357,7 +451,7 @@ namespace LimitStateMethod.PSC_I_Girder
             double Bb = MyList.StringToDouble(txt_sec_b4.Text, 0.65);
             double Db = MyList.StringToDouble(txt_sec_d3.Text, 0.65);
 
-            txt_LL_load_gen.Text = ((L) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))).ToString("f0");
+            txt_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))).ToString("f0");
 
 
             if (chk_crash_barrier.Checked)
@@ -5623,43 +5717,138 @@ namespace LimitStateMethod.PSC_I_Girder
 
         private void rbtn_CheckedChanged(object sender, EventArgs e)
         {
+            //Control rbtn = sender as Control;
+
+
+            //if (rbtn.Name == chk_fp_left.Name)
+            //{
+            //    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+            //        chk_fp_right.Checked = true;
+            //}
+            //else if (rbtn.Name == chk_fp_right.Name)
+            //{
+            //    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+            //        chk_fp_left.Checked = true;
+            //}
+
+
+            //if (rbtn.Name == chk_cb_left.Name)
+            //{
+            //    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+            //        chk_cb_right.Checked = true;
+            //}
+            //else if (rbtn.Name == chk_cb_right.Name)
+            //{
+            //    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+            //        chk_cb_left.Checked = true;
+            //}
+
             Control rbtn = sender as Control;
-
-
             if (rbtn.Name == chk_fp_left.Name)
             {
-                if (!chk_fp_left.Checked && !chk_fp_right.Checked)
-                    chk_fp_right.Checked = true;
+                if (chk_footpath.Checked)
+                {
+                    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+                        chk_fp_right.Checked = true;
+
+                    if (!chk_fp_left.Checked)
+                    {
+                        txt_Ana_Hf_LHS.Enabled = false;
+                        txt_Ana_Wf_LHS.Enabled = false;
+                        txt_Ana_Hf_LHS.Text = "0.000";
+                        txt_Ana_Wf_LHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hf_LHS.Enabled = true;
+                        txt_Ana_Wf_LHS.Enabled = true;
+                        txt_Ana_Hf_LHS.Text = "1.000";
+                        txt_Ana_Wf_LHS.Text = "1.69";
+                    }
+
+                }
             }
             else if (rbtn.Name == chk_fp_right.Name)
             {
-                if (!chk_fp_left.Checked && !chk_fp_right.Checked)
-                    chk_fp_left.Checked = true;
-            }
+                if (chk_footpath.Checked)
+                {
+                    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+                        chk_fp_left.Checked = true;
 
+
+                    if (!chk_fp_right.Checked)
+                    {
+                        txt_Ana_Hf_RHS.Enabled = false;
+                        txt_Ana_Wf_RHS.Enabled = false;
+                        txt_Ana_Hf_RHS.Text = "0.000";
+                        txt_Ana_Wf_RHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hf_RHS.Enabled = true;
+                        txt_Ana_Wf_RHS.Enabled = true;
+                        txt_Ana_Hf_RHS.Text = "1.000";
+                        txt_Ana_Wf_RHS.Text = "1.69";
+                    }
+                }
+            }
 
             if (rbtn.Name == chk_cb_left.Name)
             {
-                if (!chk_cb_left.Checked && !chk_cb_right.Checked)
-                    chk_cb_right.Checked = true;
+                if (chk_crash_barrier.Checked)
+                {
+                    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+                        chk_cb_right.Checked = true;
+
+                    if (!chk_cb_left.Checked)
+                    {
+                        txt_Ana_Hc_LHS.Enabled = false;
+                        txt_Ana_Wc_LHS.Enabled = false;
+                        txt_Ana_Hc_LHS.Text = "0.000";
+                        txt_Ana_Wc_LHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hc_LHS.Enabled = true;
+                        txt_Ana_Wc_LHS.Enabled = true;
+                        txt_Ana_Hc_LHS.Text = "3.50";
+                        txt_Ana_Wc_LHS.Text = "1.69";
+                    }
+                }
             }
             else if (rbtn.Name == chk_cb_right.Name)
             {
-                if (!chk_cb_left.Checked && !chk_cb_right.Checked)
-                    chk_cb_left.Checked = true;
-            }
-
-
-
-            if (rbtn.Name == chk_crash_barrier.Name)
-            {
                 if (chk_crash_barrier.Checked)
-                    chk_footpath.Checked = false;
+                {
+                    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+                        chk_cb_left.Checked = true;
+
+
+                    if (!chk_cb_right.Checked)
+                    {
+                        txt_Ana_Hc_RHS.Enabled = false;
+                        txt_Ana_Wc_RHS.Enabled = false;
+                        txt_Ana_Hc_RHS.Text = "0.000";
+                        txt_Ana_Wc_RHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hc_RHS.Enabled = true;
+                        txt_Ana_Wc_RHS.Enabled = true;
+                        txt_Ana_Hc_RHS.Text = "3.50";
+                        txt_Ana_Wc_RHS.Text = "1.69";
+                    }
+                }
+            }
+            else if (rbtn.Name == chk_crash_barrier.Name)
+            {
+                chk_cb_left.Checked = chk_crash_barrier.Checked;
+                chk_cb_right.Checked = chk_crash_barrier.Checked;
             }
             else if (rbtn.Name == chk_footpath.Name)
             {
-                if (chk_footpath.Checked)
-                    chk_crash_barrier.Checked = false;
+                chk_fp_left.Checked = chk_footpath.Checked;
+                chk_fp_right.Checked = chk_footpath.Checked;
             }
 
             chk_cb_left.Enabled = chk_crash_barrier.Checked;
@@ -5673,13 +5862,17 @@ namespace LimitStateMethod.PSC_I_Girder
                 grb_crash_barrier.Enabled = chk_crash_barrier.Checked;
                 if (!chk_crash_barrier.Checked)
                 {
-                    //txt_Ana_Hc.Text = "0.000";
-                    //txt_Ana_Wc.Text = "0.000";
+                    txt_Ana_Hc_LHS.Text = "0.000";
+                    txt_Ana_Wc_LHS.Text = "0.000";
+                    txt_Ana_Hc_RHS.Text = "0.000";
+                    txt_Ana_Wc_RHS.Text = "0.000";
                 }
                 else
                 {
-                    //txt_Ana_Hc.Text = "1.200";
-                    //txt_Ana_Wc.Text = "0.500";
+                    txt_Ana_Hc_LHS.Text = "3.50";
+                    txt_Ana_Wc_LHS.Text = "1.69";
+                    txt_Ana_Hc_RHS.Text = "3.50";
+                    txt_Ana_Wc_RHS.Text = "1.69";
                 }
             }
             else if (rbtn.Name == chk_footpath.Name)
@@ -5687,24 +5880,55 @@ namespace LimitStateMethod.PSC_I_Girder
                 grb_ana_footpath.Enabled = chk_footpath.Checked;
                 if (!chk_footpath.Checked)
                 {
-                    //txt_Ana_Wf.Text = "0.000";
-                    //txt_Ana_Hf.Text = "0.000";
-                    //txt_Ana_Wk.Text = "0.000";
-                    //txt_Ana_Wr.Text = "0.000";
+                    txt_Ana_Wf_LHS.Text = "0.000";
+                    txt_Ana_Hf_LHS.Text = "0.000";
+                    txt_Ana_Wf_RHS.Text = "0.000";
+                    txt_Ana_Hf_RHS.Text = "0.000";
+
+                    txt_Ana_Wk.Text = "0.000";
+                    txt_Ana_Wr.Text = "0.000";
                 }
                 else
                 {
-                    //txt_Ana_Wf.Text = "1.000";
-                    //txt_Ana_Hf.Text = "0.250";
-                    //txt_Ana_Wk.Text = "0.500";
-                    //txt_Ana_Wr.Text = "0.100";
+                    txt_Ana_Wf_LHS.Text = "1.000";
+                    txt_Ana_Hf_LHS.Text = "0.250";
+                    txt_Ana_Wf_RHS.Text = "1.000";
+                    txt_Ana_Hf_RHS.Text = "0.250";
+                    txt_Ana_Wk.Text = "0.500";
+                    txt_Ana_Wr.Text = "0.100";
                 }
             }
-          
 
 
 
-            if (chk_crash_barrier.Checked)
+
+            if (chk_crash_barrier.Checked && chk_footpath.Checked)
+            {
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_4_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_5_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_6_;
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_7_;
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_8_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_9_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_10_;
+
+
+            }
+            else if (chk_crash_barrier.Checked)
             {
                 if (chk_cb_left.Checked && chk_cb_right.Checked)
                     pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_1_;
@@ -6273,12 +6497,82 @@ namespace LimitStateMethod.PSC_I_Girder
             long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, DCdiaphragm));
 
 
-            long_member_load.Add(string.Format("LOAD 5 DEAD LOAD PARAPET"));
+            #region Weight of Crash Barrier Footpath Parapet
+
+            double pp_width = MyList.StringToDouble(txt_Ana_Parapet_Width.Text, 0.0);
+            double pp_height = MyList.StringToDouble(txt_Ana_Parapet_Height.Text, 0.0);
+            double pp_weight = pp_width * pp_height * Y_c / 10;
+
+            double cb_width_LHS = MyList.StringToDouble(txt_Ana_Wc_LHS.Text, 0.0);
+            double cb_height_LHS = MyList.StringToDouble(txt_Ana_Hc_LHS.Text, 0.0);
+
+            double cb_width_RHS = MyList.StringToDouble(txt_Ana_Wc_RHS.Text, 0.0);
+            double cb_height_RHS = MyList.StringToDouble(txt_Ana_Hc_RHS.Text, 0.0);
+
+            double cb_weight_LHS = cb_width_LHS * cb_height_LHS * Y_c / 10;
+            double cb_weight_RHS = cb_width_RHS * cb_height_RHS * Y_c / 10;
+
+
+            double fp_width_LHS = MyList.StringToDouble(txt_Ana_Wf_LHS.Text, 0.0);
+            double fp_height_LHS = MyList.StringToDouble(txt_Ana_Hf_LHS.Text, 0.0);
+            double fp_width_RHS = MyList.StringToDouble(txt_Ana_Wf_RHS.Text, 0.0);
+            double fp_height_RHS = MyList.StringToDouble(txt_Ana_Hf_RHS.Text, 0.0);
+
+            double fp_weight_LHS = fp_width_LHS * fp_height_LHS * Y_c / 10;
+            double fp_weight_RHS = fp_width_RHS * fp_height_RHS * Y_c / 10;
+
+            wo5 = pp_weight + cb_weight_LHS + fp_weight_LHS + cb_weight_RHS + fp_weight_RHS;
+
+            #endregion Weight of Crash Barrier Footpath Parapet
+
+
+            long_member_load.Add(string.Format("LOAD 5 SIDL PARAPET, CRASH BARRIER AND FOOTPATH "));
             long_member_load.Add(string.Format("MEMBER LOAD"));
             //long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, wo5));
             //long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, wo5 / 2));
-            long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", inner_girders, DCparapet));
-            long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, DCparapet));
+            //long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, wo5 / 2));
+
+            string LHS_outer = Bridge_Analysis.Get_LHS_Outer_Girder();
+            string RHS_outer = Bridge_Analysis.Get_RHS_Outer_Girder();
+
+
+            if (pp_weight != 0.0)
+            {
+                long_member_load.Add(string.Format("*Parapet Load {0} Ton/m", pp_weight));
+                long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", LHS_outer, pp_weight));
+                long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", RHS_outer, pp_weight));
+            }
+
+            if (cb_weight_LHS != 0.0)
+            {
+                long_member_load.Add(string.Format("*Crash Barier Load LHS {0} Ton/m", cb_weight_LHS));
+                long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", LHS_outer, cb_weight_LHS));
+            }
+
+            if (cb_weight_RHS != 0.0)
+            {
+                long_member_load.Add(string.Format("*Crash Barier Load RHS {0} Ton/m", cb_weight_RHS));
+                long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", RHS_outer, cb_weight_RHS));
+            }
+
+            if (fp_weight_LHS != 0.0)
+            {
+                long_member_load.Add(string.Format("*Footpath Load RHS {0} Ton/m", fp_weight_LHS));
+                long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", LHS_outer, fp_weight_LHS));
+            }
+            if (fp_weight_RHS != 0.0)
+            {
+                long_member_load.Add(string.Format("*Footpath Load RHS {0} Ton/m", fp_weight_RHS));
+                long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", RHS_outer, fp_weight_RHS));
+            }
+
+
+            //long_member_load.Add(string.Format("LOAD 5 DEAD LOAD PARAPET"));
+            //long_member_load.Add(string.Format("MEMBER LOAD"));
+            ////long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, wo5));
+            ////long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, wo5 / 2));
+            //long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", inner_girders, DCparapet));
+            //long_member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, DCparapet));
 
 
             long_member_load.Add(string.Format("LOAD 6 FUTURE WEARING SURFACE"));
@@ -7115,6 +7409,80 @@ namespace LimitStateMethod.PSC_I_Girder
         private void btn_deck_ws_open_Click(object sender, EventArgs e)
         {
             iApp.Open_ASTRA_Worksheet_Dialog();
+        }
+
+        private void btn_irc_view_moving_load_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Check_Project_Folder()) return;
+                Write_All_Data(true);
+                Analysis_Initialize_InputData(true);
+
+                if (Path.GetFileName(user_path) != Project_Name) Create_Project();
+                if (!Directory.Exists(user_path))
+                    Directory.CreateDirectory(user_path);
+                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
+                if (!Directory.Exists(usp))
+                    Directory.CreateDirectory(usp);
+
+                LONG_GIRDER_LL_TXT();
+
+                string inp_file = Path.Combine(usp, "INPUT_DATA.TXT");
+
+                Bridge_Analysis.Start_Support = Start_Support_Text;
+                Bridge_Analysis.End_Support = END_Support_Text;
+
+                Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+
+
+                Bridge_Analysis.Skew_Angle = Ang;
+                Bridge_Analysis.CreateData();
+
+
+                Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                    Bridge_Analysis.Inner_Girders_as_String,
+                    Bridge_Analysis.joints_list_for_load);
+
+
+                Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File);
+                Bridge_Analysis.WriteData_Total_Analysis(inp_file);
+
+                ////txt_analysis_file.Text = Bridge_Analysis.Input_File;
+
+
+
+                //Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File);
+                //Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File, all_loads[0]);
+
+                //Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
+
+
+
+
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, DL_LL_Comb_Load_No);
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, DL_LL_Comb_Load_No);
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, true, DL_LL_Comb_Load_No);
+
+
+
+                //for (int i = 0; i < all_loads.Count; i++)
+                //{
+                //    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.GetAnalysis_Input_File(i + 3), all_loads[i]);
+                //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.GetAnalysis_Input_File(i + 3), true, false, i);
+                ////}
+
+                string ll_file = Bridge_Analysis.GetAnalysis_Input_File(cmb_irc_view_moving_load.SelectedIndex + 3);
+                Bridge_Analysis.WriteData_LiveLoad_Analysis(ll_file, all_loads[cmb_irc_view_moving_load.SelectedIndex]);
+                Ana_Write_Long_Girder_Load_Data(ll_file, true, false, cmb_irc_view_moving_load.SelectedIndex);
+                //iApp.View_MovingLoad(ll_file);
+
+                iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_irc_vehicle_gap.Text));
+
+
+            }
+            catch (ThreadAbortException ex1) { MessageBox.Show(ex1.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
     public class AASHTO_PSC_I_Section
@@ -9230,6 +9598,19 @@ namespace LimitStateMethod.PSC_I_Girder
 
             return list_arr;
         }
+
+        public string Get_LHS_Outer_Girder()
+        {
+            string LHS = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, _Columns - 2].MemberNo;
+            return LHS;
+
+        }
+        public string Get_RHS_Outer_Girder()
+        {
+            string RHS = Long_Girder_Members_Array[_Rows - 3, 0].MemberNo + " TO " + Long_Girder_Members_Array[_Rows - 3, _Columns - 2].MemberNo;
+            return RHS;
+        }
+
     }
 
 

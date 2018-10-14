@@ -167,15 +167,21 @@
             this.grb_ana_footpath = new System.Windows.Forms.GroupBox();
             this.txt_Ana_Wr = new System.Windows.Forms.TextBox();
             this.label531 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wf_RHS = new System.Windows.Forms.TextBox();
             this.txt_Ana_Wk = new System.Windows.Forms.TextBox();
             this.label529 = new System.Windows.Forms.Label();
             this.label530 = new System.Windows.Forms.Label();
-            this.txt_Ana_Hf = new System.Windows.Forms.TextBox();
+            this.label566 = new System.Windows.Forms.Label();
+            this.txt_Ana_Hf_RHS = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Hf_LHS = new System.Windows.Forms.TextBox();
             this.label528 = new System.Windows.Forms.Label();
+            this.label565 = new System.Windows.Forms.Label();
+            this.label567 = new System.Windows.Forms.Label();
             this.label524 = new System.Windows.Forms.Label();
             this.label525 = new System.Windows.Forms.Label();
             this.label526 = new System.Windows.Forms.Label();
-            this.txt_Ana_Wf = new System.Windows.Forms.TextBox();
+            this.label564 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wf_LHS = new System.Windows.Forms.TextBox();
             this.label527 = new System.Windows.Forms.Label();
             this.chk_fp_right = new System.Windows.Forms.CheckBox();
             this.chk_footpath = new System.Windows.Forms.CheckBox();
@@ -191,11 +197,17 @@
             this.chk_crash_barrier = new System.Windows.Forms.CheckBox();
             this.pic_diagram = new System.Windows.Forms.PictureBox();
             this.grb_ana_crash_barrier = new System.Windows.Forms.GroupBox();
-            this.txt_Ana_Hc = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Hc_RHS = new System.Windows.Forms.TextBox();
+            this.label563 = new System.Windows.Forms.Label();
+            this.txt_Ana_Hc_LHS = new System.Windows.Forms.TextBox();
+            this.label562 = new System.Windows.Forms.Label();
             this.label514 = new System.Windows.Forms.Label();
-            this.label510 = new System.Windows.Forms.Label();
+            this.label481 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wc_RHS = new System.Windows.Forms.TextBox();
             this.label522 = new System.Windows.Forms.Label();
-            this.txt_Ana_Wc = new System.Windows.Forms.TextBox();
+            this.label510 = new System.Windows.Forms.Label();
+            this.label480 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wc_LHS = new System.Windows.Forms.TextBox();
             this.label523 = new System.Windows.Forms.Label();
             this.chk_cb_left = new System.Windows.Forms.CheckBox();
             this.grb_ana_wc = new System.Windows.Forms.GroupBox();
@@ -464,6 +476,9 @@
             this.rtb_calc_load = new System.Windows.Forms.RichTextBox();
             this.label546 = new System.Windows.Forms.Label();
             this.tab_mov_data_Indian = new System.Windows.Forms.TabPage();
+            this.btn_irc_view_moving_load = new System.Windows.Forms.Button();
+            this.label568 = new System.Windows.Forms.Label();
+            this.cmb_irc_view_moving_load = new System.Windows.Forms.ComboBox();
             this.label202 = new System.Windows.Forms.Label();
             this.btn_IRC_Loadings = new System.Windows.Forms.Button();
             this.btn_edit_load_combs_IRC = new System.Windows.Forms.Button();
@@ -486,7 +501,9 @@
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.txt_dl_ll_comb = new System.Windows.Forms.TextBox();
+            this.txt_irc_vehicle_gap = new System.Windows.Forms.TextBox();
             this.txt_XINCR = new System.Windows.Forms.TextBox();
+            this.label569 = new System.Windows.Forms.Label();
             this.label560 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.btn_long_restore_ll_IRC = new System.Windows.Forms.Button();
@@ -518,6 +535,11 @@
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_mov_data_british = new System.Windows.Forms.TabPage();
             this.groupBox60 = new System.Windows.Forms.GroupBox();
+            this.btn_bs_view_moving_load = new System.Windows.Forms.Button();
+            this.label1190 = new System.Windows.Forms.Label();
+            this.cmb_bs_view_moving_load = new System.Windows.Forms.ComboBox();
+            this.txt_bs_vehicle_gap = new System.Windows.Forms.TextBox();
+            this.label1191 = new System.Windows.Forms.Label();
             this.label561 = new System.Windows.Forms.Label();
             this.label557 = new System.Windows.Forms.Label();
             this.btn_edit_load_combs_BS = new System.Windows.Forms.Button();
@@ -665,10 +687,12 @@
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.label532 = new System.Windows.Forms.Label();
             this.cmb_long_open_file_process = new System.Windows.Forms.ComboBox();
-            this.btn_View_Moving_Load = new System.Windows.Forms.Button();
+            this.btn_result_summary = new System.Windows.Forms.Button();
             this.btn_view_report = new System.Windows.Forms.Button();
             this.btn_view_data = new System.Windows.Forms.Button();
+            this.btn_view_postprocess = new System.Windows.Forms.Button();
             this.btn_view_preprocess = new System.Windows.Forms.Button();
+            this.btn_stage_analysis = new System.Windows.Forms.Button();
             this.btn_process_analysis = new System.Windows.Forms.Button();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -995,7 +1019,9 @@
             this.tc_limit_design = new System.Windows.Forms.TabControl();
             this.tab_bridge_analysis = new System.Windows.Forms.TabPage();
             this.tab_long_main_girders = new System.Windows.Forms.TabPage();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.tab_cross_girders = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgv_cross_user_input = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1007,6 +1033,7 @@
             this.tab_deck_slab = new System.Windows.Forms.TabPage();
             this.tab_deck = new System.Windows.Forms.TabControl();
             this.tab_deck_user_data = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.dgv_deck_user_input = new System.Windows.Forms.DataGridView();
             this.col_input = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_inp_val = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1480,7 +1507,6 @@
             this.tab_Reports = new System.Windows.Forms.TabPage();
             this.uC_ViewReports1 = new BridgeAnalysisDesign.ViewReports.UC_ViewReports();
             this.label210 = new System.Windows.Forms.Label();
-            this.btn_view_postprocess = new System.Windows.Forms.Button();
             this.tabCtrl.SuspendLayout();
             this.tab_dl.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -1612,11 +1638,14 @@
             this.tc_limit_design.SuspendLayout();
             this.tab_bridge_analysis.SuspendLayout();
             this.tab_long_main_girders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.tab_cross_girders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cross_user_input)).BeginInit();
             this.tab_deck_slab.SuspendLayout();
             this.tab_deck.SuspendLayout();
             this.tab_deck_user_data.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_deck_user_input)).BeginInit();
             this.tab_deck_ll_data.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -2520,7 +2549,7 @@
             this.groupBox36.ForeColor = System.Drawing.Color.Black;
             this.groupBox36.Location = new System.Drawing.Point(441, 6);
             this.groupBox36.Name = "groupBox36";
-            this.groupBox36.Size = new System.Drawing.Size(462, 624);
+            this.groupBox36.Size = new System.Drawing.Size(493, 624);
             this.groupBox36.TabIndex = 3;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "SUPER IMPOSED DEAD LOAD [SIDL]";
@@ -2529,28 +2558,34 @@
             // 
             this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wr);
             this.grb_ana_footpath.Controls.Add(this.label531);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf_RHS);
             this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wk);
             this.grb_ana_footpath.Controls.Add(this.label529);
             this.grb_ana_footpath.Controls.Add(this.label530);
-            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf);
+            this.grb_ana_footpath.Controls.Add(this.label566);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf_RHS);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf_LHS);
             this.grb_ana_footpath.Controls.Add(this.label528);
+            this.grb_ana_footpath.Controls.Add(this.label565);
+            this.grb_ana_footpath.Controls.Add(this.label567);
             this.grb_ana_footpath.Controls.Add(this.label524);
             this.grb_ana_footpath.Controls.Add(this.label525);
             this.grb_ana_footpath.Controls.Add(this.label526);
-            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf);
+            this.grb_ana_footpath.Controls.Add(this.label564);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf_LHS);
             this.grb_ana_footpath.Controls.Add(this.label527);
             this.grb_ana_footpath.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_ana_footpath.ForeColor = System.Drawing.Color.Blue;
             this.grb_ana_footpath.Location = new System.Drawing.Point(6, 203);
             this.grb_ana_footpath.Name = "grb_ana_footpath";
-            this.grb_ana_footpath.Size = new System.Drawing.Size(438, 122);
+            this.grb_ana_footpath.Size = new System.Drawing.Size(467, 137);
             this.grb_ana_footpath.TabIndex = 1;
             this.grb_ana_footpath.TabStop = false;
             this.grb_ana_footpath.Text = "Footpath and Kerb";
             // 
             // txt_Ana_Wr
             // 
-            this.txt_Ana_Wr.Location = new System.Drawing.Point(240, 98);
+            this.txt_Ana_Wr.Location = new System.Drawing.Point(178, 109);
             this.txt_Ana_Wr.Name = "txt_Ana_Wr";
             this.txt_Ana_Wr.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wr.TabIndex = 3;
@@ -2562,15 +2597,25 @@
             // 
             this.label531.AutoSize = true;
             this.label531.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label531.Location = new System.Drawing.Point(6, 101);
+            this.label531.Location = new System.Drawing.Point(12, 112);
             this.label531.Name = "label531";
             this.label531.Size = new System.Drawing.Size(160, 13);
             this.label531.TabIndex = 3;
             this.label531.Text = "Width of Outer Railing [wr]";
             // 
+            // txt_Ana_Wf_RHS
+            // 
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(130, 44);
+            this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
+            this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wf_RHS.TabIndex = 2;
+            this.txt_Ana_Wf_RHS.Text = "0.0";
+            this.txt_Ana_Wf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            // 
             // txt_Ana_Wk
             // 
-            this.txt_Ana_Wk.Location = new System.Drawing.Point(240, 71);
+            this.txt_Ana_Wk.Location = new System.Drawing.Point(178, 82);
             this.txt_Ana_Wk.Name = "txt_Ana_Wk";
             this.txt_Ana_Wk.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wk.TabIndex = 2;
@@ -2582,7 +2627,7 @@
             // 
             this.label529.AutoSize = true;
             this.label529.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label529.Location = new System.Drawing.Point(6, 74);
+            this.label529.Location = new System.Drawing.Point(12, 85);
             this.label529.Name = "label529";
             this.label529.Size = new System.Drawing.Size(115, 13);
             this.label529.TabIndex = 3;
@@ -2591,45 +2636,83 @@
             // label530
             // 
             this.label530.AutoSize = true;
-            this.label530.Location = new System.Drawing.Point(296, 101);
+            this.label530.Location = new System.Drawing.Point(234, 112);
             this.label530.Name = "label530";
             this.label530.Size = new System.Drawing.Size(18, 13);
             this.label530.TabIndex = 2;
             this.label530.Text = "m";
             // 
-            // txt_Ana_Hf
+            // label566
             // 
-            this.txt_Ana_Hf.Location = new System.Drawing.Point(240, 44);
-            this.txt_Ana_Hf.Name = "txt_Ana_Hf";
-            this.txt_Ana_Hf.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Hf.TabIndex = 1;
-            this.txt_Ana_Hf.Text = "0.0";
-            this.txt_Ana_Hf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Hf.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            this.label566.AutoSize = true;
+            this.label566.Location = new System.Drawing.Point(186, 47);
+            this.label566.Name = "label566";
+            this.label566.Size = new System.Drawing.Size(18, 13);
+            this.label566.TabIndex = 2;
+            this.label566.Text = "m";
+            // 
+            // txt_Ana_Hf_RHS
+            // 
+            this.txt_Ana_Hf_RHS.Location = new System.Drawing.Point(351, 41);
+            this.txt_Ana_Hf_RHS.Name = "txt_Ana_Hf_RHS";
+            this.txt_Ana_Hf_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hf_RHS.TabIndex = 1;
+            this.txt_Ana_Hf_RHS.Text = "0.0";
+            this.txt_Ana_Hf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            // 
+            // txt_Ana_Hf_LHS
+            // 
+            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(351, 17);
+            this.txt_Ana_Hf_LHS.Name = "txt_Ana_Hf_LHS";
+            this.txt_Ana_Hf_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hf_LHS.TabIndex = 1;
+            this.txt_Ana_Hf_LHS.Text = "0.0";
+            this.txt_Ana_Hf_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_LHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
             // 
             // label528
             // 
             this.label528.AutoSize = true;
-            this.label528.Location = new System.Drawing.Point(296, 74);
+            this.label528.Location = new System.Drawing.Point(234, 85);
             this.label528.Name = "label528";
             this.label528.Size = new System.Drawing.Size(18, 13);
             this.label528.TabIndex = 2;
             this.label528.Text = "m";
             // 
+            // label565
+            // 
+            this.label565.AutoSize = true;
+            this.label565.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label565.Location = new System.Drawing.Point(245, 44);
+            this.label565.Name = "label565";
+            this.label565.Size = new System.Drawing.Size(100, 13);
+            this.label565.TabIndex = 3;
+            this.label565.Text = "Height [RHS_hf]";
+            // 
+            // label567
+            // 
+            this.label567.AutoSize = true;
+            this.label567.Location = new System.Drawing.Point(407, 44);
+            this.label567.Name = "label567";
+            this.label567.Size = new System.Drawing.Size(18, 13);
+            this.label567.TabIndex = 2;
+            this.label567.Text = "m";
+            // 
             // label524
             // 
             this.label524.AutoSize = true;
             this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label524.Location = new System.Drawing.Point(6, 47);
+            this.label524.Location = new System.Drawing.Point(245, 20);
             this.label524.Name = "label524";
-            this.label524.Size = new System.Drawing.Size(141, 13);
+            this.label524.Size = new System.Drawing.Size(98, 13);
             this.label524.TabIndex = 3;
-            this.label524.Text = "Height of Footpath  [hf]";
+            this.label524.Text = "Height [LHS_hf]";
             // 
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(296, 47);
+            this.label525.Location = new System.Drawing.Point(407, 20);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(18, 13);
             this.label525.TabIndex = 2;
@@ -2638,21 +2721,31 @@
             // label526
             // 
             this.label526.AutoSize = true;
-            this.label526.Location = new System.Drawing.Point(296, 20);
+            this.label526.Location = new System.Drawing.Point(186, 23);
             this.label526.Name = "label526";
             this.label526.Size = new System.Drawing.Size(18, 13);
             this.label526.TabIndex = 2;
             this.label526.Text = "m";
             // 
-            // txt_Ana_Wf
+            // label564
             // 
-            this.txt_Ana_Wf.Location = new System.Drawing.Point(240, 17);
-            this.txt_Ana_Wf.Name = "txt_Ana_Wf";
-            this.txt_Ana_Wf.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Wf.TabIndex = 0;
-            this.txt_Ana_Wf.Text = "0.0";
-            this.txt_Ana_Wf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Wf.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            this.label564.AutoSize = true;
+            this.label564.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label564.Location = new System.Drawing.Point(8, 44);
+            this.label564.Name = "label564";
+            this.label564.Size = new System.Drawing.Size(98, 13);
+            this.label564.TabIndex = 0;
+            this.label564.Text = "Width [RHS_wf]";
+            // 
+            // txt_Ana_Wf_LHS
+            // 
+            this.txt_Ana_Wf_LHS.Location = new System.Drawing.Point(130, 20);
+            this.txt_Ana_Wf_LHS.Name = "txt_Ana_Wf_LHS";
+            this.txt_Ana_Wf_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wf_LHS.TabIndex = 0;
+            this.txt_Ana_Wf_LHS.Text = "0.0";
+            this.txt_Ana_Wf_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_LHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
             // 
             // label527
             // 
@@ -2660,17 +2753,15 @@
             this.label527.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label527.Location = new System.Drawing.Point(6, 20);
             this.label527.Name = "label527";
-            this.label527.Size = new System.Drawing.Size(220, 13);
+            this.label527.Size = new System.Drawing.Size(96, 13);
             this.label527.TabIndex = 0;
-            this.label527.Text = "Width of Footpath including Kerb [wf]";
+            this.label527.Text = "Width [LHS_wf]";
             // 
             // chk_fp_right
             // 
             this.chk_fp_right.AutoSize = true;
-            this.chk_fp_right.Checked = true;
-            this.chk_fp_right.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_fp_right.ForeColor = System.Drawing.Color.Blue;
-            this.chk_fp_right.Location = new System.Drawing.Point(343, 179);
+            this.chk_fp_right.Location = new System.Drawing.Point(343, 182);
             this.chk_fp_right.Name = "chk_fp_right";
             this.chk_fp_right.Size = new System.Drawing.Size(101, 17);
             this.chk_fp_right.TabIndex = 0;
@@ -2681,7 +2772,7 @@
             // chk_footpath
             // 
             this.chk_footpath.AutoSize = true;
-            this.chk_footpath.Location = new System.Drawing.Point(6, 179);
+            this.chk_footpath.Location = new System.Drawing.Point(6, 182);
             this.chk_footpath.Name = "chk_footpath";
             this.chk_footpath.Size = new System.Drawing.Size(177, 17);
             this.chk_footpath.TabIndex = 3;
@@ -2692,10 +2783,8 @@
             // chk_fp_left
             // 
             this.chk_fp_left.AutoSize = true;
-            this.chk_fp_left.Checked = true;
-            this.chk_fp_left.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_fp_left.ForeColor = System.Drawing.Color.Blue;
-            this.chk_fp_left.Location = new System.Drawing.Point(245, 179);
+            this.chk_fp_left.Location = new System.Drawing.Point(245, 182);
             this.chk_fp_left.Name = "chk_fp_left";
             this.chk_fp_left.Size = new System.Drawing.Size(92, 17);
             this.chk_fp_left.TabIndex = 1;
@@ -2713,16 +2802,16 @@
             this.grb_ana_parapet.Controls.Add(this.label209);
             this.grb_ana_parapet.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_ana_parapet.ForeColor = System.Drawing.Color.Blue;
-            this.grb_ana_parapet.Location = new System.Drawing.Point(6, 64);
+            this.grb_ana_parapet.Location = new System.Drawing.Point(6, 58);
             this.grb_ana_parapet.Name = "grb_ana_parapet";
-            this.grb_ana_parapet.Size = new System.Drawing.Size(438, 40);
+            this.grb_ana_parapet.Size = new System.Drawing.Size(467, 40);
             this.grb_ana_parapet.TabIndex = 96;
             this.grb_ana_parapet.TabStop = false;
             this.grb_ana_parapet.Text = "Parapet Wall";
             // 
             // txt_Ana_hp
             // 
-            this.txt_Ana_hp.Location = new System.Drawing.Point(317, 15);
+            this.txt_Ana_hp.Location = new System.Drawing.Point(351, 14);
             this.txt_Ana_hp.Name = "txt_Ana_hp";
             this.txt_Ana_hp.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_hp.TabIndex = 2;
@@ -2734,7 +2823,7 @@
             // 
             this.label207.AutoSize = true;
             this.label207.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label207.Location = new System.Drawing.Point(240, 18);
+            this.label207.Location = new System.Drawing.Point(274, 17);
             this.label207.Name = "label207";
             this.label207.Size = new System.Drawing.Size(71, 13);
             this.label207.TabIndex = 3;
@@ -2743,7 +2832,7 @@
             // label206
             // 
             this.label206.AutoSize = true;
-            this.label206.Location = new System.Drawing.Point(373, 18);
+            this.label206.Location = new System.Drawing.Point(407, 17);
             this.label206.Name = "label206";
             this.label206.Size = new System.Drawing.Size(18, 13);
             this.label206.TabIndex = 2;
@@ -2752,7 +2841,7 @@
             // label208
             // 
             this.label208.AutoSize = true;
-            this.label208.Location = new System.Drawing.Point(162, 18);
+            this.label208.Location = new System.Drawing.Point(186, 17);
             this.label208.Name = "label208";
             this.label208.Size = new System.Drawing.Size(18, 13);
             this.label208.TabIndex = 0;
@@ -2760,7 +2849,7 @@
             // 
             // txt_Ana_wp
             // 
-            this.txt_Ana_wp.Location = new System.Drawing.Point(106, 15);
+            this.txt_Ana_wp.Location = new System.Drawing.Point(130, 14);
             this.txt_Ana_wp.Name = "txt_Ana_wp";
             this.txt_Ana_wp.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_wp.TabIndex = 0;
@@ -2780,10 +2869,8 @@
             // chk_cb_right
             // 
             this.chk_cb_right.AutoSize = true;
-            this.chk_cb_right.Checked = true;
-            this.chk_cb_right.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_cb_right.ForeColor = System.Drawing.Color.Blue;
-            this.chk_cb_right.Location = new System.Drawing.Point(343, 113);
+            this.chk_cb_right.Location = new System.Drawing.Point(343, 101);
             this.chk_cb_right.Name = "chk_cb_right";
             this.chk_cb_right.Size = new System.Drawing.Size(101, 17);
             this.chk_cb_right.TabIndex = 0;
@@ -2794,13 +2881,11 @@
             // chk_crash_barrier
             // 
             this.chk_crash_barrier.AutoSize = true;
-            this.chk_crash_barrier.Checked = true;
-            this.chk_crash_barrier.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_crash_barrier.Location = new System.Drawing.Point(6, 113);
+            this.chk_crash_barrier.Location = new System.Drawing.Point(6, 101);
             this.chk_crash_barrier.Name = "chk_crash_barrier";
-            this.chk_crash_barrier.Size = new System.Drawing.Size(233, 17);
+            this.chk_crash_barrier.Size = new System.Drawing.Size(131, 17);
             this.chk_crash_barrier.TabIndex = 3;
-            this.chk_crash_barrier.Text = "CRASH BARRIER / NO FOOTPATH";
+            this.chk_crash_barrier.Text = "CRASH BARRIER ";
             this.chk_crash_barrier.UseVisualStyleBackColor = true;
             this.chk_crash_barrier.CheckedChanged += new System.EventHandler(this.rbtn_CheckedChanged);
             // 
@@ -2816,67 +2901,131 @@
             // 
             // grb_ana_crash_barrier
             // 
-            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Hc);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Hc_RHS);
+            this.grb_ana_crash_barrier.Controls.Add(this.label563);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Hc_LHS);
+            this.grb_ana_crash_barrier.Controls.Add(this.label562);
             this.grb_ana_crash_barrier.Controls.Add(this.label514);
-            this.grb_ana_crash_barrier.Controls.Add(this.label510);
+            this.grb_ana_crash_barrier.Controls.Add(this.label481);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Wc_RHS);
             this.grb_ana_crash_barrier.Controls.Add(this.label522);
-            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Wc);
+            this.grb_ana_crash_barrier.Controls.Add(this.label510);
+            this.grb_ana_crash_barrier.Controls.Add(this.label480);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Wc_LHS);
             this.grb_ana_crash_barrier.Controls.Add(this.label523);
             this.grb_ana_crash_barrier.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_ana_crash_barrier.ForeColor = System.Drawing.Color.Blue;
-            this.grb_ana_crash_barrier.Location = new System.Drawing.Point(6, 132);
+            this.grb_ana_crash_barrier.Location = new System.Drawing.Point(6, 117);
             this.grb_ana_crash_barrier.Name = "grb_ana_crash_barrier";
-            this.grb_ana_crash_barrier.Size = new System.Drawing.Size(438, 37);
+            this.grb_ana_crash_barrier.Size = new System.Drawing.Size(467, 60);
             this.grb_ana_crash_barrier.TabIndex = 1;
             this.grb_ana_crash_barrier.TabStop = false;
             // 
-            // txt_Ana_Hc
+            // txt_Ana_Hc_RHS
             // 
-            this.txt_Ana_Hc.Location = new System.Drawing.Point(317, 10);
-            this.txt_Ana_Hc.Name = "txt_Ana_Hc";
-            this.txt_Ana_Hc.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Hc.TabIndex = 2;
-            this.txt_Ana_Hc.Text = "1.200";
-            this.txt_Ana_Hc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Hc.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            this.txt_Ana_Hc_RHS.Location = new System.Drawing.Point(351, 32);
+            this.txt_Ana_Hc_RHS.Name = "txt_Ana_Hc_RHS";
+            this.txt_Ana_Hc_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hc_RHS.TabIndex = 2;
+            this.txt_Ana_Hc_RHS.Text = "1.200";
+            this.txt_Ana_Hc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            // 
+            // label563
+            // 
+            this.label563.AutoSize = true;
+            this.label563.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label563.Location = new System.Drawing.Point(249, 35);
+            this.label563.Name = "label563";
+            this.label563.Size = new System.Drawing.Size(101, 13);
+            this.label563.TabIndex = 3;
+            this.label563.Text = "Height [RHS_hc]";
+            // 
+            // txt_Ana_Hc_LHS
+            // 
+            this.txt_Ana_Hc_LHS.Location = new System.Drawing.Point(130, 32);
+            this.txt_Ana_Hc_LHS.Name = "txt_Ana_Hc_LHS";
+            this.txt_Ana_Hc_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hc_LHS.TabIndex = 2;
+            this.txt_Ana_Hc_LHS.Text = "1.200";
+            this.txt_Ana_Hc_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_LHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            // 
+            // label562
+            // 
+            this.label562.AutoSize = true;
+            this.label562.Location = new System.Drawing.Point(407, 35);
+            this.label562.Name = "label562";
+            this.label562.Size = new System.Drawing.Size(18, 13);
+            this.label562.TabIndex = 2;
+            this.label562.Text = "m";
             // 
             // label514
             // 
             this.label514.AutoSize = true;
             this.label514.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label514.Location = new System.Drawing.Point(240, 13);
+            this.label514.Location = new System.Drawing.Point(8, 35);
             this.label514.Name = "label514";
-            this.label514.Size = new System.Drawing.Size(70, 13);
+            this.label514.Size = new System.Drawing.Size(99, 13);
             this.label514.TabIndex = 3;
-            this.label514.Text = "Height [hc]";
+            this.label514.Text = "Height [LHS_hc]";
             // 
-            // label510
+            // label481
             // 
-            this.label510.AutoSize = true;
-            this.label510.Location = new System.Drawing.Point(373, 13);
-            this.label510.Name = "label510";
-            this.label510.Size = new System.Drawing.Size(18, 13);
-            this.label510.TabIndex = 2;
-            this.label510.Text = "m";
+            this.label481.AutoSize = true;
+            this.label481.Location = new System.Drawing.Point(407, 13);
+            this.label481.Name = "label481";
+            this.label481.Size = new System.Drawing.Size(18, 13);
+            this.label481.TabIndex = 0;
+            this.label481.Text = "m";
+            // 
+            // txt_Ana_Wc_RHS
+            // 
+            this.txt_Ana_Wc_RHS.Location = new System.Drawing.Point(351, 10);
+            this.txt_Ana_Wc_RHS.Name = "txt_Ana_Wc_RHS";
+            this.txt_Ana_Wc_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wc_RHS.TabIndex = 1;
+            this.txt_Ana_Wc_RHS.Text = " 0.500";
+            this.txt_Ana_Wc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
             // 
             // label522
             // 
             this.label522.AutoSize = true;
-            this.label522.Location = new System.Drawing.Point(162, 13);
+            this.label522.Location = new System.Drawing.Point(186, 13);
             this.label522.Name = "label522";
             this.label522.Size = new System.Drawing.Size(18, 13);
             this.label522.TabIndex = 0;
             this.label522.Text = "m";
             // 
-            // txt_Ana_Wc
+            // label510
             // 
-            this.txt_Ana_Wc.Location = new System.Drawing.Point(106, 10);
-            this.txt_Ana_Wc.Name = "txt_Ana_Wc";
-            this.txt_Ana_Wc.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Wc.TabIndex = 1;
-            this.txt_Ana_Wc.Text = " 0.500";
-            this.txt_Ana_Wc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Wc.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
+            this.label510.AutoSize = true;
+            this.label510.Location = new System.Drawing.Point(186, 35);
+            this.label510.Name = "label510";
+            this.label510.Size = new System.Drawing.Size(18, 13);
+            this.label510.TabIndex = 2;
+            this.label510.Text = "m";
+            // 
+            // label480
+            // 
+            this.label480.AutoSize = true;
+            this.label480.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label480.Location = new System.Drawing.Point(249, 13);
+            this.label480.Name = "label480";
+            this.label480.Size = new System.Drawing.Size(99, 13);
+            this.label480.TabIndex = 0;
+            this.label480.Text = "Width [RHS_wc]";
+            // 
+            // txt_Ana_Wc_LHS
+            // 
+            this.txt_Ana_Wc_LHS.Location = new System.Drawing.Point(130, 10);
+            this.txt_Ana_Wc_LHS.Name = "txt_Ana_Wc_LHS";
+            this.txt_Ana_Wc_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wc_LHS.TabIndex = 1;
+            this.txt_Ana_Wc_LHS.Text = " 0.500";
+            this.txt_Ana_Wc_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_LHS.TextChanged += new System.EventHandler(this.txt_Ana_width_TextChanged);
             // 
             // label523
             // 
@@ -2884,17 +3033,15 @@
             this.label523.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label523.Location = new System.Drawing.Point(5, 13);
             this.label523.Name = "label523";
-            this.label523.Size = new System.Drawing.Size(68, 13);
+            this.label523.Size = new System.Drawing.Size(97, 13);
             this.label523.TabIndex = 0;
-            this.label523.Text = "Width [wc]";
+            this.label523.Text = "Width [LHS_wc]";
             // 
             // chk_cb_left
             // 
             this.chk_cb_left.AutoSize = true;
-            this.chk_cb_left.Checked = true;
-            this.chk_cb_left.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_cb_left.ForeColor = System.Drawing.Color.Blue;
-            this.chk_cb_left.Location = new System.Drawing.Point(245, 113);
+            this.chk_cb_left.Location = new System.Drawing.Point(245, 101);
             this.chk_cb_left.Name = "chk_cb_left";
             this.chk_cb_left.Size = new System.Drawing.Size(92, 17);
             this.chk_cb_left.TabIndex = 1;
@@ -2912,9 +3059,9 @@
             this.grb_ana_wc.Controls.Add(this.label521);
             this.grb_ana_wc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_ana_wc.ForeColor = System.Drawing.Color.Blue;
-            this.grb_ana_wc.Location = new System.Drawing.Point(6, 20);
+            this.grb_ana_wc.Location = new System.Drawing.Point(6, 17);
             this.grb_ana_wc.Name = "grb_ana_wc";
-            this.grb_ana_wc.Size = new System.Drawing.Size(438, 40);
+            this.grb_ana_wc.Size = new System.Drawing.Size(467, 40);
             this.grb_ana_wc.TabIndex = 1;
             this.grb_ana_wc.TabStop = false;
             this.grb_ana_wc.Text = "Wearing Course";
@@ -2922,7 +3069,7 @@
             // label511
             // 
             this.label511.AutoSize = true;
-            this.label511.Location = new System.Drawing.Point(373, 17);
+            this.label511.Location = new System.Drawing.Point(407, 18);
             this.label511.Name = "label511";
             this.label511.Size = new System.Drawing.Size(55, 13);
             this.label511.TabIndex = 1;
@@ -2930,7 +3077,7 @@
             // 
             // txt_Ana_gamma_w
             // 
-            this.txt_Ana_gamma_w.Location = new System.Drawing.Point(317, 14);
+            this.txt_Ana_gamma_w.Location = new System.Drawing.Point(351, 15);
             this.txt_Ana_gamma_w.Name = "txt_Ana_gamma_w";
             this.txt_Ana_gamma_w.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_gamma_w.TabIndex = 1;
@@ -2942,7 +3089,7 @@
             // 
             this.label515.AutoSize = true;
             this.label515.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label515.Location = new System.Drawing.Point(204, 18);
+            this.label515.Location = new System.Drawing.Point(238, 19);
             this.label515.Name = "label515";
             this.label515.Size = new System.Drawing.Size(107, 13);
             this.label515.TabIndex = 3;
@@ -2951,7 +3098,7 @@
             // label520
             // 
             this.label520.AutoSize = true;
-            this.label520.Location = new System.Drawing.Point(162, 18);
+            this.label520.Location = new System.Drawing.Point(186, 17);
             this.label520.Name = "label520";
             this.label520.Size = new System.Drawing.Size(18, 13);
             this.label520.TabIndex = 0;
@@ -2959,7 +3106,7 @@
             // 
             // txt_Ana_Dw
             // 
-            this.txt_Ana_Dw.Location = new System.Drawing.Point(106, 15);
+            this.txt_Ana_Dw.Location = new System.Drawing.Point(130, 14);
             this.txt_Ana_Dw.Name = "txt_Ana_Dw";
             this.txt_Ana_Dw.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Dw.TabIndex = 0;
@@ -5712,6 +5859,9 @@
             // 
             // tab_mov_data_Indian
             // 
+            this.tab_mov_data_Indian.Controls.Add(this.btn_irc_view_moving_load);
+            this.tab_mov_data_Indian.Controls.Add(this.label568);
+            this.tab_mov_data_Indian.Controls.Add(this.cmb_irc_view_moving_load);
             this.tab_mov_data_Indian.Controls.Add(this.label202);
             this.tab_mov_data_Indian.Controls.Add(this.btn_IRC_Loadings);
             this.tab_mov_data_Indian.Controls.Add(this.btn_edit_load_combs_IRC);
@@ -5720,7 +5870,9 @@
             this.tab_mov_data_Indian.Controls.Add(this.groupBox9);
             this.tab_mov_data_Indian.Controls.Add(this.label8);
             this.tab_mov_data_Indian.Controls.Add(this.txt_dl_ll_comb);
+            this.tab_mov_data_Indian.Controls.Add(this.txt_irc_vehicle_gap);
             this.tab_mov_data_Indian.Controls.Add(this.txt_XINCR);
+            this.tab_mov_data_Indian.Controls.Add(this.label569);
             this.tab_mov_data_Indian.Controls.Add(this.label560);
             this.tab_mov_data_Indian.Controls.Add(this.label19);
             this.tab_mov_data_Indian.Controls.Add(this.btn_long_restore_ll_IRC);
@@ -5731,6 +5883,35 @@
             this.tab_mov_data_Indian.TabIndex = 6;
             this.tab_mov_data_Indian.Text = "Moving Load Data";
             this.tab_mov_data_Indian.UseVisualStyleBackColor = true;
+            this.tab_mov_data_Indian.Click += new System.EventHandler(this.tab_mov_data_Indian_Click);
+            // 
+            // btn_irc_view_moving_load
+            // 
+            this.btn_irc_view_moving_load.Location = new System.Drawing.Point(52, 542);
+            this.btn_irc_view_moving_load.Name = "btn_irc_view_moving_load";
+            this.btn_irc_view_moving_load.Size = new System.Drawing.Size(204, 29);
+            this.btn_irc_view_moving_load.TabIndex = 85;
+            this.btn_irc_view_moving_load.Text = "View Moving Load";
+            this.btn_irc_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_irc_view_moving_load.Click += new System.EventHandler(this.btn_irc_view_moving_load_Click);
+            // 
+            // label568
+            // 
+            this.label568.AutoSize = true;
+            this.label568.Location = new System.Drawing.Point(14, 521);
+            this.label568.Name = "label568";
+            this.label568.Size = new System.Drawing.Size(166, 13);
+            this.label568.TabIndex = 84;
+            this.label568.Text = "Select to view Moving Load ";
+            // 
+            // cmb_irc_view_moving_load
+            // 
+            this.cmb_irc_view_moving_load.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_irc_view_moving_load.FormattingEnabled = true;
+            this.cmb_irc_view_moving_load.Location = new System.Drawing.Point(194, 518);
+            this.cmb_irc_view_moving_load.Name = "cmb_irc_view_moving_load";
+            this.cmb_irc_view_moving_load.Size = new System.Drawing.Size(84, 21);
+            this.cmb_irc_view_moving_load.TabIndex = 83;
             // 
             // label202
             // 
@@ -5791,7 +5972,7 @@
             this.groupBox9.ForeColor = System.Drawing.Color.Black;
             this.groupBox9.Location = new System.Drawing.Point(3, 28);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(278, 546);
+            this.groupBox9.Size = new System.Drawing.Size(278, 487);
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "                                               ";
@@ -5855,7 +6036,7 @@
             this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_loads.Name = "dgv_long_loads";
             this.dgv_long_loads.RowHeadersWidth = 21;
-            this.dgv_long_loads.Size = new System.Drawing.Size(272, 510);
+            this.dgv_long_loads.Size = new System.Drawing.Size(272, 451);
             this.dgv_long_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn31
@@ -5962,6 +6143,18 @@
             this.txt_dl_ll_comb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_dl_ll_comb.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
+            // txt_irc_vehicle_gap
+            // 
+            this.txt_irc_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_irc_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_irc_vehicle_gap.Location = new System.Drawing.Point(738, 520);
+            this.txt_irc_vehicle_gap.Name = "txt_irc_vehicle_gap";
+            this.txt_irc_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_irc_vehicle_gap.TabIndex = 58;
+            this.txt_irc_vehicle_gap.Text = "18.8";
+            this.txt_irc_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_irc_vehicle_gap.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
             // txt_XINCR
             // 
             this.txt_XINCR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -5970,9 +6163,19 @@
             this.txt_XINCR.Name = "txt_XINCR";
             this.txt_XINCR.Size = new System.Drawing.Size(37, 18);
             this.txt_XINCR.TabIndex = 58;
-            this.txt_XINCR.Text = "0.2";
+            this.txt_XINCR.Text = "0.5";
             this.txt_XINCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_XINCR.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label569
+            // 
+            this.label569.AutoSize = true;
+            this.label569.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label569.Location = new System.Drawing.Point(311, 521);
+            this.label569.Name = "label569";
+            this.label569.Size = new System.Drawing.Size(421, 13);
+            this.label569.TabIndex = 60;
+            this.label569.Text = "Longitudinal Separating distance between two vehicle in a Lane";
             // 
             // label560
             // 
@@ -6013,7 +6216,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(284, 28);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(653, 543);
+            this.groupBox3.Size = new System.Drawing.Size(653, 487);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "                                     ";
@@ -6089,7 +6292,7 @@
             this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
             this.dgv_long_liveloads.RowHeadersWidth = 21;
-            this.dgv_long_liveloads.Size = new System.Drawing.Size(647, 507);
+            this.dgv_long_liveloads.Size = new System.Drawing.Size(647, 451);
             this.dgv_long_liveloads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -6241,6 +6444,11 @@
             // 
             // groupBox60
             // 
+            this.groupBox60.Controls.Add(this.btn_bs_view_moving_load);
+            this.groupBox60.Controls.Add(this.label1190);
+            this.groupBox60.Controls.Add(this.cmb_bs_view_moving_load);
+            this.groupBox60.Controls.Add(this.txt_bs_vehicle_gap);
+            this.groupBox60.Controls.Add(this.label1191);
             this.groupBox60.Controls.Add(this.label561);
             this.groupBox60.Controls.Add(this.label557);
             this.groupBox60.Controls.Add(this.btn_edit_load_combs_BS);
@@ -6259,6 +6467,55 @@
             this.groupBox60.Size = new System.Drawing.Size(934, 636);
             this.groupBox60.TabIndex = 84;
             this.groupBox60.TabStop = false;
+            // 
+            // btn_bs_view_moving_load
+            // 
+            this.btn_bs_view_moving_load.Location = new System.Drawing.Point(65, 544);
+            this.btn_bs_view_moving_load.Name = "btn_bs_view_moving_load";
+            this.btn_bs_view_moving_load.Size = new System.Drawing.Size(204, 21);
+            this.btn_bs_view_moving_load.TabIndex = 117;
+            this.btn_bs_view_moving_load.Text = "View Moving Load";
+            this.btn_bs_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_bs_view_moving_load.Click += new System.EventHandler(this.btn_irc_view_moving_load_Click);
+            // 
+            // label1190
+            // 
+            this.label1190.AutoSize = true;
+            this.label1190.Location = new System.Drawing.Point(27, 523);
+            this.label1190.Name = "label1190";
+            this.label1190.Size = new System.Drawing.Size(166, 13);
+            this.label1190.TabIndex = 116;
+            this.label1190.Text = "Select to view Moving Load ";
+            // 
+            // cmb_bs_view_moving_load
+            // 
+            this.cmb_bs_view_moving_load.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_bs_view_moving_load.FormattingEnabled = true;
+            this.cmb_bs_view_moving_load.Location = new System.Drawing.Point(207, 520);
+            this.cmb_bs_view_moving_load.Name = "cmb_bs_view_moving_load";
+            this.cmb_bs_view_moving_load.Size = new System.Drawing.Size(84, 21);
+            this.cmb_bs_view_moving_load.TabIndex = 115;
+            // 
+            // txt_bs_vehicle_gap
+            // 
+            this.txt_bs_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_bs_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_bs_vehicle_gap.Location = new System.Drawing.Point(751, 522);
+            this.txt_bs_vehicle_gap.Name = "txt_bs_vehicle_gap";
+            this.txt_bs_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_bs_vehicle_gap.TabIndex = 113;
+            this.txt_bs_vehicle_gap.Text = "18.8";
+            this.txt_bs_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1191
+            // 
+            this.label1191.AutoSize = true;
+            this.label1191.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1191.Location = new System.Drawing.Point(324, 523);
+            this.label1191.Name = "label1191";
+            this.label1191.Size = new System.Drawing.Size(421, 13);
+            this.label1191.TabIndex = 114;
+            this.label1191.Text = "Longitudinal Separating distance between two vehicle in a Lane";
             // 
             // label561
             // 
@@ -6347,7 +6604,7 @@
             this.sp_hb.Panel2.Controls.Add(this.groupBox61);
             this.sp_hb.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.sp_hb.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.sp_hb.Size = new System.Drawing.Size(928, 291);
+            this.sp_hb.Size = new System.Drawing.Size(928, 242);
             this.sp_hb.SplitterDistance = 518;
             this.sp_hb.TabIndex = 83;
             // 
@@ -6362,7 +6619,7 @@
             this.groupBox62.Location = new System.Drawing.Point(0, 0);
             this.groupBox62.Name = "groupBox62";
             this.groupBox62.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox62.Size = new System.Drawing.Size(516, 289);
+            this.groupBox62.Size = new System.Drawing.Size(516, 240);
             this.groupBox62.TabIndex = 7;
             this.groupBox62.TabStop = false;
             this.groupBox62.Text = "                                     ";
@@ -6426,7 +6683,7 @@
             this.dgv_long_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_long_british_loads.Name = "dgv_long_british_loads";
             this.dgv_long_british_loads.RowHeadersWidth = 21;
-            this.dgv_long_british_loads.Size = new System.Drawing.Size(510, 235);
+            this.dgv_long_british_loads.Size = new System.Drawing.Size(510, 186);
             this.dgv_long_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn55
@@ -6612,7 +6869,7 @@
             this.groupBox61.Location = new System.Drawing.Point(0, 0);
             this.groupBox61.Name = "groupBox61";
             this.groupBox61.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.groupBox61.Size = new System.Drawing.Size(404, 289);
+            this.groupBox61.Size = new System.Drawing.Size(404, 240);
             this.groupBox61.TabIndex = 8;
             this.groupBox61.TabStop = false;
             this.groupBox61.Text = "                                               ";
@@ -6675,7 +6932,7 @@
             this.dgv_british_loads.Location = new System.Drawing.Point(3, 61);
             this.dgv_british_loads.Name = "dgv_british_loads";
             this.dgv_british_loads.RowHeadersWidth = 21;
-            this.dgv_british_loads.Size = new System.Drawing.Size(398, 225);
+            this.dgv_british_loads.Size = new System.Drawing.Size(398, 176);
             this.dgv_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn77
@@ -7790,6 +8047,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox14);
+            this.groupBox2.Controls.Add(this.btn_stage_analysis);
             this.groupBox2.Controls.Add(this.btn_process_analysis);
             this.groupBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
@@ -7804,7 +8062,7 @@
             // 
             this.groupBox14.Controls.Add(this.label532);
             this.groupBox14.Controls.Add(this.cmb_long_open_file_process);
-            this.groupBox14.Controls.Add(this.btn_View_Moving_Load);
+            this.groupBox14.Controls.Add(this.btn_result_summary);
             this.groupBox14.Controls.Add(this.btn_view_report);
             this.groupBox14.Controls.Add(this.btn_view_data);
             this.groupBox14.Controls.Add(this.btn_view_postprocess);
@@ -7849,15 +8107,15 @@
             this.cmb_long_open_file_process.TabIndex = 98;
             this.cmb_long_open_file_process.SelectedIndexChanged += new System.EventHandler(this.cmb_long_open_file_SelectedIndexChanged);
             // 
-            // btn_View_Moving_Load
+            // btn_result_summary
             // 
-            this.btn_View_Moving_Load.Location = new System.Drawing.Point(316, 41);
-            this.btn_View_Moving_Load.Name = "btn_View_Moving_Load";
-            this.btn_View_Moving_Load.Size = new System.Drawing.Size(149, 30);
-            this.btn_View_Moving_Load.TabIndex = 78;
-            this.btn_View_Moving_Load.Text = "Results Summary";
-            this.btn_View_Moving_Load.UseVisualStyleBackColor = true;
-            this.btn_View_Moving_Load.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            this.btn_result_summary.Location = new System.Drawing.Point(316, 41);
+            this.btn_result_summary.Name = "btn_result_summary";
+            this.btn_result_summary.Size = new System.Drawing.Size(149, 30);
+            this.btn_result_summary.TabIndex = 78;
+            this.btn_result_summary.Text = "Results Summary";
+            this.btn_result_summary.UseVisualStyleBackColor = true;
+            this.btn_result_summary.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
             // btn_view_report
             // 
@@ -7879,6 +8137,16 @@
             this.btn_view_data.UseVisualStyleBackColor = true;
             this.btn_view_data.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
+            // btn_view_postprocess
+            // 
+            this.btn_view_postprocess.Location = new System.Drawing.Point(472, 47);
+            this.btn_view_postprocess.Name = "btn_view_postprocess";
+            this.btn_view_postprocess.Size = new System.Drawing.Size(149, 24);
+            this.btn_view_postprocess.TabIndex = 74;
+            this.btn_view_postprocess.Text = "View Post Process";
+            this.btn_view_postprocess.UseVisualStyleBackColor = true;
+            this.btn_view_postprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
+            // 
             // btn_view_preprocess
             // 
             this.btn_view_preprocess.Location = new System.Drawing.Point(472, 15);
@@ -7889,11 +8157,21 @@
             this.btn_view_preprocess.UseVisualStyleBackColor = true;
             this.btn_view_preprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
+            // btn_stage_analysis
+            // 
+            this.btn_stage_analysis.Location = new System.Drawing.Point(6, 55);
+            this.btn_stage_analysis.Name = "btn_stage_analysis";
+            this.btn_stage_analysis.Size = new System.Drawing.Size(207, 27);
+            this.btn_stage_analysis.TabIndex = 75;
+            this.btn_stage_analysis.Text = "Stage Analysis";
+            this.btn_stage_analysis.UseVisualStyleBackColor = true;
+            this.btn_stage_analysis.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
+            // 
             // btn_process_analysis
             // 
             this.btn_process_analysis.Location = new System.Drawing.Point(6, 26);
             this.btn_process_analysis.Name = "btn_process_analysis";
-            this.btn_process_analysis.Size = new System.Drawing.Size(136, 44);
+            this.btn_process_analysis.Size = new System.Drawing.Size(207, 27);
             this.btn_process_analysis.TabIndex = 75;
             this.btn_process_analysis.Text = "Process Analysis";
             this.btn_process_analysis.UseVisualStyleBackColor = true;
@@ -11358,7 +11636,7 @@
             this.dataGridViewTextBoxColumn45});
             this.dgv_long_user_input.Location = new System.Drawing.Point(174, 17);
             this.dgv_long_user_input.Name = "dgv_long_user_input";
-            this.dgv_long_user_input.Size = new System.Drawing.Size(602, 531);
+            this.dgv_long_user_input.Size = new System.Drawing.Size(602, 456);
             this.dgv_long_user_input.TabIndex = 9;
             // 
             // dataGridViewTextBoxColumn43
@@ -11451,6 +11729,7 @@
             // 
             // tab_long_main_girders
             // 
+            this.tab_long_main_girders.Controls.Add(this.pictureBox10);
             this.tab_long_main_girders.Controls.Add(this.label21);
             this.tab_long_main_girders.Controls.Add(this.dgv_long_user_input);
             this.tab_long_main_girders.Controls.Add(this.btn_LS_long_ws_open);
@@ -11464,8 +11743,20 @@
             this.tab_long_main_girders.Text = "Long Main Girders";
             this.tab_long_main_girders.UseVisualStyleBackColor = true;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(46, 479);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox10.TabIndex = 128;
+            this.pictureBox10.TabStop = false;
+            // 
             // tab_cross_girders
             // 
+            this.tab_cross_girders.Controls.Add(this.pictureBox1);
             this.tab_cross_girders.Controls.Add(this.dgv_cross_user_input);
             this.tab_cross_girders.Controls.Add(this.btn_LS_cross_rep_open);
             this.tab_cross_girders.Controls.Add(this.label20);
@@ -11477,6 +11768,17 @@
             this.tab_cross_girders.TabIndex = 1;
             this.tab_cross_girders.Text = "Cross Girders";
             this.tab_cross_girders.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(38, 380);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox1.TabIndex = 129;
+            this.pictureBox1.TabStop = false;
             // 
             // dgv_cross_user_input
             // 
@@ -11522,7 +11824,7 @@
             // 
             // btn_LS_cross_rep_open
             // 
-            this.btn_LS_cross_rep_open.Location = new System.Drawing.Point(198, 431);
+            this.btn_LS_cross_rep_open.Location = new System.Drawing.Point(198, 539);
             this.btn_LS_cross_rep_open.Name = "btn_LS_cross_rep_open";
             this.btn_LS_cross_rep_open.Size = new System.Drawing.Size(559, 40);
             this.btn_LS_cross_rep_open.TabIndex = 118;
@@ -11535,7 +11837,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Red;
-            this.label20.Location = new System.Drawing.Point(403, 366);
+            this.label20.Location = new System.Drawing.Point(403, 474);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(148, 14);
             this.label20.TabIndex = 117;
@@ -11543,7 +11845,7 @@
             // 
             // btn_LS_cross_ws_open
             // 
-            this.btn_LS_cross_ws_open.Location = new System.Drawing.Point(198, 477);
+            this.btn_LS_cross_ws_open.Location = new System.Drawing.Point(198, 585);
             this.btn_LS_cross_ws_open.Name = "btn_LS_cross_ws_open";
             this.btn_LS_cross_ws_open.Size = new System.Drawing.Size(559, 42);
             this.btn_LS_cross_ws_open.TabIndex = 0;
@@ -11553,7 +11855,7 @@
             // 
             // btn_LS_cross_ws
             // 
-            this.btn_LS_cross_ws.Location = new System.Drawing.Point(198, 383);
+            this.btn_LS_cross_ws.Location = new System.Drawing.Point(198, 491);
             this.btn_LS_cross_ws.Name = "btn_LS_cross_ws";
             this.btn_LS_cross_ws.Size = new System.Drawing.Size(559, 42);
             this.btn_LS_cross_ws.TabIndex = 0;
@@ -11586,6 +11888,7 @@
             // 
             // tab_deck_user_data
             // 
+            this.tab_deck_user_data.Controls.Add(this.pictureBox2);
             this.tab_deck_user_data.Controls.Add(this.dgv_deck_user_input);
             this.tab_deck_user_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_user_data.Name = "tab_deck_user_data";
@@ -11594,6 +11897,17 @@
             this.tab_deck_user_data.TabIndex = 1;
             this.tab_deck_user_data.Text = "Deck Slab Input Data";
             this.tab_deck_user_data.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox2.Location = new System.Drawing.Point(33, 429);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox2.TabIndex = 129;
+            this.pictureBox2.TabStop = false;
             // 
             // dgv_deck_user_input
             // 
@@ -11609,7 +11923,7 @@
             this.col_val_unit});
             this.dgv_deck_user_input.Location = new System.Drawing.Point(172, 20);
             this.dgv_deck_user_input.Name = "dgv_deck_user_input";
-            this.dgv_deck_user_input.Size = new System.Drawing.Size(602, 466);
+            this.dgv_deck_user_input.Size = new System.Drawing.Size(602, 375);
             this.dgv_deck_user_input.TabIndex = 8;
             // 
             // col_input
@@ -16972,16 +17286,6 @@
             this.label210.Text = "Drawings and Reports";
             this.label210.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_view_postprocess
-            // 
-            this.btn_view_postprocess.Location = new System.Drawing.Point(472, 47);
-            this.btn_view_postprocess.Name = "btn_view_postprocess";
-            this.btn_view_postprocess.Size = new System.Drawing.Size(149, 24);
-            this.btn_view_postprocess.TabIndex = 74;
-            this.btn_view_postprocess.Text = "View Post Process";
-            this.btn_view_postprocess.UseVisualStyleBackColor = true;
-            this.btn_view_postprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
-            // 
             // frm_RCC_T_Girder_LS_New
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -17206,12 +17510,15 @@
             this.tab_bridge_analysis.ResumeLayout(false);
             this.tab_long_main_girders.ResumeLayout(false);
             this.tab_long_main_girders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.tab_cross_girders.ResumeLayout(false);
             this.tab_cross_girders.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cross_user_input)).EndInit();
             this.tab_deck_slab.ResumeLayout(false);
             this.tab_deck.ResumeLayout(false);
             this.tab_deck_user_data.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_deck_user_input)).EndInit();
             this.tab_deck_ll_data.ResumeLayout(false);
             this.tab_deck_ll_data.PerformLayout();
@@ -17304,11 +17611,11 @@
         private System.Windows.Forms.Label label521;
         private System.Windows.Forms.CheckBox chk_fp_right;
         private System.Windows.Forms.GroupBox grb_ana_crash_barrier;
-        private System.Windows.Forms.TextBox txt_Ana_Hc;
+        private System.Windows.Forms.TextBox txt_Ana_Hc_LHS;
         private System.Windows.Forms.Label label514;
         private System.Windows.Forms.Label label510;
         private System.Windows.Forms.Label label522;
-        private System.Windows.Forms.TextBox txt_Ana_Wc;
+        private System.Windows.Forms.TextBox txt_Ana_Wc_LHS;
         private System.Windows.Forms.Label label523;
         private System.Windows.Forms.GroupBox grb_ana_footpath;
         private System.Windows.Forms.TextBox txt_Ana_Wr;
@@ -17316,12 +17623,12 @@
         private System.Windows.Forms.TextBox txt_Ana_Wk;
         private System.Windows.Forms.Label label529;
         private System.Windows.Forms.Label label530;
-        private System.Windows.Forms.TextBox txt_Ana_Hf;
+        private System.Windows.Forms.TextBox txt_Ana_Hf_LHS;
         private System.Windows.Forms.Label label528;
         private System.Windows.Forms.Label label524;
         private System.Windows.Forms.Label label525;
         private System.Windows.Forms.Label label526;
-        private System.Windows.Forms.TextBox txt_Ana_Wf;
+        private System.Windows.Forms.TextBox txt_Ana_Wf_LHS;
         private System.Windows.Forms.Label label527;
         private System.Windows.Forms.GroupBox groupBox37;
         private System.Windows.Forms.GroupBox grb_create_input_data;
@@ -17382,7 +17689,7 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btn_View_Moving_Load;
+        private System.Windows.Forms.Button btn_result_summary;
         private System.Windows.Forms.Button btn_view_report;
         private System.Windows.Forms.Button btn_process_analysis;
         private System.Windows.Forms.Button btn_create_data;
@@ -18675,6 +18982,32 @@
         private System.Windows.Forms.Label label560;
         private System.Windows.Forms.Label label561;
         private System.Windows.Forms.Button btn_view_postprocess;
+        private System.Windows.Forms.TextBox txt_Ana_Hc_RHS;
+        private System.Windows.Forms.Label label563;
+        private System.Windows.Forms.Label label562;
+        private System.Windows.Forms.Label label481;
+        private System.Windows.Forms.TextBox txt_Ana_Wc_RHS;
+        private System.Windows.Forms.Label label480;
+        private System.Windows.Forms.TextBox txt_Ana_Wf_RHS;
+        private System.Windows.Forms.Label label566;
+        private System.Windows.Forms.TextBox txt_Ana_Hf_RHS;
+        private System.Windows.Forms.Label label565;
+        private System.Windows.Forms.Label label567;
+        private System.Windows.Forms.Label label564;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btn_irc_view_moving_load;
+        private System.Windows.Forms.Label label568;
+        private System.Windows.Forms.ComboBox cmb_irc_view_moving_load;
+        private System.Windows.Forms.TextBox txt_irc_vehicle_gap;
+        private System.Windows.Forms.Label label569;
+        private System.Windows.Forms.Button btn_bs_view_moving_load;
+        private System.Windows.Forms.Label label1190;
+        private System.Windows.Forms.ComboBox cmb_bs_view_moving_load;
+        private System.Windows.Forms.TextBox txt_bs_vehicle_gap;
+        private System.Windows.Forms.Label label1191;
+        private System.Windows.Forms.Button btn_stage_analysis;
 
     }
 

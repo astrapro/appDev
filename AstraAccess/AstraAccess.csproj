@@ -273,6 +273,12 @@
     <Compile Include="SAP_Forms\frm_Truss_Mat_Props.Designer.cs">
       <DependentUpon>frm_Truss_Mat_Props.cs</DependentUpon>
     </Compile>
+    <Compile Include="StageAnalysis\frmStageDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StageAnalysis\frmStageDialog.Designer.cs">
+      <DependentUpon>frmStageDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="StageAnalysis\frm_ProcessStageAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SAP_Forms\frm_Truss_Mat_Props.resx">
       <DependentUpon>frm_Truss_Mat_Props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StageAnalysis\frmStageDialog.resx">
+      <DependentUpon>frmStageDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StageAnalysis\frm_ProcessStageAnalysis.resx">
       <DependentUpon>frm_ProcessStageAnalysis.cs</DependentUpon>

@@ -18782,6 +18782,11 @@ namespace LimitStateMethod.RCC_T_Girder
           
         }
 
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+            return mvl;
+        }
         void Text_Changed()
         {
             txt_Ana_NMG.Text = cmb_NMG.Text;
@@ -18797,7 +18802,7 @@ namespace LimitStateMethod.RCC_T_Girder
             //DCG = DMG - 0.4;
 
             //txt_LL_load_gen.Text = ((L + Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.0))) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))).ToString("f0");
-            txt_LL_load_gen.Text = ((L) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))).ToString("f0");
+            txt_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / (MyList.StringToDouble(txt_XINCR.Text, 0.0))).ToString("f0");
 
 
             leff = L - eg / 1000.0 - 2 * os;

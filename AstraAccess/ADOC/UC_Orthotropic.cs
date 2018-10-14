@@ -783,7 +783,48 @@ namespace AstraAccess.ADOC
             Color_Side_Plate_4 = Color.DarkRed;
         }
 
+        public string Get_Codes()
+        {
 
+            #region Cross Girder
+            //list.Add(string.Format("X,Y,Z,Is_Cross_Girder,L,Web_Thickness,Web_Depth,TF_THK,TF_WD,BF_THK,BF_WD,TP_THK,TP_WD,BP_THK,BP_WD,Lat_Spacing,SP_1_THK,SP_2_THK,SP_3_THK,SP_4_THK,SP_1_WD,SP_2_WD,SP_3_WD,SP_4_WD,Curve_Radius"));
+            return (string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24}", 
+                X, Y, Z, Is_Cross_Girder, L, Web_Thickness, Web_Depth, 
+                TF_THK, TF_WD, BF_THK, BF_WD, 
+                TP_THK, TP_WD, BP_THK,BP_WD, 
+                Lat_Spacing, 
+                SP_1_THK, SP_2_THK, SP_3_THK, SP_4_THK, 
+                SP_1_WD, SP_2_WD, SP_3_WD, SP_4_WD, Curve_Radius));
+           
+            
+            //list.Add(string.Format("X"));
+            //list.Add(string.Format("Y"));
+            //list.Add(string.Format("Z"));
+            //list.Add(string.Format("Is_Cross_Girder = true;"));
+            //list.Add(string.Format("L"));
+            //list.Add(string.Format("Web_Thickness"));
+            //list.Add(string.Format("Web_Depth "));
+            //list.Add(string.Format("TF_THK"));
+            //list.Add(string.Format("TF_WD"));
+            //list.Add(string.Format("BF_THK "));
+            //list.Add(string.Format("BF_WD"));
+            //list.Add(string.Format("TP_THK"));
+            //list.Add(string.Format("TP_WD"));
+            //list.Add(string.Format("BP_THK "));
+            //list.Add(string.Format("BP_WD "));
+            //list.Add(string.Format("Lat_Spacing"));
+            //list.Add(string.Format("SP_1_THK "));
+            //list.Add(string.Format("SP_2_THK "));
+            //list.Add(string.Format("SP_3_THK "));
+            //list.Add(string.Format("SP_4_THK "));
+            //list.Add(string.Format("SP_1_WD "));
+            //list.Add(string.Format("SP_2_WD "));
+            //list.Add(string.Format("SP_3_WD "));
+            //list.Add(string.Format("SP_4_WD "));
+            //list.Add(string.Format(""));
+
+            #endregion
+        }
         public void Cross_Draw(vdDocument vdoc)
         {
             gPoint insPnt = new gPoint(X, Y, Z);
@@ -3182,6 +3223,7 @@ namespace AstraAccess.ADOC
             }
 
         }
+
 
     }
 }

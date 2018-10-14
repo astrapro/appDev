@@ -4527,7 +4527,6 @@ namespace AstraInterface.DataStructure
         public MaxForce GetJoint_Max_Hogging(List<int> joint_array, bool is_long_girder)
         {
             MaxForce mfrc = new MaxForce();
-
             double max_moment = 0.0;
 
             for (int i = 0; i < joint_array.Count; i++)
@@ -4584,6 +4583,14 @@ namespace AstraInterface.DataStructure
 
             //return (max_moment == double.MinValue) ? 0.0d : max_moment;
 
+            if (mfrc == 0.0)
+            {
+                if (is_long_girder)
+                {
+                    return GetJoint_Max_Hogging(joint_array, false);
+
+                }
+            }
             return mfrc;
 
         }
@@ -4652,7 +4659,14 @@ namespace AstraInterface.DataStructure
             }
 
             //return (max_moment == double.MinValue) ? 0.0d : max_moment;
+            if (mfrc == 0.0)
+            {
+                if (is_long_girder)
+                {
+                    return GetJoint_Max_Sagging(joint_array, false);
 
+                }
+            }
             return mfrc;
 
         }

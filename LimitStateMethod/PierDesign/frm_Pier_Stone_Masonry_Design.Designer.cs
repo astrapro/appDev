@@ -73,7 +73,6 @@
             this.label157 = new System.Windows.Forms.Label();
             this.txt_w1 = new System.Windows.Forms.TextBox();
             this.label158 = new System.Windows.Forms.Label();
-            this.pic_stone_masonry = new System.Windows.Forms.PictureBox();
             this.btnProcess = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -86,12 +85,13 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label223 = new System.Windows.Forms.Label();
             this.btn_dwg_stone_interactive = new System.Windows.Forms.Button();
+            this.pic_stone_masonry = new System.Windows.Forms.PictureBox();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_stone_masonry)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_stone_masonry)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox6
@@ -563,16 +563,6 @@
             this.label158.TabIndex = 1;
             this.label158.Text = "Permanent Load from each Span [w1]";
             // 
-            // pic_stone_masonry
-            // 
-            this.pic_stone_masonry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_stone_masonry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pic_stone_masonry.Location = new System.Drawing.Point(444, 18);
-            this.pic_stone_masonry.Name = "pic_stone_masonry";
-            this.pic_stone_masonry.Size = new System.Drawing.Size(399, 414);
-            this.pic_stone_masonry.TabIndex = 0;
-            this.pic_stone_masonry.TabStop = false;
-            // 
             // btnProcess
             // 
             this.btnProcess.Location = new System.Drawing.Point(211, 529);
@@ -699,6 +689,17 @@
             this.btn_dwg_stone_interactive.UseVisualStyleBackColor = true;
             this.btn_dwg_stone_interactive.Click += new System.EventHandler(this.btn_dwg_stone_interactive_Click);
             // 
+            // pic_stone_masonry
+            // 
+            this.pic_stone_masonry.BackgroundImage = global::LimitStateMethod.Properties.Resources.StoneMasonryPier;
+            this.pic_stone_masonry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pic_stone_masonry.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pic_stone_masonry.Location = new System.Drawing.Point(444, 18);
+            this.pic_stone_masonry.Name = "pic_stone_masonry";
+            this.pic_stone_masonry.Size = new System.Drawing.Size(399, 414);
+            this.pic_stone_masonry.TabIndex = 0;
+            this.pic_stone_masonry.TabStop = false;
+            // 
             // frm_Pier_Stone_Masonry_Design
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -713,13 +714,13 @@
             this.Load += new System.EventHandler(this.frm_Pier_Stone_Masonry_Design_Load);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_stone_masonry)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_stone_masonry)).EndInit();
             this.ResumeLayout(false);
 
         }

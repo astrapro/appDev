@@ -187,13 +187,15 @@
             this.lbl_1 = new System.Windows.Forms.Label();
             this.lbl_title = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_worksheet_open = new System.Windows.Forms.Button();
             this.btn_worksheet_report = new System.Windows.Forms.Button();
             this.btn_process = new System.Windows.Forms.Button();
-            this.btn_worksheet_open = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pnl_2.SuspendLayout();
             this.pnl_1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -213,6 +215,7 @@
             // 
             // pnl_2
             // 
+            this.pnl_2.Controls.Add(this.pictureBox10);
             this.pnl_2.Controls.Add(this.txt_SUMM_N81);
             this.pnl_2.Controls.Add(this.txt_SUMM_N21);
             this.pnl_2.Controls.Add(this.txt_SUMM_L81);
@@ -300,7 +303,7 @@
             this.pnl_2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_2.Location = new System.Drawing.Point(0, 411);
             this.pnl_2.Name = "pnl_2";
-            this.pnl_2.Size = new System.Drawing.Size(747, 419);
+            this.pnl_2.Size = new System.Drawing.Size(747, 499);
             this.pnl_2.TabIndex = 3;
             // 
             // txt_SUMM_N81
@@ -1873,6 +1876,17 @@
             this.panel2.Size = new System.Drawing.Size(766, 127);
             this.panel2.TabIndex = 5;
             // 
+            // btn_worksheet_open
+            // 
+            this.btn_worksheet_open.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_worksheet_open.Location = new System.Drawing.Point(134, 85);
+            this.btn_worksheet_open.Name = "btn_worksheet_open";
+            this.btn_worksheet_open.Size = new System.Drawing.Size(498, 34);
+            this.btn_worksheet_open.TabIndex = 7;
+            this.btn_worksheet_open.Text = "Open User\'s Design by selecting User\'s given file name";
+            this.btn_worksheet_open.UseVisualStyleBackColor = true;
+            this.btn_worksheet_open.Click += new System.EventHandler(this.btn_open_Click);
+            // 
             // btn_worksheet_report
             // 
             this.btn_worksheet_report.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -1895,16 +1909,16 @@
             this.btn_process.UseVisualStyleBackColor = true;
             this.btn_process.Click += new System.EventHandler(this.btn_process_Click);
             // 
-            // btn_worksheet_open
+            // pictureBox10
             // 
-            this.btn_worksheet_open.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_worksheet_open.Location = new System.Drawing.Point(134, 85);
-            this.btn_worksheet_open.Name = "btn_worksheet_open";
-            this.btn_worksheet_open.Size = new System.Drawing.Size(498, 34);
-            this.btn_worksheet_open.TabIndex = 7;
-            this.btn_worksheet_open.Text = "Open User\'s Design by selecting User\'s given file name";
-            this.btn_worksheet_open.UseVisualStyleBackColor = true;
-            this.btn_worksheet_open.Click += new System.EventHandler(this.btn_open_Click);
+            this.pictureBox10.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(3, 406);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox10.TabIndex = 128;
+            this.pictureBox10.TabStop = false;
             // 
             // UC_CompositeBridgeLSM
             // 
@@ -1921,6 +1935,7 @@
             this.pnl_1.ResumeLayout(false);
             this.pnl_1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2089,5 +2104,6 @@
         public System.Windows.Forms.TextBox txt_GEN_I21;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_worksheet_open;
+        private System.Windows.Forms.PictureBox pictureBox10;
     }
 }

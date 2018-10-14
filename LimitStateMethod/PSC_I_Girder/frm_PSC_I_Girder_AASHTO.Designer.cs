@@ -175,12 +175,18 @@ namespace LimitStateMethod.PSC_I_Girder
             this.txt_Ana_Wk = new System.Windows.Forms.TextBox();
             this.label529 = new System.Windows.Forms.Label();
             this.label530 = new System.Windows.Forms.Label();
-            this.txt_Ana_Hf = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Hf_RHS = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Hf_LHS = new System.Windows.Forms.TextBox();
+            this.label103 = new System.Windows.Forms.Label();
             this.label528 = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
             this.label524 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
             this.label525 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wf_RHS = new System.Windows.Forms.TextBox();
             this.label526 = new System.Windows.Forms.Label();
-            this.txt_Ana_Wf = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wf_LHS = new System.Windows.Forms.TextBox();
             this.label527 = new System.Windows.Forms.Label();
             this.chk_cb_left = new System.Windows.Forms.CheckBox();
             this.pic_diagram = new System.Windows.Forms.PictureBox();
@@ -199,11 +205,17 @@ namespace LimitStateMethod.PSC_I_Girder
             this.txt_Ana_Parapet_Width = new System.Windows.Forms.TextBox();
             this.label240 = new System.Windows.Forms.Label();
             this.grb_crash_barrier = new System.Windows.Forms.GroupBox();
-            this.txt_Ana_Crash_Barier_Height = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Hc_RHS = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txt_Ana_Hc_LHS = new System.Windows.Forms.TextBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.label514 = new System.Windows.Forms.Label();
-            this.label510 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wc_RHS = new System.Windows.Forms.TextBox();
             this.label522 = new System.Windows.Forms.Label();
-            this.txt_Ana_Crash_Barier_Width = new System.Windows.Forms.TextBox();
+            this.label510 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wc_LHS = new System.Windows.Forms.TextBox();
             this.label523 = new System.Windows.Forms.Label();
             this.tab_gad = new System.Windows.Forms.TabPage();
             this.label794 = new System.Windows.Forms.Label();
@@ -450,6 +462,11 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label546 = new System.Windows.Forms.Label();
             this.tab_mov_data_Indian = new System.Windows.Forms.TabPage();
             this.groupBox79 = new System.Windows.Forms.GroupBox();
+            this.btn_irc_view_moving_load = new System.Windows.Forms.Button();
+            this.label568 = new System.Windows.Forms.Label();
+            this.cmb_irc_view_moving_load = new System.Windows.Forms.ComboBox();
+            this.txt_irc_vehicle_gap = new System.Windows.Forms.TextBox();
+            this.label569 = new System.Windows.Forms.Label();
             this.btn__Loadings_help = new System.Windows.Forms.Button();
             this.label99 = new System.Windows.Forms.Label();
             this.label1177 = new System.Windows.Forms.Label();
@@ -1920,7 +1937,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox36.ForeColor = System.Drawing.Color.Black;
             this.groupBox36.Location = new System.Drawing.Point(438, 3);
             this.groupBox36.Name = "groupBox36";
-            this.groupBox36.Size = new System.Drawing.Size(470, 633);
+            this.groupBox36.Size = new System.Drawing.Size(496, 633);
             this.groupBox36.TabIndex = 95;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "SUPER IMPOSED DEAD LOAD [SIDL]";
@@ -1928,6 +1945,8 @@ namespace LimitStateMethod.PSC_I_Girder
             // chk_footpath
             // 
             this.chk_footpath.AutoSize = true;
+            this.chk_footpath.Checked = true;
+            this.chk_footpath.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_footpath.Location = new System.Drawing.Point(6, 199);
             this.chk_footpath.Name = "chk_footpath";
             this.chk_footpath.Size = new System.Drawing.Size(177, 17);
@@ -1956,7 +1975,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.chk_cb_right.Checked = true;
             this.chk_cb_right.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_cb_right.ForeColor = System.Drawing.Color.Blue;
-            this.chk_cb_right.Location = new System.Drawing.Point(343, 122);
+            this.chk_cb_right.Location = new System.Drawing.Point(343, 109);
             this.chk_cb_right.Name = "chk_cb_right";
             this.chk_cb_right.Size = new System.Drawing.Size(101, 17);
             this.chk_cb_right.TabIndex = 96;
@@ -1983,11 +2002,11 @@ namespace LimitStateMethod.PSC_I_Girder
             this.chk_crash_barrier.AutoSize = true;
             this.chk_crash_barrier.Checked = true;
             this.chk_crash_barrier.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_crash_barrier.Location = new System.Drawing.Point(6, 122);
+            this.chk_crash_barrier.Location = new System.Drawing.Point(6, 109);
             this.chk_crash_barrier.Name = "chk_crash_barrier";
-            this.chk_crash_barrier.Size = new System.Drawing.Size(233, 17);
+            this.chk_crash_barrier.Size = new System.Drawing.Size(131, 17);
             this.chk_crash_barrier.TabIndex = 98;
-            this.chk_crash_barrier.Text = "CRASH BARRIER / NO FOOTPATH";
+            this.chk_crash_barrier.Text = "CRASH BARRIER ";
             this.chk_crash_barrier.UseVisualStyleBackColor = true;
             this.chk_crash_barrier.CheckedChanged += new System.EventHandler(this.rbtn_CheckedChanged);
             // 
@@ -1998,24 +2017,30 @@ namespace LimitStateMethod.PSC_I_Girder
             this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wk);
             this.grb_ana_footpath.Controls.Add(this.label529);
             this.grb_ana_footpath.Controls.Add(this.label530);
-            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf_RHS);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf_LHS);
+            this.grb_ana_footpath.Controls.Add(this.label103);
             this.grb_ana_footpath.Controls.Add(this.label528);
+            this.grb_ana_footpath.Controls.Add(this.label101);
             this.grb_ana_footpath.Controls.Add(this.label524);
+            this.grb_ana_footpath.Controls.Add(this.label100);
             this.grb_ana_footpath.Controls.Add(this.label525);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf_RHS);
             this.grb_ana_footpath.Controls.Add(this.label526);
-            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf);
+            this.grb_ana_footpath.Controls.Add(this.label38);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf_LHS);
             this.grb_ana_footpath.Controls.Add(this.label527);
             this.grb_ana_footpath.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_ana_footpath.ForeColor = System.Drawing.Color.Blue;
-            this.grb_ana_footpath.Location = new System.Drawing.Point(8, 219);
+            this.grb_ana_footpath.Location = new System.Drawing.Point(8, 217);
             this.grb_ana_footpath.Name = "grb_ana_footpath";
-            this.grb_ana_footpath.Size = new System.Drawing.Size(456, 131);
+            this.grb_ana_footpath.Size = new System.Drawing.Size(482, 130);
             this.grb_ana_footpath.TabIndex = 1;
             this.grb_ana_footpath.TabStop = false;
             // 
             // txt_Ana_Wr
             // 
-            this.txt_Ana_Wr.Location = new System.Drawing.Point(240, 98);
+            this.txt_Ana_Wr.Location = new System.Drawing.Point(173, 102);
             this.txt_Ana_Wr.Name = "txt_Ana_Wr";
             this.txt_Ana_Wr.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wr.TabIndex = 3;
@@ -2027,7 +2052,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label531.AutoSize = true;
             this.label531.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label531.Location = new System.Drawing.Point(6, 101);
+            this.label531.Location = new System.Drawing.Point(5, 105);
             this.label531.Name = "label531";
             this.label531.Size = new System.Drawing.Size(160, 13);
             this.label531.TabIndex = 3;
@@ -2035,7 +2060,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // txt_Ana_Wk
             // 
-            this.txt_Ana_Wk.Location = new System.Drawing.Point(240, 71);
+            this.txt_Ana_Wk.Location = new System.Drawing.Point(173, 75);
             this.txt_Ana_Wk.Name = "txt_Ana_Wk";
             this.txt_Ana_Wk.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wk.TabIndex = 2;
@@ -2047,7 +2072,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label529.AutoSize = true;
             this.label529.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label529.Location = new System.Drawing.Point(6, 74);
+            this.label529.Location = new System.Drawing.Point(5, 78);
             this.label529.Name = "label529";
             this.label529.Size = new System.Drawing.Size(115, 13);
             this.label529.TabIndex = 3;
@@ -2056,68 +2081,126 @@ namespace LimitStateMethod.PSC_I_Girder
             // label530
             // 
             this.label530.AutoSize = true;
-            this.label530.Location = new System.Drawing.Point(296, 101);
+            this.label530.Location = new System.Drawing.Point(229, 105);
             this.label530.Name = "label530";
             this.label530.Size = new System.Drawing.Size(15, 13);
             this.label530.TabIndex = 2;
             this.label530.Text = "ft";
             // 
-            // txt_Ana_Hf
+            // txt_Ana_Hf_RHS
             // 
-            this.txt_Ana_Hf.Location = new System.Drawing.Point(240, 44);
-            this.txt_Ana_Hf.Name = "txt_Ana_Hf";
-            this.txt_Ana_Hf.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Hf.TabIndex = 1;
-            this.txt_Ana_Hf.Text = "0.0";
-            this.txt_Ana_Hf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Hf.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            this.txt_Ana_Hf_RHS.Location = new System.Drawing.Point(376, 44);
+            this.txt_Ana_Hf_RHS.Name = "txt_Ana_Hf_RHS";
+            this.txt_Ana_Hf_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hf_RHS.TabIndex = 1;
+            this.txt_Ana_Hf_RHS.Text = "0.0";
+            this.txt_Ana_Hf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // txt_Ana_Hf_LHS
+            // 
+            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(376, 17);
+            this.txt_Ana_Hf_LHS.Name = "txt_Ana_Hf_LHS";
+            this.txt_Ana_Hf_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hf_LHS.TabIndex = 1;
+            this.txt_Ana_Hf_LHS.Text = "0.0";
+            this.txt_Ana_Hf_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_LHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label103.Location = new System.Drawing.Point(271, 47);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(100, 13);
+            this.label103.TabIndex = 3;
+            this.label103.Text = "Height [RHS_hf]";
             // 
             // label528
             // 
             this.label528.AutoSize = true;
-            this.label528.Location = new System.Drawing.Point(296, 74);
+            this.label528.Location = new System.Drawing.Point(229, 78);
             this.label528.Name = "label528";
             this.label528.Size = new System.Drawing.Size(15, 13);
             this.label528.TabIndex = 2;
             this.label528.Text = "ft";
             // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(432, 47);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(15, 13);
+            this.label101.TabIndex = 2;
+            this.label101.Text = "ft";
+            // 
             // label524
             // 
             this.label524.AutoSize = true;
             this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label524.Location = new System.Drawing.Point(6, 47);
+            this.label524.Location = new System.Drawing.Point(271, 20);
             this.label524.Name = "label524";
-            this.label524.Size = new System.Drawing.Size(141, 13);
+            this.label524.Size = new System.Drawing.Size(98, 13);
             this.label524.TabIndex = 3;
-            this.label524.Text = "Height of Footpath  [hf]";
+            this.label524.Text = "Height [LHS_hf]";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(188, 47);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(15, 13);
+            this.label100.TabIndex = 2;
+            this.label100.Text = "ft";
             // 
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(296, 47);
+            this.label525.Location = new System.Drawing.Point(432, 20);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(15, 13);
             this.label525.TabIndex = 2;
             this.label525.Text = "ft";
             // 
+            // txt_Ana_Wf_RHS
+            // 
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(132, 44);
+            this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
+            this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wf_RHS.TabIndex = 0;
+            this.txt_Ana_Wf_RHS.Text = "0.0";
+            this.txt_Ana_Wf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
             // label526
             // 
             this.label526.AutoSize = true;
-            this.label526.Location = new System.Drawing.Point(296, 20);
+            this.label526.Location = new System.Drawing.Point(188, 20);
             this.label526.Name = "label526";
             this.label526.Size = new System.Drawing.Size(15, 13);
             this.label526.TabIndex = 2;
             this.label526.Text = "ft";
             // 
-            // txt_Ana_Wf
+            // label38
             // 
-            this.txt_Ana_Wf.Location = new System.Drawing.Point(240, 17);
-            this.txt_Ana_Wf.Name = "txt_Ana_Wf";
-            this.txt_Ana_Wf.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Wf.TabIndex = 0;
-            this.txt_Ana_Wf.Text = "0.0";
-            this.txt_Ana_Wf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Wf.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(6, 47);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(98, 13);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Width [RHS_wf]";
+            // 
+            // txt_Ana_Wf_LHS
+            // 
+            this.txt_Ana_Wf_LHS.Location = new System.Drawing.Point(132, 17);
+            this.txt_Ana_Wf_LHS.Name = "txt_Ana_Wf_LHS";
+            this.txt_Ana_Wf_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wf_LHS.TabIndex = 0;
+            this.txt_Ana_Wf_LHS.Text = "0.0";
+            this.txt_Ana_Wf_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_LHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label527
             // 
@@ -2125,9 +2208,9 @@ namespace LimitStateMethod.PSC_I_Girder
             this.label527.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label527.Location = new System.Drawing.Point(6, 20);
             this.label527.Name = "label527";
-            this.label527.Size = new System.Drawing.Size(220, 13);
+            this.label527.Size = new System.Drawing.Size(96, 13);
             this.label527.TabIndex = 0;
-            this.label527.Text = "Width of Footpath including Kerb [wf]";
+            this.label527.Text = "Width [LHS_wf]";
             // 
             // chk_cb_left
             // 
@@ -2135,7 +2218,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.chk_cb_left.Checked = true;
             this.chk_cb_left.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_cb_left.ForeColor = System.Drawing.Color.Blue;
-            this.chk_cb_left.Location = new System.Drawing.Point(245, 122);
+            this.chk_cb_left.Location = new System.Drawing.Point(245, 109);
             this.chk_cb_left.Name = "chk_cb_left";
             this.chk_cb_left.Size = new System.Drawing.Size(92, 17);
             this.chk_cb_left.TabIndex = 97;
@@ -2165,7 +2248,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.grb_ana_wc.ForeColor = System.Drawing.Color.Blue;
             this.grb_ana_wc.Location = new System.Drawing.Point(6, 19);
             this.grb_ana_wc.Name = "grb_ana_wc";
-            this.grb_ana_wc.Size = new System.Drawing.Size(456, 43);
+            this.grb_ana_wc.Size = new System.Drawing.Size(484, 37);
             this.grb_ana_wc.TabIndex = 1;
             this.grb_ana_wc.TabStop = false;
             this.grb_ana_wc.Text = "Future wearing surface";
@@ -2173,7 +2256,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // label520
             // 
             this.label520.AutoSize = true;
-            this.label520.Location = new System.Drawing.Point(190, 19);
+            this.label520.Location = new System.Drawing.Point(190, 16);
             this.label520.Name = "label520";
             this.label520.Size = new System.Drawing.Size(15, 13);
             this.label520.TabIndex = 4;
@@ -2181,7 +2264,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // txt_Ana_Dw
             // 
-            this.txt_Ana_Dw.Location = new System.Drawing.Point(134, 16);
+            this.txt_Ana_Dw.Location = new System.Drawing.Point(134, 13);
             this.txt_Ana_Dw.Name = "txt_Ana_Dw";
             this.txt_Ana_Dw.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Dw.TabIndex = 5;
@@ -2192,7 +2275,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label521.AutoSize = true;
             this.label521.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label521.Location = new System.Drawing.Point(9, 19);
+            this.label521.Location = new System.Drawing.Point(9, 16);
             this.label521.Name = "label521";
             this.label521.Size = new System.Drawing.Size(95, 13);
             this.label521.TabIndex = 6;
@@ -2201,7 +2284,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // label511
             // 
             this.label511.AutoSize = true;
-            this.label511.Location = new System.Drawing.Point(388, 19);
+            this.label511.Location = new System.Drawing.Point(434, 16);
             this.label511.Name = "label511";
             this.label511.Size = new System.Drawing.Size(44, 13);
             this.label511.TabIndex = 1;
@@ -2209,7 +2292,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // txt_Ana_FWS_Weight
             // 
-            this.txt_Ana_FWS_Weight.Location = new System.Drawing.Point(332, 16);
+            this.txt_Ana_FWS_Weight.Location = new System.Drawing.Point(378, 13);
             this.txt_Ana_FWS_Weight.Name = "txt_Ana_FWS_Weight";
             this.txt_Ana_FWS_Weight.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_FWS_Weight.TabIndex = 1;
@@ -2221,7 +2304,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label515.AutoSize = true;
             this.label515.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label515.Location = new System.Drawing.Point(251, 19);
+            this.label515.Location = new System.Drawing.Point(297, 16);
             this.label515.Name = "label515";
             this.label515.Size = new System.Drawing.Size(75, 13);
             this.label515.TabIndex = 3;
@@ -2237,16 +2320,16 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox12.Controls.Add(this.label240);
             this.groupBox12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox12.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox12.Location = new System.Drawing.Point(6, 68);
+            this.groupBox12.Location = new System.Drawing.Point(6, 60);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(456, 46);
+            this.groupBox12.Size = new System.Drawing.Size(484, 37);
             this.groupBox12.TabIndex = 1;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Parapet Wall";
             // 
             // txt_Ana_Parapet_Height
             // 
-            this.txt_Ana_Parapet_Height.Location = new System.Drawing.Point(332, 18);
+            this.txt_Ana_Parapet_Height.Location = new System.Drawing.Point(378, 13);
             this.txt_Ana_Parapet_Height.Name = "txt_Ana_Parapet_Height";
             this.txt_Ana_Parapet_Height.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Parapet_Height.TabIndex = 2;
@@ -2258,7 +2341,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label233.AutoSize = true;
             this.label233.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label233.Location = new System.Drawing.Point(256, 21);
+            this.label233.Location = new System.Drawing.Point(302, 16);
             this.label233.Name = "label233";
             this.label233.Size = new System.Drawing.Size(71, 13);
             this.label233.TabIndex = 3;
@@ -2267,7 +2350,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // label238
             // 
             this.label238.AutoSize = true;
-            this.label238.Location = new System.Drawing.Point(388, 21);
+            this.label238.Location = new System.Drawing.Point(434, 16);
             this.label238.Name = "label238";
             this.label238.Size = new System.Drawing.Size(15, 13);
             this.label238.TabIndex = 2;
@@ -2276,7 +2359,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // label239
             // 
             this.label239.AutoSize = true;
-            this.label239.Location = new System.Drawing.Point(190, 21);
+            this.label239.Location = new System.Drawing.Point(190, 16);
             this.label239.Name = "label239";
             this.label239.Size = new System.Drawing.Size(15, 13);
             this.label239.TabIndex = 0;
@@ -2284,7 +2367,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // txt_Ana_Parapet_Width
             // 
-            this.txt_Ana_Parapet_Width.Location = new System.Drawing.Point(134, 18);
+            this.txt_Ana_Parapet_Width.Location = new System.Drawing.Point(134, 13);
             this.txt_Ana_Parapet_Width.Name = "txt_Ana_Parapet_Width";
             this.txt_Ana_Parapet_Width.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Parapet_Width.TabIndex = 1;
@@ -2296,7 +2379,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label240.AutoSize = true;
             this.label240.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label240.Location = new System.Drawing.Point(35, 21);
+            this.label240.Location = new System.Drawing.Point(35, 16);
             this.label240.Name = "label240";
             this.label240.Size = new System.Drawing.Size(69, 13);
             this.label240.TabIndex = 0;
@@ -2304,77 +2387,141 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // grb_crash_barrier
             // 
-            this.grb_crash_barrier.Controls.Add(this.txt_Ana_Crash_Barier_Height);
+            this.grb_crash_barrier.Controls.Add(this.txt_Ana_Hc_RHS);
+            this.grb_crash_barrier.Controls.Add(this.label37);
+            this.grb_crash_barrier.Controls.Add(this.txt_Ana_Hc_LHS);
+            this.grb_crash_barrier.Controls.Add(this.label36);
             this.grb_crash_barrier.Controls.Add(this.label514);
-            this.grb_crash_barrier.Controls.Add(this.label510);
+            this.grb_crash_barrier.Controls.Add(this.label35);
+            this.grb_crash_barrier.Controls.Add(this.txt_Ana_Wc_RHS);
             this.grb_crash_barrier.Controls.Add(this.label522);
-            this.grb_crash_barrier.Controls.Add(this.txt_Ana_Crash_Barier_Width);
+            this.grb_crash_barrier.Controls.Add(this.label510);
+            this.grb_crash_barrier.Controls.Add(this.label21);
+            this.grb_crash_barrier.Controls.Add(this.txt_Ana_Wc_LHS);
             this.grb_crash_barrier.Controls.Add(this.label523);
             this.grb_crash_barrier.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_crash_barrier.ForeColor = System.Drawing.Color.Blue;
-            this.grb_crash_barrier.Location = new System.Drawing.Point(6, 145);
+            this.grb_crash_barrier.Location = new System.Drawing.Point(6, 124);
             this.grb_crash_barrier.Name = "grb_crash_barrier";
-            this.grb_crash_barrier.Size = new System.Drawing.Size(456, 39);
+            this.grb_crash_barrier.Size = new System.Drawing.Size(484, 61);
             this.grb_crash_barrier.TabIndex = 1;
             this.grb_crash_barrier.TabStop = false;
             // 
-            // txt_Ana_Crash_Barier_Height
+            // txt_Ana_Hc_RHS
             // 
-            this.txt_Ana_Crash_Barier_Height.Location = new System.Drawing.Point(332, 13);
-            this.txt_Ana_Crash_Barier_Height.Name = "txt_Ana_Crash_Barier_Height";
-            this.txt_Ana_Crash_Barier_Height.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Crash_Barier_Height.TabIndex = 2;
-            this.txt_Ana_Crash_Barier_Height.Text = "3.5";
-            this.txt_Ana_Crash_Barier_Height.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Crash_Barier_Height.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            this.txt_Ana_Hc_RHS.Location = new System.Drawing.Point(378, 38);
+            this.txt_Ana_Hc_RHS.Name = "txt_Ana_Hc_RHS";
+            this.txt_Ana_Hc_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hc_RHS.TabIndex = 2;
+            this.txt_Ana_Hc_RHS.Text = "3.5";
+            this.txt_Ana_Hc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(273, 41);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(101, 13);
+            this.label37.TabIndex = 3;
+            this.label37.Text = "Height [RHS_hc]";
+            // 
+            // txt_Ana_Hc_LHS
+            // 
+            this.txt_Ana_Hc_LHS.Location = new System.Drawing.Point(134, 38);
+            this.txt_Ana_Hc_LHS.Name = "txt_Ana_Hc_LHS";
+            this.txt_Ana_Hc_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hc_LHS.TabIndex = 2;
+            this.txt_Ana_Hc_LHS.Text = "3.5";
+            this.txt_Ana_Hc_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_LHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(434, 41);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(15, 13);
+            this.label36.TabIndex = 2;
+            this.label36.Text = "ft";
             // 
             // label514
             // 
             this.label514.AutoSize = true;
             this.label514.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label514.Location = new System.Drawing.Point(256, 16);
+            this.label514.Location = new System.Drawing.Point(9, 41);
             this.label514.Name = "label514";
-            this.label514.Size = new System.Drawing.Size(70, 13);
+            this.label514.Size = new System.Drawing.Size(99, 13);
             this.label514.TabIndex = 3;
-            this.label514.Text = "Height [hc]";
+            this.label514.Text = "Height [LHS_hc]";
             // 
-            // label510
+            // label35
             // 
-            this.label510.AutoSize = true;
-            this.label510.Location = new System.Drawing.Point(388, 16);
-            this.label510.Name = "label510";
-            this.label510.Size = new System.Drawing.Size(15, 13);
-            this.label510.TabIndex = 2;
-            this.label510.Text = "ft";
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(434, 17);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(15, 13);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "ft";
+            // 
+            // txt_Ana_Wc_RHS
+            // 
+            this.txt_Ana_Wc_RHS.Location = new System.Drawing.Point(378, 14);
+            this.txt_Ana_Wc_RHS.Name = "txt_Ana_Wc_RHS";
+            this.txt_Ana_Wc_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wc_RHS.TabIndex = 1;
+            this.txt_Ana_Wc_RHS.Text = "1.69";
+            this.txt_Ana_Wc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label522
             // 
             this.label522.AutoSize = true;
-            this.label522.Location = new System.Drawing.Point(148, 16);
+            this.label522.Location = new System.Drawing.Point(190, 17);
             this.label522.Name = "label522";
             this.label522.Size = new System.Drawing.Size(15, 13);
             this.label522.TabIndex = 0;
             this.label522.Text = "ft";
             // 
-            // txt_Ana_Crash_Barier_Width
+            // label510
             // 
-            this.txt_Ana_Crash_Barier_Width.Location = new System.Drawing.Point(92, 13);
-            this.txt_Ana_Crash_Barier_Width.Name = "txt_Ana_Crash_Barier_Width";
-            this.txt_Ana_Crash_Barier_Width.Size = new System.Drawing.Size(50, 21);
-            this.txt_Ana_Crash_Barier_Width.TabIndex = 1;
-            this.txt_Ana_Crash_Barier_Width.Text = "1.69";
-            this.txt_Ana_Crash_Barier_Width.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_Ana_Crash_Barier_Width.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
+            this.label510.AutoSize = true;
+            this.label510.Location = new System.Drawing.Point(190, 41);
+            this.label510.Name = "label510";
+            this.label510.Size = new System.Drawing.Size(15, 13);
+            this.label510.TabIndex = 2;
+            this.label510.Text = "ft";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(273, 17);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(99, 13);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Width [RHS_wc]";
+            // 
+            // txt_Ana_Wc_LHS
+            // 
+            this.txt_Ana_Wc_LHS.Location = new System.Drawing.Point(134, 14);
+            this.txt_Ana_Wc_LHS.Name = "txt_Ana_Wc_LHS";
+            this.txt_Ana_Wc_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wc_LHS.TabIndex = 1;
+            this.txt_Ana_Wc_LHS.Text = "1.69";
+            this.txt_Ana_Wc_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_LHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label523
             // 
             this.label523.AutoSize = true;
             this.label523.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label523.Location = new System.Drawing.Point(5, 13);
+            this.label523.Location = new System.Drawing.Point(9, 17);
             this.label523.Name = "label523";
-            this.label523.Size = new System.Drawing.Size(68, 13);
+            this.label523.Size = new System.Drawing.Size(97, 13);
             this.label523.TabIndex = 0;
-            this.label523.Text = "Width [wc]";
+            this.label523.Text = "Width [LHS_wc]";
             // 
             // tab_gad
             // 
@@ -4970,6 +5117,11 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // groupBox79
             // 
+            this.groupBox79.Controls.Add(this.btn_irc_view_moving_load);
+            this.groupBox79.Controls.Add(this.label568);
+            this.groupBox79.Controls.Add(this.cmb_irc_view_moving_load);
+            this.groupBox79.Controls.Add(this.txt_irc_vehicle_gap);
+            this.groupBox79.Controls.Add(this.label569);
             this.groupBox79.Controls.Add(this.btn__Loadings_help);
             this.groupBox79.Controls.Add(this.label99);
             this.groupBox79.Controls.Add(this.label1177);
@@ -4991,6 +5143,55 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox79.TabIndex = 81;
             this.groupBox79.TabStop = false;
             // 
+            // btn_irc_view_moving_load
+            // 
+            this.btn_irc_view_moving_load.Location = new System.Drawing.Point(44, 425);
+            this.btn_irc_view_moving_load.Name = "btn_irc_view_moving_load";
+            this.btn_irc_view_moving_load.Size = new System.Drawing.Size(204, 29);
+            this.btn_irc_view_moving_load.TabIndex = 115;
+            this.btn_irc_view_moving_load.Text = "View Moving Load";
+            this.btn_irc_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_irc_view_moving_load.Click += new System.EventHandler(this.btn_irc_view_moving_load_Click);
+            // 
+            // label568
+            // 
+            this.label568.AutoSize = true;
+            this.label568.Location = new System.Drawing.Point(6, 404);
+            this.label568.Name = "label568";
+            this.label568.Size = new System.Drawing.Size(166, 13);
+            this.label568.TabIndex = 114;
+            this.label568.Text = "Select to view Moving Load ";
+            // 
+            // cmb_irc_view_moving_load
+            // 
+            this.cmb_irc_view_moving_load.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_irc_view_moving_load.FormattingEnabled = true;
+            this.cmb_irc_view_moving_load.Location = new System.Drawing.Point(186, 401);
+            this.cmb_irc_view_moving_load.Name = "cmb_irc_view_moving_load";
+            this.cmb_irc_view_moving_load.Size = new System.Drawing.Size(84, 21);
+            this.cmb_irc_view_moving_load.TabIndex = 113;
+            // 
+            // txt_irc_vehicle_gap
+            // 
+            this.txt_irc_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_irc_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_irc_vehicle_gap.Location = new System.Drawing.Point(730, 403);
+            this.txt_irc_vehicle_gap.Name = "txt_irc_vehicle_gap";
+            this.txt_irc_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_irc_vehicle_gap.TabIndex = 111;
+            this.txt_irc_vehicle_gap.Text = "18.8";
+            this.txt_irc_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label569
+            // 
+            this.label569.AutoSize = true;
+            this.label569.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label569.Location = new System.Drawing.Point(303, 404);
+            this.label569.Name = "label569";
+            this.label569.Size = new System.Drawing.Size(421, 13);
+            this.label569.TabIndex = 112;
+            this.label569.Text = "Longitudinal Separating distance between two vehicle in a Lane";
+            // 
             // btn__Loadings_help
             // 
             this.btn__Loadings_help.Location = new System.Drawing.Point(22, 561);
@@ -5005,7 +5206,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label99.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label99.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label99.Location = new System.Drawing.Point(6, 447);
+            this.label99.Location = new System.Drawing.Point(3, 462);
             this.label99.Name = "label99";
             this.label99.Size = new System.Drawing.Size(925, 96);
             this.label99.TabIndex = 109;
@@ -5015,7 +5216,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label1177.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1177.ForeColor = System.Drawing.Color.Red;
-            this.label1177.Location = new System.Drawing.Point(7, 601);
+            this.label1177.Location = new System.Drawing.Point(4, 601);
             this.label1177.Name = "label1177";
             this.label1177.Size = new System.Drawing.Size(614, 27);
             this.label1177.TabIndex = 108;
@@ -5069,7 +5270,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox9.ForeColor = System.Drawing.Color.Black;
             this.groupBox9.Location = new System.Drawing.Point(3, 33);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(269, 411);
+            this.groupBox9.Size = new System.Drawing.Size(269, 362);
             this.groupBox9.TabIndex = 8;
             this.groupBox9.TabStop = false;
             this.groupBox9.Tag = "          ";
@@ -5129,7 +5330,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_loads.Name = "dgv_long_loads";
             this.dgv_long_loads.RowHeadersWidth = 21;
-            this.dgv_long_loads.Size = new System.Drawing.Size(263, 375);
+            this.dgv_long_loads.Size = new System.Drawing.Size(263, 326);
             this.dgv_long_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn31
@@ -5208,7 +5409,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(276, 33);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(656, 411);
+            this.groupBox3.Size = new System.Drawing.Size(656, 362);
             this.groupBox3.TabIndex = 7;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "                                     ";
@@ -5284,7 +5485,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
             this.dgv_long_liveloads.RowHeadersWidth = 21;
-            this.dgv_long_liveloads.Size = new System.Drawing.Size(650, 375);
+            this.dgv_long_liveloads.Size = new System.Drawing.Size(650, 326);
             this.dgv_long_liveloads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -10617,19 +10818,19 @@ namespace LimitStateMethod.PSC_I_Girder
         private System.Windows.Forms.TextBox txt_Ana_Wk;
         private System.Windows.Forms.Label label529;
         private System.Windows.Forms.Label label530;
-        private System.Windows.Forms.TextBox txt_Ana_Hf;
+        private System.Windows.Forms.TextBox txt_Ana_Hf_LHS;
         private System.Windows.Forms.Label label528;
         private System.Windows.Forms.Label label524;
         private System.Windows.Forms.Label label525;
         private System.Windows.Forms.Label label526;
-        private System.Windows.Forms.TextBox txt_Ana_Wf;
+        private System.Windows.Forms.TextBox txt_Ana_Wf_LHS;
         private System.Windows.Forms.Label label527;
         private System.Windows.Forms.GroupBox grb_crash_barrier;
-        private System.Windows.Forms.TextBox txt_Ana_Crash_Barier_Height;
+        private System.Windows.Forms.TextBox txt_Ana_Hc_LHS;
         private System.Windows.Forms.Label label514;
         private System.Windows.Forms.Label label510;
         private System.Windows.Forms.Label label522;
-        private System.Windows.Forms.TextBox txt_Ana_Crash_Barier_Width;
+        private System.Windows.Forms.TextBox txt_Ana_Wc_LHS;
         private System.Windows.Forms.Label label523;
         private System.Windows.Forms.GroupBox grb_ana_wc;
         private System.Windows.Forms.Label label511;
@@ -11267,6 +11468,23 @@ namespace LimitStateMethod.PSC_I_Girder
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Button btn_view_postprocess;
+        private System.Windows.Forms.TextBox txt_Ana_Hf_RHS;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.TextBox txt_Ana_Wf_RHS;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox txt_Ana_Hc_RHS;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox txt_Ana_Wc_RHS;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btn_irc_view_moving_load;
+        private System.Windows.Forms.Label label568;
+        private System.Windows.Forms.ComboBox cmb_irc_view_moving_load;
+        private System.Windows.Forms.TextBox txt_irc_vehicle_gap;
+        private System.Windows.Forms.Label label569;
     }
 }
 

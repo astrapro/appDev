@@ -2147,6 +2147,17 @@ namespace LimitStateMethod.RCC_T_Girder
             #endregion Set Loads
 
         }
+        public string Get_LHS_Outer_Girder()
+        {
+            string LHS = Long_Girder_Members_Array[2, 0].MemberNo + " TO " + Long_Girder_Members_Array[2, _Columns-2].MemberNo ;
+            return LHS;
+
+        }
+        public string Get_RHS_Outer_Girder()
+        {
+            string RHS = Long_Girder_Members_Array[_Rows - 3, 0].MemberNo + " TO " + Long_Girder_Members_Array[_Rows - 3, _Columns - 2].MemberNo;
+            return RHS;
+        }
     }
     /// <summary>
     /// Deck Slab Analysis with Limit State Method

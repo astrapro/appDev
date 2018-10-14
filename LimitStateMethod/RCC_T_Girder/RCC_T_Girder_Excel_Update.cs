@@ -30,6 +30,7 @@ namespace LimitStateMethod.RCC_T_Girder
         {
             Long_User_Inputs = new Excel_User_Inputs();
             Cross_User_Inputs = new Excel_User_Inputs();
+            No_Crash_Barrier_Sode = 2;
         }
         public void Update_Excel_Long_Girder()
         {
@@ -251,8 +252,11 @@ namespace LimitStateMethod.RCC_T_Girder
                     //myExcelWorksheet.get_Range("F" + lst_F[i].ToString(), misValue).Formula = Deckslab_User_Inputs[i].Input_Value;
                     myExcelWorksheet.get_Range(Long_User_Inputs[i].Excel_Cell_Reference, misValue).Formula = Long_User_Inputs[i].Input_Value;
                 }
-                ran.Locked = true;
-                myExcelWorksheet.Protect("2011ap");
+                //ran.Locked = true;
+
+                myExcelWorksheet.get_Range("F12", misValue).Formula = "=F10-"+ No_Crash_Barrier_Sode+"*F15";
+
+                //myExcelWorksheet.Protect("2011ap");
 
             }
 
@@ -351,6 +355,7 @@ namespace LimitStateMethod.RCC_T_Girder
             Marshal.ReleaseComObject(myExcelWorkbook);
         }
 
+        public int No_Crash_Barrier_Sode { get; set; }
 
     }
     public class DataRetrieve

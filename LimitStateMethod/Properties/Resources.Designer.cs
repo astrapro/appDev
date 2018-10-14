@@ -213,6 +213,56 @@ namespace LimitStateMethod.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_BHS__Case_4_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on BHS [Case_4]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_BHS__Case_7_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on BHS [Case_7]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_BHS__Case_8_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on BHS [Case_8]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_BHS__Case_9_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on BHS [Case_9]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_LHS__Case_10_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on LHS [Case_10]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Crash_Barrier_on_LHS__Case_2_ {
             get {
                 object obj = ResourceManager.GetObject("Crash Barrier on LHS [Case_2]", resourceCulture);
@@ -223,9 +273,39 @@ namespace LimitStateMethod.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_LHS__Case_5_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on LHS [Case_5]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Crash_Barrier_on_RHS__Case_3_ {
             get {
                 object obj = ResourceManager.GetObject("Crash Barrier on RHS [Case_3]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_RHS__Case_6_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on RHS [Case_6]", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Crash_Barrier_on_RHS__Case_9_ {
+            get {
+                object obj = ResourceManager.GetObject("Crash Barrier on RHS [Case_9]", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -846,6 +926,16 @@ namespace LimitStateMethod.Properties {
         internal static System.Drawing.Bitmap steel_truss_warren1 {
             get {
                 object obj = ResourceManager.GetObject("steel_truss_warren1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StoneMasonryPier {
+            get {
+                object obj = ResourceManager.GetObject("StoneMasonryPier", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,6 +29,7 @@ namespace AstraAccess.StageAnalysis
         IApplication iApp;
         const string Title = "PROCESS STAGE (P DELTA) ANALYSIS";
 
+        bool IsProcessList = false;
         List<BridgeMemberAnalysis> All_Analysis { get; set; }
         public frm_ProcessStageAnalysis(IApplication app)
         {
@@ -37,7 +38,7 @@ namespace AstraAccess.StageAnalysis
             file_path = iApp.WorkingFile;
 
             All_Analysis = new List<BridgeMemberAnalysis>();
-            
+
         }
         public frm_ProcessStageAnalysis(IApplication app, string file_name)
         {
@@ -48,12 +49,28 @@ namespace AstraAccess.StageAnalysis
             All_Analysis = new List<BridgeMemberAnalysis>();
 
         }
+        public frm_ProcessStageAnalysis(IApplication app, string file_name, bool isProcess)
+        {
+            InitializeComponent();
+            iApp = app;
+            file_path = file_name;
+
+            All_Analysis = new List<BridgeMemberAnalysis>();
+
+            IsProcessList = isProcess;
+        }
         public string user_path
         {
             get
             {
                 if (file_path == "") return "";
+                
                 string pf = Path.Combine(Path.GetDirectoryName(file_path), Title);
+
+                if(IsProcessList)
+                {
+                    pf = Path.Combine(Path.GetDirectoryName(file_path), "Stages");
+                }
 
                 if (Directory.Exists(pf) == false)
                     Directory.CreateDirectory(pf);
@@ -196,31 +213,45 @@ namespace AstraAccess.StageAnalysis
             }
 
             cmb_stage.SelectedIndex = 0;
+
+            if (IsProcessList)
+            {
+                if (iApp.StageNo > 0)
+                    cmb_stage.SelectedIndex = iApp.StageNo - 1;
+            }
             if (File.Exists(file_path))
             {
                 rtb_st_1_input.Lines = File.ReadAllLines(file_path);
             }
 
+
+            this.Text = "Process Stage Analysis [" + MyList.Get_Modified_Path(file_path) + "]";
             #region Chiranjit Design Option
 
             try
             {
-                eDesignOption edp = iApp.Get_Design_Option(Title);
-                if (edp == eDesignOption.None)
-                {
-                    this.Close();
-                }
-                else if (edp == eDesignOption.Open_Design)
-                {
 
-                    #region Read Previous Record
-                    //Chiranjit [2013 01 03]
-                    iApp.Read_Form_Record(this, user_path);
-                    #endregion
-                    Select_Steps();
-                    MessageBox.Show("Data Loaded successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                }
+
+                iApp.Read_Form_Record(this, user_path);
+
+
+                //eDesignOption edp = iApp.Get_Design_Option(Title);
+                //if (edp == eDesignOption.None)
+                //{
+                //    this.Close();
+                //}
+                //else if (edp == eDesignOption.Open_Design)
+                //{
+
+                //    #region Read Previous Record
+                //    //Chiranjit [2013 01 03]
+                //    iApp.Read_Form_Record(this, user_path);
+                //    #endregion
+                //    Select_Steps();
+                //    MessageBox.Show("Data Loaded successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //}
 
 
             }
@@ -239,6 +270,10 @@ namespace AstraAccess.StageAnalysis
             string fname = "";
             fname = Path.Combine(user_path, "STAGE " + stage_no + " ANALYSIS");
 
+
+
+
+
             if (!Directory.Exists(fname))
                 Directory.CreateDirectory(fname);
 
@@ -254,7 +289,11 @@ namespace AstraAccess.StageAnalysis
                 if (!Directory.Exists(fname))
                     Directory.CreateDirectory(fname);
             }
-            fname = Path.Combine(fname, "INPUT_DATA_STAGE_" + stage_no + "_ANALYSIS.TXT");
+
+            if (IsProcessList)
+                fname = Path.Combine(fname, "STAGE_" + stage_no + ".TXT");
+            else
+                fname = Path.Combine(fname, "INPUT_DATA_STAGE_" + stage_no + "_ANALYSIS.TXT");
 
             return fname;
         }
@@ -366,6 +405,10 @@ namespace AstraAccess.StageAnalysis
             {
                 if (File.Exists(MyList.Get_Analysis_Report_File(fname)))
                     iApp.RunExe(MyList.Get_Analysis_Report_File(fname));
+                else
+                {
+                    MessageBox.Show("Analysis Report File Not found.");
+                }
             }
             else if (btn.Name == btn_st_1_view_structure.Name)
             {
@@ -384,7 +427,8 @@ namespace AstraAccess.StageAnalysis
                 if (File.Exists(fname))
                 {
 
-                    iApp.Form_ASTRA_Input_Data(fname, false).ShowDialog();
+                    //iApp.Form_ASTRA_Input_Data(fname, false).ShowDialog();
+                    iApp.View_PreProcess(fname);
                     rtb_st_1_input.Lines = File.ReadAllLines(fname);
 
                 }
@@ -442,7 +486,8 @@ namespace AstraAccess.StageAnalysis
             {
                 Write_Data_to_File(2);
                 if (File.Exists(fname))
-                    iApp.OpenWork(fname, "");
+                    iApp.View_PreProcess(fname);
+                //iApp.OpenWork(fname, "");
 
             }
 
@@ -651,7 +696,8 @@ namespace AstraAccess.StageAnalysis
             {
                 Write_Data_to_File(3);
                 if (File.Exists(fname))
-                    iApp.OpenWork(fname, "");
+                    iApp.View_PreProcess(fname);
+                //iApp.OpenWork(fname, "");
 
             }
 
@@ -709,7 +755,8 @@ namespace AstraAccess.StageAnalysis
             {
                 Write_Data_to_File(4);
                 if (File.Exists(fname))
-                    iApp.OpenWork(fname, "");
+                    iApp.View_PreProcess(fname);
+                //iApp.OpenWork(fname, "");
             }
             iApp.Save_Form_Record(this, user_path);
             Button_Enable_Disable();
@@ -763,7 +810,8 @@ namespace AstraAccess.StageAnalysis
             {
                 Write_Data_to_File(5);
                 if (File.Exists(fname))
-                    iApp.OpenWork(fname, "");
+                    iApp.View_PreProcess(fname);
+                //iApp.OpenWork(fname, "");
             }
 
 
@@ -2073,8 +2121,14 @@ namespace AstraAccess.StageAnalysis
 
         private void btn_close_Click(object sender, EventArgs e)
         {
-            iApp.StageNo = cmb_stage.SelectedIndex + 1;
+            iApp.StageNo = cmb_stage.SelectedIndex +1;
             iApp.Stage_File = Get_Stage_File(iApp.StageNo);
+
+
+            string dst_file = Path.Combine(Path.GetDirectoryName(file_path), "ANALYSIS_REP.TXT");
+            string src_file = Path.Combine(Path.GetDirectoryName(iApp.Stage_File), "ANALYSIS_REP.TXT");
+            if (File.Exists(src_file))
+            File.Copy(src_file, dst_file, true);
 
             iApp.Save_Form_Record(this, user_path);
             this.Close();

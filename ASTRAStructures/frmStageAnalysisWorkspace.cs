@@ -257,7 +257,7 @@ namespace ASTRAStructures
         }
         public bool Run_Data(string flPath)
         {
-            if (Check_Demo(flPath)) return false;
+            //if (Check_Demo(flPath)) return false;
 
             iApp.Delete_Temporary_Files(flPath);
             try
@@ -292,7 +292,7 @@ namespace ASTRAStructures
 
         public bool Run_Data2(string flPath)
         {
-            if (Check_Demo(flPath)) return false;
+            //if (Check_Demo(flPath)) return false;
 
             //iApp.Delete_Temporary_Files(flPath);
             try
@@ -2861,9 +2861,16 @@ namespace ASTRAStructures
                     file_path = Path.Combine(user_path, txt_input_file.Text);
                     File.Copy(ofd.FileName, file_path, true);
 
+                    string SRC_LL = MyList.Get_LL_TXT_File(ofd.FileName);
+                    string dst_LL = Path.Combine(user_path, "LL.TXT");
+
                     if (File.Exists(file_path))
                     {
                         rtb_st_1_input.Lines = File.ReadAllLines(file_path);
+                    }
+                    if (File.Exists(SRC_LL))
+                    {
+                        File.Copy(SRC_LL, dst_LL, true);
                     }
                 }
             }

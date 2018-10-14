@@ -173,5 +173,7 @@
         SapPostProcess = 4,
         TextProcess = 5,
         SapProcess = 6,
+        Orthotropic = 7,
+        MovingLoad = 8,
     }
 }

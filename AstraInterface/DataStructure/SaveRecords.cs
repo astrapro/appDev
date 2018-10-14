@@ -199,8 +199,11 @@ namespace AstraInterface.DataStructure
             //rec.ControlNames
             if (IsRun_ProgressBar)
             {
-                if (iApp != null) 
+                if (iApp != null)
+                {
+                    iApp.Progress_Works.Clear();
                     iApp.Progress_ON("Reading Previous Data...");
+                }
             }
             for (int i = 0; i < file_content.Count; i++)
             {

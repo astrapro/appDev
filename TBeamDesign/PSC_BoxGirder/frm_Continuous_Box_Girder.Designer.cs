@@ -698,6 +698,11 @@
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_mov_load = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.btn_bs_view_moving_load = new System.Windows.Forms.Button();
+            this.label1190 = new System.Windows.Forms.Label();
+            this.cmb_bs_view_moving_load = new System.Windows.Forms.ComboBox();
+            this.txt_bs_vehicle_gap = new System.Windows.Forms.TextBox();
+            this.label1191 = new System.Windows.Forms.Label();
             this.groupBox33 = new System.Windows.Forms.GroupBox();
             this.label341 = new System.Windows.Forms.Label();
             this.dgv_long_liveloads = new System.Windows.Forms.DataGridView();
@@ -6559,6 +6564,11 @@
             // 
             // groupBox24
             // 
+            this.groupBox24.Controls.Add(this.btn_bs_view_moving_load);
+            this.groupBox24.Controls.Add(this.label1190);
+            this.groupBox24.Controls.Add(this.cmb_bs_view_moving_load);
+            this.groupBox24.Controls.Add(this.txt_bs_vehicle_gap);
+            this.groupBox24.Controls.Add(this.label1191);
             this.groupBox24.Controls.Add(this.groupBox33);
             this.groupBox24.Controls.Add(this.label340);
             this.groupBox24.Controls.Add(this.btn_long_restore_ll);
@@ -6573,15 +6583,64 @@
             this.groupBox24.TabIndex = 89;
             this.groupBox24.TabStop = false;
             // 
+            // btn_bs_view_moving_load
+            // 
+            this.btn_bs_view_moving_load.Location = new System.Drawing.Point(69, 557);
+            this.btn_bs_view_moving_load.Name = "btn_bs_view_moving_load";
+            this.btn_bs_view_moving_load.Size = new System.Drawing.Size(204, 29);
+            this.btn_bs_view_moving_load.TabIndex = 122;
+            this.btn_bs_view_moving_load.Text = "View Moving Load";
+            this.btn_bs_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_bs_view_moving_load.Click += new System.EventHandler(this.btn_bs_view_moving_load_Click);
+            // 
+            // label1190
+            // 
+            this.label1190.AutoSize = true;
+            this.label1190.Location = new System.Drawing.Point(31, 536);
+            this.label1190.Name = "label1190";
+            this.label1190.Size = new System.Drawing.Size(166, 13);
+            this.label1190.TabIndex = 121;
+            this.label1190.Text = "Select to view Moving Load ";
+            // 
+            // cmb_bs_view_moving_load
+            // 
+            this.cmb_bs_view_moving_load.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_bs_view_moving_load.FormattingEnabled = true;
+            this.cmb_bs_view_moving_load.Location = new System.Drawing.Point(211, 533);
+            this.cmb_bs_view_moving_load.Name = "cmb_bs_view_moving_load";
+            this.cmb_bs_view_moving_load.Size = new System.Drawing.Size(84, 21);
+            this.cmb_bs_view_moving_load.TabIndex = 120;
+            // 
+            // txt_bs_vehicle_gap
+            // 
+            this.txt_bs_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_bs_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_bs_vehicle_gap.Location = new System.Drawing.Point(755, 535);
+            this.txt_bs_vehicle_gap.Name = "txt_bs_vehicle_gap";
+            this.txt_bs_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_bs_vehicle_gap.TabIndex = 118;
+            this.txt_bs_vehicle_gap.Text = "18.8";
+            this.txt_bs_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label1191
+            // 
+            this.label1191.AutoSize = true;
+            this.label1191.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1191.Location = new System.Drawing.Point(328, 536);
+            this.label1191.Name = "label1191";
+            this.label1191.Size = new System.Drawing.Size(421, 13);
+            this.label1191.TabIndex = 119;
+            this.label1191.Text = "Longitudinal Separating distance between two vehicle in a Lane";
+            // 
             // groupBox33
             // 
             this.groupBox33.Controls.Add(this.label341);
             this.groupBox33.Controls.Add(this.dgv_long_liveloads);
             this.groupBox33.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox33.ForeColor = System.Drawing.Color.Black;
-            this.groupBox33.Location = new System.Drawing.Point(6, 31);
+            this.groupBox33.Location = new System.Drawing.Point(272, 31);
             this.groupBox33.Name = "groupBox33";
-            this.groupBox33.Size = new System.Drawing.Size(653, 536);
+            this.groupBox33.Size = new System.Drawing.Size(653, 496);
             this.groupBox33.TabIndex = 81;
             this.groupBox33.TabStop = false;
             this.groupBox33.Text = "Define Vehicle Axle Loads";
@@ -6643,10 +6702,10 @@
             dataGridViewCellStyle169.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_long_liveloads.DefaultCellStyle = dataGridViewCellStyle169;
             this.dgv_long_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 47);
+            this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
             this.dgv_long_liveloads.RowHeadersWidth = 21;
-            this.dgv_long_liveloads.Size = new System.Drawing.Size(647, 486);
+            this.dgv_long_liveloads.Size = new System.Drawing.Size(647, 460);
             this.dgv_long_liveloads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn65
@@ -6812,9 +6871,9 @@
             this.groupBox30.Controls.Add(this.label338);
             this.groupBox30.Controls.Add(this.dgv_long_loads);
             this.groupBox30.ForeColor = System.Drawing.Color.Black;
-            this.groupBox30.Location = new System.Drawing.Point(665, 33);
+            this.groupBox30.Location = new System.Drawing.Point(6, 31);
             this.groupBox30.Name = "groupBox30";
-            this.groupBox30.Size = new System.Drawing.Size(257, 534);
+            this.groupBox30.Size = new System.Drawing.Size(263, 496);
             this.groupBox30.TabIndex = 83;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "Define Load Start position";
@@ -6859,10 +6918,10 @@
             dataGridViewCellStyle172.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_long_loads.DefaultCellStyle = dataGridViewCellStyle172;
             this.dgv_long_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgv_long_loads.Location = new System.Drawing.Point(3, 45);
+            this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_loads.Name = "dgv_long_loads";
             this.dgv_long_loads.RowHeadersWidth = 21;
-            this.dgv_long_loads.Size = new System.Drawing.Size(251, 486);
+            this.dgv_long_loads.Size = new System.Drawing.Size(257, 460);
             this.dgv_long_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn1
@@ -13887,5 +13946,10 @@
         private System.Windows.Forms.TextBox txt_RCC_Pier_rdia;
         private System.Windows.Forms.Label label291;
         private System.Windows.Forms.Label label292;
+        private System.Windows.Forms.Button btn_bs_view_moving_load;
+        private System.Windows.Forms.Label label1190;
+        private System.Windows.Forms.ComboBox cmb_bs_view_moving_load;
+        private System.Windows.Forms.TextBox txt_bs_vehicle_gap;
+        private System.Windows.Forms.Label label1191;
     }
 }

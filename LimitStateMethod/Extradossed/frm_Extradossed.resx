@@ -2297,6 +2297,9 @@ MEMBER LOAD
         AUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAf/2Q==
 </value>
   </data>
+  <data name="label561.Text" xml:space="preserve">
+    <value>(Note : By incresing the moving load increment, the analysis will be faster, but the forces in the memebrsand at supports may be reduced, a default increment of 0.5 m is set for the moving loads, which may be changed by the user as desired.)</value>
+  </data>
   <metadata name="dataGridViewTextBoxColumn31.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

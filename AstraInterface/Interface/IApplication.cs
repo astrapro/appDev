@@ -92,6 +92,7 @@ namespace AstraInterface.Interface
 
         bool Show_and_Run_Process_List(ProcessCollection pcol);
 
+        bool Show_and_Run_Stage_Analysis(ProcessCollection pcol);
         IProgress Progress { get; }
 
         eVersionType Version_Type { get; set; }
@@ -171,6 +172,12 @@ namespace AstraInterface.Interface
         // Show Post Process
         void View_PostProcess(string file_name);
         void View_SapPostProcess(string file_name);
+        void View_ASTRAGUI(eProcessType processType, string file_name);
+        //void View_MovingLoad(string file_name);
+        void View_MovingLoad(string file_name, double curve_radius, double separating_distance);
+
+        Form RunStageAnalysis(string fName);
+
     }
 
 }

@@ -240,7 +240,7 @@ namespace AstraFunctionOne
                 catch (Exception ex) { }
 
                 //this.Text = "ASTRA Pro" + (IsDemo ? " [DEMO] " : "") + " [ File Name : \"" + tst + "\" ]";
-                ASTRA_Pro = " [ File Name : \"" + tst + "\" ]";
+                //ASTRA_Pro = " [ File Name : \"" + tst + "\" ]";
 
                 //this.Text = "ASTRA [" + flPath + "]";
             }
@@ -273,7 +273,10 @@ namespace AstraFunctionOne
         {
 
             if (IsOpenWithMovingLoad)
-                View_PostProcess(opnfileName);
+            {
+                //View_PostProcess(opnfileName);
+                View_MovingLoad(opnfileName);
+            }
             else
                 View_ASTRAGUI(eProcessType.TextProcess, opnfileName);
             return;
@@ -2428,7 +2431,7 @@ namespace AstraFunctionOne
                 Write_LiveLoad_LL_TXT(Path.GetDirectoryName(LL_TXT_Path), true, DesignStandard);
                 //Write_LiveLoad_LL_TXT(Application.StartupPath, true, DesignStandard);
             }
-            Write_LiveLoad_LL_TXT(Application.StartupPath, true, DesignStandard);
+            //Write_LiveLoad_LL_TXT(Application.StartupPath, true, DesignStandard);
 
             if (File.Exists(LL_TXT_Path))
             {
@@ -3906,7 +3909,7 @@ namespace AstraFunctionOne
 
                         list.Add("FILE LL.TXT");
                         list.Add("");
-                        list.Add("TYPE1 IRCCLASSA");
+                        list.Add("TYPE 1 IRCCLASSA");
                         //list.Add("68 68 68 68 114 114 114 27");
                         list.Add("27 27 114 114 68 68 68 68");
                         //list.Add("1.10 3.20 1.20 4.30 3.00 3.00 3.00");
@@ -4098,9 +4101,18 @@ namespace AstraFunctionOne
             {
                 ShowTimerScreen(eASTRAImage.Cable_Stayed_Bridge);
 
-                frm = new frmCableStayed_LS(this);
-                frm.Owner = this;
-                frm.ShowDialog();
+                if (DesignStandard == eDesignStandard.LRFDStandard)
+                {
+                    frm = new frmCableStayed_AASHTO(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm = new frmCableStayed_LS(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
             }
             if (tsmi == tsmi_extradossed_side_towers)
             {
@@ -4630,6 +4642,16 @@ namespace AstraFunctionOne
         {
 
             AstraFunctionOne.ProcessList.frm_Process_List ff = new ProcessList.frm_Process_List(pcol, this);
+            ff.Owner = this;
+            //MessageBox.Show(ff.ShowDialog().ToString());
+            if (ff.ShowDialog() != System.Windows.Forms.DialogResult.OK) return false;
+            return true;
+        }
+
+        public bool Show_and_Run_Stage_Analysis(ProcessCollection pcol)
+        {
+
+            AstraAccess.StageAnalysis.frmStageDialog ff = new AstraAccess.StageAnalysis.frmStageDialog(pcol, this);
             ff.Owner = this;
             //MessageBox.Show(ff.ShowDialog().ToString());
             if (ff.ShowDialog() != System.Windows.Forms.DialogResult.OK) return false;
@@ -5211,6 +5233,8 @@ namespace AstraFunctionOne
         public Form Form_ASTRA_Input_Data(string file_name, bool IsDrawingFile)
         {
             return AstraAccess.ViewerFunctions.Form_ASTRA_Input_Data(file_name, IsDrawingFile);
+
+
         }
         public Form Form_ASTRA_Analysis_Process(string file_name, bool IsMoving_Load)
         {
@@ -6253,6 +6277,38 @@ namespace AstraFunctionOne
                 //prs.Start();
             }
         }
+
+        public void View_MovingLoad(string file_name)
+        {
+            //View_ASTRAGUI(eProcessType.MovingLoad, file_name);
+
+            View_MovingLoad(file_name, 0.0, 0.0);
+        }
+        public void View_MovingLoad(string file_name, double curve_radius, double separating_distance)
+        {
+
+            string ext_file = Path.Combine(Path.GetDirectoryName(file_name), "radius.fil");
+            if (curve_radius > 0)
+            {
+                File.WriteAllText(ext_file, curve_radius.ToString());
+            }
+            else
+            {
+                File.Delete(ext_file);
+            } 
+            ext_file = Path.Combine(Path.GetDirectoryName(file_name), "moving.fil");
+            if (separating_distance > 0)
+            {
+                File.WriteAllText(ext_file, separating_distance.ToString());
+            }
+            else
+            {
+                File.Delete(ext_file);
+            }
+
+            View_ASTRAGUI(eProcessType.MovingLoad, file_name);
+        }
+
         public void View_PreProcess(string file_name)
         {
 
@@ -6279,26 +6335,7 @@ namespace AstraFunctionOne
         }
         public void View_SapPreProcess(string file_name)
         {
-
             View_ASTRAGUI(eProcessType.SapPreProcess, file_name);
-
-            return;
-
-            //throw new NotImplementedException();
-            string exe_file = Path.Combine(Application.StartupPath, "SapPreProcess.exe");
-
-            if (File.Exists(exe_file))
-            {
-                Environment.SetEnvironmentVariable("SAPPREPROCESS", file_name);
-                Process.Start(exe_file);
-                Environment.SetEnvironmentVariable("SAPPREPROCESS", "");
-
-                //Process prs = new Process();
-                //prs.StartInfo.FileName = exe_file;
-                //prs.StartInfo.Arguments = file_name;
-
-                //prs.Start();
-            }
         }
 
 
@@ -6335,8 +6372,18 @@ namespace AstraFunctionOne
         }
         #endregion
 
-    }
+        #region IApplication Members
 
+
+        public Form RunStageAnalysis(string fName)
+        {
+            AstraFunctionOne.frmStageAnalysis frmStage = new frmStageAnalysis(this, fName);
+            frmStage.Owner = this;
+            return frmStage;
+        }
+
+        #endregion
+    }
 }
 
 //Chiranjit [2011 10 17] New PSC Box girder Analysis

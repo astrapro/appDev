@@ -644,7 +644,7 @@ namespace LimitStateMethod.Composite
             Button btn = sender as Button;
 
 
-            if (btn == btn_view_data_1)
+            if (btn == btn_view_data_1 )
             {
                 cmb = cmb_long_open_file_analysis;
             }
@@ -2013,7 +2013,7 @@ namespace LimitStateMethod.Composite
             Deck_Analysis.WidthBridge = L / (Deck_Analysis.Number_Of_Cross_Girder - 1);
 
             //Deck_Analysis.Lwv = MyList.StringToDouble(txt_Ana_Lwv.Text, 0.0);
-            Deck_Analysis.Wkerb = MyList.StringToDouble(txt_Ana_Wc.Text, 0.0);
+            Deck_Analysis.Wkerb = MyList.StringToDouble(txt_Ana_Wc_LHS.Text, 0.0);
 
         }
         void Show_Moment_Shear()
@@ -4277,7 +4277,6 @@ namespace LimitStateMethod.Composite
 
         private void frm_Composite_Load(object sender, EventArgs e)
         {
-
             uC_CompositeBridgeLSM1.iApp = iApp;
             #region Deckslab
             uC_Deckslab_BS1.iApp = iApp;
@@ -4555,6 +4554,24 @@ namespace LimitStateMethod.Composite
 
 
             Set_Project_Name();
+
+
+            chk_crash_barrier.Checked = true;
+
+            chk_cb_left.Checked = true;
+            chk_cb_right.Checked = false;
+
+            chk_footpath.Checked = false;
+
+
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                Select_Moving_Load_Combo(dgv_british_loads, cmb_bs_view_moving_load);
+            }
+            else
+                Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
+
+
             //Chiranjit [2014 10 08]
             #region Select Design Option
 
@@ -4626,6 +4643,23 @@ namespace LimitStateMethod.Composite
 
 
         }
+        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
+        {
+            string load = "";
+            cmb.Items.Clear();
+            for (int i = 0; i < dgv.RowCount - 1; i++)
+            {
+                load = dgv[0, i].Value.ToString();
+                if (load.StartsWith("LOAD"))
+                {
+                    if (!cmb.Items.Contains(load))
+                        cmb.Items.Add(load);
+                }
+            }
+            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
+
+        }
+
         private void btn_dwg_copm_Click(object sender, EventArgs e)
         {
             Button btn = sender as Button;
@@ -5565,8 +5599,8 @@ namespace LimitStateMethod.Composite
         public double BCG { get { return MyList.StringToDouble(txt_sec_cross_Bw.Text, 0.0) / 1000.0; } set { txt_sec_cross_Bw.Text = (value * 1000.0).ToString(); } }
         public double Dw { get { return MyList.StringToDouble(txt_Ana_Dw.Text, 0.0); } set { txt_Ana_Dw.Text = value.ToString("f3"); } }
         public double Y_w { get { return MyList.StringToDouble(txt_Ana_gamma_w.Text, 0.0); } set { txt_Ana_gamma_w.Text = value.ToString("f3"); } }
-        public double Hc { get { return MyList.StringToDouble(txt_Ana_Hc.Text, 0.0); } set { txt_Ana_Hc.Text = value.ToString("f3"); } }
-        public double Wc { get { return MyList.StringToDouble(txt_Ana_Wc.Text, 0.0); } set { txt_Ana_Wc.Text = value.ToString("f3"); } }
+        public double Hc { get { return MyList.StringToDouble(txt_Ana_Hc_LHS.Text, 0.0); } set { txt_Ana_Hc_LHS.Text = value.ToString("f3"); } }
+        public double Wc { get { return MyList.StringToDouble(txt_Ana_Wc_LHS.Text, 0.0); } set { txt_Ana_Wc_LHS.Text = value.ToString("f3"); } }
         public double Wf { get { return MyList.StringToDouble(txt_Ana_wf.Text, 0.0); } set { txt_Ana_wf.Text = value.ToString("f3"); } }
         public double Hf { get { return MyList.StringToDouble(txt_Ana_hf.Text, 0.0); } set { txt_Ana_hf.Text = value.ToString("f3"); } }
         public double Wk { get { return MyList.StringToDouble(txt_Ana_Wk.Text, 0.0); } set { txt_Ana_Wk.Text = value.ToString("f3"); } }
@@ -5584,6 +5618,92 @@ namespace LimitStateMethod.Composite
 
         #endregion Chiranjit [2012 06 20]
         #region Chiranjit [2012 06 20]
+
+
+
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+
+            List<double> lst_mvl = new List<double>();
+            DataGridView dgv = dgv_long_liveloads;
+
+            if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                dgv = dgv_long_british_loads;
+            }
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
+                    {
+                        mvl = 0;
+                        for (int c = 1; c < dgv.ColumnCount; c++)
+                        {
+                            try
+                            {
+                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
+                            }
+                            catch (Exception exx)
+                            {
+
+                            }
+                        }
+                        lst_mvl.Add(mvl);
+                    }
+                }
+                catch (Exception ex1) { }
+
+            }
+            if (lst_mvl.Count > 0)
+            {
+                lst_mvl.Sort();
+                lst_mvl.Reverse();
+                mvl = lst_mvl[0];
+            }
+
+
+
+            double val1 = B;
+            double skew_length = Math.Tan((Ang * (Math.PI / 180.0)));
+
+            double val2 = val1 * skew_length;
+
+            return mvl + val2;
+
+            return mvl;
+
+            double veh_len, veh_gap, train_length;
+
+            veh_len = mvl;
+            veh_gap = mvl;
+            train_length = veh_len;
+            double eff = L;
+            bool fl = false;
+            while(train_length <= eff)
+            {
+                fl = !fl;
+                if(fl)
+                {
+                    train_length += veh_gap;
+                    if (train_length > L)
+                    {
+                        train_length = train_length - veh_gap;
+                    }
+                }
+                else
+                {
+                    train_length += veh_len;
+                }
+            }
+
+
+
+
+            return train_length;
+
+        }
         void Text_Changed()
         {
 
@@ -5643,7 +5763,7 @@ namespace LimitStateMethod.Composite
             //double x_dim = Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.2));
             double x_dim = 0.0;
 
-            txt_LL_load_gen.Text = ((L + x_dim) / x_incr).ToString("f0");
+            txt_LL_load_gen.Text = ((L + x_dim + Get_Max_Vehicle_Length()) / x_incr).ToString("f0");
 
 
             //txt_Long_L.Text = L.ToString("f3");
@@ -5710,9 +5830,9 @@ namespace LimitStateMethod.Composite
 
             //CW = B - 2 * Wc - Wf;
 
-            if (rbtn_crash_barrier.Checked)
+            if (chk_crash_barrier.Checked)
                 CW = B - 2 * Wc;
-            else if (rbtn_footpath.Checked)
+            else if (chk_footpath.Checked)
             {
                 if (chk_fp_left.Checked && !chk_fp_right.Checked)
                     CW = B - Wf - Wk;
@@ -5720,8 +5840,6 @@ namespace LimitStateMethod.Composite
                     CW = B - Wf - Wk;
                 else
                     CW = B - 2 * Wf;
-
-
             }
 
             #region Deck Slab Inputs
@@ -5731,7 +5849,7 @@ namespace LimitStateMethod.Composite
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 4].Value = txt_Ana_B.Text;
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 5].Value = txt_Ana_ang.Text;
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 6].Value = txt_Ana_CW.Text;
-                uC_Deckslab_IS1.dgv_deck_user_input[1, 9].Value = txt_Ana_Wc.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 9].Value = txt_Ana_Wc_LHS.Text;
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 10].Value = SMG.ToString("f3");
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 11].Value = txt_Ana_Ds.Text;
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 15].Value = txt_Ana_Dw.Text;
@@ -5800,7 +5918,7 @@ namespace LimitStateMethod.Composite
 
 
             uC_AbutmentOpenLS1.Railing = txt_Ana_wr.Text;
-            uC_AbutmentOpenLS1.Crash_Barrier = txt_Ana_Wc.Text;
+            uC_AbutmentOpenLS1.Crash_Barrier = txt_Ana_Wc_LHS.Text;
             uC_AbutmentOpenLS1.Foot_path = txt_Ana_wf.Text;
 
 
@@ -5831,7 +5949,7 @@ namespace LimitStateMethod.Composite
 
 
             uC_AbutmentPileLS1.Railing = txt_Ana_wr.Text;
-            uC_AbutmentPileLS1.Crash_Barrier = txt_Ana_Wc.Text;
+            uC_AbutmentPileLS1.Crash_Barrier = txt_Ana_Wc_LHS.Text;
             uC_AbutmentPileLS1.Foot_path = txt_Ana_wf.Text;
 
 
@@ -5874,7 +5992,7 @@ namespace LimitStateMethod.Composite
 
             //uC_PierPileLS1.CrashBarierWidth_Nos = 2
 
-            uC_PierOpenLS1.CrashBarierWidth_Left = txt_Ana_Wc.Text;
+            uC_PierOpenLS1.CrashBarierWidth_Left = txt_Ana_Wc_LHS.Text;
 
 
             //uC_PierPileLS1.FootPathWidth_Nos = 
@@ -5882,7 +6000,7 @@ namespace LimitStateMethod.Composite
 
             uC_PierOpenLS1.RailingWidth_Left = txt_Ana_Wk.Text;
 
-            uC_PierOpenLS1.CrashBarierHeight_Left = txt_Ana_Hc.Text;
+            uC_PierOpenLS1.CrashBarierHeight_Left = txt_Ana_Hc_LHS.Text;
 
             uC_PierOpenLS1.WearingCoatThickness_Left = txt_Ana_Dw.Text;
 
@@ -5926,7 +6044,7 @@ namespace LimitStateMethod.Composite
 
             //uC_PierPileLS1.CrashBarierWidth_Nos = 2
 
-            uC_PierPileLS1.CrashBarierWidth_Left = txt_Ana_Wc.Text;
+            uC_PierPileLS1.CrashBarierWidth_Left = txt_Ana_Wc_LHS.Text;
 
 
             //uC_PierPileLS1.FootPathWidth_Nos = 
@@ -5934,7 +6052,7 @@ namespace LimitStateMethod.Composite
 
             uC_PierPileLS1.RailingWidth_Left = txt_Ana_Wk.Text;
 
-            uC_PierPileLS1.CrashBarierHeight_Left = txt_Ana_Hc.Text;
+            uC_PierPileLS1.CrashBarierHeight_Left = txt_Ana_Hc_LHS.Text;
 
             uC_PierPileLS1.WearingCoatThickness_Left = txt_Ana_Dw.Text;
 
@@ -6053,6 +6171,233 @@ namespace LimitStateMethod.Composite
 
         private void chk_CheckedChanged(object sender, EventArgs e)
         {
+
+            Control ctrl = sender as Control;
+            Control rbtn = sender as Control;
+
+            if (rbtn.Name == chk_fp_left.Name)
+            {
+                if (chk_footpath.Checked)
+                {
+                    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+                        chk_fp_right.Checked = true;
+
+                    if (!chk_fp_left.Checked)
+                    {
+                        txt_Ana_hf.Enabled = false;
+                        txt_Ana_wf.Enabled = false;
+                        txt_Ana_hf.Text = "0.000";
+                        txt_Ana_wf.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_hf.Enabled = true;
+                        txt_Ana_wf.Enabled = true;
+                        txt_Ana_hf.Text = "1.000";
+                        txt_Ana_wf.Text = "0.250";
+                    }
+
+                }
+            }
+            else if (rbtn.Name == chk_fp_right.Name)
+            {
+                if (chk_footpath.Checked)
+                {
+                    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+                        chk_fp_left.Checked = true;
+
+
+                    if (!chk_fp_right.Checked)
+                    {
+                        txt_Ana_Hf_RHS.Enabled = false;
+                        txt_Ana_Wf_RHS.Enabled = false;
+                        txt_Ana_Hf_RHS.Text = "0.000";
+                        txt_Ana_Wf_RHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hf_RHS.Enabled = true;
+                        txt_Ana_Wf_RHS.Enabled = true;
+                        txt_Ana_Hf_RHS.Text = "1.000";
+                        txt_Ana_Wf_RHS.Text = "0.250";
+                    }
+                }
+            }
+
+            if (rbtn.Name == chk_cb_left.Name)
+            {
+                if (chk_crash_barrier.Checked)
+                {
+                    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+                        chk_cb_right.Checked = true;
+
+                    if (!chk_cb_left.Checked)
+                    {
+                        txt_Ana_Hc_LHS.Enabled = false;
+                        txt_Ana_Wc_LHS.Enabled = false;
+                        txt_Ana_Hc_LHS.Text = "0.000";
+                        txt_Ana_Wc_LHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hc_LHS.Enabled = true;
+                        txt_Ana_Wc_LHS.Enabled = true;
+                        txt_Ana_Hc_LHS.Text = "1.200";
+                        txt_Ana_Wc_LHS.Text = "0.500";
+                    }
+                }
+            }
+            else if (rbtn.Name == chk_cb_right.Name)
+            {
+                if (chk_crash_barrier.Checked)
+                {
+                    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+                        chk_cb_left.Checked = true;
+
+
+                    if (!chk_cb_right.Checked)
+                    {
+                        txt_Ana_Hc_RHS.Enabled = false;
+                        txt_Ana_Wc_RHS.Enabled = false;
+                        txt_Ana_Hc_RHS.Text = "0.000";
+                        txt_Ana_Wc_RHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hc_RHS.Enabled = true;
+                        txt_Ana_Wc_RHS.Enabled = true;
+                        txt_Ana_Hc_RHS.Text = "1.200";
+                        txt_Ana_Wc_RHS.Text = "0.500";
+                    }
+                }
+            }
+            else if (rbtn.Name == chk_crash_barrier.Name)
+            {
+                chk_cb_left.Checked = chk_crash_barrier.Checked;
+                chk_cb_right.Checked = chk_crash_barrier.Checked;
+            }
+            else if (rbtn.Name == chk_footpath.Name)
+            {
+                chk_fp_left.Checked = chk_footpath.Checked;
+                chk_fp_right.Checked = chk_footpath.Checked;
+            }
+
+            //if (rbtn.Name == chk_crash_barrier.Name)
+            //{
+            //    if (chk_crash_barrier.Checked)
+            //        chk_footpath.Checked = false;
+            //}
+            //else if (rbtn.Name == chk_footpath.Name)
+            //{
+            //    if (chk_footpath.Checked)
+            //        chk_crash_barrier.Checked = false;
+            //}
+
+            chk_cb_left.Enabled = chk_crash_barrier.Checked;
+            chk_cb_right.Enabled = chk_crash_barrier.Checked;
+
+            chk_fp_left.Enabled = chk_footpath.Checked;
+            chk_fp_right.Enabled = chk_footpath.Checked;
+
+            if (rbtn.Name == chk_crash_barrier.Name)
+            {
+                grb_ana_crashBarrier.Enabled = chk_crash_barrier.Checked;
+                if (!chk_crash_barrier.Checked)
+                {
+                    txt_Ana_Hc_LHS.Text = "0.000";
+                    txt_Ana_Wc_LHS.Text = "0.000";
+                    txt_Ana_Hc_RHS.Text = "0.000";
+                    txt_Ana_Wc_RHS.Text = "0.000";
+                }
+                else
+                {
+                    txt_Ana_Hc_LHS.Text = "1.200";
+                    txt_Ana_Wc_LHS.Text = "0.500";
+                    txt_Ana_Hc_RHS.Text = "1.200";
+                    txt_Ana_Wc_RHS.Text = "0.500";
+                }
+            }
+            else if (rbtn.Name == chk_footpath.Name)
+            {
+                grb_ana_sw_fp.Enabled = chk_footpath.Checked;
+                if (!chk_footpath.Checked)
+                {
+                    txt_Ana_wf.Text = "0.000";
+                    txt_Ana_hf.Text = "0.000";
+                    txt_Ana_Wf_RHS.Text = "0.000";
+                    txt_Ana_Hf_RHS.Text = "0.000";
+
+                    txt_Ana_Wk.Text = "0.000";
+                    txt_Ana_wr.Text = "0.000";
+                }
+                else
+                {
+                    txt_Ana_wf.Text = "1.000";
+                    txt_Ana_hf.Text = "0.250";
+                    txt_Ana_Wf_RHS.Text = "1.000";
+                    txt_Ana_Hf_RHS.Text = "0.250";
+
+
+
+                    txt_Ana_Wk.Text = "0.500";
+                    txt_Ana_wr.Text = "0.100";
+                }
+            }
+
+            if (chk_crash_barrier.Checked && chk_footpath.Checked)
+            {
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_4_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_5_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_6_;
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_7_;
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_8_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_9_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_10_;
+
+
+            }
+            else if (chk_crash_barrier.Checked)
+            {
+                if (chk_cb_left.Checked && chk_cb_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_1_;
+                if (chk_cb_left.Checked && !chk_cb_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_2_;
+                if (!chk_cb_left.Checked && chk_cb_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_3_;
+            }
+            else if (chk_footpath.Checked)
+            {
+                if (chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_2__Both_Footpaths;
+                else if (chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_3__LHS_Footpath;
+                else if (!chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_4__LHS_Footpath;
+            }
+            else
+                pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_1__No_Footpath_;
+
+
+            Refresh();
+
+
+            Text_Changed();
+            #region SS
+            /*
             Control rbtn = sender as Control;
 
             if (rbtn.Name == chk_fp_left.Name)
@@ -6082,7 +6427,7 @@ namespace LimitStateMethod.Composite
             }
             else if (rbtn.Name == rbtn_crash_barrier.Name)
             {
-                grb_ana_parapet.Enabled = rbtn_crash_barrier.Checked;
+                grb_ana_crashBarrier.Enabled = rbtn_crash_barrier.Checked;
                 if (!rbtn_crash_barrier.Checked)
                 {
                     txt_Ana_Hc.Text = "0.000";
@@ -6129,59 +6474,8 @@ namespace LimitStateMethod.Composite
             }
 
             Text_Changed();
-
-        }
-        //Chiranjit [2012 06 20]
-        private void chk_CheckedChanged_2014_02_25(object sender, EventArgs e)
-        {
-            CheckBox chk = sender as CheckBox;
-
-            if (chk.Name == chk_WC.Name)
-            {
-                grb_ana_wc.Enabled = chk.Checked;
-                if (grb_ana_wc.Enabled == false)
-                {
-                    txt_Ana_Dw.Text = "0.000";
-                    txt_Ana_gamma_w.Text = "0.000";
-                }
-                else
-                {
-                    txt_Ana_Dw.Text = "0.080";
-                    txt_Ana_gamma_w.Text = "22.000";
-                }
-            }
-            else if (chk.Name == chk_fp_left.Name)
-            {
-                grb_ana_parapet.Enabled = chk.Checked;
-                if (!chk.Checked)
-                {
-                    txt_Ana_Hc.Text = "0.000";
-                    txt_Ana_Wc.Text = "0.000";
-                }
-                else
-                {
-                    txt_Ana_Hc.Text = "1.200";
-                    txt_Ana_Wc.Text = "0.500";
-                }
-            }
-            else if (chk.Name == chk_fp_right.Name)
-            {
-                grb_ana_sw_fp.Enabled = chk.Checked;
-                if (!chk.Checked)
-                {
-                    txt_Ana_wf.Text = "0.000";
-                    txt_Ana_hf.Text = "0.000";
-                    txt_Ana_Wk.Text = "0.000";
-                    txt_Ana_wr.Text = "0.000";
-                }
-                else
-                {
-                    txt_Ana_wf.Text = "1.000";
-                    txt_Ana_hf.Text = "0.250";
-                    txt_Ana_Wk.Text = "0.500";
-                    txt_Ana_wr.Text = "1.000";
-                }
-            }
+            */
+            #endregion
 
         }
         public double SMG
@@ -6948,9 +7242,82 @@ namespace LimitStateMethod.Composite
             //    member_load.Add(string.Format("{0} FY -{1:f4}", item, wjl * 0.5));
 
             //}
+
+
+
+
+            #region Weight of Crash Barrier Footpath Parapet
+
+            double pp_width = MyList.StringToDouble(txt_Ana_wp.Text, 0.0);
+            double pp_height = MyList.StringToDouble(txt_Ana_hp.Text, 0.0);
+            double pp_weight = pp_width * pp_height * Y_c_Green / 10;
+
+            double cb_width_LHS = MyList.StringToDouble(txt_Ana_Wc_LHS.Text, 0.0);
+            double cb_height_LHS = MyList.StringToDouble(txt_Ana_Hc_LHS.Text, 0.0);
+
+            double cb_width_RHS = MyList.StringToDouble(txt_Ana_Wc_RHS.Text, 0.0);
+            double cb_height_RHS = MyList.StringToDouble(txt_Ana_Hc_RHS.Text, 0.0);
+
+            double cb_weight_LHS = cb_width_LHS * cb_height_LHS * Y_c_Green / 10;
+            double cb_weight_RHS = cb_width_RHS * cb_height_RHS * Y_c_Green / 10;
+
+
+            double fp_width_LHS = MyList.StringToDouble(txt_Ana_wf.Text, 0.0);
+            double fp_height_LHS = MyList.StringToDouble(txt_Ana_hf.Text, 0.0);
+            double fp_width_RHS = MyList.StringToDouble(txt_Ana_Wf_RHS.Text, 0.0);
+            double fp_height_RHS = MyList.StringToDouble(txt_Ana_Hf_RHS.Text, 0.0);
+
+            double fp_weight_LHS = fp_width_LHS * fp_height_LHS * Y_c_Green / 10;
+            double fp_weight_RHS = fp_width_RHS * fp_height_RHS * Y_c_Green / 10;
+
+            sidl = pp_weight + cb_weight_LHS + fp_weight_LHS + cb_weight_RHS + fp_weight_RHS;
+
+
+
+
+            #endregion Weight of Crash Barrier Footpath Parapet
+
             member_load.Add(string.Format("LOAD 3 SIDL"));
             member_load.Add(string.Format("MEMBER LOAD"));
-            member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, sidl * 0.2 / 10)); //Chiranjit [2013 06 07]
+            //member_load.Add(string.Format("{0} UNI GY -{1:f4}", outer_girders, sidl * 0.2 / 10)); //Chiranjit [2013 06 07]
+
+            string LHS_outer = Bridge_Analysis.Get_LHS_Outer_Girder();
+            string RHS_outer = Bridge_Analysis.Get_RHS_Outer_Girder();
+
+
+            if (pp_weight != 0.0)
+            {
+                member_load.Add(string.Format("*Parapet Load {0} Ton/m", pp_weight));
+                member_load.Add(string.Format("{0} UNI GY -{1:f4}", LHS_outer, pp_weight));
+                member_load.Add(string.Format("{0} UNI GY -{1:f4}", RHS_outer, pp_weight));
+            }
+
+            if (cb_weight_LHS != 0.0)
+            {
+                member_load.Add(string.Format("*Crash Barier Load LHS {0} Ton/m", cb_weight_LHS));
+                member_load.Add(string.Format("{0} UNI GY -{1:f4}", LHS_outer, cb_weight_LHS));
+            }
+
+            if (cb_weight_RHS != 0.0)
+            {
+                member_load.Add(string.Format("*Crash Barier Load RHS {0} Ton/m", cb_weight_RHS));
+                member_load.Add(string.Format("{0} UNI GY -{1:f4}", RHS_outer, cb_weight_RHS));
+            }
+
+            if (fp_weight_LHS != 0.0)
+            {
+                member_load.Add(string.Format("*Footpath Load RHS {0} Ton/m", fp_weight_LHS));
+                member_load.Add(string.Format("{0} UNI GY -{1:f4}", LHS_outer, fp_weight_LHS));
+            }
+            if (fp_weight_RHS != 0.0)
+            {
+                member_load.Add(string.Format("*Footpath Load RHS {0} Ton/m", fp_weight_RHS));
+                member_load.Add(string.Format("{0} UNI GY -{1:f4}", RHS_outer, fp_weight_RHS));
+            }
+
+
+
+
 
             member_load.Add(string.Format("LOAD 4 SURFACINGS"));
             member_load.Add(string.Format("MEMBER LOAD"));
@@ -15067,7 +15434,7 @@ namespace LimitStateMethod.Composite
             incr = MyList.StringToDouble(txt_ll_british_incr.Text, 0.0);
 
             if (incr == 0) incr = 1;
-            lgen = ((int)(L / incr)) + 1;
+            lgen = ((int)(( L  + Get_Max_Vehicle_Length() )   / incr)) + 1;
 
             nos_lane = (int)(d / lane_width);
 
@@ -17101,6 +17468,8 @@ namespace LimitStateMethod.Composite
 
         private void uC_Orthotropic1_OnDraw_Click(object sender, EventArgs e)
         {
+            List<string> list = new List<string>();
+
             SectionElement elmt = new SectionElement();
             var ES = Bridge_Analysis.Steel_Section.Section_Long_Girder_at_End_Span;
 
@@ -17143,6 +17512,8 @@ namespace LimitStateMethod.Composite
 
                 //uC_Orthotropic1.DrawElement(elmt);
 
+                list.Add(elmt.Get_Codes());
+
             }
 
             if (true)
@@ -17164,6 +17535,7 @@ namespace LimitStateMethod.Composite
                 elmt.Color_Web_Plate = Color.White;
                 elmt._Columns = cgrds;
                 //uC_Orthotropic1.DrawElement(elmt);
+                list.Add(elmt.Get_Codes());
 
                 #endregion Deckslab
                 ES = Bridge_Analysis.Steel_Section.Section_Cross_Girder;
@@ -17239,11 +17611,16 @@ namespace LimitStateMethod.Composite
 
 
                     //uC_Orthotropic1.DrawElement(elmt);
+                    list.Add(elmt.Get_Codes());
 
                     #endregion
                 }
             }
 
+
+            string ortho_file = Path.Combine(user_path, "orthotropic.txt");
+            File.WriteAllLines(ortho_file, list.ToArray());
+            iApp.View_ASTRAGUI(eProcessType.Orthotropic, ortho_file);
             //Orthotropic_Initialize_InputData();
         }
 
@@ -17339,8 +17716,15 @@ namespace LimitStateMethod.Composite
         private void uC_Orthotropic1_OnRunAnalysis_Click(object sender, EventArgs e)
         {
             //uC_Orthotropic1.Input_Data_File = Bridge_Analysis.Orthotropic_Input_File;
+            if (File.Exists(Bridge_Analysis.Orthotropic_Input_File))
+                iApp.Form_ASTRA_TEXT_Data(Bridge_Analysis.Orthotropic_Input_File, false).Show();
         }
 
+        private void btn_open_input_data_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(Bridge_Analysis.Orthotropic_Input_File))
+                iApp.View_Input_File(Bridge_Analysis.Orthotropic_Input_File);
+        }
         private void uC_Orthotropic1_OnCreateData_Click(object sender, EventArgs e)
         {
             Orthotropic_Initialize_InputData();
@@ -17471,9 +17855,9 @@ namespace LimitStateMethod.Composite
             list.Add(string.Format("CRASH BARRIER ON BOTH SIDES / NO FOOTPATH"));
             list.Add(string.Format("------------------------------------------"));
             list.Add(string.Format(""));
-            list.Add(string.Format("Width of Crash Barrier [wc]= {0} m", txt_Ana_Wc.Text));
+            list.Add(string.Format("Width of Crash Barrier [wc]= {0} m", txt_Ana_Wc_LHS.Text));
             list.Add(string.Format(""));
-            list.Add(string.Format("Height of Crash Barrier [hc]= {0} m", txt_Ana_Hc.Text));
+            list.Add(string.Format("Height of Crash Barrier [hc]= {0} m", txt_Ana_Hc_LHS.Text));
             list.Add(string.Format(""));
             list.Add(string.Format("SIDE WALK/FOOTPATH"));
             list.Add(string.Format("---------------------------------------"));
@@ -17763,6 +18147,294 @@ namespace LimitStateMethod.Composite
             File.WriteAllLines(FILE_BASIC_INPUT_DATA, list.ToArray());
             //System.Diagnostics.Process.Start(FILE_BASIC_INPUT_DATA);
         }
+
+        private void btn_Orthotropic_Model_Click(object sender, EventArgs e)
+        {
+            uC_Orthotropic1_OnDraw_Click(sender, e);
+        }
+
+        private void btn_irc_view_moving_load_Click(object sender, EventArgs e)
+        {
+
+            if (!Check_Project_Folder()) return;
+            Analysis_Initialize_InputData();
+            string ll_file = "";
+            try
+            {
+                if (IsCreate_Data)
+                {
+                    if (Path.GetFileName(user_path) != Project_Name) Create_Project();
+                }
+                if (!Directory.Exists(user_path))
+                    Directory.CreateDirectory(user_path);
+
+
+                Analysis_Initialize_InputData();
+
+                Write_All_Data(false);
+
+
+                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
+
+                if (!Directory.Exists(usp))
+                    Directory.CreateDirectory(usp);
+
+                string inp_file = Path.Combine(usp, "INPUT_DATA.TXT");
+
+                //Calculate_Load_Computation();
+                Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+                Bridge_Analysis.Start_Support = Start_Support_Text;
+                Bridge_Analysis.End_Support = END_Support_Text;
+                if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
+                {
+                    LONG_GIRDER_LL_TXT();
+                    if (Curve_Radius > 0)
+                    {
+                        Bridge_Analysis.CreateData_Straight_Indian();
+
+                        #region Chiranjit [2014 09 08] Indian Standard
+
+
+                        Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                        Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                            Bridge_Analysis.Inner_Girders_as_String,
+                            Bridge_Analysis.joints_list_for_load);
+
+                        Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                        #region Chiranjit [2014 10 2]
+
+                        if (long_ll.Count > 0)
+                        {
+                            Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(long_ll);
+                        }
+                        for (int i = 0; i < all_loads.Count; i++)
+                        {
+                            Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
+                            Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                        }
+
+                        #endregion Chiranjit [2014 10 2]
+
+                        #endregion
+
+                        Bridge_Analysis.CreateData_Indian();
+                    }
+                    else
+                    {
+                        Bridge_Analysis.Skew_Angle = Ang;
+                        Bridge_Analysis.CreateData_Straight_Indian();
+                    }
+
+                    #region Chiranjit [2014 09 08] Indian Standard
+
+                    Bridge_Analysis.WriteData(inp_file);
+                    Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
+
+                    //Ana_Write_Load_Data();
+                    txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
+
+                    Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                    Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                        Bridge_Analysis.Inner_Girders_as_String,
+                        Bridge_Analysis.joints_list_for_load);
+
+
+                    Bridge_Analysis.WriteData_Total_Analysis(inp_file);
+                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File);
+
+                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File);
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File);
+                    Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
+
+
+
+
+                    Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
+                    Ana_Write_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true);
+                    Ana_Write_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false);
+                    Ana_Write_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true);
+
+
+
+                    //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, false, 1);
+                    //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
+
+                    #region Chiranjit [2014 10 2]
+                    //for (int i = 0; i < all_loads.Count; i++)
+                    //{
+                    //    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, false), true, false, i + 1);
+                    //}
+
+
+                    #endregion Chiranjit [2014 10 2]
+                    Button_Enable_Disable();
+
+
+                    ll_file = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(cmb_irc_view_moving_load.SelectedIndex + 1, false);
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(ll_file, long_ll);
+                    Ana_Write_Long_Girder_Load_Data(ll_file, true, false, cmb_irc_view_moving_load.SelectedIndex + 1);
+                    //iApp.View_MovingLoad(ll_file);
+                    iApp.View_MovingLoad(ll_file, Curve_Radius, MyList.StringToDouble(txt_irc_vehicle_gap.Text));
+
+                    #endregion Chiranjit [2014 09 08]
+
+                }
+                else
+                {
+                    #region Chiranjit [2014 09 08] British Standard
+
+                    Bridge_Analysis.HA_Lanes = HA_Lanes;
+                    LONG_GIRDER_BRITISH_LL_TXT();
+
+                    if (Curve_Radius > 0)
+                    {
+
+                        Bridge_Analysis.CreateData_StraightBritish();
+
+                        #region Chiranjit [2014 09 08] Indian Standard
+
+
+                        Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                        Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                            Bridge_Analysis.Inner_Girders_as_String,
+                            Bridge_Analysis.joints_list_for_load);
+
+                        Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.Straight_DL_File);
+                        Ana_Write_Load_Data(Bridge_Analysis.Straight_DL_File, false, true);
+
+
+                        //Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Straight_LL_File);
+                        //Ana_Write_Load_Data(Bridge_Analysis.Straight_LL_File, true, false);
+
+
+                        //Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Straight_TL_File);
+                        //Ana_Write_Load_Data(Bridge_Analysis.Straight_TL_File, true, true);
+
+                        //if (rbtn_HA.Checked)
+                        //{
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 0);
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 0);
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 0);
+
+                        //}
+                        //else
+                        //{
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_DL_File, false, true, 1);
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_TL_File, true, true, 1);
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Straight_LL_File, true, false, 1);
+                        //}
+
+
+                        //for (int i = 0; i < all_loads.Count; i++)
+                        //{
+                        //    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), long_ll);
+                        //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1, true), true, false, i + 1);
+                        //}
+                        #endregion
+
+                        Bridge_Analysis.CreateData_British();
+                    }
+                    else
+                    {
+                        Bridge_Analysis.CreateData_StraightBritish();
+                    }
+
+                    Bridge_Analysis.WriteData(inp_file);
+                    Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, true, long_ll);
+
+                    txt_Ana_analysis_file.Text = Bridge_Analysis.Input_File;
+
+                    Bridge_Analysis.Steel_Section = Comp_sections;
+
+
+                    Calculate_Load_Computation(Bridge_Analysis.Outer_Girders_as_String,
+                        Bridge_Analysis.Inner_Girders_as_String,
+                        Bridge_Analysis.joints_list_for_load);
+
+
+                    //Bridge_Analysis.WriteData_Total_Analysis(inp_file, false, true);
+                    //Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File, false, false);
+
+                    //Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.TotalAnalysis_Input_File, true, long_ll);
+                    //Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.LiveLoadAnalysis_Input_File, long_ll);
+                    //Bridge_Analysis.WriteData_DeadLoad_Analysis(Bridge_Analysis.DeadLoadAnalysis_Input_File);
+
+                    //Ana_Write_Load_Data(Bridge_Analysis.Input_File, true, true);
+
+                    //if (rbtn_HA.Checked)
+                    //{
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, 0);
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 0);
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 0);
+
+                    //}
+                    //else
+                    //{
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.TotalAnalysis_Input_File, true, true, 1);
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.LiveLoadAnalysis_Input_File, true, false, 1);
+                    //}
+
+
+                    //for (int i = 0; i < all_loads.Count; i++)
+                    //{
+                    //    Bridge_Analysis.WriteData_LiveLoad_Analysis(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), long_ll);
+                    //    Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i + 1), true, false, i + 1);
+                    //}
+                    //Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
+
+                    //string ll_txt = Bridge_Analysis.LiveLoad_File;
+
+                    //Bridge_Analysis.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
+
+                    //if (Bridge_Analysis.Live_Load_List == null) return;
+
+                    //Button_Enable_Disable();
+
+
+                    ll_file = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(cmb_bs_view_moving_load.SelectedIndex + 1);
+                    Bridge_Analysis.WriteData_LiveLoad_Analysis(ll_file, long_ll);
+
+                    Ana_Write_Long_Girder_Load_Data(ll_file, true, false, cmb_bs_view_moving_load.SelectedIndex + 1);
+
+
+                    string rad_file = Path.Combine(Path.GetDirectoryName(ll_file) , "radius.fil");
+                    if (Curve_Radius > 0)
+                    {
+                        File.WriteAllText(rad_file, Curve_Radius.ToString());
+                    }
+                    else
+                    {
+                        
+                        File.Delete(rad_file);
+                    }
+                    //iApp.View_MovingLoad(ll_file);
+
+                    iApp.View_MovingLoad(ll_file, Curve_Radius, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+
+                    #endregion Chiranjit [2014 09 08] British Standard
+
+                }
+             
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+
+
+            Button_Enable_Disable();
+            Write_All_Data(false);
+        }
+
     }
 
 }

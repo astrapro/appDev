@@ -19634,6 +19634,18 @@ namespace LimitStateMethod.Composite
             }
             return "";
         }
+
+        public string Get_LHS_Outer_Girder()
+        {
+            string LHS = Long_Girder_Members_Array[1, 0].MemberNo + " TO " + Long_Girder_Members_Array[1, _Columns - 2].MemberNo;
+            return LHS;
+
+        }
+        public string Get_RHS_Outer_Girder()
+        {
+            string RHS = Long_Girder_Members_Array[_Rows - 2, 0].MemberNo + " TO " + Long_Girder_Members_Array[_Rows - 2, _Columns - 2].MemberNo;
+            return RHS;
+        }
     }
     public class Composite_Girder_LS
     {

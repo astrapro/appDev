@@ -1497,6 +1497,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
         }
         private void Create_Data_LL(string file_name)
         {
+            txt_LL_load_gen.Text = ((MyList.StringToDouble(txt_Ana_L.Text, 0.0) + Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.0))) / MyList.StringToDouble(txt_XINCR.Text, 0.2)).ToString("f0");
 
             Deck_Analysis_LL.Input_File = file_name;
             Deck_Analysis_LL.CreateData();
@@ -3716,8 +3717,31 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
             uC_BoxGirder1.iApp = iApp;
 
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+            {
+                Select_Moving_Load_Combo(dgv_british_loads, cmb_bs_view_moving_load);
+            }
+            //else
+            //    Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
         }
 
+
+        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
+        {
+            string load = "";
+            cmb.Items.Clear();
+            for (int i = 0; i < dgv.RowCount - 1; i++)
+            {
+                load = dgv[0, i].Value.ToString();
+                if (load.StartsWith("LOAD"))
+                {
+                    if (!cmb.Items.Contains(load))
+                        cmb.Items.Add(load);
+                }
+            }
+            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
+
+        }
         private void Open_Project()
         {
 
@@ -4072,7 +4096,8 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
         {
             double L = MyList.StringToDouble(txt_Ana_L.Text, 0.0);
             double B = MyList.StringToDouble(txt_Ana_B.Text, 0.0);
-            txt_LL_load_gen.Text = (L / MyList.StringToDouble(txt_XINCR.Text, 0.0)).ToString("f0");
+
+            txt_LL_load_gen.Text = ((L + Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.0))) / MyList.StringToDouble(txt_XINCR.Text, 0.0)).ToString("f0");
 
 
             txt_tab1_Lo.Text = L.ToString("f3");
@@ -4451,7 +4476,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
         private void txt_Ana_DL_length_TextChanged(object sender, EventArgs e)
         {
-            txt_LL_load_gen.Text = (MyList.StringToDouble(txt_Ana_L.Text, 0.0) / MyList.StringToDouble(txt_XINCR.Text, 0.2)).ToString("f0");
+            txt_LL_load_gen.Text = ((MyList.StringToDouble(txt_Ana_L.Text, 0.0) + Math.Abs(MyList.StringToDouble(txt_Ana_X.Text, 0.0))) / MyList.StringToDouble(txt_XINCR.Text, 0.2)).ToString("f0");
 
             //txt_Ana_X.Text = "-" + txt_Ana_L.Text;
 
@@ -5156,8 +5181,46 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
         private void btn_def_mov_load_Click(object sender, EventArgs e)
         {
-            iApp.Show_LL_Dialog();
-            iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+            //iApp.Show_LL_Dialog();
+            //iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
+
+
+            try
+            {
+                if (!Check_Project_Folder()) return;
+
+                Show_Section_Result();
+
+                if (Path.GetFileName(user_path) != Project_Name)
+                {
+                    Create_Project();
+                }
+
+
+                if (!Directory.Exists(user_path))
+                {
+                    Directory.CreateDirectory(user_path);
+                }
+                Write_All_Data();
+                Text_Changed();
+                Analysis_Initialize_InputData();
+
+
+                Deck_Analysis_LL.Input_File = Input_File_LL;
+                Deck_Analysis_LL.CreateData();
+                Deck_Analysis_LL.WriteData_LiveLoad(Deck_Analysis_LL.Input_File, PSC_SECIONS);
+                Write_Ana_Load_Data(true);
+                Deck_Analysis_LL.Bridge_Analysis = new BridgeMemberAnalysis(iApp, Deck_Analysis_LL.Input_File);
+
+                string ll_txt = Deck_Analysis_LL.LiveLoad_File;
+
+                Deck_Analysis_DL.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
+
+                //iApp.View_MovingLoad();
+                iApp.View_MovingLoad(Input_File_LL, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+
+            }
+            catch (Exception ex) { }
         }
 
 
@@ -5230,6 +5293,47 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             }
         }
         public bool IsRead = false;
+
+
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+
+            List<double> lst_mvl = new List<double>();
+            DataGridView dgv = dgv_long_british_loads;
+
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
+                    {
+                        mvl = 0;
+                        for (int c = 1; c < dgv.ColumnCount; c++)
+                        {
+                            try
+                            {
+                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
+                            }
+                            catch (Exception exx)
+                            {
+
+                            }
+                        }
+                        lst_mvl.Add(mvl);
+                    }
+                }
+                catch (Exception ex1) { }
+
+            }
+            if (lst_mvl.Count > 0)
+            {
+                lst_mvl.Sort();
+                lst_mvl.Reverse();
+                mvl = lst_mvl[0];
+            }
+            return mvl;
+        }
         public void British_Interactive()
         {
             if (IsRead) return;
@@ -5247,7 +5351,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             incr = MyList.StringToDouble(txt_ll_british_incr.Text, 0.0);
 
             if (incr == 0) incr = 1;
-            lgen = ((int)(L / incr)) + 1;
+            lgen = ((int)((L + Get_Max_Vehicle_Length()) / incr)) + 1;
 
             nos_lane = (int)(d / lane_width);
 
@@ -6377,7 +6481,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             }
             else if (btn.Name == btn_View_Moving_Load.Name)
             {
-                file_name = MyList.Get_Analysis_Report_File(file_name);
+                //file_name = MyList.Get_Analysis_Report_File(file_name);
                 if (File.Exists(file_name))
                     iApp.OpenWork(file_name, true);
             }
@@ -6577,6 +6681,58 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_bs_view_moving_load_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!Check_Project_Folder()) return;
+                Show_Section_Result();
+                if (Path.GetFileName(user_path) != Project_Name)
+                {
+                    Create_Project();
+                }
+
+
+                if (!Directory.Exists(user_path))
+                {
+                    Directory.CreateDirectory(user_path);
+                }
+                Write_All_Data();
+                Analysis_Initialize_InputData();
+                Create_Data_LL(Input_File);
+
+                if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+                    Create_Data_LL(Input_File_LL);
+                else if (iApp.DesignStandard == eDesignStandard.BritishStandard)
+                {
+                    Deck_Analysis_LL.Input_File = Input_File_LL;
+                    LONG_GIRDER_BRITISH_LL_TXT();
+
+                    Bridge_Analysis.HA_Lanes = HA_Lanes;
+
+                    Deck_Analysis_LL.CreateData_British();
+
+                    Bridge_Analysis.HA_Loading_Members = "191 TO 202";
+
+                    int i = 0;
+                    string ll_file = "";
+                    //for (i = 0; i < all_loads.Count; i++)
+                    //{
+                    ll_file = Get_Live_Load_Analysis_Input_File(cmb_bs_view_moving_load.SelectedIndex + 1);
+                    Deck_Analysis_LL.WriteData_LiveLoad(ll_file, PSC_SECIONS, long_ll);
+                    Ana_Write_Long_Girder_Load_Data(ll_file, true, false, (cmb_bs_view_moving_load.SelectedIndex + 1));
+                    //}
+
+                    //iApp.View_MovingLoad(ll_file);
+                    iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+                   
+
+                }
+                Button_Enable_Disable();
+            }
+            catch (Exception ex) { }
         }
 
 

@@ -334,12 +334,6 @@ namespace AstraFunctionOne
 
             if (btn.Name == btn_st_2_process.Name)
             {
-                //if (MessageBox.Show("Check for Additional/New Nodes & Members the necessary data for Material" +
-                //    " Contants, Section Properties, Supports & Loadings are given in the input data manualy by the User." +
-                //    "\n\n Do you want to Proceed?", "ASTRA", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == System.Windows.Forms.DialogResult.No)
-                //{
-                //    return;
-                //}
 
                 #region Process Analysis
 
@@ -350,8 +344,6 @@ namespace AstraFunctionOne
                     Show_Analysis(2);
                 }
                 #endregion Process Analysis
-
-
             }
             else if (btn.Name == btn_st_2_view_report.Name)
             {

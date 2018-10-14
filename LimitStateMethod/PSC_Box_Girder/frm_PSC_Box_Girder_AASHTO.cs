@@ -2535,6 +2535,23 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             Set_Project_Name();
 
+            Select_Moving_Load_Combo(dgv_long_loads, cmb_bs_view_moving_load);
+        }
+
+        public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
+        {
+            string load = "";
+            cmb.Items.Clear();
+            for (int i = 0; i < dgv.RowCount - 1; i++)
+            {
+                load = dgv[0, i].Value.ToString();
+                if (load.StartsWith("LOAD"))
+                {
+                    if (!cmb.Items.Contains(load))
+                        cmb.Items.Add(load);
+                }
+            }
+            if (cmb.Items.Count > 0) cmb.SelectedIndex = 0;
 
         }
 
@@ -2642,7 +2659,12 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             double Xincr = MyList.StringToDouble(txt_XINCR.Text, 0.0);
 
-            txt_LL_load_gen.Text = (L / Xincr + 1).ToString("f0");
+            txt_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / Xincr + 1).ToString("f0");
+
+
+            //double Xincr = MyList.StringToDouble(txt_XINCR.Text, 0.0);
+
+            //txt_LL_load_gen.Text = (L / Xincr + 1).ToString("f0");
         }
 
         #endregion Design of RCC Pier
@@ -4525,12 +4547,52 @@ namespace LimitStateMethod.PSC_Box_Girder
             }
         }
 
+
+        double Get_Max_Vehicle_Length()
+        {
+            double mvl = 13.4;
+
+            List<double> lst_mvl = new List<double>();
+            DataGridView dgv = dgv_long_liveloads;
+
+            for (int i = 0; i < dgv.RowCount; i++)
+            {
+                try
+                {
+                    if (dgv[0, i].Value.ToString().StartsWith("AXLE SPACING"))
+                    {
+                        mvl = 0;
+                        for (int c = 1; c < dgv.ColumnCount; c++)
+                        {
+                            try
+                            {
+                                mvl += MyList.StringToDouble(dgv[c, i].Value.ToString(), 0.0);
+                            }
+                            catch (Exception exx)
+                            {
+
+                            }
+                        }
+                        lst_mvl.Add(mvl);
+                    }
+                }
+                catch (Exception ex1) { }
+
+            }
+            if (lst_mvl.Count > 0)
+            {
+                lst_mvl.Sort();
+                lst_mvl.Reverse();
+                mvl = lst_mvl[0];
+            }
+            return mvl;
+        }
         private void txt_XINCR_TextChanged(object sender, EventArgs e)
         {
             double ll_gen = 0.0;
             double Xincr = MyList.StringToDouble(txt_XINCR.Text, 0.0);
 
-            txt_LL_load_gen.Text = (L / Xincr + 1).ToString("f0");
+            txt_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / Xincr + 1).ToString("f0");
         }
 
         private void btn__Loadings_help_Click(object sender, EventArgs e)
@@ -4558,6 +4620,64 @@ namespace LimitStateMethod.PSC_Box_Girder
                 if (btn.Name == btn_long_restore_ll_IRC.Name)
                     Default_Moving_LoadData(dgv_long_liveloads);
             }
+        }
+
+        private void btn_bs_view_moving_load_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                if (!Check_Project_Folder()) return;
+
+                Show_Section_Result();
+
+                if (Path.GetFileName(user_path) != Project_Name)
+                {
+                    Create_Project();
+                }
+
+                if (!Directory.Exists(user_path))
+                {
+                    Directory.CreateDirectory(user_path);
+                }
+
+
+                if (rbtn_multiple_cell.Checked)
+                {
+                    Section2_Section_Properties();
+                }
+                Text_Changed();
+                Write_All_Data();
+                Analysis_Initialize_InputData();
+
+                Deck_Analysis_LL.Input_File = Input_File_LL;
+
+                LONG_GIRDER_LL_TXT();
+                Deck_Analysis_LL.CreateData();
+
+                //if (rbtn_HA.Checked)
+                //{
+                //    //Deck_Analysis_LL.WriteData_LiveLoad(Deck_Analysis_LL.Input_File, PSC_SECIONS);
+                //    //Ana_Write_Long_Girder_Load_Data(Deck_Analysis_LL.Input_File, true, false, 1);
+                //}
+                int i = 0;
+                string ll_file = "";
+                //for (i = 0; i < all_loads.Count; i++)
+                //{
+                ll_file = Get_Live_Load_Analysis_Input_File(cmb_bs_view_moving_load.SelectedIndex + 1);
+                if (rbtn_multiple_cell.Checked)
+                    Deck_Analysis_LL.WriteData_LiveLoad(ll_file, aashto_box, long_ll);
+                else
+                    Deck_Analysis_LL.WriteData_LiveLoad(ll_file, PSC_SECIONS);
+
+                Ana_Write_Long_Girder_Load_Data(ll_file, true, false, (cmb_bs_view_moving_load.SelectedIndex + 1));
+
+
+                //iApp.View_MovingLoad(ll_file);
+                iApp.View_MovingLoad(ll_file, 0.0, MyList.StringToDouble(txt_bs_vehicle_gap.Text));
+
+            }
+            catch (Exception ex) { }
         }
 
 

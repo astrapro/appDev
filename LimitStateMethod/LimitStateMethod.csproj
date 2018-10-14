@@ -97,6 +97,12 @@
     <Compile Include="Bearing\UC_BRD.Designer.cs">
       <DependentUpon>UC_BRD.cs</DependentUpon>
     </Compile>
+    <Compile Include="CableStayed\frmCableStayed_AASHTO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CableStayed\frmCableStayed_AASHTO.Designer.cs">
+      <DependentUpon>frmCableStayed_AASHTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="CableStayed\frmCableStayed_LS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -453,6 +459,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bearing\UC_BRD.resx">
       <DependentUpon>UC_BRD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\frmCableStayed_AASHTO.resx">
+      <DependentUpon>frmCableStayed_AASHTO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CableStayed\frmCableStayed_LS.resx">
       <DependentUpon>frmCableStayed_LS.cs</DependentUpon>
@@ -864,6 +873,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Excel_note.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StoneMasonryPier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on BHS [Case_4].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on BHS [Case_7].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on BHS [Case_8].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on BHS [Case_9].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on LHS [Case_5].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on RHS [Case_6].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on LHS [Case_10].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on RHS [Case_9].jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

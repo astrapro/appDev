@@ -322,23 +322,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.tab_LL = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btn_irc_view_moving_load = new System.Windows.Forms.Button();
             this.label139 = new System.Windows.Forms.Label();
             this.label143 = new System.Windows.Forms.Label();
-            this.grb_custom = new System.Windows.Forms.GroupBox();
-            this.cmb_custom_LL_type = new System.Windows.Forms.ComboBox();
-            this.label74 = new System.Windows.Forms.Label();
-            this.txt_custom_LL_load_gen = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.rbtn_custom_LL = new System.Windows.Forms.RadioButton();
-            this.label71 = new System.Windows.Forms.Label();
-            this.rbtn_LL_fill_data = new System.Windows.Forms.RadioButton();
-            this.txt_custom_LL_Xcrmt = new System.Windows.Forms.TextBox();
-            this.cmb_custom_LL_lanes = new System.Windows.Forms.ComboBox();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.txt_custom_LL_lat_clrns = new System.Windows.Forms.TextBox();
             this.grb_load = new System.Windows.Forms.GroupBox();
             this.btn_def_mov_load = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
@@ -366,6 +352,8 @@
             this.txt_Y = new System.Windows.Forms.TextBox();
             this.btn_add_load = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label569 = new System.Windows.Forms.Label();
+            this.txt_irc_vehicle_gap = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txt_LL_Input_data = new System.Windows.Forms.TextBox();
             this.tab_analysis = new System.Windows.Forms.TabPage();
@@ -1278,7 +1266,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_SIDL)).BeginInit();
             this.tab_LL.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.grb_custom.SuspendLayout();
             this.grb_load.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_live_load)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -3935,11 +3922,13 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btn_irc_view_moving_load);
             this.groupBox4.Controls.Add(this.label139);
             this.groupBox4.Controls.Add(this.label143);
-            this.groupBox4.Controls.Add(this.grb_custom);
             this.groupBox4.Controls.Add(this.grb_load);
             this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.label569);
+            this.groupBox4.Controls.Add(this.txt_irc_vehicle_gap);
             this.groupBox4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(11, 11);
             this.groupBox4.Name = "groupBox4";
@@ -3947,6 +3936,16 @@
             this.groupBox4.TabIndex = 71;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Define Moving Load";
+            // 
+            // btn_irc_view_moving_load
+            // 
+            this.btn_irc_view_moving_load.Location = new System.Drawing.Point(183, 472);
+            this.btn_irc_view_moving_load.Name = "btn_irc_view_moving_load";
+            this.btn_irc_view_moving_load.Size = new System.Drawing.Size(204, 29);
+            this.btn_irc_view_moving_load.TabIndex = 137;
+            this.btn_irc_view_moving_load.Text = "View Moving Load";
+            this.btn_irc_view_moving_load.UseVisualStyleBackColor = true;
+            this.btn_irc_view_moving_load.Click += new System.EventHandler(this.btn_irc_view_moving_load_Click);
             // 
             // label139
             // 
@@ -3971,173 +3970,6 @@
             this.label143.Size = new System.Drawing.Size(135, 18);
             this.label143.TabIndex = 131;
             this.label143.Text = "All User Input Data";
-            // 
-            // grb_custom
-            // 
-            this.grb_custom.Controls.Add(this.cmb_custom_LL_type);
-            this.grb_custom.Controls.Add(this.label74);
-            this.grb_custom.Controls.Add(this.txt_custom_LL_load_gen);
-            this.grb_custom.Controls.Add(this.label73);
-            this.grb_custom.Controls.Add(this.label72);
-            this.grb_custom.Controls.Add(this.rbtn_custom_LL);
-            this.grb_custom.Controls.Add(this.label71);
-            this.grb_custom.Controls.Add(this.rbtn_LL_fill_data);
-            this.grb_custom.Controls.Add(this.txt_custom_LL_Xcrmt);
-            this.grb_custom.Controls.Add(this.cmb_custom_LL_lanes);
-            this.grb_custom.Controls.Add(this.label70);
-            this.grb_custom.Controls.Add(this.label69);
-            this.grb_custom.Controls.Add(this.label68);
-            this.grb_custom.Controls.Add(this.txt_custom_LL_lat_clrns);
-            this.grb_custom.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_custom.Location = new System.Drawing.Point(57, 457);
-            this.grb_custom.Name = "grb_custom";
-            this.grb_custom.Size = new System.Drawing.Size(439, 53);
-            this.grb_custom.TabIndex = 69;
-            this.grb_custom.TabStop = false;
-            this.grb_custom.Text = "Fill Default data for Full Bridge Deck Loading";
-            this.grb_custom.Visible = false;
-            // 
-            // cmb_custom_LL_type
-            // 
-            this.cmb_custom_LL_type.FormattingEnabled = true;
-            this.cmb_custom_LL_type.Location = new System.Drawing.Point(157, 20);
-            this.cmb_custom_LL_type.Name = "cmb_custom_LL_type";
-            this.cmb_custom_LL_type.Size = new System.Drawing.Size(198, 21);
-            this.cmb_custom_LL_type.TabIndex = 79;
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(14, 151);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(101, 13);
-            this.label74.TabIndex = 78;
-            this.label74.Text = "Load Generation";
-            // 
-            // txt_custom_LL_load_gen
-            // 
-            this.txt_custom_LL_load_gen.Location = new System.Drawing.Point(313, 148);
-            this.txt_custom_LL_load_gen.Name = "txt_custom_LL_load_gen";
-            this.txt_custom_LL_load_gen.Size = new System.Drawing.Size(42, 21);
-            this.txt_custom_LL_load_gen.TabIndex = 77;
-            this.txt_custom_LL_load_gen.Text = "100";
-            this.txt_custom_LL_load_gen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(361, 122);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(18, 13);
-            this.label73.TabIndex = 76;
-            this.label73.Text = "m";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(367, 68);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(18, 13);
-            this.label72.TabIndex = 76;
-            this.label72.Text = "m";
-            // 
-            // rbtn_custom_LL
-            // 
-            this.rbtn_custom_LL.AutoSize = true;
-            this.rbtn_custom_LL.Checked = true;
-            this.rbtn_custom_LL.Location = new System.Drawing.Point(406, 47);
-            this.rbtn_custom_LL.Name = "rbtn_custom_LL";
-            this.rbtn_custom_LL.Size = new System.Drawing.Size(174, 17);
-            this.rbtn_custom_LL.TabIndex = 71;
-            this.rbtn_custom_LL.TabStop = true;
-            this.rbtn_custom_LL.Text = "Define user\'s custom data";
-            this.rbtn_custom_LL.UseVisualStyleBackColor = true;
-            this.rbtn_custom_LL.CheckedChanged += new System.EventHandler(this.rbtn_LL_fill_data_CheckedChanged);
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(14, 122);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(188, 13);
-            this.label71.TabIndex = 75;
-            this.label71.Text = "Increment of Vehicle Movement";
-            // 
-            // rbtn_LL_fill_data
-            // 
-            this.rbtn_LL_fill_data.AutoSize = true;
-            this.rbtn_LL_fill_data.Location = new System.Drawing.Point(406, 24);
-            this.rbtn_LL_fill_data.Name = "rbtn_LL_fill_data";
-            this.rbtn_LL_fill_data.Size = new System.Drawing.Size(279, 17);
-            this.rbtn_LL_fill_data.TabIndex = 70;
-            this.rbtn_LL_fill_data.Text = "Fill Default data for Full Bridge Deck Loading";
-            this.rbtn_LL_fill_data.UseVisualStyleBackColor = true;
-            this.rbtn_LL_fill_data.CheckedChanged += new System.EventHandler(this.rbtn_LL_fill_data_CheckedChanged);
-            // 
-            // txt_custom_LL_Xcrmt
-            // 
-            this.txt_custom_LL_Xcrmt.Location = new System.Drawing.Point(313, 119);
-            this.txt_custom_LL_Xcrmt.Name = "txt_custom_LL_Xcrmt";
-            this.txt_custom_LL_Xcrmt.Size = new System.Drawing.Size(42, 21);
-            this.txt_custom_LL_Xcrmt.TabIndex = 74;
-            this.txt_custom_LL_Xcrmt.Text = "0.5";
-            this.txt_custom_LL_Xcrmt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_custom_LL_Xcrmt.TextChanged += new System.EventHandler(this.txt_custom_LL_Xcrmt_TextChanged);
-            // 
-            // cmb_custom_LL_lanes
-            // 
-            this.cmb_custom_LL_lanes.FormattingEnabled = true;
-            this.cmb_custom_LL_lanes.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.cmb_custom_LL_lanes.Location = new System.Drawing.Point(313, 92);
-            this.cmb_custom_LL_lanes.Name = "cmb_custom_LL_lanes";
-            this.cmb_custom_LL_lanes.Size = new System.Drawing.Size(42, 21);
-            this.cmb_custom_LL_lanes.TabIndex = 73;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(14, 95);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(153, 13);
-            this.label70.TabIndex = 72;
-            this.label70.Text = "Total No. of Vehicle Lanes";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(14, 68);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(275, 13);
-            this.label69.TabIndex = 71;
-            this.label69.Text = "Lateral clearance space between vehicle Lanes";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(14, 23);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(104, 13);
-            this.label68.TabIndex = 2;
-            this.label68.Text = "Select Load Type";
-            // 
-            // txt_custom_LL_lat_clrns
-            // 
-            this.txt_custom_LL_lat_clrns.Location = new System.Drawing.Point(313, 65);
-            this.txt_custom_LL_lat_clrns.Name = "txt_custom_LL_lat_clrns";
-            this.txt_custom_LL_lat_clrns.Size = new System.Drawing.Size(42, 21);
-            this.txt_custom_LL_lat_clrns.TabIndex = 1;
-            this.txt_custom_LL_lat_clrns.Text = "0.5";
-            this.txt_custom_LL_lat_clrns.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // grb_load
             // 
@@ -4435,6 +4267,27 @@
             this.button1.Text = "Show Input Data";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.btn_Show_MovingLoad_Click);
+            // 
+            // label569
+            // 
+            this.label569.AutoSize = true;
+            this.label569.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label569.Location = new System.Drawing.Point(19, 436);
+            this.label569.Name = "label569";
+            this.label569.Size = new System.Drawing.Size(421, 13);
+            this.label569.TabIndex = 134;
+            this.label569.Text = "Longitudinal Separating distance between two vehicle in a Lane";
+            // 
+            // txt_irc_vehicle_gap
+            // 
+            this.txt_irc_vehicle_gap.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_irc_vehicle_gap.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_irc_vehicle_gap.Location = new System.Drawing.Point(446, 435);
+            this.txt_irc_vehicle_gap.Name = "txt_irc_vehicle_gap";
+            this.txt_irc_vehicle_gap.Size = new System.Drawing.Size(65, 18);
+            this.txt_irc_vehicle_gap.TabIndex = 133;
+            this.txt_irc_vehicle_gap.Text = "18.8";
+            this.txt_irc_vehicle_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox3
             // 
@@ -14325,8 +14178,6 @@
             this.tab_LL.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.grb_custom.ResumeLayout(false);
-            this.grb_custom.PerformLayout();
             this.grb_load.ResumeLayout(false);
             this.grb_load.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_live_load)).EndInit();
@@ -14738,25 +14589,10 @@
         private System.Windows.Forms.Button btn_View_Structure;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txt_LL_Input_data;
-        private System.Windows.Forms.GroupBox grb_custom;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.TextBox txt_custom_LL_lat_clrns;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.ComboBox cmb_custom_LL_lanes;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.TextBox txt_custom_LL_Xcrmt;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.TextBox txt_custom_LL_load_gen;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.TextBox txt_LL_load_gen;
-        private System.Windows.Forms.RadioButton rbtn_custom_LL;
-        private System.Windows.Forms.RadioButton rbtn_LL_fill_data;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox cmb_custom_LL_type;
         private System.Windows.Forms.TabPage tab_UG;
         private System.Windows.Forms.Button btn_open_UG;
         private System.Windows.Forms.Label label77;
@@ -15649,6 +15485,9 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox txt_sidl_max_vert_reac;
         private System.Windows.Forms.Label label276;
+        private System.Windows.Forms.Button btn_irc_view_moving_load;
+        private System.Windows.Forms.Label label569;
+        private System.Windows.Forms.TextBox txt_irc_vehicle_gap;
     }
 
 }
