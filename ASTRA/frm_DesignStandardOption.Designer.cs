@@ -60,7 +60,6 @@
             this.rbtn_LRFD.TabIndex = 1;
             this.rbtn_LRFD.Text = "AASHTO - LRFD Standard";
             this.rbtn_LRFD.UseVisualStyleBackColor = true;
-            this.rbtn_LRFD.Visible = false;
             // 
             // rbtn_BS
             // 

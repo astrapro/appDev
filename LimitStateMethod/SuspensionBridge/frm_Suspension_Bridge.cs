@@ -103,7 +103,7 @@ namespace LimitStateMethod.SuspensionBridge
             //}
             Loads_Suspension_Sections();
 
-
+            Calculate_Load();
             
 
             
@@ -524,6 +524,7 @@ namespace LimitStateMethod.SuspensionBridge
             {
                 File.Copy(file_path, copy_path, true);
             }
+            iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
             Excel.Workbooks myExcelWorkbooks;
@@ -1083,7 +1084,7 @@ namespace LimitStateMethod.SuspensionBridge
 
             releaseObject(myExcelWorkbook);
 
-            iApp.Excel_Open_Message();
+            iApp.Excel_Close_Message();
         }
 
         private void Design_BS_Cable_Suspension_Bridge()
@@ -1103,6 +1104,7 @@ namespace LimitStateMethod.SuspensionBridge
             {
                 File.Copy(file_path, copy_path, true);
             }
+            iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
             Excel.Workbooks myExcelWorkbooks;
@@ -1819,7 +1821,7 @@ namespace LimitStateMethod.SuspensionBridge
 
             releaseObject(myExcelWorkbook);
 
-            iApp.Excel_Open_Message();
+            iApp.Excel_Close_Message();
         }
 
         private void Design_Wind_Guy_Analysis()
@@ -2276,20 +2278,30 @@ namespace LimitStateMethod.SuspensionBridge
                 if (File.Exists(rep_file)) dbd = new BridgeMemberAnalysis(iApp, rep_file);
             }
 
-
+            if (sps.Vertical_Members == "")
+                Create_data();
             if (dbd != null)
             {
+
+               
                 CMember cm = new CMember(iApp);
-                cm.Group = new MemberGroup();
-                foreach (var item in dbd.Analysis.Members)
-                {
-                    cm.Group.MemberNos.Add(item.MemberNo);
-                }
+                cm.Group.MemberNosText = sps.Vertical_Members;
+                cm.Group.SetMemNos();
+                cm.MemberType = eMemberType.VerticalMember;
 
-                dbd.GetForce(ref cm);
+                double ax = dbd.Get_Max_Axial_Force(cm.Group.MemberNos);
+                //dbd.GetForce(ref cm);
 
-                txt_inp_moto_H21.Text = Math.Abs(cm.MaxShearForce).ToString();
-                txt_inp_moto_H22.Text = Math.Abs(cm.MaxTorsion).ToString();
+                txt_vertical_force.Text = ax.ToString();
+
+                txt_inp_moto_H21.Text = ax.ToString();
+
+                cm.Group.MemberNosText = sps.Diagonal_Members;
+                cm.Group.SetMemNos();
+                cm.MemberType = eMemberType.VerticalMember;
+                ax = dbd.Get_Max_Axial_Force(cm.Group.MemberNos);
+                txt_diagonal_force.Text = ax.ToString();
+                txt_inp_moto_H22.Text = ax.ToString();
             }
         }
 
@@ -2405,7 +2417,50 @@ namespace LimitStateMethod.SuspensionBridge
             return true;
 
         }
+        Suspension_Bridge sps = new Suspension_Bridge();
 
+        bool Create_data()
+        {
+
+            sps.Tower_Height = MyList.StringToDouble(txt_TWA_hgt.Text, 0.0);
+            sps.Bracing_Panel_Height = MyList.StringToDouble(txt_TWA_brc_hgt.Text, 0.0);
+            sps.Tower_Base_Width = MyList.StringToDouble(txt_TWA_base_wd.Text, 0.0);
+            sps.Tower_Top_Width = MyList.StringToDouble(txt_TWA_top_wd.Text, 0.0);
+            sps.Tower_Lower_Connector_Width = MyList.StringToDouble(txt_TWA_lower_cntr.Text, 0.0);
+            sps.Tower_Upper_Connector_Width = MyList.StringToDouble(txt_TWA_upper_cntr.Text, 0.0);
+            sps.Tower_Clear_Distance = MyList.StringToDouble(txt_TWA_clear_distance.Text, 0.0);
+
+
+            sps.Tower_Dead_Load = MyList.StringToDouble(txt_TWA_dead_load.Text, 0.0);
+            sps.Tower_Live_Load = MyList.StringToDouble(txt_TWA_live_load.Text, 0.0);
+            sps.Tower_Seismic_Coefficient = MyList.StringToDouble(txt_TWA_seismic_coefficient.Text, 0.0);
+
+            sps.Tower_SEC_VS_AX = MyList.StringToDouble(txt_TWA_sec_vs_A.Text, 0.0);
+            sps.Tower_SEC_VS_IX = MyList.StringToDouble(txt_TWA_sec_vs_IX.Text, 0.0);
+            sps.Tower_SEC_VS_IZ = MyList.StringToDouble(txt_TWA_sec_vs_IZ.Text, 0.0);
+
+
+            sps.Tower_SEC_BS_AX = MyList.StringToDouble(txt_TWA_sec_bs_AX.Text, 0.0);
+            sps.Tower_SEC_BS_IX = MyList.StringToDouble(txt_TWA_sec_bs_IX.Text, 0.0);
+            sps.Tower_SEC_BS_IZ = MyList.StringToDouble(txt_TWA_sec_bs_IZ.Text, 0.0);
+
+            //if (sps.Tower_Height == 30.0 &&
+
+            //    sps.Bracing_Panel_Height == 2.0 &&
+            //    sps.Tower_Base_Width == 3.0 &&
+            //    sps.Tower_Top_Width == 1.5 &&
+            //    sps.Tower_Lower_Connector_Width == 10.0 &&
+            //    sps.Tower_Upper_Connector_Width == 24.0 &&
+            //    sps.Tower_Clear_Distance == 4.5
+
+            //    )
+            //{
+            //    Load_Example();
+            //}
+            //else
+            //{
+            return (sps.Create_Data(Analysis_File));
+        }
         private void btn_create_data_Click(object sender, EventArgs e)
         {
 
@@ -2423,47 +2478,8 @@ namespace LimitStateMethod.SuspensionBridge
 
                 Write_All_Data();
 
-                Suspension_Bridge sps = new Suspension_Bridge();
 
-
-                sps.Tower_Height = MyList.StringToDouble(txt_TWA_hgt.Text, 0.0);
-                sps.Bracing_Panel_Height = MyList.StringToDouble(txt_TWA_brc_hgt.Text, 0.0);
-                sps.Tower_Base_Width = MyList.StringToDouble(txt_TWA_base_wd.Text, 0.0);
-                sps.Tower_Top_Width = MyList.StringToDouble(txt_TWA_top_wd.Text, 0.0);
-                sps.Tower_Lower_Connector_Width = MyList.StringToDouble(txt_TWA_lower_cntr.Text, 0.0);
-                sps.Tower_Upper_Connector_Width = MyList.StringToDouble(txt_TWA_upper_cntr.Text, 0.0);
-                sps.Tower_Clear_Distance = MyList.StringToDouble(txt_TWA_clear_distance.Text, 0.0);
-
-
-                sps.Tower_Dead_Load = MyList.StringToDouble(txt_TWA_dead_load.Text, 0.0);
-                sps.Tower_Live_Load = MyList.StringToDouble(txt_TWA_live_load.Text, 0.0);
-                sps.Tower_Seismic_Coefficient = MyList.StringToDouble(txt_TWA_seismic_coefficient.Text, 0.0);
-
-                sps.Tower_SEC_VS_AX = MyList.StringToDouble(txt_TWA_sec_vs_A.Text, 0.0);
-                sps.Tower_SEC_VS_IX = MyList.StringToDouble(txt_TWA_sec_vs_IX.Text, 0.0);
-                sps.Tower_SEC_VS_IZ = MyList.StringToDouble(txt_TWA_sec_vs_IZ.Text, 0.0);
-
-
-                sps.Tower_SEC_BS_AX = MyList.StringToDouble(txt_TWA_sec_bs_AX.Text, 0.0);
-                sps.Tower_SEC_BS_IX = MyList.StringToDouble(txt_TWA_sec_bs_IX.Text, 0.0);
-                sps.Tower_SEC_BS_IZ = MyList.StringToDouble(txt_TWA_sec_bs_IZ.Text, 0.0);
-
-                //if (sps.Tower_Height == 30.0 &&
-
-                //    sps.Bracing_Panel_Height == 2.0 &&
-                //    sps.Tower_Base_Width == 3.0 &&
-                //    sps.Tower_Top_Width == 1.5 &&
-                //    sps.Tower_Lower_Connector_Width == 10.0 &&
-                //    sps.Tower_Upper_Connector_Width == 24.0 &&
-                //    sps.Tower_Clear_Distance == 4.5
-
-                //    )
-                //{
-                //    Load_Example();
-                //}
-                //else
-                //{
-                if (sps.Create_Data(Analysis_File))
+                if (Create_data())
                 {
 
                     MessageBox.Show("Data file Created as file " + Analysis_File);
@@ -2906,6 +2922,32 @@ namespace LimitStateMethod.SuspensionBridge
 
         #endregion Chiranjit [2016 09 07]
 
+        private void txt_TWA_L_TextChanged(object sender, EventArgs e)
+        {
+            Calculate_Load();
+
+        }
+
+        private void Calculate_Load()
+        {
+            double L = MyList.StringToDouble(txt_TWA_L);
+            double B = MyList.StringToDouble(txt_TWA_B);
+            double W = 0.0;
+
+            W = (L / 325.0) * (B / 6.0) * 1200;
+
+            txt_TWA_applied_load.Text = W.ToString("f2");
+            txt_TWA_dead_load.Text = (W / 16).ToString("f2");
+            txt_inp_moto_B3.Text = L.ToString();
+            txt_inp_moto_B4.Text  = B.ToString();
+        }
+
+        private void txt_TWA_applied_load_TextChanged(object sender, EventArgs e)
+        {
+            double W = MyList.StringToDouble(txt_TWA_applied_load);
+            txt_TWA_dead_load.Text = (W / 16).ToString("f2");
+        }
+
     }
 
 
@@ -2939,7 +2981,8 @@ namespace LimitStateMethod.SuspensionBridge
         public double Tower_SEC_BS_IX { get; set; }
         public double Tower_SEC_BS_IZ { get; set; }
 
-
+        public string Vertical_Members { get; set; }
+        public string Diagonal_Members { get; set; }
         #endregion Properties
 
         public Suspension_Bridge()
@@ -2952,7 +2995,8 @@ namespace LimitStateMethod.SuspensionBridge
             Tower_Upper_Connector_Width = 20.0;
             Tower_Clear_Distance = 4.5;
 
-
+            Vertical_Members = "";
+            Diagonal_Members = "";
 
 
             Tower_Dead_Load = 55.0;
@@ -4231,9 +4275,10 @@ namespace LimitStateMethod.SuspensionBridge
             //list.Add(string.Format("{0} PRISMATIC AX {1} IX {2} IY {3} IZ {4}", MyList.Get_Array_Text(sec_2), Tower_SEC_BS_AX, Tower_SEC_BS_IX, Tower_SEC_BS_IX, Tower_SEC_BS_IZ));
             //list.Add(string.Format("{0} PRISMATIC AX 68.81 IX 1046.5 IY 1046.5 IZ 1046.5", MyList.Get_Array_Text(sec_1)));
 
-
-            list.Add(string.Format("{0} PRISMATIC AX {1} IX {2} IZ {3}", MyList.Get_Array_Text(sec_1), Tower_SEC_VS_AX, Tower_SEC_VS_IX, Tower_SEC_VS_IZ));
-            list.Add(string.Format("{0} PRISMATIC AX {1} IX {2} IZ {3}", MyList.Get_Array_Text(sec_2), Tower_SEC_BS_AX, Tower_SEC_BS_IX, Tower_SEC_BS_IZ));
+            Vertical_Members = MyList.Get_Array_Text(sec_1);
+            Diagonal_Members = MyList.Get_Array_Text(sec_2);
+            list.Add(string.Format("{0} PRISMATIC AX {1} IX {2} IZ {3}", Vertical_Members, Tower_SEC_VS_AX, Tower_SEC_VS_IX, Tower_SEC_VS_IZ));
+            list.Add(string.Format("{0} PRISMATIC AX {1} IX {2} IZ {3}", Diagonal_Members, Tower_SEC_BS_AX, Tower_SEC_BS_IX, Tower_SEC_BS_IZ));
           
             #endregion MEMBER PROPERTY
 
@@ -4280,12 +4325,20 @@ namespace LimitStateMethod.SuspensionBridge
             list.Add(string.Format("{0} FIXED", supp_jnts));
             //list.Add(string.Format("SELFWEIGHT Y -1.4"));
             list.Add(string.Format("UNIT MTON M"));
-            list.Add(string.Format("LOAD 1 LIVE LOAD"));
-            list.Add(string.Format("JOINT LOAD"));
-            list.Add(string.Format("{0} FY -{1}", dl_jnts, Tower_Live_Load));
-            list.Add(string.Format("LOAD 2 DEAD LOAD"));
+
+            //list.Add(string.Format("LOAD 1 LIVE LOAD"));
+            //list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("{0} FY -{1}", dl_jnts, Tower_Live_Load));
+            //list.Add(string.Format("LOAD 2 DEAD LOAD"));
+            //list.Add(string.Format("JOINT LOAD"));
+            //list.Add(string.Format("{0} FY -{1}", dl_jnts, Tower_Dead_Load));
+
+
+            list.Add(string.Format("LOAD 1  DEAD LOAD + LIVE LOAD"));
             list.Add(string.Format("JOINT LOAD"));
             list.Add(string.Format("{0} FY -{1}", dl_jnts, Tower_Dead_Load));
+            list.Add(string.Format("{0} FY -{1}", dl_jnts, Tower_Live_Load));
+
             list.Add(string.Format("SEISMIC COEEFICIENT {0}", Tower_Seismic_Coefficient));
             list.Add(string.Format("PRINT SUPPORT REACTION"));
             list.Add(string.Format("PERFORM ANALYSIS"));

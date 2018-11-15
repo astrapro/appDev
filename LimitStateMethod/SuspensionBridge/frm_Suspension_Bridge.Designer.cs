@@ -36,6 +36,29 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Suspension_Bridge));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.txt_diagonal_force = new System.Windows.Forms.TextBox();
+            this.txt_vertical_force = new System.Windows.Forms.TextBox();
+            this.label252 = new System.Windows.Forms.Label();
+            this.label283 = new System.Windows.Forms.Label();
+            this.label294 = new System.Windows.Forms.Label();
+            this.label295 = new System.Windows.Forms.Label();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.txt_TWA_seismic_coefficient = new System.Windows.Forms.TextBox();
+            this.label290 = new System.Windows.Forms.Label();
+            this.label285 = new System.Windows.Forms.Label();
+            this.label163 = new System.Windows.Forms.Label();
+            this.label292 = new System.Windows.Forms.Label();
+            this.txt_TWA_applied_load = new System.Windows.Forms.TextBox();
+            this.txt_TWA_live_load = new System.Windows.Forms.TextBox();
+            this.label162 = new System.Windows.Forms.Label();
+            this.label291 = new System.Windows.Forms.Label();
+            this.label293 = new System.Windows.Forms.Label();
+            this.txt_TWA_dead_load = new System.Windows.Forms.TextBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btn_susp_new_design = new System.Windows.Forms.Button();
             this.btn_susp_browse = new System.Windows.Forms.Button();
@@ -69,16 +92,16 @@
             this.btn_load_example_data = new System.Windows.Forms.Button();
             this.btn_open_ana_inp_browse = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.txt_TWA_seismic_coefficient = new System.Windows.Forms.TextBox();
-            this.label285 = new System.Windows.Forms.Label();
-            this.txt_TWA_live_load = new System.Windows.Forms.TextBox();
-            this.label293 = new System.Windows.Forms.Label();
-            this.txt_TWA_dead_load = new System.Windows.Forms.TextBox();
-            this.label291 = new System.Windows.Forms.Label();
+            this.txt_TWA_den_steel = new System.Windows.Forms.TextBox();
+            this.label246 = new System.Windows.Forms.Label();
+            this.txt_TWA_den_conc = new System.Windows.Forms.TextBox();
+            this.label240 = new System.Windows.Forms.Label();
             this.txt_TWA_clear_distance = new System.Windows.Forms.TextBox();
             this.label278 = new System.Windows.Forms.Label();
+            this.txt_TWA_Ds = new System.Windows.Forms.TextBox();
+            this.label128 = new System.Windows.Forms.Label();
             this.txt_TWA_upper_cntr = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
             this.label269 = new System.Windows.Forms.Label();
             this.txt_TWA_lower_cntr = new System.Windows.Forms.TextBox();
             this.label268 = new System.Windows.Forms.Label();
@@ -86,17 +109,23 @@
             this.label267 = new System.Windows.Forms.Label();
             this.txt_TWA_base_wd = new System.Windows.Forms.TextBox();
             this.label266 = new System.Windows.Forms.Label();
-            this.label292 = new System.Windows.Forms.Label();
+            this.label245 = new System.Windows.Forms.Label();
             this.txt_TWA_brc_hgt = new System.Windows.Forms.TextBox();
-            this.label290 = new System.Windows.Forms.Label();
+            this.label226 = new System.Windows.Forms.Label();
             this.label265 = new System.Windows.Forms.Label();
             this.label277 = new System.Windows.Forms.Label();
+            this.txt_TWA_L = new System.Windows.Forms.TextBox();
+            this.txt_TWA_B = new System.Windows.Forms.TextBox();
             this.txt_TWA_hgt = new System.Windows.Forms.TextBox();
             this.label276 = new System.Windows.Forms.Label();
             this.label275 = new System.Windows.Forms.Label();
             this.label274 = new System.Windows.Forms.Label();
             this.label273 = new System.Windows.Forms.Label();
+            this.label149 = new System.Windows.Forms.Label();
             this.label272 = new System.Windows.Forms.Label();
+            this.label161 = new System.Windows.Forms.Label();
+            this.label145 = new System.Windows.Forms.Label();
+            this.label150 = new System.Windows.Forms.Label();
             this.label271 = new System.Windows.Forms.Label();
             this.label264 = new System.Windows.Forms.Label();
             this.btn_open_analysis_report = new System.Windows.Forms.Button();
@@ -566,11 +595,14 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btn_open_drawings = new System.Windows.Forms.Button();
             this.groupBox34 = new System.Windows.Forms.GroupBox();
             this.label89 = new System.Windows.Forms.Label();
+            this.btn_open_drawings = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage14.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.panel8.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox20.SuspendLayout();
@@ -630,11 +662,14 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(852, 549);
+            this.tabControl1.Size = new System.Drawing.Size(852, 584);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage14
             // 
+            this.tabPage14.Controls.Add(this.groupBox14);
+            this.tabPage14.Controls.Add(this.groupBox13);
+            this.tabPage14.Controls.Add(this.groupBox12);
             this.tabPage14.Controls.Add(this.panel8);
             this.tabPage14.Controls.Add(this.groupBox11);
             this.tabPage14.Controls.Add(this.groupBox20);
@@ -647,10 +682,244 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(844, 523);
+            this.tabPage14.Size = new System.Drawing.Size(844, 558);
             this.tabPage14.TabIndex = 4;
             this.tabPage14.Text = "Tower Analysis";
             this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.txt_diagonal_force);
+            this.groupBox14.Controls.Add(this.txt_vertical_force);
+            this.groupBox14.Controls.Add(this.label252);
+            this.groupBox14.Controls.Add(this.label283);
+            this.groupBox14.Controls.Add(this.label294);
+            this.groupBox14.Controls.Add(this.label295);
+            this.groupBox14.Location = new System.Drawing.Point(82, 479);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(710, 48);
+            this.groupBox14.TabIndex = 185;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Analysis Results";
+            // 
+            // txt_diagonal_force
+            // 
+            this.txt_diagonal_force.ForeColor = System.Drawing.Color.Blue;
+            this.txt_diagonal_force.Location = new System.Drawing.Point(612, 18);
+            this.txt_diagonal_force.Name = "txt_diagonal_force";
+            this.txt_diagonal_force.Size = new System.Drawing.Size(55, 21);
+            this.txt_diagonal_force.TabIndex = 8;
+            this.txt_diagonal_force.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_vertical_force
+            // 
+            this.txt_vertical_force.ForeColor = System.Drawing.Color.Blue;
+            this.txt_vertical_force.Location = new System.Drawing.Point(225, 18);
+            this.txt_vertical_force.Name = "txt_vertical_force";
+            this.txt_vertical_force.Size = new System.Drawing.Size(55, 21);
+            this.txt_vertical_force.TabIndex = 9;
+            this.txt_vertical_force.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label252
+            // 
+            this.label252.AutoSize = true;
+            this.label252.Location = new System.Drawing.Point(284, 21);
+            this.label252.Name = "label252";
+            this.label252.Size = new System.Drawing.Size(31, 13);
+            this.label252.TabIndex = 4;
+            this.label252.Text = "tons";
+            // 
+            // label283
+            // 
+            this.label283.AutoSize = true;
+            this.label283.Location = new System.Drawing.Point(671, 21);
+            this.label283.Name = "label283";
+            this.label283.Size = new System.Drawing.Size(31, 13);
+            this.label283.TabIndex = 5;
+            this.label283.Text = "tons";
+            // 
+            // label294
+            // 
+            this.label294.AutoSize = true;
+            this.label294.Location = new System.Drawing.Point(360, 21);
+            this.label294.Name = "label294";
+            this.label294.Size = new System.Drawing.Size(248, 13);
+            this.label294.TabIndex = 6;
+            this.label294.Text = "Max force for vertical and diagonal braces";
+            // 
+            // label295
+            // 
+            this.label295.AutoSize = true;
+            this.label295.Location = new System.Drawing.Point(7, 21);
+            this.label295.Name = "label295";
+            this.label295.Size = new System.Drawing.Size(212, 13);
+            this.label295.TabIndex = 7;
+            this.label295.Text = "Maximum force in verticals of tower";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label61);
+            this.groupBox13.Controls.Add(this.txt_TWA_seismic_coefficient);
+            this.groupBox13.Controls.Add(this.label290);
+            this.groupBox13.Controls.Add(this.label285);
+            this.groupBox13.Controls.Add(this.label163);
+            this.groupBox13.Controls.Add(this.label292);
+            this.groupBox13.Controls.Add(this.txt_TWA_applied_load);
+            this.groupBox13.Controls.Add(this.txt_TWA_live_load);
+            this.groupBox13.Controls.Add(this.label162);
+            this.groupBox13.Controls.Add(this.label291);
+            this.groupBox13.Controls.Add(this.label293);
+            this.groupBox13.Controls.Add(this.txt_TWA_dead_load);
+            this.groupBox13.Location = new System.Drawing.Point(447, 283);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(389, 131);
+            this.groupBox13.TabIndex = 184;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Applied Load";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(5, 38);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(142, 13);
+            this.label61.TabIndex = 6;
+            this.label61.Text = "In Each Vertical Post";
+            // 
+            // txt_TWA_seismic_coefficient
+            // 
+            this.txt_TWA_seismic_coefficient.Location = new System.Drawing.Point(221, 101);
+            this.txt_TWA_seismic_coefficient.Name = "txt_TWA_seismic_coefficient";
+            this.txt_TWA_seismic_coefficient.Size = new System.Drawing.Size(81, 21);
+            this.txt_TWA_seismic_coefficient.TabIndex = 5;
+            this.txt_TWA_seismic_coefficient.Text = "0.24";
+            this.txt_TWA_seismic_coefficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label290
+            // 
+            this.label290.AutoSize = true;
+            this.label290.Location = new System.Drawing.Point(308, 53);
+            this.label290.Name = "label290";
+            this.label290.Size = new System.Drawing.Size(27, 13);
+            this.label290.TabIndex = 4;
+            this.label290.Text = "Ton";
+            // 
+            // label285
+            // 
+            this.label285.AutoSize = true;
+            this.label285.Location = new System.Drawing.Point(8, 104);
+            this.label285.Name = "label285";
+            this.label285.Size = new System.Drawing.Size(119, 13);
+            this.label285.TabIndex = 4;
+            this.label285.Text = "Seismic Coeeficient";
+            // 
+            // label163
+            // 
+            this.label163.AutoSize = true;
+            this.label163.Location = new System.Drawing.Point(308, 19);
+            this.label163.Name = "label163";
+            this.label163.Size = new System.Drawing.Size(27, 13);
+            this.label163.TabIndex = 4;
+            this.label163.Text = "Ton";
+            // 
+            // label292
+            // 
+            this.label292.AutoSize = true;
+            this.label292.Location = new System.Drawing.Point(308, 80);
+            this.label292.Name = "label292";
+            this.label292.Size = new System.Drawing.Size(27, 13);
+            this.label292.TabIndex = 4;
+            this.label292.Text = "Ton";
+            // 
+            // txt_TWA_applied_load
+            // 
+            this.txt_TWA_applied_load.Location = new System.Drawing.Point(221, 16);
+            this.txt_TWA_applied_load.Name = "txt_TWA_applied_load";
+            this.txt_TWA_applied_load.Size = new System.Drawing.Size(81, 21);
+            this.txt_TWA_applied_load.TabIndex = 5;
+            this.txt_TWA_applied_load.Text = "1200";
+            this.txt_TWA_applied_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_TWA_applied_load.TextChanged += new System.EventHandler(this.txt_TWA_applied_load_TextChanged);
+            // 
+            // txt_TWA_live_load
+            // 
+            this.txt_TWA_live_load.Location = new System.Drawing.Point(221, 77);
+            this.txt_TWA_live_load.Name = "txt_TWA_live_load";
+            this.txt_TWA_live_load.Size = new System.Drawing.Size(81, 21);
+            this.txt_TWA_live_load.TabIndex = 5;
+            this.txt_TWA_live_load.Text = "37.5";
+            this.txt_TWA_live_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label162
+            // 
+            this.label162.AutoSize = true;
+            this.label162.Location = new System.Drawing.Point(8, 19);
+            this.label162.Name = "label162";
+            this.label162.Size = new System.Drawing.Size(150, 13);
+            this.label162.TabIndex = 4;
+            this.label162.Text = "Weight of Deck Structure";
+            // 
+            // label291
+            // 
+            this.label291.AutoSize = true;
+            this.label291.Location = new System.Drawing.Point(8, 53);
+            this.label291.Name = "label291";
+            this.label291.Size = new System.Drawing.Size(114, 13);
+            this.label291.TabIndex = 4;
+            this.label291.Text = "Applied Dead Load";
+            // 
+            // label293
+            // 
+            this.label293.AutoSize = true;
+            this.label293.Location = new System.Drawing.Point(8, 80);
+            this.label293.Name = "label293";
+            this.label293.Size = new System.Drawing.Size(107, 13);
+            this.label293.TabIndex = 4;
+            this.label293.Text = "Applied Live Load";
+            // 
+            // txt_TWA_dead_load
+            // 
+            this.txt_TWA_dead_load.Location = new System.Drawing.Point(221, 50);
+            this.txt_TWA_dead_load.Name = "txt_TWA_dead_load";
+            this.txt_TWA_dead_load.Size = new System.Drawing.Size(81, 21);
+            this.txt_TWA_dead_load.TabIndex = 5;
+            this.txt_TWA_dead_load.Text = "55.0";
+            this.txt_TWA_dead_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.radioButton2);
+            this.groupBox12.Controls.Add(this.radioButton1);
+            this.groupBox12.Location = new System.Drawing.Point(25, 427);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(28, 18);
+            this.groupBox12.TabIndex = 183;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Deckslab";
+            this.groupBox12.Visible = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(166, 20);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(110, 17);
+            this.radioButton2.TabIndex = 0;
+            this.radioButton2.Text = "Concrete Deck";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(28, 20);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(87, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Steel Deck";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // panel8
             // 
@@ -660,7 +929,7 @@
             this.panel8.Controls.Add(this.label88);
             this.panel8.Location = new System.Drawing.Point(25, 6);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(379, 56);
+            this.panel8.Size = new System.Drawing.Size(404, 56);
             this.panel8.TabIndex = 182;
             // 
             // btn_susp_new_design
@@ -712,9 +981,9 @@
             this.groupBox11.Controls.Add(this.txt_TWA_sec_bs_IZ);
             this.groupBox11.Controls.Add(this.txt_TWA_sec_bs_IX);
             this.groupBox11.Controls.Add(this.txt_TWA_sec_bs_AX);
-            this.groupBox11.Location = new System.Drawing.Point(428, 189);
+            this.groupBox11.Location = new System.Drawing.Point(447, 147);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(389, 151);
+            this.groupBox11.Size = new System.Drawing.Size(389, 131);
             this.groupBox11.TabIndex = 3;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Section Properties of Bracings";
@@ -741,7 +1010,7 @@
             // label279
             // 
             this.label279.AutoSize = true;
-            this.label279.Location = new System.Drawing.Point(308, 61);
+            this.label279.Location = new System.Drawing.Point(308, 54);
             this.label279.Name = "label279";
             this.label279.Size = new System.Drawing.Size(43, 13);
             this.label279.TabIndex = 3;
@@ -750,7 +1019,7 @@
             // label300
             // 
             this.label300.AutoSize = true;
-            this.label300.Location = new System.Drawing.Point(6, 61);
+            this.label300.Location = new System.Drawing.Point(6, 54);
             this.label300.Name = "label300";
             this.label300.Size = new System.Drawing.Size(38, 13);
             this.label300.TabIndex = 1;
@@ -759,7 +1028,7 @@
             // label280
             // 
             this.label280.AutoSize = true;
-            this.label280.Location = new System.Drawing.Point(308, 120);
+            this.label280.Location = new System.Drawing.Point(308, 106);
             this.label280.Name = "label280";
             this.label280.Size = new System.Drawing.Size(62, 13);
             this.label280.TabIndex = 3;
@@ -768,7 +1037,7 @@
             // label301
             // 
             this.label301.AutoSize = true;
-            this.label301.Location = new System.Drawing.Point(6, 92);
+            this.label301.Location = new System.Drawing.Point(6, 78);
             this.label301.Name = "label301";
             this.label301.Size = new System.Drawing.Size(210, 13);
             this.label301.TabIndex = 1;
@@ -777,7 +1046,7 @@
             // label302
             // 
             this.label302.AutoSize = true;
-            this.label302.Location = new System.Drawing.Point(6, 120);
+            this.label302.Location = new System.Drawing.Point(6, 106);
             this.label302.Name = "label302";
             this.label302.Size = new System.Drawing.Size(209, 13);
             this.label302.TabIndex = 1;
@@ -786,7 +1055,7 @@
             // label282
             // 
             this.label282.AutoSize = true;
-            this.label282.Location = new System.Drawing.Point(308, 92);
+            this.label282.Location = new System.Drawing.Point(308, 78);
             this.label282.Name = "label282";
             this.label282.Size = new System.Drawing.Size(62, 13);
             this.label282.TabIndex = 3;
@@ -795,7 +1064,7 @@
             // txt_TWA_sec_bs_IZ
             // 
             this.txt_TWA_sec_bs_IZ.ForeColor = System.Drawing.Color.Black;
-            this.txt_TWA_sec_bs_IZ.Location = new System.Drawing.Point(221, 117);
+            this.txt_TWA_sec_bs_IZ.Location = new System.Drawing.Point(221, 103);
             this.txt_TWA_sec_bs_IZ.Name = "txt_TWA_sec_bs_IZ";
             this.txt_TWA_sec_bs_IZ.Size = new System.Drawing.Size(81, 21);
             this.txt_TWA_sec_bs_IZ.TabIndex = 0;
@@ -805,7 +1074,7 @@
             // txt_TWA_sec_bs_IX
             // 
             this.txt_TWA_sec_bs_IX.ForeColor = System.Drawing.Color.Black;
-            this.txt_TWA_sec_bs_IX.Location = new System.Drawing.Point(221, 89);
+            this.txt_TWA_sec_bs_IX.Location = new System.Drawing.Point(221, 75);
             this.txt_TWA_sec_bs_IX.Name = "txt_TWA_sec_bs_IX";
             this.txt_TWA_sec_bs_IX.Size = new System.Drawing.Size(81, 21);
             this.txt_TWA_sec_bs_IX.TabIndex = 0;
@@ -815,7 +1084,7 @@
             // txt_TWA_sec_bs_AX
             // 
             this.txt_TWA_sec_bs_AX.ForeColor = System.Drawing.Color.Black;
-            this.txt_TWA_sec_bs_AX.Location = new System.Drawing.Point(221, 58);
+            this.txt_TWA_sec_bs_AX.Location = new System.Drawing.Point(221, 51);
             this.txt_TWA_sec_bs_AX.Name = "txt_TWA_sec_bs_AX";
             this.txt_TWA_sec_bs_AX.Size = new System.Drawing.Size(81, 21);
             this.txt_TWA_sec_bs_AX.TabIndex = 0;
@@ -834,9 +1103,9 @@
             this.groupBox20.Controls.Add(this.label289);
             this.groupBox20.Controls.Add(this.txt_TWA_sec_vs_IZ);
             this.groupBox20.Controls.Add(this.txt_TWA_sec_vs_IX);
-            this.groupBox20.Location = new System.Drawing.Point(428, 6);
+            this.groupBox20.Location = new System.Drawing.Point(447, 11);
             this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(389, 161);
+            this.groupBox20.Size = new System.Drawing.Size(389, 129);
             this.groupBox20.TabIndex = 3;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "Section Properties of Vertical Stands";
@@ -872,7 +1141,7 @@
             // label284
             // 
             this.label284.AutoSize = true;
-            this.label284.Location = new System.Drawing.Point(308, 117);
+            this.label284.Location = new System.Drawing.Point(308, 107);
             this.label284.Name = "label284";
             this.label284.Size = new System.Drawing.Size(62, 13);
             this.label284.TabIndex = 3;
@@ -918,7 +1187,7 @@
             // label289
             // 
             this.label289.AutoSize = true;
-            this.label289.Location = new System.Drawing.Point(6, 117);
+            this.label289.Location = new System.Drawing.Point(6, 107);
             this.label289.Name = "label289";
             this.label289.Size = new System.Drawing.Size(209, 13);
             this.label289.TabIndex = 1;
@@ -927,7 +1196,7 @@
             // txt_TWA_sec_vs_IZ
             // 
             this.txt_TWA_sec_vs_IZ.ForeColor = System.Drawing.Color.Black;
-            this.txt_TWA_sec_vs_IZ.Location = new System.Drawing.Point(221, 114);
+            this.txt_TWA_sec_vs_IZ.Location = new System.Drawing.Point(221, 104);
             this.txt_TWA_sec_vs_IZ.Name = "txt_TWA_sec_vs_IZ";
             this.txt_TWA_sec_vs_IZ.Size = new System.Drawing.Size(81, 21);
             this.txt_TWA_sec_vs_IZ.TabIndex = 0;
@@ -950,9 +1219,9 @@
             this.groupBox10.Controls.Add(this.txt_ana_input_data);
             this.groupBox10.Controls.Add(this.btn_load_example_data);
             this.groupBox10.Controls.Add(this.btn_open_ana_inp_browse);
-            this.groupBox10.Location = new System.Drawing.Point(25, 428);
+            this.groupBox10.Location = new System.Drawing.Point(25, 504);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(781, 89);
+            this.groupBox10.Size = new System.Drawing.Size(28, 23);
             this.groupBox10.TabIndex = 7;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "groupBox10";
@@ -996,16 +1265,16 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.label61);
-            this.groupBox9.Controls.Add(this.txt_TWA_seismic_coefficient);
-            this.groupBox9.Controls.Add(this.label285);
-            this.groupBox9.Controls.Add(this.txt_TWA_live_load);
-            this.groupBox9.Controls.Add(this.label293);
-            this.groupBox9.Controls.Add(this.txt_TWA_dead_load);
-            this.groupBox9.Controls.Add(this.label291);
+            this.groupBox9.Controls.Add(this.txt_TWA_den_steel);
+            this.groupBox9.Controls.Add(this.label246);
+            this.groupBox9.Controls.Add(this.txt_TWA_den_conc);
+            this.groupBox9.Controls.Add(this.label240);
             this.groupBox9.Controls.Add(this.txt_TWA_clear_distance);
             this.groupBox9.Controls.Add(this.label278);
+            this.groupBox9.Controls.Add(this.txt_TWA_Ds);
+            this.groupBox9.Controls.Add(this.label128);
             this.groupBox9.Controls.Add(this.txt_TWA_upper_cntr);
+            this.groupBox9.Controls.Add(this.label90);
             this.groupBox9.Controls.Add(this.label269);
             this.groupBox9.Controls.Add(this.txt_TWA_lower_cntr);
             this.groupBox9.Controls.Add(this.label268);
@@ -1013,93 +1282,71 @@
             this.groupBox9.Controls.Add(this.label267);
             this.groupBox9.Controls.Add(this.txt_TWA_base_wd);
             this.groupBox9.Controls.Add(this.label266);
-            this.groupBox9.Controls.Add(this.label292);
+            this.groupBox9.Controls.Add(this.label245);
             this.groupBox9.Controls.Add(this.txt_TWA_brc_hgt);
-            this.groupBox9.Controls.Add(this.label290);
+            this.groupBox9.Controls.Add(this.label226);
             this.groupBox9.Controls.Add(this.label265);
             this.groupBox9.Controls.Add(this.label277);
+            this.groupBox9.Controls.Add(this.txt_TWA_L);
+            this.groupBox9.Controls.Add(this.txt_TWA_B);
             this.groupBox9.Controls.Add(this.txt_TWA_hgt);
             this.groupBox9.Controls.Add(this.label276);
             this.groupBox9.Controls.Add(this.label275);
             this.groupBox9.Controls.Add(this.label274);
             this.groupBox9.Controls.Add(this.label273);
+            this.groupBox9.Controls.Add(this.label149);
             this.groupBox9.Controls.Add(this.label272);
+            this.groupBox9.Controls.Add(this.label161);
+            this.groupBox9.Controls.Add(this.label145);
+            this.groupBox9.Controls.Add(this.label150);
             this.groupBox9.Controls.Add(this.label271);
             this.groupBox9.Controls.Add(this.label264);
-            this.groupBox9.Location = new System.Drawing.Point(25, 76);
+            this.groupBox9.Location = new System.Drawing.Point(25, 78);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(379, 299);
+            this.groupBox9.Size = new System.Drawing.Size(404, 329);
             this.groupBox9.TabIndex = 6;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "Basic Inputs";
             // 
-            // label61
+            // txt_TWA_den_steel
             // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(9, 209);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(142, 13);
-            this.label61.TabIndex = 6;
-            this.label61.Text = "In Each Vertical Post";
+            this.txt_TWA_den_steel.Location = new System.Drawing.Point(274, 305);
+            this.txt_TWA_den_steel.Name = "txt_TWA_den_steel";
+            this.txt_TWA_den_steel.Size = new System.Drawing.Size(68, 21);
+            this.txt_TWA_den_steel.TabIndex = 5;
+            this.txt_TWA_den_steel.Text = "7.8";
+            this.txt_TWA_den_steel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txt_TWA_seismic_coefficient
+            // label246
             // 
-            this.txt_TWA_seismic_coefficient.Location = new System.Drawing.Point(268, 272);
-            this.txt_TWA_seismic_coefficient.Name = "txt_TWA_seismic_coefficient";
-            this.txt_TWA_seismic_coefficient.Size = new System.Drawing.Size(68, 21);
-            this.txt_TWA_seismic_coefficient.TabIndex = 5;
-            this.txt_TWA_seismic_coefficient.Text = "0.24";
-            this.txt_TWA_seismic_coefficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.label246.AutoSize = true;
+            this.label246.Location = new System.Drawing.Point(12, 308);
+            this.label246.Name = "label246";
+            this.label246.Size = new System.Drawing.Size(98, 13);
+            this.label246.TabIndex = 4;
+            this.label246.Text = "Density of Steel";
             // 
-            // label285
+            // txt_TWA_den_conc
             // 
-            this.label285.AutoSize = true;
-            this.label285.Location = new System.Drawing.Point(12, 275);
-            this.label285.Name = "label285";
-            this.label285.Size = new System.Drawing.Size(119, 13);
-            this.label285.TabIndex = 4;
-            this.label285.Text = "Seismic Coeeficient";
+            this.txt_TWA_den_conc.Location = new System.Drawing.Point(274, 281);
+            this.txt_TWA_den_conc.Name = "txt_TWA_den_conc";
+            this.txt_TWA_den_conc.Size = new System.Drawing.Size(68, 21);
+            this.txt_TWA_den_conc.TabIndex = 5;
+            this.txt_TWA_den_conc.Text = "2.5";
+            this.txt_TWA_den_conc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // txt_TWA_live_load
+            // label240
             // 
-            this.txt_TWA_live_load.Location = new System.Drawing.Point(268, 248);
-            this.txt_TWA_live_load.Name = "txt_TWA_live_load";
-            this.txt_TWA_live_load.Size = new System.Drawing.Size(68, 21);
-            this.txt_TWA_live_load.TabIndex = 5;
-            this.txt_TWA_live_load.Text = "37.5";
-            this.txt_TWA_live_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label293
-            // 
-            this.label293.AutoSize = true;
-            this.label293.Location = new System.Drawing.Point(12, 251);
-            this.label293.Name = "label293";
-            this.label293.Size = new System.Drawing.Size(107, 13);
-            this.label293.TabIndex = 4;
-            this.label293.Text = "Applied Live Load";
-            // 
-            // txt_TWA_dead_load
-            // 
-            this.txt_TWA_dead_load.Location = new System.Drawing.Point(268, 221);
-            this.txt_TWA_dead_load.Name = "txt_TWA_dead_load";
-            this.txt_TWA_dead_load.Size = new System.Drawing.Size(68, 21);
-            this.txt_TWA_dead_load.TabIndex = 5;
-            this.txt_TWA_dead_load.Text = "55.0";
-            this.txt_TWA_dead_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label291
-            // 
-            this.label291.AutoSize = true;
-            this.label291.Location = new System.Drawing.Point(12, 224);
-            this.label291.Name = "label291";
-            this.label291.Size = new System.Drawing.Size(114, 13);
-            this.label291.TabIndex = 4;
-            this.label291.Text = "Applied Dead Load";
+            this.label240.AutoSize = true;
+            this.label240.Location = new System.Drawing.Point(12, 284);
+            this.label240.Name = "label240";
+            this.label240.Size = new System.Drawing.Size(121, 13);
+            this.label240.TabIndex = 4;
+            this.label240.Text = "Density of Concrete";
             // 
             // txt_TWA_clear_distance
             // 
-            this.txt_TWA_clear_distance.Location = new System.Drawing.Point(268, 183);
+            this.txt_TWA_clear_distance.Location = new System.Drawing.Point(274, 258);
             this.txt_TWA_clear_distance.Name = "txt_TWA_clear_distance";
             this.txt_TWA_clear_distance.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_clear_distance.TabIndex = 5;
@@ -1109,25 +1356,52 @@
             // label278
             // 
             this.label278.AutoSize = true;
-            this.label278.Location = new System.Drawing.Point(12, 186);
+            this.label278.Location = new System.Drawing.Point(12, 261);
             this.label278.Name = "label278";
             this.label278.Size = new System.Drawing.Size(256, 13);
             this.label278.TabIndex = 4;
             this.label278.Text = "Clear Distance at Base between the Towers";
             // 
+            // txt_TWA_Ds
+            // 
+            this.txt_TWA_Ds.Location = new System.Drawing.Point(274, 75);
+            this.txt_TWA_Ds.Name = "txt_TWA_Ds";
+            this.txt_TWA_Ds.Size = new System.Drawing.Size(68, 21);
+            this.txt_TWA_Ds.TabIndex = 5;
+            this.txt_TWA_Ds.Text = "0.008";
+            this.txt_TWA_Ds.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label128
+            // 
+            this.label128.AutoSize = true;
+            this.label128.Location = new System.Drawing.Point(12, 78);
+            this.label128.Name = "label128";
+            this.label128.Size = new System.Drawing.Size(134, 13);
+            this.label128.TabIndex = 4;
+            this.label128.Text = "Thickness of Deckslab";
+            // 
             // txt_TWA_upper_cntr
             // 
-            this.txt_TWA_upper_cntr.Location = new System.Drawing.Point(268, 156);
+            this.txt_TWA_upper_cntr.Location = new System.Drawing.Point(274, 231);
             this.txt_TWA_upper_cntr.Name = "txt_TWA_upper_cntr";
             this.txt_TWA_upper_cntr.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_upper_cntr.TabIndex = 5;
             this.txt_TWA_upper_cntr.Text = "24.0";
             this.txt_TWA_upper_cntr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(348, 78);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(18, 13);
+            this.label90.TabIndex = 4;
+            this.label90.Text = "m";
+            // 
             // label269
             // 
             this.label269.AutoSize = true;
-            this.label269.Location = new System.Drawing.Point(12, 159);
+            this.label269.Location = new System.Drawing.Point(12, 234);
             this.label269.Name = "label269";
             this.label269.Size = new System.Drawing.Size(196, 13);
             this.label269.TabIndex = 4;
@@ -1135,7 +1409,7 @@
             // 
             // txt_TWA_lower_cntr
             // 
-            this.txt_TWA_lower_cntr.Location = new System.Drawing.Point(268, 129);
+            this.txt_TWA_lower_cntr.Location = new System.Drawing.Point(274, 204);
             this.txt_TWA_lower_cntr.Name = "txt_TWA_lower_cntr";
             this.txt_TWA_lower_cntr.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_lower_cntr.TabIndex = 5;
@@ -1145,7 +1419,7 @@
             // label268
             // 
             this.label268.AutoSize = true;
-            this.label268.Location = new System.Drawing.Point(12, 132);
+            this.label268.Location = new System.Drawing.Point(12, 207);
             this.label268.Name = "label268";
             this.label268.Size = new System.Drawing.Size(196, 13);
             this.label268.TabIndex = 4;
@@ -1153,7 +1427,7 @@
             // 
             // txt_TWA_top_wd
             // 
-            this.txt_TWA_top_wd.Location = new System.Drawing.Point(268, 102);
+            this.txt_TWA_top_wd.Location = new System.Drawing.Point(274, 184);
             this.txt_TWA_top_wd.Name = "txt_TWA_top_wd";
             this.txt_TWA_top_wd.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_top_wd.TabIndex = 5;
@@ -1163,7 +1437,7 @@
             // label267
             // 
             this.label267.AutoSize = true;
-            this.label267.Location = new System.Drawing.Point(12, 105);
+            this.label267.Location = new System.Drawing.Point(12, 187);
             this.label267.Name = "label267";
             this.label267.Size = new System.Drawing.Size(166, 13);
             this.label267.TabIndex = 4;
@@ -1171,7 +1445,7 @@
             // 
             // txt_TWA_base_wd
             // 
-            this.txt_TWA_base_wd.Location = new System.Drawing.Point(268, 75);
+            this.txt_TWA_base_wd.Location = new System.Drawing.Point(274, 157);
             this.txt_TWA_base_wd.Name = "txt_TWA_base_wd";
             this.txt_TWA_base_wd.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_base_wd.TabIndex = 5;
@@ -1181,43 +1455,43 @@
             // label266
             // 
             this.label266.AutoSize = true;
-            this.label266.Location = new System.Drawing.Point(12, 78);
+            this.label266.Location = new System.Drawing.Point(12, 160);
             this.label266.Name = "label266";
             this.label266.Size = new System.Drawing.Size(170, 13);
             this.label266.TabIndex = 4;
             this.label266.Text = "Width of Each Tower at Base";
             // 
-            // label292
+            // label245
             // 
-            this.label292.AutoSize = true;
-            this.label292.Location = new System.Drawing.Point(342, 251);
-            this.label292.Name = "label292";
-            this.label292.Size = new System.Drawing.Size(27, 13);
-            this.label292.TabIndex = 4;
-            this.label292.Text = "Ton";
+            this.label245.AutoSize = true;
+            this.label245.Location = new System.Drawing.Point(348, 308);
+            this.label245.Name = "label245";
+            this.label245.Size = new System.Drawing.Size(50, 13);
+            this.label245.TabIndex = 4;
+            this.label245.Text = "T/Cu.m";
             // 
             // txt_TWA_brc_hgt
             // 
-            this.txt_TWA_brc_hgt.Location = new System.Drawing.Point(268, 48);
+            this.txt_TWA_brc_hgt.Location = new System.Drawing.Point(274, 130);
             this.txt_TWA_brc_hgt.Name = "txt_TWA_brc_hgt";
             this.txt_TWA_brc_hgt.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_brc_hgt.TabIndex = 5;
             this.txt_TWA_brc_hgt.Text = "2.0";
             this.txt_TWA_brc_hgt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label290
+            // label226
             // 
-            this.label290.AutoSize = true;
-            this.label290.Location = new System.Drawing.Point(342, 224);
-            this.label290.Name = "label290";
-            this.label290.Size = new System.Drawing.Size(27, 13);
-            this.label290.TabIndex = 4;
-            this.label290.Text = "Ton";
+            this.label226.AutoSize = true;
+            this.label226.Location = new System.Drawing.Point(348, 284);
+            this.label226.Name = "label226";
+            this.label226.Size = new System.Drawing.Size(50, 13);
+            this.label226.TabIndex = 4;
+            this.label226.Text = "T/Cu.m";
             // 
             // label265
             // 
             this.label265.AutoSize = true;
-            this.label265.Location = new System.Drawing.Point(12, 51);
+            this.label265.Location = new System.Drawing.Point(12, 133);
             this.label265.Name = "label265";
             this.label265.Size = new System.Drawing.Size(155, 13);
             this.label265.TabIndex = 4;
@@ -1226,15 +1500,35 @@
             // label277
             // 
             this.label277.AutoSize = true;
-            this.label277.Location = new System.Drawing.Point(342, 186);
+            this.label277.Location = new System.Drawing.Point(348, 261);
             this.label277.Name = "label277";
             this.label277.Size = new System.Drawing.Size(18, 13);
             this.label277.TabIndex = 4;
             this.label277.Text = "m";
             // 
+            // txt_TWA_L
+            // 
+            this.txt_TWA_L.Location = new System.Drawing.Point(274, 21);
+            this.txt_TWA_L.Name = "txt_TWA_L";
+            this.txt_TWA_L.Size = new System.Drawing.Size(68, 21);
+            this.txt_TWA_L.TabIndex = 5;
+            this.txt_TWA_L.Text = "325";
+            this.txt_TWA_L.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_TWA_L.TextChanged += new System.EventHandler(this.txt_TWA_L_TextChanged);
+            // 
+            // txt_TWA_B
+            // 
+            this.txt_TWA_B.Location = new System.Drawing.Point(274, 48);
+            this.txt_TWA_B.Name = "txt_TWA_B";
+            this.txt_TWA_B.Size = new System.Drawing.Size(68, 21);
+            this.txt_TWA_B.TabIndex = 5;
+            this.txt_TWA_B.Text = "6.0";
+            this.txt_TWA_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_TWA_B.TextChanged += new System.EventHandler(this.txt_TWA_L_TextChanged);
+            // 
             // txt_TWA_hgt
             // 
-            this.txt_TWA_hgt.Location = new System.Drawing.Point(268, 21);
+            this.txt_TWA_hgt.Location = new System.Drawing.Point(274, 103);
             this.txt_TWA_hgt.Name = "txt_TWA_hgt";
             this.txt_TWA_hgt.Size = new System.Drawing.Size(68, 21);
             this.txt_TWA_hgt.TabIndex = 5;
@@ -1244,7 +1538,7 @@
             // label276
             // 
             this.label276.AutoSize = true;
-            this.label276.Location = new System.Drawing.Point(342, 159);
+            this.label276.Location = new System.Drawing.Point(348, 234);
             this.label276.Name = "label276";
             this.label276.Size = new System.Drawing.Size(18, 13);
             this.label276.TabIndex = 4;
@@ -1253,7 +1547,7 @@
             // label275
             // 
             this.label275.AutoSize = true;
-            this.label275.Location = new System.Drawing.Point(342, 132);
+            this.label275.Location = new System.Drawing.Point(348, 207);
             this.label275.Name = "label275";
             this.label275.Size = new System.Drawing.Size(18, 13);
             this.label275.TabIndex = 4;
@@ -1262,7 +1556,7 @@
             // label274
             // 
             this.label274.AutoSize = true;
-            this.label274.Location = new System.Drawing.Point(342, 105);
+            this.label274.Location = new System.Drawing.Point(348, 187);
             this.label274.Name = "label274";
             this.label274.Size = new System.Drawing.Size(18, 13);
             this.label274.TabIndex = 4;
@@ -1271,25 +1565,61 @@
             // label273
             // 
             this.label273.AutoSize = true;
-            this.label273.Location = new System.Drawing.Point(342, 78);
+            this.label273.Location = new System.Drawing.Point(348, 160);
             this.label273.Name = "label273";
             this.label273.Size = new System.Drawing.Size(18, 13);
             this.label273.TabIndex = 4;
             this.label273.Text = "m";
             // 
+            // label149
+            // 
+            this.label149.AutoSize = true;
+            this.label149.Location = new System.Drawing.Point(348, 24);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(18, 13);
+            this.label149.TabIndex = 4;
+            this.label149.Text = "m";
+            // 
             // label272
             // 
             this.label272.AutoSize = true;
-            this.label272.Location = new System.Drawing.Point(342, 51);
+            this.label272.Location = new System.Drawing.Point(348, 133);
             this.label272.Name = "label272";
             this.label272.Size = new System.Drawing.Size(18, 13);
             this.label272.TabIndex = 4;
             this.label272.Text = "m";
             // 
+            // label161
+            // 
+            this.label161.AutoSize = true;
+            this.label161.Location = new System.Drawing.Point(348, 51);
+            this.label161.Name = "label161";
+            this.label161.Size = new System.Drawing.Size(18, 13);
+            this.label161.TabIndex = 4;
+            this.label161.Text = "m";
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Location = new System.Drawing.Point(12, 14);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(202, 26);
+            this.label145.TabIndex = 4;
+            this.label145.Text = "Span of Bridge (Distance between\r\npair of Towers on either end)";
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(12, 51);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(95, 13);
+            this.label150.TabIndex = 4;
+            this.label150.Text = "Width of Bridge";
+            // 
             // label271
             // 
             this.label271.AutoSize = true;
-            this.label271.Location = new System.Drawing.Point(342, 24);
+            this.label271.Location = new System.Drawing.Point(348, 106);
             this.label271.Name = "label271";
             this.label271.Size = new System.Drawing.Size(18, 13);
             this.label271.TabIndex = 4;
@@ -1298,7 +1628,7 @@
             // label264
             // 
             this.label264.AutoSize = true;
-            this.label264.Location = new System.Drawing.Point(12, 24);
+            this.label264.Location = new System.Drawing.Point(12, 106);
             this.label264.Name = "label264";
             this.label264.Size = new System.Drawing.Size(96, 13);
             this.label264.TabIndex = 4;
@@ -1306,7 +1636,7 @@
             // 
             // btn_open_analysis_report
             // 
-            this.btn_open_analysis_report.Location = new System.Drawing.Point(620, 381);
+            this.btn_open_analysis_report.Location = new System.Drawing.Point(625, 427);
             this.btn_open_analysis_report.Name = "btn_open_analysis_report";
             this.btn_open_analysis_report.Size = new System.Drawing.Size(167, 41);
             this.btn_open_analysis_report.TabIndex = 2;
@@ -1316,7 +1646,7 @@
             // 
             // btn_process_analysis
             // 
-            this.btn_process_analysis.Location = new System.Drawing.Point(447, 381);
+            this.btn_process_analysis.Location = new System.Drawing.Point(452, 427);
             this.btn_process_analysis.Name = "btn_process_analysis";
             this.btn_process_analysis.Size = new System.Drawing.Size(167, 41);
             this.btn_process_analysis.TabIndex = 2;
@@ -1326,7 +1656,7 @@
             // 
             // btn_view_data
             // 
-            this.btn_view_data.Location = new System.Drawing.Point(262, 381);
+            this.btn_view_data.Location = new System.Drawing.Point(267, 427);
             this.btn_view_data.Name = "btn_view_data";
             this.btn_view_data.Size = new System.Drawing.Size(179, 41);
             this.btn_view_data.TabIndex = 2;
@@ -1336,7 +1666,7 @@
             // 
             // btn_create_data
             // 
-            this.btn_create_data.Location = new System.Drawing.Point(77, 381);
+            this.btn_create_data.Location = new System.Drawing.Point(82, 427);
             this.btn_create_data.Name = "btn_create_data";
             this.btn_create_data.Size = new System.Drawing.Size(179, 41);
             this.btn_create_data.TabIndex = 2;
@@ -1351,7 +1681,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(844, 523);
+            this.tabPage1.Size = new System.Drawing.Size(844, 558);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Design of Cable Suspension Bridge";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -1365,7 +1695,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(838, 484);
+            this.tabControl2.Size = new System.Drawing.Size(838, 519);
             this.tabControl2.TabIndex = 4;
             // 
             // tabPage5
@@ -1375,7 +1705,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(830, 458);
+            this.tabPage5.Size = new System.Drawing.Size(830, 493);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Motorable Superstructure";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1393,7 +1723,7 @@
             this.tabControl3.Location = new System.Drawing.Point(3, 31);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(824, 424);
+            this.tabControl3.Size = new System.Drawing.Size(824, 459);
             this.tabControl3.TabIndex = 3;
             // 
             // tabPage8
@@ -1402,7 +1732,7 @@
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(816, 398);
+            this.tabPage8.Size = new System.Drawing.Size(816, 433);
             this.tabPage8.TabIndex = 1;
             this.tabPage8.Text = "Input Data 1";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1821,7 +2151,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(816, 398);
+            this.tabPage9.Size = new System.Drawing.Size(816, 433);
             this.tabPage9.TabIndex = 2;
             this.tabPage9.Text = "Input Data 2";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -2244,7 +2574,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(816, 398);
+            this.tabPage10.Size = new System.Drawing.Size(816, 433);
             this.tabPage10.TabIndex = 3;
             this.tabPage10.Text = "Input Data 3";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -2846,7 +3176,7 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(816, 398);
+            this.tabPage11.Size = new System.Drawing.Size(816, 433);
             this.tabPage11.TabIndex = 4;
             this.tabPage11.Text = "Input Data 4";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -3436,7 +3766,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(816, 398);
+            this.tabPage12.Size = new System.Drawing.Size(816, 433);
             this.tabPage12.TabIndex = 5;
             this.tabPage12.Text = "Input Data 4";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -3959,7 +4289,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(816, 398);
+            this.tabPage13.Size = new System.Drawing.Size(816, 433);
             this.tabPage13.TabIndex = 6;
             this.tabPage13.Text = "Input Data 5";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -4332,7 +4662,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(816, 398);
+            this.tabPage16.Size = new System.Drawing.Size(816, 433);
             this.tabPage16.TabIndex = 8;
             this.tabPage16.Text = "Member Sections";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -4651,7 +4981,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(830, 458);
+            this.tabPage7.Size = new System.Drawing.Size(830, 493);
             this.tabPage7.TabIndex = 2;
             this.tabPage7.Text = "Footbridge Superstructure";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -4664,7 +4994,7 @@
             this.tabControl5.Location = new System.Drawing.Point(3, 3);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(824, 452);
+            this.tabControl5.Size = new System.Drawing.Size(824, 487);
             this.tabControl5.TabIndex = 2;
             // 
             // tabPage15
@@ -4673,7 +5003,7 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(816, 426);
+            this.tabPage15.Size = new System.Drawing.Size(816, 461);
             this.tabPage15.TabIndex = 0;
             this.tabPage15.Text = "Inputs";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -4992,7 +5322,7 @@
             this.tabPage21.Location = new System.Drawing.Point(4, 22);
             this.tabPage21.Name = "tabPage21";
             this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage21.Size = new System.Drawing.Size(816, 426);
+            this.tabPage21.Size = new System.Drawing.Size(816, 461);
             this.tabPage21.TabIndex = 1;
             this.tabPage21.Text = "Member Sections";
             this.tabPage21.UseVisualStyleBackColor = true;
@@ -5352,7 +5682,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(830, 458);
+            this.tabPage6.Size = new System.Drawing.Size(830, 493);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Abutment Design";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -5806,7 +6136,7 @@
             this.panel1.Controls.Add(this.btn_cable_open);
             this.panel1.Controls.Add(this.btn_cable_new);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 487);
+            this.panel1.Location = new System.Drawing.Point(3, 522);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(838, 33);
             this.panel1.TabIndex = 5;
@@ -5850,7 +6180,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(844, 523);
+            this.tabPage2.Size = new System.Drawing.Size(844, 558);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Design of Wind Guy";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -6152,7 +6482,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(844, 523);
+            this.tabPage3.Size = new System.Drawing.Size(844, 558);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Estimate for Steel";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -6278,20 +6608,10 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(844, 523);
+            this.tabPage4.Size = new System.Drawing.Size(844, 558);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Construction Drawings";
             this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // btn_open_drawings
-            // 
-            this.btn_open_drawings.Location = new System.Drawing.Point(244, 236);
-            this.btn_open_drawings.Name = "btn_open_drawings";
-            this.btn_open_drawings.Size = new System.Drawing.Size(357, 51);
-            this.btn_open_drawings.TabIndex = 0;
-            this.btn_open_drawings.Text = "Open Construction Drawings";
-            this.btn_open_drawings.UseVisualStyleBackColor = true;
-            this.btn_open_drawings.Click += new System.EventHandler(this.btn_open_drawings_Click);
             // 
             // groupBox34
             // 
@@ -6315,11 +6635,21 @@
             this.label89.Text = "Design Drawing Converter is not added, \r\nCAD Editable Sample Drawings will be ope" +
     "ned.";
             // 
+            // btn_open_drawings
+            // 
+            this.btn_open_drawings.Location = new System.Drawing.Point(244, 236);
+            this.btn_open_drawings.Name = "btn_open_drawings";
+            this.btn_open_drawings.Size = new System.Drawing.Size(357, 51);
+            this.btn_open_drawings.TabIndex = 0;
+            this.btn_open_drawings.Text = "Open Construction Drawings";
+            this.btn_open_drawings.UseVisualStyleBackColor = true;
+            this.btn_open_drawings.Click += new System.EventHandler(this.btn_open_drawings_Click);
+            // 
             // frm_Suspension_Bridge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 549);
+            this.ClientSize = new System.Drawing.Size(852, 584);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -6329,6 +6659,12 @@
             this.Load += new System.EventHandler(this.frm_Suspension_Bridge_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage14.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.groupBox11.ResumeLayout(false);
@@ -6931,6 +7267,35 @@
         private System.Windows.Forms.Label label88;
         private System.Windows.Forms.GroupBox groupBox34;
         private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.TextBox txt_TWA_Ds;
+        private System.Windows.Forms.Label label128;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.TextBox txt_TWA_L;
+        private System.Windows.Forms.TextBox txt_TWA_B;
+        private System.Windows.Forms.Label label149;
+        private System.Windows.Forms.Label label161;
+        private System.Windows.Forms.Label label145;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label163;
+        private System.Windows.Forms.TextBox txt_TWA_applied_load;
+        private System.Windows.Forms.Label label162;
+        private System.Windows.Forms.TextBox txt_TWA_den_steel;
+        private System.Windows.Forms.Label label246;
+        private System.Windows.Forms.TextBox txt_TWA_den_conc;
+        private System.Windows.Forms.Label label240;
+        private System.Windows.Forms.Label label245;
+        private System.Windows.Forms.Label label226;
+        private System.Windows.Forms.GroupBox groupBox14;
+        private System.Windows.Forms.TextBox txt_diagonal_force;
+        private System.Windows.Forms.TextBox txt_vertical_force;
+        private System.Windows.Forms.Label label252;
+        private System.Windows.Forms.Label label283;
+        private System.Windows.Forms.Label label294;
+        private System.Windows.Forms.Label label295;
 
     }
 }

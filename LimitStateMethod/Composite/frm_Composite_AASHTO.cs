@@ -63,6 +63,7 @@ namespace LimitStateMethod.Composite
             steel_section = new Steel_Girder_Section_AASHTO();
             Comp_sections = new CompositeSection_AASHTO();
             Bridge_Analysis = new Composite_AASHTO_Analysis(iApp);
+
         }
 
         public string Result_Report
@@ -624,7 +625,6 @@ namespace LimitStateMethod.Composite
                 Bridge_Analysis.DL_Analysis_Deck.IsCurve = false;
                 Bridge_Analysis.DL_Analysis_Girder.IsCurve = false;
                 Bridge_Analysis.LL_Analysis.IsCurve = false;
-
             }
 
             Show_Moment_Shear();
@@ -3502,7 +3502,7 @@ namespace LimitStateMethod.Composite
             }
             else
             {
-                iApp.Tables.AISC_SteelAngles.Read_Angle_Sections(ref cmb_ana_ang_section_name, true);
+                iApp.Tables.USCS_SteelAngles.Read_Angle_Sections(ref cmb_ana_ang_section_name, true);
                 //iApp.Tables.BS_SteelAngles.Read_Angle_Sections(ref cmb_ana_ang_section_name, false);
             }
 
@@ -3714,7 +3714,7 @@ namespace LimitStateMethod.Composite
 
             if (cmb_ana_ang_section_name.Text.Contains("IS")) tbl_rolledSteelAngles = iApp.Tables.IS_SteelAngles;
             else if (cmb_ana_ang_section_name.Text.Contains("UK")) tbl_rolledSteelAngles = iApp.Tables.BS_SteelAngles;
-            else if (cmb_ana_ang_section_name.Text.Contains("L")) tbl_rolledSteelAngles = iApp.Tables.AISC_SteelAngles;
+            else if (cmb_ana_ang_section_name.Text.Contains("L")) tbl_rolledSteelAngles = iApp.Tables.USCS_SteelAngles;
 
 
             if (cmb.Name == cmb_ana_ang_section_code.Name)
@@ -3767,7 +3767,7 @@ namespace LimitStateMethod.Composite
                 }
                 else if (cmb_ana_ang_section_name.Text.Contains("L"))
                 {
-                    foreach (var item in iApp.Tables.AISC_SteelAngles.List_Table)
+                    foreach (var item in iApp.Tables.USCS_SteelAngles.List_Table)
                     {
                         if (cmb_ana_ang_section_name.Text == item.SectionName)
                         {

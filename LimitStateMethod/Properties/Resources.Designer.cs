@@ -123,6 +123,26 @@ namespace LimitStateMethod.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cable_Stayed_Bridge1 {
+            get {
+                object obj = ResourceManager.GetObject("Cable_Stayed_Bridge1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cable_Stayed_Bridge3 {
+            get {
+                object obj = ResourceManager.GetObject("Cable Stayed Bridge3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap case_1 {
             get {
                 object obj = ResourceManager.GetObject("case_1", resourceCulture);
@@ -396,6 +416,26 @@ namespace LimitStateMethod.Properties {
         internal static System.Drawing.Bitmap Extra_Dossed_Bridge {
             get {
                 object obj = ResourceManager.GetObject("Extra Dossed Bridge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Extradosed_Either_Side_Tower {
+            get {
+                object obj = ResourceManager.GetObject("Extradosed Either Side Tower", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExtradosedEitherSideTower {
+            get {
+                object obj = ResourceManager.GetObject("ExtradosedEitherSideTower", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

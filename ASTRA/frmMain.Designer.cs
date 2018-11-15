@@ -102,21 +102,6 @@
             this.tsmi_ana_exmpls = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ana_inp_exm = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_ana_res_exm = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.processAstFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.runASTFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.astDataInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.basicInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.elementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.plateAndShellElementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.supportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.nodalLoadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_Process_Design = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_selectWorkingFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_selectDesignStandard = new System.Windows.Forms.ToolStripMenuItem();
@@ -149,7 +134,7 @@
             this.tsmi_cable_suspension_bridge = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator21 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmi_cable_stayed_bridge = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmi_extradossed = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmi_extradosed = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_extradossed_side_towers = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_extradossed_central_towers = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator15 = new System.Windows.Forms.ToolStripSeparator();
@@ -219,6 +204,21 @@
             this.tsmi_cableCarTower = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_streamHydrology = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_structureModeling = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.processAstFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.runASTFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.astDataInputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.basicInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.elementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.plateAndShellElementsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.supportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nodalLoadsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_research_Studies = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_selectWorkingFolderResearch = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_HSTBD = new System.Windows.Forms.ToolStripMenuItem();
@@ -834,132 +834,6 @@
             this.tsmi_ana_res_exm.Visible = false;
             this.tsmi_ana_res_exm.Click += new System.EventHandler(this.tsmi_newAnalysisDataFile_Click);
             // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Checked = true;
-            this.viewToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolbarToolStripMenuItem,
-            this.statusBarToolStripMenuItem});
-            this.viewToolStripMenuItem.Enabled = false;
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Visible = false;
-            // 
-            // toolbarToolStripMenuItem
-            // 
-            this.toolbarToolStripMenuItem.Name = "toolbarToolStripMenuItem";
-            this.toolbarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.toolbarToolStripMenuItem.Text = "Toolbar";
-            this.toolbarToolStripMenuItem.Click += new System.EventHandler(this.toolbarToolStripMenuItem_Click);
-            // 
-            // statusBarToolStripMenuItem
-            // 
-            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.statusBarToolStripMenuItem.Text = "Status Bar";
-            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
-            // 
-            // processAstFileToolStripMenuItem
-            // 
-            this.processAstFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.runASTFileToolStripMenuItem,
-            this.astDataInputToolStripMenuItem});
-            this.processAstFileToolStripMenuItem.Enabled = false;
-            this.processAstFileToolStripMenuItem.Name = "processAstFileToolStripMenuItem";
-            this.processAstFileToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
-            this.processAstFileToolStripMenuItem.Text = "Process &AST File";
-            this.processAstFileToolStripMenuItem.Visible = false;
-            this.processAstFileToolStripMenuItem.Click += new System.EventHandler(this.processAstFileToolStripMenuItem_Click);
-            // 
-            // runASTFileToolStripMenuItem
-            // 
-            this.runASTFileToolStripMenuItem.Name = "runASTFileToolStripMenuItem";
-            this.runASTFileToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.runASTFileToolStripMenuItem.Text = "Run A&ST File";
-            this.runASTFileToolStripMenuItem.Click += new System.EventHandler(this.runASTFileToolStripMenuItem_Click);
-            // 
-            // astDataInputToolStripMenuItem
-            // 
-            this.astDataInputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.basicInfoToolStripMenuItem,
-            this.aToolStripMenuItem,
-            this.nodesToolStripMenuItem,
-            this.elementsToolStripMenuItem,
-            this.supportToolStripMenuItem1,
-            this.nodalLoadsToolStripMenuItem,
-            this.toolStripMenuItem1});
-            this.astDataInputToolStripMenuItem.Name = "astDataInputToolStripMenuItem";
-            this.astDataInputToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.astDataInputToolStripMenuItem.Text = "AST &Data-Input";
-            // 
-            // basicInfoToolStripMenuItem
-            // 
-            this.basicInfoToolStripMenuItem.Name = "basicInfoToolStripMenuItem";
-            this.basicInfoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.basicInfoToolStripMenuItem.Text = "Basic &Info...";
-            this.basicInfoToolStripMenuItem.Click += new System.EventHandler(this.basicInfoToolStripMenuItem_Click);
-            // 
-            // aToolStripMenuItem
-            // 
-            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
-            this.aToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.aToolStripMenuItem.Text = "Analysis &Type...";
-            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click_1);
-            // 
-            // nodesToolStripMenuItem
-            // 
-            this.nodesToolStripMenuItem.Name = "nodesToolStripMenuItem";
-            this.nodesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.nodesToolStripMenuItem.Text = "&Nodes...";
-            this.nodesToolStripMenuItem.Click += new System.EventHandler(this.nodesToolStripMenuItem_Click_1);
-            // 
-            // elementsToolStripMenuItem
-            // 
-            this.elementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem3,
-            this.plateAndShellElementsToolStripMenuItem});
-            this.elementsToolStripMenuItem.Name = "elementsToolStripMenuItem";
-            this.elementsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.elementsToolStripMenuItem.Text = "&Elements";
-            this.elementsToolStripMenuItem.Click += new System.EventHandler(this.elementsToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(239, 22);
-            this.toolStripMenuItem3.Text = "&1:3D Beam And Truss Members";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click_1);
-            // 
-            // plateAndShellElementsToolStripMenuItem
-            // 
-            this.plateAndShellElementsToolStripMenuItem.Name = "plateAndShellElementsToolStripMenuItem";
-            this.plateAndShellElementsToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-            this.plateAndShellElementsToolStripMenuItem.Text = "&2:Plate And Shell Elements";
-            this.plateAndShellElementsToolStripMenuItem.Click += new System.EventHandler(this.plateAndShellElementsToolStripMenuItem_Click_1);
-            // 
-            // supportToolStripMenuItem1
-            // 
-            this.supportToolStripMenuItem1.Name = "supportToolStripMenuItem1";
-            this.supportToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
-            this.supportToolStripMenuItem1.Text = "&Support";
-            this.supportToolStripMenuItem1.Click += new System.EventHandler(this.supportToolStripMenuItem1_Click_1);
-            // 
-            // nodalLoadsToolStripMenuItem
-            // 
-            this.nodalLoadsToolStripMenuItem.Name = "nodalLoadsToolStripMenuItem";
-            this.nodalLoadsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.nodalLoadsToolStripMenuItem.Text = "Nodal &Loads";
-            this.nodalLoadsToolStripMenuItem.Click += new System.EventHandler(this.nodalLoadsToolStripMenuItem_Click_1);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
-            this.toolStripMenuItem1.Text = "Self &Weight Factor";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // tsmi_Process_Design
             // 
             this.tsmi_Process_Design.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1010,7 +884,7 @@
             this.tsmi_cable_suspension_bridge,
             this.toolStripSeparator21,
             this.tsmi_cable_stayed_bridge,
-            this.tsmi_extradossed,
+            this.tsmi_extradosed,
             this.toolStripSeparator15,
             this.tsmi_Rail_Bridge,
             this.tsmi_Underpass,
@@ -1232,14 +1106,14 @@
             this.tsmi_cable_stayed_bridge.Text = "Cable Stayed Bridge";
             this.tsmi_cable_stayed_bridge.Click += new System.EventHandler(this.tsmi_cable_stayed_bridge_Click);
             // 
-            // tsmi_extradossed
+            // tsmi_extradosed
             // 
-            this.tsmi_extradossed.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmi_extradosed.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmi_extradossed_side_towers,
             this.tsmi_extradossed_central_towers});
-            this.tsmi_extradossed.Name = "tsmi_extradossed";
-            this.tsmi_extradossed.Size = new System.Drawing.Size(385, 22);
-            this.tsmi_extradossed.Text = "Extradossed Cable Stayed Bridge";
+            this.tsmi_extradosed.Name = "tsmi_extradosed";
+            this.tsmi_extradosed.Size = new System.Drawing.Size(385, 22);
+            this.tsmi_extradosed.Text = "Extradosed Cable Stayed Bridge";
             // 
             // tsmi_extradossed_side_towers
             // 
@@ -1762,6 +1636,132 @@
             this.tsmi_structureModeling.Size = new System.Drawing.Size(244, 22);
             this.tsmi_structureModeling.Text = "Structure Modeling with 3D Grid";
             this.tsmi_structureModeling.Click += new System.EventHandler(this.tsmi_structureModeling_Click);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Checked = true;
+            this.viewToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolbarToolStripMenuItem,
+            this.statusBarToolStripMenuItem});
+            this.viewToolStripMenuItem.Enabled = false;
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            this.viewToolStripMenuItem.Visible = false;
+            // 
+            // toolbarToolStripMenuItem
+            // 
+            this.toolbarToolStripMenuItem.Name = "toolbarToolStripMenuItem";
+            this.toolbarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.toolbarToolStripMenuItem.Text = "Toolbar";
+            this.toolbarToolStripMenuItem.Click += new System.EventHandler(this.toolbarToolStripMenuItem_Click);
+            // 
+            // statusBarToolStripMenuItem
+            // 
+            this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.statusBarToolStripMenuItem.Text = "Status Bar";
+            this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.statusBarToolStripMenuItem_Click);
+            // 
+            // processAstFileToolStripMenuItem
+            // 
+            this.processAstFileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.runASTFileToolStripMenuItem,
+            this.astDataInputToolStripMenuItem});
+            this.processAstFileToolStripMenuItem.Enabled = false;
+            this.processAstFileToolStripMenuItem.Name = "processAstFileToolStripMenuItem";
+            this.processAstFileToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.processAstFileToolStripMenuItem.Text = "Process &AST File";
+            this.processAstFileToolStripMenuItem.Visible = false;
+            this.processAstFileToolStripMenuItem.Click += new System.EventHandler(this.processAstFileToolStripMenuItem_Click);
+            // 
+            // runASTFileToolStripMenuItem
+            // 
+            this.runASTFileToolStripMenuItem.Name = "runASTFileToolStripMenuItem";
+            this.runASTFileToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.runASTFileToolStripMenuItem.Text = "Run A&ST File";
+            this.runASTFileToolStripMenuItem.Click += new System.EventHandler(this.runASTFileToolStripMenuItem_Click);
+            // 
+            // astDataInputToolStripMenuItem
+            // 
+            this.astDataInputToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.basicInfoToolStripMenuItem,
+            this.aToolStripMenuItem,
+            this.nodesToolStripMenuItem,
+            this.elementsToolStripMenuItem,
+            this.supportToolStripMenuItem1,
+            this.nodalLoadsToolStripMenuItem,
+            this.toolStripMenuItem1});
+            this.astDataInputToolStripMenuItem.Name = "astDataInputToolStripMenuItem";
+            this.astDataInputToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.astDataInputToolStripMenuItem.Text = "AST &Data-Input";
+            // 
+            // basicInfoToolStripMenuItem
+            // 
+            this.basicInfoToolStripMenuItem.Name = "basicInfoToolStripMenuItem";
+            this.basicInfoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.basicInfoToolStripMenuItem.Text = "Basic &Info...";
+            this.basicInfoToolStripMenuItem.Click += new System.EventHandler(this.basicInfoToolStripMenuItem_Click);
+            // 
+            // aToolStripMenuItem
+            // 
+            this.aToolStripMenuItem.Name = "aToolStripMenuItem";
+            this.aToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.aToolStripMenuItem.Text = "Analysis &Type...";
+            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click_1);
+            // 
+            // nodesToolStripMenuItem
+            // 
+            this.nodesToolStripMenuItem.Name = "nodesToolStripMenuItem";
+            this.nodesToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.nodesToolStripMenuItem.Text = "&Nodes...";
+            this.nodesToolStripMenuItem.Click += new System.EventHandler(this.nodesToolStripMenuItem_Click_1);
+            // 
+            // elementsToolStripMenuItem
+            // 
+            this.elementsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
+            this.plateAndShellElementsToolStripMenuItem});
+            this.elementsToolStripMenuItem.Name = "elementsToolStripMenuItem";
+            this.elementsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.elementsToolStripMenuItem.Text = "&Elements";
+            this.elementsToolStripMenuItem.Click += new System.EventHandler(this.elementsToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(239, 22);
+            this.toolStripMenuItem3.Text = "&1:3D Beam And Truss Members";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click_1);
+            // 
+            // plateAndShellElementsToolStripMenuItem
+            // 
+            this.plateAndShellElementsToolStripMenuItem.Name = "plateAndShellElementsToolStripMenuItem";
+            this.plateAndShellElementsToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.plateAndShellElementsToolStripMenuItem.Text = "&2:Plate And Shell Elements";
+            this.plateAndShellElementsToolStripMenuItem.Click += new System.EventHandler(this.plateAndShellElementsToolStripMenuItem_Click_1);
+            // 
+            // supportToolStripMenuItem1
+            // 
+            this.supportToolStripMenuItem1.Name = "supportToolStripMenuItem1";
+            this.supportToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.supportToolStripMenuItem1.Text = "&Support";
+            this.supportToolStripMenuItem1.Click += new System.EventHandler(this.supportToolStripMenuItem1_Click_1);
+            // 
+            // nodalLoadsToolStripMenuItem
+            // 
+            this.nodalLoadsToolStripMenuItem.Name = "nodalLoadsToolStripMenuItem";
+            this.nodalLoadsToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.nodalLoadsToolStripMenuItem.Text = "Nodal &Loads";
+            this.nodalLoadsToolStripMenuItem.Click += new System.EventHandler(this.nodalLoadsToolStripMenuItem_Click_1);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.toolStripMenuItem1.Text = "Self &Weight Factor";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // tsmi_research_Studies
             // 
@@ -2509,7 +2509,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_pier_3;
         private System.Windows.Forms.ToolStripMenuItem tsmi_pier_4;
         private System.Windows.Forms.ToolStripMenuItem tsmi_pier_5;
-        private System.Windows.Forms.ToolStripMenuItem tsmi_extradossed;
+        private System.Windows.Forms.ToolStripMenuItem tsmi_extradosed;
         private System.Windows.Forms.ToolStripMenuItem tsmi_pIleFoundation;
         private System.Windows.Forms.ToolStripMenuItem tsmi_jetty_design;
         private System.Windows.Forms.ToolStripMenuItem tsmi_jetty_design_RCC;

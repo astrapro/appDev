@@ -24,7 +24,7 @@ using BridgeAnalysisDesign.CableStayed;
 
 namespace LimitStateMethod.Extradossed
 {
-    public partial class frm_Extradossed : Form
+    public partial class frm_Extradosed : Form
     {
         //const string Title = "ANALYSIS OF PSC BOX GIRDER BRIDGE";
         public string Title
@@ -34,20 +34,20 @@ namespace LimitStateMethod.Extradossed
                 if (Project_Type == eASTRADesignType.Extradossed_Side_Towers_Bridge_LS)
                 {
                     if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-                        return "EXTRADOSSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS  [BS]";
+                        return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS  [BS]";
                     if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                        return "EXTRADOSSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [LRFD]";
-                    return "EXTRADOSSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [IRC]";
+                        return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [LRFD]";
+                    return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [IRC]";
                 }
                 else if (Project_Type == eASTRADesignType.Extradossed_Central_Towers_Bridge_LS)
                 {
                     if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-                        return "EXTRADOSSED CABLE STAYED BRIDGE WITH CENTRAL TOWERS [BS]";
+                        return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER [BS]";
                     if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                        return "EXTRADOSSED CABLE STAYED BRIDGE WITH CENTRAL TOWERS  [LRFD]";
-                    return "EXTRADOSSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [IRC]";
+                        return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [LRFD]";
+                    return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [IRC]";
                 }
-                return "EXTRADOSSED CABLE STAYED BRIDGE [IRC]";
+                return "EXTRADOSED CABLE STAYED BRIDGE [IRC]";
             }
         }
 
@@ -483,16 +483,16 @@ namespace LimitStateMethod.Extradossed
         IApplication iApp = null;
 
         bool IsCreate_Data = true;
-        public frm_Extradossed(IApplication app, eASTRADesignType projType)
+        public frm_Extradosed(IApplication app, eASTRADesignType projType)
         {
             
             InitializeComponent();
             iApp = app;
             user_path = iApp.LastDesignWorkingFolder;
-            this.Text = Title + " : " + MyList.Get_Modified_Path(user_path);
 
             Project_Type = projType;
-          
+
+            this.Text = Title + " : " + MyList.Get_Modified_Path(user_path);
 
             Results = new List<string>();
 
@@ -500,6 +500,11 @@ namespace LimitStateMethod.Extradossed
 
             Box_Forces = new PSC_Box_Forces();
             All_Analysis = new List<BridgeMemberAnalysis>();
+
+            if (projType == eASTRADesignType.Extradossed_Side_Towers_Bridge_LS)
+                pcb_cables.BackgroundImage = LimitStateMethod.Properties.Resources.ExtradosedEitherSideTower;
+            else
+                pcb_cables.BackgroundImage = LimitStateMethod.Properties.Resources.ExtradossedCentralTowers;
         }
 
         public string Worksheet_Folder
@@ -827,7 +832,7 @@ namespace LimitStateMethod.Extradossed
                     {
                         flPath = Extradosed.DeadLoadAnalysis_Input_File;
 
-                        File.Copy(iApp.Stage_File, flPath, true);
+                        //File.Copy(iApp.Stage_File, flPath, true);
 
                     }
                     //iApp.Form_Stage_Analysis(flPath = Extradosed.TotalAnalysis_Input_File).ShowDialog();
@@ -906,18 +911,20 @@ namespace LimitStateMethod.Extradossed
 
                 if (File.Exists(iApp.Stage_File))
                 {
+
                     flPath = Extradosed.DeadLoadAnalysis_Input_File;
 
-                    File.Copy(iApp.Stage_File, flPath, true);
+                    //File.Copy(iApp.Stage_File, flPath, true);
 
                 }
                 //iApp.Form_Stage_Analysis(flPath = Extradosed.TotalAnalysis_Input_File).ShowDialog();
 
-                for (int i = 0; i < (all_loads.Count); i++)
+                for (int i = 0; i < (all_loads.Count + 1); i++)
                 {
                     if (i == 0)
                     {
                         flPath = Extradosed.TotalAnalysis_Input_File;
+                        //flPath = Extradosed.DeadLoadAnalysis_Input_File;
                     }
                     //else if (i == 1)
                     //    flPath = Extradosed.DeadLoadAnalysis_Input_File;
@@ -926,7 +933,7 @@ namespace LimitStateMethod.Extradossed
                         flPath = Get_Live_Load_Analysis_Input_File(i);
 
                         //File.Copy(iApp.Stage_File, flPath, true);
-                        Ana_Write_Long_Girder_Load_Data(flPath, true, false, i + 1);
+                        Ana_Write_Long_Girder_Load_Data(flPath, true, false, i);
                     }
 
 
@@ -974,7 +981,7 @@ namespace LimitStateMethod.Extradossed
                 }
                 //iApp.Form_Stage_Analysis(flPath = Extradosed.TotalAnalysis_Input_File).ShowDialog();
 
-                for (int i = 0; i < (all_loads.Count); i++)
+                for (int i = 0; i < (all_loads.Count + 1); i++)
                 {
                     if (i == 0)
                     {
@@ -987,7 +994,7 @@ namespace LimitStateMethod.Extradossed
                         flPath = Get_Live_Load_Analysis_Input_File(i);
 
                         //File.Copy(iApp.Stage_File, flPath, true);
-                        Ana_Write_Long_Girder_Load_Data(flPath, true, false, i + 1);
+                        Ana_Write_Long_Girder_Load_Data(flPath, true, false, i);
                     }
 
 
@@ -1006,14 +1013,12 @@ namespace LimitStateMethod.Extradossed
                 }
             }
 
-
             if (!iApp.Show_and_Run_Process_List(pcol))
             {
                 Button_Enable_Disable();
                 return;
             }
             //string file_name = Path.Combine(Path.GetDirectoryName(Extradosed.TotalAnalysis_Input_File), @"PROCESS STAGE (P DELTA) ANALYSIS\STAGE 1 ANALYSIS\ANALYSIS_REP.TXT");
-
             //Extradosed.TotalLoad_Analysis = new BridgeMemberAnalysis("DL + LL Combine Analysis\PROCESS STAGE (P DELTA) ANALYSIS\STAGE 1 ANALYSIS")
 
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
@@ -7479,16 +7484,16 @@ namespace LimitStateMethod.Extradossed
             #endregion Set File Name
 
             btn_view_data.Enabled = File.Exists(file_name);
-            btn_View_Moving_Load.Enabled = File.Exists(MyList.Get_LL_TXT_File(file_name)) && File.Exists(MyList.Get_Analysis_Report_File(file_name));
+            btn_view_postProcess.Enabled = File.Exists(MyList.Get_LL_TXT_File(file_name)) && File.Exists(MyList.Get_Analysis_Report_File(file_name));
 
             if (cmb_cable_type.SelectedIndex == 2)
             {
-                btn_view_structure.Enabled = File.Exists(file_name);
+                btn_view_preProcess.Enabled = File.Exists(file_name);
             }
             else
             {
                 //btn_view_structure.Enabled = File.Exists(file_name) && cmb_long_open_file.SelectedIndex != cmb_long_open_file.Items.Count - 1;
-                btn_view_structure.Enabled = File.Exists(file_name) ;
+                btn_view_preProcess.Enabled = File.Exists(file_name) ;
             }
             btn_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
 
@@ -7991,13 +7996,14 @@ namespace LimitStateMethod.Extradossed
                 //if (File.Exists(file_name))
                 //    iApp.RunExe(file_name);
             }
-            else if (btn.Name == btn_view_structure.Name)
+            else if (btn.Name == btn_view_preProcess.Name)
             {
                 if (File.Exists(file_name))
                 {
                     //iApp.Form_ASTRA_Input_Data(file_name, false).ShowDialog();
 
-                    iApp.OpenWork(file_name, false);
+                    //iApp.OpenWork(file_name, false);
+                    iApp.View_PreProcess(file_name);
                 }
             }
             else if (btn.Name == btn_view_report.Name)
@@ -8006,11 +8012,14 @@ namespace LimitStateMethod.Extradossed
                 if (File.Exists(file_name))
                     iApp.RunExe(file_name);
             }
-            else if (btn.Name == btn_View_Moving_Load.Name)
+            else if (btn.Name == btn_view_postProcess.Name)
             {
                 file_name = MyList.Get_Analysis_Report_File(file_name);
                 if (File.Exists(file_name))
-                    iApp.OpenWork(file_name, true);
+                {
+                    //iApp.OpenWork(file_name, true);
+                    iApp.View_PostProcess(file_name);
+                }
             }
         }
         #region Chiranjit [2015 08 31]
@@ -8697,12 +8706,16 @@ namespace LimitStateMethod.Extradossed
 
 
             int fl = 0;
-            double xinc = MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.0);
+            double xinc = MyList.StringToDouble(txt_IRC_XINCR.Text, 0.0);
             double imp_fact = 1.179;
 
 
             dgv = dgv_long_loads;
-            if (iApp.DesignStandard == eDesignStandard.LRFDStandard) dgv = dgv_LRFD_long_loads;
+            if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
+            {
+                dgv = dgv_LRFD_long_loads;
+                xinc = MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.0);
+            }
 
             int count = 0;
             for (i = 0; i < dgv.RowCount; i++)
@@ -9019,6 +9032,11 @@ namespace LimitStateMethod.Extradossed
 
             }
             catch (Exception ex) { }
+        }
+
+        private void uC_BoxGirder1_Load(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -16356,8 +16374,6 @@ namespace LimitStateMethod.Extradossed
 
         public void Create_Extradossed_Linear_Data()
         {
-
-
             Long_Girder_members.Clear();
             Cross_Girder_members.Clear();
             Tower_members.Clear();
@@ -17309,8 +17325,11 @@ namespace LimitStateMethod.Extradossed
             string kStr = "";
             List<string> list = new List<string>();
             int i = 0;
+            if (ll_txt_data == null)
+                list.Add("ASTRA SPACE EXTRADOSSED BRIDGE DECK ANALYSIS WITH DEAD LOAD");
+            else
+                list.Add("ASTRA SPACE EXTRADOSSED BRIDGE DECK ANALYSIS WITH MOVING LOAD");
 
-            list.Add("ASTRA SPACE EXTRADOSSED BRIDGE DECK ANALYSIS WITH MOVING LOAD");
             list.Add("UNIT METER MTON");
             list.Add("JOINT COORDINATES");
             for (i = 0; i < Joints.Count; i++)
@@ -17560,7 +17579,6 @@ namespace LimitStateMethod.Extradossed
             list.Add("TYPE 1 -18.8 0 2.75 XINC 0.2");
             list.Add("TYPE 1 -18.8 0 6.25 XINC 0.2");
             //list.Add("TYPE 1 -18.8 0 9.75 XINC 0.2");
-
             //list.AddRange(ll_txt_data.ToArray());
 
             list.Add("PERFORM ANALYSIS");
@@ -17569,8 +17587,11 @@ namespace LimitStateMethod.Extradossed
 
             list.Add(kStr);
             File.WriteAllLines(file_name, list.ToArray());
-            string ll = Path.Combine(Path.GetDirectoryName(file_name), "LL.TXT");
-            File.WriteAllLines(ll, ll_txt_data.ToArray());
+            if (ll_txt_data != null)
+            {
+                string ll = Path.Combine(Path.GetDirectoryName(file_name), "LL.TXT");
+                File.WriteAllLines(ll, ll_txt_data.ToArray());
+            }
         }
 
 

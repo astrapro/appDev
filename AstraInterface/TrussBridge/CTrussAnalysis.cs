@@ -2157,7 +2157,10 @@ namespace AstraInterface.DataStructure
         {
             get
             {
-                return StartNode.XYZ.Distance3D(EndNode.XYZ);
+                double d = StartNode.XYZ.Distance3D(EndNode.XYZ);
+                d = MyList.StringToDouble(d.ToString("f3"));
+
+                return d;
             }
         }
         public static Member Parse(string s)

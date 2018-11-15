@@ -25,6 +25,7 @@ namespace AstraInterface.Interface
         void RunViewer(string working_folder, string drawing_path);
         void RunViewer(string drawing_path);
         void RunExe(string exeFileName);
+        void Open_TextFile(string fileName);
         void ShowAnalysisResult(string exeFileName);
 
         void RunExe(string exeFileName, string env_file_path);
@@ -177,6 +178,9 @@ namespace AstraInterface.Interface
         void View_MovingLoad(string file_name, double curve_radius, double separating_distance);
 
         Form RunStageAnalysis(string fName);
+
+        //for stage analysis
+        void Change_Stage_Coordinates(string prev_File, string new_file);
 
     }
 

@@ -80,10 +80,27 @@ namespace AstraFunctionOne.ProcessList
                         if (ProcessList[i].IS_Stage_File)
                         {
 
-                            if (File.Exists(ProcessList[i].Stage_File_Name))
-                                Run_Exe(ProcessList[i].Stage_File_Name);
+                            //if (File.Exists(ProcessList[i].Stage_File_Name))
+                            //    Run_Exe(ProcessList[i].Stage_File_Name);
+                            //iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
 
-                            iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
+
+                            if (File.Exists(ProcessList[i].Stage_File_Name))
+                            {
+                                string sap_file = "";
+
+                                sap_file = Path.Combine(Path.GetDirectoryName(ProcessList[i].Stage_File_Name), "SAP_Input_Data.txt");
+                                if (File.Exists(sap_file))
+                                {
+                                    iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
+                                }
+                                else
+                                {
+                                    Run_Exe(ProcessList[i].Stage_File_Name);
+                                    iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
+                                }
+                            }
+
 
                             if (File.Exists(flpath))
                                 Run_Data2(flpath);

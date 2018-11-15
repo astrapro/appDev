@@ -443,6 +443,7 @@ namespace LimitStateMethod.LoadCombinations
 
         private void btn_remove_comb_Click(object sender, EventArgs e)
         {
+            if (all_loads.Count == 0) return;
             all_loads.RemoveAt(Current_Load_Index);
 
             List<List<string>> lb = new List<List<string>>();
@@ -745,11 +746,12 @@ namespace LimitStateMethod.LoadCombinations
 
         private void dgv_loads_comb_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
+            if (all_loads.Count == 0) return;
+
             int load_index = (e.RowIndex / 4);
             Current_Load_Index = load_index;
 
             List<string> ll = new List<string>();
-
 
 
             ll.AddRange(all_loads[load_index].ToArray());

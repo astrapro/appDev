@@ -357,11 +357,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.btn_deck_view_moving = new System.Windows.Forms.Button();
+            this.btn_deck_view_post = new System.Windows.Forms.Button();
             this.cmb_deck_input_files = new System.Windows.Forms.ComboBox();
             this.btn_deck_view_report = new System.Windows.Forms.Button();
             this.btn_deck_view_data = new System.Windows.Forms.Button();
-            this.btn_deck_view_struc = new System.Windows.Forms.Button();
+            this.btn_deck_view_pre = new System.Windows.Forms.Button();
             this.btn_Deck_Analysis = new System.Windows.Forms.Button();
             this.btn_Deck_Create_Data = new System.Windows.Forms.Button();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
@@ -3764,11 +3764,11 @@
             // 
             // groupBox15
             // 
-            this.groupBox15.Controls.Add(this.btn_deck_view_moving);
+            this.groupBox15.Controls.Add(this.btn_deck_view_post);
             this.groupBox15.Controls.Add(this.cmb_deck_input_files);
             this.groupBox15.Controls.Add(this.btn_deck_view_report);
             this.groupBox15.Controls.Add(this.btn_deck_view_data);
-            this.groupBox15.Controls.Add(this.btn_deck_view_struc);
+            this.groupBox15.Controls.Add(this.btn_deck_view_pre);
             this.groupBox15.Location = new System.Drawing.Point(171, 11);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(275, 123);
@@ -3776,16 +3776,16 @@
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Select Analysis File";
             // 
-            // btn_deck_view_moving
+            // btn_deck_view_post
             // 
-            this.btn_deck_view_moving.Enabled = false;
-            this.btn_deck_view_moving.Location = new System.Drawing.Point(149, 84);
-            this.btn_deck_view_moving.Name = "btn_deck_view_moving";
-            this.btn_deck_view_moving.Size = new System.Drawing.Size(119, 33);
-            this.btn_deck_view_moving.TabIndex = 78;
-            this.btn_deck_view_moving.Text = "View Moving Load";
-            this.btn_deck_view_moving.UseVisualStyleBackColor = true;
-            this.btn_deck_view_moving.Click += new System.EventHandler(this.btn_deck_view_data_Click);
+            this.btn_deck_view_post.Enabled = false;
+            this.btn_deck_view_post.Location = new System.Drawing.Point(149, 84);
+            this.btn_deck_view_post.Name = "btn_deck_view_post";
+            this.btn_deck_view_post.Size = new System.Drawing.Size(119, 33);
+            this.btn_deck_view_post.TabIndex = 78;
+            this.btn_deck_view_post.Text = "View Post Process";
+            this.btn_deck_view_post.UseVisualStyleBackColor = true;
+            this.btn_deck_view_post.Click += new System.EventHandler(this.btn_deck_view_data_Click);
             // 
             // cmb_deck_input_files
             // 
@@ -3828,16 +3828,16 @@
             this.btn_deck_view_data.UseVisualStyleBackColor = true;
             this.btn_deck_view_data.Click += new System.EventHandler(this.btn_deck_view_data_Click);
             // 
-            // btn_deck_view_struc
+            // btn_deck_view_pre
             // 
-            this.btn_deck_view_struc.Enabled = false;
-            this.btn_deck_view_struc.Location = new System.Drawing.Point(149, 43);
-            this.btn_deck_view_struc.Name = "btn_deck_view_struc";
-            this.btn_deck_view_struc.Size = new System.Drawing.Size(119, 30);
-            this.btn_deck_view_struc.TabIndex = 74;
-            this.btn_deck_view_struc.Text = "View Structure";
-            this.btn_deck_view_struc.UseVisualStyleBackColor = true;
-            this.btn_deck_view_struc.Click += new System.EventHandler(this.btn_deck_view_data_Click);
+            this.btn_deck_view_pre.Enabled = false;
+            this.btn_deck_view_pre.Location = new System.Drawing.Point(149, 43);
+            this.btn_deck_view_pre.Name = "btn_deck_view_pre";
+            this.btn_deck_view_pre.Size = new System.Drawing.Size(119, 30);
+            this.btn_deck_view_pre.TabIndex = 74;
+            this.btn_deck_view_pre.Text = "View Pre Process";
+            this.btn_deck_view_pre.UseVisualStyleBackColor = true;
+            this.btn_deck_view_pre.Click += new System.EventHandler(this.btn_deck_view_data_Click);
             // 
             // btn_Deck_Analysis
             // 
@@ -4285,11 +4285,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.GroupBox groupBox15;
-        private System.Windows.Forms.Button btn_deck_view_moving;
+        private System.Windows.Forms.Button btn_deck_view_post;
         private System.Windows.Forms.ComboBox cmb_deck_input_files;
         private System.Windows.Forms.Button btn_deck_view_report;
         private System.Windows.Forms.Button btn_deck_view_data;
-        private System.Windows.Forms.Button btn_deck_view_struc;
+        private System.Windows.Forms.Button btn_deck_view_pre;
         private System.Windows.Forms.Button btn_Deck_Analysis;
         private System.Windows.Forms.Button btn_Deck_Create_Data;
         private System.Windows.Forms.GroupBox groupBox20;

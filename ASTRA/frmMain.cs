@@ -1070,6 +1070,18 @@ namespace AstraFunctionOne
                     View_Result(MyList.Get_Analysis_Report_File(WorkingFile));
             }
         }
+        public void Open_TextFile(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                System.Diagnostics.Process.Start(fileName);
+            }
+            else
+            {
+                MessageBox.Show(fileName + " file not found.", "ASTRA", MessageBoxButtons.OK);
+            }
+        }
+
         public void RunExe(string exeFileName)
         {
             if (exeFileName == "") return;
@@ -2251,6 +2263,7 @@ namespace AstraFunctionOne
             if (IsRelease_22)
             {
                 frm_RCC_T_Girder_LS_New frm = new frm_RCC_T_Girder_LS_New(this);
+                //frmRCC_T_Girder_Stage frm = new frmRCC_T_Girder_Stage(this);
                 frm.Owner = this;
                 frm.Show();
             }
@@ -4101,7 +4114,19 @@ namespace AstraFunctionOne
             {
                 ShowTimerScreen(eASTRAImage.Cable_Stayed_Bridge);
 
-                if (DesignStandard == eDesignStandard.LRFDStandard)
+                if (DesignStandard == eDesignStandard.IndianStandard)
+                {
+                    frm = new frmCableStayed_LS_Stage(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
+                else if (DesignStandard == eDesignStandard.BritishStandard)
+                {
+                    frm = new frmCableStayed_LS_Stage(this);
+                    frm.Owner = this;
+                    frm.Show();
+                }
+                else if (DesignStandard == eDesignStandard.LRFDStandard)
                 {
                     frm = new frmCableStayed_AASHTO(this);
                     frm.Owner = this;
@@ -4110,6 +4135,7 @@ namespace AstraFunctionOne
                 else
                 {
                     frm = new frmCableStayed_LS(this);
+                    //frm = new frmCableStayed_LS_Stage(this);
                     frm.Owner = this;
                     frm.Show();
                 }
@@ -4118,17 +4144,35 @@ namespace AstraFunctionOne
             {
                 ShowTimerScreen(eASTRAImage.Extradosed_SideTowers);
 
-                frm = new frm_Extradossed(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
+                //if (DesignStandard == eDesignStandard.IndianStandard)
+                //{
+                frm = new frm_Extradosed_Stage(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
                 frm.Owner = this;
-                frm.ShowDialog();
+                frm.Show();
+                //}
+                //else
+                //{
+                //    frm = new frm_Extradosed(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
+                //    frm.Owner = this;
+                //    frm.Show();
+                //}
             }
             if (tsmi == tsmi_extradossed_central_towers)
             {
                 ShowTimerScreen(eASTRAImage.Extradosed_CentralTowers);
 
-                frm = new frm_Extradossed(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
+                //if (DesignStandard == eDesignStandard.IndianStandard)
+                //{
+                frm = new frm_Extradosed_Stage(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
                 frm.Owner = this;
                 frm.ShowDialog();
+                //}
+                //else
+                //{
+                //    frm = new frm_Extradosed(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
+                //    frm.Owner = this;
+                //    frm.ShowDialog();
+                //}
             }
         }
 
@@ -4633,6 +4677,10 @@ namespace AstraFunctionOne
 
                 sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp.tmp");
                 File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+
+                //sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp2.tmp");
+                //File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
 
             }
             #endregion SAP Analysis
@@ -6383,6 +6431,78 @@ namespace AstraFunctionOne
         }
 
         #endregion
+
+        public void Change_Stage_Coordinates(string prev_File, string new_file)
+        {
+            CBridgeStructure prv = new CBridgeStructure(prev_File);
+            NodeResults nr = new NodeResults();
+
+            string max_defl = Path.Combine(Path.GetDirectoryName(prev_File), "MAX_DEFLECTION.TXT");
+            List<string> list = new List<string>();
+
+            if (!File.Exists(max_defl)) return;
+
+            if (File.Exists(max_defl))
+            {
+                list.AddRange(File.ReadAllLines(max_defl));
+                foreach (var item in list)
+                {
+                    var ml = new MyList(MyList.RemoveAllSpaces(item), ' ');
+                    var nrd = new NodeResultData();
+                    if (ml.Count == 4)
+                    {
+                        try
+                        {
+                            nrd.NodeNo = ml.GetInt(0);
+                            nrd.X_Translation = ml.GetDouble(1);
+                            nrd.Y_Translation = ml.GetDouble(2);
+                            nrd.Z_Translation = ml.GetDouble(3);
+                            nr.Add(nrd);
+                        }
+                        catch (Exception exx) { }
+                    }
+                }
+            }
+
+
+            List<string> lst_delf = new List<string>();
+
+
+            for (int i = 0; i < prv.Joints.Count; i++)
+            {
+                var jnt = prv.Joints[i];
+                jnt.X += nr[i].X_Translation;
+                jnt.Y += nr[i].Y_Translation;
+                jnt.Z += nr[i].Z_Translation;
+
+                //lst_delf.Add(jnt.ToString());
+
+                lst_delf.Add(string.Format("{0,-5} {1,10:f5} {2,10:f5} {3,10:f5}", jnt.NodeNo, jnt.X, jnt.Y, jnt.Z));
+
+            }
+            list.Clear();
+            list.AddRange(File.ReadAllLines(new_file));
+            bool flag = false;
+            int cnt = 0;
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i].ToUpper().StartsWith("JOINT C"))
+                {
+                    flag = true; continue;
+                }
+                if (list[i].ToUpper().StartsWith("MEMBER"))
+                {
+                    flag = false;
+                    break;
+                }
+                if (flag)
+                {
+                    list[i] = lst_delf[cnt++];
+                }
+            }
+            File.WriteAllLines(new_file, list.ToArray());
+        }
+
     }
 }
 

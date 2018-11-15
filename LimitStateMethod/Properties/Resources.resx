@@ -124,8 +124,8 @@
   <data name="case_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\case_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Crash Barrier on BHS [Case_1]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on BHS [Case_1].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Crash Barrier on LHS [Case_5]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on LHS [Case_5].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PSC I Girder Analysis Image1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC I Girder Analysis Image1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +136,8 @@
   <data name="PSC_IMG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC_IMG2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="img3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\img3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Crash Barrier on BHS [Case_9]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on BHS [Case_9].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PSC_IMG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC_IMG1.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +151,8 @@
   <data name="fig_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fig_11.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fig_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fig_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="IG SUPP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\IG SUPP.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="comp_dia_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comp_dia_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,11 +160,20 @@
   <data name="comp_dia_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\comp_dia_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Extradosed Either Side Tower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Extradosed Either Side Tower.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AASHTO_BOX_CROSSSECTION" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AASHTO_BOX_CROSSSECTION.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PSC Girder Mid Span Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC Girder Mid Span Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="T_Girder_Outer_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\T_Girder_Outer_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Crash Barrier on RHS [Case_9]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on RHS [Case_9].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SLAB Culvert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SLAB Culvert.JPG;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,12 +183,6 @@
   </data>
   <data name="End_Span_cross_Girder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\End_Span_cross_Girder.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fig_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fig_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="steel_truss_warren1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\steel_truss_warren1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="img5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img5.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -195,9 +198,6 @@
   </data>
   <data name="img_truss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img_truss.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OpenFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OpenFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Parapet [Case_1] No Footpath " type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Parapet [Case_1] No Footpath .jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,11 +220,20 @@
   <data name="Steel_Box_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Steel_Box_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="T_Girder_Cross_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\T_Girder_Cross_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AASHTO_BOX_CROSSSECTION_SAMPLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AASHTO_BOX_CROSSSECTION_SAMPLE.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fig_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fig_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LRFD_I_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LRFD_I_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Crash Barrier on BHS [Case_1]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on BHS [Case_1].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fig_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fig_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="End Cross Girder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\End Cross Girder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,11 +244,8 @@
   <data name="ElastomericBearing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ElastomericBearing.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Crash Barrier on BHS [Case_4]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on BHS [Case_4].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fig_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fig_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Crash Barrier on BHS [Case_7]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on BHS [Case_7].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="suspension_abutment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\suspension_abutment.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,8 +259,8 @@
   <data name="Parapet [Case_2] Both Footpaths" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Parapet [Case_2] Both Footpaths.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Crash Barrier on BHS [Case_7]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on BHS [Case_7].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fig_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fig_12.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="img1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -283,17 +289,17 @@
   <data name="PSC I Girder GAD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC I Girder GAD.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="IG SUPP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\IG SUPP.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="T_Girder_Cross_Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\T_Girder_Cross_Section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Crash Barrier on LHS [Case_5]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on LHS [Case_5].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AASHTO_BOX_CROSSSECTION" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AASHTO_BOX_CROSSSECTION.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Crash Barrier on BHS [Case_4]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on BHS [Case_4].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="IGMS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IGMS.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fig_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fig_5.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Parapet [Case_3] LHS Footpath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Parapet [Case_3] LHS Footpath.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,20 +307,17 @@
   <data name="Software Used Images1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Software Used Images1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Crash Barrier on BHS [Case_9]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on BHS [Case_9].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="fig_8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fig_8.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Parapet [Case_4] LHS Footpath" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Parapet [Case_4] LHS Footpath.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fig_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fig_5.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="steel_truss_warren1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\steel_truss_warren1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="comp_dia_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\comp_dia_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="fig_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fig_6.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Humber_Bay_Arch_Bridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Humber_Bay_Arch_Bridge.jpeg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,6 +331,12 @@
   <data name="Steel_Truss_Warre3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Steel_Truss_Warre3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PSC Girder End Span Composite Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PSC Girder End Span Composite Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fig_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fig_4.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fig_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fig_10.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -340,8 +349,8 @@
   <data name="Pier Image for RCC &amp; PSC Bridges" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pier Image for RCC &amp; PSC Bridges.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fig_12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fig_12.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="OpenFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OpenFolder.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExtradossedCentralTowers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExtradossedCentralTowers.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -352,8 +361,11 @@
   <data name="Steel_Truss_K_Type_Invert" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Steel_Truss_K_Type_Invert.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PSC Girder End Span Composite Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PSC Girder End Span Composite Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="img3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cable Stayed Bridge3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable Stayed Bridge3.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fig_7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fig_7.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -367,6 +379,9 @@
   <data name="StoneMasonryPier" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StoneMasonryPier.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cable_Stayed_Bridge1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cable_Stayed_Bridge1.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="abut_box_girder_section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\abut_box_girder_section.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -379,20 +394,17 @@
   <data name="PSC Girder End Span Section" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PSC Girder End Span Section.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fig_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fig_6.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Crash Barrier on LHS [Case_10]" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Crash Barrier on LHS [Case_10].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Crash Barrier on BHS [Case_8]" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Crash Barrier on BHS [Case_8].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="AASHTO_BOX_CROSSSECTION_SAMPLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\AASHTO_BOX_CROSSSECTION_SAMPLE.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="comp_dia_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\comp_dia_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Crash Barrier on LHS [Case_10]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on LHS [Case_10].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Crash Barrier on RHS [Case_9]" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Crash Barrier on RHS [Case_9].jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ExtradosedEitherSideTower" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ExtradosedEitherSideTower.bmp;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

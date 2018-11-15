@@ -17772,9 +17772,14 @@ namespace LimitStateMethod.Composite
                 "ASTRA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
             {
                 if (btn.Name == btn_deck_restore_ll.Name)
+                {
                     Default_Moving_LoadData(dgv_deck_liveloads);
+                }
                 else if (btn.Name == btn_long_restore_ll_IRC.Name)
+                {
                     Default_Moving_LoadData(dgv_long_liveloads);
+                    Default_Moving_Type_LoadData(dgv_long_loads);
+                }
                 else if (btn.Name == btn_long_restore_ll_BS.Name)
                 {
 

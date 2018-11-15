@@ -38,6 +38,8 @@ namespace AstraInterface.DataStructure
                 ControlNames.Add(ctrl.Name);
             }
         }
+        List<string> dap = new List<string>();
+
         public void AddControls(Control ctrl)
         {
             //list_txt.Count
@@ -49,6 +51,17 @@ namespace AstraInterface.DataStructure
             if(uc != null)
             {
                 UC_NAME = uc.Name;
+
+                if (dap.Contains(UC_NAME))
+                {
+
+                    //UC_NAME = UC_NAME;
+
+
+                    while (dap.Contains(UC_NAME))
+                        UC_NAME = UC_NAME + "1";
+                }
+                dap.Add(UC_NAME);
                 //ctrl.Parent
             }
 
@@ -90,11 +103,17 @@ namespace AstraInterface.DataStructure
                         (ctrl.Controls[i] is ComboBox) ||
                         (ctrl.Controls[i] is CheckBox ) ||
                         (ctrl.Controls[i] is DataGridView ) ||
-                        (ctrl.Controls[i] is RadioButton ) ||
-                        (ctrl.Controls[i] is UserControl ))
+                        (ctrl.Controls[i] is RadioButton ) 
+                        //|| (ctrl.Controls[i] is UserControl )
+                        )
                     {
                         Add(ctrl.Controls[i]);
                     }
+                    else if ((ctrl.Controls[i] is UserControl))
+                    {
+                        Add(ctrl.Controls[i]);
+                    }
+
 
                 }
                 catch (Exception exx) { }

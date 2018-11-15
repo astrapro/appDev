@@ -4608,6 +4608,7 @@ namespace LimitStateMethod.DeckSlab
             int i = 0;
 
             bool isMoving_load = false;
+
             for (i = 0; i < inp_file_cont.Count; i++)
             {
                 kStr = MyList.RemoveAllSpaces(inp_file_cont[i].ToUpper());
@@ -4633,12 +4634,21 @@ namespace LimitStateMethod.DeckSlab
                 }
 
             }
+             
 
             List<string> load_lst = new List<string>();
 
             string s = " DL";
 
-            if (add_DeadLoad)
+
+            if (deck_member_load.Count == 0)
+            {
+                deck_member_load.Add(2.6739);
+                deck_member_load.Add(0.0468);
+                deck_member_load.Add(0.1112);
+                deck_member_load.Add(0.0000);
+            }
+            if (add_DeadLoad )
             {
                 
                 load_lst.Add("LOAD 1 DEAD LOAD");
@@ -4668,6 +4678,7 @@ namespace LimitStateMethod.DeckSlab
             }
             else
             {
+                //indx = -1;
                 //load_lst.Add("LOAD 1");
                 //load_lst.Add("MEMBER LOAD");
                 //load_lst.Add("1 TO " + Deck_Analysis.MemColls.Count + " UNI GY -0.001");
@@ -4712,9 +4723,12 @@ namespace LimitStateMethod.DeckSlab
                 }
                 load_lst.AddRange(list.ToArray());
             }
-            inp_file_cont.InsertRange(indx, load_lst);
-            //inp_file_cont.InsertRange(indx, );
-            File.WriteAllLines(file_name, inp_file_cont.ToArray());
+            if (indx != -1)
+            {
+                inp_file_cont.InsertRange(indx, load_lst);
+                //inp_file_cont.InsertRange(indx, );
+                File.WriteAllLines(file_name, inp_file_cont.ToArray());
+            }
             //MessageBox.Show(this, "Load data is added in file " + file_name, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
@@ -4760,11 +4774,12 @@ namespace LimitStateMethod.DeckSlab
                 else if (cmb.SelectedIndex == 6) filename = Deck_Analysis.LL_Analysis_6_Input_File;
                 else if (cmb.SelectedIndex == 7) filename = File_DeckSlab_Results;
             }
-            btn_deck_view_data.Enabled = File.Exists(filename);
-            btn_deck_view_moving.Enabled = File.Exists(MyList.Get_LL_TXT_File(filename)) && File.Exists(MyList.Get_Analysis_Report_File(filename));
-            btn_deck_view_struc.Enabled = File.Exists(filename) && cmb.SelectedIndex != 7;
-            btn_deck_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(filename));
 
+
+            btn_deck_view_data.Enabled = File.Exists(filename);
+            btn_deck_view_pre.Enabled = File.Exists(filename) && cmb.SelectedIndex != 7;
+            btn_deck_view_post.Enabled = File.Exists(MyList.Get_Analysis_Report_File(filename));
+            btn_deck_view_report.Enabled = File.Exists(MyList.Get_Analysis_Report_File(filename));
         }
 
         public string Excel_Deckslab
@@ -5116,10 +5131,14 @@ namespace LimitStateMethod.DeckSlab
             }
             else if (btn.Name == btn_deck_view_report.Name)
                 iApp.RunExe(MyList.Get_Analysis_Report_File(filename));
-            else if (btn.Name == btn_deck_view_struc.Name)
-                iApp.OpenWork(filename, false);
-            else if (btn.Name == btn_deck_view_moving.Name)
-                iApp.OpenWork(filename, true);
+            else if (btn.Name == btn_deck_view_pre.Name)
+            {
+                iApp.View_PreProcess(filename);
+            }
+            else if (btn.Name == btn_deck_view_post.Name)
+            {
+                iApp.View_PostProcess(filename);
+            }
 
         }
 

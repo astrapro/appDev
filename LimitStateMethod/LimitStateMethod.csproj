@@ -109,6 +109,30 @@
     <Compile Include="CableStayed\frmCableStayed_LS.Designer.cs">
       <DependentUpon>frmCableStayed_LS.cs</DependentUpon>
     </Compile>
+    <Compile Include="CableStayed\frmCableStayed_LS_Stage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CableStayed\frmCableStayed_LS_Stage.Designer.cs">
+      <DependentUpon>frmCableStayed_LS_Stage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CableStayed\UC_CableStayed_Stage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CableStayed\UC_CableStayed_Stage.Designer.cs">
+      <DependentUpon>UC_CableStayed_Stage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CableStayed\UC_CompositeResults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CableStayed\UC_CompositeResults.Designer.cs">
+      <DependentUpon>UC_CompositeResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CableStayed\UC_CompositeSections.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CableStayed\UC_CompositeSections.Designer.cs">
+      <DependentUpon>UC_CompositeSections.cs</DependentUpon>
+    </Compile>
     <Compile Include="Composite\frmCompositeResults.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,17 +194,29 @@
     <Compile Include="Extradossed\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Extradossed\frm_Extradossed.cs">
+    <Compile Include="Extradossed\frm_Extradosed.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Extradossed\frm_Extradossed.Designer.cs">
-      <DependentUpon>frm_Extradossed.cs</DependentUpon>
+    <Compile Include="Extradossed\frm_Extradosed.Designer.cs">
+      <DependentUpon>frm_Extradosed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extradossed\frm_Extradosed_Stage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extradossed\frm_Extradosed_Stage.Designer.cs">
+      <DependentUpon>frm_Extradosed_Stage.cs</DependentUpon>
     </Compile>
     <Compile Include="Extradossed\UC_CableStayedDesign.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Extradossed\UC_CableStayedDesign.Designer.cs">
       <DependentUpon>UC_CableStayedDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extradossed\UC_Stage_Extradosed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extradossed\UC_Stage_Extradosed.Designer.cs">
+      <DependentUpon>UC_Stage_Extradosed.cs</DependentUpon>
     </Compile>
     <Compile Include="JettyDesign\frm_PSC_Jetty.cs">
       <SubType>Form</SubType>
@@ -298,6 +334,18 @@
     <Compile Include="RccCulvert\frm_BoxCulvert_LS.Designer.cs">
       <DependentUpon>frm_BoxCulvert_LS.cs</DependentUpon>
     </Compile>
+    <Compile Include="RCC_T_Girder\Form21.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RCC_T_Girder\Form21.Designer.cs">
+      <DependentUpon>Form21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RCC_T_Girder\frmRCC_T_Girder_Stage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RCC_T_Girder\frmRCC_T_Girder_Stage.Designer.cs">
+      <DependentUpon>frmRCC_T_Girder_Stage.cs</DependentUpon>
+    </Compile>
     <Compile Include="RCC_T_Girder\frm_RCC_T_Girder_LS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +360,12 @@
     </Compile>
     <Compile Include="RCC_T_Girder\RCC_T_Girder.cs" />
     <Compile Include="RCC_T_Girder\RCC_T_Girder_Excel_Update.cs" />
+    <Compile Include="RCC_T_Girder\UC_Stage_T_Girder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RCC_T_Girder\UC_Stage_T_Girder.Designer.cs">
+      <DependentUpon>UC_Stage_T_Girder.cs</DependentUpon>
+    </Compile>
     <Compile Include="SlabBridge\frmSlabBridge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -466,6 +520,18 @@
     <EmbeddedResource Include="CableStayed\frmCableStayed_LS.resx">
       <DependentUpon>frmCableStayed_LS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\frmCableStayed_LS_Stage.resx">
+      <DependentUpon>frmCableStayed_LS_Stage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\UC_CableStayed_Stage.resx">
+      <DependentUpon>UC_CableStayed_Stage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\UC_CompositeResults.resx">
+      <DependentUpon>UC_CompositeResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\UC_CompositeSections.resx">
+      <DependentUpon>UC_CompositeSections.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Composite\frmCompositeResults.resx">
       <DependentUpon>frmCompositeResults.cs</DependentUpon>
     </EmbeddedResource>
@@ -496,11 +562,17 @@
     <EmbeddedResource Include="Extradossed\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Extradossed\frm_Extradossed.resx">
-      <DependentUpon>frm_Extradossed.cs</DependentUpon>
+    <EmbeddedResource Include="Extradossed\frm_Extradosed.resx">
+      <DependentUpon>frm_Extradosed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extradossed\frm_Extradosed_Stage.resx">
+      <DependentUpon>frm_Extradosed_Stage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extradossed\UC_CableStayedDesign.resx">
       <DependentUpon>UC_CableStayedDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extradossed\UC_Stage_Extradosed.resx">
+      <DependentUpon>UC_Stage_Extradosed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JettyDesign\frm_PSC_Jetty.resx">
       <DependentUpon>frm_PSC_Jetty.cs</DependentUpon>
@@ -560,11 +632,20 @@
     <EmbeddedResource Include="RccCulvert\frm_BoxCulvert_LS.resx">
       <DependentUpon>frm_BoxCulvert_LS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RCC_T_Girder\Form21.resx">
+      <DependentUpon>Form21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RCC_T_Girder\frmRCC_T_Girder_Stage.resx">
+      <DependentUpon>frmRCC_T_Girder_Stage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RCC_T_Girder\frm_RCC_T_Girder_LS.resx">
       <DependentUpon>frm_RCC_T_Girder_LS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RCC_T_Girder\frm_RCC_T_Girder_LS_New.resx">
       <DependentUpon>frm_RCC_T_Girder_LS_New.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RCC_T_Girder\UC_Stage_T_Girder.resx">
+      <DependentUpon>UC_Stage_T_Girder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SlabBridge\frmSlabBridge.resx">
       <DependentUpon>frmSlabBridge.cs</DependentUpon>
@@ -900,6 +981,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Crash Barrier on RHS [Case_9].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable Stayed Bridge3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cable_Stayed_Bridge1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Extradosed Either Side Tower.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExtradosedEitherSideTower.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

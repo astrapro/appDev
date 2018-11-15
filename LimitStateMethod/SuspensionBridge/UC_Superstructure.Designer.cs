@@ -327,9 +327,21 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.uC_moto_sec_3 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_moto_sec_2 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_moto_sec_1 = new LimitStateMethod.SuspensionBridge.UC_Channels();
             this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.uC_moto_sec_6 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_moto_sec_5 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_moto_sec_4 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.uC_moto_sec_9 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_moto_sec_8 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_moto_sec_7 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.uC_moto_sec_12 = new LimitStateMethod.SuspensionBridge.UC_Channels();
+            this.uC_moto_sec_11 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_moto_sec_10 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
@@ -368,9 +380,21 @@
             this.tabPage21 = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.uC_foot_sec_3 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_foot_sec_2 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_foot_sec_1 = new LimitStateMethod.SuspensionBridge.UC_Channels();
             this.tabPage23 = new System.Windows.Forms.TabPage();
+            this.uC_foot_sec_6 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_foot_sec_5 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_foot_sec_4 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.tabPage24 = new System.Windows.Forms.TabPage();
+            this.uC_foot_sec_8 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_foot_sec_9 = new LimitStateMethod.SuspensionBridge.UC_Angles();
+            this.uC_foot_sec_7 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.tabPage25 = new System.Windows.Forms.TabPage();
+            this.uC_foot_sec_12 = new LimitStateMethod.SuspensionBridge.UC_Beams();
+            this.uC_foot_sec_11 = new LimitStateMethod.SuspensionBridge.UC_Channels();
+            this.uC_foot_sec_10 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_susp_abut_RL5 = new System.Windows.Forms.TextBox();
@@ -425,30 +449,6 @@
             this.btn_cable_open_des = new System.Windows.Forms.Button();
             this.btn_cable_open = new System.Windows.Forms.Button();
             this.btn_cable_new = new System.Windows.Forms.Button();
-            this.uC_moto_sec_3 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_moto_sec_2 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_moto_sec_1 = new LimitStateMethod.SuspensionBridge.UC_Channels();
-            this.uC_moto_sec_6 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_moto_sec_5 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_moto_sec_4 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_moto_sec_9 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_moto_sec_8 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_moto_sec_7 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_moto_sec_12 = new LimitStateMethod.SuspensionBridge.UC_Channels();
-            this.uC_moto_sec_11 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_moto_sec_10 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_3 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_2 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_foot_sec_1 = new LimitStateMethod.SuspensionBridge.UC_Channels();
-            this.uC_foot_sec_6 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_5 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_4 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_8 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_foot_sec_9 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_7 = new LimitStateMethod.SuspensionBridge.UC_Angles();
-            this.uC_foot_sec_12 = new LimitStateMethod.SuspensionBridge.UC_Beams();
-            this.uC_foot_sec_11 = new LimitStateMethod.SuspensionBridge.UC_Channels();
-            this.uC_foot_sec_10 = new LimitStateMethod.SuspensionBridge.UC_Angles();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -3504,6 +3504,57 @@
             this.tabPage17.Text = "Page 1";
             this.tabPage17.UseVisualStyleBackColor = true;
             // 
+            // uC_moto_sec_3
+            // 
+            this.uC_moto_sec_3.Area = "";
+            this.uC_moto_sec_3.D = "";
+            this.uC_moto_sec_3.iApp = null;
+            this.uC_moto_sec_3.Ixx = "";
+            this.uC_moto_sec_3.Location = new System.Drawing.Point(439, 18);
+            this.uC_moto_sec_3.Name = "uC_moto_sec_3";
+            this.uC_moto_sec_3.Pro_Grid = null;
+            this.uC_moto_sec_3.Section_Name = "";
+            this.uC_moto_sec_3.Section_Size = "";
+            this.uC_moto_sec_3.Size = new System.Drawing.Size(192, 207);
+            this.uC_moto_sec_3.TabIndex = 2;
+            this.uC_moto_sec_3.Title = "3. Transoms Section";
+            this.uC_moto_sec_3.tw = "";
+            this.uC_moto_sec_3.Zxx = "";
+            // 
+            // uC_moto_sec_2
+            // 
+            this.uC_moto_sec_2.Area = "";
+            this.uC_moto_sec_2.D = "";
+            this.uC_moto_sec_2.iApp = null;
+            this.uC_moto_sec_2.Ixx = "";
+            this.uC_moto_sec_2.Location = new System.Drawing.Point(227, 18);
+            this.uC_moto_sec_2.Name = "uC_moto_sec_2";
+            this.uC_moto_sec_2.Pro_Grid = null;
+            this.uC_moto_sec_2.Section_Name = "";
+            this.uC_moto_sec_2.Section_Size = "";
+            this.uC_moto_sec_2.Size = new System.Drawing.Size(192, 207);
+            this.uC_moto_sec_2.TabIndex = 2;
+            this.uC_moto_sec_2.Title = "2. Road Bearers Section";
+            this.uC_moto_sec_2.tw = "";
+            this.uC_moto_sec_2.Zxx = "";
+            // 
+            // uC_moto_sec_1
+            // 
+            this.uC_moto_sec_1.Area = "";
+            this.uC_moto_sec_1.D = "";
+            this.uC_moto_sec_1.iApp = null;
+            this.uC_moto_sec_1.Ixx = "";
+            this.uC_moto_sec_1.Location = new System.Drawing.Point(15, 18);
+            this.uC_moto_sec_1.Name = "uC_moto_sec_1";
+            this.uC_moto_sec_1.Pro_Grid = null;
+            this.uC_moto_sec_1.Section_Name = "";
+            this.uC_moto_sec_1.Section_Size = "";
+            this.uC_moto_sec_1.Size = new System.Drawing.Size(192, 207);
+            this.uC_moto_sec_1.TabIndex = 1;
+            this.uC_moto_sec_1.Title = "1. Steel Deck Section";
+            this.uC_moto_sec_1.tw = "";
+            this.uC_moto_sec_1.Zxx = "";
+            // 
             // tabPage18
             // 
             this.tabPage18.Controls.Add(this.uC_moto_sec_6);
@@ -3516,6 +3567,69 @@
             this.tabPage18.TabIndex = 1;
             this.tabPage18.Text = "Page 2";
             this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // uC_moto_sec_6
+            // 
+            this.uC_moto_sec_6.Area = "";
+            this.uC_moto_sec_6.b = "";
+            this.uC_moto_sec_6.Cyy = "";
+            this.uC_moto_sec_6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_6.h = "";
+            this.uC_moto_sec_6.iApp = null;
+            this.uC_moto_sec_6.Ixx = "";
+            this.uC_moto_sec_6.Iyy = "";
+            this.uC_moto_sec_6.Location = new System.Drawing.Point(464, 6);
+            this.uC_moto_sec_6.Name = "uC_moto_sec_6";
+            this.uC_moto_sec_6.Pro_Grid = null;
+            this.uC_moto_sec_6.Section_Name = "";
+            this.uC_moto_sec_6.Section_Size = "";
+            this.uC_moto_sec_6.Size = new System.Drawing.Size(202, 281);
+            this.uC_moto_sec_6.TabIndex = 1;
+            this.uC_moto_sec_6.tf = "";
+            this.uC_moto_sec_6.Title = "6.  Diagonal members Section";
+            this.uC_moto_sec_6.tw = "";
+            // 
+            // uC_moto_sec_5
+            // 
+            this.uC_moto_sec_5.Area = "";
+            this.uC_moto_sec_5.b = "";
+            this.uC_moto_sec_5.Cyy = "";
+            this.uC_moto_sec_5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_5.h = "";
+            this.uC_moto_sec_5.iApp = null;
+            this.uC_moto_sec_5.Ixx = "";
+            this.uC_moto_sec_5.Iyy = "";
+            this.uC_moto_sec_5.Location = new System.Drawing.Point(243, 6);
+            this.uC_moto_sec_5.Name = "uC_moto_sec_5";
+            this.uC_moto_sec_5.Pro_Grid = null;
+            this.uC_moto_sec_5.Section_Name = "";
+            this.uC_moto_sec_5.Section_Size = "";
+            this.uC_moto_sec_5.Size = new System.Drawing.Size(202, 281);
+            this.uC_moto_sec_5.TabIndex = 1;
+            this.uC_moto_sec_5.tf = "";
+            this.uC_moto_sec_5.Title = "5. Vertical members Section";
+            this.uC_moto_sec_5.tw = "";
+            // 
+            // uC_moto_sec_4
+            // 
+            this.uC_moto_sec_4.Area = "";
+            this.uC_moto_sec_4.b = "";
+            this.uC_moto_sec_4.Cyy = "";
+            this.uC_moto_sec_4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_4.h = "";
+            this.uC_moto_sec_4.iApp = null;
+            this.uC_moto_sec_4.Ixx = "";
+            this.uC_moto_sec_4.Iyy = "";
+            this.uC_moto_sec_4.Location = new System.Drawing.Point(6, 6);
+            this.uC_moto_sec_4.Name = "uC_moto_sec_4";
+            this.uC_moto_sec_4.Pro_Grid = null;
+            this.uC_moto_sec_4.Section_Name = "";
+            this.uC_moto_sec_4.Section_Size = "";
+            this.uC_moto_sec_4.Size = new System.Drawing.Size(202, 281);
+            this.uC_moto_sec_4.TabIndex = 1;
+            this.uC_moto_sec_4.tf = "";
+            this.uC_moto_sec_4.Title = "4. Top && Bottom chords Section";
+            this.uC_moto_sec_4.tw = "";
             // 
             // tabPage19
             // 
@@ -3530,6 +3644,66 @@
             this.tabPage19.Text = "Page 3";
             this.tabPage19.UseVisualStyleBackColor = true;
             // 
+            // uC_moto_sec_9
+            // 
+            this.uC_moto_sec_9.Area = "";
+            this.uC_moto_sec_9.D = "";
+            this.uC_moto_sec_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_9.iApp = null;
+            this.uC_moto_sec_9.Ixx = "";
+            this.uC_moto_sec_9.Location = new System.Drawing.Point(513, 26);
+            this.uC_moto_sec_9.Name = "uC_moto_sec_9";
+            this.uC_moto_sec_9.Pro_Grid = null;
+            this.uC_moto_sec_9.Section_Name = "";
+            this.uC_moto_sec_9.Section_Size = "";
+            this.uC_moto_sec_9.Size = new System.Drawing.Size(192, 207);
+            this.uC_moto_sec_9.TabIndex = 2;
+            this.uC_moto_sec_9.Title = "9. Supporting Beam Section";
+            this.uC_moto_sec_9.tw = "";
+            this.uC_moto_sec_9.Zxx = "";
+            // 
+            // uC_moto_sec_8
+            // 
+            this.uC_moto_sec_8.Area = "";
+            this.uC_moto_sec_8.b = "";
+            this.uC_moto_sec_8.Cyy = "";
+            this.uC_moto_sec_8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_8.h = "";
+            this.uC_moto_sec_8.iApp = null;
+            this.uC_moto_sec_8.Ixx = "";
+            this.uC_moto_sec_8.Iyy = "";
+            this.uC_moto_sec_8.Location = new System.Drawing.Point(257, 26);
+            this.uC_moto_sec_8.Name = "uC_moto_sec_8";
+            this.uC_moto_sec_8.Pro_Grid = null;
+            this.uC_moto_sec_8.Section_Name = "";
+            this.uC_moto_sec_8.Section_Size = "";
+            this.uC_moto_sec_8.Size = new System.Drawing.Size(202, 277);
+            this.uC_moto_sec_8.TabIndex = 1;
+            this.uC_moto_sec_8.tf = "";
+            this.uC_moto_sec_8.Title = "8. Splices Section";
+            this.uC_moto_sec_8.tw = "";
+            // 
+            // uC_moto_sec_7
+            // 
+            this.uC_moto_sec_7.Area = "";
+            this.uC_moto_sec_7.b = "";
+            this.uC_moto_sec_7.Cyy = "";
+            this.uC_moto_sec_7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_7.h = "";
+            this.uC_moto_sec_7.iApp = null;
+            this.uC_moto_sec_7.Ixx = "";
+            this.uC_moto_sec_7.Iyy = "";
+            this.uC_moto_sec_7.Location = new System.Drawing.Point(28, 26);
+            this.uC_moto_sec_7.Name = "uC_moto_sec_7";
+            this.uC_moto_sec_7.Pro_Grid = null;
+            this.uC_moto_sec_7.Section_Name = "";
+            this.uC_moto_sec_7.Section_Size = "";
+            this.uC_moto_sec_7.Size = new System.Drawing.Size(202, 277);
+            this.uC_moto_sec_7.TabIndex = 1;
+            this.uC_moto_sec_7.tf = "";
+            this.uC_moto_sec_7.Title = "7. Side struts Section";
+            this.uC_moto_sec_7.tw = "";
+            // 
             // tabPage20
             // 
             this.tabPage20.Controls.Add(this.uC_moto_sec_12);
@@ -3542,6 +3716,63 @@
             this.tabPage20.TabIndex = 3;
             this.tabPage20.Text = "Page 4";
             this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // uC_moto_sec_12
+            // 
+            this.uC_moto_sec_12.Area = "";
+            this.uC_moto_sec_12.D = "";
+            this.uC_moto_sec_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_12.iApp = null;
+            this.uC_moto_sec_12.Ixx = "";
+            this.uC_moto_sec_12.Location = new System.Drawing.Point(412, 6);
+            this.uC_moto_sec_12.Name = "uC_moto_sec_12";
+            this.uC_moto_sec_12.Pro_Grid = null;
+            this.uC_moto_sec_12.Section_Name = "";
+            this.uC_moto_sec_12.Section_Size = "";
+            this.uC_moto_sec_12.Size = new System.Drawing.Size(192, 207);
+            this.uC_moto_sec_12.TabIndex = 3;
+            this.uC_moto_sec_12.Title = "12. Anchor Block";
+            this.uC_moto_sec_12.tw = "";
+            this.uC_moto_sec_12.Zxx = "";
+            // 
+            // uC_moto_sec_11
+            // 
+            this.uC_moto_sec_11.Area = "";
+            this.uC_moto_sec_11.D = "";
+            this.uC_moto_sec_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_11.iApp = null;
+            this.uC_moto_sec_11.Ixx = "";
+            this.uC_moto_sec_11.Location = new System.Drawing.Point(214, 6);
+            this.uC_moto_sec_11.Name = "uC_moto_sec_11";
+            this.uC_moto_sec_11.Pro_Grid = null;
+            this.uC_moto_sec_11.Section_Name = "";
+            this.uC_moto_sec_11.Section_Size = "";
+            this.uC_moto_sec_11.Size = new System.Drawing.Size(192, 207);
+            this.uC_moto_sec_11.TabIndex = 2;
+            this.uC_moto_sec_11.Title = "11. Main Shaft Section";
+            this.uC_moto_sec_11.tw = "";
+            this.uC_moto_sec_11.Zxx = "";
+            // 
+            // uC_moto_sec_10
+            // 
+            this.uC_moto_sec_10.Area = "";
+            this.uC_moto_sec_10.b = "";
+            this.uC_moto_sec_10.Cyy = "";
+            this.uC_moto_sec_10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_moto_sec_10.h = "";
+            this.uC_moto_sec_10.iApp = null;
+            this.uC_moto_sec_10.Ixx = "";
+            this.uC_moto_sec_10.Iyy = "";
+            this.uC_moto_sec_10.Location = new System.Drawing.Point(6, 6);
+            this.uC_moto_sec_10.Name = "uC_moto_sec_10";
+            this.uC_moto_sec_10.Pro_Grid = null;
+            this.uC_moto_sec_10.Section_Name = "";
+            this.uC_moto_sec_10.Section_Size = "";
+            this.uC_moto_sec_10.Size = new System.Drawing.Size(202, 284);
+            this.uC_moto_sec_10.TabIndex = 1;
+            this.uC_moto_sec_10.tf = "";
+            this.uC_moto_sec_10.Title = "10. Wind Bracings Section";
+            this.uC_moto_sec_10.tw = "";
             // 
             // label1
             // 
@@ -3932,6 +4163,63 @@
             this.tabPage22.Text = "Page 1";
             this.tabPage22.UseVisualStyleBackColor = true;
             // 
+            // uC_foot_sec_3
+            // 
+            this.uC_foot_sec_3.Area = "";
+            this.uC_foot_sec_3.b = "";
+            this.uC_foot_sec_3.Cyy = "";
+            this.uC_foot_sec_3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_3.h = "";
+            this.uC_foot_sec_3.iApp = null;
+            this.uC_foot_sec_3.Ixx = "";
+            this.uC_foot_sec_3.Iyy = "";
+            this.uC_foot_sec_3.Location = new System.Drawing.Point(419, 16);
+            this.uC_foot_sec_3.Name = "uC_foot_sec_3";
+            this.uC_foot_sec_3.Pro_Grid = null;
+            this.uC_foot_sec_3.Section_Name = "";
+            this.uC_foot_sec_3.Section_Size = "";
+            this.uC_foot_sec_3.Size = new System.Drawing.Size(220, 281);
+            this.uC_foot_sec_3.TabIndex = 2;
+            this.uC_foot_sec_3.tf = "";
+            this.uC_foot_sec_3.Title = "3. Top and Bottom Chords Section";
+            this.uC_foot_sec_3.tw = "";
+            // 
+            // uC_foot_sec_2
+            // 
+            this.uC_foot_sec_2.Area = "";
+            this.uC_foot_sec_2.D = "";
+            this.uC_foot_sec_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_2.iApp = null;
+            this.uC_foot_sec_2.Ixx = "";
+            this.uC_foot_sec_2.Location = new System.Drawing.Point(210, 16);
+            this.uC_foot_sec_2.Name = "uC_foot_sec_2";
+            this.uC_foot_sec_2.Pro_Grid = null;
+            this.uC_foot_sec_2.Section_Name = "";
+            this.uC_foot_sec_2.Section_Size = "";
+            this.uC_foot_sec_2.Size = new System.Drawing.Size(192, 207);
+            this.uC_foot_sec_2.TabIndex = 1;
+            this.uC_foot_sec_2.Title = "2. Transoms Section";
+            this.uC_foot_sec_2.tw = "";
+            this.uC_foot_sec_2.Zxx = "";
+            // 
+            // uC_foot_sec_1
+            // 
+            this.uC_foot_sec_1.Area = "";
+            this.uC_foot_sec_1.D = "";
+            this.uC_foot_sec_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_1.iApp = null;
+            this.uC_foot_sec_1.Ixx = "";
+            this.uC_foot_sec_1.Location = new System.Drawing.Point(6, 16);
+            this.uC_foot_sec_1.Name = "uC_foot_sec_1";
+            this.uC_foot_sec_1.Pro_Grid = null;
+            this.uC_foot_sec_1.Section_Name = "";
+            this.uC_foot_sec_1.Section_Size = "";
+            this.uC_foot_sec_1.Size = new System.Drawing.Size(192, 207);
+            this.uC_foot_sec_1.TabIndex = 0;
+            this.uC_foot_sec_1.Title = "1. Road Bearers Section";
+            this.uC_foot_sec_1.tw = "";
+            this.uC_foot_sec_1.Zxx = "";
+            // 
             // tabPage23
             // 
             this.tabPage23.Controls.Add(this.uC_foot_sec_6);
@@ -3944,6 +4232,69 @@
             this.tabPage23.TabIndex = 1;
             this.tabPage23.Text = "Page 2";
             this.tabPage23.UseVisualStyleBackColor = true;
+            // 
+            // uC_foot_sec_6
+            // 
+            this.uC_foot_sec_6.Area = "";
+            this.uC_foot_sec_6.b = "";
+            this.uC_foot_sec_6.Cyy = "";
+            this.uC_foot_sec_6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_6.h = "";
+            this.uC_foot_sec_6.iApp = null;
+            this.uC_foot_sec_6.Ixx = "";
+            this.uC_foot_sec_6.Iyy = "";
+            this.uC_foot_sec_6.Location = new System.Drawing.Point(432, 6);
+            this.uC_foot_sec_6.Name = "uC_foot_sec_6";
+            this.uC_foot_sec_6.Pro_Grid = null;
+            this.uC_foot_sec_6.Section_Name = "";
+            this.uC_foot_sec_6.Section_Size = "";
+            this.uC_foot_sec_6.Size = new System.Drawing.Size(202, 291);
+            this.uC_foot_sec_6.TabIndex = 0;
+            this.uC_foot_sec_6.tf = "";
+            this.uC_foot_sec_6.Title = "6. Side struts  Section";
+            this.uC_foot_sec_6.tw = "";
+            // 
+            // uC_foot_sec_5
+            // 
+            this.uC_foot_sec_5.Area = "";
+            this.uC_foot_sec_5.b = "";
+            this.uC_foot_sec_5.Cyy = "";
+            this.uC_foot_sec_5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_5.h = "";
+            this.uC_foot_sec_5.iApp = null;
+            this.uC_foot_sec_5.Ixx = "";
+            this.uC_foot_sec_5.Iyy = "";
+            this.uC_foot_sec_5.Location = new System.Drawing.Point(224, 6);
+            this.uC_foot_sec_5.Name = "uC_foot_sec_5";
+            this.uC_foot_sec_5.Pro_Grid = null;
+            this.uC_foot_sec_5.Section_Name = "";
+            this.uC_foot_sec_5.Section_Size = "";
+            this.uC_foot_sec_5.Size = new System.Drawing.Size(202, 291);
+            this.uC_foot_sec_5.TabIndex = 0;
+            this.uC_foot_sec_5.tf = "";
+            this.uC_foot_sec_5.Title = "5. Diagonal Members Section";
+            this.uC_foot_sec_5.tw = "";
+            // 
+            // uC_foot_sec_4
+            // 
+            this.uC_foot_sec_4.Area = "";
+            this.uC_foot_sec_4.b = "";
+            this.uC_foot_sec_4.Cyy = "";
+            this.uC_foot_sec_4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_4.h = "";
+            this.uC_foot_sec_4.iApp = null;
+            this.uC_foot_sec_4.Ixx = "";
+            this.uC_foot_sec_4.Iyy = "";
+            this.uC_foot_sec_4.Location = new System.Drawing.Point(6, 6);
+            this.uC_foot_sec_4.Name = "uC_foot_sec_4";
+            this.uC_foot_sec_4.Pro_Grid = null;
+            this.uC_foot_sec_4.Section_Name = "";
+            this.uC_foot_sec_4.Section_Size = "";
+            this.uC_foot_sec_4.Size = new System.Drawing.Size(202, 291);
+            this.uC_foot_sec_4.TabIndex = 0;
+            this.uC_foot_sec_4.tf = "";
+            this.uC_foot_sec_4.Title = "4. Vertical Members Section";
+            this.uC_foot_sec_4.tw = "";
             // 
             // tabPage24
             // 
@@ -3958,6 +4309,66 @@
             this.tabPage24.Text = "Page 3";
             this.tabPage24.UseVisualStyleBackColor = true;
             // 
+            // uC_foot_sec_8
+            // 
+            this.uC_foot_sec_8.Area = "";
+            this.uC_foot_sec_8.D = "";
+            this.uC_foot_sec_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_8.iApp = null;
+            this.uC_foot_sec_8.Ixx = "";
+            this.uC_foot_sec_8.Location = new System.Drawing.Point(228, 17);
+            this.uC_foot_sec_8.Name = "uC_foot_sec_8";
+            this.uC_foot_sec_8.Pro_Grid = null;
+            this.uC_foot_sec_8.Section_Name = "";
+            this.uC_foot_sec_8.Section_Size = "";
+            this.uC_foot_sec_8.Size = new System.Drawing.Size(192, 207);
+            this.uC_foot_sec_8.TabIndex = 1;
+            this.uC_foot_sec_8.Title = "8. Supporting Beams Section";
+            this.uC_foot_sec_8.tw = "";
+            this.uC_foot_sec_8.Zxx = "";
+            // 
+            // uC_foot_sec_9
+            // 
+            this.uC_foot_sec_9.Area = "";
+            this.uC_foot_sec_9.b = "";
+            this.uC_foot_sec_9.Cyy = "";
+            this.uC_foot_sec_9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_9.h = "";
+            this.uC_foot_sec_9.iApp = null;
+            this.uC_foot_sec_9.Ixx = "";
+            this.uC_foot_sec_9.Iyy = "";
+            this.uC_foot_sec_9.Location = new System.Drawing.Point(448, 17);
+            this.uC_foot_sec_9.Name = "uC_foot_sec_9";
+            this.uC_foot_sec_9.Pro_Grid = null;
+            this.uC_foot_sec_9.Section_Name = "";
+            this.uC_foot_sec_9.Section_Size = "";
+            this.uC_foot_sec_9.Size = new System.Drawing.Size(202, 280);
+            this.uC_foot_sec_9.TabIndex = 0;
+            this.uC_foot_sec_9.tf = "";
+            this.uC_foot_sec_9.Title = "9. Typical connection Section";
+            this.uC_foot_sec_9.tw = "";
+            // 
+            // uC_foot_sec_7
+            // 
+            this.uC_foot_sec_7.Area = "";
+            this.uC_foot_sec_7.b = "";
+            this.uC_foot_sec_7.Cyy = "";
+            this.uC_foot_sec_7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_7.h = "";
+            this.uC_foot_sec_7.iApp = null;
+            this.uC_foot_sec_7.Ixx = "";
+            this.uC_foot_sec_7.Iyy = "";
+            this.uC_foot_sec_7.Location = new System.Drawing.Point(6, 17);
+            this.uC_foot_sec_7.Name = "uC_foot_sec_7";
+            this.uC_foot_sec_7.Pro_Grid = null;
+            this.uC_foot_sec_7.Section_Name = "";
+            this.uC_foot_sec_7.Section_Size = "";
+            this.uC_foot_sec_7.Size = new System.Drawing.Size(202, 280);
+            this.uC_foot_sec_7.TabIndex = 0;
+            this.uC_foot_sec_7.tf = "";
+            this.uC_foot_sec_7.Title = "7. Splices Section";
+            this.uC_foot_sec_7.tw = "";
+            // 
             // tabPage25
             // 
             this.tabPage25.Controls.Add(this.uC_foot_sec_12);
@@ -3970,6 +4381,63 @@
             this.tabPage25.TabIndex = 3;
             this.tabPage25.Text = "Page 4";
             this.tabPage25.UseVisualStyleBackColor = true;
+            // 
+            // uC_foot_sec_12
+            // 
+            this.uC_foot_sec_12.Area = "";
+            this.uC_foot_sec_12.D = "";
+            this.uC_foot_sec_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_12.iApp = null;
+            this.uC_foot_sec_12.Ixx = "";
+            this.uC_foot_sec_12.Location = new System.Drawing.Point(454, 6);
+            this.uC_foot_sec_12.Name = "uC_foot_sec_12";
+            this.uC_foot_sec_12.Pro_Grid = null;
+            this.uC_foot_sec_12.Section_Name = "";
+            this.uC_foot_sec_12.Section_Size = "";
+            this.uC_foot_sec_12.Size = new System.Drawing.Size(192, 207);
+            this.uC_foot_sec_12.TabIndex = 2;
+            this.uC_foot_sec_12.Title = "12.  Main Shaft Section";
+            this.uC_foot_sec_12.tw = "";
+            this.uC_foot_sec_12.Zxx = "";
+            // 
+            // uC_foot_sec_11
+            // 
+            this.uC_foot_sec_11.Area = "";
+            this.uC_foot_sec_11.D = "";
+            this.uC_foot_sec_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_11.iApp = null;
+            this.uC_foot_sec_11.Ixx = "";
+            this.uC_foot_sec_11.Location = new System.Drawing.Point(233, 6);
+            this.uC_foot_sec_11.Name = "uC_foot_sec_11";
+            this.uC_foot_sec_11.Pro_Grid = null;
+            this.uC_foot_sec_11.Section_Name = "";
+            this.uC_foot_sec_11.Section_Size = "";
+            this.uC_foot_sec_11.Size = new System.Drawing.Size(196, 207);
+            this.uC_foot_sec_11.TabIndex = 1;
+            this.uC_foot_sec_11.Title = "11. Wind guy Section";
+            this.uC_foot_sec_11.tw = "";
+            this.uC_foot_sec_11.Zxx = "";
+            // 
+            // uC_foot_sec_10
+            // 
+            this.uC_foot_sec_10.Area = "";
+            this.uC_foot_sec_10.b = "";
+            this.uC_foot_sec_10.Cyy = "";
+            this.uC_foot_sec_10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_foot_sec_10.h = "";
+            this.uC_foot_sec_10.iApp = null;
+            this.uC_foot_sec_10.Ixx = "";
+            this.uC_foot_sec_10.Iyy = "";
+            this.uC_foot_sec_10.Location = new System.Drawing.Point(6, 6);
+            this.uC_foot_sec_10.Name = "uC_foot_sec_10";
+            this.uC_foot_sec_10.Pro_Grid = null;
+            this.uC_foot_sec_10.Section_Name = "";
+            this.uC_foot_sec_10.Section_Size = "";
+            this.uC_foot_sec_10.Size = new System.Drawing.Size(202, 294);
+            this.uC_foot_sec_10.TabIndex = 0;
+            this.uC_foot_sec_10.tf = "";
+            this.uC_foot_sec_10.Title = "10. Wind Bracings  Section";
+            this.uC_foot_sec_10.tw = "";
             // 
             // tabPage6
             // 
@@ -4514,474 +4982,6 @@
             this.btn_cable_new.UseVisualStyleBackColor = true;
             this.btn_cable_new.Click += new System.EventHandler(this.btn_cable_new_Click);
             // 
-            // uC_moto_sec_3
-            // 
-            this.uC_moto_sec_3.Area = "";
-            this.uC_moto_sec_3.D = "";
-            this.uC_moto_sec_3.iApp = null;
-            this.uC_moto_sec_3.Ixx = "";
-            this.uC_moto_sec_3.Location = new System.Drawing.Point(439, 18);
-            this.uC_moto_sec_3.Name = "uC_moto_sec_3";
-            this.uC_moto_sec_3.Pro_Grid = null;
-            this.uC_moto_sec_3.Section_Name = "";
-            this.uC_moto_sec_3.Section_Size = "";
-            this.uC_moto_sec_3.Size = new System.Drawing.Size(192, 207);
-            this.uC_moto_sec_3.TabIndex = 2;
-            this.uC_moto_sec_3.Title = "3. Transoms Section";
-            this.uC_moto_sec_3.tw = "";
-            this.uC_moto_sec_3.Zxx = "";
-            // 
-            // uC_moto_sec_2
-            // 
-            this.uC_moto_sec_2.Area = "";
-            this.uC_moto_sec_2.D = "";
-            this.uC_moto_sec_2.iApp = null;
-            this.uC_moto_sec_2.Ixx = "";
-            this.uC_moto_sec_2.Location = new System.Drawing.Point(227, 18);
-            this.uC_moto_sec_2.Name = "uC_moto_sec_2";
-            this.uC_moto_sec_2.Pro_Grid = null;
-            this.uC_moto_sec_2.Section_Name = "";
-            this.uC_moto_sec_2.Section_Size = "";
-            this.uC_moto_sec_2.Size = new System.Drawing.Size(192, 207);
-            this.uC_moto_sec_2.TabIndex = 2;
-            this.uC_moto_sec_2.Title = "2. Road Bearers Section";
-            this.uC_moto_sec_2.tw = "";
-            this.uC_moto_sec_2.Zxx = "";
-            // 
-            // uC_moto_sec_1
-            // 
-            this.uC_moto_sec_1.Area = "";
-            this.uC_moto_sec_1.D = "";
-            this.uC_moto_sec_1.iApp = null;
-            this.uC_moto_sec_1.Ixx = "";
-            this.uC_moto_sec_1.Location = new System.Drawing.Point(15, 18);
-            this.uC_moto_sec_1.Name = "uC_moto_sec_1";
-            this.uC_moto_sec_1.Pro_Grid = null;
-            this.uC_moto_sec_1.Section_Name = "";
-            this.uC_moto_sec_1.Section_Size = "";
-            this.uC_moto_sec_1.Size = new System.Drawing.Size(192, 207);
-            this.uC_moto_sec_1.TabIndex = 1;
-            this.uC_moto_sec_1.Title = "1. Steel Deck Section";
-            this.uC_moto_sec_1.tw = "";
-            this.uC_moto_sec_1.Zxx = "";
-            // 
-            // uC_moto_sec_6
-            // 
-            this.uC_moto_sec_6.Area = "";
-            this.uC_moto_sec_6.b = "";
-            this.uC_moto_sec_6.Cyy = "";
-            this.uC_moto_sec_6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_6.h = "";
-            this.uC_moto_sec_6.iApp = null;
-            this.uC_moto_sec_6.Ixx = "";
-            this.uC_moto_sec_6.Iyy = "";
-            this.uC_moto_sec_6.Location = new System.Drawing.Point(464, 6);
-            this.uC_moto_sec_6.Name = "uC_moto_sec_6";
-            this.uC_moto_sec_6.Pro_Grid = null;
-            this.uC_moto_sec_6.Section_Name = "";
-            this.uC_moto_sec_6.Section_Size = "";
-            this.uC_moto_sec_6.Size = new System.Drawing.Size(202, 281);
-            this.uC_moto_sec_6.TabIndex = 1;
-            this.uC_moto_sec_6.tf = "";
-            this.uC_moto_sec_6.Title = "6.  Diagonal members Section";
-            this.uC_moto_sec_6.tw = "";
-            // 
-            // uC_moto_sec_5
-            // 
-            this.uC_moto_sec_5.Area = "";
-            this.uC_moto_sec_5.b = "";
-            this.uC_moto_sec_5.Cyy = "";
-            this.uC_moto_sec_5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_5.h = "";
-            this.uC_moto_sec_5.iApp = null;
-            this.uC_moto_sec_5.Ixx = "";
-            this.uC_moto_sec_5.Iyy = "";
-            this.uC_moto_sec_5.Location = new System.Drawing.Point(243, 6);
-            this.uC_moto_sec_5.Name = "uC_moto_sec_5";
-            this.uC_moto_sec_5.Pro_Grid = null;
-            this.uC_moto_sec_5.Section_Name = "";
-            this.uC_moto_sec_5.Section_Size = "";
-            this.uC_moto_sec_5.Size = new System.Drawing.Size(202, 281);
-            this.uC_moto_sec_5.TabIndex = 1;
-            this.uC_moto_sec_5.tf = "";
-            this.uC_moto_sec_5.Title = "5. Vertical members Section";
-            this.uC_moto_sec_5.tw = "";
-            // 
-            // uC_moto_sec_4
-            // 
-            this.uC_moto_sec_4.Area = "";
-            this.uC_moto_sec_4.b = "";
-            this.uC_moto_sec_4.Cyy = "";
-            this.uC_moto_sec_4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_4.h = "";
-            this.uC_moto_sec_4.iApp = null;
-            this.uC_moto_sec_4.Ixx = "";
-            this.uC_moto_sec_4.Iyy = "";
-            this.uC_moto_sec_4.Location = new System.Drawing.Point(6, 6);
-            this.uC_moto_sec_4.Name = "uC_moto_sec_4";
-            this.uC_moto_sec_4.Pro_Grid = null;
-            this.uC_moto_sec_4.Section_Name = "";
-            this.uC_moto_sec_4.Section_Size = "";
-            this.uC_moto_sec_4.Size = new System.Drawing.Size(202, 281);
-            this.uC_moto_sec_4.TabIndex = 1;
-            this.uC_moto_sec_4.tf = "";
-            this.uC_moto_sec_4.Title = "4. Top && Bottom chords Section";
-            this.uC_moto_sec_4.tw = "";
-            // 
-            // uC_moto_sec_9
-            // 
-            this.uC_moto_sec_9.Area = "";
-            this.uC_moto_sec_9.D = "";
-            this.uC_moto_sec_9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_9.iApp = null;
-            this.uC_moto_sec_9.Ixx = "";
-            this.uC_moto_sec_9.Location = new System.Drawing.Point(513, 26);
-            this.uC_moto_sec_9.Name = "uC_moto_sec_9";
-            this.uC_moto_sec_9.Pro_Grid = null;
-            this.uC_moto_sec_9.Section_Name = "";
-            this.uC_moto_sec_9.Section_Size = "";
-            this.uC_moto_sec_9.Size = new System.Drawing.Size(192, 207);
-            this.uC_moto_sec_9.TabIndex = 2;
-            this.uC_moto_sec_9.Title = "9. Supporting Beam Section";
-            this.uC_moto_sec_9.tw = "";
-            this.uC_moto_sec_9.Zxx = "";
-            // 
-            // uC_moto_sec_8
-            // 
-            this.uC_moto_sec_8.Area = "";
-            this.uC_moto_sec_8.b = "";
-            this.uC_moto_sec_8.Cyy = "";
-            this.uC_moto_sec_8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_8.h = "";
-            this.uC_moto_sec_8.iApp = null;
-            this.uC_moto_sec_8.Ixx = "";
-            this.uC_moto_sec_8.Iyy = "";
-            this.uC_moto_sec_8.Location = new System.Drawing.Point(257, 26);
-            this.uC_moto_sec_8.Name = "uC_moto_sec_8";
-            this.uC_moto_sec_8.Pro_Grid = null;
-            this.uC_moto_sec_8.Section_Name = "";
-            this.uC_moto_sec_8.Section_Size = "";
-            this.uC_moto_sec_8.Size = new System.Drawing.Size(202, 277);
-            this.uC_moto_sec_8.TabIndex = 1;
-            this.uC_moto_sec_8.tf = "";
-            this.uC_moto_sec_8.Title = "8. Splices Section";
-            this.uC_moto_sec_8.tw = "";
-            // 
-            // uC_moto_sec_7
-            // 
-            this.uC_moto_sec_7.Area = "";
-            this.uC_moto_sec_7.b = "";
-            this.uC_moto_sec_7.Cyy = "";
-            this.uC_moto_sec_7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_7.h = "";
-            this.uC_moto_sec_7.iApp = null;
-            this.uC_moto_sec_7.Ixx = "";
-            this.uC_moto_sec_7.Iyy = "";
-            this.uC_moto_sec_7.Location = new System.Drawing.Point(28, 26);
-            this.uC_moto_sec_7.Name = "uC_moto_sec_7";
-            this.uC_moto_sec_7.Pro_Grid = null;
-            this.uC_moto_sec_7.Section_Name = "";
-            this.uC_moto_sec_7.Section_Size = "";
-            this.uC_moto_sec_7.Size = new System.Drawing.Size(202, 277);
-            this.uC_moto_sec_7.TabIndex = 1;
-            this.uC_moto_sec_7.tf = "";
-            this.uC_moto_sec_7.Title = "7. Side struts Section";
-            this.uC_moto_sec_7.tw = "";
-            // 
-            // uC_moto_sec_12
-            // 
-            this.uC_moto_sec_12.Area = "";
-            this.uC_moto_sec_12.D = "";
-            this.uC_moto_sec_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_12.iApp = null;
-            this.uC_moto_sec_12.Ixx = "";
-            this.uC_moto_sec_12.Location = new System.Drawing.Point(412, 6);
-            this.uC_moto_sec_12.Name = "uC_moto_sec_12";
-            this.uC_moto_sec_12.Pro_Grid = null;
-            this.uC_moto_sec_12.Section_Name = "";
-            this.uC_moto_sec_12.Section_Size = "";
-            this.uC_moto_sec_12.Size = new System.Drawing.Size(192, 207);
-            this.uC_moto_sec_12.TabIndex = 3;
-            this.uC_moto_sec_12.Title = "12. Anchor Block";
-            this.uC_moto_sec_12.tw = "";
-            this.uC_moto_sec_12.Zxx = "";
-            // 
-            // uC_moto_sec_11
-            // 
-            this.uC_moto_sec_11.Area = "";
-            this.uC_moto_sec_11.D = "";
-            this.uC_moto_sec_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_11.iApp = null;
-            this.uC_moto_sec_11.Ixx = "";
-            this.uC_moto_sec_11.Location = new System.Drawing.Point(214, 6);
-            this.uC_moto_sec_11.Name = "uC_moto_sec_11";
-            this.uC_moto_sec_11.Pro_Grid = null;
-            this.uC_moto_sec_11.Section_Name = "";
-            this.uC_moto_sec_11.Section_Size = "";
-            this.uC_moto_sec_11.Size = new System.Drawing.Size(192, 207);
-            this.uC_moto_sec_11.TabIndex = 2;
-            this.uC_moto_sec_11.Title = "11. Main Shaft Section";
-            this.uC_moto_sec_11.tw = "";
-            this.uC_moto_sec_11.Zxx = "";
-            // 
-            // uC_moto_sec_10
-            // 
-            this.uC_moto_sec_10.Area = "";
-            this.uC_moto_sec_10.b = "";
-            this.uC_moto_sec_10.Cyy = "";
-            this.uC_moto_sec_10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_moto_sec_10.h = "";
-            this.uC_moto_sec_10.iApp = null;
-            this.uC_moto_sec_10.Ixx = "";
-            this.uC_moto_sec_10.Iyy = "";
-            this.uC_moto_sec_10.Location = new System.Drawing.Point(6, 6);
-            this.uC_moto_sec_10.Name = "uC_moto_sec_10";
-            this.uC_moto_sec_10.Pro_Grid = null;
-            this.uC_moto_sec_10.Section_Name = "";
-            this.uC_moto_sec_10.Section_Size = "";
-            this.uC_moto_sec_10.Size = new System.Drawing.Size(202, 284);
-            this.uC_moto_sec_10.TabIndex = 1;
-            this.uC_moto_sec_10.tf = "";
-            this.uC_moto_sec_10.Title = "10. Wind Bracings Section";
-            this.uC_moto_sec_10.tw = "";
-            // 
-            // uC_foot_sec_3
-            // 
-            this.uC_foot_sec_3.Area = "";
-            this.uC_foot_sec_3.b = "";
-            this.uC_foot_sec_3.Cyy = "";
-            this.uC_foot_sec_3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_3.h = "";
-            this.uC_foot_sec_3.iApp = null;
-            this.uC_foot_sec_3.Ixx = "";
-            this.uC_foot_sec_3.Iyy = "";
-            this.uC_foot_sec_3.Location = new System.Drawing.Point(419, 16);
-            this.uC_foot_sec_3.Name = "uC_foot_sec_3";
-            this.uC_foot_sec_3.Pro_Grid = null;
-            this.uC_foot_sec_3.Section_Name = "";
-            this.uC_foot_sec_3.Section_Size = "";
-            this.uC_foot_sec_3.Size = new System.Drawing.Size(220, 281);
-            this.uC_foot_sec_3.TabIndex = 2;
-            this.uC_foot_sec_3.tf = "";
-            this.uC_foot_sec_3.Title = "3. Top and Bottom Chords Section";
-            this.uC_foot_sec_3.tw = "";
-            // 
-            // uC_foot_sec_2
-            // 
-            this.uC_foot_sec_2.Area = "";
-            this.uC_foot_sec_2.D = "";
-            this.uC_foot_sec_2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_2.iApp = null;
-            this.uC_foot_sec_2.Ixx = "";
-            this.uC_foot_sec_2.Location = new System.Drawing.Point(210, 16);
-            this.uC_foot_sec_2.Name = "uC_foot_sec_2";
-            this.uC_foot_sec_2.Pro_Grid = null;
-            this.uC_foot_sec_2.Section_Name = "";
-            this.uC_foot_sec_2.Section_Size = "";
-            this.uC_foot_sec_2.Size = new System.Drawing.Size(192, 207);
-            this.uC_foot_sec_2.TabIndex = 1;
-            this.uC_foot_sec_2.Title = "2. Transoms Section";
-            this.uC_foot_sec_2.tw = "";
-            this.uC_foot_sec_2.Zxx = "";
-            // 
-            // uC_foot_sec_1
-            // 
-            this.uC_foot_sec_1.Area = "";
-            this.uC_foot_sec_1.D = "";
-            this.uC_foot_sec_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_1.iApp = null;
-            this.uC_foot_sec_1.Ixx = "";
-            this.uC_foot_sec_1.Location = new System.Drawing.Point(6, 16);
-            this.uC_foot_sec_1.Name = "uC_foot_sec_1";
-            this.uC_foot_sec_1.Pro_Grid = null;
-            this.uC_foot_sec_1.Section_Name = "";
-            this.uC_foot_sec_1.Section_Size = "";
-            this.uC_foot_sec_1.Size = new System.Drawing.Size(192, 207);
-            this.uC_foot_sec_1.TabIndex = 0;
-            this.uC_foot_sec_1.Title = "1. Road Bearers Section";
-            this.uC_foot_sec_1.tw = "";
-            this.uC_foot_sec_1.Zxx = "";
-            // 
-            // uC_foot_sec_6
-            // 
-            this.uC_foot_sec_6.Area = "";
-            this.uC_foot_sec_6.b = "";
-            this.uC_foot_sec_6.Cyy = "";
-            this.uC_foot_sec_6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_6.h = "";
-            this.uC_foot_sec_6.iApp = null;
-            this.uC_foot_sec_6.Ixx = "";
-            this.uC_foot_sec_6.Iyy = "";
-            this.uC_foot_sec_6.Location = new System.Drawing.Point(432, 6);
-            this.uC_foot_sec_6.Name = "uC_foot_sec_6";
-            this.uC_foot_sec_6.Pro_Grid = null;
-            this.uC_foot_sec_6.Section_Name = "";
-            this.uC_foot_sec_6.Section_Size = "";
-            this.uC_foot_sec_6.Size = new System.Drawing.Size(202, 291);
-            this.uC_foot_sec_6.TabIndex = 0;
-            this.uC_foot_sec_6.tf = "";
-            this.uC_foot_sec_6.Title = "6. Side struts  Section";
-            this.uC_foot_sec_6.tw = "";
-            // 
-            // uC_foot_sec_5
-            // 
-            this.uC_foot_sec_5.Area = "";
-            this.uC_foot_sec_5.b = "";
-            this.uC_foot_sec_5.Cyy = "";
-            this.uC_foot_sec_5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_5.h = "";
-            this.uC_foot_sec_5.iApp = null;
-            this.uC_foot_sec_5.Ixx = "";
-            this.uC_foot_sec_5.Iyy = "";
-            this.uC_foot_sec_5.Location = new System.Drawing.Point(224, 6);
-            this.uC_foot_sec_5.Name = "uC_foot_sec_5";
-            this.uC_foot_sec_5.Pro_Grid = null;
-            this.uC_foot_sec_5.Section_Name = "";
-            this.uC_foot_sec_5.Section_Size = "";
-            this.uC_foot_sec_5.Size = new System.Drawing.Size(202, 291);
-            this.uC_foot_sec_5.TabIndex = 0;
-            this.uC_foot_sec_5.tf = "";
-            this.uC_foot_sec_5.Title = "5. Diagonal Members Section";
-            this.uC_foot_sec_5.tw = "";
-            // 
-            // uC_foot_sec_4
-            // 
-            this.uC_foot_sec_4.Area = "";
-            this.uC_foot_sec_4.b = "";
-            this.uC_foot_sec_4.Cyy = "";
-            this.uC_foot_sec_4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_4.h = "";
-            this.uC_foot_sec_4.iApp = null;
-            this.uC_foot_sec_4.Ixx = "";
-            this.uC_foot_sec_4.Iyy = "";
-            this.uC_foot_sec_4.Location = new System.Drawing.Point(6, 6);
-            this.uC_foot_sec_4.Name = "uC_foot_sec_4";
-            this.uC_foot_sec_4.Pro_Grid = null;
-            this.uC_foot_sec_4.Section_Name = "";
-            this.uC_foot_sec_4.Section_Size = "";
-            this.uC_foot_sec_4.Size = new System.Drawing.Size(202, 291);
-            this.uC_foot_sec_4.TabIndex = 0;
-            this.uC_foot_sec_4.tf = "";
-            this.uC_foot_sec_4.Title = "4. Vertical Members Section";
-            this.uC_foot_sec_4.tw = "";
-            // 
-            // uC_foot_sec_8
-            // 
-            this.uC_foot_sec_8.Area = "";
-            this.uC_foot_sec_8.D = "";
-            this.uC_foot_sec_8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_8.iApp = null;
-            this.uC_foot_sec_8.Ixx = "";
-            this.uC_foot_sec_8.Location = new System.Drawing.Point(228, 17);
-            this.uC_foot_sec_8.Name = "uC_foot_sec_8";
-            this.uC_foot_sec_8.Pro_Grid = null;
-            this.uC_foot_sec_8.Section_Name = "";
-            this.uC_foot_sec_8.Section_Size = "";
-            this.uC_foot_sec_8.Size = new System.Drawing.Size(192, 207);
-            this.uC_foot_sec_8.TabIndex = 1;
-            this.uC_foot_sec_8.Title = "8. Supporting Beams Section";
-            this.uC_foot_sec_8.tw = "";
-            this.uC_foot_sec_8.Zxx = "";
-            // 
-            // uC_foot_sec_9
-            // 
-            this.uC_foot_sec_9.Area = "";
-            this.uC_foot_sec_9.b = "";
-            this.uC_foot_sec_9.Cyy = "";
-            this.uC_foot_sec_9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_9.h = "";
-            this.uC_foot_sec_9.iApp = null;
-            this.uC_foot_sec_9.Ixx = "";
-            this.uC_foot_sec_9.Iyy = "";
-            this.uC_foot_sec_9.Location = new System.Drawing.Point(448, 17);
-            this.uC_foot_sec_9.Name = "uC_foot_sec_9";
-            this.uC_foot_sec_9.Pro_Grid = null;
-            this.uC_foot_sec_9.Section_Name = "";
-            this.uC_foot_sec_9.Section_Size = "";
-            this.uC_foot_sec_9.Size = new System.Drawing.Size(202, 280);
-            this.uC_foot_sec_9.TabIndex = 0;
-            this.uC_foot_sec_9.tf = "";
-            this.uC_foot_sec_9.Title = "9. Typical connection Section";
-            this.uC_foot_sec_9.tw = "";
-            // 
-            // uC_foot_sec_7
-            // 
-            this.uC_foot_sec_7.Area = "";
-            this.uC_foot_sec_7.b = "";
-            this.uC_foot_sec_7.Cyy = "";
-            this.uC_foot_sec_7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_7.h = "";
-            this.uC_foot_sec_7.iApp = null;
-            this.uC_foot_sec_7.Ixx = "";
-            this.uC_foot_sec_7.Iyy = "";
-            this.uC_foot_sec_7.Location = new System.Drawing.Point(6, 17);
-            this.uC_foot_sec_7.Name = "uC_foot_sec_7";
-            this.uC_foot_sec_7.Pro_Grid = null;
-            this.uC_foot_sec_7.Section_Name = "";
-            this.uC_foot_sec_7.Section_Size = "";
-            this.uC_foot_sec_7.Size = new System.Drawing.Size(202, 280);
-            this.uC_foot_sec_7.TabIndex = 0;
-            this.uC_foot_sec_7.tf = "";
-            this.uC_foot_sec_7.Title = "7. Splices Section";
-            this.uC_foot_sec_7.tw = "";
-            // 
-            // uC_foot_sec_12
-            // 
-            this.uC_foot_sec_12.Area = "";
-            this.uC_foot_sec_12.D = "";
-            this.uC_foot_sec_12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_12.iApp = null;
-            this.uC_foot_sec_12.Ixx = "";
-            this.uC_foot_sec_12.Location = new System.Drawing.Point(454, 6);
-            this.uC_foot_sec_12.Name = "uC_foot_sec_12";
-            this.uC_foot_sec_12.Pro_Grid = null;
-            this.uC_foot_sec_12.Section_Name = "";
-            this.uC_foot_sec_12.Section_Size = "";
-            this.uC_foot_sec_12.Size = new System.Drawing.Size(192, 207);
-            this.uC_foot_sec_12.TabIndex = 2;
-            this.uC_foot_sec_12.Title = "12.  Main Shaft Section";
-            this.uC_foot_sec_12.tw = "";
-            this.uC_foot_sec_12.Zxx = "";
-            // 
-            // uC_foot_sec_11
-            // 
-            this.uC_foot_sec_11.Area = "";
-            this.uC_foot_sec_11.D = "";
-            this.uC_foot_sec_11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_11.iApp = null;
-            this.uC_foot_sec_11.Ixx = "";
-            this.uC_foot_sec_11.Location = new System.Drawing.Point(233, 6);
-            this.uC_foot_sec_11.Name = "uC_foot_sec_11";
-            this.uC_foot_sec_11.Pro_Grid = null;
-            this.uC_foot_sec_11.Section_Name = "";
-            this.uC_foot_sec_11.Section_Size = "";
-            this.uC_foot_sec_11.Size = new System.Drawing.Size(196, 207);
-            this.uC_foot_sec_11.TabIndex = 1;
-            this.uC_foot_sec_11.Title = "11. Wind guy Section";
-            this.uC_foot_sec_11.tw = "";
-            this.uC_foot_sec_11.Zxx = "";
-            // 
-            // uC_foot_sec_10
-            // 
-            this.uC_foot_sec_10.Area = "";
-            this.uC_foot_sec_10.b = "";
-            this.uC_foot_sec_10.Cyy = "";
-            this.uC_foot_sec_10.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_foot_sec_10.h = "";
-            this.uC_foot_sec_10.iApp = null;
-            this.uC_foot_sec_10.Ixx = "";
-            this.uC_foot_sec_10.Iyy = "";
-            this.uC_foot_sec_10.Location = new System.Drawing.Point(6, 6);
-            this.uC_foot_sec_10.Name = "uC_foot_sec_10";
-            this.uC_foot_sec_10.Pro_Grid = null;
-            this.uC_foot_sec_10.Section_Name = "";
-            this.uC_foot_sec_10.Section_Size = "";
-            this.uC_foot_sec_10.Size = new System.Drawing.Size(202, 294);
-            this.uC_foot_sec_10.TabIndex = 0;
-            this.uC_foot_sec_10.tf = "";
-            this.uC_foot_sec_10.Title = "10. Wind Bracings  Section";
-            this.uC_foot_sec_10.tw = "";
-            // 
             // UC_Superstructure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5307,9 +5307,7 @@
         private System.Windows.Forms.Label label119;
         private System.Windows.Forms.TextBox txt_inp_moto_H34;
         private System.Windows.Forms.Label label125;
-        private System.Windows.Forms.TextBox txt_inp_moto_H22;
         private System.Windows.Forms.Label label126;
-        private System.Windows.Forms.TextBox txt_inp_moto_H21;
         private System.Windows.Forms.TextBox txt_inp_moto_K39;
         private System.Windows.Forms.TextBox txt_inp_moto_F18;
         private System.Windows.Forms.Label label206;
@@ -5459,5 +5457,7 @@
         private System.Windows.Forms.TextBox txt_susp_abut_H1;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.TextBox txt_inp_moto_H22;
+        public System.Windows.Forms.TextBox txt_inp_moto_H21;
     }
 }

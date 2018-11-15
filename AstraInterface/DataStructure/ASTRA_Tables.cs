@@ -40,14 +40,17 @@ namespace AstraInterface.DataStructure
             IS_SteelAngles = Get_SteelAngles_IndianTable();
             BS_SteelAngles = Get_SteelAngles_BritishTable();
             AISC_SteelAngles = Get_SteelAngles_AmericanTable();
+            USCS_SteelAngles = Get_SteelAngles_AmericanTable_USCS();
 
             IS_SteelBeams = Get_SteelBeams_IndianTable();
             BS_SteelBeams = Get_SteelBeams_BritishTable();
             AISC_SteelBeams = Get_SteelBeams_AmericanTable();
+            USCS_SteelBeams = Get_SteelBeams_AmericanTable_USCS();
 
             IS_SteelChannels = Get_SteelChannels_IndianTable();
             BS_SteelChannels = Get_SteelChannels_BritishTable();
             AISC_SteelChannels = Get_SteelChannels_AmericanTable();
+            USCS_SteelChannels = Get_SteelChannels_AmericanTable_USCS();
 
 
 
@@ -2230,23 +2233,31 @@ namespace AstraInterface.DataStructure
 
         public TableRolledSteelBeams AISC_SteelBeams { get; set; } //Americal Sections
 
+        public TableRolledSteelBeams USCS_SteelBeams { get; set; } //Americal Sections //  USCS
+
+
         public TableRolledSteelChannels IS_SteelChannels { get; set; }
         public TableRolledSteelChannels BS_SteelChannels { get; set; }
         public TableRolledSteelChannels AISC_SteelChannels { get; set; } //Americal Sections
+        public TableRolledSteelChannels USCS_SteelChannels { get; set; } //Americal Sections //  USCS
 
         public TableRolledSteelAngles IS_SteelAngles { get; set; }
         public TableRolledSteelAngles BS_SteelAngles { get; set; }
         public TableRolledSteelAngles AISC_SteelAngles { get; set; } //Americal Sections
-
+        public TableRolledSteelAngles USCS_SteelAngles { get; set; } //Americal Sections //  USCS
 
         public TableRolledSteelBeams Get_SteelBeams()
+        {
+            return Get_SteelBeams(false);
+        }
+        public TableRolledSteelBeams Get_SteelBeams(bool IsUSCS)
         {
             if (DesignStandard == eDesignStandard.BritishStandard)
                 return new TableRolledSteelBeams(Path.Combine(Application.StartupPath, "TABLES\\British Standard"), DesignStandard);
             if (DesignStandard == eDesignStandard.IndianStandard)
                 return new TableRolledSteelBeams(Path.Combine(Application.StartupPath, "TABLES\\Indian Standard"), DesignStandard);
             if (DesignStandard == eDesignStandard.LRFDStandard)
-                return new TableRolledSteelBeams(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), DesignStandard);
+                return new TableRolledSteelBeams(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), DesignStandard, IsUSCS);
 
             return new TableRolledSteelBeams();
         }
@@ -2261,6 +2272,10 @@ namespace AstraInterface.DataStructure
         public TableRolledSteelBeams Get_SteelBeams_AmericanTable()
         {
             return new TableRolledSteelBeams(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), eDesignStandard.LRFDStandard);
+        }
+        public TableRolledSteelBeams Get_SteelBeams_AmericanTable_USCS()
+        {
+            return new TableRolledSteelBeams(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), eDesignStandard.LRFDStandard, true);
         }
         public RolledSteelBeamsRow Get_BeamData_FromTable(string section_name, string section_code)
         {
@@ -2289,21 +2304,31 @@ namespace AstraInterface.DataStructure
         {
             return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), eDesignStandard.LRFDStandard);
         }
+        public TableRolledSteelChannels Get_SteelChannels_AmericanTable_USCS()
+        {
+            return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), eDesignStandard.LRFDStandard, true);
+        }
         public TableRolledSteelChannels Get_SteelChannels_BritishTable()
         {
             return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\British Standard"), eDesignStandard.BritishStandard);
         }
         public TableRolledSteelChannels Get_SteelChannels()
         {
+            return Get_SteelChannels(false);
+        }
+        public TableRolledSteelChannels Get_SteelChannels(bool IsUCSC)
+        {
             if (DesignStandard == eDesignStandard.BritishStandard)
                 return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\British Standard"), DesignStandard);
             if (DesignStandard == eDesignStandard.IndianStandard)
                 return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\Indian Standard"), DesignStandard);
             if (DesignStandard == eDesignStandard.LRFDStandard)
-                return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), DesignStandard);
+                return new TableRolledSteelChannels(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), DesignStandard, IsUCSC);
 
             return new TableRolledSteelChannels();
         }
+
+
         public RolledSteelChannelsRow Get_ChannelData_FromTable(string section_name, string section_code)
         {
             RolledSteelChannelsRow row = new RolledSteelChannelsRow();
@@ -2335,14 +2360,22 @@ namespace AstraInterface.DataStructure
         {
             return new TableRolledSteelAngles(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), eDesignStandard.LRFDStandard);
         }
+        public TableRolledSteelAngles Get_SteelAngles_AmericanTable_USCS()
+        {
+            return new TableRolledSteelAngles(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), eDesignStandard.LRFDStandard, true);
+        }
         public TableRolledSteelAngles Get_SteelAngles()
+        {
+            return Get_SteelAngles(false);
+        }
+        public TableRolledSteelAngles Get_SteelAngles(bool IsUSCS)
         {
             if (DesignStandard == eDesignStandard.BritishStandard)
                 return new TableRolledSteelAngles(Path.Combine(Application.StartupPath, "TABLES\\British Standard"), DesignStandard);
-            if (DesignStandard == eDesignStandard.IndianStandard)
+            else if (DesignStandard == eDesignStandard.IndianStandard)
                 return new TableRolledSteelAngles(Path.Combine(Application.StartupPath, "TABLES\\Indian Standard"), DesignStandard);
-            if (DesignStandard == eDesignStandard.LRFDStandard)
-                return new TableRolledSteelAngles(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), DesignStandard);
+            else if (DesignStandard == eDesignStandard.LRFDStandard)
+                return new TableRolledSteelAngles(Path.Combine(Application.StartupPath, "TABLES\\American Standard"), DesignStandard, IsUSCS);
 
             return new TableRolledSteelAngles();
         }
@@ -2635,11 +2668,31 @@ namespace AstraInterface.DataStructure
             throw new Exception("TABLE file not found in ASTRA Application folder.");
 
         }
+        bool IsUSCS = false;
+
         public TableRolledSteelBeams(string tab_path, eDesignStandard des_stn)
+            : this(tab_path, des_stn, false)
         {
+
+        }
+
+
+        public TableRolledSteelBeams(string tab_path, eDesignStandard des_stn, bool IsUSCS)
+        {
+            this.IsUSCS = IsUSCS;
             DesignStandard = des_stn;
             //tab_file = Path.Combine(tab_path, @"Steel Table\Rolled Steel Beams.txt");
             this.file_Name = Path.Combine(tab_path, @"Steel Table\Rolled Steel Beams.txt");
+
+
+
+            if (IsUSCS)
+            {
+                this.file_Name = Path.Combine(tab_path, @"Steel Table\USCS\Beam_USCS.TXT");
+            }
+
+
+
             list = new List<MyList>();
             SetRecords();
             //Application.StartupPath
@@ -2650,12 +2703,14 @@ namespace AstraInterface.DataStructure
             List<string> file_content = new List<string>(File.ReadAllLines(file_Name));
             list_record = new List<RolledSteelBeamsRow>();
             list = new List<MyList>();
+            string kStr = "";
             for (int i = 0; i < file_content.Count; i++)
             {
-                mList = new MyList(MyList.RemoveAllSpaces(file_content[i].TrimEnd().TrimStart()), ' ');
+                kStr = MyList.RemoveAllSpaces(file_content[i].TrimEnd().TrimStart());
+                mList = new MyList(kStr, ' ');
                 try
                 {
-                    list_record.Add(RolledSteelBeamsRow.Parse(file_content[i], DesignStandard));
+                    list_record.Add(RolledSteelBeamsRow.Parse(kStr, DesignStandard, IsUSCS));
                     list.Add(mList);
                 }
                 catch (Exception ex) { }
@@ -2743,11 +2798,17 @@ namespace AstraInterface.DataStructure
 
 
         public MyList Data { get; set; }
+
         public static RolledSteelBeamsRow Parse(string s, eDesignStandard des_standard)
+        {
+            return Parse(s, des_standard, false);
+        }
+        public static RolledSteelBeamsRow Parse(string s, eDesignStandard des_standard, bool IsUSCS)
         {
 
             string kStr = MyList.RemoveAllSpaces(s.ToUpper());
 
+            kStr = kStr.Replace('$', ' ');
             kStr = kStr.Replace(',', ' ');
             kStr = MyList.RemoveAllSpaces(kStr.ToUpper());
 
@@ -2818,27 +2879,49 @@ namespace AstraInterface.DataStructure
                     //td.Iyy = mlist.GetDouble(index); index++;
 
 
+                    if (IsUSCS)
+                    {
+
+                        td.SectionName = mlist.StringList[0];
+                        td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
 
 
-                    td.SectionName = mlist.StringList[0];
-                    td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
+                        td.Weight = mlist.GetDouble(4);
+                        td.Area = mlist.GetDouble(5);
+                        td.Depth = mlist.GetDouble(6);
+                        td.WebThickness = mlist.GetDouble(7);
+                        td.FlangeWidth = mlist.GetDouble(8);
+                        td.FlangeThickness = mlist.GetDouble(9);
+                        td.Ixx = mlist.GetDouble(10);
+                        td.Rxx = mlist.GetDouble(12);
+                        td.Iyy = mlist.GetDouble(13);
+                        td.Ryy = mlist.GetDouble(15);
+                        //td.Zxx = mlist.GetDouble(index); 
+                        //td.Zyy = mlist.GetDouble(index); 
+                        td.Weight = td.Weight; //
+
+                    }
+                    else
+                    {
+
+                        td.SectionName = mlist.StringList[0];
+                        td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
 
 
-                    td.Weight = mlist.GetDouble(4);
-                    td.Area = mlist.GetDouble(5) * 0.01;
-                    td.Depth = mlist.GetDouble(6);
-                    td.WebThickness = mlist.GetDouble(7);
-                    td.FlangeWidth = mlist.GetDouble(8); 
-                    td.FlangeThickness = mlist.GetDouble(9);
-                    td.Ixx = mlist.GetDouble(10) * 100;
-                    td.Rxx = mlist.GetDouble(12) * 0.1;
-                    td.Iyy = mlist.GetDouble(13) * 100;
-                    td.Ryy = mlist.GetDouble(15) * 0.1;
-                    //td.Zxx = mlist.GetDouble(index); 
-                    //td.Zyy = mlist.GetDouble(index); 
-
-
-                    td.Weight = td.Weight * 10; //Convert kg to Newton
+                        td.Weight = mlist.GetDouble(4);
+                        td.Area = mlist.GetDouble(5) * 0.01;
+                        td.Depth = mlist.GetDouble(6);
+                        td.WebThickness = mlist.GetDouble(7);
+                        td.FlangeWidth = mlist.GetDouble(8);
+                        td.FlangeThickness = mlist.GetDouble(9);
+                        td.Ixx = mlist.GetDouble(10) * 100;
+                        td.Rxx = mlist.GetDouble(12) * 0.1;
+                        td.Iyy = mlist.GetDouble(13) * 100;
+                        td.Ryy = mlist.GetDouble(15) * 0.1;
+                        //td.Zxx = mlist.GetDouble(index); 
+                        //td.Zyy = mlist.GetDouble(index); 
+                        td.Weight = td.Weight * 10; //Convert kg to Newton
+                    }
                 }
             }
             return td;
@@ -2867,11 +2950,25 @@ namespace AstraInterface.DataStructure
             throw new Exception("TABLES folder not found in ASTRA Application folder.");
         }
         public eDesignStandard DesignStandard { get; set; }
+
+        bool IsUSCS = false;
         public TableRolledSteelChannels(string table_path, eDesignStandard des_stn)
+            : this(table_path, des_stn, false)
         {
+
+        }
+        public TableRolledSteelChannels(string table_path, eDesignStandard des_stn, bool IsUSCS)
+        {
+            this.IsUSCS = IsUSCS;
             //tab_file = Path.Combine(tab_path, @"Steel Table\Rolled Steel Channels.txt");
             DesignStandard = des_stn;
             this.file_Name = Path.Combine(table_path, @"Steel Table\Rolled Steel Channels.txt");
+
+            if(IsUSCS)
+            {
+                this.file_Name = Path.Combine(table_path, @"Steel Table\USCS\Channel_USCS.TXT");
+            }
+
             list = new List<MyList>();
             SetRecords();
         }
@@ -2885,12 +2982,15 @@ namespace AstraInterface.DataStructure
             list_record = new List<RolledSteelChannelsRow>();
            
             list.Clear();
+
+            string kStr = "";
             for (int i = 0; i < file_content.Count; i++)
             {
-                mList = new MyList(MyList.RemoveAllSpaces(file_content[i].TrimEnd().TrimStart()), ' ');
+                kStr = MyList.RemoveAllSpaces(file_content[i].TrimEnd().TrimStart());
+                mList = new MyList(kStr, ' ');
                 try
                 {
-                    list_record.Add(RolledSteelChannelsRow.Parse(file_content[i], DesignStandard));
+                    list_record.Add(RolledSteelChannelsRow.Parse(file_content[i], DesignStandard, IsUSCS));
                     list.Add(mList);
                 }
                 catch (Exception ex) { }
@@ -3004,11 +3104,17 @@ namespace AstraInterface.DataStructure
         public double Zyy { get; set; }//15
 
         public MyList Data { get; set; }
+
         public static RolledSteelChannelsRow Parse(string s, eDesignStandard des_standard)
+        {
+            return Parse(s, des_standard, false);
+        }
+        public static RolledSteelChannelsRow Parse(string s, eDesignStandard des_standard, bool IsUSCS)
         {
 
             string kStr = MyList.RemoveAllSpaces(s.ToUpper());
 
+            kStr = kStr.Replace('$', ' ');
             kStr = kStr.Replace(',', ' ');
             kStr = MyList.RemoveAllSpaces(kStr.ToUpper());
 
@@ -3086,28 +3192,53 @@ namespace AstraInterface.DataStructure
                     //td.Ixx = mlist.GetDouble(index); index++;
                     //td.Iyy = mlist.GetDouble(index); index++;
 
+                    if (IsUSCS)
+                    {
+                        td.SectionName = mlist.StringList[0];
+                        td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
+                        td.Weight = mlist.GetDouble(4);
 
-                    td.SectionName = mlist.StringList[0]; 
-                    td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3]; 
-                    td.Weight = mlist.GetDouble(4); 
+                        td.Weight = td.Weight; // Convert kg/m  to N/m
 
-                    td.Weight = td.Weight * 10.0; // Convert kg/m  to N/m
+                        td.Depth = mlist.GetDouble(6);
+                        td.FlangeWidth = mlist.GetDouble(8);
+                        td.Area = mlist.GetDouble(5);
+                        td.WebThickness = mlist.GetDouble(7);
+                        td.FlangeThickness = mlist.GetDouble(9);
+                        td.CentreOfGravity = mlist.GetDouble(16);
+
+                        td.Rxx = mlist.GetDouble(12);
+                        td.Ryy = mlist.GetDouble(15) ;
+                        td.Zxx = mlist.GetDouble(11);
+                        td.Zyy = mlist.GetDouble(14);
+
+                        td.Ixx = mlist.GetDouble(10);
+                        td.Iyy = mlist.GetDouble(13);
+                    }
+                    else
+                    {
+                        td.SectionName = mlist.StringList[0];
+                        td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
+                        td.Weight = mlist.GetDouble(4);
+
+                        td.Weight = td.Weight * 10.0; // Convert kg/m  to N/m
 
 
-                    td.Depth = mlist.GetDouble(6); 
-                    td.FlangeWidth = mlist.GetDouble(8);
-                    td.Area = mlist.GetDouble(5) * 0.01; 
-                    td.WebThickness = mlist.GetDouble(7); 
-                    td.FlangeThickness = mlist.GetDouble(9); 
-                    td.CentreOfGravity = mlist.GetDouble(16);
+                        td.Depth = mlist.GetDouble(6);
+                        td.FlangeWidth = mlist.GetDouble(8);
+                        td.Area = mlist.GetDouble(5) * 0.01;
+                        td.WebThickness = mlist.GetDouble(7);
+                        td.FlangeThickness = mlist.GetDouble(9);
+                        td.CentreOfGravity = mlist.GetDouble(16);
 
-                    td.Rxx = mlist.GetDouble(12) * 0.1;
-                    td.Ryy = mlist.GetDouble(15) * 0.1;
-                    td.Zxx = mlist.GetDouble(11);
-                    td.Zyy = mlist.GetDouble(14);
+                        td.Rxx = mlist.GetDouble(12) * 0.1;
+                        td.Ryy = mlist.GetDouble(15) * 0.1;
+                        td.Zxx = mlist.GetDouble(11);
+                        td.Zyy = mlist.GetDouble(14);
 
-                    td.Ixx = mlist.GetDouble(10) * 100;
-                    td.Iyy = mlist.GetDouble(13) * 100; 
+                        td.Ixx = mlist.GetDouble(10) * 100;
+                        td.Iyy = mlist.GetDouble(13) * 100;
+                    }
                 }
             }
             return td;
@@ -3123,6 +3254,8 @@ namespace AstraInterface.DataStructure
         string equal_angle_file_name = "";
         string unequal_angle_file_name = "";
         public eDesignStandard DesignStandard { get; set; }
+
+        bool IsUSCS = false;
         public TableRolledSteelAngles()
         {
             DesignStandard = eDesignStandard.IndianStandard;
@@ -3131,6 +3264,11 @@ namespace AstraInterface.DataStructure
             {
                 this.equal_angle_file_name = Path.Combine(file_path, @"Steel Table\Rolled Steel Equal Angles.txt");
                 this.unequal_angle_file_name = Path.Combine(file_path, @"Steel Table\Rolled Steel Unequal Angles.txt");
+
+
+
+
+
                 list = new List<MyList>();
                 SetAngleTable(true);
                 SetAngleTable(false);
@@ -3139,12 +3277,27 @@ namespace AstraInterface.DataStructure
             throw new Exception("TABLES folder not found.");
         }
         public TableRolledSteelAngles(string file_path, eDesignStandard des_stn)
+            : this(file_path, des_stn, false)
         {
-            DesignStandard = des_stn;
+            
+        }
+        public TableRolledSteelAngles(string file_path, eDesignStandard des_stn, bool IsUSCS)
+        {
+            this.IsUSCS = IsUSCS;
 
+
+            DesignStandard = des_stn;
 
             this.equal_angle_file_name = Path.Combine(file_path, @"Steel Table\Rolled Steel Equal Angles.txt");
             this.unequal_angle_file_name = Path.Combine(file_path, @"Steel Table\Rolled Steel Unequal Angles.txt");
+
+
+            if (IsUSCS)
+            {
+                this.equal_angle_file_name = Path.Combine(file_path, @"Steel Table\USCS\EqualAngles_USCS.TXT");
+                this.unequal_angle_file_name = Path.Combine(file_path, @"Steel Table\USCS\UnEqualAngles_USCS.TXT");
+            }
+
 
             list = new List<MyList>();
             //if (DesignStandard == eDesignStandard.LRFDStandard)
@@ -3178,18 +3331,21 @@ namespace AstraInterface.DataStructure
             if (IsEqualAngles)
                 list_record = new List<RolledSteelAnglesRow>();
             RolledSteelAnglesRow row = null;
+            string kStr = "";
             for (int i = 0; i < file_content.Count; i++)
             {
+                kStr = MyList.RemoveAllSpaces(file_content[i].Replace(",", " ").TrimEnd().TrimStart());
+                kStr = MyList.RemoveAllSpaces(file_content[i].Replace("$", " ").TrimEnd().TrimStart());
                 if (DesignStandard == eDesignStandard.LRFDStandard)
                 {
-                    mList = new MyList(MyList.RemoveAllSpaces(file_content[i].TrimEnd().TrimStart()), ' ');
+                    mList = new MyList(kStr, ' ');
                     if (mList.Count < 2) continue; 
                     if (mList.StringList[0].StartsWith("L") || flag == true)
                     {
                         flag = true;
                         try
                         {
-                            row = RolledSteelAnglesRow.Parse(file_content[i], IsEqualAngles, DesignStandard);
+                            row = RolledSteelAnglesRow.Parse(kStr, IsEqualAngles, DesignStandard, IsUSCS);
                             if (row.SectionName == "")
                             {
                                 row.SectionName = list_record[list_record.Count - 1].SectionName;
@@ -3203,13 +3359,13 @@ namespace AstraInterface.DataStructure
                 }
                 else
                 {
-                    mList = new MyList(MyList.RemoveAllSpaces(file_content[i].TrimEnd().TrimStart()), ' ');
+                    mList = new MyList(kStr, ' ');
                     if (mList.StringList[0].StartsWith("ISA") || mList.StringList[0].StartsWith("UKA") || flag == true)
                     {
                         flag = true;
                         try
                         {
-                            row = RolledSteelAnglesRow.Parse(file_content[i], IsEqualAngles, DesignStandard);
+                            row = RolledSteelAnglesRow.Parse(kStr, IsEqualAngles, DesignStandard);
                             if (row.SectionName == "")
                             {
                                 row.SectionName = list_record[list_record.Count - 1].SectionName;
@@ -3354,7 +3510,18 @@ namespace AstraInterface.DataStructure
         {
             get
             {
-                string kStr = SectionCode.ToUpper().Replace("X", "");
+
+
+                string kStr = SectionCode.ToUpper();
+
+                if(kStr.Contains("X"))
+                {
+                    MyList mm = new MyList(kStr, 'X');
+                    return mm.GetDouble(0);
+                }
+
+
+                 kStr = SectionCode.ToUpper().Replace("X", "");
 
                 string cd = kStr;
                 if (kStr.Length % 2 != 0)
@@ -3379,7 +3546,16 @@ namespace AstraInterface.DataStructure
         {
             get
             {
-                string kStr = SectionCode.ToUpper().Replace("X", "");
+                string kStr = SectionCode.ToUpper();
+
+
+                if (kStr.Contains("X"))
+                {
+                    MyList mm = new MyList(kStr, 'X');
+                    return mm.GetDouble(1);
+                }
+
+                kStr = SectionCode.ToUpper().Replace("X", "");
 
                 //string cd = kStr;
                 if (kStr.Length % 2 != 0)
@@ -3415,8 +3591,14 @@ namespace AstraInterface.DataStructure
 
         public static RolledSteelAnglesRow Parse(string s, bool IsEqualAngle, eDesignStandard des_standard)
         {
+            return Parse(s, IsEqualAngle, des_standard, false);
+        }
+
+        public static RolledSteelAnglesRow Parse(string s, bool IsEqualAngle, eDesignStandard des_standard, bool IsUSCS)
+        {
             string kStr = MyList.RemoveAllSpaces(s.ToUpper());
 
+            kStr = kStr.Replace('$', ' ');
             kStr = kStr.Replace('+', ' ');
             kStr = kStr.Replace(',', ' ');
             kStr = MyList.RemoveAllSpaces(kStr.ToUpper());
@@ -3511,67 +3693,127 @@ namespace AstraInterface.DataStructure
 
                 if (des_standard == eDesignStandard.LRFDStandard)
                 {
-                    index = 0;
-                    if (mlist.StringList[0].StartsWith("L"))
+                    if (IsUSCS)
                     {
-                        td.SectionName = mlist.StringList[0]; 
-                        td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
-                    }
+                        index = 0;
+                        if (mlist.StringList[0].StartsWith("L"))
+                        {
+                            td.SectionName = mlist.StringList[0];
+                            td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
+                        }
 
-                    index = 5;
+                        index = 5;
 
-                    if (IsEqualAngle)
-                    {
-                        td.Thickness = mlist.GetDouble(index); index++;
-                        td.Weight = mlist.GetDouble(index); index++;
-                        td.Weight = td.Weight * 10.0;
+                        if (IsEqualAngle)
+                        {
+                            td.Thickness = mlist.GetDouble(index); index++;
+                            td.Weight = mlist.GetDouble(index); index++;
+                            td.Weight = td.Weight;
 
-                        //double r1 = mlist.GetDouble(index); index++;
-                        //double r2 = mlist.GetDouble(index); index++;
-                        td.Area = mlist.GetDouble(index) * 0.01 ; index++;
-                        td.Ixx = mlist.GetDouble(index) * 100; // index++;
-                        td.Iyy = td.Ixx; // index++;
+                            //double r1 = mlist.GetDouble(index); index++;
+                            //double r2 = mlist.GetDouble(index); index++;
+                            td.Area = mlist.GetDouble(index); index++;
+                            td.Ixx = mlist.GetDouble(index); // index++;
+                            td.Iyy = td.Ixx; // index++;
 
-                        index++; index++; index++;
+                            index++; index++; index++;
 
-                        td.Cxx = mlist.GetDouble(index);// index++;
-                        td.Cyy = td.Cxx; // index++;
+                            td.Cxx = mlist.GetDouble(index);// index++;
+                            td.Cyy = td.Cxx; // index++;
 
-                        //if (!IsEqualAngle) index++;
-                        //td.Cyy = mlist.GetDouble(index); index++;
-                        //td.Ixx = mlist.GetDouble(index); // index++;
-                        //if (!IsEqualAngle) index++;
-                        //td.Iyy = mlist.GetDouble(index); index++;
-                        //td.Exx = mlist.GetDouble(index);// index++;
-                        //if (!IsEqualAngle) index++;
-                        //td.Eyy = mlist.GetDouble(index); index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Cyy = mlist.GetDouble(index); index++;
+                            //td.Ixx = mlist.GetDouble(index); // index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Iyy = mlist.GetDouble(index); index++;
+                            //td.Exx = mlist.GetDouble(index);// index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Eyy = mlist.GetDouble(index); index++;
+                        }
+                        else
+                        {
+                            td.Thickness = mlist.GetDouble(index); index++;
+                            td.Weight = mlist.GetDouble(index); index++;
+                            td.Weight = td.Weight;
+
+                            //double r1 = mlist.GetDouble(index); index++;
+                            //double r2 = mlist.GetDouble(index); index++;
+                            td.Area = mlist.GetDouble(index); index++;
+                            td.Ixx = mlist.GetDouble(index); // index++;
+                            td.Iyy = mlist.GetDouble(12);  // index++;
+
+
+                            td.Cxx = mlist.GetDouble(15);// index++;
+                            td.Cyy = td.Cxx; // index++;
+
+
+                        }
+
                     }
                     else
                     {
-                        td.Thickness = mlist.GetDouble(index); index++;
-                        td.Weight = mlist.GetDouble(index); index++;
-                        td.Weight = td.Weight * 10.0;
+                        index = 0;
+                        if (mlist.StringList[0].StartsWith("L"))
+                        {
+                            td.SectionName = mlist.StringList[0];
+                            td.SectionCode = mlist.StringList[1] + "X" + mlist.StringList[3];
+                        }
 
-                        //double r1 = mlist.GetDouble(index); index++;
-                        //double r2 = mlist.GetDouble(index); index++;
-                        td.Area = mlist.GetDouble(index)* 0.01; index++;
-                        td.Ixx = mlist.GetDouble(index) * 100; // index++;
-                        td.Iyy = mlist.GetDouble(12) * 0.0001;  // index++;
+                        index = 5;
+
+                        if (IsEqualAngle)
+                        {
+                            td.Thickness = mlist.GetDouble(index); index++;
+                            td.Weight = mlist.GetDouble(index); index++;
+                            td.Weight = td.Weight * 10.0;
+
+                            //double r1 = mlist.GetDouble(index); index++;
+                            //double r2 = mlist.GetDouble(index); index++;
+                            td.Area = mlist.GetDouble(index) * 0.01; index++;
+                            td.Ixx = mlist.GetDouble(index) * 100; // index++;
+                            td.Iyy = td.Ixx; // index++;
+
+                            index++; index++; index++;
+
+                            td.Cxx = mlist.GetDouble(index);// index++;
+                            td.Cyy = td.Cxx; // index++;
+
+                            //if (!IsEqualAngle) index++;
+                            //td.Cyy = mlist.GetDouble(index); index++;
+                            //td.Ixx = mlist.GetDouble(index); // index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Iyy = mlist.GetDouble(index); index++;
+                            //td.Exx = mlist.GetDouble(index);// index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Eyy = mlist.GetDouble(index); index++;
+                        }
+                        else
+                        {
+                            td.Thickness = mlist.GetDouble(index); index++;
+                            td.Weight = mlist.GetDouble(index); index++;
+                            td.Weight = td.Weight * 10.0;
+
+                            //double r1 = mlist.GetDouble(index); index++;
+                            //double r2 = mlist.GetDouble(index); index++;
+                            td.Area = mlist.GetDouble(index) * 0.01; index++;
+                            td.Ixx = mlist.GetDouble(index) * 100; // index++;
+                            td.Iyy = mlist.GetDouble(12) * 0.0001;  // index++;
 
 
-                        td.Cxx = mlist.GetDouble(15);// index++;
-                        td.Cyy = td.Cxx; // index++;
+                            td.Cxx = mlist.GetDouble(15);// index++;
+                            td.Cyy = td.Cxx; // index++;
 
 
 
-                        //if (!IsEqualAngle) index++;
-                        //td.Cyy = mlist.GetDouble(index); index++;
-                        //td.Ixx = mlist.GetDouble(index); // index++;
-                        //if (!IsEqualAngle) index++;
-                        //td.Iyy = mlist.GetDouble(index); index++;
-                        //td.Exx = mlist.GetDouble(index);// index++;
-                        //if (!IsEqualAngle) index++;
-                        //td.Eyy = mlist.GetDouble(index); index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Cyy = mlist.GetDouble(index); index++;
+                            //td.Ixx = mlist.GetDouble(index); // index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Iyy = mlist.GetDouble(index); index++;
+                            //td.Exx = mlist.GetDouble(index);// index++;
+                            //if (!IsEqualAngle) index++;
+                            //td.Eyy = mlist.GetDouble(index); index++;
+                        }
                     }
                 }
             }

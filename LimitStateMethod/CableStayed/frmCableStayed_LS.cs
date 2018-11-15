@@ -14856,6 +14856,15 @@ namespace LimitStateMethod.CableStayed
 
         public BridgeMemberAnalysis DeadLoad_Analysis = null;
 
+        public BridgeMemberAnalysis Structure 
+        { 
+            get
+            {
+                return DeadLoad_Analysis;
+            }
+        }
+
+
         public List<LoadData> LoadList_1 = null;
         public List<LoadData> LoadList_2 = null;
         public List<LoadData> LoadList_3 = null;

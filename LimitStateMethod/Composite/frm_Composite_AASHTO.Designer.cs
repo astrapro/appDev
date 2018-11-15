@@ -3243,12 +3243,12 @@
             // label193
             // 
             this.label193.AutoSize = true;
-            this.label193.Location = new System.Drawing.Point(380, 18);
+            this.label193.Location = new System.Drawing.Point(377, 22);
             this.label193.Name = "label193";
-            this.label193.Size = new System.Drawing.Size(29, 13);
+            this.label193.Size = new System.Drawing.Size(17, 13);
             this.label193.TabIndex = 99;
             this.label193.Tag = "";
-            this.label193.Text = "mm";
+            this.label193.Text = "in";
             // 
             // label194
             // 

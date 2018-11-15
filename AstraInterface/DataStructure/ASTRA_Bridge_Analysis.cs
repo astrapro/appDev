@@ -40,6 +40,9 @@ namespace AstraInterface.DataStructure
                 Weight = Length * UnitWeight * TotalNos;
             else
                 Weight = Length * AX_Area * UnitWeight * TotalNos;
+
+
+
         }
         #region Properties
         public string GroupName { get; set; }
@@ -1696,6 +1699,7 @@ namespace AstraInterface.DataStructure
 
         //Chiranjit [2013 06 27]
         public NodeResults Node_Displacements { get; set; }
+        public NodeResults Node_Max_Displacements { get; set; }
         public NodeResults Eigen_Displacements { get; set; }
         //N O D E   D I S P L A C E M E N T S / R O T A T I O N S
 
@@ -1953,6 +1957,21 @@ namespace AstraInterface.DataStructure
                 {
                     //MessageBox.Show("7.1");
                     structure = new CBridgeStructure(Analysis_File);
+                    Node_Max_Displacements = new NodeResults();
+                    string max_delf = Path.Combine(Path.GetDirectoryName(analysis_file), "MAX_DEFLECTION.TXT");
+                    List<string> max_dfl = new List<string>();
+                    for (int i = 0; i < structure.Joints.Count; i++)
+                    {
+                        var md = Node_Displacements.Get_Max_XYZ_Deflection(structure.Joints[i].NodeNo);
+                        Node_Max_Displacements.Add(md);
+
+                        //max_dfl.Add(string.Format("{0,6:f3} {1,10:E3} {2,10:E3} {3,10:E3} {4,10:E3} {5,10:E3} {6,10:E2}",
+                        max_dfl.Add(string.Format("{0,6} {1,12:E3} {2,12:E3} {3,12:E3}",
+                            md.NodeNo, md.X_Translation, md.Y_Translation, md.Z_Translation, md.X_Rotation, md.Y_Rotation, md.Z_Rotation));
+                    }
+                    File.WriteAllLines(max_delf, max_dfl.ToArray());
+                    max_dfl.Clear();
+
                     //MessageBox.Show("7.2");
 
                     #region Chiranjit [2011 10 30] Calculate the Effective Depth and Cantilever Width
@@ -3213,6 +3232,25 @@ namespace AstraInterface.DataStructure
         }
         /**/
         #endregion
+
+
+        public double Get_Max_Axial_Force(List<int> mems)
+        {
+            double max_val = 0.0;
+            for (int i = 0; i < list_beams.Count; i++)
+            {
+                var itm = list_beams[i];
+
+                if(mems.Contains(itm.BeamNo))
+                {
+                    if(max_val < Math.Abs(itm.MaxAxialForce))
+                    {
+                        max_val = Math.Abs(itm.MaxAxialForce);
+                    }
+                }
+            }
+            return max_val;
+        }
         public string GetForce(ref CMember mem)
         {
             //string str = MyList.RemoveAllSpaces(memNos);
@@ -3398,6 +3436,11 @@ namespace AstraInterface.DataStructure
                     }
 
                 }
+
+
+
+
+
                 str = "";
                 if (ana_data == null) return str;
 
@@ -5322,7 +5365,10 @@ namespace AstraInterface.DataStructure
             }
 
             //return (max_moment == double.MinValue) ? 0.0d : max_moment;
-
+            if (mfrc.Force == 0.0)
+            {
+                if (is_long_girder) return GetJoint_MomentForce(joint, false, loadcase);
+            }
             return mfrc;
 
         }
@@ -6081,6 +6127,14 @@ namespace AstraInterface.DataStructure
                 }
             }
             //return (max_shear == double.MinValue) ? 0.0d : max_shear;
+
+            if (mfrc.Force == 0.0)
+            {
+                if(is_long_girder)
+                {
+                    return GetJoint_ShearForce(joint, false);
+                }
+            }
             return mfrc;
         }
 
@@ -15774,6 +15828,59 @@ namespace AstraInterface.DataStructure
                         nrd = item;
                 }
             }
+            return nrd;
+        }
+
+        public NodeResultData Get_Max_XYZ_Deflection(int node_no)
+        {
+
+            NodeResultData nrd = new NodeResultData();
+            nrd.NodeNo = node_no;
+
+            double max_xt = 0.0;
+            double max_yt = 0.0;
+            double max_zt = 0.0;
+
+            double max_xr = 0.0;
+            double max_yr = 0.0;
+            double max_zr = 0.0;
+
+            foreach (var item in this)
+            {
+                if (item.NodeNo == node_no)
+                {
+                    if (nrd == null)
+                        nrd = item;
+
+                    if (Math.Abs(item.X_Translation) > Math.Abs(max_xt))
+                        max_xt = item.X_Translation;
+
+                    if (Math.Abs(item.Y_Translation) > Math.Abs(max_yt))
+                        max_yt = item.Y_Translation;
+
+                    if (Math.Abs(item.Z_Translation) > Math.Abs(max_zt))
+                        max_zt = item.Z_Translation;
+
+                    if (Math.Abs(item.X_Rotation) > Math.Abs(max_xr))
+                        max_xr = item.X_Rotation;
+
+                    if (Math.Abs(item.Y_Rotation) > Math.Abs(max_yr))
+                        max_yr = item.Y_Rotation;
+
+                    if (Math.Abs(item.Z_Rotation) > Math.Abs(max_zr))
+                        max_zr = item.Z_Rotation;
+                }
+            }
+            nrd.X_Translation = max_xt;
+            nrd.Y_Translation = max_yt;
+            nrd.Z_Translation = max_zt;
+
+
+            nrd.X_Rotation = max_xr;
+            nrd.Y_Rotation = max_yr;
+            nrd.Z_Rotation = max_zr;
+
+
             return nrd;
         }
 

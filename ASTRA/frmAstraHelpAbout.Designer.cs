@@ -109,7 +109,7 @@ namespace AstraFunctionOne
             this.lbl_release.Name = "lbl_release";
             this.lbl_release.Size = new System.Drawing.Size(163, 16);
             this.lbl_release.TabIndex = 9;
-            this.lbl_release.Text = "RELEASE 22 VERSION 3";
+            this.lbl_release.Text = "RELEASE 23 VERSION 1";
             this.lbl_release.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmAstraHelpAbout
