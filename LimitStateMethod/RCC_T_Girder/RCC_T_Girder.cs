@@ -46,6 +46,14 @@ namespace LimitStateMethod.RCC_T_Girder
 
 
 
+        #region Material Constant
+        public string E_CONC { get; set; }
+        public string DEN_CONC { get; set; }
+        public string PR_CONC { get; set; }
+
+        #endregion Material Constant
+
+
 
         public BridgeMemberAnalysis DeadLoad_Analysis = null;
 
@@ -94,6 +102,9 @@ namespace LimitStateMethod.RCC_T_Girder
             MemColls = new MemberCollection();
             List_Envelop_Inner = "";
             List_Envelop_Outer = "";
+            E_CONC = "CONCRETE";
+            DEN_CONC = "CONCRETE";
+            PR_CONC = "CONCRETE";
         }
 
         #region Properties
@@ -1061,10 +1072,11 @@ namespace LimitStateMethod.RCC_T_Girder
 
             }
             list.Add("MATERIAL CONSTANTS");
-            list.Add("E 2.85E6 ALL");
+            //list.Add("E 2.85E6 ALL");
             //list.Add("E " + Ecm * 100 + " ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
+            //list.Add("DENSITY CONCRETE ALL");
+            //list.Add("POISSON CONCRETE ALL");
+            Write_Contants(list);
             list.Add("SUPPORT");
 
             //list.Add(string.Format("{0}  PINNED", support_left_joints));
@@ -1663,15 +1675,15 @@ namespace LimitStateMethod.RCC_T_Girder
 
             }
             list.Add("MATERIAL CONSTANT");
-            list.Add("E 2.85E6 ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
-            list.Add("SUPPORT");
-            //list.Add(string.Format("{0}  PINNED", support_left_joints));
+            //list.Add("E 2.85E6 ALL");
+            //list.Add("DENSITY CONCRETE ALL");
+            //list.Add("POISSON CONCRETE ALL");
+            Write_Contants(list);
             ////list.Add(string.Format("{0}  PINNED", support_right_joints));
             //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
 
 
+            list.Add("SUPPORT");
             list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
             //list.Add(string.Format("{0}  PINNED", support_right_joints));
             list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
@@ -1830,14 +1842,15 @@ namespace LimitStateMethod.RCC_T_Girder
 
             }
             list.Add("MATERIAL CONSTANT");
-            list.Add("E 2.85E6 ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
-            list.Add("SUPPORT");
+            Write_Contants(list);
+            //list.Add("E 2.85E6 ALL");
+            //list.Add("DENSITY CONCRETE ALL");
+            //list.Add("POISSON CONCRETE ALL");
+
             //list.Add(string.Format("{0}  PINNED", support_left_joints));
             ////list.Add(string.Format("{0}  PINNED", support_right_joints));
             //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
-
+            list.Add("SUPPORT");
             list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
             //list.Add(string.Format("{0}  PINNED", support_right_joints));
             list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
@@ -1861,9 +1874,9 @@ namespace LimitStateMethod.RCC_T_Girder
             //list.Add("*TYPE 1 -18.8 0 5.625 XINC 0.2");
             //list.Add("*TYPE 1 -18.8 0 9.125 XINC 0.2");
             //list.Add("*PLOT DISPLACEMENT FILE");
-            list.Add("PRINT SUPPORT REACTIONS");
-            list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Outer);
-            list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Inner);
+            //list.Add("PRINT SUPPORT REACTIONS");
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Outer);
+            //list.Add("PRINT MAX FORCE ENVELOPE LIST " + List_Envelop_Inner);
             list.Add("PERFORM ANALYSIS");
             list.Add("FINISH");
             list.Add(kStr);
@@ -1906,15 +1919,13 @@ namespace LimitStateMethod.RCC_T_Girder
                 list.Add(string.Format("{0} TO {1} PRIS AX 1.146 IX 0.022 IZ 0.187", MemColls[0].MemberNo, MemColls[MemColls.Count - 1].MemberNo));
             }
             list.Add("MATERIAL CONSTANT");
-            list.Add("E 2.85E6 ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
-            list.Add("SUPPORT");
+            Write_Contants(list);
             //list.Add(string.Format("{0}  PINNED", support_left_joints));
             ////list.Add(string.Format("{0}  PINNED", support_right_joints));
             //list.Add(string.Format("{0}  FIXED BUT FX MZ", support_right_joints));
 
 
+            list.Add("SUPPORT");
             list.Add(string.Format("{0}  {1}", support_left_joints, Start_Support));
             //list.Add(string.Format("{0}  PINNED", support_right_joints));
             list.Add(string.Format("{0}  {1}", support_right_joints, End_Support));
@@ -1975,6 +1986,19 @@ namespace LimitStateMethod.RCC_T_Girder
             File.WriteAllLines(file_name, list.ToArray());
             //iApp.Write_LiveLoad_LL_TXT(Working_Folder, true, iApp.DesignStandard);
             list.Clear();
+        }
+
+        private  void Write_Contants(List<string> list)
+        {
+
+            //list.Add("E 2.85E6 ALL");
+            //list.Add("DENSITY CONCRETE ALL");
+            //list.Add("POISSON CONCRETE ALL");
+            //list.Add("SUPPORT");
+
+            list.Add(string.Format("E {0} ALL", E_CONC));
+            list.Add(string.Format("DENSITY {0} ALL", DEN_CONC));
+            list.Add(string.Format("POISSON {0} ALL", PR_CONC));
         }
 
         public void Clear()

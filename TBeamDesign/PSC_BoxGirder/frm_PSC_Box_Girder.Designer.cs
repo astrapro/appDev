@@ -1112,6 +1112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tab_moving_data_british.SuspendLayout();
             this.groupBox45.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spc_HB)).BeginInit();
             this.spc_HB.Panel1.SuspendLayout();
             this.spc_HB.Panel2.SuspendLayout();
             this.spc_HB.SuspendLayout();
@@ -1127,6 +1128,7 @@
             this.grb_hb.SuspendLayout();
             this.grb_hb_aply.SuspendLayout();
             this.tab_analysis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -2592,6 +2594,7 @@
             // 
             // tab_cs_diagram
             // 
+            this.tab_cs_diagram.AutoScroll = true;
             this.tab_cs_diagram.Controls.Add(this.btn_Show_Section_Resulf);
             this.tab_cs_diagram.Controls.Add(this.label176);
             this.tab_cs_diagram.Controls.Add(this.label226);
@@ -3935,7 +3938,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tabControl5);
             this.splitContainer1.Size = new System.Drawing.Size(930, 628);
-            this.splitContainer1.SplitterDistance = 117;
+            this.splitContainer1.SplitterDistance = 130;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 104;
             // 
@@ -3998,8 +4001,6 @@
             // chk_esprt_fixed_MZ
             // 
             this.chk_esprt_fixed_MZ.AutoSize = true;
-            this.chk_esprt_fixed_MZ.Checked = true;
-            this.chk_esprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MZ.Location = new System.Drawing.Point(290, 32);
             this.chk_esprt_fixed_MZ.Name = "chk_esprt_fixed_MZ";
             this.chk_esprt_fixed_MZ.Size = new System.Drawing.Size(43, 17);
@@ -4010,6 +4011,8 @@
             // chk_esprt_fixed_FZ
             // 
             this.chk_esprt_fixed_FZ.AutoSize = true;
+            this.chk_esprt_fixed_FZ.Checked = true;
+            this.chk_esprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FZ.Location = new System.Drawing.Point(162, 32);
             this.chk_esprt_fixed_FZ.Name = "chk_esprt_fixed_FZ";
             this.chk_esprt_fixed_FZ.Size = new System.Drawing.Size(40, 17);
@@ -4020,6 +4023,8 @@
             // chk_esprt_fixed_MY
             // 
             this.chk_esprt_fixed_MY.AutoSize = true;
+            this.chk_esprt_fixed_MY.Checked = true;
+            this.chk_esprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MY.Location = new System.Drawing.Point(252, 32);
             this.chk_esprt_fixed_MY.Name = "chk_esprt_fixed_MY";
             this.chk_esprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
@@ -4030,6 +4035,8 @@
             // chk_esprt_fixed_FY
             // 
             this.chk_esprt_fixed_FY.AutoSize = true;
+            this.chk_esprt_fixed_FY.Checked = true;
+            this.chk_esprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FY.Location = new System.Drawing.Point(118, 32);
             this.chk_esprt_fixed_FY.Name = "chk_esprt_fixed_FY";
             this.chk_esprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
@@ -4040,6 +4047,8 @@
             // chk_esprt_fixed_MX
             // 
             this.chk_esprt_fixed_MX.AutoSize = true;
+            this.chk_esprt_fixed_MX.Checked = true;
+            this.chk_esprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MX.Location = new System.Drawing.Point(203, 32);
             this.chk_esprt_fixed_MX.Name = "chk_esprt_fixed_MX";
             this.chk_esprt_fixed_MX.Size = new System.Drawing.Size(43, 17);
@@ -4050,8 +4059,6 @@
             // chk_esprt_fixed_FX
             // 
             this.chk_esprt_fixed_FX.AutoSize = true;
-            this.chk_esprt_fixed_FX.Checked = true;
-            this.chk_esprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FX.Location = new System.Drawing.Point(72, 32);
             this.chk_esprt_fixed_FX.Name = "chk_esprt_fixed_FX";
             this.chk_esprt_fixed_FX.Size = new System.Drawing.Size(40, 17);
@@ -4193,6 +4200,8 @@
             // chk_ssprt_fixed_MZ
             // 
             this.chk_ssprt_fixed_MZ.AutoSize = true;
+            this.chk_ssprt_fixed_MZ.Checked = true;
+            this.chk_ssprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MZ.Location = new System.Drawing.Point(290, 32);
             this.chk_ssprt_fixed_MZ.Name = "chk_ssprt_fixed_MZ";
             this.chk_ssprt_fixed_MZ.Size = new System.Drawing.Size(43, 17);
@@ -4203,6 +4212,8 @@
             // chk_ssprt_fixed_FZ
             // 
             this.chk_ssprt_fixed_FZ.AutoSize = true;
+            this.chk_ssprt_fixed_FZ.Checked = true;
+            this.chk_ssprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FZ.Location = new System.Drawing.Point(162, 32);
             this.chk_ssprt_fixed_FZ.Name = "chk_ssprt_fixed_FZ";
             this.chk_ssprt_fixed_FZ.Size = new System.Drawing.Size(40, 17);
@@ -4213,6 +4224,8 @@
             // chk_ssprt_fixed_MY
             // 
             this.chk_ssprt_fixed_MY.AutoSize = true;
+            this.chk_ssprt_fixed_MY.Checked = true;
+            this.chk_ssprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MY.Location = new System.Drawing.Point(252, 32);
             this.chk_ssprt_fixed_MY.Name = "chk_ssprt_fixed_MY";
             this.chk_ssprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
@@ -4223,6 +4236,8 @@
             // chk_ssprt_fixed_FY
             // 
             this.chk_ssprt_fixed_FY.AutoSize = true;
+            this.chk_ssprt_fixed_FY.Checked = true;
+            this.chk_ssprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FY.Location = new System.Drawing.Point(118, 32);
             this.chk_ssprt_fixed_FY.Name = "chk_ssprt_fixed_FY";
             this.chk_ssprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
@@ -4233,6 +4248,8 @@
             // chk_ssprt_fixed_MX
             // 
             this.chk_ssprt_fixed_MX.AutoSize = true;
+            this.chk_ssprt_fixed_MX.Checked = true;
+            this.chk_ssprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MX.Location = new System.Drawing.Point(203, 32);
             this.chk_ssprt_fixed_MX.Name = "chk_ssprt_fixed_MX";
             this.chk_ssprt_fixed_MX.Size = new System.Drawing.Size(43, 17);
@@ -4243,6 +4260,8 @@
             // chk_ssprt_fixed_FX
             // 
             this.chk_ssprt_fixed_FX.AutoSize = true;
+            this.chk_ssprt_fixed_FX.Checked = true;
+            this.chk_ssprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FX.Location = new System.Drawing.Point(72, 32);
             this.chk_ssprt_fixed_FX.Name = "chk_ssprt_fixed_FX";
             this.chk_ssprt_fixed_FX.Size = new System.Drawing.Size(40, 17);
@@ -4344,7 +4363,7 @@
             this.tabControl5.Location = new System.Drawing.Point(0, 0);
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(928, 503);
+            this.tabControl5.Size = new System.Drawing.Size(928, 490);
             this.tabControl5.TabIndex = 1;
             // 
             // tabPage5
@@ -4353,7 +4372,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(920, 477);
+            this.tabPage5.Size = new System.Drawing.Size(920, 464);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Analysis Results";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -4371,7 +4390,7 @@
             this.groupBox44.ForeColor = System.Drawing.Color.Red;
             this.groupBox44.Location = new System.Drawing.Point(3, 3);
             this.groupBox44.Name = "groupBox44";
-            this.groupBox44.Size = new System.Drawing.Size(914, 471);
+            this.groupBox44.Size = new System.Drawing.Size(914, 458);
             this.groupBox44.TabIndex = 94;
             this.groupBox44.TabStop = false;
             // 
@@ -5619,7 +5638,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(920, 477);
+            this.tabPage6.Size = new System.Drawing.Size(920, 464);
             this.tabPage6.TabIndex = 1;
             this.tabPage6.Text = "Reaction Forces";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -5637,7 +5656,7 @@
             this.groupBox62.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox62.Location = new System.Drawing.Point(3, 3);
             this.groupBox62.Name = "groupBox62";
-            this.groupBox62.Size = new System.Drawing.Size(914, 471);
+            this.groupBox62.Size = new System.Drawing.Size(914, 458);
             this.groupBox62.TabIndex = 29;
             this.groupBox62.TabStop = false;
             // 
@@ -12294,6 +12313,7 @@
             this.groupBox45.PerformLayout();
             this.spc_HB.Panel1.ResumeLayout(false);
             this.spc_HB.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spc_HB)).EndInit();
             this.spc_HB.ResumeLayout(false);
             this.groupBox106.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -12315,6 +12335,7 @@
             this.tab_analysis.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox70.ResumeLayout(false);

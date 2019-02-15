@@ -1141,17 +1141,17 @@ namespace LimitStateMethod.Steel_Truss
                 //WriteTable3(sw);
                 //WriteTable4(sw);
                 //Complete_Design.WriteForcesSummery(sw);
-                Complete_Design.WriteForces_Capacity_Summery(sw);
-                Complete_Design.WriteGroupSummery(sw);
+                Complete_Design.WriteForces_Capacity_Summary(sw);
+                Complete_Design.WriteGroupSummary(sw);
                 string file_ds_frc = "";
                 file_ds_frc = Path.Combine(user_path, "DESIGN_SECTION_SUMMARY.TXT");
-                Complete_Design.WriteGroupSummery(file_ds_frc);
+                Complete_Design.WriteGroupSummary(file_ds_frc);
                 file_ds_frc = Path.Combine(user_path, "DESIGN_FORCES_SUMMARY.TXT");
 
 
 
                 //Complete_Design.WriteForcesSummery(file_ds_frc);
-                Complete_Design.WriteForces_Capacity_Summery(file_ds_frc);
+                Complete_Design.WriteForces_Capacity_Summary(file_ds_frc);
 
 
 

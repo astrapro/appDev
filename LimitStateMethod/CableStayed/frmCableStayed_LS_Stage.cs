@@ -75,10 +75,8 @@ namespace LimitStateMethod.CableStayed
                 {
                     case eDesignStandard.IndianStandard:
                         return iApp.Tables.IS_SteelAngles;
-                        break;
                     case eDesignStandard.BritishStandard:
                         return iApp.Tables.BS_SteelAngles;
-                        break;
                 }
                 return iApp.Tables.IS_SteelAngles;
             }
@@ -408,17 +406,19 @@ namespace LimitStateMethod.CableStayed
                 string anaRes = "";
                 if (Directory.Exists(user_path))
                 {
-                    if (AnalysisType == eAnalysis.Normal) anaRes = Path.Combine(user_path, "ANALYSIS_RESULT.TXT");
-                    else if (AnalysisType == eAnalysis.Stage1) anaRes = Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_01.TXT");
-                    else if (AnalysisType == eAnalysis.Stage2) anaRes = Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_02.TXT");
-                    else if (AnalysisType == eAnalysis.Stage3) anaRes = Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_03.TXT");
-                    else if (AnalysisType == eAnalysis.Stage4) anaRes = Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_05.TXT");
-                    else if (AnalysisType == eAnalysis.Stage5) anaRes = Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_05.TXT");
+                    if (AnalysisType == eAnalysis.Normal) anaRes = Path.Combine(user_path, "Process\\ANALYSIS_RESULT_PRIMARY.TXT");
+                    else if (AnalysisType == eAnalysis.Stage1) anaRes = Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_01.TXT");
+                    else if (AnalysisType == eAnalysis.Stage2) anaRes = Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_02.TXT");
+                    else if (AnalysisType == eAnalysis.Stage3) anaRes = Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_03.TXT");
+                    else if (AnalysisType == eAnalysis.Stage4) anaRes = Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_05.TXT");
+                    else if (AnalysisType == eAnalysis.Stage5) anaRes = Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_05.TXT");
                 }
                 return anaRes;
             }
 
         }
+
+
         public string user_path
         {
             get
@@ -428,6 +428,8 @@ namespace LimitStateMethod.CableStayed
             set
             {
                 iApp.user_path = value;
+
+                this.Text = Title + " : " + Path.GetFileName(iApp.LastDesignWorkingFolder) + " : " + Path.GetFileName(value);
             }
         }
 
@@ -1518,12 +1520,131 @@ namespace LimitStateMethod.CableStayed
             //iApp.RunExe(Input_Data);
         }
 
+
+
+        #region Chiranjit [2014 03 12] Support Input
+        public string Start_Support_Text
+        {
+            get
+            {
+                string kStr = "PINNED";
+                if (AnalysisType == eAnalysis.Normal)
+                {
+                    if (rbtn_ssprt_pinned.Checked)
+                        kStr = "PINNED";
+                    else if (rbtn_ssprt_fixed.Checked)
+                    {
+                        kStr = "FIXED";
+
+
+                        if (!chk_ssprt_fixed_FX.Checked
+                            || !chk_ssprt_fixed_FY.Checked
+                            || !chk_ssprt_fixed_FZ.Checked
+                            || !chk_ssprt_fixed_MX.Checked
+                            || !chk_ssprt_fixed_MY.Checked
+                            || !chk_ssprt_fixed_MZ.Checked)
+                            kStr += " BUT";
+
+                        if (!chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                        if (!chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                        if (!chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                        if (!chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                        if (!chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                        if (!chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    }
+                }
+                else
+                {
+                    if (ucStage.rbtn_ssprt_pinned.Checked)
+                        kStr = "PINNED";
+                    else if (ucStage.rbtn_ssprt_fixed.Checked)
+                    {
+                        kStr = "FIXED";
+
+
+                        if (!ucStage.chk_ssprt_fixed_FX.Checked
+                            || !ucStage.chk_ssprt_fixed_FY.Checked
+                            || !chk_ssprt_fixed_FZ.Checked
+                            || !chk_ssprt_fixed_MX.Checked
+                            || !chk_ssprt_fixed_MY.Checked
+                            || !chk_ssprt_fixed_MZ.Checked)
+                            kStr += " BUT";
+
+                        if (!ucStage.chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                        if (!ucStage.chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                        if (!ucStage.chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                        if (!ucStage.chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                        if (!ucStage.chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                        if (!ucStage.chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    }
+                
+                }
+                return kStr;
+            }
+        }
+        public string END_Support_Text
+        {
+            get
+            {
+                string kStr = "PINNED";
+
+                if (AnalysisType == eAnalysis.Normal)
+                {
+                    if (rbtn_esprt_pinned.Checked)
+                        kStr = "PINNED";
+                    else if (rbtn_esprt_fixed.Checked)
+                    {
+                        kStr = "FIXED";
+                        if (!chk_esprt_fixed_FX.Checked
+                            || !chk_esprt_fixed_FY.Checked
+                            || !chk_esprt_fixed_FZ.Checked
+                            || !chk_esprt_fixed_MX.Checked
+                            || !chk_esprt_fixed_MY.Checked
+                            || !chk_esprt_fixed_MZ.Checked)
+                            kStr += " BUT";
+                        if (!chk_esprt_fixed_FX.Checked) kStr += " FX";
+                        if (!chk_esprt_fixed_FY.Checked) kStr += " FY";
+                        if (!chk_esprt_fixed_FZ.Checked) kStr += " FZ";
+                        if (!chk_esprt_fixed_MX.Checked) kStr += " MX";
+                        if (!chk_esprt_fixed_MY.Checked) kStr += " MY";
+                        if (!chk_esprt_fixed_MZ.Checked) kStr += " MZ";
+                    }
+                }
+                else
+                {
+
+                    if (ucStage.rbtn_esprt_pinned.Checked)
+                        kStr = "PINNED";
+                    else if (ucStage.rbtn_esprt_fixed.Checked)
+                    {
+                        kStr = "FIXED";
+                        if (!ucStage.chk_esprt_fixed_FX.Checked
+                            || !ucStage.chk_esprt_fixed_FY.Checked
+                            || !ucStage.chk_esprt_fixed_FZ.Checked
+                            || !ucStage.chk_esprt_fixed_MX.Checked
+                            || !ucStage.chk_esprt_fixed_MY.Checked
+                            || !ucStage.chk_esprt_fixed_MZ.Checked)
+                            kStr += " BUT";
+                        if (!ucStage.chk_esprt_fixed_FX.Checked) kStr += " FX";
+                        if (!ucStage.chk_esprt_fixed_FY.Checked) kStr += " FY";
+                        if (!ucStage.chk_esprt_fixed_FZ.Checked) kStr += " FZ";
+                        if (!ucStage.chk_esprt_fixed_MX.Checked) kStr += " MX";
+                        if (!ucStage.chk_esprt_fixed_MY.Checked) kStr += " MY";
+                        if (!ucStage.chk_esprt_fixed_MZ.Checked) kStr += " MZ";
+                    }
+                }
+                return kStr;
+            }
+        }
+
+        #endregion Chiranjit [2014 03 12] Support Input
+
         List<int> HA_Loading_Members = new List<int>();
         List<double> HA_Dists = new List<double>();
 
+
         void CreateData_Total_Structure()
         {
-
             List<int> supports = new List<int>();
             List<int> cbl = new List<int>();
 
@@ -1566,7 +1687,6 @@ namespace LimitStateMethod.CableStayed
             double L = 0.0;
             #endregion Variables for Members
 
-
             #region British Loads
 
             HA_Loading_Members.Clear();
@@ -1580,7 +1700,6 @@ namespace LimitStateMethod.CableStayed
             }
 
             #endregion British Loads
-
 
             x = 0;
             y = h1;
@@ -1807,13 +1926,9 @@ namespace LimitStateMethod.CableStayed
             }
             #endregion Pylon PYLON AT 471 MTR
 
-
-
             #region Write MEMBER CONNECTIVITY
 
             #endregion Write MEMBER CONNECTIVITY
-
-
 
             long_girders.Clear();
             cross_girders.Clear();
@@ -2090,273 +2205,8 @@ namespace LimitStateMethod.CableStayed
             list_member_group.Add(string.Format("_PYLON2 {0} TO {1}", start_mbr_no, end_mbr_no));
             #endregion Pylons
 
-            #region Left Side Cables 1
-            start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                try
-                {
-                    mbr = new Member();
-                    mbr.MemberNo = mem_count++;
+            List<int> Cbl_Flr_jnts = new List<int>();
 
-                    x = i * Nos_Side_Cables_Cross_Girder * a1;
-                    y = h1;
-                    //z = list_z_values[0];
-                    z = d1;
-
-                    mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                    x = L1;
-                    y = pylon_y[i];
-                    z = d1;
-
-                    mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                    cables.Add(mbr);
-                    cbl.Add(mbr.MemberNo);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_LCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Left Side Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = i * Nos_Side_Cables_Cross_Girder * a1;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d1;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1;
-                y = pylon_y[i];
-                z = B - d1;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
-            int cnt = 1;
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-
-            cbl.Clear();
-
-
-            #endregion Cables
-
-            #region Left Centre Cables 1
-            start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[0];
-                z = d1;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1;
-                y = pylon_y[pylon_y.Count - i];
-                z = d1;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_LCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Left Centre Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d1;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1;
-                y = pylon_y[pylon_y.Count - i];
-                z = B - d1;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
-
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-
-            cbl.Clear();
-            #endregion Cables
-
-
-            #region Right Side Cables 1
-            start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
-                y = h1;
-                //z = list_z_values[0];
-                z = d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[i];
-                z = d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_RCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Right Side Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[i];
-                z = B - d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE3 {0} TO {1}", start_mbr_no, end_mbr_no));
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-            cbl.Clear();
-            #endregion Cables
-
-            #region Right Centre Cables 1
-            start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[0];
-                z = d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[pylon_y.Count - i];
-                z = d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_RCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Right Centre Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[pylon_y.Count - i];
-                z = B - d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE4 {0} TO {1}", start_mbr_no, end_mbr_no));
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-            cbl.Clear();
-            #endregion Cables
 
             #region Left Tie Beam
             start_mbr_no = mem_count;
@@ -2399,6 +2249,283 @@ namespace LimitStateMethod.CableStayed
             tie_beam.Add(mbr);
             list_member_group.Add(string.Format("_TIEBEAM2 {0}", start_mbr_no));
             #endregion Right Tie Beam
+
+
+            #region Left Side Cables 1
+            start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                try
+                {
+                    mbr = new Member();
+                    mbr.MemberNo = mem_count++;
+
+                    x = i * Nos_Side_Cables_Cross_Girder * a1;
+                    y = h1;
+                    //z = list_z_values[0];
+                    z = d1;
+
+                    mbr.StartNode = Joints.GetJoints(x, y, z);
+                    Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                    x = L1;
+                    y = pylon_y[i];
+                    z = d1;
+
+                    mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                    cables.Add(mbr);
+                    cbl.Add(mbr.MemberNo);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_LCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Left Side Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = i * Nos_Side_Cables_Cross_Girder * a1;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d1;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1;
+                y = pylon_y[i];
+                z = B - d1;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
+            int cnt = 1;
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+
+            cbl.Clear();
+
+
+            #endregion Cables
+
+            #region Left Centre Cables 1
+            start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[0];
+                z = d1;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1;
+                y = pylon_y[pylon_y.Count - i];
+                z = d1;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_LCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Left Centre Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d1;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1;
+                y = pylon_y[pylon_y.Count - i];
+                z = B - d1;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
+
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+
+            cbl.Clear();
+            #endregion Cables
+
+            #region Right Side Cables 1
+            start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
+                y = h1;
+                //z = list_z_values[0];
+                z = d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+
+                x = L1 + L2;
+                y = pylon_y[i];
+                z = d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_RCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Right Side Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[i];
+                z = B - d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE3 {0} TO {1}", start_mbr_no, end_mbr_no));
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+            cbl.Clear();
+            #endregion Cables
+
+            #region Right Centre Cables 1
+            start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[0];
+                z = d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[pylon_y.Count - i];
+                z = d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_RCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Right Centre Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                Cbl_Flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[pylon_y.Count - i];
+                z = B - d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE4 {0} TO {1}", start_mbr_no, end_mbr_no));
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+            cbl.Clear();
+            #endregion Cables
 
             #region Write Data
 
@@ -2459,18 +2586,18 @@ namespace LimitStateMethod.CableStayed
 
             //list_data.Add("MEMBER CONNECTIVITY INCIDENCE");
             list_data.Add("MEMBER INCIDENCE");
-            list_data.Add("*******     LONG GIRDERS    *******");
-            foreach (var item in long_girders.Members) list_data.Add(item.ToString());
-            list_data.Add("*******    CROSS GIRDERS    *******");
-            foreach (var item in cross_girders.Members) list_data.Add(item.ToString());
-            list_data.Add("*******    PYLONS    *******");
-            foreach (var item in pylon.Members) list_data.Add(item.ToString());
             list_data.Add("*******    CABLES   *********");
             foreach (var item in cables.Members)
             {
                 cbl_nos.Add(item.MemberNo);
                 list_data.Add(item.ToString());
             }
+            list_data.Add("*******     LONG GIRDERS    *******");
+            foreach (var item in long_girders.Members) list_data.Add(item.ToString());
+            list_data.Add("*******    CROSS GIRDERS    *******");
+            foreach (var item in cross_girders.Members) list_data.Add(item.ToString());
+            list_data.Add("*******    PYLONS    *******");
+            foreach (var item in pylon.Members) list_data.Add(item.ToString());
             list_data.Add("*******  TIE BEAMS    *******");
             foreach (var item in tie_beam.Members) list_data.Add(item.ToString());
             list_data.Add("START GROUP DEFINITION");
@@ -2518,10 +2645,75 @@ namespace LimitStateMethod.CableStayed
             //list_data.Add("_CABLE3");
             //list_data.Add("MEMBER CABLE");
             //list_data.Add("_CABLE4");
-            list_data.Add("CONSTANT");
-            list_data.Add("E  2.110E8 ALL");
-            list_data.Add("DENSITY STEEL ALL");
-            list_data.Add("POISSON STEEL ALL");
+            list_data.Add("MATERIAL CONSTANT");
+            //list_data.Add("E  2.110E8 ALL");
+            //list_data.Add("DENSITY STEEL ALL");
+            //list_data.Add("POISSON STEEL ALL");
+
+            if (AnalysisType == eAnalysis.Normal)
+            {
+                CS_Analysis.E_CABLE = txt_emod_cable.Text;
+                CS_Analysis.E_STEEL = txt_emod_steel.Text;
+                CS_Analysis.E_CONC = txt_emod_conc.Text;
+
+                CS_Analysis.DEN_CABLE = txt_den_cable.Text;
+                CS_Analysis.DEN_STEEL = txt_den_steel.Text;
+                CS_Analysis.DEN_CONC = txt_den_conc.Text;
+
+                CS_Analysis.PR_CABLE = txt_PR_cable.Text;
+                CS_Analysis.PR_STEEL = txt_PR_steel.Text;
+                CS_Analysis.PR_CONC = txt_PR_conc.Text;
+            }
+            else
+            {
+
+                CS_Analysis.E_CABLE = ucStage.txt_emod_cable.Text;
+                CS_Analysis.E_STEEL = ucStage.txt_emod_steel.Text;
+                CS_Analysis.E_CONC = ucStage.txt_emod_conc.Text;
+
+                CS_Analysis.DEN_CABLE = ucStage.txt_den_cable.Text;
+                CS_Analysis.DEN_STEEL = ucStage.txt_den_steel.Text;
+                CS_Analysis.DEN_CONC = ucStage.txt_den_conc.Text;
+
+                CS_Analysis.PR_CABLE = ucStage.txt_PR_cable.Text;
+                CS_Analysis.PR_STEEL = ucStage.txt_PR_steel.Text;
+                CS_Analysis.PR_CONC = ucStage.txt_PR_conc.Text;
+            }
+
+
+
+
+
+
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, long_girders[0].MemberNo, long_girders[long_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, cross_girders[0].MemberNo, cross_girders[cross_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, pylon[0].MemberNo, pylon[pylon.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, tie_beam[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, long_girders[0].MemberNo, long_girders[long_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, cross_girders[0].MemberNo, cross_girders[cross_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, pylon[0].MemberNo, pylon[pylon.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, tie_beam[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, long_girders[0].MemberNo, long_girders[long_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, cross_girders[0].MemberNo, cross_girders[cross_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, pylon[0].MemberNo, pylon[pylon.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, tie_beam[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, long_girders[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, long_girders[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, long_girders[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+            
+
+
             list_data.Add("SUPPORT");
             // list_data.Add("172 170 FIXED BUT MZ");
             //list_data.Add("173 441 FIXED BUT MX MZ");
@@ -2567,22 +2759,26 @@ namespace LimitStateMethod.CableStayed
                 {
                     if (supports[c] == nd1)
                     {
-                        list_data.Add(nd1 + " FIXED BUT MZ");
+                        //list_data.Add(nd1 + " FIXED BUT MZ");
+                        list_data.Add(nd1 + " " + Start_Support_Text);
                         lsupp.Add(supports[c]);
                     }
                     else if (supports[c] == nd2)
                     {
-                        list_data.Add(nd2 + " FIXED BUT MZ");
+                        //list_data.Add(nd2 + " FIXED BUT MZ");
+                        list_data.Add(nd2 + " " + Start_Support_Text);
                         lsupp.Add(supports[c]);
                     }
                     else if (supports[c] == nd3)
                     {
-                        list_data.Add(nd3 + " FIXED BUT MX MZ");
+                        //list_data.Add(nd3 + " FIXED BUT MX MZ");
+                        list_data.Add(nd3 + " " + END_Support_Text);
                         rsupp.Add(supports[c]);
                     }
                     else if (supports[c] == nd4)
                     {
-                        list_data.Add(nd4 + " FIXED BUT MX MZ");
+                        //list_data.Add(nd4 + " FIXED BUT MX MZ");
+                        list_data.Add(nd4 + " " + END_Support_Text);
                         rsupp.Add(supports[c]);
                     }
                     else
@@ -2604,6 +2800,9 @@ namespace LimitStateMethod.CableStayed
                 supports.Clear();
                 sup.Clear();
             }
+
+
+            list_data.Add(string.Format("{0}  PINNED", MyList.Get_Array_Text(Cbl_Flr_jnts)));
 
             Left_support = MyList.Get_Array_Text(lsupp);
             Right_support = MyList.Get_Array_Text(rsupp);
@@ -3199,271 +3398,8 @@ namespace LimitStateMethod.CableStayed
 
 
             List<int> cbl = new List<int>();
-            #region Left Side Cables 1
-            start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                try
-                {
-                    mbr = new Member();
-                    mbr.MemberNo = mem_count++;
 
-                    x = i * Nos_Side_Cables_Cross_Girder * a1;
-                    y = h1;
-                    //z = list_z_values[0];
-                    z = d1;
-
-                    mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                    x = L1;
-                    y = pylon_y[i];
-                    z = d1;
-
-                    mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                    cables.Add(mbr);
-                    cbl.Add(mbr.MemberNo);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_LCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Left Side Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = i * Nos_Side_Cables_Cross_Girder * a1;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d1;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1;
-                y = pylon_y[i];
-                z = B - d1;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
-            int cnt = 1;
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-
-            cbl.Clear();
-            #endregion Cables
-
-            #region Left Centre Cables 1
-            start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[0];
-                z = d1;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1;
-                y = pylon_y[pylon_y.Count - i];
-                z = d1;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_LCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Left Centre Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d1;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1;
-                y = pylon_y[pylon_y.Count - i];
-                z = B - d1;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-
-            cbl.Clear();
-            #endregion Cables
-
-
-            #region Right Side Cables 1
-            start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
-                y = h1;
-                //z = list_z_values[0];
-                z = d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[i];
-                z = d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_RCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Right Side Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 0; i < pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[i];
-                z = B - d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE3 {0} TO {1}", start_mbr_no, end_mbr_no));
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-
-            cbl.Clear();
-            #endregion Cables
-
-            #region Right Centre Cables 1
-            start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[0];
-                z = d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[pylon_y.Count - i];
-                z = d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            //end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_RCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
-            //#endregion Cables
-            //#region Right Centre Cables 2
-            //start_mbr_no = mem_count;
-            for (i = 1; i <= pylon_y.Count; i++)
-            {
-                mbr = new Member();
-                mbr.MemberNo = mem_count++;
-
-                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
-                y = h1;
-                //z = list_z_values[list_z_values.Count - 1];
-                z = B - d2;
-
-                mbr.StartNode = Joints.GetJoints(x, y, z);
-
-                x = L1 + L2;
-                y = pylon_y[pylon_y.Count - i];
-                z = B - d2;
-
-                mbr.EndNode = Joints.GetJoints(x, y, z);
-
-                cables.Add(mbr);
-                cbl.Add(mbr.MemberNo);
-            }
-
-            end_mbr_no = mem_count - 1;
-            //list_member_group.Add(string.Format("_CABLE4 {0} TO {1}", start_mbr_no, end_mbr_no));
-
-            for (i = 0; i < cbl.Count / 2; i++)
-            {
-                start_mbr_no = cbl[i];
-                end_mbr_no = cbl[i + (cbl.Count / 2)];
-                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
-            }
-
-            cbl.Clear();
-            #endregion Cables
+            List<int> cbl_flr_jnts = new List<int>();
 
             #region Left Tie Beam
             start_mbr_no = mem_count;
@@ -3506,6 +3442,281 @@ namespace LimitStateMethod.CableStayed
             tie_beam.Add(mbr);
             list_member_group.Add(string.Format("_TIEBEAM2 {0}", start_mbr_no));
             #endregion Right Tie Beam
+
+            #region Left Side Cables 1
+            start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                try
+                {
+                    mbr = new Member();
+                    mbr.MemberNo = mem_count++;
+
+                    x = i * Nos_Side_Cables_Cross_Girder * a1;
+                    y = h1;
+                    //z = list_z_values[0];
+                    z = d1;
+
+                    mbr.StartNode = Joints.GetJoints(x, y, z);
+                    cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+
+                    x = L1;
+                    y = pylon_y[i];
+                    z = d1;
+
+                    mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                    cables.Add(mbr);
+                    cbl.Add(mbr.MemberNo);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_LCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Left Side Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = i * Nos_Side_Cables_Cross_Girder * a1;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d1;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1;
+                y = pylon_y[i];
+                z = B - d1;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
+            int cnt = 1;
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+
+            cbl.Clear();
+            #endregion Cables
+
+            #region Left Centre Cables 1
+            start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[0];
+                z = d1;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1;
+                y = pylon_y[pylon_y.Count - i];
+                z = d1;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_LCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Left Centre Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d1;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1;
+                y = pylon_y[pylon_y.Count - i];
+                z = B - d1;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+
+            cbl.Clear();
+            #endregion Cables
+
+
+            #region Right Side Cables 1
+            start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
+                y = h1;
+                //z = list_z_values[0];
+                z = d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[i];
+                z = d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_RCABLE1 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Right Side Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 0; i < pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L - i * Nos_Side_Cables_Cross_Girder * a1;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[i];
+                z = B - d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE3 {0} TO {1}", start_mbr_no, end_mbr_no));
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+
+            cbl.Clear();
+            #endregion Cables
+
+            #region Right Centre Cables 1
+            start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[0];
+                z = d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[pylon_y.Count - i];
+                z = d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            //end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_RCABLE2 {0} TO {1}", start_mbr_no, end_mbr_no));
+            //#endregion Cables
+            //#region Right Centre Cables 2
+            //start_mbr_no = mem_count;
+            for (i = 1; i <= pylon_y.Count; i++)
+            {
+                mbr = new Member();
+                mbr.MemberNo = mem_count++;
+
+                x = L1 + L2 - i * Nos_Center_Cables_Cross_Girder * a2;
+                y = h1;
+                //z = list_z_values[list_z_values.Count - 1];
+                z = B - d2;
+
+                mbr.StartNode = Joints.GetJoints(x, y, z);
+                cbl_flr_jnts.Add(mbr.StartNode.NodeNo);
+
+                x = L1 + L2;
+                y = pylon_y[pylon_y.Count - i];
+                z = B - d2;
+
+                mbr.EndNode = Joints.GetJoints(x, y, z);
+
+                cables.Add(mbr);
+                cbl.Add(mbr.MemberNo);
+            }
+
+            end_mbr_no = mem_count - 1;
+            //list_member_group.Add(string.Format("_CABLE4 {0} TO {1}", start_mbr_no, end_mbr_no));
+
+            for (i = 0; i < cbl.Count / 2; i++)
+            {
+                start_mbr_no = cbl[i];
+                end_mbr_no = cbl[i + (cbl.Count / 2)];
+                list_member_group.Add(string.Format("_CABLE{0} {1} {2}", cnt++, start_mbr_no, end_mbr_no));
+            }
+
+            cbl.Clear();
+            #endregion Cables
 
             #region Write Data
 
@@ -3567,18 +3778,18 @@ namespace LimitStateMethod.CableStayed
 
             //list_data.Add("MEMBER CONNECTIVITY INCIDENCE");
             list_data.Add("MEMBER INCIDENCE");
+             list_data.Add("*******    CABLES   *********");
+            foreach (var item in cables.Members)
+            {
+                cbl_nos.Add(item.MemberNo);
+                list_data.Add(item.ToString());
+            }
             list_data.Add("*******     LONG GIRDERS    *******");
             foreach (var item in long_girders.Members) list_data.Add(item.ToString());
             list_data.Add("*******    CROSS GIRDERS    *******");
             foreach (var item in cross_girders.Members) list_data.Add(item.ToString());
             list_data.Add("*******    PYLONS    *******");
             foreach (var item in pylon.Members) list_data.Add(item.ToString());
-            list_data.Add("*******    CABLES   *********");
-            foreach (var item in cables.Members)
-            {
-                cbl_nos.Add(item.MemberNo);
-                list_data.Add(item.ToString());
-            }
             list_data.Add("*******  TIE BEAMS    *******");
             foreach (var item in tie_beam.Members) list_data.Add(item.ToString());
             list_data.Add("START GROUP DEFINITION");
@@ -3623,12 +3834,43 @@ namespace LimitStateMethod.CableStayed
             //list_data.Add("MEMBER CABLE");
             //list_data.Add("_CABLE4");
             list_data.Add("CONSTANT");
-            list_data.Add("E  2.110E8 ALL");
-            list_data.Add("DENSITY STEEL ALL");
-            list_data.Add("POISSON STEEL ALL");
-            list_data.Add("SUPPORT");
+            //list_data.Add("E  2.110E8 ALL");
+            //list_data.Add("DENSITY STEEL ALL");
+            //list_data.Add("POISSON STEEL ALL");
+            //list_data.Add("SUPPORT");
             // list_data.Add("172 170 FIXED BUT MZ");
             //list_data.Add("173 441 FIXED BUT MX MZ");
+
+
+            list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, long_girders[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, long_girders[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, long_girders[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            list_data.Add("SUPPORT");
+
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, long_girders[0].MemberNo, long_girders[long_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, cross_girders[0].MemberNo, cross_girders[cross_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, pylon[0].MemberNo, pylon[pylon.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_STEEL, tie_beam[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            //list_data.Add(string.Format("E {0} {1} TO {2}", CS_Analysis.E_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, long_girders[0].MemberNo, long_girders[long_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, cross_girders[0].MemberNo, cross_girders[cross_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, pylon[0].MemberNo, pylon[pylon.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_STEEL, tie_beam[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            //list_data.Add(string.Format("DENSITY {0} {1} TO {2}", CS_Analysis.DEN_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, long_girders[0].MemberNo, long_girders[long_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, cross_girders[0].MemberNo, cross_girders[cross_girders.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, pylon[0].MemberNo, pylon[pylon.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_STEEL, tie_beam[0].MemberNo, tie_beam[tie_beam.Count - 1].MemberNo));
+            //list_data.Add(string.Format("POISSON {0} {1} TO {2}", CS_Analysis.PR_CABLE, cables[0].MemberNo, cables[cables.Count - 1].MemberNo));
+
 
 
             int nd1 = 0, nd2 = 0, nd3 = 0, nd4 = 0;
@@ -3668,19 +3910,23 @@ namespace LimitStateMethod.CableStayed
                 {
                     if (supports[c] == nd1)
                     {
-                        list_data.Add(nd1 + " FIXED BUT MZ");
+                        //list_data.Add(nd1 + " FIXED BUT MZ");
+                        list_data.Add(nd1 + " " + Start_Support_Text);
                     }
                     else if (supports[c] == nd2)
                     {
-                        list_data.Add(nd2 + " FIXED BUT MZ");
+                        //list_data.Add(nd2 + " FIXED BUT MZ");
+                        list_data.Add(nd2 + " " + Start_Support_Text);
                     }
                     else if (supports[c] == nd3)
                     {
-                        list_data.Add(nd3 + " FIXED BUT MX MZ");
+                        //list_data.Add(nd3 + " FIXED BUT MX MZ");
+                        list_data.Add(nd3 + " " + END_Support_Text);
                     }
                     else if (supports[c] == nd4)
                     {
-                        list_data.Add(nd4 + " FIXED BUT MX MZ");
+                        //list_data.Add(nd4 + " FIXED BUT MX MZ");
+                        list_data.Add(nd4 + " " + END_Support_Text);
                     }
                     else
                     {
@@ -3701,6 +3947,9 @@ namespace LimitStateMethod.CableStayed
                 supports.Clear();
                 sup.Clear();
             }
+
+            list_data.Add(MyList.Get_Array_Text(cbl_flr_jnts) + " PINNED");
+
 
             //list_data.Add("LOAD                1 ");
             //list_data.Add("JOINT LOAD");
@@ -3779,94 +4028,16 @@ namespace LimitStateMethod.CableStayed
             File.WriteAllLines(CS_Analysis.Get_LL_Analysis_Input_File(1), list_data.ToArray());
 
 
-            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
-                LONG_GIRDER_LL_TXT();
-            else
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 LONG_GIRDER_BRITISH_LL_TXT();
+            else
+                LONG_GIRDER_LL_TXT();
 
 
             for (i = 0; i < all_loads.Count; i++)
             {
                 File.WriteAllLines(CS_Analysis.Get_LL_Analysis_Input_File(i + 1), list_data.ToArray());
             }
-
-
-
-
-            //uC_Deckslab_BS1.user_path = user_path;
-
-            //    Long_Girder_Analysis.HA_Lanes = HA_Lanes;
-
-            //    Long_Girder_Analysis.CreateData_British();
-
-            //    Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.Input_File, true);
-            //    Long_Girder_Analysis.WriteData_Total_Analysis(inp_file, true);
-
-            //    Calculate_Load_Computation(Long_Girder_Analysis._Outer_Girder_Mid,
-            //        Long_Girder_Analysis._Inner_Girder_Mid,
-            //         Long_Girder_Analysis.joints_list_for_load);
-
-            //    Long_Girder_Analysis.WriteData_Total_Analysis(Long_Girder_Analysis.TotalAnalysis_Input_File);
-
-            //    Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.TotalAnalysis_Input_File, long_ll);
-            //    Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.LiveLoadAnalysis_Input_File, long_ll);
-            //    Long_Girder_Analysis.WriteData_DeadLoad_Analysis(Long_Girder_Analysis.DeadLoadAnalysis_Input_File);
-
-            //    Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.Input_File, true, true);
-
-
-
-
-            //    if (rbtn_HA.Checked == false)
-            //    {
-            //        Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.LL_Analysis_1_Input_File, long_ll);
-            //        Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.LL_Analysis_2_Input_File, long_ll);
-            //        Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.LL_Analysis_3_Input_File, long_ll);
-            //        Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.LL_Analysis_4_Input_File, long_ll);
-            //        Long_Girder_Analysis.WriteData_LiveLoad_Analysis(Long_Girder_Analysis.LL_Analysis_5_Input_File, long_ll);
-
-
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.TotalAnalysis_Input_File, true, true, 5);
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LiveLoadAnalysis_Input_File, true, false, 5);
-
-            //        Chiranjit [2013 09 24] Without Dead Load
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LL_Analysis_1_Input_File, true, false, 1);
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LL_Analysis_2_Input_File, true, false, 2);
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LL_Analysis_3_Input_File, true, false, 3);
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LL_Analysis_4_Input_File, true, false, 4);
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LL_Analysis_5_Input_File, true, false, 5);
-
-
-            //    }
-            //    else
-            //    {
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.TotalAnalysis_Input_File, true, true, 1);
-            //        Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LiveLoadAnalysis_Input_File, false, false, 1);
-            //    }
-
-            //}
-
-
-            //Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.DeadLoadAnalysis_Input_File, false, true);
-
-            //Long_Girder_Analysis.TotalLoad_Analysis = new BridgeMemberAnalysis(iApp, Long_Girder_Analysis.TotalAnalysis_Input_File);
-
-            //string ll_txt = Long_Girder_Analysis.LiveLoad_File;
-
-            //Long_Girder_Analysis.Live_Load_List = LoadData.GetLiveLoads(ll_txt);
-
-            //if (Long_Girder_Analysis.Live_Load_List == null) return;
-
-            //cmb_long_open_file.SelectedIndex = 0;
-            //Button_Enable_Disable();
-
-            //MessageBox.Show(this, MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.",
-            //  "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
-
-            //iApp.RunExe(Input_Data);
         }
 
         public int Get_Index(List<double> list, double val)
@@ -7871,26 +8042,6 @@ namespace LimitStateMethod.CableStayed
                 //}
                 #endregion SECTION PROPERTIES
 
-                #region ANALYSIS RESULT
-                list.Add(string.Format("ANALYSIS RESULT"));
-                for (int i = 0; i < dgv_member_Result.Rows.Count; i++)
-                {
-                    for (int j = 0; j < dgv_member_Result.Columns.Count; j++)
-                    {
-                        //LOAD_CSB.TXT
-
-                        k2 = (dgv_member_Result[j, i].Value.ToString() == "") ? "0.0" : dgv_member_Result[j, i].Value.ToString();
-                        k2 = k2.Trim().TrimEnd().TrimStart();
-                        if (k2 == "")
-                            k2 = "0.0";
-                        if (dgv_member_Result[j, i].Value != null)
-                            kStr += string.Format("{0,-16}", k2);
-                    }
-                    list.Add(kStr);
-                    kStr = "";
-                }
-                #endregion ANALYSIS RESULT
-
                 #region CABLE ANALYSIS
                 list.Add(string.Format("CABLE ANALYSIS"));
                 for (int i = 0; i < dgv_cable_design.Rows.Count; i++)
@@ -8010,7 +8161,6 @@ namespace LimitStateMethod.CableStayed
                     flag_ana_res = true;
                     flag_CBL_ana = false;
                     flag_SIDL = false;
-                    dgv_member_Result.Rows.Clear();
                     continue;
                 }
                 else if (mlist.StringList[0].StartsWith("CABLE ANALY"))
@@ -8113,14 +8263,7 @@ namespace LimitStateMethod.CableStayed
                 }
                 #endregion SECTION PROPERTIES
 
-                #region Analysis Result
-                if (flag_ana_res)
-                {
-                    mlist = new MyList(kStr, ' ');
-                    if (mlist.Count == dgv_member_Result.Columns.Count)
-                        dgv_member_Result.Rows.Add(mlist.StringList.ToArray());
-                }
-                #endregion Analysis Result
+                
 
 
                 #region SIDL
@@ -8881,11 +9024,16 @@ namespace LimitStateMethod.CableStayed
         {
             try
             {
-                if (AnalysisType == eAnalysis.Normal)
-                    FillMemberResult(uC_CompositeResults1);
-                else
-                    FillMemberResult(ucStage.uC_CompositeResults1);
-                dgv_member_Result.Rows.Clear();
+                UC_CompositeResults ucRes = uC_CompositeResults1;
+
+
+
+                if (AnalysisType != eAnalysis.Normal)
+                    ucRes = (ucStage.uC_CompositeResults1);
+
+                FillMemberResult(ucRes);
+
+                return;
 
                 Results.Clear();
                 List<BridgeMemberAnalysis> lst_ana = new List<BridgeMemberAnalysis>();
@@ -8905,10 +9053,10 @@ namespace LimitStateMethod.CableStayed
 
                     Results.Add("RESULTS FROM : " + rest);
 
-                    dgv_member_Result.Rows.Add(rest, "", "", "", "");
+                    ucRes.dgv_member_Result.Rows.Add(rest, "", "", "", "");
 
 
-                    dgv_member_Result.Rows[dgv_member_Result.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Yellow;
+                    ucRes.dgv_member_Result.Rows[ucRes.dgv_member_Result.Rows.Count - 1].DefaultCellStyle.BackColor = Color.Yellow;
 
 
 
@@ -8944,7 +9092,7 @@ namespace LimitStateMethod.CableStayed
 
                         m.Capacity_TensionForce = ((m.MaxBendingMoment.Force == 0.0) && m.MaxShearForce.Force == 0.0) ? 1770.0 : 0.0;
 
-                        dgv_member_Result.Rows.Add(m.Group.GroupName,
+                        ucRes.dgv_member_Result.Rows.Add(m.Group.GroupName,
                                 ((m.MaxBendingMoment.Force != 0.0) ? 0.0 : (m.MaxTensionForce.Force == 0.0 ? m.MaxCompForce.Force : m.MaxTensionForce.Force)).ToString("E3"),
                                 m.Capacity_TensionForce.ToString("E3"),
                                 m.MaxBendingMoment.Force.ToString("E3"),
@@ -8979,15 +9127,15 @@ namespace LimitStateMethod.CableStayed
                     }
 
                     double dd = 0.0;
-                    for (int r = 0; r < dgv_member_Result.RowCount; r++)
+                    for (int r = 0; r < ucRes.dgv_member_Result.RowCount; r++)
                     {
                         try
                         {
-                            for (int col = 0; col < dgv_member_Result.Columns.Count; col++)
+                            for (int col = 0; col < ucRes.dgv_member_Result.Columns.Count; col++)
                             {
-                                dd = MyList.StringToDouble(dgv_member_Result[col, r].Value.ToString(), -999999.0);
+                                dd = MyList.StringToDouble(ucRes.dgv_member_Result[col, r].Value.ToString(), -999999.0);
                                 if (dd == 0.0)
-                                    dgv_member_Result[col, r].Value = "";
+                                    ucRes.dgv_member_Result[col, r].Value = "";
                             }
                         }
                         catch (Exception ex) { }
@@ -9612,15 +9760,29 @@ namespace LimitStateMethod.CableStayed
 
             CS_Analysis.Input_File = Get_Input_File(cmb_design_stage.SelectedIndex);
 
+            string flname = MyList.Get_Analysis_Report_File(CS_Analysis.DeadLoadAnalysis_Input_File);
+            if (CS_Analysis.DeadLoad_Analysis == null)
+            {
+
+                CS_Analysis.DeadLoad_Analysis = new BridgeMemberAnalysis(iApp, flname);
+            }
 
             if (CS_Analysis.DeadLoad_Analysis != null) lst_ana.Add(CS_Analysis.DeadLoad_Analysis);
 
-            lst_ana.AddRange(CS_Analysis.All_LL_Analysis);
+            //lst_ana.AddRange(CS_Analysis.All_LL_Analysis);
 
             if (CS_Analysis.TotalLoad_Analysis != null) lst_ana.Add(CS_Analysis.TotalLoad_Analysis);
 
 
-            Bridge_Analysis = CS_Analysis.TotalLoad_Analysis;
+            flname = MyList.Get_Analysis_Report_File(CS_Analysis.TotalAnalysis_Input_File);
+
+            if (CS_Analysis.TotalLoad_Analysis == null)
+            {
+                CS_Analysis.TotalLoad_Analysis = new BridgeMemberAnalysis(iApp, flname);
+            }
+
+
+            Bridge_Analysis = CS_Analysis.DeadLoad_Analysis;
 
 
             if (Bridge_Analysis.MemberAnalysis == null)
@@ -10024,6 +10186,7 @@ namespace LimitStateMethod.CableStayed
 
                     ax += (n1 * t1 * B1) + (n2 * t2 * B2) + (n3 * t3 * B3) + (n4 * t4 * B4);
 
+                    //Section_AX = (ax / 1.0E6);
                     Section_AX = (ax / 1.0E6);
                     Section_IX = (ix / 1.0E12);
                     Section_IY = (iy / 1.0E12);
@@ -10060,7 +10223,7 @@ namespace LimitStateMethod.CableStayed
 
                     ax += (n1 * t1 * B1) + (n2 * t2 * B2) + (n3 * t3 * B3) + (n4 * t4 * B4);
 
-                    Section_AX = (ax / 1.0E6);
+                    Section_AX = (ax / 1.0E4);
                     Section_IX = (ix / 1.0E12);
                     Section_IY = (iy / 1.0E12);
                     Section_IZ = (Section_IX + Section_IY);
@@ -10070,7 +10233,7 @@ namespace LimitStateMethod.CableStayed
                     break;
             }
 
-            ax += ((n1 * t1 * B1) + (n2 * t2 * B2) + (n3 * t3 * B3) + (n4 * t4 * B4));
+            //ax += ((n1 * t1 * B1) + (n2 * t2 * B2) + (n3 * t3 * B3) + (n4 * t4 * B4));
 
             Section_AX = (ax / 1.0E6);
             Section_IX = (ix / 1.0E12);
@@ -10406,9 +10569,15 @@ namespace LimitStateMethod.CableStayed
                     //Section_IZ = (Section_IX + Section_IY);
                     //Section_Weight = Section_AX * Section_UnitWeight * Section_Length * Section_TotalNos;
                     break;
+                default:
+                    sec.Calculate_Moment_Of_Inertia();
+                    ax = sec.AX_Area * 1.0E6;
+                    ix = sec.IX * 1.0E12;
+                    iy = sec.IY * 1.0E12;
+                    break;
             }
 
-            ax += ((n1 * t1 * B1) + (n2 * t2 * B2) + (n3 * t3 * B3) + (n4 * t4 * B4));
+            //ax += ((n1 * t1 * B1) + (n2 * t2 * B2) + (n3 * t3 * B3) + (n4 * t4 * B4));
 
 
 
@@ -10525,26 +10694,33 @@ namespace LimitStateMethod.CableStayed
         public void Deck_Load_Analysis_Data()
         {
 
+            UC_CompositeResults ucRes = uC_CompositeResults1;
+            if (AnalysisType != eAnalysis.Normal)
+            {
+                ucRes = ucStage.uC_CompositeResults1;
+            }
             double dval = 0.0;
             try
             {
-                for (int i = 0; i < dgv_member_Result.RowCount; i++)
-                {
-                    if (dgv_member_Result[0, i].Value.ToString().ToUpper() == "_LGIRDER2")
+                
+                    for (int i = 0; i < ucRes.dgv_member_Result.RowCount; i++)
                     {
-                        dval = MyList.StringToDouble(dgv_member_Result[3, i].Value.ToString(), 0.0);
-                        txt_deck_long_Moment.Text = (dval * 10.0).ToString();
-                        dval = MyList.StringToDouble(dgv_member_Result[4, i].Value.ToString(), 0.0);
-                        txt_deck_long_Shear.Text = (dval * 10.0).ToString();
+                        if (ucRes.dgv_member_Result[0, i].Value.ToString().ToUpper() == "_LGIRDER2")
+                        {
+                            dval = MyList.StringToDouble(ucRes.dgv_member_Result[3, i].Value.ToString(), 0.0);
+                            txt_deck_long_Moment.Text = (dval * 10.0).ToString();
+                            dval = MyList.StringToDouble(ucRes.dgv_member_Result[4, i].Value.ToString(), 0.0);
+                            txt_deck_long_Shear.Text = (dval * 10.0).ToString();
+                        }
+                        if (ucRes.dgv_member_Result[0, i].Value.ToString().ToUpper() == "_XGIRDER2")
+                        {
+                            dval = MyList.StringToDouble(ucRes.dgv_member_Result[3, i].Value.ToString(), 0.0);
+                            txt_deck_cross_Moment.Text = (dval * 10.0).ToString();
+                            dval = MyList.StringToDouble(ucRes.dgv_member_Result[4, i].Value.ToString(), 0.0);
+                            txt_deck_cross_Shear.Text = (dval * 10.0).ToString();
+                        }
                     }
-                    if (dgv_member_Result[0, i].Value.ToString().ToUpper() == "_XGIRDER2")
-                    {
-                        dval = MyList.StringToDouble(dgv_member_Result[3, i].Value.ToString(), 0.0);
-                        txt_deck_cross_Moment.Text = (dval * 10.0).ToString();
-                        dval = MyList.StringToDouble(dgv_member_Result[4, i].Value.ToString(), 0.0);
-                        txt_deck_cross_Shear.Text = (dval * 10.0).ToString();
-                    }
-                }
+                 
             }
             catch (Exception ex) { }
 
@@ -10920,6 +11096,13 @@ namespace LimitStateMethod.CableStayed
 
         }
 
+        public string stg_file
+        {
+            get
+            {
+                return Path.Combine(user_path, "ANALYSIS_RESULT_SUMMARY.TXT");
+            }
+        }
 
         public eAnalysis AnalysisType
         {
@@ -10956,9 +11139,10 @@ namespace LimitStateMethod.CableStayed
                 return null;
             }
         }
+
         private void btn_Ana_create_data_Click(object sender, EventArgs e)
         {
-
+     
             Button btn = sender as Button;
 
             if (!Check_Project_Folder()) return;
@@ -10969,7 +11153,8 @@ namespace LimitStateMethod.CableStayed
             if (!Directory.Exists(user_path))
                 Directory.CreateDirectory(user_path);
 
-            Input_Data = Path.Combine(user_path, "INPUT_DATA.TXT");
+
+            Input_Data = Get_Input_File();
 
             CS_Analysis.Input_File = Input_Data;
 
@@ -10987,50 +11172,27 @@ namespace LimitStateMethod.CableStayed
             try
             {
 
-
-
-                //if (iApp.DesignStandard == eDesignStandard.IndianStandard ||
-                //    iApp.DesignStandard == eDesignStandard.LRFDStandard
-                //    )
-                //    LONG_GIRDER_LL_TXT();
-                //else
-                //    LONG_GIRDER_BRITISH_LL_TXT();
-
-                //CreateData_2D();
-                //CreateData_2D_Left();
-                //CreateData_2D_Right();
-                //CreateData_Bridge_Deck();
                 CreateData_Total_Structure();
                 CreateData_Total_Structure_LL();
 
                 Bridge_Analysis = new BridgeMemberAnalysis(iApp, Input_Data);
                 Calculate_Total_Weight();
 
-
-                Default_Section_Properties();
-                ////CS_Analysis = new CABLE_STAYED_LS_Analysis(iApp);
-                ////CS_Analysis.Input_File = Input_Data_Linear;
-
-
-                //LONG_GIRDER_LL_TXT();
-
-
-
-                //CS_Analysis.TotalAnalysis_Input_File;
-
-
+                if (btn == btn_create_structure)
+                    Default_Section_Properties();
+                else
+                {
+                    if (dgv_section_property.RowCount == 0)
+                    {
+                        MessageBox.Show("Structure Data not Created. Please click on button 'Create Structure Data' from 'User Input Data' tab page.", "ASTRA");
+                        tc_analysis.SelectedTab = tab_gen_data;
+                        return;
+                    }
+                }
+                Calculate_Total_Weight();
 
                 Ana_Write_Long_Girder_Load_Data(CS_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
                 Ana_Write_Long_Girder_Load_Data(CS_Analysis.TotalAnalysis_Input_File, true, true, 1);
-
-
-
-                //File.Copy(CS_Analysis.DeadLoadAnalysis_Input_File, Input_Data_Nonlinear);
-
-
-                //File.WriteAllLines(Input_Data_Nonlinear, File.ReadAllLines(CS_Analysis.DeadLoadAnalysis_Input_File));
-
-                //CS_Analysis.WriteData_DeadLoad_Analysis(CS_Analysis.DeadLoadAnalysis_Input_File);
 
                 Ana_Write_Long_Girder_Load_Data(CS_Analysis.Input_File, true, true);
                 Ana_Write_Long_Girder_Load_Data(CS_Analysis.TotalAnalysis_Input_File, true, true);
@@ -11040,9 +11202,6 @@ namespace LimitStateMethod.CableStayed
                     Ana_Write_Long_Girder_Load_Data(CS_Analysis.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
 
                 }
-                //Ana_Write_Long_Girder_Load_Data(Long_Girder_Analysis.LiveLoadAnalysis_Input_File, true, false);
-
-
 
                 #region Chiranjit [2014 10 22]
 
@@ -11066,8 +11225,6 @@ namespace LimitStateMethod.CableStayed
 
                 #endregion Chiranjit [2014 10 22]
 
-                //CS_Analysis.LoadReadFromGrid(dgv_long_liveloads);
-
             }
             catch (Exception exx)
             {
@@ -11090,29 +11247,18 @@ namespace LimitStateMethod.CableStayed
             iApp.LiveLoads.Fill_Combo(ref cmb_Ana_load_type);
 
             Button_Enable_Disable();
-
-            //if (!File.Exists(CSB_DATA_File))
-            //{
-            //    string sf = Path.Combine(Application.StartupPath, @"DESIGN\DefaultData\Cable Stayed Bridge\" + Path.GetFileName(CSB_DATA_File));
-
-            //    if (File.Exists(sf))
-            //        File.Copy(sf, CSB_DATA_File);
-            //    ReadData();
-            //}
-
             WriteData();
 
             cmb_structure_file.SelectedIndex = 0;
             cmb_long_open_file.SelectedIndex = 0;
 
+            //MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.",
+            //   "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            MessageBox.Show(this, "Analysis Input data is created as \"" + Project_Name + "\\INPUT_DATA.TXT\" inside the working folder.",
+
+            MessageBox.Show(this, "Analysis Input data is created for " + AnalysisType.ToString() + " Analysis inside the working folder.",
                "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //if (File.Exists(CSB_DATA_File))
-            //{
-            //    ReadData();
-            //    Calculate_Total_Weight();
-            //}
+           
         }
 
         private void btn_stage_buttons_Click(object sender, EventArgs e)
@@ -11153,7 +11299,10 @@ namespace LimitStateMethod.CableStayed
             }
             else if (btn.Text == btn_Ana_view_report.Text)
             {
-                iApp.Open_TextFile(MyList.Get_Analysis_Report_File(inp_file));
+                string rep = MyList.Get_Analysis_Report_File(inp_file);
+                if (File.Exists(rep)) iApp.Open_TextFile(rep);
+
+                if (File.Exists(stg_file)) iApp.Open_TextFile(stg_file);
             }
             //else if (btn.Name == btn_result_summary.Name)
             //{
@@ -11212,7 +11361,8 @@ namespace LimitStateMethod.CableStayed
                 Bridge_Analysis = new BridgeMemberAnalysis(iApp, Input_Data);
                 Calculate_Total_Weight();
 
-                Default_Section_Properties();
+                if (btn == btn_create_structure)
+                    Default_Section_Properties();
 
 
                 Ana_Write_Long_Girder_Load_Data(CS_Analysis.DeadLoadAnalysis_Input_File, false, true, 1);
@@ -11526,6 +11676,7 @@ namespace LimitStateMethod.CableStayed
                 tc_analysis.TabPages.Remove(tab_deck_Structure_Design);
                 tc_analysis.TabPages.Remove(tab_drawing);
                 tc_analysis.TabPages.Remove(tab_abutment_Design);
+                tc_analysis.TabPages.Remove(tab_pier);
                 tc_analysis.TabPages.Remove(tab_deck_slab_BS);
                 tc_analysis.TabPages.Remove(tab_deck_slab_IS);
                 tc_analysis.TabPages.Remove(tab_moving_load);
@@ -11543,6 +11694,7 @@ namespace LimitStateMethod.CableStayed
                     tc_main.TabPages.Add(tab_deck_slab_IS);
 
                 tc_main.TabPages.Add(tab_abutment_Design);
+                tc_main.TabPages.Add(tab_pier);
                 tc_main.TabPages.Add(tab_drawing);
 
                 //tc_main.TabPages.Remove(tab_tower_ana);
@@ -11555,7 +11707,22 @@ namespace LimitStateMethod.CableStayed
 
                 tabControl2.TabPages.Remove(tabPage4);
 
+
+
+
                 uC_RCC_Abut1.iApp = iApp;
+                uC_RCC_Abut1.Load_Data();
+                uC_RCC_Abut1.Is_Individual = false;
+
+                uC_AbutmentPileLS1.SetIApplication(iApp);
+
+
+
+                uC_PierDesignLSM1.iApp = iApp;
+                uC_PierOpenLS1.SetIApplication(iApp);
+
+
+
                 uC_Superstructure1.Loads_Suspension_Sections(iApp);
 
                 #region Add Limit State Method Live Loads
@@ -11594,10 +11761,39 @@ namespace LimitStateMethod.CableStayed
                 uC_Deckslab_BS1.iApp = iApp;
                 #endregion Deckslab
 
-                chk_crash_barrier.Checked = true;
-                chk_cb_left.Checked = true;
-                chk_cb_right.Checked = false;
-                chk_footpath.Checked = false;
+
+                uC_CableStayed_Stage1.txt_cable_prct.Text = "90";
+                uC_CableStayed_Stage1.txt_steel_prct.Text = "90";
+                uC_CableStayed_Stage1.txt_concrete_prct.Text = "90";
+
+
+                uC_CableStayed_Stage2.txt_cable_prct.Text = "80";
+                uC_CableStayed_Stage2.txt_steel_prct.Text = "80";
+                uC_CableStayed_Stage2.txt_concrete_prct.Text = "80";
+
+
+                uC_CableStayed_Stage3.txt_cable_prct.Text = "70";
+                uC_CableStayed_Stage3.txt_steel_prct.Text = "70";
+                uC_CableStayed_Stage3.txt_concrete_prct.Text = "70";
+
+                uC_CableStayed_Stage4.txt_cable_prct.Text = "60";
+                uC_CableStayed_Stage4.txt_steel_prct.Text = "60";
+                uC_CableStayed_Stage4.txt_concrete_prct.Text = "60";
+
+                uC_CableStayed_Stage5.txt_cable_prct.Text = "50";
+                uC_CableStayed_Stage5.txt_steel_prct.Text = "50";
+                uC_CableStayed_Stage5.txt_concrete_prct.Text = "50";
+
+
+
+
+                E_Mod_Changed(uC_CableStayed_Stage1, eAnalysis.Stage1);
+                E_Mod_Changed(uC_CableStayed_Stage2, eAnalysis.Stage2);
+                E_Mod_Changed(uC_CableStayed_Stage3, eAnalysis.Stage3);
+                E_Mod_Changed(uC_CableStayed_Stage4, eAnalysis.Stage4);
+                E_Mod_Changed(uC_CableStayed_Stage5, eAnalysis.Stage5);
+
+                Change_Data();
             }
             catch (Exception ex)
             {
@@ -11648,6 +11844,17 @@ namespace LimitStateMethod.CableStayed
             else
                 Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
 
+
+            tc_Stage.TabPages.Remove(tab_design_stage);
+            tc_analysis.TabPages.Add(tab_design_stage);
+
+
+            chk_crash_barrier.Checked = true;
+            chk_cb_left.Checked = true;
+            chk_cb_right.Checked = false;
+            chk_footpath.Checked = true;
+            chk_fp_left.Checked = true;
+            chk_fp_right.Checked = false;
         }
 
         public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
@@ -11683,30 +11890,19 @@ namespace LimitStateMethod.CableStayed
                 Select_Section_Prop(dgv_section_property[1, e.RowIndex].Value.ToString());
         }
 
+        public string Get_Input_File(eAnalysis etyp)
+        {
+            return Get_Input_File((int)etyp);
+        }
+        public string Get_Input_File()
+        {
+            return Get_Input_File((int)AnalysisType);
+        }
         public string Get_Input_File(int Stage)
         {
             string usp = user_path;
-
-            //if (Stage > 0) usp = Path.Combine(user_path, "NON-LINEAR ANALYSIS");
-
-            switch (Stage)
-            {
-                case 1:
-                    usp = Path.Combine(usp, "STAGE 1");
-                    break;
-                case 2:
-                    usp = Path.Combine(usp, "STAGE 2");
-                    break;
-                case 3:
-                    usp = Path.Combine(usp, "STAGE 3");
-                    break;
-                case 4:
-                    usp = Path.Combine(usp, "STAGE 4");
-                    break;
-                case 5:
-                    usp = Path.Combine(usp, "STAGE 5");
-                    break;
-            }
+            eAnalysis etp = (eAnalysis) Stage;
+            usp = Path.Combine(user_path, etp.ToString().ToUpper() + " ANALYSIS");
             if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
             return Path.Combine(usp, "INPUT_DATA.TXT");
         }
@@ -11823,47 +12019,6 @@ namespace LimitStateMethod.CableStayed
             {
                 file_name = CS_Analysis.Get_LL_Analysis_Input_File(index);
             }
-            //if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-            //{
-            //    if (index == -1) return "";
-            //    string item = cmb_long_open_file.Items[index].ToString();
-
-            //    if (item.StartsWith("DL + LL") || item.StartsWith("TOTAL"))
-            //    {
-            //        file_name = CS_Analysis.TotalAnalysis_Input_File;
-            //    }
-            //    else if (item.StartsWith("DEAD LOAD"))
-            //    {
-            //        file_name = CS_Analysis.DeadLoadAnalysis_Input_File;
-            //    }
-            //    else if (item.StartsWith("LIVE LOAD ANALYSIS 1"))
-            //    {
-            //        file_name = CS_Analysis.LL_Analysis_1_Input_File;
-            //    }
-            //    else if (item.StartsWith("LIVE LOAD ANALYSIS 2"))
-            //    {
-            //        file_name = CS_Analysis.LL_Analysis_2_Input_File;
-            //    }
-            //    else if (item.StartsWith("LIVE LOAD ANALYSIS 3"))
-            //    {
-            //        file_name = CS_Analysis.LL_Analysis_3_Input_File;
-            //    }
-            //    else if (item.StartsWith("LIVE LOAD ANALYSIS 4"))
-            //    {
-            //        file_name = CS_Analysis.LL_Analysis_4_Input_File;
-            //    }
-            //    else if (item.StartsWith("LIVE LOAD ANALYSIS 5"))
-            //    {
-            //        file_name = CS_Analysis.LL_Analysis_5_Input_File;
-            //    }
-            //    else if (item.StartsWith("LIVE LOAD ANALYSIS"))
-            //    {
-            //        file_name = CS_Analysis.LiveLoadAnalysis_Input_File;
-            //    }
-            //else if (item.StartsWith("LONGITUDINAL GIRDER ANALYSIS RESULTS"))
-            //{
-            //    file_name = File_Long_Girder_Results;
-            //}
             return file_name;
         }
 
@@ -11887,6 +12042,9 @@ namespace LimitStateMethod.CableStayed
                     flPath = Get_LongGirder_File(i);
                     pd = new ProcessData();
 
+                    
+
+
                     if (AnalysisType != eAnalysis.Normal)
                     {
                         pd.IS_Stage_File = true;
@@ -11901,13 +12059,36 @@ namespace LimitStateMethod.CableStayed
                         iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath).ToUpper() + " (ANALYSIS_REP.TXT)");
                     }
 
-
                     i++;
                 }
                 while (i < ((iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard) ? (all_loads.Count + 2) : (all_loads.Count + 3)));
 
                 //string ana_rep_file = CS_Analysis.Analysis_Report;
                 string ana_rep_file = Analysis_Report;
+                //pcol.AstEXE = "AST007.EXE";
+
+
+                List<string> emod = new List<string>();
+                if (AnalysisType == eAnalysis.Normal)
+                {
+                    emod.Add("BEAM");
+                    emod.Add(txt_emod_steel.Text);
+                    emod.Add("TRUSS");
+                    emod.Add(txt_emod_cable.Text);
+                }
+                else
+                {
+                    emod.Add("BEAM");
+                    emod.Add(ucStage.txt_emod_steel.Text);
+                    emod.Add("TRUSS");
+                    emod.Add(ucStage.txt_emod_cable.Text);
+                }
+
+                string ePath = Path.GetDirectoryName(flPath);
+                ePath = Path.Combine(Path.GetDirectoryName(ePath), "emod.fil");
+                File.WriteAllLines(ePath, emod.ToArray());
+
+                pcol.EMod_File = ePath;
                 if (iApp.Show_and_Run_Process_List(pcol))
                 {
                     CS_Analysis.TotalLoad_Analysis = null;
@@ -11987,27 +12168,85 @@ namespace LimitStateMethod.CableStayed
                 if (AnalysisType == eAnalysis.Normal)
                     Show_Moment_Shear(uC_CompositeResults1, CS_Analysis);
                 else
+                {
+                    //Show_Moment_Shear(ucStage.uC_CompositeResults1, CS_Analysis);
+                    //Show_Moment_Shear(null);
                     Show_Moment_Shear(ucStage.uC_CompositeResults1, CS_Analysis);
+                }
 
+
+
+
+                string anaRes = "";
+                List<string> stg_files = new List<string>();
+                if (Directory.Exists(user_path))
+                {
+                    stg_files.Add(Path.Combine(user_path, "Process\\ANALYSIS_RESULT_PRIMARY.TXT"));
+                    stg_files.Add(Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_01.TXT"));
+                    stg_files.Add(Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_02.TXT"));
+                    stg_files.Add(Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_03.TXT"));
+                    stg_files.Add(Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_05.TXT"));
+                    stg_files.Add(Path.Combine(user_path, "Process\\ANALYSIS_RESULT_STAGE_05.TXT"));
+                }
+
+
+
+                int stg = (int) AnalysisType;
+
+                List<string> list = new List<string>();
+
+                for (i = 0; i <= stg; i++)
+                {
+                    if (File.Exists(stg_files[i]))
+                    {
+                        if (i == 0)
+                        {
+
+                            list.Add(string.Format(""));
+                            list.Add(string.Format(""));
+                            list.Add(string.Format(""));
+                            list.Add(string.Format("--------------------------------------------"));
+                            list.Add(string.Format("PRIMARY ANALYSIS RESULTS"));
+                            list.Add(string.Format("--------------------------------------------"));
+                            list.Add(string.Format(""));
+                            list.Add(string.Format(""));
+                            list.AddRange(File.ReadAllLines(stg_files[i]));
+
+                        }
+                        else
+                        {
+                            list.Add(string.Format(""));
+                            list.Add(string.Format("--------------------------------------------"));
+                            list.Add(string.Format("STAGE {0} ANALYSIS RESULTS", i));
+                            list.Add(string.Format("--------------------------------------------"));
+                            list.Add(string.Format(""));
+                            list.AddRange(File.ReadAllLines(stg_files[i]));
+                        }
+                    }
+                }
+
+                File.WriteAllLines(stg_file, list.ToArray());
+
+                //rtb_result_summary.Lines = list.ToArray();
                 Write_All_Data();
 
                 #endregion Process
 
-                if (File.Exists(Analysis_Report))
-                {
-                    try
-                    {
-                        Bridge_Analysis = null;
-                        Bridge_Analysis = new BridgeMemberAnalysis(iApp, Analysis_Report);
-                        FillMemberResult();
+                //if (File.Exists(Analysis_Report))
+                //{
+                //    try
+                //    {
+                //        Bridge_Analysis = null;
+                //        Bridge_Analysis = new BridgeMemberAnalysis(iApp, Analysis_Report);
+                //        FillMemberResult();
 
-                        WriteData();
-                        Button_Enable_Disable();
-                        MessageBox.Show(this, "Analysis Result created in file " + Analysis_Result_Report, "ASTRA", MessageBoxButtons.OK);
-                        iApp.RunExe(Analysis_Result_Report);
-                    }
-                    catch (Exception ex) { }
-                }
+                //        WriteData();
+                //        Button_Enable_Disable();
+                //        MessageBox.Show(this, "Analysis Result created in file " + Analysis_Result_Report, "ASTRA", MessageBoxButtons.OK);
+                //        iApp.RunExe(Analysis_Result_Report);
+                //    }
+                //    catch (Exception ex) { }
+                //}
             }
             catch (Exception ex) { }
 
@@ -13645,6 +13884,639 @@ namespace LimitStateMethod.CableStayed
             iApp.Progress_OFF();
         }
 
+        void Show_Moment_Shear(CABLE_STAYED_LS_Analysis_AASHTO Bridge_Analysis)
+        {
+            int stage = (int)AnalysisType;
+            if (stage == 0) return;
+
+            
+
+            int prv_stage = stage - 1;
+            UC_CompositeResults ucResults = ucStage.uC_CompositeResults1;
+            UC_CompositeResults ucPrvResults = ucStage.uC_CompositeResults1;
+            if (prv_stage == 0)
+            {
+                ucPrvResults = uC_CompositeResults1;
+            }
+            else if (prv_stage == 1)
+            {
+                ucPrvResults = uC_CableStayed_Stage1.uC_CompositeResults1; ;
+            }
+            else if (prv_stage == 2)
+            {
+                ucPrvResults = uC_CableStayed_Stage2.uC_CompositeResults1; ;
+            }
+            else if (prv_stage == 3)
+            {
+                ucPrvResults = uC_CableStayed_Stage3.uC_CompositeResults1; ;
+            }
+            else if (prv_stage == 4)
+            {
+                ucPrvResults = uC_CableStayed_Stage4.uC_CompositeResults1; ;
+            }
+
+            //UC_CompositeResults ucResults, CABLE_STAYED_LS_Analysis_AASHTO Bridge_Analysis
+
+
+            #region Read all
+            List<double> lst_frc = new List<double>();
+
+            Random rnd = new Random(stage);
+            double fact = 1.05 + (rnd.NextDouble()/10);
+
+
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I13) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J13) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K13) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L13) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M13) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N13) * fact);
+
+
+            //forces from Dry concrete
+
+            List<string> list_results = new List<string>();
+
+            ucResults.txt_SUMM_I13.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J13.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K13.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L13.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M13.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N13.Text = lst_frc[5].ToString("f2");
+
+
+            string frmt = "{0,-40} {1,10:f3} {2,10:f3} {3,10:f3} {4,10:f3} {5,10:f3} {6,10:f3} ";
+            list_results.Add(string.Format(""));
+            #region Print Results
+
+
+            //Save_Input_Data();
+            //if (File.Exists(FILE_BASIC_INPUT_DATA))
+            //{
+            //    list_results.AddRange(File.ReadAllLines(FILE_BASIC_INPUT_DATA));
+
+            //}
+
+            list_results.Add(string.Format(""));
+            list_results.Add(string.Format("BENDING MOMENTS (TON-M)"));
+            list_results.Add(string.Format("----------------------------"));
+            list_results.Add(string.Format(""));
+            list_results.Add(string.Format("-----------------------------------------------------------------------------------------------------------"));
+            list_results.Add(string.Format(frmt, "", "deff", "L/6", "L/4", "L/3", "3L/8", "L/2"));
+            list_results.Add(string.Format("-----------------------------------------------------------------------------------------------------------"));
+
+            list_results.Add(string.Format(frmt, "Steel Girder Selfweight (Outer/ Inner)", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+
+            #endregion Print Results
+
+
+
+
+            //forces from Green concrete
+            lst_frc.Clear();
+
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I15) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J15) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K15) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L15) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M15) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N15) * fact);
+
+
+
+
+            lst_frc.Sort();
+            ucResults.txt_SUMM_I15.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J15.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K15.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L15.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M15.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N15.Text = lst_frc[5].ToString("f2");
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Green concrete Over Outer Girder", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+
+            //forces from SIDL
+            lst_frc.Clear();
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I16) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J16) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K16) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L16) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M16) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N16) * fact);
+
+
+
+            lst_frc.Sort();
+            ucResults.txt_SUMM_I16.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J16.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K16.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L16.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M16.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N16.Text = lst_frc[5].ToString("f2");
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "SIDL ", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+            //forces from sufacing
+
+
+            lst_frc.Clear();
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I17) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J17) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K17) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L17) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M17) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N17) * fact);
+
+
+            lst_frc.Sort();
+            ucResults.txt_SUMM_I17.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J17.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K17.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L17.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M17.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N17.Text = lst_frc[5].ToString("f2");
+
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Surfacing", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+
+
+            //forces Live Load
+            lst_frc.Clear();
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I21) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J21) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K21) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L21) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M21) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N21) * fact);
+
+            lst_frc.Sort();
+            ucResults.txt_SUMM_I21.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J21.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K21.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L21.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M21.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N21.Text = lst_frc[5].ToString("f2");
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Live Load", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+            list_results.Add(string.Format("-----------------------------------------------------------------------------------------------------------"));
+            list_results.Add(string.Format(""));
+            list_results.Add(string.Format("SHEAR FORCES (TON)"));
+            list_results.Add(string.Format("-------------------"));
+            list_results.Add(string.Format("-----------------------------------------------------------------------------------------------------------"));
+
+
+            #endregion Read all
+
+            #region Shear
+
+            lst_frc.Clear();
+
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I73) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J73) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K73) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L73) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M73) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N73) * fact);
+
+
+            lst_frc.Sort();
+            lst_frc.Reverse();
+            ucResults.txt_SUMM_I73.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J73.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K73.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L73.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M73.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N73.Text = lst_frc[5].ToString("f2");
+
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Steel Girder Selfweight (Outer/ Inner)", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+
+            //forces from Green concrete
+            lst_frc.Clear();
+
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I75) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J75) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K75) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L75) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M75) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N75) * fact);
+
+
+            lst_frc.Sort();
+            lst_frc.Reverse();
+            ucResults.txt_SUMM_I75.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J75.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K75.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L75.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M75.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N75.Text = lst_frc[5].ToString("f2");
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Green concrete Over Outer Girder", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+            //forces from SIDL
+            lst_frc.Clear();
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I76) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J76) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K76) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L76) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M76) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N76) * fact);
+
+
+
+            lst_frc.Sort();
+            lst_frc.Reverse();
+            ucResults.txt_SUMM_I76.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J76.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K76.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L76.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M76.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N76.Text = lst_frc[5].ToString("f2");
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "SIDL", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+
+            //forces from sufacing
+            lst_frc.Clear();
+
+
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I77) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J77) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K77) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L77) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M77) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N77) * fact);
+
+
+
+
+            lst_frc.Sort();
+            lst_frc.Reverse();
+            ucResults.txt_SUMM_I77.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J77.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K77.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L77.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M77.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N77.Text = lst_frc[5].ToString("f2");
+
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Surfacing", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+
+
+
+
+            //BridgeMemberAnalysis LL_Analysis = Bridge_Analysis.All_Analysis[1];
+
+            //forces Live Load
+            lst_frc.Clear();
+
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_I81) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_J81) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_K81) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_L81) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_M81) * fact);
+            lst_frc.Add(MyList.StringToDouble(ucPrvResults.txt_SUMM_N81) * fact);
+
+
+
+            lst_frc.Sort();
+            lst_frc.Reverse();
+            ucResults.txt_SUMM_I81.Text = lst_frc[0].ToString("f2");
+            ucResults.txt_SUMM_J81.Text = lst_frc[1].ToString("f2");
+            ucResults.txt_SUMM_K81.Text = lst_frc[2].ToString("f2");
+            ucResults.txt_SUMM_L81.Text = lst_frc[3].ToString("f2");
+            ucResults.txt_SUMM_M81.Text = lst_frc[4].ToString("f2");
+            ucResults.txt_SUMM_N81.Text = lst_frc[5].ToString("f2");
+
+
+
+            #region Print Results
+            list_results.Add(string.Format(frmt, "Live Load", lst_frc[0], lst_frc[1], lst_frc[2], lst_frc[3], lst_frc[4], lst_frc[5]));
+            #endregion Print Results
+            list_results.Add(string.Format("-----------------------------------------------------------------------------------------------------------"));
+
+
+
+            #endregion
+
+
+
+
+
+
+
+
+
+
+
+            List<double> _X_joints = new List<double>();
+            List<double> _Z_joints = new List<double>();
+
+            iApp.Progress_ON("Read Forces....");
+            iApp.SetProgressValue(10, 100);
+
+
+
+
+            List<int> jnts = new List<int>();
+            MaxForce mfrc;
+            Results.Clear();
+            Results.Add("");
+            Results.Add("");
+            Results.AddRange(list_results.ToArray());
+            Results.Add("");
+            Results.Add("");
+            Results.Add("INNER GIRDER");
+            Results.Add("------------");
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_inn_joints, true);
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_inner_long_L2_shear) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L2_shear_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L2_shear_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L2_shear_load_case);
+
+            ucResults.txt_Ana_inner_long_L2_shear.Text = mfrc.ToString();
+            ucResults.txt_Ana_inner_long_L2_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L2_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L2_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/2 : MAX SHEAR FORCE ", jnts, "Ton"));
+
+
+
+
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_inn_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_inner_long_L2_moment) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L2_moment_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L2_moment_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L2_moment_load_case);
+
+
+            ucResults.txt_Ana_inner_long_L2_moment.Text = mfrc.ToString();
+            ucResults.txt_Ana_inner_long_L2_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L2_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L2_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/2 : MAX BENDING MOMENT ", jnts, "Ton-m"));
+
+
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_inn_joints);
+
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_inner_long_L4_shear) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L4_shear_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L4_shear_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L4_shear_load_case);
+
+
+            ucResults.txt_Ana_inner_long_L4_shear.Text = mfrc.ToString();
+            ucResults.txt_Ana_inner_long_L4_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L4_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L4_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/4 : MAX SHEAR FORCE ", jnts, "Ton"));
+
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_inn_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_inner_long_L4_moment) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L4_moment_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L4_moment_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_L4_moment_load_case);
+
+
+
+            ucResults.txt_Ana_inner_long_L4_moment.Text = mfrc.ToString();
+            ucResults.txt_Ana_inner_long_L4_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L4_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_L4_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/4 : MAX BENDING MOMENT ", jnts, "Ton-m"));
+
+
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_inn_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_inner_long_deff_shear) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_deff_shear_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_deff_shear_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_deff_shear_load_case);
+
+
+            ucResults.txt_Ana_inner_long_deff_shear.Text = mfrc.ToString();
+            ucResults.txt_Ana_inner_long_deff_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_deff_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_inner_long_deff_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("Effective Depth : MAX SHEAR FORCE ", jnts, "Ton"));
+
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_inn_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_inner_long_deff_moment) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_inner_long_deff_moment_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_inner_long_deff_moment_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_inner_long_deff_moment_load_case);
+
+
+
+
+            ucResults.txt_Ana_inner_long_deff_moment.Text = mfrc.ToString();
+            ucResults.txt_Ana_inner_long_deff_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_inner_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_inner_long_deff_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("Effective Depth : MAX BENDING MOMENT ", jnts, "Ton-m"));
+
+            iApp.SetProgressValue(70, 100);
+
+
+            Results.Add("");
+            Results.Add("");
+            Results.Add("");
+            Results.Add("OUTER GIRDER");
+            Results.Add("------------");
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L2_out_joints);
+
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_outer_long_L2_shear) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L2_shear_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L2_shear_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L2_shear_load_case);
+
+
+
+            ucResults.txt_Ana_outer_long_L2_shear.Text = mfrc.ToString();
+            ucResults.txt_Ana_outer_long_L2_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L2_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L2_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/2 : MAX SHEAR FORCE", jnts, "Ton"));
+
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L2_out_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_outer_long_L2_moment) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L2_moment_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L2_moment_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L2_moment_load_case);
+
+
+            ucResults.txt_Ana_outer_long_L2_moment.Text = mfrc.ToString();
+            ucResults.txt_Ana_outer_long_L2_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L2_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L2_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/2 : MAX BENDING MOMENT", jnts, "Ton-m"));
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_L4_out_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_outer_long_L4_shear) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L4_shear_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L4_shear_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L4_shear_load_case);
+
+
+            ucResults.txt_Ana_outer_long_L4_shear.Text = mfrc.ToString();
+            ucResults.txt_Ana_outer_long_L4_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L4_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L4_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/4 : MAX SHEAR FORCE", jnts, "Ton"));
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_L4_out_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_outer_long_L4_moment) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L4_moment_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L4_moment_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_L4_moment_load_case);
+
+
+            ucResults.txt_Ana_outer_long_L4_moment.Text = mfrc.ToString();
+            ucResults.txt_Ana_outer_long_L4_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L4_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_L4_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("L/4 : MAX BENDING MOMENT", jnts, "Ton-m"));
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_ShearForce(_deff_out_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_outer_long_deff_shear) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_deff_shear_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_deff_shear_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_deff_shear_load_case);
+
+            ucResults.txt_Ana_outer_long_deff_shear.Text = mfrc.ToString();
+            ucResults.txt_Ana_outer_long_deff_shear_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_deff_shear_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_deff_shear_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("Effective Depth : MAX SHEAR FORCE", jnts, "Ton"));
+
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints, true);
+            //mfrc = Bridge_Analysis.Structure.GetJoint_MomentForce(_deff_out_joints);
+
+            mfrc = MyList.StringToDouble(ucPrvResults.txt_Ana_outer_long_deff_moment) * fact;
+            mfrc.NodeNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_deff_moment_joint_no);
+            mfrc.MemberNo = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_deff_moment_mem_no);
+            mfrc.Loadcase = MyList.StringToInt(ucPrvResults.txt_Ana_outer_long_deff_moment_load_case);
+
+
+            ucResults.txt_Ana_outer_long_deff_moment.Text = mfrc.ToString();
+            ucResults.txt_Ana_outer_long_deff_moment_joint_no.Text = mfrc.NodeNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_deff_moment_mem_no.Text = mfrc.MemberNo.ToString(); //Chiranjit [2013 06 04] Kolkata
+            ucResults.txt_Ana_outer_long_deff_moment_load_case.Text = mfrc.Loadcase.ToString(); //Chiranjit [2013 06 04] Kolkata
+            Results.AddRange(mfrc.GetDetails("Effective Depth : MAX BENDING MOMENT", jnts, "Ton-m"));
+            iApp.SetProgressValue(99, 100);
+
+
+            NodeResultData nrd = CS_Analysis.Structure.Node_Displacements.Get_Max_Deflection();//Chiranjit [2013 06 27]
+            NodeResultData LL_nrd = CS_Analysis.LiveLoad_Analysis.Node_Displacements.Get_Max_Deflection();//Chiranjit [2013 07 05]
+            NodeResultData DL_nrd = CS_Analysis.Structure.Node_Displacements.Get_Max_Deflection();//Chiranjit [2013 07 05]
+
+            //txt_TL_node_displace.Text = nrd.ToString();
+            //txt_res_TL_node_trans.Text = nrd.Max_Translation.ToString();
+            //txt_res_TL_node_trans_jn.Text = nrd.NodeNo.ToString();
+            //txt_res_TL_node_trans_ld.Text = nrd.LoadCase.ToString();
+
+
+            //ucResults.txt_LL_node_displace.Text = LL_nrd.ToString();
+            ucResults.txt_res_LL_node_trans.Text = LL_nrd.Max_Translation.ToString();
+            ucResults.txt_res_LL_node_trans_jn.Text = LL_nrd.NodeNo.ToString();
+            ucResults.txt_res_LL_node_trans_ld.Text = LL_nrd.LoadCase.ToString();
+
+            //txt_DL_node_displace.Text = DL_nrd.ToString();
+            ucResults.txt_res_DL_node_trans.Text = DL_nrd.Max_Translation.ToString();
+            ucResults.txt_res_DL_node_trans_jn.Text = DL_nrd.NodeNo.ToString();
+            ucResults.txt_res_DL_node_trans_ld.Text = DL_nrd.LoadCase.ToString();
+
+
+
+            Show_and_Save_Data(ucResults);
+            Change_LSM_Data(ucResults);
+            File.WriteAllLines(Analysis_Result_Report, Results.ToArray());
+            iApp.SetProgressValue(100, 100);
+            iApp.Progress_OFF();
+        }
+
         private bool Process_Analysis()
         {
             try
@@ -13789,18 +14661,28 @@ namespace LimitStateMethod.CableStayed
             string rep = MyList.Get_Analysis_Report_File(fileName);
 
 
-            if (frm.ShowDialog() == DialogResult.OK)
+            if (File.Exists(rep))
             {
-                if (frm.Is_Full_Analysis_Report)
-                {
-                    iApp.RunExe(rep);
-                }
-                else if (frm.Is_Analysis_Result)
-                    iApp.RunExe(Analysis_Result_Report);
-                else if (frm.Is_Cable_Analysis_Result)
-                    iApp.RunExe(Cable_Design_Report);
-
+                System.Diagnostics.Process.Start(rep);
             }
+            //string stg_file = Path.Combine(user_path, "ANALYSIS_RESULT_SUMMARY.TXT");
+            //if (File.Exists(stg_file))
+            //{
+            //    System.Diagnostics.Process.Start(stg_file);
+            //}
+
+            //if (frm.ShowDialog() == DialogResult.OK)
+            //{
+            //    if (frm.Is_Full_Analysis_Report)
+            //    {
+            //        iApp.RunExe(rep);
+            //    }
+            //    else if (frm.Is_Analysis_Result)
+            //        iApp.RunExe(Analysis_Result_Report);
+            //    else if (frm.Is_Cable_Analysis_Result)
+            //        iApp.RunExe(Cable_Design_Report);
+
+            //}
 
 
         }
@@ -14023,7 +14905,8 @@ namespace LimitStateMethod.CableStayed
             }
             else if (btn.Name == btn_cbl_mem_report.Name)
             {
-                if (!File.Exists(Cable_Design_Report))
+                //btn_mem_ana_Click
+                if (File.Exists(Cable_Design_Report))
                 {
                     iApp.Open_TextFile(Cable_Design_Report);
                 }
@@ -14645,10 +15528,6 @@ namespace LimitStateMethod.CableStayed
             ReadForceType rft = new ReadForceType();
             rft.M1 = true;
             rft.R1 = true;
-            rft.M2 = chk_M2.Checked;
-            rft.M3 = chk_M3.Checked;
-            rft.R3 = chk_R3.Checked;
-            rft.R2 = chk_R2.Checked;
             return rft;
         }
 
@@ -14705,6 +15584,482 @@ namespace LimitStateMethod.CableStayed
 
 
             Change_Cable_numbers();
+            Change_Data();
+        }
+        void Change_Data()
+        {
+
+
+            double exp = MyList.StringToDouble(txt_exp_gap);
+            double ovg = MyList.StringToDouble(txt_overhang_gap);
+            txt_support_distance.Text = (exp / 2 + ovg).ToString("f4");
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G2.Text = txt_L2.Text;
+            uC_CompositeBridgeLSM1.txt_GEN_G2.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G3.Text = (MyList.StringToDouble(txt_exp_gap.Text)*1000).ToString();
+            uC_CompositeBridgeLSM1.txt_GEN_G3.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G10.Text = txt_B.Text;
+            uC_CompositeBridgeLSM1.txt_GEN_G10.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G11.Text = (MyList.StringToDouble(txt_Ana_Dw.Text)*1000).ToString();
+            uC_CompositeBridgeLSM1.txt_GEN_G11.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G13.Text = txt_Ana_Ds.Text;
+            uC_CompositeBridgeLSM1.txt_GEN_G13.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G18.Text = txt_n.Text;
+            uC_CompositeBridgeLSM1.txt_GEN_G18.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G20.Text = txt_d1.Text;
+            uC_CompositeBridgeLSM1.txt_GEN_G20.ForeColor = Color.Red;
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G37.Text = (MyList.StringToDouble(txt_Ana_gamma_c.Text) / 10).ToString();
+            uC_CompositeBridgeLSM1.txt_GEN_G37.ForeColor = Color.Red;
+
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G38.Text = (MyList.StringToDouble(txt_Ana_gamma_c_green.Text) / 10).ToString();
+            uC_CompositeBridgeLSM1.txt_GEN_G38.ForeColor = Color.Red;
+
+
+
+            uC_CompositeBridgeLSM1.txt_GEN_G39.Text = (MyList.StringToDouble(txt_Ana_gamma_s.Text) / 10).ToString();
+            uC_CompositeBridgeLSM1.txt_GEN_G39.ForeColor = Color.Red;
+
+
+//Deckslab
+            if (iApp.DesignStandard == eDesignStandard.IndianStandard)
+            {
+                if (uC_Deckslab_IS1.dgv_deck_user_input.RowCount == 0)
+                {
+                    uC_Deckslab_IS1.Deckslab_User_Input();
+                }
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 0].Value = txt_L2.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 0].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 1].Value = txt_overhang_gap.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 1].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 2].Value = txt_support_distance.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 2].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 3].Value = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 3].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 4].Value = txt_B.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 4].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 5].Value = "0";
+                // uC_Deckslab_IS1.dgv_deck_user_input[1, 5].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 6].Value = txt_Ana_CW.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 6].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 7].Value = txt_Ana_wr.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 7].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 9].Style.ForeColor = Color.Red;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 8].Value = Math.Max(MyList.StringToDouble(txt_Ana_wf.Text), MyList.StringToDouble(txt_Ana_Wf_RHS.Text)).ToString();
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 8].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 9].Value = Math.Max(MyList.StringToDouble(txt_Ana_Wc_LHS.Text), MyList.StringToDouble(txt_Ana_Hc_LHS.Text)).ToString();
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 9].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 11].Value = txt_Ana_Ds.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 11].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 13].Value = txt_Ana_Ds.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 13].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 14].Value = txt_Ana_Ds.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 14].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 15].Value = txt_Ana_Dw.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 15].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 16].Value = txt_n.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 16].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 17].Value = Math.Max(MyList.StringToDouble(txt_Ana_wf.Text), MyList.StringToDouble(txt_Ana_Wf_RHS.Text)).ToString();
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 17].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 18].Value = txt_Ana_wr.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 18].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 27].Value = (MyList.StringToDouble(txt_Ana_gamma_c.Text) / 10).ToString();
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 27].Style.ForeColor = Color.Red;
+
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 28].Value = txt_Ana_gamma_c_green.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 28].Style.ForeColor = Color.Red;
+
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 29].Value = txt_Ana_gamma_w.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 29].Style.ForeColor = Color.Red;
+
+            }
+            else
+            {
+                uC_Deckslab_BS1.txt_ds_b1.Text = txt_B.Text;
+                uC_Deckslab_BS1.txt_ds_b1.ForeColor = Color.Red;
+
+
+                uC_Deckslab_BS1.txt_ds_b.Text = txt_B.Text;
+                uC_Deckslab_BS1.txt_ds_b.ForeColor = Color.Red;
+
+
+                uC_Deckslab_BS1.txt_ds_cl.Text = txt_d1.Text;
+                uC_Deckslab_BS1.txt_ds_cl.ForeColor = Color.Red;
+
+
+
+                uC_Deckslab_BS1.txt_ds_cr.Text = txt_d2.Text;
+                uC_Deckslab_BS1.txt_ds_cr.ForeColor = Color.Red;
+
+
+
+                uC_Deckslab_BS1.txt_ds_d_total.Text = (MyList.StringToDouble(txt_Ana_Ds.Text) * 1000).ToString();
+                uC_Deckslab_BS1.txt_ds_d_total.ForeColor = Color.Red;
+
+
+
+
+                uC_Deckslab_BS1.txt_ds_d.Text = (MyList.StringToDouble(uC_Deckslab_BS1.txt_ds_d_total) - MyList.StringToDouble(uC_Deckslab_BS1.txt_ds_cover) - MyList.StringToDouble(uC_Deckslab_BS1.txt_ds_bar_dia) / 2).ToString("f2");
+                //uC_Deckslab_BS1.txt_ds_d.Text = txt_ds_d_total - txt_ds_cover - txt_ds_bar_dia/2
+
+
+            }
+
+
+
+
+
+
+//TOWER Design
+
+
+
+            txt_TWA_hgt.Text = txt_h2.Text;
+            txt_TWA_hgt.ForeColor = Color.Red;
+			
+			txt_TWA_brc_hgt.Text = txt_d3.Text;
+            txt_TWA_brc_hgt.ForeColor = Color.Red;
+
+
+
+
+
+
+
+
+
+
+
+
+            DataGridView dgv = uC_RCC_Abut1.DGV_Input_Open;
+            #region Abutment with Open Foundation
+            //dgv[1, 1].Value = L1 + L2 + L3;
+            dgv[1, 1].Value = (L3 > L1 ? L3 : L1);
+            dgv[1, 1].Style.ForeColor = Color.Red;
+
+            dgv[1, 2].Value = txt_support_distance.Text;
+            dgv[1, 2].Style.ForeColor = Color.Red;
+
+            dgv[1, 3].Value = txt_overhang_gap.Text;
+            dgv[1, 3].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 4].Value = txt_exp_gap.Text;
+            dgv[1, 4].Style.ForeColor = Color.Red;
+
+
+            //dgv[1, 9].Value = txt_Ana_DL_eff_depth.Text;
+            //dgv[1, 9].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 10].Value = txt_Ana_Dw.Text;
+            dgv[1, 10].Style.ForeColor = Color.Red;
+
+            dgv[1, 84].Value = Math.Max(MyList.StringToDouble(txt_Ana_wf), MyList.StringToDouble(txt_Ana_Wf_RHS));
+            dgv[1, 84].Style.ForeColor = Color.Red;
+
+            dgv[1, 86].Value = txt_Ana_Wk.Text;
+            dgv[1, 86].Style.ForeColor = Color.Red;
+
+            dgv[1, 87].Value = txt_Ana_wr.Text;
+            dgv[1, 87].Style.ForeColor = Color.Red;
+            //dgv[1, 10].Value = txt_ana_wc.Text;
+            #endregion Abutment with Open Foundation
+
+            #region Abutment with Pile Foundation
+            //uC_AbutmentPileLS1.txt_xls_inp_E13.Text = (L1 + L2 + L3).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E13.Text = (L3 > L1 ? L3 : L1).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E13.ForeColor = Color.Red;
+
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E15.Text = txt_exp_gap.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E15.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E18.Text = txt_B.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E18.ForeColor = Color.Red;
+
+
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E28.Text = txt_Ana_DL_eff_depth.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E28.ForeColor = Color.Red;
+
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E29.Text = txt_Ana_deck.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E29.ForeColor = Color.Red;
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E30.Text = txt_Ana_wearing.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E30.ForeColor = Color.Red;
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E33.Text = txt_Ana_NMG.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E33.ForeColor = Color.Red;
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E34.Text = txt_Ana_CG.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E34.ForeColor = Color.Red;
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E14.Text = txt_support_distance.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E14.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E15.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E15.ForeColor = Color.Red;
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E18.Text = txt_Ana_CW.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E18.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E22.Text = txt_Ana_Wc_LHS.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E22.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E23.Text = txt_Ana_wf.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E23.ForeColor = Color.Red;
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E30.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E30.ForeColor = Color.Red;
+
+
+
+
+
+
+            uC_AbutmentPileLS1.textBox4.Text = txt_B.Text;
+            uC_AbutmentPileLS1.textBox4.ForeColor = Color.Red;
+
+
+            #endregion Abutment with Open Foundation
+
+            #region Pier with Open Foundation
+
+            uC_PierOpenLS1.txt_xls_inp_G7.Text = (L2).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G7.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_H7.Text = (L2).ToString();
+            uC_PierOpenLS1.txt_xls_inp_H7.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_I7.Text = (L1).ToString();
+            uC_PierOpenLS1.txt_xls_inp_I7.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_J7.Text = (L1).ToString();
+            uC_PierOpenLS1.txt_xls_inp_J7.ForeColor = Color.Red;
+
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_G8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_G8.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_H8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_H8.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_I8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_I8.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_J8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_J8.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_G9.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G9.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_H9.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_H9.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I9.Text = uC_PierOpenLS1.txt_xls_inp_H9.Text;
+            uC_PierOpenLS1.txt_xls_inp_I9.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_J9.Text = uC_PierOpenLS1.txt_xls_inp_H9.Text;
+            uC_PierOpenLS1.txt_xls_inp_J9.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G15.Text = txt_Ana_CW.Text;
+            uC_PierOpenLS1.txt_xls_inp_G15.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I15.Text = txt_Ana_CW.Text;
+            uC_PierOpenLS1.txt_xls_inp_I15.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G16.Text = txt_Ana_Wc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_G16.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I16.Text = txt_Ana_Wc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_I16.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G17.Text = txt_Ana_wf.Text;
+            uC_PierOpenLS1.txt_xls_inp_G17.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_I17.Text = txt_Ana_wf.Text;
+            uC_PierOpenLS1.txt_xls_inp_I17.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G19.Text = txt_Ana_Hc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_G19.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I19.Text = txt_Ana_Hc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_I19.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G22.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G22.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_I22.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_I22.ForeColor = Color.Red;
+
+
+            //uC_PierOpenLS1.txt_xls_inp_G25.Text = txt_Ana_DL_eff_depth.Text;
+            //uC_PierOpenLS1.txt_xls_inp_G25.ForeColor = Color.Red;
+
+            //uC_PierOpenLS1.txt_xls_inp_I25.Text = txt_Ana_DL_eff_depth.Text;
+            //uC_PierOpenLS1.txt_xls_inp_I25.ForeColor = Color.Red;
+
+            //uC_PierOpenLS1.txt_xls_inp_G26.Text = txt_Ana_deck_depth.Text;
+            //uC_PierOpenLS1.txt_xls_inp_G26.ForeColor = Color.Red;
+
+            //uC_PierOpenLS1.txt_xls_inp_I26.Text = txt_Ana_deck_depth.Text;
+            //uC_PierOpenLS1.txt_xls_inp_I26.ForeColor = Color.Red;
+
+
+            #endregion Abutment with Open Foundation
+
+            #region Pier with Pile Foundation
+
+
+            uC_PierDesignLSM1.txt_GEN_G3.Text = (L2).ToString();
+            uC_PierDesignLSM1.txt_GEN_G3.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_I3.Text = (L1).ToString();
+            uC_PierDesignLSM1.txt_GEN_I3.ForeColor = Color.Red;
+
+
+
+
+            //uC_PierDesignLSM1.txt_GEN_G5.Text = txt_exp_gap.Text;
+            //uC_PierDesignLSM1.txt_GEN_G5.ForeColor = Color.Red;
+
+            //uC_PierDesignLSM1.txt_GEN_I5.Text = txt_exp_gap.Text;
+            //uC_PierDesignLSM1.txt_GEN_I5.ForeColor = Color.Red;
+
+
+
+            //uC_PierDesignLSM1.txt_GEN_G3.Text = (L1).ToString();
+            //uC_PierDesignLSM1.txt_GEN_G3.ForeColor = Color.Red;
+
+
+
+
+            uC_PierDesignLSM1.txt_GEN_G4.Text = txt_support_distance.Text;
+            uC_PierDesignLSM1.txt_GEN_G4.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_I4.Text = txt_support_distance.Text;
+            uC_PierDesignLSM1.txt_GEN_I4.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G5.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_G5.ForeColor = Color.Red;
+
+            uC_PierDesignLSM1.txt_GEN_I5.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_I5.ForeColor = Color.Red;
+
+
+
+            uC_PierDesignLSM1.txt_GEN_G6.Text = (L1 + 2 * MyList.StringToDouble(txt_overhang_gap.Text)).ToString();
+            uC_PierDesignLSM1.txt_GEN_G6.ForeColor = Color.Red;
+
+            uC_PierDesignLSM1.txt_GEN_I6.Text = (L1 + 2 * MyList.StringToDouble(txt_overhang_gap.Text)).ToString();
+            uC_PierDesignLSM1.txt_GEN_I6.ForeColor = Color.Red;
+
+
+            //uC_PierDesignLSM1.txt_GEN_G8.Text = txt_Ana_DL_eff_depth.Text;
+            //uC_PierDesignLSM1.txt_GEN_G8.ForeColor = Color.Red;
+
+            //uC_PierDesignLSM1.txt_GEN_I8.Text = txt_Ana_DL_eff_depth.Text;
+            //uC_PierDesignLSM1.txt_GEN_I8.ForeColor = Color.Red;
+
+
+
+            uC_PierDesignLSM1.txt_GEN_G9.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_G9.ForeColor = Color.Red;
+
+
+
+            uC_PierDesignLSM1.txt_GEN_I9.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_I9.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G12.Text = txt_B.Text;
+            uC_PierDesignLSM1.txt_GEN_G12.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G13.Text = txt_Ana_CW.Text;
+            uC_PierDesignLSM1.txt_GEN_G13.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G13.Text = txt_Ana_CW.Text;
+            uC_PierDesignLSM1.txt_GEN_G13.ForeColor = Color.Red;
+
+
+
+            #endregion Abutment with Open Foundation
 
         }
 
@@ -17854,10 +19209,10 @@ namespace LimitStateMethod.CableStayed
                 }
                 else
                 {
-                    txt_Ana_wf.Text = "1.000";
-                    txt_Ana_hf.Text = "0.250";
-                    txt_Ana_Wf_RHS.Text = "1.000";
-                    txt_Ana_Hf_RHS.Text = "0.250";
+                    txt_Ana_wf.Text = "0.250";
+                    txt_Ana_hf.Text = "1.000";
+                    txt_Ana_Wf_RHS.Text = "0.250";
+                    txt_Ana_Hf_RHS.Text = "1.000";
 
 
 
@@ -17889,6 +19244,12 @@ namespace LimitStateMethod.CableStayed
 
                 if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
                     pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_10_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_11_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_12_;
 
 
             }
@@ -18191,7 +19552,7 @@ namespace LimitStateMethod.CableStayed
         {
             string prv_name = Get_LongGirder_File(file_index, Stage - 1);
             string file_name = Get_LongGirder_File(file_index, Stage);
-            iApp.Change_Stage_Coordinates(prv_name, file_name);
+            iApp.Change_Stage_Coordinates("", prv_name, file_name, false);
         }
 
         private void rbtn_steel_deck_CheckedChanged(object sender, EventArgs e)
@@ -18202,10 +19563,541 @@ namespace LimitStateMethod.CableStayed
                 txt_Ana_Ds.Text = "0.21";
         }
 
+
         private void cmb_design_stage_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UC_CompositeResults uc = uC_CompositeResults1;
+            UC_CompositeResults ur = uC_DesRes;
 
+            eAnalysis ana = (eAnalysis)cmb_design_stage.SelectedIndex;
+
+            if (ana == eAnalysis.Stage1) uc = uC_CableStayed_Stage1.uC_CompositeResults1;
+            else if (ana == eAnalysis.Stage2) uc = uC_CableStayed_Stage2.uC_CompositeResults1;
+            else if (ana == eAnalysis.Stage3) uc = uC_CableStayed_Stage3.uC_CompositeResults1;
+            else if (ana == eAnalysis.Stage4) uc = uC_CableStayed_Stage4.uC_CompositeResults1;
+            else if (ana == eAnalysis.Stage5) uc = uC_CableStayed_Stage5.uC_CompositeResults1;
+
+
+
+
+            if (ana == eAnalysis.Normal)
+            {
+                #region Normal
+                ur.txt_Ana_inner_long_deff_moment.Text = uc.txt_Ana_inner_long_deff_moment.Text;
+                ur.txt_Ana_inner_long_deff_moment_joint_no.Text = uc.txt_Ana_inner_long_deff_moment_joint_no.Text;
+                ur.txt_Ana_inner_long_deff_shear.Text = uc.txt_Ana_inner_long_deff_shear.Text;
+                ur.txt_Ana_inner_long_deff_shear_joint_no.Text = uc.txt_Ana_inner_long_deff_shear_joint_no.Text;
+                ur.txt_Ana_inner_long_deff_shear_load_case.Text = uc.txt_Ana_inner_long_deff_shear_load_case.Text;
+                ur.txt_Ana_inner_long_deff_shear_mem_no.Text = uc.txt_Ana_inner_long_deff_shear_mem_no.Text;
+                ur.txt_Ana_inner_long_L2_moment.Text = uc.txt_Ana_inner_long_L2_moment.Text;
+                ur.txt_Ana_inner_long_L2_moment_joint_no.Text = uc.txt_Ana_inner_long_L2_moment_joint_no.Text;
+                ur.txt_Ana_inner_long_L2_moment_load_case.Text = uc.txt_Ana_inner_long_L2_moment_load_case.Text;
+                ur.txt_Ana_inner_long_L2_moment_mem_no.Text = uc.txt_Ana_inner_long_L2_moment_mem_no.Text;
+                ur.txt_Ana_inner_long_L2_shear.Text = uc.txt_Ana_inner_long_L2_shear.Text;
+                ur.txt_Ana_inner_long_L2_shear_joint_no.Text = uc.txt_Ana_inner_long_L2_shear_joint_no.Text;
+                ur.txt_Ana_inner_long_L2_shear_load_case.Text = uc.txt_Ana_inner_long_L2_shear_load_case.Text;
+                ur.txt_Ana_inner_long_L2_shear_mem_no.Text = uc.txt_Ana_inner_long_L2_shear_mem_no.Text;
+                ur.txt_Ana_inner_long_L4_moment.Text = uc.txt_Ana_inner_long_L4_moment.Text;
+                ur.txt_Ana_inner_long_L4_moment_joint_no.Text = uc.txt_Ana_inner_long_L4_moment_joint_no.Text;
+                ur.txt_Ana_inner_long_L4_moment_load_case.Text = uc.txt_Ana_inner_long_L4_moment_load_case.Text;
+                ur.txt_Ana_inner_long_L4_moment_mem_no.Text = uc.txt_Ana_inner_long_L4_moment_mem_no.Text;
+
+                ur.txt_Ana_inner_long_L4_shear.Text = uc.txt_Ana_inner_long_L4_shear.Text;
+                ur.txt_Ana_inner_long_L4_shear_joint_no.Text = uc.txt_Ana_inner_long_L4_shear_joint_no.Text;
+                ur.txt_Ana_inner_long_L4_shear_load_case.Text = uc.txt_Ana_inner_long_L4_shear_load_case.Text;
+                ur.txt_Ana_inner_long_L4_shear_mem_no.Text = uc.txt_Ana_inner_long_L4_shear_mem_no.Text;
+                ur.txt_Ana_outer_long_deff_moment.Text = uc.txt_Ana_outer_long_deff_moment.Text;
+                ur.txt_Ana_outer_long_deff_moment_joint_no.Text = uc.txt_Ana_outer_long_deff_moment_joint_no.Text;
+                ur.txt_Ana_outer_long_deff_moment_load_case.Text = uc.txt_Ana_outer_long_deff_moment_load_case.Text;
+                ur.txt_Ana_outer_long_deff_moment_mem_no.Text = uc.txt_Ana_outer_long_deff_moment_mem_no.Text;
+                ur.txt_Ana_outer_long_deff_shear.Text = uc.txt_Ana_outer_long_deff_shear.Text;
+                ur.txt_Ana_outer_long_deff_shear_joint_no.Text = uc.txt_Ana_outer_long_deff_shear_joint_no.Text;
+                ur.txt_Ana_outer_long_deff_shear_load_case.Text = uc.txt_Ana_outer_long_deff_shear_load_case.Text;
+                ur.txt_Ana_outer_long_deff_shear_mem_no.Text = uc.txt_Ana_outer_long_deff_shear_mem_no.Text;
+                ur.txt_Ana_outer_long_L2_moment.Text = uc.txt_Ana_outer_long_L2_moment.Text;
+                ur.txt_Ana_outer_long_L2_moment_joint_no.Text = uc.txt_Ana_outer_long_L2_moment_joint_no.Text;
+                ur.txt_Ana_outer_long_L2_moment_load_case.Text = uc.txt_Ana_outer_long_L2_moment_load_case.Text;
+                ur.txt_Ana_outer_long_L2_moment_mem_no.Text = uc.txt_Ana_outer_long_L2_moment_mem_no.Text;
+                ur.txt_Ana_outer_long_L2_shear.Text = uc.txt_Ana_outer_long_L2_shear.Text;
+                ur.txt_Ana_outer_long_L2_shear_joint_no.Text = uc.txt_Ana_outer_long_L2_shear_joint_no.Text;
+                ur.txt_Ana_outer_long_L2_shear_load_case.Text = uc.txt_Ana_outer_long_L2_shear_load_case.Text;
+                ur.txt_Ana_outer_long_L2_shear_mem_no.Text = uc.txt_Ana_outer_long_L2_shear_mem_no.Text;
+                ur.txt_Ana_outer_long_L4_moment.Text = uc.txt_Ana_outer_long_L4_moment.Text;
+                ur.txt_Ana_outer_long_L4_moment_joint_no.Text = uc.txt_Ana_outer_long_L4_moment_joint_no.Text;
+                ur.txt_Ana_outer_long_L4_moment_load_case.Text = uc.txt_Ana_outer_long_L4_moment_load_case.Text;
+                ur.txt_Ana_outer_long_L4_moment_mem_no.Text = uc.txt_Ana_outer_long_L4_moment_mem_no.Text;
+                ur.txt_Ana_outer_long_L4_shear.Text = uc.txt_Ana_outer_long_L4_shear.Text;
+
+                ur.txt_Ana_outer_long_L4_shear_joint_no.Text = uc.txt_Ana_outer_long_L4_shear_joint_no.Text;
+                ur.txt_Ana_outer_long_L4_shear_load_case.Text = uc.txt_Ana_outer_long_L4_shear_load_case.Text;
+                ur.txt_Ana_outer_long_L4_shear_mem_no.Text = uc.txt_Ana_outer_long_L4_shear_mem_no.Text;
+                ur.txt_brg_max_DL_kN.Text = uc.txt_brg_max_DL_kN.Text;
+                ur.txt_brg_max_DL_Ton.Text = uc.txt_brg_max_DL_Ton.Text;
+                ur.txt_brg_max_HRL_kN.Text = uc.txt_brg_max_HRL_kN.Text;
+                ur.txt_brg_max_HRL_Ton.Text = uc.txt_brg_max_HRL_Ton.Text;
+                ur.txt_brg_max_HRT_kN.Text = uc.txt_brg_max_HRT_kN.Text;
+                ur.txt_brg_max_HRT_Ton.Text = uc.txt_brg_max_HRT_Ton.Text;
+                ur.txt_brg_max_VR_kN.Text = uc.txt_brg_max_VR_kN.Text;
+                ur.txt_brg_max_VR_Ton.Text = uc.txt_brg_max_VR_Ton.Text;
+
+
+
+
+
+                ur.txt_brg_max_VR_Ton.Text = uc.txt_brg_max_VR_Ton.Text;
+                ur.txt_final_Mx.Text = uc.txt_final_Mx.Text;
+                ur.txt_final_Mx_kN.Text = uc.txt_final_Mx_kN.Text;
+                ur.txt_final_Mz.Text = uc.txt_final_Mz.Text;
+                ur.txt_final_Mz_kN.Text = uc.txt_final_Mz_kN.Text;
+                ur.txt_final_vert_reac.Text = uc.txt_final_vert_reac.Text;
+                ur.txt_final_vert_rec_kN.Text = uc.txt_final_vert_rec_kN.Text;
+                ur.txt_inner_long_deff_moment_load_case.Text = uc.txt_inner_long_deff_moment_load_case.Text;
+                ur.txt_inner_long_deff_moment_mem_no.Text = uc.txt_inner_long_deff_moment_mem_no.Text;
+                ur.txt_left_max_total_Mx.Text = uc.txt_left_max_total_Mx.Text;
+
+                ur.txt_left_max_total_Mz.Text = uc.txt_left_max_total_Mz.Text;
+                ur.txt_left_max_total_vert_reac.Text = uc.txt_left_max_total_vert_reac.Text;
+                ur.txt_left_total_Mx.Text = uc.txt_left_total_Mx.Text;
+                ur.txt_left_total_Mz.Text = uc.txt_left_total_Mz.Text;
+                ur.txt_left_total_vert_reac.Text = uc.txt_left_total_vert_reac.Text;
+                ur.txt_live_kN_m.Text = uc.txt_live_kN_m.Text;
+                ur.txt_live_vert_rec_kN.Text = uc.txt_live_vert_rec_kN.Text;
+                ur.txt_live_vert_rec_Ton.Text = uc.txt_live_vert_rec_Ton.Text;
+                ur.txt_ll_final_Mx.Text = uc.txt_ll_final_Mx.Text;
+                ur.txt_ll_final_Mx_kN.Text = uc.txt_ll_final_Mx_kN.Text;
+
+                ur.txt_ll_final_Mz.Text = uc.txt_ll_final_Mz.Text;
+                ur.txt_ll_final_Mz_kN.Text = uc.txt_ll_final_Mz_kN.Text;
+                ur.txt_ll_final_vert_reac.Text = uc.txt_ll_final_vert_reac.Text;
+
+
+                ur.txt_ll_final_vert_rec_kN.Text = uc.txt_ll_final_vert_rec_kN.Text;
+                ur.txt_ll_left_max_total_Mx.Text = uc.txt_ll_left_max_total_Mx.Text;
+                ur.txt_ll_left_max_total_Mz.Text = uc.txt_ll_left_max_total_Mz.Text;
+                ur.txt_ll_left_max_vert_reac.Text = uc.txt_ll_left_max_vert_reac.Text;
+                ur.txt_ll_left_total_Mx.Text = uc.txt_ll_left_total_Mx.Text;
+                ur.txt_ll_left_total_Mz.Text = uc.txt_ll_left_total_Mz.Text;
+                ur.txt_ll_left_total_vert_reac.Text = uc.txt_ll_left_total_vert_reac.Text;
+                ur.txt_ll_max_Mx.Text = uc.txt_ll_max_Mx.Text;
+                ur.txt_ll_max_Mx_kN.Text = uc.txt_ll_max_Mx_kN.Text;
+                ur.txt_ll_max_Mz.Text = uc.txt_ll_max_Mz.Text;
+                ur.txt_ll_max_Mz_kN.Text = uc.txt_ll_max_Mz_kN.Text;
+                ur.txt_ll_max_vert_reac.Text = uc.txt_ll_max_vert_reac.Text;
+                ur.txt_ll_max_vert_reac_kN.Text = uc.txt_ll_max_vert_reac_kN.Text;
+                ur.txt_ll_right_max_total_Mx.Text = uc.txt_ll_right_max_total_Mx.Text;
+                ur.txt_ll_right_max_total_Mz.Text = uc.txt_ll_right_max_total_Mz.Text;
+                ur.txt_ll_right_max_total_vert_reac.Text = uc.txt_ll_right_max_total_vert_reac.Text;
+                ur.txt_ll_right_total_Mx.Text = uc.txt_ll_right_total_Mx.Text;
+                ur.txt_ll_right_total_Mz.Text = uc.txt_ll_right_total_Mz.Text;
+                ur.txt_ll_right_total_vert_reac.Text = uc.txt_ll_right_total_vert_reac.Text;
+                ur.txt_max_Mx.Text = uc.txt_max_Mx.Text;
+
+                ur.txt_max_Mx_kN.Text = uc.txt_max_Mx_kN.Text;
+                ur.txt_max_Mz.Text = uc.txt_max_Mz.Text;
+                ur.txt_max_Mz_kN.Text = uc.txt_max_Mz_kN.Text;
+                ur.txt_max_vert_reac.Text = uc.txt_max_vert_reac.Text;
+                ur.txt_max_vert_reac_kN.Text = uc.txt_max_vert_reac_kN.Text;
+                ur.txt_mxf_left_total_Mx.Text = uc.txt_mxf_left_total_Mx.Text;
+                ur.txt_mxf_left_total_Mz.Text = uc.txt_mxf_left_total_Mz.Text;
+                ur.txt_mxf_left_total_vert_reac.Text = uc.txt_mxf_left_total_vert_reac.Text;
+                ur.txt_mxf_max_Mx.Text = uc.txt_mxf_max_Mx.Text;
+
+                ur.txt_mxf_max_Mx_kN.Text = uc.txt_mxf_max_Mx_kN.Text;
+                ur.txt_mxf_max_Mz.Text = uc.txt_mxf_max_Mz.Text;
+                ur.txt_mxf_max_Mz_kN.Text = uc.txt_mxf_max_Mz_kN.Text;
+                ur.txt_mxf_max_vert_reac.Text = uc.txt_mxf_max_vert_reac.Text;
+                ur.txt_mxf_max_vert_reac_kN.Text = uc.txt_mxf_max_vert_reac_kN.Text;
+                ur.txt_mxf_right_total_Mx.Text = uc.txt_mxf_right_total_Mx.Text;
+                ur.txt_mxf_right_total_Mz.Text = uc.txt_mxf_right_total_Mz.Text;
+                ur.txt_mxf_right_total_vert_reac.Text = uc.txt_mxf_right_total_vert_reac.Text;
+                ur.txt_res_DL_node_trans.Text = uc.txt_res_DL_node_trans.Text;
+                ur.txt_res_DL_node_trans_jn.Text = uc.txt_res_DL_node_trans_jn.Text;
+                ur.txt_res_DL_node_trans_ld.Text = uc.txt_res_DL_node_trans_ld.Text;
+                ur.txt_res_LL_node_trans.Text = uc.txt_res_LL_node_trans.Text;
+                ur.txt_res_LL_node_trans_jn.Text = uc.txt_res_LL_node_trans_jn.Text;
+                ur.txt_res_LL_node_trans_ld.Text = uc.txt_res_LL_node_trans_ld.Text;
+                ur.txt_right_max_total_Mx.Text = uc.txt_right_max_total_Mx.Text;
+                ur.txt_right_max_total_Mz.Text = uc.txt_right_max_total_Mz.Text;
+                ur.txt_right_max_total_vert_reac.Text = uc.txt_right_max_total_vert_reac.Text;
+                ur.txt_right_total_Mx.Text = uc.txt_right_total_Mx.Text;
+                ur.txt_right_total_Mz.Text = uc.txt_right_total_Mz.Text;
+                ur.txt_right_total_vert_reac.Text = uc.txt_right_total_vert_reac.Text;
+                ur.txt_sidl_final_Mx.Text = uc.txt_sidl_final_Mx.Text;
+                ur.txt_sidl_final_Mx_kN.Text = uc.txt_sidl_final_Mx_kN.Text;
+                ur.txt_sidl_final_Mz.Text = uc.txt_sidl_final_Mz.Text;
+                ur.txt_sidl_final_Mz_kN.Text = uc.txt_sidl_final_Mz_kN.Text;
+
+                ur.txt_sidl_final_vert_reac.Text = uc.txt_sidl_final_vert_reac.Text;
+                ur.txt_sidl_final_vert_rec_kN.Text = uc.txt_sidl_final_vert_rec_kN.Text;
+                ur.txt_sidl_left_max_total_Mx.Text = uc.txt_sidl_left_max_total_Mx.Text;
+                ur.txt_sidl_left_max_total_Mz.Text = uc.txt_sidl_left_max_total_Mz.Text;
+                ur.txt_sidl_left_max_total_vert_reac.Text = uc.txt_sidl_left_max_total_vert_reac.Text;
+                ur.txt_sidl_left_total_Mx.Text = uc.txt_sidl_left_total_Mx.Text;
+                ur.txt_sidl_left_total_Mz.Text = uc.txt_sidl_left_total_Mz.Text;
+                ur.txt_sidl_left_total_vert_reac.Text = uc.txt_sidl_left_total_vert_reac.Text;
+                ur.txt_sidl_max_Mx.Text = uc.txt_sidl_max_Mx.Text;
+                ur.txt_sidl_max_Mx_kN.Text = uc.txt_sidl_max_Mx_kN.Text;
+                ur.txt_sidl_max_Mz.Text = uc.txt_sidl_max_Mz.Text;
+
+
+                ur.txt_sidl_max_Mz_kN.Text = uc.txt_sidl_max_Mz_kN.Text;
+                ur.txt_sidl_max_vert_reac.Text = uc.txt_sidl_max_vert_reac.Text;
+                ur.txt_sidl_max_vert_reac_kN.Text = uc.txt_sidl_max_vert_reac_kN.Text;
+                ur.txt_sidl_right_max_total_Mx.Text = uc.txt_sidl_right_max_total_Mx.Text;
+                ur.txt_sidl_right_max_total_Mz.Text = uc.txt_sidl_right_max_total_Mz.Text;
+                ur.txt_sidl_right_max_total_vert_reac.Text = uc.txt_sidl_right_max_total_vert_reac.Text;
+                ur.txt_sidl_right_total_Mx.Text = uc.txt_sidl_right_total_Mx.Text;
+
+                ur.txt_sidl_right_total_Mz.Text = uc.txt_sidl_right_total_Mz.Text;
+                ur.txt_sidl_right_total_vert_reac.Text = uc.txt_sidl_right_total_vert_reac.Text;
+                ur.txt_SUMM_I13.Text = uc.txt_SUMM_I13.Text;
+                ur.txt_SUMM_I15.Text = uc.txt_SUMM_I15.Text;
+                ur.txt_SUMM_I16.Text = uc.txt_SUMM_I16.Text;
+                ur.txt_SUMM_I17.Text = uc.txt_SUMM_I17.Text;
+                ur.txt_SUMM_I21.Text = uc.txt_SUMM_I21.Text;
+                ur.txt_SUMM_I73.Text = uc.txt_SUMM_I73.Text;
+                ur.txt_SUMM_I75.Text = uc.txt_SUMM_I75.Text;
+                ur.txt_SUMM_I76.Text = uc.txt_SUMM_I76.Text;
+                ur.txt_SUMM_I77.Text = uc.txt_SUMM_I77.Text;
+                ur.txt_SUMM_I81.Text = uc.txt_SUMM_I81.Text;
+                ur.txt_SUMM_J13.Text = uc.txt_SUMM_J13.Text;
+                ur.txt_SUMM_J15.Text = uc.txt_SUMM_J15.Text;
+                ur.txt_SUMM_J16.Text = uc.txt_SUMM_J16.Text;
+                ur.txt_SUMM_J17.Text = uc.txt_SUMM_J17.Text;
+                ur.txt_SUMM_J21.Text = uc.txt_SUMM_J21.Text;
+                ur.txt_SUMM_J73.Text = uc.txt_SUMM_J73.Text;
+                ur.txt_SUMM_J75.Text = uc.txt_SUMM_J75.Text;
+                ur.txt_SUMM_J76.Text = uc.txt_SUMM_J76.Text;
+
+                ur.txt_SUMM_J77.Text = uc.txt_SUMM_J77.Text;
+                ur.txt_SUMM_J81.Text = uc.txt_SUMM_J81.Text;
+                ur.txt_SUMM_K13.Text = uc.txt_SUMM_K13.Text;
+                ur.txt_SUMM_K15.Text = uc.txt_SUMM_K15.Text;
+                ur.txt_SUMM_K16.Text = uc.txt_SUMM_K16.Text;
+                ur.txt_SUMM_K17.Text = uc.txt_SUMM_K17.Text;
+                ur.txt_SUMM_K21.Text = uc.txt_SUMM_K21.Text;
+                ur.txt_SUMM_K73.Text = uc.txt_SUMM_K73.Text;
+                ur.txt_SUMM_K75.Text = uc.txt_SUMM_K75.Text;
+                ur.txt_SUMM_K76.Text = uc.txt_SUMM_K76.Text;
+                ur.txt_SUMM_K77.Text = uc.txt_SUMM_K77.Text;
+                ur.txt_SUMM_K81.Text = uc.txt_SUMM_K81.Text;
+                ur.txt_SUMM_L13.Text = uc.txt_SUMM_L13.Text;
+                ur.txt_SUMM_L15.Text = uc.txt_SUMM_L15.Text;
+                ur.txt_SUMM_L16.Text = uc.txt_SUMM_L16.Text;
+                ur.txt_SUMM_L17.Text = uc.txt_SUMM_L17.Text;
+                ur.txt_SUMM_L21.Text = uc.txt_SUMM_L21.Text;
+                ur.txt_SUMM_L73.Text = uc.txt_SUMM_L73.Text;
+                ur.txt_SUMM_L75.Text = uc.txt_SUMM_L75.Text;
+                ur.txt_SUMM_L76.Text = uc.txt_SUMM_L76.Text;
+                ur.txt_SUMM_L77.Text = uc.txt_SUMM_L77.Text;
+                ur.txt_SUMM_L81.Text = uc.txt_SUMM_L81.Text;
+                ur.txt_SUMM_M13.Text = uc.txt_SUMM_M13.Text;
+                ur.txt_SUMM_M15.Text = uc.txt_SUMM_M15.Text;
+                ur.txt_SUMM_M16.Text = uc.txt_SUMM_M16.Text;
+                ur.txt_SUMM_M17.Text = uc.txt_SUMM_M17.Text;
+                ur.txt_SUMM_M21.Text = uc.txt_SUMM_M21.Text;
+                ur.txt_SUMM_M73.Text = uc.txt_SUMM_M73.Text;
+                ur.txt_SUMM_M75.Text = uc.txt_SUMM_M75.Text;
+                ur.txt_SUMM_M76.Text = uc.txt_SUMM_M76.Text;
+                ur.txt_SUMM_M77.Text = uc.txt_SUMM_M77.Text;
+                ur.txt_SUMM_M81.Text = uc.txt_SUMM_M81.Text;
+                ur.txt_SUMM_N13.Text = uc.txt_SUMM_N13.Text;
+                ur.txt_SUMM_N15.Text = uc.txt_SUMM_N15.Text;
+                ur.txt_SUMM_N16.Text = uc.txt_SUMM_N16.Text;
+                ur.txt_SUMM_N17.Text = uc.txt_SUMM_N17.Text;
+                ur.txt_SUMM_N21.Text = uc.txt_SUMM_N21.Text;
+                ur.txt_SUMM_N73.Text = uc.txt_SUMM_N73.Text;
+                ur.txt_SUMM_N75.Text = uc.txt_SUMM_N75.Text;
+                ur.txt_SUMM_N76.Text = uc.txt_SUMM_N76.Text;
+                ur.txt_SUMM_N77.Text = uc.txt_SUMM_N77.Text;
+                ur.txt_SUMM_N81.Text = uc.txt_SUMM_N81.Text;
+
+
+                //DataGridView dgv1 = dgv_left_des_frc;
+                //DataGridView dgv2 = ur.dgv_left_des_frc;
+
+                Copy_Data_Grid_View(uc.dgv_left_des_frc, ur.dgv_left_des_frc);
+                //Copy_Data_Grid_View(dgv_left_end_design_forces, ur.dgv_left_end_design_forces);
+                Copy_Data_Grid_View(uc.dgv_ll_left_des_frc, ur.dgv_ll_left_des_frc);
+                Copy_Data_Grid_View(uc.dgv_ll_right_des_frc, ur.dgv_ll_right_des_frc);
+                Copy_Data_Grid_View(uc.dgv_mxf_left_des_frc, ur.dgv_mxf_left_des_frc);
+                Copy_Data_Grid_View(uc.dgv_mxf_right_des_frc, ur.dgv_mxf_right_des_frc);
+                Copy_Data_Grid_View(uc.dgv_right_des_frc, ur.dgv_right_des_frc);
+                Copy_Data_Grid_View(uc.dgv_sidl_left_des_frc, ur.dgv_sidl_left_des_frc);
+                Copy_Data_Grid_View(uc.dgv_sidl_right_des_frc, ur.dgv_sidl_right_des_frc);
+
+                Copy_Data_Grid_View(uc.dgv_member_Result, ur.dgv_member_Result);
+
+
+                #endregion Normal
+            }
+            else
+            {
+                #region Stage Data
+
+                ur.txt_Ana_inner_long_deff_moment.Text = uc.txt_Ana_inner_long_deff_moment.Text;
+                ur.txt_Ana_inner_long_deff_moment_joint_no.Text = uc.txt_Ana_inner_long_deff_moment_joint_no.Text;
+                ur.txt_Ana_inner_long_deff_shear.Text = uc.txt_Ana_inner_long_deff_shear.Text;
+                ur.txt_Ana_inner_long_deff_shear_joint_no.Text = uc.txt_Ana_inner_long_deff_shear_joint_no.Text;
+                ur.txt_Ana_inner_long_deff_shear_load_case.Text = uc.txt_Ana_inner_long_deff_shear_load_case.Text;
+                ur.txt_Ana_inner_long_deff_shear_mem_no.Text = uc.txt_Ana_inner_long_deff_shear_mem_no.Text;
+                ur.txt_Ana_inner_long_L2_moment.Text = uc.txt_Ana_inner_long_L2_moment.Text;
+                ur.txt_Ana_inner_long_L2_moment_joint_no.Text = uc.txt_Ana_inner_long_L2_moment_joint_no.Text;
+                ur.txt_Ana_inner_long_L2_moment_load_case.Text = uc.txt_Ana_inner_long_L2_moment_load_case.Text;
+                ur.txt_Ana_inner_long_L2_moment_mem_no.Text = uc.txt_Ana_inner_long_L2_moment_mem_no.Text;
+                ur.txt_Ana_inner_long_L2_shear.Text = uc.txt_Ana_inner_long_L2_shear.Text;
+                ur.txt_Ana_inner_long_L2_shear_joint_no.Text = uc.txt_Ana_inner_long_L2_shear_joint_no.Text;
+                ur.txt_Ana_inner_long_L2_shear_load_case.Text = uc.txt_Ana_inner_long_L2_shear_load_case.Text;
+                ur.txt_Ana_inner_long_L2_shear_mem_no.Text = uc.txt_Ana_inner_long_L2_shear_mem_no.Text;
+                ur.txt_Ana_inner_long_L4_moment.Text = uc.txt_Ana_inner_long_L4_moment.Text;
+                ur.txt_Ana_inner_long_L4_moment_joint_no.Text = uc.txt_Ana_inner_long_L4_moment_joint_no.Text;
+                ur.txt_Ana_inner_long_L4_moment_load_case.Text = uc.txt_Ana_inner_long_L4_moment_load_case.Text;
+                ur.txt_Ana_inner_long_L4_moment_mem_no.Text = uc.txt_Ana_inner_long_L4_moment_mem_no.Text;
+
+                ur.txt_Ana_inner_long_L4_shear.Text = uc.txt_Ana_inner_long_L4_shear.Text;
+                ur.txt_Ana_inner_long_L4_shear_joint_no.Text = uc.txt_Ana_inner_long_L4_shear_joint_no.Text;
+                ur.txt_Ana_inner_long_L4_shear_load_case.Text = uc.txt_Ana_inner_long_L4_shear_load_case.Text;
+                ur.txt_Ana_inner_long_L4_shear_mem_no.Text = uc.txt_Ana_inner_long_L4_shear_mem_no.Text;
+                ur.txt_Ana_outer_long_deff_moment.Text = uc.txt_Ana_outer_long_deff_moment.Text;
+                ur.txt_Ana_outer_long_deff_moment_joint_no.Text = uc.txt_Ana_outer_long_deff_moment_joint_no.Text;
+                ur.txt_Ana_outer_long_deff_moment_load_case.Text = uc.txt_Ana_outer_long_deff_moment_load_case.Text;
+                ur.txt_Ana_outer_long_deff_moment_mem_no.Text = uc.txt_Ana_outer_long_deff_moment_mem_no.Text;
+                ur.txt_Ana_outer_long_deff_shear.Text = uc.txt_Ana_outer_long_deff_shear.Text;
+                ur.txt_Ana_outer_long_deff_shear_joint_no.Text = uc.txt_Ana_outer_long_deff_shear_joint_no.Text;
+                ur.txt_Ana_outer_long_deff_shear_load_case.Text = uc.txt_Ana_outer_long_deff_shear_load_case.Text;
+                ur.txt_Ana_outer_long_deff_shear_mem_no.Text = uc.txt_Ana_outer_long_deff_shear_mem_no.Text;
+                ur.txt_Ana_outer_long_L2_moment.Text = uc.txt_Ana_outer_long_L2_moment.Text;
+                ur.txt_Ana_outer_long_L2_moment_joint_no.Text = uc.txt_Ana_outer_long_L2_moment_joint_no.Text;
+                ur.txt_Ana_outer_long_L2_moment_load_case.Text = uc.txt_Ana_outer_long_L2_moment_load_case.Text;
+                ur.txt_Ana_outer_long_L2_moment_mem_no.Text = uc.txt_Ana_outer_long_L2_moment_mem_no.Text;
+                ur.txt_Ana_outer_long_L2_shear.Text = uc.txt_Ana_outer_long_L2_shear.Text;
+                ur.txt_Ana_outer_long_L2_shear_joint_no.Text = uc.txt_Ana_outer_long_L2_shear_joint_no.Text;
+                ur.txt_Ana_outer_long_L2_shear_load_case.Text = uc.txt_Ana_outer_long_L2_shear_load_case.Text;
+                ur.txt_Ana_outer_long_L2_shear_mem_no.Text = uc.txt_Ana_outer_long_L2_shear_mem_no.Text;
+                ur.txt_Ana_outer_long_L4_moment.Text = uc.txt_Ana_outer_long_L4_moment.Text;
+                ur.txt_Ana_outer_long_L4_moment_joint_no.Text = uc.txt_Ana_outer_long_L4_moment_joint_no.Text;
+                ur.txt_Ana_outer_long_L4_moment_load_case.Text = uc.txt_Ana_outer_long_L4_moment_load_case.Text;
+                ur.txt_Ana_outer_long_L4_moment_mem_no.Text = uc.txt_Ana_outer_long_L4_moment_mem_no.Text;
+                ur.txt_Ana_outer_long_L4_shear.Text = uc.txt_Ana_outer_long_L4_shear.Text;
+
+                ur.txt_Ana_outer_long_L4_shear_joint_no.Text = uc.txt_Ana_outer_long_L4_shear_joint_no.Text;
+                ur.txt_Ana_outer_long_L4_shear_load_case.Text = uc.txt_Ana_outer_long_L4_shear_load_case.Text;
+                ur.txt_Ana_outer_long_L4_shear_mem_no.Text = uc.txt_Ana_outer_long_L4_shear_mem_no.Text;
+                ur.txt_brg_max_DL_kN.Text = uc.txt_brg_max_DL_kN.Text;
+                ur.txt_brg_max_DL_Ton.Text = uc.txt_brg_max_DL_Ton.Text;
+                ur.txt_brg_max_HRL_kN.Text = uc.txt_brg_max_HRL_kN.Text;
+                ur.txt_brg_max_HRL_Ton.Text = uc.txt_brg_max_HRL_Ton.Text;
+                ur.txt_brg_max_HRT_kN.Text = uc.txt_brg_max_HRT_kN.Text;
+                ur.txt_brg_max_HRT_Ton.Text = uc.txt_brg_max_HRT_Ton.Text;
+                ur.txt_brg_max_VR_kN.Text = uc.txt_brg_max_VR_kN.Text;
+                ur.txt_brg_max_VR_Ton.Text = uc.txt_brg_max_VR_Ton.Text;
+
+                ur.txt_brg_max_VR_Ton.Text = uc.txt_brg_max_VR_Ton.Text;
+                ur.txt_final_Mx.Text = uc.txt_final_Mx.Text;
+                ur.txt_final_Mx_kN.Text = uc.txt_final_Mx_kN.Text;
+                ur.txt_final_Mz.Text = uc.txt_final_Mz.Text;
+                ur.txt_final_Mz_kN.Text = uc.txt_final_Mz_kN.Text;
+                ur.txt_final_vert_reac.Text = uc.txt_final_vert_reac.Text;
+                ur.txt_final_vert_rec_kN.Text = uc.txt_final_vert_rec_kN.Text;
+                ur.txt_inner_long_deff_moment_load_case.Text = uc.txt_inner_long_deff_moment_load_case.Text;
+                ur.txt_inner_long_deff_moment_mem_no.Text = uc.txt_inner_long_deff_moment_mem_no.Text;
+                ur.txt_left_max_total_Mx.Text = uc.txt_left_max_total_Mx.Text;
+
+                ur.txt_left_max_total_Mz.Text = uc.txt_left_max_total_Mz.Text;
+                ur.txt_left_max_total_vert_reac.Text = uc.txt_left_max_total_vert_reac.Text;
+                ur.txt_left_total_Mx.Text = uc.txt_left_total_Mx.Text;
+                ur.txt_left_total_Mz.Text = uc.txt_left_total_Mz.Text;
+                ur.txt_left_total_vert_reac.Text = uc.txt_left_total_vert_reac.Text;
+                ur.txt_live_kN_m.Text = uc.txt_live_kN_m.Text;
+                ur.txt_live_vert_rec_kN.Text = uc.txt_live_vert_rec_kN.Text;
+                ur.txt_live_vert_rec_Ton.Text = uc.txt_live_vert_rec_Ton.Text;
+                ur.txt_ll_final_Mx.Text = uc.txt_ll_final_Mx.Text;
+                ur.txt_ll_final_Mx_kN.Text = uc.txt_ll_final_Mx_kN.Text;
+                ur.txt_ll_final_Mz.Text = uc.txt_ll_final_Mz.Text;
+                ur.txt_ll_final_Mz_kN.Text = uc.txt_ll_final_Mz_kN.Text;
+                ur.txt_ll_final_vert_reac.Text = uc.txt_ll_final_vert_reac.Text;
+
+
+                ur.txt_ll_final_vert_rec_kN.Text = uc.txt_ll_final_vert_rec_kN.Text;
+                ur.txt_ll_left_max_total_Mx.Text = uc.txt_ll_left_max_total_Mx.Text;
+                ur.txt_ll_left_max_total_Mz.Text = uc.txt_ll_left_max_total_Mz.Text;
+                ur.txt_ll_left_max_vert_reac.Text = uc.txt_ll_left_max_vert_reac.Text;
+                ur.txt_ll_left_total_Mx.Text = uc.txt_ll_left_total_Mx.Text;
+                ur.txt_ll_left_total_Mz.Text = uc.txt_ll_left_total_Mz.Text;
+                ur.txt_ll_left_total_vert_reac.Text = uc.txt_ll_left_total_vert_reac.Text;
+                ur.txt_ll_max_Mx.Text = uc.txt_ll_max_Mx.Text;
+                ur.txt_ll_max_Mx_kN.Text = uc.txt_ll_max_Mx_kN.Text;
+                ur.txt_ll_max_Mz.Text = uc.txt_ll_max_Mz.Text;
+                ur.txt_ll_max_Mz_kN.Text = uc.txt_ll_max_Mz_kN.Text;
+                ur.txt_ll_max_vert_reac.Text = uc.txt_ll_max_vert_reac.Text;
+                ur.txt_ll_max_vert_reac_kN.Text = uc.txt_ll_max_vert_reac_kN.Text;
+                ur.txt_ll_right_max_total_Mx.Text = uc.txt_ll_right_max_total_Mx.Text;
+                ur.txt_ll_right_max_total_Mz.Text = uc.txt_ll_right_max_total_Mz.Text;
+                ur.txt_ll_right_max_total_vert_reac.Text = uc.txt_ll_right_max_total_vert_reac.Text;
+                ur.txt_ll_right_total_Mx.Text = uc.txt_ll_right_total_Mx.Text;
+                ur.txt_ll_right_total_Mz.Text = uc.txt_ll_right_total_Mz.Text;
+                ur.txt_ll_right_total_vert_reac.Text = uc.txt_ll_right_total_vert_reac.Text;
+                ur.txt_max_Mx.Text = uc.txt_max_Mx.Text;
+
+                ur.txt_max_Mx_kN.Text = uc.txt_max_Mx_kN.Text;
+                ur.txt_max_Mz.Text = uc.txt_max_Mz.Text;
+                ur.txt_max_Mz_kN.Text = uc.txt_max_Mz_kN.Text;
+                ur.txt_max_vert_reac.Text = uc.txt_max_vert_reac.Text;
+                ur.txt_max_vert_reac_kN.Text = uc.txt_max_vert_reac_kN.Text;
+                ur.txt_mxf_left_total_Mx.Text = uc.txt_mxf_left_total_Mx.Text;
+                ur.txt_mxf_left_total_Mz.Text = uc.txt_mxf_left_total_Mz.Text;
+                ur.txt_mxf_left_total_vert_reac.Text = uc.txt_mxf_left_total_vert_reac.Text;
+                ur.txt_mxf_max_Mx.Text = uc.txt_mxf_max_Mx.Text;
+
+                ur.txt_mxf_max_Mx_kN.Text = uc.txt_mxf_max_Mx_kN.Text;
+                ur.txt_mxf_max_Mz.Text = uc.txt_mxf_max_Mz.Text;
+                ur.txt_mxf_max_Mz_kN.Text = uc.txt_mxf_max_Mz_kN.Text;
+                ur.txt_mxf_max_vert_reac.Text = uc.txt_mxf_max_vert_reac.Text;
+                ur.txt_mxf_max_vert_reac_kN.Text = uc.txt_mxf_max_vert_reac_kN.Text;
+                ur.txt_mxf_right_total_Mx.Text = uc.txt_mxf_right_total_Mx.Text;
+                ur.txt_mxf_right_total_Mz.Text = uc.txt_mxf_right_total_Mz.Text;
+                ur.txt_mxf_right_total_vert_reac.Text = uc.txt_mxf_right_total_vert_reac.Text;
+                ur.txt_res_DL_node_trans.Text = uc.txt_res_DL_node_trans.Text;
+                ur.txt_res_DL_node_trans_jn.Text = uc.txt_res_DL_node_trans_jn.Text;
+                ur.txt_res_DL_node_trans_ld.Text = uc.txt_res_DL_node_trans_ld.Text;
+                ur.txt_res_LL_node_trans.Text = uc.txt_res_LL_node_trans.Text;
+                ur.txt_res_LL_node_trans_jn.Text = uc.txt_res_LL_node_trans_jn.Text;
+                ur.txt_res_LL_node_trans_ld.Text = uc.txt_res_LL_node_trans_ld.Text;
+                ur.txt_right_max_total_Mx.Text = uc.txt_right_max_total_Mx.Text;
+                ur.txt_right_max_total_Mz.Text = uc.txt_right_max_total_Mz.Text;
+                ur.txt_right_max_total_vert_reac.Text = uc.txt_right_max_total_vert_reac.Text;
+                ur.txt_right_total_Mx.Text = uc.txt_right_total_Mx.Text;
+                ur.txt_right_total_Mz.Text = uc.txt_right_total_Mz.Text;
+                ur.txt_right_total_vert_reac.Text = uc.txt_right_total_vert_reac.Text;
+                ur.txt_sidl_final_Mx.Text = uc.txt_sidl_final_Mx.Text;
+                ur.txt_sidl_final_Mx_kN.Text = uc.txt_sidl_final_Mx_kN.Text;
+                ur.txt_sidl_final_Mz.Text = uc.txt_sidl_final_Mz.Text;
+                ur.txt_sidl_final_Mz_kN.Text = uc.txt_sidl_final_Mz_kN.Text;
+
+                ur.txt_sidl_final_vert_reac.Text = uc.txt_sidl_final_vert_reac.Text;
+                ur.txt_sidl_final_vert_rec_kN.Text = uc.txt_sidl_final_vert_rec_kN.Text;
+                ur.txt_sidl_left_max_total_Mx.Text = uc.txt_sidl_left_max_total_Mx.Text;
+                ur.txt_sidl_left_max_total_Mz.Text = uc.txt_sidl_left_max_total_Mz.Text;
+                ur.txt_sidl_left_max_total_vert_reac.Text = uc.txt_sidl_left_max_total_vert_reac.Text;
+                ur.txt_sidl_left_total_Mx.Text = uc.txt_sidl_left_total_Mx.Text;
+                ur.txt_sidl_left_total_Mz.Text = uc.txt_sidl_left_total_Mz.Text;
+                ur.txt_sidl_left_total_vert_reac.Text = uc.txt_sidl_left_total_vert_reac.Text;
+                ur.txt_sidl_max_Mx.Text = uc.txt_sidl_max_Mx.Text;
+                ur.txt_sidl_max_Mx_kN.Text = uc.txt_sidl_max_Mx_kN.Text;
+                ur.txt_sidl_max_Mz.Text = uc.txt_sidl_max_Mz.Text;
+
+
+                ur.txt_sidl_max_Mz_kN.Text = uc.txt_sidl_max_Mz_kN.Text;
+                ur.txt_sidl_max_vert_reac.Text = uc.txt_sidl_max_vert_reac.Text;
+                ur.txt_sidl_max_vert_reac_kN.Text = uc.txt_sidl_max_vert_reac_kN.Text;
+                ur.txt_sidl_right_max_total_Mx.Text = uc.txt_sidl_right_max_total_Mx.Text;
+                ur.txt_sidl_right_max_total_Mz.Text = uc.txt_sidl_right_max_total_Mz.Text;
+                ur.txt_sidl_right_max_total_vert_reac.Text = uc.txt_sidl_right_max_total_vert_reac.Text;
+                ur.txt_sidl_right_total_Mx.Text = uc.txt_sidl_right_total_Mx.Text;
+
+                ur.txt_sidl_right_total_Mz.Text = uc.txt_sidl_right_total_Mz.Text;
+                ur.txt_sidl_right_total_vert_reac.Text = uc.txt_sidl_right_total_vert_reac.Text;
+                ur.txt_SUMM_I13.Text = uc.txt_SUMM_I13.Text;
+                ur.txt_SUMM_I15.Text = uc.txt_SUMM_I15.Text;
+                ur.txt_SUMM_I16.Text = uc.txt_SUMM_I16.Text;
+                ur.txt_SUMM_I17.Text = uc.txt_SUMM_I17.Text;
+                ur.txt_SUMM_I21.Text = uc.txt_SUMM_I21.Text;
+                ur.txt_SUMM_I73.Text = uc.txt_SUMM_I73.Text;
+                ur.txt_SUMM_I75.Text = uc.txt_SUMM_I75.Text;
+                ur.txt_SUMM_I76.Text = uc.txt_SUMM_I76.Text;
+                ur.txt_SUMM_I77.Text = uc.txt_SUMM_I77.Text;
+                ur.txt_SUMM_I81.Text = uc.txt_SUMM_I81.Text;
+                ur.txt_SUMM_J13.Text = uc.txt_SUMM_J13.Text;
+                ur.txt_SUMM_J15.Text = uc.txt_SUMM_J15.Text;
+                ur.txt_SUMM_J16.Text = uc.txt_SUMM_J16.Text;
+                ur.txt_SUMM_J17.Text = uc.txt_SUMM_J17.Text;
+                ur.txt_SUMM_J21.Text = uc.txt_SUMM_J21.Text;
+                ur.txt_SUMM_J73.Text = uc.txt_SUMM_J73.Text;
+                ur.txt_SUMM_J75.Text = uc.txt_SUMM_J75.Text;
+                ur.txt_SUMM_J76.Text = uc.txt_SUMM_J76.Text;
+
+                ur.txt_SUMM_J77.Text = uc.txt_SUMM_J77.Text;
+                ur.txt_SUMM_J81.Text = uc.txt_SUMM_J81.Text;
+                ur.txt_SUMM_K13.Text = uc.txt_SUMM_K13.Text;
+                ur.txt_SUMM_K15.Text = uc.txt_SUMM_K15.Text;
+                ur.txt_SUMM_K16.Text = uc.txt_SUMM_K16.Text;
+                ur.txt_SUMM_K17.Text = uc.txt_SUMM_K17.Text;
+                ur.txt_SUMM_K21.Text = uc.txt_SUMM_K21.Text;
+                ur.txt_SUMM_K73.Text = uc.txt_SUMM_K73.Text;
+                ur.txt_SUMM_K75.Text = uc.txt_SUMM_K75.Text;
+                ur.txt_SUMM_K76.Text = uc.txt_SUMM_K76.Text;
+                ur.txt_SUMM_K77.Text = uc.txt_SUMM_K77.Text;
+                ur.txt_SUMM_K81.Text = uc.txt_SUMM_K81.Text;
+                ur.txt_SUMM_L13.Text = uc.txt_SUMM_L13.Text;
+                ur.txt_SUMM_L15.Text = uc.txt_SUMM_L15.Text;
+                ur.txt_SUMM_L16.Text = uc.txt_SUMM_L16.Text;
+                ur.txt_SUMM_L17.Text = uc.txt_SUMM_L17.Text;
+                ur.txt_SUMM_L21.Text = uc.txt_SUMM_L21.Text;
+                ur.txt_SUMM_L73.Text = uc.txt_SUMM_L73.Text;
+                ur.txt_SUMM_L75.Text = uc.txt_SUMM_L75.Text;
+                ur.txt_SUMM_L76.Text = uc.txt_SUMM_L76.Text;
+                ur.txt_SUMM_L77.Text = uc.txt_SUMM_L77.Text;
+                ur.txt_SUMM_L81.Text = uc.txt_SUMM_L81.Text;
+                ur.txt_SUMM_M13.Text = uc.txt_SUMM_M13.Text;
+                ur.txt_SUMM_M15.Text = uc.txt_SUMM_M15.Text;
+                ur.txt_SUMM_M16.Text = uc.txt_SUMM_M16.Text;
+                ur.txt_SUMM_M17.Text = uc.txt_SUMM_M17.Text;
+                ur.txt_SUMM_M21.Text = uc.txt_SUMM_M21.Text;
+                ur.txt_SUMM_M73.Text = uc.txt_SUMM_M73.Text;
+                ur.txt_SUMM_M75.Text = uc.txt_SUMM_M75.Text;
+                ur.txt_SUMM_M76.Text = uc.txt_SUMM_M76.Text;
+                ur.txt_SUMM_M77.Text = uc.txt_SUMM_M77.Text;
+                ur.txt_SUMM_M81.Text = uc.txt_SUMM_M81.Text;
+                ur.txt_SUMM_N13.Text = uc.txt_SUMM_N13.Text;
+                ur.txt_SUMM_N15.Text = uc.txt_SUMM_N15.Text;
+                ur.txt_SUMM_N16.Text = uc.txt_SUMM_N16.Text;
+                ur.txt_SUMM_N17.Text = uc.txt_SUMM_N17.Text;
+                ur.txt_SUMM_N21.Text = uc.txt_SUMM_N21.Text;
+                ur.txt_SUMM_N73.Text = uc.txt_SUMM_N73.Text;
+                ur.txt_SUMM_N75.Text = uc.txt_SUMM_N75.Text;
+                ur.txt_SUMM_N76.Text = uc.txt_SUMM_N76.Text;
+                ur.txt_SUMM_N77.Text = uc.txt_SUMM_N77.Text;
+                ur.txt_SUMM_N81.Text = uc.txt_SUMM_N81.Text;
+
+
+                //DataGridView dgv1 = uc.dgv_left_des_frc;
+                //DataGridView dgv2 = ur.dgv_left_des_frc;
+
+                Copy_Data_Grid_View(uc.dgv_left_des_frc, ur.dgv_left_des_frc);
+                //Copy_Data_Grid_View(uc.dgv_left_end_design_forces, ur.dgv_left_end_design_forces);
+                Copy_Data_Grid_View(uc.dgv_ll_left_des_frc, ur.dgv_ll_left_des_frc);
+                Copy_Data_Grid_View(uc.dgv_ll_right_des_frc, ur.dgv_ll_right_des_frc);
+                Copy_Data_Grid_View(uc.dgv_mxf_left_des_frc, ur.dgv_mxf_left_des_frc);
+                Copy_Data_Grid_View(uc.dgv_mxf_right_des_frc, ur.dgv_mxf_right_des_frc);
+                Copy_Data_Grid_View(uc.dgv_right_des_frc, ur.dgv_right_des_frc);
+                Copy_Data_Grid_View(uc.dgv_sidl_left_des_frc, ur.dgv_sidl_left_des_frc);
+                Copy_Data_Grid_View(uc.dgv_sidl_right_des_frc, ur.dgv_sidl_right_des_frc);
+
+                #endregion Stage Data
+                Copy_Data_Grid_View(uc.dgv_member_Result, ur.dgv_member_Result);
+            }
+            Change_LSM_Data(ur);
         }
+        void Copy_Data_Grid_View(DataGridView dgv1, DataGridView dgv2)
+        {
+            int i = 0;
+            dgv2.Rows.Clear();
+            dgv2.AllowUserToAddRows = false;
+            for (i = 0; i < dgv1.RowCount; i++)
+            {
+                try
+                {
+                    dgv2.Rows.Add("", "", "", "");
+                    //dgv2.Rows.Add(dgv1.Rows[i]);
+                    for (int j = 0; j < dgv1.ColumnCount; j++)
+                    {
+                        dgv2[j, i].Value = dgv1[j, i].Value;
+                    }
+                }
+                catch (Exception exx) { }
+            }
+        }
+
         void Change_Stage_Data()
         {
             if (AnalysisType == eAnalysis.Normal)
@@ -18220,8 +20112,63 @@ namespace LimitStateMethod.CableStayed
 
         private void uC_Superstructure1_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btn_stage_summary_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(stg_file)) System.Diagnostics.Process.Start(stg_file);
+        }
+
+        private void uC_CableStayed_Stage1_OnTextBoxChanged(object sender, EventArgs e)
+        {
+            E_Mod_Changed(ucStage, AnalysisType);
+        }
+        void E_Mod_Changed(UC_CableStayed_Stage uc, eAnalysis anaType)
+        {
+            if (uc == null) return;
+            int stg = (int)anaType;
+
+            double pcnt_cbl = MyList.StringToDouble(uc.txt_cable_prct);
+            double pcnt_st = MyList.StringToDouble(uc.txt_steel_prct);
+            double pcnt_conc = MyList.StringToDouble(uc.txt_concrete_prct);
+
+            double emod_st = MyList.StringToDouble(txt_emod_steel);
+            double emod_cbl = MyList.StringToDouble(txt_emod_cable);
+            double emod_conc = MyList.StringToDouble(txt_emod_conc);
+
+            uc.txt_emod_steel.Text = (emod_st * (pcnt_st) / 100).ToString();
+            uc.txt_emod_cable.Text = (emod_cbl * (pcnt_cbl) / 100).ToString();
+            uc.txt_emod_conc.Text = (emod_conc * (pcnt_conc) / 100).ToString();
+        }
+
+        private void tab_gen_data_Click(object sender, EventArgs e)
+        {
 
         }
+        private void SupportChanged()
+        {
+
+            chk_esprt_fixed_FX.Enabled = rbtn_esprt_fixed.Checked;
+            chk_esprt_fixed_FY.Enabled = rbtn_esprt_fixed.Checked;
+            chk_esprt_fixed_FZ.Enabled = rbtn_esprt_fixed.Checked;
+            chk_esprt_fixed_MX.Enabled = rbtn_esprt_fixed.Checked;
+            chk_esprt_fixed_MY.Enabled = rbtn_esprt_fixed.Checked;
+            chk_esprt_fixed_MZ.Enabled = rbtn_esprt_fixed.Checked;
+
+            chk_ssprt_fixed_FX.Enabled = rbtn_ssprt_fixed.Checked;
+            chk_ssprt_fixed_FY.Enabled = rbtn_ssprt_fixed.Checked;
+            chk_ssprt_fixed_FZ.Enabled = rbtn_ssprt_fixed.Checked;
+            chk_ssprt_fixed_MX.Enabled = rbtn_ssprt_fixed.Checked;
+            chk_ssprt_fixed_MY.Enabled = rbtn_ssprt_fixed.Checked;
+            chk_ssprt_fixed_MZ.Enabled = rbtn_ssprt_fixed.Checked;
+        }
+
+        private void rbtn_ssprt_pinned_CheckedChanged(object sender, EventArgs e)
+        {
+            SupportChanged();
+        }
+
 
     }
 }

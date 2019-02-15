@@ -15,9 +15,7 @@
         {
             try
             {
-                iApp.Delete_Temporary_Files();
-                iApp.Delete_Temporary_Files(System.IO.Path.GetDirectoryName(Deck_Analysis_DL.Input_File));
-                iApp.Delete_Temporary_Files(System.IO.Path.GetDirectoryName(Deck_Analysis_LL.Input_File));
+                Write_All_Data();
             }
             catch (System.Exception ex) { }
             if (disposing && (components != null))
@@ -35,39 +33,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Extradosed_Stage));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle61 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle63 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle64 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -111,6 +97,60 @@
             this.tab_Analysis_DL = new System.Windows.Forms.TabPage();
             this.tbc_girder = new System.Windows.Forms.TabControl();
             this.tab_user_input = new System.Windows.Forms.TabPage();
+            this.groupBox39 = new System.Windows.Forms.GroupBox();
+            this.grb_ana_footpath = new System.Windows.Forms.GroupBox();
+            this.txt_Ana_Wr = new System.Windows.Forms.TextBox();
+            this.label531 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wf_RHS = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Wk = new System.Windows.Forms.TextBox();
+            this.label529 = new System.Windows.Forms.Label();
+            this.label530 = new System.Windows.Forms.Label();
+            this.label566 = new System.Windows.Forms.Label();
+            this.txt_Ana_Hf_RHS = new System.Windows.Forms.TextBox();
+            this.txt_Ana_Hf_LHS = new System.Windows.Forms.TextBox();
+            this.label528 = new System.Windows.Forms.Label();
+            this.label565 = new System.Windows.Forms.Label();
+            this.label567 = new System.Windows.Forms.Label();
+            this.label524 = new System.Windows.Forms.Label();
+            this.label525 = new System.Windows.Forms.Label();
+            this.label526 = new System.Windows.Forms.Label();
+            this.label564 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wf_LHS = new System.Windows.Forms.TextBox();
+            this.label527 = new System.Windows.Forms.Label();
+            this.chk_fp_right = new System.Windows.Forms.CheckBox();
+            this.chk_footpath = new System.Windows.Forms.CheckBox();
+            this.chk_fp_left = new System.Windows.Forms.CheckBox();
+            this.grb_ana_parapet = new System.Windows.Forms.GroupBox();
+            this.txt_Ana_hp = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label231 = new System.Windows.Forms.Label();
+            this.txt_Ana_wp = new System.Windows.Forms.TextBox();
+            this.label232 = new System.Windows.Forms.Label();
+            this.chk_cb_right = new System.Windows.Forms.CheckBox();
+            this.chk_crash_barrier = new System.Windows.Forms.CheckBox();
+            this.pic_diagram = new System.Windows.Forms.PictureBox();
+            this.grb_ana_crash_barrier = new System.Windows.Forms.GroupBox();
+            this.txt_Ana_Hc_RHS = new System.Windows.Forms.TextBox();
+            this.label563 = new System.Windows.Forms.Label();
+            this.txt_Ana_Hc_LHS = new System.Windows.Forms.TextBox();
+            this.label562 = new System.Windows.Forms.Label();
+            this.label514 = new System.Windows.Forms.Label();
+            this.label481 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wc_RHS = new System.Windows.Forms.TextBox();
+            this.label522 = new System.Windows.Forms.Label();
+            this.label510 = new System.Windows.Forms.Label();
+            this.label480 = new System.Windows.Forms.Label();
+            this.txt_Ana_Wc_LHS = new System.Windows.Forms.TextBox();
+            this.label523 = new System.Windows.Forms.Label();
+            this.chk_cb_left = new System.Windows.Forms.CheckBox();
+            this.grb_ana_wc = new System.Windows.Forms.GroupBox();
+            this.label511 = new System.Windows.Forms.Label();
+            this.txt_Ana_gamma_w = new System.Windows.Forms.TextBox();
+            this.label515 = new System.Windows.Forms.Label();
+            this.label520 = new System.Windows.Forms.Label();
+            this.txt_Ana_Dw = new System.Windows.Forms.TextBox();
+            this.label521 = new System.Windows.Forms.Label();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.label311 = new System.Windows.Forms.Label();
             this.cmb_cable_type = new System.Windows.Forms.ComboBox();
@@ -174,19 +214,28 @@
             this.grb_create_input_data = new System.Windows.Forms.GroupBox();
             this.txt_Ana_width_cantilever = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label155 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_Ana_DL_eff_depth = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.label273 = new System.Windows.Forms.Label();
+            this.label271 = new System.Windows.Forms.Label();
+            this.label269 = new System.Windows.Forms.Label();
             this.label285 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
+            this.txt_carriageway_width = new System.Windows.Forms.TextBox();
             this.txt_Ana_B = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.label117 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label286 = new System.Windows.Forms.Label();
             this.txt_support_distance = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label272 = new System.Windows.Forms.Label();
+            this.txt_overhang_gap = new System.Windows.Forms.TextBox();
+            this.label270 = new System.Windows.Forms.Label();
+            this.txt_exp_gap = new System.Windows.Forms.TextBox();
+            this.label268 = new System.Windows.Forms.Label();
             this.txt_L3 = new System.Windows.Forms.TextBox();
             this.label288 = new System.Windows.Forms.Label();
             this.txt_L2 = new System.Windows.Forms.TextBox();
@@ -194,7 +243,7 @@
             this.label290 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label239 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_box_unit_weight = new System.Windows.Forms.TextBox();
             this.txt_Ana_LL_factor = new System.Windows.Forms.TextBox();
             this.label240 = new System.Windows.Forms.Label();
             this.txt_Ana_DL_factor = new System.Windows.Forms.TextBox();
@@ -226,8 +275,72 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.txt_out_IZZ = new System.Windows.Forms.TextBox();
+            this.txt_inn_IZZ = new System.Windows.Forms.TextBox();
+            this.txt_cen_IZZ = new System.Windows.Forms.TextBox();
+            this.label444 = new System.Windows.Forms.Label();
+            this.label354 = new System.Windows.Forms.Label();
+            this.txt_tot_IZZ = new System.Windows.Forms.TextBox();
+            this.label350 = new System.Windows.Forms.Label();
+            this.txt_out_IYY = new System.Windows.Forms.TextBox();
+            this.txt_inn_IYY = new System.Windows.Forms.TextBox();
+            this.label280 = new System.Windows.Forms.Label();
+            this.label443 = new System.Windows.Forms.Label();
+            this.txt_cen_IYY = new System.Windows.Forms.TextBox();
+            this.label353 = new System.Windows.Forms.Label();
+            this.txt_tot_IYY = new System.Windows.Forms.TextBox();
+            this.txt_out_IXX = new System.Windows.Forms.TextBox();
+            this.label349 = new System.Windows.Forms.Label();
+            this.txt_inn_IXX = new System.Windows.Forms.TextBox();
+            this.label279 = new System.Windows.Forms.Label();
+            this.label442 = new System.Windows.Forms.Label();
+            this.txt_cen_IXX = new System.Windows.Forms.TextBox();
+            this.label352 = new System.Windows.Forms.Label();
+            this.txt_tot_IXX = new System.Windows.Forms.TextBox();
+            this.txt_out_pcnt = new System.Windows.Forms.TextBox();
+            this.label348 = new System.Windows.Forms.Label();
+            this.txt_inn_pcnt = new System.Windows.Forms.TextBox();
+            this.txt_out_AX = new System.Windows.Forms.TextBox();
+            this.label278 = new System.Windows.Forms.Label();
+            this.txt_inn_AX = new System.Windows.Forms.TextBox();
+            this.txt_cen_pcnt = new System.Windows.Forms.TextBox();
+            this.label402 = new System.Windows.Forms.Label();
+            this.txt_cen_AX = new System.Windows.Forms.TextBox();
+            this.label339 = new System.Windows.Forms.Label();
+            this.label401 = new System.Windows.Forms.Label();
+            this.txt_tot_AX = new System.Windows.Forms.TextBox();
+            this.label400 = new System.Windows.Forms.Label();
+            this.label338 = new System.Windows.Forms.Label();
+            this.label351 = new System.Windows.Forms.Label();
+            this.label505 = new System.Windows.Forms.Label();
+            this.label502 = new System.Windows.Forms.Label();
+            this.label501 = new System.Windows.Forms.Label();
+            this.label336 = new System.Windows.Forms.Label();
+            this.label399 = new System.Windows.Forms.Label();
+            this.label347 = new System.Windows.Forms.Label();
+            this.label342 = new System.Windows.Forms.Label();
+            this.label281 = new System.Windows.Forms.Label();
+            this.label388 = new System.Windows.Forms.Label();
+            this.label335 = new System.Windows.Forms.Label();
+            this.label341 = new System.Windows.Forms.Label();
+            this.label346 = new System.Windows.Forms.Label();
+            this.label371 = new System.Windows.Forms.Label();
+            this.label327 = new System.Windows.Forms.Label();
+            this.label340 = new System.Windows.Forms.Label();
+            this.label345 = new System.Windows.Forms.Label();
+            this.label370 = new System.Windows.Forms.Label();
+            this.label326 = new System.Windows.Forms.Label();
+            this.label337 = new System.Windows.Forms.Label();
+            this.label344 = new System.Windows.Forms.Label();
+            this.label325 = new System.Windows.Forms.Label();
+            this.label343 = new System.Windows.Forms.Label();
+            this.label277 = new System.Windows.Forms.Label();
+            this.label498 = new System.Windows.Forms.Label();
+            this.label276 = new System.Windows.Forms.Label();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_Show_Section_Excel = new System.Windows.Forms.Button();
             this.btn_Show_Section_Resulf = new System.Windows.Forms.Button();
             this.rtb_sections = new System.Windows.Forms.RichTextBox();
             this.label176 = new System.Windows.Forms.Label();
@@ -238,7 +351,7 @@
             this.label561 = new System.Windows.Forms.Label();
             this.label557 = new System.Windows.Forms.Label();
             this.label558 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.txt_BS_DL_LL_Comb = new System.Windows.Forms.TextBox();
             this.label559 = new System.Windows.Forms.Label();
             this.txt_ll_british_lgen = new System.Windows.Forms.TextBox();
             this.btn_bs_view_moving_load = new System.Windows.Forms.Button();
@@ -451,6 +564,34 @@
             this.tab_analysis = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chk_selfweight = new System.Windows.Forms.CheckBox();
+            this.groupBox50 = new System.Windows.Forms.GroupBox();
+            this.label252 = new System.Windows.Forms.Label();
+            this.label323 = new System.Windows.Forms.Label();
+            this.label324 = new System.Windows.Forms.Label();
+            this.label328 = new System.Windows.Forms.Label();
+            this.label329 = new System.Windows.Forms.Label();
+            this.txt_PR_cable = new System.Windows.Forms.TextBox();
+            this.txt_den_cable = new System.Windows.Forms.TextBox();
+            this.txt_emod_cable = new System.Windows.Forms.TextBox();
+            this.groupBox51 = new System.Windows.Forms.GroupBox();
+            this.label330 = new System.Windows.Forms.Label();
+            this.label331 = new System.Windows.Forms.Label();
+            this.label332 = new System.Windows.Forms.Label();
+            this.label333 = new System.Windows.Forms.Label();
+            this.label334 = new System.Windows.Forms.Label();
+            this.txt_PR_conc = new System.Windows.Forms.TextBox();
+            this.txt_den_conc = new System.Windows.Forms.TextBox();
+            this.txt_emod_conc = new System.Windows.Forms.TextBox();
+            this.groupBox52 = new System.Windows.Forms.GroupBox();
+            this.label1194 = new System.Windows.Forms.Label();
+            this.label1193 = new System.Windows.Forms.Label();
+            this.label1196 = new System.Windows.Forms.Label();
+            this.label1195 = new System.Windows.Forms.Label();
+            this.label1192 = new System.Windows.Forms.Label();
+            this.txt_PR_steel = new System.Windows.Forms.TextBox();
+            this.txt_den_steel = new System.Windows.Forms.TextBox();
+            this.txt_emod_steel = new System.Windows.Forms.TextBox();
             this.groupBox70 = new System.Windows.Forms.GroupBox();
             this.rbtn_esprt_pinned = new System.Windows.Forms.RadioButton();
             this.rbtn_esprt_fixed = new System.Windows.Forms.RadioButton();
@@ -484,9 +625,13 @@
             this.chk_R3 = new System.Windows.Forms.CheckBox();
             this.chk_M3 = new System.Windows.Forms.CheckBox();
             this.chk_R2 = new System.Windows.Forms.CheckBox();
-            this.tabControl5 = new System.Windows.Forms.TabControl();
+            this.tc_results = new System.Windows.Forms.TabControl();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox44 = new System.Windows.Forms.GroupBox();
+            this.lbl_max_delf = new System.Windows.Forms.TextBox();
+            this.txt_max_delf = new System.Windows.Forms.TextBox();
+            this.label499 = new System.Windows.Forms.Label();
+            this.label500 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
@@ -529,20 +674,6 @@
             this.label238 = new System.Windows.Forms.Label();
             this.label164 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.groupBox60 = new System.Windows.Forms.GroupBox();
-            this.label268 = new System.Windows.Forms.Label();
-            this.label269 = new System.Windows.Forms.Label();
-            this.groupBox61 = new System.Windows.Forms.GroupBox();
-            this.label270 = new System.Windows.Forms.Label();
-            this.label271 = new System.Windows.Forms.Label();
-            this.label272 = new System.Windows.Forms.Label();
-            this.label273 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label274 = new System.Windows.Forms.Label();
-            this.label275 = new System.Windows.Forms.Label();
-            this.txt_Ana_dead_cross_max_shear = new System.Windows.Forms.TextBox();
-            this.txt_Ana_dead_cross_max_moment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
@@ -591,88 +722,14 @@
             this.label23 = new System.Windows.Forms.Label();
             this.txt_Ana_LL_outer_long_deff_shear = new System.Windows.Forms.TextBox();
             this.txt_Ana_LL_outer_long_L2_moment = new System.Windows.Forms.TextBox();
-            this.groupBox58 = new System.Windows.Forms.GroupBox();
-            this.label534 = new System.Windows.Forms.Label();
-            this.txt_ana_TSRP = new System.Windows.Forms.TextBox();
-            this.label535 = new System.Windows.Forms.Label();
-            this.label536 = new System.Windows.Forms.Label();
-            this.txt_ana_MSTD = new System.Windows.Forms.TextBox();
-            this.label537 = new System.Windows.Forms.Label();
-            this.label538 = new System.Windows.Forms.Label();
-            this.txt_ana_MSLD = new System.Windows.Forms.TextBox();
-            this.label539 = new System.Windows.Forms.Label();
-            this.groupBox59 = new System.Windows.Forms.GroupBox();
-            this.label541 = new System.Windows.Forms.Label();
-            this.label540 = new System.Windows.Forms.Label();
-            this.txt_ana_DLSR = new System.Windows.Forms.TextBox();
-            this.label532 = new System.Windows.Forms.Label();
-            this.label533 = new System.Windows.Forms.Label();
-            this.txt_ana_LLSR = new System.Windows.Forms.TextBox();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.groupBox62 = new System.Windows.Forms.GroupBox();
-            this.groupBox63 = new System.Windows.Forms.GroupBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label276 = new System.Windows.Forms.Label();
-            this.label277 = new System.Windows.Forms.Label();
-            this.txt_final_Mz = new System.Windows.Forms.TextBox();
-            this.txt_max_Mz_kN = new System.Windows.Forms.TextBox();
-            this.groupBox64 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.txt_final_Mx = new System.Windows.Forms.TextBox();
-            this.txt_max_Mx_kN = new System.Windows.Forms.TextBox();
-            this.label278 = new System.Windows.Forms.Label();
-            this.label279 = new System.Windows.Forms.Label();
-            this.groupBox65 = new System.Windows.Forms.GroupBox();
-            this.lbl_factor = new System.Windows.Forms.Label();
-            this.txt_final_vert_rec_kN = new System.Windows.Forms.TextBox();
-            this.label280 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.txt_final_vert_reac = new System.Windows.Forms.TextBox();
-            this.label281 = new System.Windows.Forms.Label();
-            this.groupBox66 = new System.Windows.Forms.GroupBox();
-            this.txt_left_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_left_total_Mx = new System.Windows.Forms.TextBox();
-            this.label325 = new System.Windows.Forms.Label();
-            this.label326 = new System.Windows.Forms.Label();
-            this.txt_left_total_vert_reac = new System.Windows.Forms.TextBox();
-            this.dgv_left_des_frc = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Max_Mx = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Max_Mz = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox67 = new System.Windows.Forms.GroupBox();
-            this.label327 = new System.Windows.Forms.Label();
-            this.txt_dead_kN_m = new System.Windows.Forms.TextBox();
-            this.label354 = new System.Windows.Forms.Label();
-            this.txt_dead_vert_reac_kN = new System.Windows.Forms.TextBox();
-            this.label370 = new System.Windows.Forms.Label();
-            this.label371 = new System.Windows.Forms.Label();
-            this.dgv_left_end_design_forces = new System.Windows.Forms.DataGridView();
-            this.col_Joints = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Vert_Reaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_dead_vert_reac_ton = new System.Windows.Forms.TextBox();
-            this.groupBox68 = new System.Windows.Forms.GroupBox();
-            this.txt_live_kN_m = new System.Windows.Forms.TextBox();
-            this.label388 = new System.Windows.Forms.Label();
-            this.txt_live_vert_rec_kN = new System.Windows.Forms.TextBox();
-            this.label399 = new System.Windows.Forms.Label();
-            this.label400 = new System.Windows.Forms.Label();
-            this.dgv_right_end_design_forces = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_live_vert_rec_Ton = new System.Windows.Forms.TextBox();
-            this.label401 = new System.Windows.Forms.Label();
-            this.g = new System.Windows.Forms.GroupBox();
-            this.dgv_right_des_frc = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_right_total_Mz = new System.Windows.Forms.TextBox();
-            this.txt_right_total_Mx = new System.Windows.Forms.TextBox();
-            this.label402 = new System.Windows.Forms.Label();
-            this.label442 = new System.Windows.Forms.Label();
-            this.txt_right_total_vert_reac = new System.Windows.Forms.TextBox();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.tabControl7 = new System.Windows.Forms.TabControl();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.uC_SR_DL = new LimitStateMethod.UC_SupportReactions();
+            this.tabPage21 = new System.Windows.Forms.TabPage();
+            this.uC_SR_LL = new LimitStateMethod.UC_SupportReactions();
+            this.tabPage22 = new System.Windows.Forms.TabPage();
+            this.uC_MaxSR = new LimitStateMethod.UC_MaxReactions();
             this.tab_stage = new System.Windows.Forms.TabPage();
             this.tc_stage = new System.Windows.Forms.TabControl();
             this.tab_stage1 = new System.Windows.Forms.TabPage();
@@ -686,8 +743,11 @@
             this.tab_stage5 = new System.Windows.Forms.TabPage();
             this.uC_Stage_Extradosed5 = new LimitStateMethod.Extradossed.UC_Stage_Extradosed();
             this.tab_designSage = new System.Windows.Forms.TabPage();
-            this.label249 = new System.Windows.Forms.Label();
+            this.uC_Res = new LimitStateMethod.Extradossed.UC_Extradosed_Results();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.btn_result_summary = new System.Windows.Forms.Button();
             this.cmb_design_stage = new System.Windows.Forms.ComboBox();
+            this.label249 = new System.Windows.Forms.Label();
             this.tab_worksheet_design = new System.Windows.Forms.TabPage();
             this.tc_bridge_deck = new System.Windows.Forms.TabControl();
             this.tabPage17 = new System.Windows.Forms.TabPage();
@@ -987,262 +1047,6 @@
             this.uC_PierOpenLS1 = new BridgeAnalysisDesign.Pier.UC_PierOpenLS();
             this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
             this.uC_PierDesignLSM1 = new BridgeAnalysisDesign.Pier.UC_PierDesignLSM();
-            this.tab_PierWSM = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tab_des_form1 = new System.Windows.Forms.TabPage();
-            this.label246 = new System.Windows.Forms.Label();
-            this.label231 = new System.Windows.Forms.Label();
-            this.label232 = new System.Windows.Forms.Label();
-            this.groupBox42 = new System.Windows.Forms.GroupBox();
-            this.txt_rcc_pier_m = new System.Windows.Forms.TextBox();
-            this.label117 = new System.Windows.Forms.Label();
-            this.cmb_rcc_pier_fy = new System.Windows.Forms.ComboBox();
-            this.label236 = new System.Windows.Forms.Label();
-            this.cmb_rcc_pier_fck = new System.Windows.Forms.ComboBox();
-            this.label244 = new System.Windows.Forms.Label();
-            this.label250 = new System.Windows.Forms.Label();
-            this.label251 = new System.Windows.Forms.Label();
-            this.txt_rcc_pier_sigma_st = new System.Windows.Forms.TextBox();
-            this.label253 = new System.Windows.Forms.Label();
-            this.label254 = new System.Windows.Forms.Label();
-            this.txt_rcc_pier_sigma_c = new System.Windows.Forms.TextBox();
-            this.label258 = new System.Windows.Forms.Label();
-            this.label259 = new System.Windows.Forms.Label();
-            this.label355 = new System.Windows.Forms.Label();
-            this.groupBox39 = new System.Windows.Forms.GroupBox();
-            this.label356 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_W1_supp_reac = new System.Windows.Forms.TextBox();
-            this.label357 = new System.Windows.Forms.Label();
-            this.label358 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_Mz1 = new System.Windows.Forms.TextBox();
-            this.label359 = new System.Windows.Forms.Label();
-            this.label360 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_Mx1 = new System.Windows.Forms.TextBox();
-            this.label361 = new System.Windows.Forms.Label();
-            this.label362 = new System.Windows.Forms.Label();
-            this.label363 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H7 = new System.Windows.Forms.TextBox();
-            this.label364 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_gama_c = new System.Windows.Forms.TextBox();
-            this.label365 = new System.Windows.Forms.Label();
-            this.label366 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_vehi_load = new System.Windows.Forms.TextBox();
-            this.label367 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_NR = new System.Windows.Forms.TextBox();
-            this.label368 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_NP = new System.Windows.Forms.TextBox();
-            this.label369 = new System.Windows.Forms.Label();
-            this.groupBox40 = new System.Windows.Forms.GroupBox();
-            this.label315 = new System.Windows.Forms.Label();
-            this.label316 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_tdia = new System.Windows.Forms.TextBox();
-            this.txt_RCC_Pier_rdia = new System.Windows.Forms.TextBox();
-            this.label321 = new System.Windows.Forms.Label();
-            this.label507 = new System.Windows.Forms.Label();
-            this.label372 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_fck_2 = new System.Windows.Forms.TextBox();
-            this.label373 = new System.Windows.Forms.Label();
-            this.label374 = new System.Windows.Forms.Label();
-            this.label375 = new System.Windows.Forms.Label();
-            this.label376 = new System.Windows.Forms.Label();
-            this.label377 = new System.Windows.Forms.Label();
-            this.label378 = new System.Windows.Forms.Label();
-            this.label379 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_fy2 = new System.Windows.Forms.TextBox();
-            this.label380 = new System.Windows.Forms.Label();
-            this.label381 = new System.Windows.Forms.Label();
-            this.label382 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_D = new System.Windows.Forms.TextBox();
-            this.label383 = new System.Windows.Forms.Label();
-            this.label384 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_b = new System.Windows.Forms.TextBox();
-            this.txt_RCC_Pier_d_dash = new System.Windows.Forms.TextBox();
-            this.label385 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_p1 = new System.Windows.Forms.TextBox();
-            this.label386 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_p2 = new System.Windows.Forms.TextBox();
-            this.label387 = new System.Windows.Forms.Label();
-            this.label389 = new System.Windows.Forms.Label();
-            this.label390 = new System.Windows.Forms.Label();
-            this.label391 = new System.Windows.Forms.Label();
-            this.label392 = new System.Windows.Forms.Label();
-            this.label393 = new System.Windows.Forms.Label();
-            this.label394 = new System.Windows.Forms.Label();
-            this.label395 = new System.Windows.Forms.Label();
-            this.label396 = new System.Windows.Forms.Label();
-            this.label397 = new System.Windows.Forms.Label();
-            this.label398 = new System.Windows.Forms.Label();
-            this.label403 = new System.Windows.Forms.Label();
-            this.label404 = new System.Windows.Forms.Label();
-            this.label405 = new System.Windows.Forms.Label();
-            this.label406 = new System.Windows.Forms.Label();
-            this.label407 = new System.Windows.Forms.Label();
-            this.label408 = new System.Windows.Forms.Label();
-            this.label409 = new System.Windows.Forms.Label();
-            this.label410 = new System.Windows.Forms.Label();
-            this.label411 = new System.Windows.Forms.Label();
-            this.label412 = new System.Windows.Forms.Label();
-            this.label413 = new System.Windows.Forms.Label();
-            this.label414 = new System.Windows.Forms.Label();
-            this.label415 = new System.Windows.Forms.Label();
-            this.label416 = new System.Windows.Forms.Label();
-            this.label417 = new System.Windows.Forms.Label();
-            this.label418 = new System.Windows.Forms.Label();
-            this.label419 = new System.Windows.Forms.Label();
-            this.label420 = new System.Windows.Forms.Label();
-            this.groupBox41 = new System.Windows.Forms.GroupBox();
-            this.label421 = new System.Windows.Forms.Label();
-            this.label422 = new System.Windows.Forms.Label();
-            this.label423 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H2 = new System.Windows.Forms.TextBox();
-            this.label424 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B4 = new System.Windows.Forms.TextBox();
-            this.label425 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B3 = new System.Windows.Forms.TextBox();
-            this.label426 = new System.Windows.Forms.Label();
-            this.groupBox43 = new System.Windows.Forms.GroupBox();
-            this.label427 = new System.Windows.Forms.Label();
-            this.label428 = new System.Windows.Forms.Label();
-            this.label429 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H1 = new System.Windows.Forms.TextBox();
-            this.label430 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B2 = new System.Windows.Forms.TextBox();
-            this.label431 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B1 = new System.Windows.Forms.TextBox();
-            this.label432 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_overall_height = new System.Windows.Forms.TextBox();
-            this.label433 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier___B = new System.Windows.Forms.TextBox();
-            this.label434 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B13 = new System.Windows.Forms.TextBox();
-            this.label435 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B12 = new System.Windows.Forms.TextBox();
-            this.label436 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B11 = new System.Windows.Forms.TextBox();
-            this.label437 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B10 = new System.Windows.Forms.TextBox();
-            this.label438 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B9 = new System.Windows.Forms.TextBox();
-            this.label439 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H6 = new System.Windows.Forms.TextBox();
-            this.label440 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H5 = new System.Windows.Forms.TextBox();
-            this.label441 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B8 = new System.Windows.Forms.TextBox();
-            this.label445 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H4 = new System.Windows.Forms.TextBox();
-            this.label446 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_H3 = new System.Windows.Forms.TextBox();
-            this.label447 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B7 = new System.Windows.Forms.TextBox();
-            this.label448 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_Form_Lev = new System.Windows.Forms.TextBox();
-            this.label449 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_RL5 = new System.Windows.Forms.TextBox();
-            this.label450 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_RL4 = new System.Windows.Forms.TextBox();
-            this.label451 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_RL3 = new System.Windows.Forms.TextBox();
-            this.label452 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_RL2 = new System.Windows.Forms.TextBox();
-            this.label453 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_RL1 = new System.Windows.Forms.TextBox();
-            this.label454 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B6 = new System.Windows.Forms.TextBox();
-            this.label455 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_B5 = new System.Windows.Forms.TextBox();
-            this.label456 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_DS = new System.Windows.Forms.TextBox();
-            this.label457 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_DMG = new System.Windows.Forms.TextBox();
-            this.label458 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_NMG = new System.Windows.Forms.TextBox();
-            this.label459 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_Hp = new System.Windows.Forms.TextBox();
-            this.label460 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_Wp = new System.Windows.Forms.TextBox();
-            this.label461 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier__B = new System.Windows.Forms.TextBox();
-            this.label462 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_CW = new System.Windows.Forms.TextBox();
-            this.label463 = new System.Windows.Forms.Label();
-            this.txt_RCC_Pier_L = new System.Windows.Forms.TextBox();
-            this.label464 = new System.Windows.Forms.Label();
-            this.tab_des_form2 = new System.Windows.Forms.TabPage();
-            this.label471 = new System.Windows.Forms.Label();
-            this.label472 = new System.Windows.Forms.Label();
-            this.label479 = new System.Windows.Forms.Label();
-            this.txt_pier_2_vspc = new System.Windows.Forms.TextBox();
-            this.label480 = new System.Windows.Forms.Label();
-            this.txt_pier_2_vdia = new System.Windows.Forms.TextBox();
-            this.label481 = new System.Windows.Forms.Label();
-            this.txt_pier_2_hdia = new System.Windows.Forms.TextBox();
-            this.label512 = new System.Windows.Forms.Label();
-            this.label513 = new System.Windows.Forms.Label();
-            this.label516 = new System.Windows.Forms.Label();
-            this.txt_pier_2_ldia = new System.Windows.Forms.TextBox();
-            this.label517 = new System.Windows.Forms.Label();
-            this.txt_pier_2_vlegs = new System.Windows.Forms.TextBox();
-            this.label1076 = new System.Windows.Forms.Label();
-            this.txt_pier_2_hlegs = new System.Windows.Forms.TextBox();
-            this.label1077 = new System.Windows.Forms.Label();
-            this.txt_pier_2_slegs = new System.Windows.Forms.TextBox();
-            this.label1078 = new System.Windows.Forms.Label();
-            this.txt_pier_2_sdia = new System.Windows.Forms.TextBox();
-            this.label1079 = new System.Windows.Forms.Label();
-            this.label233 = new System.Windows.Forms.Label();
-            this.label234 = new System.Windows.Forms.Label();
-            this.label465 = new System.Windows.Forms.Label();
-            this.label466 = new System.Windows.Forms.Label();
-            this.label467 = new System.Windows.Forms.Label();
-            this.label468 = new System.Windows.Forms.Label();
-            this.label469 = new System.Windows.Forms.Label();
-            this.label470 = new System.Windows.Forms.Label();
-            this.label473 = new System.Windows.Forms.Label();
-            this.label474 = new System.Windows.Forms.Label();
-            this.label475 = new System.Windows.Forms.Label();
-            this.label476 = new System.Windows.Forms.Label();
-            this.label477 = new System.Windows.Forms.Label();
-            this.cmb_pier_2_k = new System.Windows.Forms.ComboBox();
-            this.txt_pier_2_SBC = new System.Windows.Forms.TextBox();
-            this.label478 = new System.Windows.Forms.Label();
-            this.txt_pier_2_Itc = new System.Windows.Forms.TextBox();
-            this.label482 = new System.Windows.Forms.Label();
-            this.txt_pier_2_Vr = new System.Windows.Forms.TextBox();
-            this.label483 = new System.Windows.Forms.Label();
-            this.txt_pier_2_LL = new System.Windows.Forms.TextBox();
-            this.label484 = new System.Windows.Forms.Label();
-            this.txt_pier_2_CF = new System.Windows.Forms.TextBox();
-            this.label485 = new System.Windows.Forms.Label();
-            this.txt_pier_2_k = new System.Windows.Forms.TextBox();
-            this.label486 = new System.Windows.Forms.Label();
-            this.txt_pier_2_V = new System.Windows.Forms.TextBox();
-            this.label487 = new System.Windows.Forms.Label();
-            this.txt_pier_2_HHF = new System.Windows.Forms.TextBox();
-            this.label488 = new System.Windows.Forms.Label();
-            this.txt_pier_2_SC = new System.Windows.Forms.TextBox();
-            this.label489 = new System.Windows.Forms.Label();
-            this.txt_pier_2_PD = new System.Windows.Forms.TextBox();
-            this.label490 = new System.Windows.Forms.Label();
-            this.txt_pier_2_PML = new System.Windows.Forms.TextBox();
-            this.label491 = new System.Windows.Forms.Label();
-            this.txt_pier_2_PL = new System.Windows.Forms.TextBox();
-            this.label492 = new System.Windows.Forms.Label();
-            this.label493 = new System.Windows.Forms.Label();
-            this.txt_pier_2_APD = new System.Windows.Forms.TextBox();
-            this.label494 = new System.Windows.Forms.Label();
-            this.txt_pier_2_B16 = new System.Windows.Forms.TextBox();
-            this.label495 = new System.Windows.Forms.Label();
-            this.txt_pier_2_P3 = new System.Windows.Forms.TextBox();
-            this.label496 = new System.Windows.Forms.Label();
-            this.label497 = new System.Windows.Forms.Label();
-            this.txt_pier_2_P2 = new System.Windows.Forms.TextBox();
-            this.tab_des_Diagram = new System.Windows.Forms.TabPage();
-            this.pic_pier_interactive_diagram = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_RCC_Pier_Report = new System.Windows.Forms.Button();
-            this.btn_RCC_Pier_Process = new System.Windows.Forms.Button();
-            this.label155 = new System.Windows.Forms.Label();
             this.tab_drawings = new System.Windows.Forms.TabPage();
             this.btn_cable_stayed_drawing = new System.Windows.Forms.Button();
             this.btn_dwg_open_Pier = new System.Windows.Forms.Button();
@@ -1261,6 +1065,12 @@
             this.tab_Analysis_DL.SuspendLayout();
             this.tbc_girder.SuspendLayout();
             this.tab_user_input.SuspendLayout();
+            this.groupBox39.SuspendLayout();
+            this.grb_ana_footpath.SuspendLayout();
+            this.grb_ana_parapet.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).BeginInit();
+            this.grb_ana_crash_barrier.SuspendLayout();
+            this.grb_ana_wc.SuspendLayout();
             this.groupBox27.SuspendLayout();
             this.panel5.SuspendLayout();
             this.groupBox12.SuspendLayout();
@@ -1277,10 +1087,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage11.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.groupBox26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tab_moving_data_british.SuspendLayout();
             this.groupBox45.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spc_HB)).BeginInit();
             this.spc_HB.Panel1.SuspendLayout();
             this.spc_HB.Panel2.SuspendLayout();
             this.spc_HB.SuspendLayout();
@@ -1308,15 +1120,19 @@
             this.groupBox49.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LRFD_long_liveloads)).BeginInit();
             this.tab_analysis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox50.SuspendLayout();
+            this.groupBox51.SuspendLayout();
+            this.groupBox52.SuspendLayout();
             this.groupBox70.SuspendLayout();
             this.groupBox109.SuspendLayout();
             this.groupBox71.SuspendLayout();
             this.groupBox25.SuspendLayout();
-            this.tabControl5.SuspendLayout();
+            this.tc_results.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox44.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -1325,8 +1141,6 @@
             this.groupBox18.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox11.SuspendLayout();
-            this.groupBox60.SuspendLayout();
-            this.groupBox61.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox15.SuspendLayout();
@@ -1334,21 +1148,11 @@
             this.grb_Ana_Res_LL.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
-            this.groupBox58.SuspendLayout();
-            this.groupBox59.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.groupBox62.SuspendLayout();
-            this.groupBox63.SuspendLayout();
-            this.groupBox64.SuspendLayout();
-            this.groupBox65.SuspendLayout();
-            this.groupBox66.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_left_des_frc)).BeginInit();
-            this.groupBox67.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).BeginInit();
-            this.groupBox68.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_right_end_design_forces)).BeginInit();
-            this.g.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_right_des_frc)).BeginInit();
+            this.tabPage19.SuspendLayout();
+            this.tabControl7.SuspendLayout();
+            this.tabPage20.SuspendLayout();
+            this.tabPage21.SuspendLayout();
+            this.tabPage22.SuspendLayout();
             this.tab_stage.SuspendLayout();
             this.tc_stage.SuspendLayout();
             this.tab_stage1.SuspendLayout();
@@ -1357,6 +1161,7 @@
             this.tab_stage4.SuspendLayout();
             this.tab_stage5.SuspendLayout();
             this.tab_designSage.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.tab_worksheet_design.SuspendLayout();
             this.tc_bridge_deck.SuspendLayout();
             this.tabPage17.SuspendLayout();
@@ -1401,18 +1206,6 @@
             this.tc_pier.SuspendLayout();
             this.tab_PierOpenLSM.SuspendLayout();
             this.tab_PierPileLSM.SuspendLayout();
-            this.tab_PierWSM.SuspendLayout();
-            this.tabControl3.SuspendLayout();
-            this.tab_des_form1.SuspendLayout();
-            this.groupBox42.SuspendLayout();
-            this.groupBox39.SuspendLayout();
-            this.groupBox40.SuspendLayout();
-            this.groupBox41.SuspendLayout();
-            this.groupBox43.SuspendLayout();
-            this.tab_des_form2.SuspendLayout();
-            this.tab_des_Diagram.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pier_interactive_diagram)).BeginInit();
-            this.panel4.SuspendLayout();
             this.tab_drawings.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -1821,7 +1614,7 @@
             this.tc_main.Location = new System.Drawing.Point(0, 0);
             this.tc_main.Name = "tc_main";
             this.tc_main.SelectedIndex = 0;
-            this.tc_main.Size = new System.Drawing.Size(977, 692);
+            this.tc_main.Size = new System.Drawing.Size(1036, 692);
             this.tc_main.TabIndex = 2;
             // 
             // tab_Analysis_DL
@@ -1830,9 +1623,9 @@
             this.tab_Analysis_DL.Location = new System.Drawing.Point(4, 22);
             this.tab_Analysis_DL.Name = "tab_Analysis_DL";
             this.tab_Analysis_DL.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Analysis_DL.Size = new System.Drawing.Size(969, 666);
+            this.tab_Analysis_DL.Size = new System.Drawing.Size(1028, 666);
             this.tab_Analysis_DL.TabIndex = 0;
-            this.tab_Analysis_DL.Text = "Analysis of Bridge Box Girder";
+            this.tab_Analysis_DL.Text = "Analysis of Bridge Super Structure";
             this.tab_Analysis_DL.UseVisualStyleBackColor = true;
             // 
             // tbc_girder
@@ -1848,11 +1641,13 @@
             this.tbc_girder.Location = new System.Drawing.Point(3, 3);
             this.tbc_girder.Name = "tbc_girder";
             this.tbc_girder.SelectedIndex = 0;
-            this.tbc_girder.Size = new System.Drawing.Size(963, 660);
+            this.tbc_girder.Size = new System.Drawing.Size(1022, 660);
             this.tbc_girder.TabIndex = 107;
             // 
             // tab_user_input
             // 
+            this.tab_user_input.AutoScroll = true;
+            this.tab_user_input.Controls.Add(this.groupBox39);
             this.tab_user_input.Controls.Add(this.groupBox27);
             this.tab_user_input.Controls.Add(this.panel5);
             this.tab_user_input.Controls.Add(this.label227);
@@ -1864,10 +1659,600 @@
             this.tab_user_input.Location = new System.Drawing.Point(4, 22);
             this.tab_user_input.Name = "tab_user_input";
             this.tab_user_input.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_user_input.Size = new System.Drawing.Size(955, 634);
+            this.tab_user_input.Size = new System.Drawing.Size(1014, 634);
             this.tab_user_input.TabIndex = 0;
             this.tab_user_input.Text = "User\'s Input Data";
             this.tab_user_input.UseVisualStyleBackColor = true;
+            // 
+            // groupBox39
+            // 
+            this.groupBox39.Controls.Add(this.grb_ana_footpath);
+            this.groupBox39.Controls.Add(this.chk_fp_right);
+            this.groupBox39.Controls.Add(this.chk_footpath);
+            this.groupBox39.Controls.Add(this.chk_fp_left);
+            this.groupBox39.Controls.Add(this.grb_ana_parapet);
+            this.groupBox39.Controls.Add(this.chk_cb_right);
+            this.groupBox39.Controls.Add(this.chk_crash_barrier);
+            this.groupBox39.Controls.Add(this.pic_diagram);
+            this.groupBox39.Controls.Add(this.grb_ana_crash_barrier);
+            this.groupBox39.Controls.Add(this.chk_cb_left);
+            this.groupBox39.Controls.Add(this.grb_ana_wc);
+            this.groupBox39.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox39.ForeColor = System.Drawing.Color.Black;
+            this.groupBox39.Location = new System.Drawing.Point(519, 311);
+            this.groupBox39.Name = "groupBox39";
+            this.groupBox39.Size = new System.Drawing.Size(493, 624);
+            this.groupBox39.TabIndex = 180;
+            this.groupBox39.TabStop = false;
+            this.groupBox39.Text = "SUPER IMPOSED DEAD LOAD [SIDL]";
+            // 
+            // grb_ana_footpath
+            // 
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wr);
+            this.grb_ana_footpath.Controls.Add(this.label531);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf_RHS);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wk);
+            this.grb_ana_footpath.Controls.Add(this.label529);
+            this.grb_ana_footpath.Controls.Add(this.label530);
+            this.grb_ana_footpath.Controls.Add(this.label566);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf_RHS);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Hf_LHS);
+            this.grb_ana_footpath.Controls.Add(this.label528);
+            this.grb_ana_footpath.Controls.Add(this.label565);
+            this.grb_ana_footpath.Controls.Add(this.label567);
+            this.grb_ana_footpath.Controls.Add(this.label524);
+            this.grb_ana_footpath.Controls.Add(this.label525);
+            this.grb_ana_footpath.Controls.Add(this.label526);
+            this.grb_ana_footpath.Controls.Add(this.label564);
+            this.grb_ana_footpath.Controls.Add(this.txt_Ana_Wf_LHS);
+            this.grb_ana_footpath.Controls.Add(this.label527);
+            this.grb_ana_footpath.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_ana_footpath.ForeColor = System.Drawing.Color.Blue;
+            this.grb_ana_footpath.Location = new System.Drawing.Point(6, 203);
+            this.grb_ana_footpath.Name = "grb_ana_footpath";
+            this.grb_ana_footpath.Size = new System.Drawing.Size(467, 137);
+            this.grb_ana_footpath.TabIndex = 1;
+            this.grb_ana_footpath.TabStop = false;
+            this.grb_ana_footpath.Text = "Footpath and Kerb";
+            // 
+            // txt_Ana_Wr
+            // 
+            this.txt_Ana_Wr.Location = new System.Drawing.Point(178, 109);
+            this.txt_Ana_Wr.Name = "txt_Ana_Wr";
+            this.txt_Ana_Wr.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wr.TabIndex = 3;
+            this.txt_Ana_Wr.Text = "0.0";
+            this.txt_Ana_Wr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label531
+            // 
+            this.label531.AutoSize = true;
+            this.label531.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label531.Location = new System.Drawing.Point(12, 112);
+            this.label531.Name = "label531";
+            this.label531.Size = new System.Drawing.Size(160, 13);
+            this.label531.TabIndex = 3;
+            this.label531.Text = "Width of Outer Railing [wr]";
+            // 
+            // txt_Ana_Wf_RHS
+            // 
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(130, 44);
+            this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
+            this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wf_RHS.TabIndex = 2;
+            this.txt_Ana_Wf_RHS.Text = "0.0";
+            this.txt_Ana_Wf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // txt_Ana_Wk
+            // 
+            this.txt_Ana_Wk.Location = new System.Drawing.Point(178, 82);
+            this.txt_Ana_Wk.Name = "txt_Ana_Wk";
+            this.txt_Ana_Wk.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wk.TabIndex = 2;
+            this.txt_Ana_Wk.Text = "0.0";
+            this.txt_Ana_Wk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label529
+            // 
+            this.label529.AutoSize = true;
+            this.label529.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label529.Location = new System.Drawing.Point(12, 85);
+            this.label529.Name = "label529";
+            this.label529.Size = new System.Drawing.Size(115, 13);
+            this.label529.TabIndex = 3;
+            this.label529.Text = "Width of Kerb [wk]";
+            // 
+            // label530
+            // 
+            this.label530.AutoSize = true;
+            this.label530.Location = new System.Drawing.Point(234, 112);
+            this.label530.Name = "label530";
+            this.label530.Size = new System.Drawing.Size(18, 13);
+            this.label530.TabIndex = 2;
+            this.label530.Text = "m";
+            // 
+            // label566
+            // 
+            this.label566.AutoSize = true;
+            this.label566.Location = new System.Drawing.Point(186, 47);
+            this.label566.Name = "label566";
+            this.label566.Size = new System.Drawing.Size(18, 13);
+            this.label566.TabIndex = 2;
+            this.label566.Text = "m";
+            // 
+            // txt_Ana_Hf_RHS
+            // 
+            this.txt_Ana_Hf_RHS.Location = new System.Drawing.Point(351, 41);
+            this.txt_Ana_Hf_RHS.Name = "txt_Ana_Hf_RHS";
+            this.txt_Ana_Hf_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hf_RHS.TabIndex = 1;
+            this.txt_Ana_Hf_RHS.Text = "0.0";
+            this.txt_Ana_Hf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // txt_Ana_Hf_LHS
+            // 
+            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(351, 17);
+            this.txt_Ana_Hf_LHS.Name = "txt_Ana_Hf_LHS";
+            this.txt_Ana_Hf_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hf_LHS.TabIndex = 1;
+            this.txt_Ana_Hf_LHS.Text = "0.0";
+            this.txt_Ana_Hf_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_LHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label528
+            // 
+            this.label528.AutoSize = true;
+            this.label528.Location = new System.Drawing.Point(234, 85);
+            this.label528.Name = "label528";
+            this.label528.Size = new System.Drawing.Size(18, 13);
+            this.label528.TabIndex = 2;
+            this.label528.Text = "m";
+            // 
+            // label565
+            // 
+            this.label565.AutoSize = true;
+            this.label565.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label565.Location = new System.Drawing.Point(245, 44);
+            this.label565.Name = "label565";
+            this.label565.Size = new System.Drawing.Size(100, 13);
+            this.label565.TabIndex = 3;
+            this.label565.Text = "Height [RHS_hf]";
+            // 
+            // label567
+            // 
+            this.label567.AutoSize = true;
+            this.label567.Location = new System.Drawing.Point(407, 44);
+            this.label567.Name = "label567";
+            this.label567.Size = new System.Drawing.Size(18, 13);
+            this.label567.TabIndex = 2;
+            this.label567.Text = "m";
+            // 
+            // label524
+            // 
+            this.label524.AutoSize = true;
+            this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label524.Location = new System.Drawing.Point(245, 20);
+            this.label524.Name = "label524";
+            this.label524.Size = new System.Drawing.Size(98, 13);
+            this.label524.TabIndex = 3;
+            this.label524.Text = "Height [LHS_hf]";
+            // 
+            // label525
+            // 
+            this.label525.AutoSize = true;
+            this.label525.Location = new System.Drawing.Point(407, 20);
+            this.label525.Name = "label525";
+            this.label525.Size = new System.Drawing.Size(18, 13);
+            this.label525.TabIndex = 2;
+            this.label525.Text = "m";
+            // 
+            // label526
+            // 
+            this.label526.AutoSize = true;
+            this.label526.Location = new System.Drawing.Point(186, 23);
+            this.label526.Name = "label526";
+            this.label526.Size = new System.Drawing.Size(18, 13);
+            this.label526.TabIndex = 2;
+            this.label526.Text = "m";
+            // 
+            // label564
+            // 
+            this.label564.AutoSize = true;
+            this.label564.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label564.Location = new System.Drawing.Point(8, 44);
+            this.label564.Name = "label564";
+            this.label564.Size = new System.Drawing.Size(98, 13);
+            this.label564.TabIndex = 0;
+            this.label564.Text = "Width [RHS_wf]";
+            // 
+            // txt_Ana_Wf_LHS
+            // 
+            this.txt_Ana_Wf_LHS.Location = new System.Drawing.Point(130, 20);
+            this.txt_Ana_Wf_LHS.Name = "txt_Ana_Wf_LHS";
+            this.txt_Ana_Wf_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wf_LHS.TabIndex = 0;
+            this.txt_Ana_Wf_LHS.Text = "0.0";
+            this.txt_Ana_Wf_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_LHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label527
+            // 
+            this.label527.AutoSize = true;
+            this.label527.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label527.Location = new System.Drawing.Point(6, 20);
+            this.label527.Name = "label527";
+            this.label527.Size = new System.Drawing.Size(96, 13);
+            this.label527.TabIndex = 0;
+            this.label527.Text = "Width [LHS_wf]";
+            // 
+            // chk_fp_right
+            // 
+            this.chk_fp_right.AutoSize = true;
+            this.chk_fp_right.ForeColor = System.Drawing.Color.Blue;
+            this.chk_fp_right.Location = new System.Drawing.Point(343, 182);
+            this.chk_fp_right.Name = "chk_fp_right";
+            this.chk_fp_right.Size = new System.Drawing.Size(101, 17);
+            this.chk_fp_right.TabIndex = 0;
+            this.chk_fp_right.Text = "RIGHT SIDE";
+            this.chk_fp_right.UseVisualStyleBackColor = true;
+            this.chk_fp_right.CheckedChanged += new System.EventHandler(this.chk_crash_barrier_CheckedChanged);
+            // 
+            // chk_footpath
+            // 
+            this.chk_footpath.AutoSize = true;
+            this.chk_footpath.Location = new System.Drawing.Point(6, 182);
+            this.chk_footpath.Name = "chk_footpath";
+            this.chk_footpath.Size = new System.Drawing.Size(177, 17);
+            this.chk_footpath.TabIndex = 3;
+            this.chk_footpath.Text = "SIDE WALK/FOOTPATH ";
+            this.chk_footpath.UseVisualStyleBackColor = true;
+            this.chk_footpath.CheckedChanged += new System.EventHandler(this.chk_crash_barrier_CheckedChanged);
+            // 
+            // chk_fp_left
+            // 
+            this.chk_fp_left.AutoSize = true;
+            this.chk_fp_left.ForeColor = System.Drawing.Color.Blue;
+            this.chk_fp_left.Location = new System.Drawing.Point(245, 182);
+            this.chk_fp_left.Name = "chk_fp_left";
+            this.chk_fp_left.Size = new System.Drawing.Size(92, 17);
+            this.chk_fp_left.TabIndex = 1;
+            this.chk_fp_left.Text = "LEFT SIDE";
+            this.chk_fp_left.UseVisualStyleBackColor = true;
+            this.chk_fp_left.CheckedChanged += new System.EventHandler(this.chk_crash_barrier_CheckedChanged);
+            // 
+            // grb_ana_parapet
+            // 
+            this.grb_ana_parapet.Controls.Add(this.txt_Ana_hp);
+            this.grb_ana_parapet.Controls.Add(this.label24);
+            this.grb_ana_parapet.Controls.Add(this.label25);
+            this.grb_ana_parapet.Controls.Add(this.label231);
+            this.grb_ana_parapet.Controls.Add(this.txt_Ana_wp);
+            this.grb_ana_parapet.Controls.Add(this.label232);
+            this.grb_ana_parapet.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_ana_parapet.ForeColor = System.Drawing.Color.Blue;
+            this.grb_ana_parapet.Location = new System.Drawing.Point(6, 58);
+            this.grb_ana_parapet.Name = "grb_ana_parapet";
+            this.grb_ana_parapet.Size = new System.Drawing.Size(467, 40);
+            this.grb_ana_parapet.TabIndex = 96;
+            this.grb_ana_parapet.TabStop = false;
+            this.grb_ana_parapet.Text = "Parapet Wall";
+            // 
+            // txt_Ana_hp
+            // 
+            this.txt_Ana_hp.Location = new System.Drawing.Point(351, 14);
+            this.txt_Ana_hp.Name = "txt_Ana_hp";
+            this.txt_Ana_hp.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_hp.TabIndex = 2;
+            this.txt_Ana_hp.Text = "1.200";
+            this.txt_Ana_hp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_hp.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(274, 17);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(71, 13);
+            this.label24.TabIndex = 3;
+            this.label24.Text = "Height [hp]";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(407, 17);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(18, 13);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "m";
+            // 
+            // label231
+            // 
+            this.label231.AutoSize = true;
+            this.label231.Location = new System.Drawing.Point(186, 17);
+            this.label231.Name = "label231";
+            this.label231.Size = new System.Drawing.Size(18, 13);
+            this.label231.TabIndex = 0;
+            this.label231.Text = "m";
+            // 
+            // txt_Ana_wp
+            // 
+            this.txt_Ana_wp.Location = new System.Drawing.Point(130, 14);
+            this.txt_Ana_wp.Name = "txt_Ana_wp";
+            this.txt_Ana_wp.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_wp.TabIndex = 0;
+            this.txt_Ana_wp.Text = "0.500";
+            this.txt_Ana_wp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_wp.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label232
+            // 
+            this.label232.AutoSize = true;
+            this.label232.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label232.Location = new System.Drawing.Point(5, 17);
+            this.label232.Name = "label232";
+            this.label232.Size = new System.Drawing.Size(69, 13);
+            this.label232.TabIndex = 0;
+            this.label232.Text = "Width [wp]";
+            // 
+            // chk_cb_right
+            // 
+            this.chk_cb_right.AutoSize = true;
+            this.chk_cb_right.ForeColor = System.Drawing.Color.Blue;
+            this.chk_cb_right.Location = new System.Drawing.Point(343, 101);
+            this.chk_cb_right.Name = "chk_cb_right";
+            this.chk_cb_right.Size = new System.Drawing.Size(101, 17);
+            this.chk_cb_right.TabIndex = 0;
+            this.chk_cb_right.Text = "RIGHT SIDE";
+            this.chk_cb_right.UseVisualStyleBackColor = true;
+            this.chk_cb_right.CheckedChanged += new System.EventHandler(this.chk_crash_barrier_CheckedChanged);
+            // 
+            // chk_crash_barrier
+            // 
+            this.chk_crash_barrier.AutoSize = true;
+            this.chk_crash_barrier.Location = new System.Drawing.Point(6, 101);
+            this.chk_crash_barrier.Name = "chk_crash_barrier";
+            this.chk_crash_barrier.Size = new System.Drawing.Size(131, 17);
+            this.chk_crash_barrier.TabIndex = 3;
+            this.chk_crash_barrier.Text = "CRASH BARRIER ";
+            this.chk_crash_barrier.UseVisualStyleBackColor = true;
+            this.chk_crash_barrier.CheckedChanged += new System.EventHandler(this.chk_crash_barrier_CheckedChanged);
+            // 
+            // pic_diagram
+            // 
+            this.pic_diagram.BackgroundImage = global::LimitStateMethod.Properties.Resources.case_1;
+            this.pic_diagram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pic_diagram.Location = new System.Drawing.Point(6, 346);
+            this.pic_diagram.Name = "pic_diagram";
+            this.pic_diagram.Size = new System.Drawing.Size(456, 273);
+            this.pic_diagram.TabIndex = 95;
+            this.pic_diagram.TabStop = false;
+            // 
+            // grb_ana_crash_barrier
+            // 
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Hc_RHS);
+            this.grb_ana_crash_barrier.Controls.Add(this.label563);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Hc_LHS);
+            this.grb_ana_crash_barrier.Controls.Add(this.label562);
+            this.grb_ana_crash_barrier.Controls.Add(this.label514);
+            this.grb_ana_crash_barrier.Controls.Add(this.label481);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Wc_RHS);
+            this.grb_ana_crash_barrier.Controls.Add(this.label522);
+            this.grb_ana_crash_barrier.Controls.Add(this.label510);
+            this.grb_ana_crash_barrier.Controls.Add(this.label480);
+            this.grb_ana_crash_barrier.Controls.Add(this.txt_Ana_Wc_LHS);
+            this.grb_ana_crash_barrier.Controls.Add(this.label523);
+            this.grb_ana_crash_barrier.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_ana_crash_barrier.ForeColor = System.Drawing.Color.Blue;
+            this.grb_ana_crash_barrier.Location = new System.Drawing.Point(6, 117);
+            this.grb_ana_crash_barrier.Name = "grb_ana_crash_barrier";
+            this.grb_ana_crash_barrier.Size = new System.Drawing.Size(467, 60);
+            this.grb_ana_crash_barrier.TabIndex = 1;
+            this.grb_ana_crash_barrier.TabStop = false;
+            // 
+            // txt_Ana_Hc_RHS
+            // 
+            this.txt_Ana_Hc_RHS.Location = new System.Drawing.Point(351, 32);
+            this.txt_Ana_Hc_RHS.Name = "txt_Ana_Hc_RHS";
+            this.txt_Ana_Hc_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hc_RHS.TabIndex = 2;
+            this.txt_Ana_Hc_RHS.Text = "1.200";
+            this.txt_Ana_Hc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label563
+            // 
+            this.label563.AutoSize = true;
+            this.label563.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label563.Location = new System.Drawing.Point(249, 35);
+            this.label563.Name = "label563";
+            this.label563.Size = new System.Drawing.Size(101, 13);
+            this.label563.TabIndex = 3;
+            this.label563.Text = "Height [RHS_hc]";
+            // 
+            // txt_Ana_Hc_LHS
+            // 
+            this.txt_Ana_Hc_LHS.Location = new System.Drawing.Point(130, 32);
+            this.txt_Ana_Hc_LHS.Name = "txt_Ana_Hc_LHS";
+            this.txt_Ana_Hc_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Hc_LHS.TabIndex = 2;
+            this.txt_Ana_Hc_LHS.Text = "1.200";
+            this.txt_Ana_Hc_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_LHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label562
+            // 
+            this.label562.AutoSize = true;
+            this.label562.Location = new System.Drawing.Point(407, 35);
+            this.label562.Name = "label562";
+            this.label562.Size = new System.Drawing.Size(18, 13);
+            this.label562.TabIndex = 2;
+            this.label562.Text = "m";
+            // 
+            // label514
+            // 
+            this.label514.AutoSize = true;
+            this.label514.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label514.Location = new System.Drawing.Point(8, 35);
+            this.label514.Name = "label514";
+            this.label514.Size = new System.Drawing.Size(99, 13);
+            this.label514.TabIndex = 3;
+            this.label514.Text = "Height [LHS_hc]";
+            // 
+            // label481
+            // 
+            this.label481.AutoSize = true;
+            this.label481.Location = new System.Drawing.Point(407, 13);
+            this.label481.Name = "label481";
+            this.label481.Size = new System.Drawing.Size(18, 13);
+            this.label481.TabIndex = 0;
+            this.label481.Text = "m";
+            // 
+            // txt_Ana_Wc_RHS
+            // 
+            this.txt_Ana_Wc_RHS.Location = new System.Drawing.Point(351, 10);
+            this.txt_Ana_Wc_RHS.Name = "txt_Ana_Wc_RHS";
+            this.txt_Ana_Wc_RHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wc_RHS.TabIndex = 1;
+            this.txt_Ana_Wc_RHS.Text = " 0.500";
+            this.txt_Ana_Wc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label522
+            // 
+            this.label522.AutoSize = true;
+            this.label522.Location = new System.Drawing.Point(186, 13);
+            this.label522.Name = "label522";
+            this.label522.Size = new System.Drawing.Size(18, 13);
+            this.label522.TabIndex = 0;
+            this.label522.Text = "m";
+            // 
+            // label510
+            // 
+            this.label510.AutoSize = true;
+            this.label510.Location = new System.Drawing.Point(186, 35);
+            this.label510.Name = "label510";
+            this.label510.Size = new System.Drawing.Size(18, 13);
+            this.label510.TabIndex = 2;
+            this.label510.Text = "m";
+            // 
+            // label480
+            // 
+            this.label480.AutoSize = true;
+            this.label480.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label480.Location = new System.Drawing.Point(249, 13);
+            this.label480.Name = "label480";
+            this.label480.Size = new System.Drawing.Size(99, 13);
+            this.label480.TabIndex = 0;
+            this.label480.Text = "Width [RHS_wc]";
+            // 
+            // txt_Ana_Wc_LHS
+            // 
+            this.txt_Ana_Wc_LHS.Location = new System.Drawing.Point(130, 10);
+            this.txt_Ana_Wc_LHS.Name = "txt_Ana_Wc_LHS";
+            this.txt_Ana_Wc_LHS.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Wc_LHS.TabIndex = 1;
+            this.txt_Ana_Wc_LHS.Text = " 0.500";
+            this.txt_Ana_Wc_LHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_LHS.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label523
+            // 
+            this.label523.AutoSize = true;
+            this.label523.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label523.Location = new System.Drawing.Point(5, 13);
+            this.label523.Name = "label523";
+            this.label523.Size = new System.Drawing.Size(97, 13);
+            this.label523.TabIndex = 0;
+            this.label523.Text = "Width [LHS_wc]";
+            // 
+            // chk_cb_left
+            // 
+            this.chk_cb_left.AutoSize = true;
+            this.chk_cb_left.ForeColor = System.Drawing.Color.Blue;
+            this.chk_cb_left.Location = new System.Drawing.Point(245, 101);
+            this.chk_cb_left.Name = "chk_cb_left";
+            this.chk_cb_left.Size = new System.Drawing.Size(92, 17);
+            this.chk_cb_left.TabIndex = 1;
+            this.chk_cb_left.Text = "LEFT SIDE";
+            this.chk_cb_left.UseVisualStyleBackColor = true;
+            this.chk_cb_left.CheckedChanged += new System.EventHandler(this.chk_crash_barrier_CheckedChanged);
+            // 
+            // grb_ana_wc
+            // 
+            this.grb_ana_wc.Controls.Add(this.label511);
+            this.grb_ana_wc.Controls.Add(this.txt_Ana_gamma_w);
+            this.grb_ana_wc.Controls.Add(this.label515);
+            this.grb_ana_wc.Controls.Add(this.label520);
+            this.grb_ana_wc.Controls.Add(this.txt_Ana_Dw);
+            this.grb_ana_wc.Controls.Add(this.label521);
+            this.grb_ana_wc.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_ana_wc.ForeColor = System.Drawing.Color.Blue;
+            this.grb_ana_wc.Location = new System.Drawing.Point(6, 17);
+            this.grb_ana_wc.Name = "grb_ana_wc";
+            this.grb_ana_wc.Size = new System.Drawing.Size(467, 40);
+            this.grb_ana_wc.TabIndex = 1;
+            this.grb_ana_wc.TabStop = false;
+            this.grb_ana_wc.Text = "Wearing Course";
+            // 
+            // label511
+            // 
+            this.label511.AutoSize = true;
+            this.label511.Location = new System.Drawing.Point(407, 18);
+            this.label511.Name = "label511";
+            this.label511.Size = new System.Drawing.Size(55, 13);
+            this.label511.TabIndex = 1;
+            this.label511.Text = "kN/cu.m";
+            // 
+            // txt_Ana_gamma_w
+            // 
+            this.txt_Ana_gamma_w.Location = new System.Drawing.Point(351, 15);
+            this.txt_Ana_gamma_w.Name = "txt_Ana_gamma_w";
+            this.txt_Ana_gamma_w.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_gamma_w.TabIndex = 1;
+            this.txt_Ana_gamma_w.Text = "22";
+            this.txt_Ana_gamma_w.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label515
+            // 
+            this.label515.AutoSize = true;
+            this.label515.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label515.Location = new System.Drawing.Point(238, 19);
+            this.label515.Name = "label515";
+            this.label515.Size = new System.Drawing.Size(107, 13);
+            this.label515.TabIndex = 3;
+            this.label515.Text = "Unit weight [Y_w]";
+            // 
+            // label520
+            // 
+            this.label520.AutoSize = true;
+            this.label520.Location = new System.Drawing.Point(186, 17);
+            this.label520.Name = "label520";
+            this.label520.Size = new System.Drawing.Size(18, 13);
+            this.label520.TabIndex = 0;
+            this.label520.Text = "m";
+            // 
+            // txt_Ana_Dw
+            // 
+            this.txt_Ana_Dw.Location = new System.Drawing.Point(130, 14);
+            this.txt_Ana_Dw.Name = "txt_Ana_Dw";
+            this.txt_Ana_Dw.Size = new System.Drawing.Size(50, 21);
+            this.txt_Ana_Dw.TabIndex = 0;
+            this.txt_Ana_Dw.Text = "0.075";
+            this.txt_Ana_Dw.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Dw.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label521
+            // 
+            this.label521.AutoSize = true;
+            this.label521.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label521.Location = new System.Drawing.Point(5, 17);
+            this.label521.Name = "label521";
+            this.label521.Size = new System.Drawing.Size(95, 13);
+            this.label521.TabIndex = 0;
+            this.label521.Text = "Thickness [Dw]";
             // 
             // groupBox27
             // 
@@ -1912,17 +2297,17 @@
             this.groupBox27.Controls.Add(this.label295);
             this.groupBox27.Controls.Add(this.label293);
             this.groupBox27.Controls.Add(this.label291);
-            this.groupBox27.Location = new System.Drawing.Point(416, 308);
+            this.groupBox27.Location = new System.Drawing.Point(6, 669);
             this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(514, 320);
-            this.groupBox27.TabIndex = 180;
+            this.groupBox27.Size = new System.Drawing.Size(507, 349);
+            this.groupBox27.TabIndex = 1;
             this.groupBox27.TabStop = false;
             this.groupBox27.Text = "Cable Inputs";
             // 
             // label311
             // 
             this.label311.AutoSize = true;
-            this.label311.Location = new System.Drawing.Point(13, 297);
+            this.label311.Location = new System.Drawing.Point(3, 325);
             this.label311.Name = "label311";
             this.label311.Size = new System.Drawing.Size(204, 13);
             this.label311.TabIndex = 190;
@@ -1936,18 +2321,18 @@
             "Double Tower on either side at each end",
             "Single Centrally Placed at each end",
             "Without Towers and Cables"});
-            this.cmb_cable_type.Location = new System.Drawing.Point(168, 13);
+            this.cmb_cable_type.Location = new System.Drawing.Point(158, 13);
             this.cmb_cable_type.Name = "cmb_cable_type";
             this.cmb_cable_type.Size = new System.Drawing.Size(269, 21);
-            this.cmb_cable_type.TabIndex = 181;
+            this.cmb_cable_type.TabIndex = 0;
             this.cmb_cable_type.Visible = false;
             // 
             // txt_cbl_des_f
             // 
-            this.txt_cbl_des_f.Location = new System.Drawing.Point(379, 294);
+            this.txt_cbl_des_f.Location = new System.Drawing.Point(369, 322);
             this.txt_cbl_des_f.Name = "txt_cbl_des_f";
             this.txt_cbl_des_f.Size = new System.Drawing.Size(58, 21);
-            this.txt_cbl_des_f.TabIndex = 189;
+            this.txt_cbl_des_f.TabIndex = 12;
             this.txt_cbl_des_f.Text = "1770.0";
             this.txt_cbl_des_f.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_cbl_des_f.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
@@ -1955,7 +2340,7 @@
             // label312
             // 
             this.label312.AutoSize = true;
-            this.label312.Location = new System.Drawing.Point(445, 297);
+            this.label312.Location = new System.Drawing.Point(435, 325);
             this.label312.Name = "label312";
             this.label312.Size = new System.Drawing.Size(59, 13);
             this.label312.TabIndex = 188;
@@ -1963,17 +2348,17 @@
             // 
             // txt_cp
             // 
-            this.txt_cp.Location = new System.Drawing.Point(379, 225);
+            this.txt_cp.Location = new System.Drawing.Point(369, 236);
             this.txt_cp.Name = "txt_cp";
             this.txt_cp.Size = new System.Drawing.Size(58, 21);
-            this.txt_cp.TabIndex = 86;
+            this.txt_cp.TabIndex = 9;
             this.txt_cp.Text = "40";
             this.txt_cp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(13, 228);
+            this.label59.Location = new System.Drawing.Point(3, 239);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(204, 13);
             this.label59.TabIndex = 87;
@@ -1983,7 +2368,7 @@
             // label313
             // 
             this.label313.AutoSize = true;
-            this.label313.Location = new System.Drawing.Point(13, 275);
+            this.label313.Location = new System.Drawing.Point(3, 298);
             this.label313.Name = "label313";
             this.label313.Size = new System.Drawing.Size(215, 13);
             this.label313.TabIndex = 187;
@@ -1992,7 +2377,7 @@
             // label308
             // 
             this.label308.AutoSize = true;
-            this.label308.Location = new System.Drawing.Point(13, 63);
+            this.label308.Location = new System.Drawing.Point(3, 63);
             this.label308.Name = "label308";
             this.label308.Size = new System.Drawing.Size(134, 13);
             this.label308.TabIndex = 143;
@@ -2000,10 +2385,10 @@
             // 
             // txt_cbl_des_E
             // 
-            this.txt_cbl_des_E.Location = new System.Drawing.Point(355, 272);
+            this.txt_cbl_des_E.Location = new System.Drawing.Point(345, 295);
             this.txt_cbl_des_E.Name = "txt_cbl_des_E";
             this.txt_cbl_des_E.Size = new System.Drawing.Size(82, 21);
-            this.txt_cbl_des_E.TabIndex = 186;
+            this.txt_cbl_des_E.TabIndex = 11;
             this.txt_cbl_des_E.Text = "1.95E+007";
             this.txt_cbl_des_E.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_cbl_des_E.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
@@ -2011,7 +2396,7 @@
             // label314
             // 
             this.label314.AutoSize = true;
-            this.label314.Location = new System.Drawing.Point(445, 275);
+            this.label314.Location = new System.Drawing.Point(435, 298);
             this.label314.Name = "label314";
             this.label314.Size = new System.Drawing.Size(60, 13);
             this.label314.TabIndex = 185;
@@ -2020,7 +2405,7 @@
             // label287
             // 
             this.label287.AutoSize = true;
-            this.label287.Location = new System.Drawing.Point(13, 110);
+            this.label287.Location = new System.Drawing.Point(3, 110);
             this.label287.Name = "label287";
             this.label287.Size = new System.Drawing.Size(145, 13);
             this.label287.TabIndex = 143;
@@ -2029,7 +2414,7 @@
             // label504
             // 
             this.label504.AutoSize = true;
-            this.label504.Location = new System.Drawing.Point(13, 209);
+            this.label504.Location = new System.Drawing.Point(3, 213);
             this.label504.Name = "label504";
             this.label504.Size = new System.Drawing.Size(276, 13);
             this.label504.TabIndex = 143;
@@ -2038,7 +2423,7 @@
             // label149
             // 
             this.label149.AutoSize = true;
-            this.label149.Location = new System.Drawing.Point(445, 252);
+            this.label149.Location = new System.Drawing.Point(435, 266);
             this.label149.Name = "label149";
             this.label149.Size = new System.Drawing.Size(60, 13);
             this.label149.TabIndex = 182;
@@ -2047,7 +2432,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(443, 228);
+            this.label20.Location = new System.Drawing.Point(433, 239);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(19, 13);
             this.label20.TabIndex = 92;
@@ -2057,7 +2442,7 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(13, 16);
+            this.label60.Location = new System.Drawing.Point(3, 16);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(71, 13);
             this.label60.TabIndex = 143;
@@ -2067,7 +2452,7 @@
             // label309
             // 
             this.label309.AutoSize = true;
-            this.label309.Location = new System.Drawing.Point(13, 252);
+            this.label309.Location = new System.Drawing.Point(3, 266);
             this.label309.Name = "label309";
             this.label309.Size = new System.Drawing.Size(219, 13);
             this.label309.TabIndex = 184;
@@ -2077,7 +2462,7 @@
             // label298
             // 
             this.label298.AutoSize = true;
-            this.label298.Location = new System.Drawing.Point(13, 186);
+            this.label298.Location = new System.Drawing.Point(3, 186);
             this.label298.Name = "label298";
             this.label298.Size = new System.Drawing.Size(249, 13);
             this.label298.TabIndex = 143;
@@ -2085,19 +2470,19 @@
             // 
             // txt_tower_Dt
             // 
-            this.txt_tower_Dt.Location = new System.Drawing.Point(379, 60);
+            this.txt_tower_Dt.Location = new System.Drawing.Point(369, 60);
             this.txt_tower_Dt.Name = "txt_tower_Dt";
             this.txt_tower_Dt.Size = new System.Drawing.Size(58, 21);
-            this.txt_tower_Dt.TabIndex = 4;
+            this.txt_tower_Dt.TabIndex = 2;
             this.txt_tower_Dt.Text = "1.0";
             this.txt_tower_Dt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_cbl_des_gamma
             // 
-            this.txt_cbl_des_gamma.Location = new System.Drawing.Point(379, 249);
+            this.txt_cbl_des_gamma.Location = new System.Drawing.Point(369, 263);
             this.txt_cbl_des_gamma.Name = "txt_cbl_des_gamma";
             this.txt_cbl_des_gamma.Size = new System.Drawing.Size(58, 21);
-            this.txt_cbl_des_gamma.TabIndex = 183;
+            this.txt_cbl_des_gamma.TabIndex = 10;
             this.txt_cbl_des_gamma.Text = "1.18";
             this.txt_cbl_des_gamma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_cbl_des_gamma.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
@@ -2105,7 +2490,7 @@
             // label150
             // 
             this.label150.AutoSize = true;
-            this.label150.Location = new System.Drawing.Point(13, 133);
+            this.label150.Location = new System.Drawing.Point(3, 133);
             this.label150.Name = "label150";
             this.label150.Size = new System.Drawing.Size(366, 13);
             this.label150.TabIndex = 143;
@@ -2114,7 +2499,7 @@
             // label296
             // 
             this.label296.AutoSize = true;
-            this.label296.Location = new System.Drawing.Point(13, 162);
+            this.label296.Location = new System.Drawing.Point(3, 162);
             this.label296.Name = "label296";
             this.label296.Size = new System.Drawing.Size(320, 13);
             this.label296.TabIndex = 143;
@@ -2123,7 +2508,7 @@
             // label310
             // 
             this.label310.AutoSize = true;
-            this.label310.Location = new System.Drawing.Point(443, 63);
+            this.label310.Location = new System.Drawing.Point(433, 63);
             this.label310.Name = "label310";
             this.label310.Size = new System.Drawing.Size(18, 13);
             this.label310.TabIndex = 92;
@@ -2133,7 +2518,7 @@
             // label294
             // 
             this.label294.AutoSize = true;
-            this.label294.Location = new System.Drawing.Point(13, 86);
+            this.label294.Location = new System.Drawing.Point(3, 86);
             this.label294.Name = "label294";
             this.label294.Size = new System.Drawing.Size(350, 13);
             this.label294.TabIndex = 143;
@@ -2141,26 +2526,27 @@
             // 
             // txt_Tower_Height
             // 
-            this.txt_Tower_Height.Location = new System.Drawing.Point(379, 36);
+            this.txt_Tower_Height.Location = new System.Drawing.Point(369, 36);
             this.txt_Tower_Height.Name = "txt_Tower_Height";
             this.txt_Tower_Height.Size = new System.Drawing.Size(58, 21);
-            this.txt_Tower_Height.TabIndex = 137;
+            this.txt_Tower_Height.TabIndex = 1;
             this.txt_Tower_Height.Text = "12.0";
             this.txt_Tower_Height.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Tower_Height.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
             // 
             // txt_init_cable
             // 
-            this.txt_init_cable.Location = new System.Drawing.Point(379, 130);
+            this.txt_init_cable.Location = new System.Drawing.Point(369, 130);
             this.txt_init_cable.Name = "txt_init_cable";
             this.txt_init_cable.Size = new System.Drawing.Size(58, 21);
-            this.txt_init_cable.TabIndex = 137;
+            this.txt_init_cable.TabIndex = 5;
             this.txt_init_cable.Text = "13.5";
             this.txt_init_cable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label292
             // 
             this.label292.AutoSize = true;
-            this.label292.Location = new System.Drawing.Point(13, 44);
+            this.label292.Location = new System.Drawing.Point(3, 44);
             this.label292.Name = "label292";
             this.label292.Size = new System.Drawing.Size(125, 13);
             this.label292.TabIndex = 143;
@@ -2168,19 +2554,19 @@
             // 
             // txt_cable_no
             // 
-            this.txt_cable_no.Location = new System.Drawing.Point(379, 83);
+            this.txt_cable_no.Location = new System.Drawing.Point(369, 83);
             this.txt_cable_no.Name = "txt_cable_no";
             this.txt_cable_no.Size = new System.Drawing.Size(58, 21);
-            this.txt_cable_no.TabIndex = 137;
+            this.txt_cable_no.TabIndex = 3;
             this.txt_cable_no.Text = "10";
             this.txt_cable_no.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_horizontal_cbl_dist
             // 
-            this.txt_horizontal_cbl_dist.Location = new System.Drawing.Point(379, 154);
+            this.txt_horizontal_cbl_dist.Location = new System.Drawing.Point(369, 154);
             this.txt_horizontal_cbl_dist.Name = "txt_horizontal_cbl_dist";
             this.txt_horizontal_cbl_dist.Size = new System.Drawing.Size(58, 21);
-            this.txt_horizontal_cbl_dist.TabIndex = 137;
+            this.txt_horizontal_cbl_dist.TabIndex = 6;
             this.txt_horizontal_cbl_dist.Text = "6.0";
             this.txt_horizontal_cbl_dist.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -2188,7 +2574,7 @@
             // 
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label75.Location = new System.Drawing.Point(355, 63);
+            this.label75.Location = new System.Drawing.Point(345, 63);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(15, 13);
             this.label75.TabIndex = 139;
@@ -2197,7 +2583,7 @@
             // label307
             // 
             this.label307.AutoSize = true;
-            this.label307.Location = new System.Drawing.Point(330, 63);
+            this.label307.Location = new System.Drawing.Point(320, 63);
             this.label307.Name = "label307";
             this.label307.Size = new System.Drawing.Size(18, 13);
             this.label307.TabIndex = 139;
@@ -2206,7 +2592,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(443, 110);
+            this.label1.Location = new System.Drawing.Point(433, 110);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(18, 13);
             this.label1.TabIndex = 139;
@@ -2215,7 +2601,7 @@
             // label503
             // 
             this.label503.AutoSize = true;
-            this.label503.Location = new System.Drawing.Point(443, 204);
+            this.label503.Location = new System.Drawing.Point(433, 208);
             this.label503.Name = "label503";
             this.label503.Size = new System.Drawing.Size(18, 13);
             this.label503.TabIndex = 139;
@@ -2224,7 +2610,7 @@
             // label284
             // 
             this.label284.AutoSize = true;
-            this.label284.Location = new System.Drawing.Point(443, 133);
+            this.label284.Location = new System.Drawing.Point(433, 133);
             this.label284.Name = "label284";
             this.label284.Size = new System.Drawing.Size(18, 13);
             this.label284.TabIndex = 139;
@@ -2233,7 +2619,7 @@
             // label297
             // 
             this.label297.AutoSize = true;
-            this.label297.Location = new System.Drawing.Point(443, 181);
+            this.label297.Location = new System.Drawing.Point(433, 181);
             this.label297.Name = "label297";
             this.label297.Size = new System.Drawing.Size(18, 13);
             this.label297.TabIndex = 139;
@@ -2241,7 +2627,7 @@
             // 
             // txt_tower_Bt
             // 
-            this.txt_tower_Bt.Location = new System.Drawing.Point(266, 60);
+            this.txt_tower_Bt.Location = new System.Drawing.Point(256, 60);
             this.txt_tower_Bt.Name = "txt_tower_Bt";
             this.txt_tower_Bt.Size = new System.Drawing.Size(58, 21);
             this.txt_tower_Bt.TabIndex = 137;
@@ -2250,35 +2636,35 @@
             // 
             // txt_cable_dia
             // 
-            this.txt_cable_dia.Location = new System.Drawing.Point(379, 107);
+            this.txt_cable_dia.Location = new System.Drawing.Point(369, 107);
             this.txt_cable_dia.Name = "txt_cable_dia";
             this.txt_cable_dia.Size = new System.Drawing.Size(58, 21);
-            this.txt_cable_dia.TabIndex = 137;
+            this.txt_cable_dia.TabIndex = 4;
             this.txt_cable_dia.Text = "0.15";
             this.txt_cable_dia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_vertical_cbl_min_dist
             // 
-            this.txt_vertical_cbl_min_dist.Location = new System.Drawing.Point(379, 201);
+            this.txt_vertical_cbl_min_dist.Location = new System.Drawing.Point(369, 205);
             this.txt_vertical_cbl_min_dist.Name = "txt_vertical_cbl_min_dist";
             this.txt_vertical_cbl_min_dist.Size = new System.Drawing.Size(58, 21);
-            this.txt_vertical_cbl_min_dist.TabIndex = 137;
+            this.txt_vertical_cbl_min_dist.TabIndex = 8;
             this.txt_vertical_cbl_min_dist.Text = "3.0";
             this.txt_vertical_cbl_min_dist.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txt_vertical_cbl_dist
             // 
-            this.txt_vertical_cbl_dist.Location = new System.Drawing.Point(379, 178);
+            this.txt_vertical_cbl_dist.Location = new System.Drawing.Point(369, 178);
             this.txt_vertical_cbl_dist.Name = "txt_vertical_cbl_dist";
             this.txt_vertical_cbl_dist.Size = new System.Drawing.Size(58, 21);
-            this.txt_vertical_cbl_dist.TabIndex = 137;
+            this.txt_vertical_cbl_dist.TabIndex = 7;
             this.txt_vertical_cbl_dist.Text = "1.5";
             this.txt_vertical_cbl_dist.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label295
             // 
             this.label295.AutoSize = true;
-            this.label295.Location = new System.Drawing.Point(443, 157);
+            this.label295.Location = new System.Drawing.Point(433, 157);
             this.label295.Name = "label295";
             this.label295.Size = new System.Drawing.Size(18, 13);
             this.label295.TabIndex = 139;
@@ -2287,7 +2673,7 @@
             // label293
             // 
             this.label293.AutoSize = true;
-            this.label293.Location = new System.Drawing.Point(443, 86);
+            this.label293.Location = new System.Drawing.Point(433, 86);
             this.label293.Name = "label293";
             this.label293.Size = new System.Drawing.Size(27, 13);
             this.label293.TabIndex = 139;
@@ -2296,7 +2682,7 @@
             // label291
             // 
             this.label291.AutoSize = true;
-            this.label291.Location = new System.Drawing.Point(443, 39);
+            this.label291.Location = new System.Drawing.Point(433, 39);
             this.label291.Name = "label291";
             this.label291.Size = new System.Drawing.Size(18, 13);
             this.label291.TabIndex = 139;
@@ -2308,7 +2694,7 @@
             this.panel5.Controls.Add(this.btn_psc_browse);
             this.panel5.Controls.Add(this.txt_project_name);
             this.panel5.Controls.Add(this.label283);
-            this.panel5.Location = new System.Drawing.Point(11, 3);
+            this.panel5.Location = new System.Drawing.Point(6, 3);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(376, 56);
             this.panel5.TabIndex = 179;
@@ -2356,7 +2742,7 @@
             this.label227.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label227.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label227.ForeColor = System.Drawing.Color.Red;
-            this.label227.Location = new System.Drawing.Point(596, 13);
+            this.label227.Location = new System.Drawing.Point(591, 13);
             this.label227.Name = "label227";
             this.label227.Size = new System.Drawing.Size(218, 18);
             this.label227.TabIndex = 126;
@@ -2368,7 +2754,7 @@
             this.label228.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label228.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label228.ForeColor = System.Drawing.Color.Green;
-            this.label228.Location = new System.Drawing.Point(455, 13);
+            this.label228.Location = new System.Drawing.Point(450, 13);
             this.label228.Name = "label228";
             this.label228.Size = new System.Drawing.Size(135, 18);
             this.label228.TabIndex = 125;
@@ -2380,7 +2766,7 @@
             this.groupBox12.Controls.Add(this.rbtn_Ana_DL_create_analysis_file);
             this.groupBox12.Controls.Add(this.rbtn_Ana_DL_select_analysis_file);
             this.groupBox12.Controls.Add(this.txt_gd_np);
-            this.groupBox12.Location = new System.Drawing.Point(6, 6);
+            this.groupBox12.Location = new System.Drawing.Point(1, 6);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(325, 11);
             this.groupBox12.TabIndex = 99;
@@ -2460,7 +2846,7 @@
             this.grb_SIDL.Controls.Add(this.btn_remove);
             this.grb_SIDL.Controls.Add(this.btn_remove_all);
             this.grb_SIDL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_SIDL.Location = new System.Drawing.Point(427, 39);
+            this.grb_SIDL.Location = new System.Drawing.Point(422, 39);
             this.grb_SIDL.Name = "grb_SIDL";
             this.grb_SIDL.Size = new System.Drawing.Size(398, 16);
             this.grb_SIDL.TabIndex = 96;
@@ -2501,19 +2887,28 @@
             // 
             this.grb_create_input_data.Controls.Add(this.txt_Ana_width_cantilever);
             this.grb_create_input_data.Controls.Add(this.label6);
+            this.grb_create_input_data.Controls.Add(this.label155);
             this.grb_create_input_data.Controls.Add(this.label4);
             this.grb_create_input_data.Controls.Add(this.txt_Ana_DL_eff_depth);
             this.grb_create_input_data.Controls.Add(this.label5);
+            this.grb_create_input_data.Controls.Add(this.label273);
+            this.grb_create_input_data.Controls.Add(this.label271);
+            this.grb_create_input_data.Controls.Add(this.label269);
             this.grb_create_input_data.Controls.Add(this.label285);
             this.grb_create_input_data.Controls.Add(this.label32);
+            this.grb_create_input_data.Controls.Add(this.txt_carriageway_width);
             this.grb_create_input_data.Controls.Add(this.txt_Ana_B);
             this.grb_create_input_data.Controls.Add(this.label19);
+            this.grb_create_input_data.Controls.Add(this.label117);
             this.grb_create_input_data.Controls.Add(this.label33);
             this.grb_create_input_data.Controls.Add(this.label3);
             this.grb_create_input_data.Controls.Add(this.label286);
             this.grb_create_input_data.Controls.Add(this.txt_support_distance);
-            this.grb_create_input_data.Controls.Add(this.label25);
-            this.grb_create_input_data.Controls.Add(this.label24);
+            this.grb_create_input_data.Controls.Add(this.label272);
+            this.grb_create_input_data.Controls.Add(this.txt_overhang_gap);
+            this.grb_create_input_data.Controls.Add(this.label270);
+            this.grb_create_input_data.Controls.Add(this.txt_exp_gap);
+            this.grb_create_input_data.Controls.Add(this.label268);
             this.grb_create_input_data.Controls.Add(this.txt_L3);
             this.grb_create_input_data.Controls.Add(this.label288);
             this.grb_create_input_data.Controls.Add(this.txt_L2);
@@ -2522,7 +2917,7 @@
             this.grb_create_input_data.Controls.Add(this.label18);
             this.grb_create_input_data.Controls.Add(this.label239);
             this.grb_create_input_data.Controls.Add(this.label11);
-            this.grb_create_input_data.Controls.Add(this.textBox2);
+            this.grb_create_input_data.Controls.Add(this.txt_box_unit_weight);
             this.grb_create_input_data.Controls.Add(this.txt_Ana_LL_factor);
             this.grb_create_input_data.Controls.Add(this.label240);
             this.grb_create_input_data.Controls.Add(this.txt_Ana_DL_factor);
@@ -2531,20 +2926,20 @@
             this.grb_create_input_data.Controls.Add(this.label2);
             this.grb_create_input_data.Controls.Add(this.txt_Ana_L1);
             this.grb_create_input_data.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_create_input_data.Location = new System.Drawing.Point(11, 308);
+            this.grb_create_input_data.Location = new System.Drawing.Point(6, 311);
             this.grb_create_input_data.Name = "grb_create_input_data";
-            this.grb_create_input_data.Size = new System.Drawing.Size(396, 319);
-            this.grb_create_input_data.TabIndex = 1;
+            this.grb_create_input_data.Size = new System.Drawing.Size(507, 352);
+            this.grb_create_input_data.TabIndex = 0;
             this.grb_create_input_data.TabStop = false;
             this.grb_create_input_data.Text = "Deck Inputs";
             // 
             // txt_Ana_width_cantilever
             // 
             this.txt_Ana_width_cantilever.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_width_cantilever.Location = new System.Drawing.Point(262, 177);
+            this.txt_Ana_width_cantilever.Location = new System.Drawing.Point(370, 238);
             this.txt_Ana_width_cantilever.Name = "txt_Ana_width_cantilever";
             this.txt_Ana_width_cantilever.Size = new System.Drawing.Size(57, 21);
-            this.txt_Ana_width_cantilever.TabIndex = 3;
+            this.txt_Ana_width_cantilever.TabIndex = 9;
             this.txt_Ana_width_cantilever.Text = "1.925";
             this.txt_Ana_width_cantilever.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_width_cantilever.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
@@ -2552,27 +2947,36 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 153);
+            this.label6.Location = new System.Drawing.Point(8, 214);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Tentative Effective Depth";
             // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Location = new System.Drawing.Point(8, 189);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(116, 13);
+            this.label155.TabIndex = 3;
+            this.label155.Text = "Carriageway Width";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 99);
+            this.label4.Location = new System.Drawing.Point(8, 166);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(163, 13);
+            this.label4.Size = new System.Drawing.Size(241, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Width Along Z-direction [B]";
+            this.label4.Text = "Overall Deck Width Along Z-direction [B]";
             // 
             // txt_Ana_DL_eff_depth
             // 
-            this.txt_Ana_DL_eff_depth.Location = new System.Drawing.Point(262, 150);
+            this.txt_Ana_DL_eff_depth.Location = new System.Drawing.Point(370, 211);
             this.txt_Ana_DL_eff_depth.Name = "txt_Ana_DL_eff_depth";
             this.txt_Ana_DL_eff_depth.Size = new System.Drawing.Size(57, 21);
-            this.txt_Ana_DL_eff_depth.TabIndex = 2;
+            this.txt_Ana_DL_eff_depth.TabIndex = 8;
             this.txt_Ana_DL_eff_depth.Text = "4.0";
             this.txt_Ana_DL_eff_depth.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_DL_eff_depth.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
@@ -2580,16 +2984,43 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(326, 153);
+            this.label5.Location = new System.Drawing.Point(434, 214);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "m";
             // 
+            // label273
+            // 
+            this.label273.AutoSize = true;
+            this.label273.Location = new System.Drawing.Point(434, 140);
+            this.label273.Name = "label273";
+            this.label273.Size = new System.Drawing.Size(18, 13);
+            this.label273.TabIndex = 140;
+            this.label273.Text = "m";
+            // 
+            // label271
+            // 
+            this.label271.AutoSize = true;
+            this.label271.Location = new System.Drawing.Point(434, 113);
+            this.label271.Name = "label271";
+            this.label271.Size = new System.Drawing.Size(18, 13);
+            this.label271.TabIndex = 140;
+            this.label271.Text = "m";
+            // 
+            // label269
+            // 
+            this.label269.AutoSize = true;
+            this.label269.Location = new System.Drawing.Point(434, 90);
+            this.label269.Name = "label269";
+            this.label269.Size = new System.Drawing.Size(18, 13);
+            this.label269.TabIndex = 140;
+            this.label269.Text = "m";
+            // 
             // label285
             // 
             this.label285.AutoSize = true;
-            this.label285.Location = new System.Drawing.Point(325, 72);
+            this.label285.Location = new System.Drawing.Point(434, 67);
             this.label285.Name = "label285";
             this.label285.Size = new System.Drawing.Size(18, 13);
             this.label285.TabIndex = 140;
@@ -2599,18 +3030,28 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(10, 180);
+            this.label32.Location = new System.Drawing.Point(10, 241);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(175, 13);
             this.label32.TabIndex = 54;
             this.label32.Text = "Width of Cantilever Slab [B2]";
             // 
+            // txt_carriageway_width
+            // 
+            this.txt_carriageway_width.Location = new System.Drawing.Point(370, 186);
+            this.txt_carriageway_width.Name = "txt_carriageway_width";
+            this.txt_carriageway_width.Size = new System.Drawing.Size(57, 21);
+            this.txt_carriageway_width.TabIndex = 6;
+            this.txt_carriageway_width.Text = "10.5";
+            this.txt_carriageway_width.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_carriageway_width.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
             // txt_Ana_B
             // 
-            this.txt_Ana_B.Location = new System.Drawing.Point(262, 96);
+            this.txt_Ana_B.Location = new System.Drawing.Point(370, 163);
             this.txt_Ana_B.Name = "txt_Ana_B";
             this.txt_Ana_B.Size = new System.Drawing.Size(57, 21);
-            this.txt_Ana_B.TabIndex = 1;
+            this.txt_Ana_B.TabIndex = 6;
             this.txt_Ana_B.Text = "15.6";
             this.txt_Ana_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_B.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
@@ -2618,16 +3059,25 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(325, 261);
+            this.label19.Location = new System.Drawing.Point(434, 322);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(69, 13);
             this.label19.TabIndex = 18;
             this.label19.Text = "Tons/Cu.m";
             // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Location = new System.Drawing.Point(434, 189);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(18, 13);
+            this.label117.TabIndex = 5;
+            this.label117.Text = "m";
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(326, 180);
+            this.label33.Location = new System.Drawing.Point(434, 241);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(18, 13);
             this.label33.TabIndex = 18;
@@ -2636,7 +3086,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(326, 99);
+            this.label3.Location = new System.Drawing.Point(434, 166);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(18, 13);
             this.label3.TabIndex = 5;
@@ -2645,7 +3095,7 @@
             // label286
             // 
             this.label286.AutoSize = true;
-            this.label286.Location = new System.Drawing.Point(325, 48);
+            this.label286.Location = new System.Drawing.Point(434, 43);
             this.label286.Name = "label286";
             this.label286.Size = new System.Drawing.Size(18, 13);
             this.label286.TabIndex = 141;
@@ -2653,82 +3103,113 @@
             // 
             // txt_support_distance
             // 
-            this.txt_support_distance.Location = new System.Drawing.Point(262, 123);
+            this.txt_support_distance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.txt_support_distance.Location = new System.Drawing.Point(370, 137);
             this.txt_support_distance.Name = "txt_support_distance";
             this.txt_support_distance.Size = new System.Drawing.Size(57, 21);
-            this.txt_support_distance.TabIndex = 55;
-            this.txt_support_distance.Text = "0.50";
+            this.txt_support_distance.TabIndex = 5;
+            this.txt_support_distance.Text = "0.022";
             this.txt_support_distance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_support_distance.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
             // 
-            // label25
+            // label272
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(8, 126);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(132, 13);
-            this.label25.TabIndex = 56;
-            this.label25.Text = "Girder end to Support";
+            this.label272.AutoSize = true;
+            this.label272.Location = new System.Drawing.Point(10, 132);
+            this.label272.Name = "label272";
+            this.label272.Size = new System.Drawing.Size(211, 26);
+            this.label272.TabIndex = 136;
+            this.label272.Text = "Distance from Centre of Expansion \r\nGap to C.L. of Bearing";
             // 
-            // label24
+            // txt_overhang_gap
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(326, 126);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(18, 13);
-            this.label24.TabIndex = 57;
-            this.label24.Text = "m";
+            this.txt_overhang_gap.Location = new System.Drawing.Point(370, 110);
+            this.txt_overhang_gap.Name = "txt_overhang_gap";
+            this.txt_overhang_gap.Size = new System.Drawing.Size(57, 21);
+            this.txt_overhang_gap.TabIndex = 4;
+            this.txt_overhang_gap.Text = "0.22";
+            this.txt_overhang_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_overhang_gap.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label270
+            // 
+            this.label270.AutoSize = true;
+            this.label270.Location = new System.Drawing.Point(10, 113);
+            this.label270.Name = "label270";
+            this.label270.Size = new System.Drawing.Size(279, 13);
+            this.label270.TabIndex = 136;
+            this.label270.Text = "Overhang from C.L. of Bearing to Edge of Deck";
+            // 
+            // txt_exp_gap
+            // 
+            this.txt_exp_gap.Location = new System.Drawing.Point(370, 87);
+            this.txt_exp_gap.Name = "txt_exp_gap";
+            this.txt_exp_gap.Size = new System.Drawing.Size(57, 21);
+            this.txt_exp_gap.TabIndex = 3;
+            this.txt_exp_gap.Text = " 0.040";
+            this.txt_exp_gap.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_exp_gap.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
+            // 
+            // label268
+            // 
+            this.label268.AutoSize = true;
+            this.label268.Location = new System.Drawing.Point(10, 90);
+            this.label268.Name = "label268";
+            this.label268.Size = new System.Drawing.Size(126, 13);
+            this.label268.TabIndex = 136;
+            this.label268.Text = "Expansion Gap width";
             // 
             // txt_L3
             // 
-            this.txt_L3.Location = new System.Drawing.Point(262, 69);
+            this.txt_L3.Location = new System.Drawing.Point(370, 64);
             this.txt_L3.Name = "txt_L3";
             this.txt_L3.Size = new System.Drawing.Size(57, 21);
-            this.txt_L3.TabIndex = 138;
+            this.txt_L3.TabIndex = 2;
             this.txt_L3.Text = "65.0";
             this.txt_L3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_L3.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
             // 
             // label288
             // 
             this.label288.AutoSize = true;
-            this.label288.Location = new System.Drawing.Point(10, 72);
+            this.label288.Location = new System.Drawing.Point(10, 67);
             this.label288.Name = "label288";
-            this.label288.Size = new System.Drawing.Size(168, 13);
+            this.label288.Size = new System.Drawing.Size(137, 13);
             this.label288.TabIndex = 136;
-            this.label288.Text = "Length of Side Span 2   [L3]";
+            this.label288.Text = "Side/End Span 2   [L3]";
             // 
             // txt_L2
             // 
-            this.txt_L2.Location = new System.Drawing.Point(262, 45);
+            this.txt_L2.Location = new System.Drawing.Point(370, 40);
             this.txt_L2.Name = "txt_L2";
             this.txt_L2.Size = new System.Drawing.Size(57, 21);
-            this.txt_L2.TabIndex = 135;
+            this.txt_L2.TabIndex = 1;
             this.txt_L2.Text = "65.0";
             this.txt_L2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_L2.TextChanged += new System.EventHandler(this.txt_Ana_DL_length_TextChanged);
             // 
             // label289
             // 
             this.label289.AutoSize = true;
-            this.label289.Location = new System.Drawing.Point(10, 48);
+            this.label289.Location = new System.Drawing.Point(10, 43);
             this.label289.Name = "label289";
-            this.label289.Size = new System.Drawing.Size(168, 13);
+            this.label289.Size = new System.Drawing.Size(137, 13);
             this.label289.TabIndex = 134;
-            this.label289.Text = "Length of Side Span 1   [L2]";
+            this.label289.Text = "Side/End Span 1   [L2]";
             // 
             // label290
             // 
             this.label290.AutoSize = true;
             this.label290.Location = new System.Drawing.Point(10, 21);
             this.label290.Name = "label290";
-            this.label290.Size = new System.Drawing.Size(170, 13);
+            this.label290.Size = new System.Drawing.Size(192, 13);
             this.label290.TabIndex = 132;
-            this.label290.Text = "Length of Central Span  [L1]";
+            this.label290.Text = "Central/Intermediate Span  [L1]";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(10, 261);
+            this.label18.Location = new System.Drawing.Point(10, 322);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(116, 13);
             this.label18.TabIndex = 131;
@@ -2738,30 +3219,30 @@
             // 
             this.label239.AutoSize = true;
             this.label239.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label239.Location = new System.Drawing.Point(10, 234);
+            this.label239.Location = new System.Drawing.Point(10, 295);
             this.label239.Name = "label239";
             this.label239.Size = new System.Drawing.Size(99, 13);
             this.label239.TabIndex = 131;
             this.label239.Text = "Live Load Factor";
             // 
-            // textBox2
+            // txt_box_unit_weight
             // 
-            this.textBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(262, 258);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(57, 21);
-            this.textBox2.TabIndex = 130;
-            this.textBox2.Text = "2.5";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.textBox2.TextChanged += new System.EventHandler(this.txt_Ana_DL_factor_TextChanged);
+            this.txt_box_unit_weight.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_box_unit_weight.Location = new System.Drawing.Point(370, 319);
+            this.txt_box_unit_weight.Name = "txt_box_unit_weight";
+            this.txt_box_unit_weight.Size = new System.Drawing.Size(57, 21);
+            this.txt_box_unit_weight.TabIndex = 12;
+            this.txt_box_unit_weight.Text = "2.5";
+            this.txt_box_unit_weight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_box_unit_weight.TextChanged += new System.EventHandler(this.txt_Ana_DL_factor_TextChanged);
             // 
             // txt_Ana_LL_factor
             // 
             this.txt_Ana_LL_factor.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_LL_factor.Location = new System.Drawing.Point(262, 231);
+            this.txt_Ana_LL_factor.Location = new System.Drawing.Point(370, 292);
             this.txt_Ana_LL_factor.Name = "txt_Ana_LL_factor";
             this.txt_Ana_LL_factor.Size = new System.Drawing.Size(57, 21);
-            this.txt_Ana_LL_factor.TabIndex = 130;
+            this.txt_Ana_LL_factor.TabIndex = 11;
             this.txt_Ana_LL_factor.Text = "2.5";
             this.txt_Ana_LL_factor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_LL_factor.TextChanged += new System.EventHandler(this.txt_Ana_DL_factor_TextChanged);
@@ -2770,7 +3251,7 @@
             // 
             this.label240.AutoSize = true;
             this.label240.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label240.Location = new System.Drawing.Point(10, 207);
+            this.label240.Location = new System.Drawing.Point(10, 268);
             this.label240.Name = "label240";
             this.label240.Size = new System.Drawing.Size(106, 13);
             this.label240.TabIndex = 129;
@@ -2779,10 +3260,10 @@
             // txt_Ana_DL_factor
             // 
             this.txt_Ana_DL_factor.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Ana_DL_factor.Location = new System.Drawing.Point(262, 204);
+            this.txt_Ana_DL_factor.Location = new System.Drawing.Point(370, 265);
             this.txt_Ana_DL_factor.Name = "txt_Ana_DL_factor";
             this.txt_Ana_DL_factor.Size = new System.Drawing.Size(57, 21);
-            this.txt_Ana_DL_factor.TabIndex = 127;
+            this.txt_Ana_DL_factor.TabIndex = 10;
             this.txt_Ana_DL_factor.Text = "1.25";
             this.txt_Ana_DL_factor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_DL_factor.TextChanged += new System.EventHandler(this.txt_Ana_DL_factor_TextChanged);
@@ -2809,7 +3290,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(326, 21);
+            this.label2.Location = new System.Drawing.Point(434, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(18, 13);
             this.label2.TabIndex = 2;
@@ -2817,7 +3298,7 @@
             // 
             // txt_Ana_L1
             // 
-            this.txt_Ana_L1.Location = new System.Drawing.Point(262, 18);
+            this.txt_Ana_L1.Location = new System.Drawing.Point(370, 18);
             this.txt_Ana_L1.Name = "txt_Ana_L1";
             this.txt_Ana_L1.Size = new System.Drawing.Size(57, 21);
             this.txt_Ana_L1.TabIndex = 0;
@@ -2830,9 +3311,9 @@
             this.pcb_cables.BackgroundImage = global::LimitStateMethod.Properties.Resources.ExtradossedCentralTowers;
             this.pcb_cables.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pcb_cables.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pcb_cables.Location = new System.Drawing.Point(11, 62);
+            this.pcb_cables.Location = new System.Drawing.Point(6, 65);
             this.pcb_cables.Name = "pcb_cables";
-            this.pcb_cables.Size = new System.Drawing.Size(919, 240);
+            this.pcb_cables.Size = new System.Drawing.Size(922, 240);
             this.pcb_cables.TabIndex = 132;
             this.pcb_cables.TabStop = false;
             // 
@@ -2843,7 +3324,7 @@
             this.tab_cs_diagram.Location = new System.Drawing.Point(4, 22);
             this.tab_cs_diagram.Name = "tab_cs_diagram";
             this.tab_cs_diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_cs_diagram.Size = new System.Drawing.Size(955, 634);
+            this.tab_cs_diagram.Size = new System.Drawing.Size(1014, 634);
             this.tab_cs_diagram.TabIndex = 2;
             this.tab_cs_diagram.Text = "Cross Section Details";
             this.tab_cs_diagram.UseVisualStyleBackColor = true;
@@ -2856,7 +3337,7 @@
             this.tabControl4.Location = new System.Drawing.Point(3, 3);
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(949, 628);
+            this.tabControl4.Size = new System.Drawing.Size(1008, 628);
             this.tabControl4.TabIndex = 126;
             // 
             // tabPage16
@@ -2867,7 +3348,7 @@
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
             this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage16.Size = new System.Drawing.Size(941, 602);
+            this.tabPage16.Size = new System.Drawing.Size(1000, 602);
             this.tabPage16.TabIndex = 1;
             this.tabPage16.Text = "Data Inputs";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -2923,17 +3404,17 @@
             this.dgv_seg_tab3_1.Name = "dgv_seg_tab3_1";
             this.dgv_seg_tab3_1.RowHeadersVisible = false;
             this.dgv_seg_tab3_1.RowHeadersWidth = 30;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgv_seg_tab3_1.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgv_seg_tab3_1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_seg_tab3_1.Size = new System.Drawing.Size(429, 353);
             this.dgv_seg_tab3_1.TabIndex = 0;
             this.dgv_seg_tab3_1.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_seg_tab3_CellValueChanged);
             // 
             // Column1
             // 
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column1.Frozen = true;
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
@@ -3081,7 +3562,10 @@
             // 
             // tabPage11
             // 
+            this.tabPage11.AutoScroll = true;
+            this.tabPage11.Controls.Add(this.panel8);
             this.tabPage11.Controls.Add(this.groupBox26);
+            this.tabPage11.Controls.Add(this.btn_Show_Section_Excel);
             this.tabPage11.Controls.Add(this.btn_Show_Section_Resulf);
             this.tabPage11.Controls.Add(this.rtb_sections);
             this.tabPage11.Controls.Add(this.label176);
@@ -3089,16 +3573,653 @@
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(941, 602);
+            this.tabPage11.Size = new System.Drawing.Size(1000, 602);
             this.tabPage11.TabIndex = 0;
             this.tabPage11.Text = "Results";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // panel8
+            // 
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Controls.Add(this.txt_out_IZZ);
+            this.panel8.Controls.Add(this.txt_inn_IZZ);
+            this.panel8.Controls.Add(this.txt_cen_IZZ);
+            this.panel8.Controls.Add(this.label444);
+            this.panel8.Controls.Add(this.label354);
+            this.panel8.Controls.Add(this.txt_tot_IZZ);
+            this.panel8.Controls.Add(this.label350);
+            this.panel8.Controls.Add(this.txt_out_IYY);
+            this.panel8.Controls.Add(this.txt_inn_IYY);
+            this.panel8.Controls.Add(this.label280);
+            this.panel8.Controls.Add(this.label443);
+            this.panel8.Controls.Add(this.txt_cen_IYY);
+            this.panel8.Controls.Add(this.label353);
+            this.panel8.Controls.Add(this.txt_tot_IYY);
+            this.panel8.Controls.Add(this.txt_out_IXX);
+            this.panel8.Controls.Add(this.label349);
+            this.panel8.Controls.Add(this.txt_inn_IXX);
+            this.panel8.Controls.Add(this.label279);
+            this.panel8.Controls.Add(this.label442);
+            this.panel8.Controls.Add(this.txt_cen_IXX);
+            this.panel8.Controls.Add(this.label352);
+            this.panel8.Controls.Add(this.txt_tot_IXX);
+            this.panel8.Controls.Add(this.txt_out_pcnt);
+            this.panel8.Controls.Add(this.label348);
+            this.panel8.Controls.Add(this.txt_inn_pcnt);
+            this.panel8.Controls.Add(this.txt_out_AX);
+            this.panel8.Controls.Add(this.label278);
+            this.panel8.Controls.Add(this.txt_inn_AX);
+            this.panel8.Controls.Add(this.txt_cen_pcnt);
+            this.panel8.Controls.Add(this.label402);
+            this.panel8.Controls.Add(this.txt_cen_AX);
+            this.panel8.Controls.Add(this.label339);
+            this.panel8.Controls.Add(this.label401);
+            this.panel8.Controls.Add(this.txt_tot_AX);
+            this.panel8.Controls.Add(this.label400);
+            this.panel8.Controls.Add(this.label338);
+            this.panel8.Controls.Add(this.label351);
+            this.panel8.Controls.Add(this.label505);
+            this.panel8.Controls.Add(this.label502);
+            this.panel8.Controls.Add(this.label501);
+            this.panel8.Controls.Add(this.label336);
+            this.panel8.Controls.Add(this.label399);
+            this.panel8.Controls.Add(this.label347);
+            this.panel8.Controls.Add(this.label342);
+            this.panel8.Controls.Add(this.label281);
+            this.panel8.Controls.Add(this.label388);
+            this.panel8.Controls.Add(this.label335);
+            this.panel8.Controls.Add(this.label341);
+            this.panel8.Controls.Add(this.label346);
+            this.panel8.Controls.Add(this.label371);
+            this.panel8.Controls.Add(this.label327);
+            this.panel8.Controls.Add(this.label340);
+            this.panel8.Controls.Add(this.label345);
+            this.panel8.Controls.Add(this.label370);
+            this.panel8.Controls.Add(this.label326);
+            this.panel8.Controls.Add(this.label337);
+            this.panel8.Controls.Add(this.label344);
+            this.panel8.Controls.Add(this.label325);
+            this.panel8.Controls.Add(this.label343);
+            this.panel8.Controls.Add(this.label277);
+            this.panel8.Controls.Add(this.label498);
+            this.panel8.Controls.Add(this.label276);
+            this.panel8.ForeColor = System.Drawing.Color.Black;
+            this.panel8.Location = new System.Drawing.Point(15, 575);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(883, 359);
+            this.panel8.TabIndex = 126;
+            // 
+            // txt_out_IZZ
+            // 
+            this.txt_out_IZZ.Location = new System.Drawing.Point(699, 293);
+            this.txt_out_IZZ.Name = "txt_out_IZZ";
+            this.txt_out_IZZ.ReadOnly = true;
+            this.txt_out_IZZ.Size = new System.Drawing.Size(84, 21);
+            this.txt_out_IZZ.TabIndex = 2;
+            this.txt_out_IZZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_inn_IZZ
+            // 
+            this.txt_inn_IZZ.Location = new System.Drawing.Point(699, 214);
+            this.txt_inn_IZZ.Name = "txt_inn_IZZ";
+            this.txt_inn_IZZ.ReadOnly = true;
+            this.txt_inn_IZZ.Size = new System.Drawing.Size(84, 21);
+            this.txt_inn_IZZ.TabIndex = 2;
+            this.txt_inn_IZZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_cen_IZZ
+            // 
+            this.txt_cen_IZZ.Location = new System.Drawing.Point(699, 136);
+            this.txt_cen_IZZ.Name = "txt_cen_IZZ";
+            this.txt_cen_IZZ.ReadOnly = true;
+            this.txt_cen_IZZ.Size = new System.Drawing.Size(84, 21);
+            this.txt_cen_IZZ.TabIndex = 2;
+            this.txt_cen_IZZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label444
+            // 
+            this.label444.AutoSize = true;
+            this.label444.Location = new System.Drawing.Point(665, 296);
+            this.label444.Name = "label444";
+            this.label444.Size = new System.Drawing.Size(28, 13);
+            this.label444.TabIndex = 1;
+            this.label444.Text = "IZZ";
+            // 
+            // label354
+            // 
+            this.label354.AutoSize = true;
+            this.label354.Location = new System.Drawing.Point(665, 217);
+            this.label354.Name = "label354";
+            this.label354.Size = new System.Drawing.Size(28, 13);
+            this.label354.TabIndex = 1;
+            this.label354.Text = "IZZ";
+            // 
+            // txt_tot_IZZ
+            // 
+            this.txt_tot_IZZ.Location = new System.Drawing.Point(699, 63);
+            this.txt_tot_IZZ.Name = "txt_tot_IZZ";
+            this.txt_tot_IZZ.Size = new System.Drawing.Size(84, 21);
+            this.txt_tot_IZZ.TabIndex = 2;
+            this.txt_tot_IZZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_tot_IZZ.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // label350
+            // 
+            this.label350.AutoSize = true;
+            this.label350.Location = new System.Drawing.Point(665, 139);
+            this.label350.Name = "label350";
+            this.label350.Size = new System.Drawing.Size(28, 13);
+            this.label350.TabIndex = 1;
+            this.label350.Text = "IZZ";
+            // 
+            // txt_out_IYY
+            // 
+            this.txt_out_IYY.Location = new System.Drawing.Point(491, 293);
+            this.txt_out_IYY.Name = "txt_out_IYY";
+            this.txt_out_IYY.ReadOnly = true;
+            this.txt_out_IYY.Size = new System.Drawing.Size(84, 21);
+            this.txt_out_IYY.TabIndex = 2;
+            this.txt_out_IYY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_inn_IYY
+            // 
+            this.txt_inn_IYY.Location = new System.Drawing.Point(491, 214);
+            this.txt_inn_IYY.Name = "txt_inn_IYY";
+            this.txt_inn_IYY.ReadOnly = true;
+            this.txt_inn_IYY.Size = new System.Drawing.Size(84, 21);
+            this.txt_inn_IYY.TabIndex = 2;
+            this.txt_inn_IYY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label280
+            // 
+            this.label280.AutoSize = true;
+            this.label280.Location = new System.Drawing.Point(665, 66);
+            this.label280.Name = "label280";
+            this.label280.Size = new System.Drawing.Size(28, 13);
+            this.label280.TabIndex = 1;
+            this.label280.Text = "IZZ";
+            // 
+            // label443
+            // 
+            this.label443.AutoSize = true;
+            this.label443.Location = new System.Drawing.Point(459, 296);
+            this.label443.Name = "label443";
+            this.label443.Size = new System.Drawing.Size(26, 13);
+            this.label443.TabIndex = 1;
+            this.label443.Text = "IYY";
+            // 
+            // txt_cen_IYY
+            // 
+            this.txt_cen_IYY.Location = new System.Drawing.Point(491, 136);
+            this.txt_cen_IYY.Name = "txt_cen_IYY";
+            this.txt_cen_IYY.ReadOnly = true;
+            this.txt_cen_IYY.Size = new System.Drawing.Size(84, 21);
+            this.txt_cen_IYY.TabIndex = 2;
+            this.txt_cen_IYY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label353
+            // 
+            this.label353.AutoSize = true;
+            this.label353.Location = new System.Drawing.Point(459, 217);
+            this.label353.Name = "label353";
+            this.label353.Size = new System.Drawing.Size(26, 13);
+            this.label353.TabIndex = 1;
+            this.label353.Text = "IYY";
+            // 
+            // txt_tot_IYY
+            // 
+            this.txt_tot_IYY.Location = new System.Drawing.Point(491, 63);
+            this.txt_tot_IYY.Name = "txt_tot_IYY";
+            this.txt_tot_IYY.Size = new System.Drawing.Size(84, 21);
+            this.txt_tot_IYY.TabIndex = 2;
+            this.txt_tot_IYY.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_tot_IYY.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // txt_out_IXX
+            // 
+            this.txt_out_IXX.Location = new System.Drawing.Point(291, 293);
+            this.txt_out_IXX.Name = "txt_out_IXX";
+            this.txt_out_IXX.ReadOnly = true;
+            this.txt_out_IXX.Size = new System.Drawing.Size(84, 21);
+            this.txt_out_IXX.TabIndex = 2;
+            this.txt_out_IXX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label349
+            // 
+            this.label349.AutoSize = true;
+            this.label349.Location = new System.Drawing.Point(459, 139);
+            this.label349.Name = "label349";
+            this.label349.Size = new System.Drawing.Size(26, 13);
+            this.label349.TabIndex = 1;
+            this.label349.Text = "IYY";
+            // 
+            // txt_inn_IXX
+            // 
+            this.txt_inn_IXX.Location = new System.Drawing.Point(291, 214);
+            this.txt_inn_IXX.Name = "txt_inn_IXX";
+            this.txt_inn_IXX.ReadOnly = true;
+            this.txt_inn_IXX.Size = new System.Drawing.Size(84, 21);
+            this.txt_inn_IXX.TabIndex = 2;
+            this.txt_inn_IXX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label279
+            // 
+            this.label279.AutoSize = true;
+            this.label279.Location = new System.Drawing.Point(459, 66);
+            this.label279.Name = "label279";
+            this.label279.Size = new System.Drawing.Size(26, 13);
+            this.label279.TabIndex = 1;
+            this.label279.Text = "IYY";
+            // 
+            // label442
+            // 
+            this.label442.AutoSize = true;
+            this.label442.Location = new System.Drawing.Point(257, 296);
+            this.label442.Name = "label442";
+            this.label442.Size = new System.Drawing.Size(28, 13);
+            this.label442.TabIndex = 1;
+            this.label442.Text = "IXX";
+            // 
+            // txt_cen_IXX
+            // 
+            this.txt_cen_IXX.Location = new System.Drawing.Point(291, 136);
+            this.txt_cen_IXX.Name = "txt_cen_IXX";
+            this.txt_cen_IXX.ReadOnly = true;
+            this.txt_cen_IXX.Size = new System.Drawing.Size(84, 21);
+            this.txt_cen_IXX.TabIndex = 2;
+            this.txt_cen_IXX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label352
+            // 
+            this.label352.AutoSize = true;
+            this.label352.Location = new System.Drawing.Point(257, 217);
+            this.label352.Name = "label352";
+            this.label352.Size = new System.Drawing.Size(28, 13);
+            this.label352.TabIndex = 1;
+            this.label352.Text = "IXX";
+            // 
+            // txt_tot_IXX
+            // 
+            this.txt_tot_IXX.Location = new System.Drawing.Point(291, 63);
+            this.txt_tot_IXX.Name = "txt_tot_IXX";
+            this.txt_tot_IXX.Size = new System.Drawing.Size(84, 21);
+            this.txt_tot_IXX.TabIndex = 2;
+            this.txt_tot_IXX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_tot_IXX.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // txt_out_pcnt
+            // 
+            this.txt_out_pcnt.Location = new System.Drawing.Point(479, 258);
+            this.txt_out_pcnt.Name = "txt_out_pcnt";
+            this.txt_out_pcnt.Size = new System.Drawing.Size(55, 21);
+            this.txt_out_pcnt.TabIndex = 2;
+            this.txt_out_pcnt.Text = "15";
+            this.txt_out_pcnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_out_pcnt.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // label348
+            // 
+            this.label348.AutoSize = true;
+            this.label348.Location = new System.Drawing.Point(257, 139);
+            this.label348.Name = "label348";
+            this.label348.Size = new System.Drawing.Size(28, 13);
+            this.label348.TabIndex = 1;
+            this.label348.Text = "IXX";
+            // 
+            // txt_inn_pcnt
+            // 
+            this.txt_inn_pcnt.Location = new System.Drawing.Point(479, 179);
+            this.txt_inn_pcnt.Name = "txt_inn_pcnt";
+            this.txt_inn_pcnt.Size = new System.Drawing.Size(55, 21);
+            this.txt_inn_pcnt.TabIndex = 2;
+            this.txt_inn_pcnt.Text = "15";
+            this.txt_inn_pcnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_inn_pcnt.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // txt_out_AX
+            // 
+            this.txt_out_AX.Location = new System.Drawing.Point(97, 293);
+            this.txt_out_AX.Name = "txt_out_AX";
+            this.txt_out_AX.ReadOnly = true;
+            this.txt_out_AX.Size = new System.Drawing.Size(73, 21);
+            this.txt_out_AX.TabIndex = 2;
+            this.txt_out_AX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label278
+            // 
+            this.label278.AutoSize = true;
+            this.label278.Location = new System.Drawing.Point(257, 66);
+            this.label278.Name = "label278";
+            this.label278.Size = new System.Drawing.Size(28, 13);
+            this.label278.TabIndex = 1;
+            this.label278.Text = "IXX";
+            // 
+            // txt_inn_AX
+            // 
+            this.txt_inn_AX.Location = new System.Drawing.Point(97, 214);
+            this.txt_inn_AX.Name = "txt_inn_AX";
+            this.txt_inn_AX.ReadOnly = true;
+            this.txt_inn_AX.Size = new System.Drawing.Size(73, 21);
+            this.txt_inn_AX.TabIndex = 2;
+            this.txt_inn_AX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_cen_pcnt
+            // 
+            this.txt_cen_pcnt.Location = new System.Drawing.Point(479, 104);
+            this.txt_cen_pcnt.Name = "txt_cen_pcnt";
+            this.txt_cen_pcnt.Size = new System.Drawing.Size(55, 21);
+            this.txt_cen_pcnt.TabIndex = 2;
+            this.txt_cen_pcnt.Text = "40";
+            this.txt_cen_pcnt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_cen_pcnt.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // label402
+            // 
+            this.label402.AutoSize = true;
+            this.label402.Location = new System.Drawing.Point(540, 261);
+            this.label402.Name = "label402";
+            this.label402.Size = new System.Drawing.Size(19, 13);
+            this.label402.TabIndex = 1;
+            this.label402.Text = "%";
+            // 
+            // txt_cen_AX
+            // 
+            this.txt_cen_AX.Location = new System.Drawing.Point(97, 136);
+            this.txt_cen_AX.Name = "txt_cen_AX";
+            this.txt_cen_AX.ReadOnly = true;
+            this.txt_cen_AX.Size = new System.Drawing.Size(73, 21);
+            this.txt_cen_AX.TabIndex = 2;
+            this.txt_cen_AX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label339
+            // 
+            this.label339.AutoSize = true;
+            this.label339.Location = new System.Drawing.Point(540, 182);
+            this.label339.Name = "label339";
+            this.label339.Size = new System.Drawing.Size(19, 13);
+            this.label339.TabIndex = 1;
+            this.label339.Text = "%";
+            // 
+            // label401
+            // 
+            this.label401.AutoSize = true;
+            this.label401.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label401.Location = new System.Drawing.Point(4, 261);
+            this.label401.Name = "label401";
+            this.label401.Size = new System.Drawing.Size(418, 18);
+            this.label401.TabIndex = 0;
+            this.label401.Text = "For Two Outer Member of Lumped Mass Model";
+            // 
+            // txt_tot_AX
+            // 
+            this.txt_tot_AX.Location = new System.Drawing.Point(97, 63);
+            this.txt_tot_AX.Name = "txt_tot_AX";
+            this.txt_tot_AX.Size = new System.Drawing.Size(73, 21);
+            this.txt_tot_AX.TabIndex = 2;
+            this.txt_tot_AX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_tot_AX.TextChanged += new System.EventHandler(this.txt_tot_AX_TextChanged);
+            // 
+            // label400
+            // 
+            this.label400.AutoSize = true;
+            this.label400.Location = new System.Drawing.Point(789, 296);
+            this.label400.Name = "label400";
+            this.label400.Size = new System.Drawing.Size(52, 13);
+            this.label400.TabIndex = 1;
+            this.label400.Text = "sq.sq.m";
+            // 
+            // label338
+            // 
+            this.label338.AutoSize = true;
+            this.label338.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label338.Location = new System.Drawing.Point(4, 182);
+            this.label338.Name = "label338";
+            this.label338.Size = new System.Drawing.Size(416, 18);
+            this.label338.TabIndex = 0;
+            this.label338.Text = "For Two Inner Member of Lumped Mass Model";
+            // 
+            // label351
+            // 
+            this.label351.AutoSize = true;
+            this.label351.Location = new System.Drawing.Point(789, 217);
+            this.label351.Name = "label351";
+            this.label351.Size = new System.Drawing.Size(52, 13);
+            this.label351.TabIndex = 1;
+            this.label351.Text = "sq.sq.m";
+            // 
+            // label505
+            // 
+            this.label505.AutoSize = true;
+            this.label505.Location = new System.Drawing.Point(447, 261);
+            this.label505.Name = "label505";
+            this.label505.Size = new System.Drawing.Size(26, 13);
+            this.label505.TabIndex = 1;
+            this.label505.Text = "2 X";
+            // 
+            // label502
+            // 
+            this.label502.AutoSize = true;
+            this.label502.Location = new System.Drawing.Point(447, 182);
+            this.label502.Name = "label502";
+            this.label502.Size = new System.Drawing.Size(26, 13);
+            this.label502.TabIndex = 1;
+            this.label502.Text = "2 X";
+            // 
+            // label501
+            // 
+            this.label501.AutoSize = true;
+            this.label501.Location = new System.Drawing.Point(447, 107);
+            this.label501.Name = "label501";
+            this.label501.Size = new System.Drawing.Size(26, 13);
+            this.label501.TabIndex = 1;
+            this.label501.Text = "1 X";
+            // 
+            // label336
+            // 
+            this.label336.AutoSize = true;
+            this.label336.Location = new System.Drawing.Point(540, 107);
+            this.label336.Name = "label336";
+            this.label336.Size = new System.Drawing.Size(19, 13);
+            this.label336.TabIndex = 1;
+            this.label336.Text = "%";
+            // 
+            // label399
+            // 
+            this.label399.AutoSize = true;
+            this.label399.Location = new System.Drawing.Point(578, 296);
+            this.label399.Name = "label399";
+            this.label399.Size = new System.Drawing.Size(52, 13);
+            this.label399.TabIndex = 1;
+            this.label399.Text = "sq.sq.m";
+            // 
+            // label347
+            // 
+            this.label347.AutoSize = true;
+            this.label347.Location = new System.Drawing.Point(789, 139);
+            this.label347.Name = "label347";
+            this.label347.Size = new System.Drawing.Size(52, 13);
+            this.label347.TabIndex = 1;
+            this.label347.Text = "sq.sq.m";
+            // 
+            // label342
+            // 
+            this.label342.AutoSize = true;
+            this.label342.Location = new System.Drawing.Point(578, 217);
+            this.label342.Name = "label342";
+            this.label342.Size = new System.Drawing.Size(52, 13);
+            this.label342.TabIndex = 1;
+            this.label342.Text = "sq.sq.m";
+            // 
+            // label281
+            // 
+            this.label281.AutoSize = true;
+            this.label281.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label281.Location = new System.Drawing.Point(4, 107);
+            this.label281.Name = "label281";
+            this.label281.Size = new System.Drawing.Size(428, 18);
+            this.label281.TabIndex = 0;
+            this.label281.Text = "For One Central Member of Lumped Mass Model";
+            // 
+            // label388
+            // 
+            this.label388.AutoSize = true;
+            this.label388.Location = new System.Drawing.Point(381, 296);
+            this.label388.Name = "label388";
+            this.label388.Size = new System.Drawing.Size(52, 13);
+            this.label388.TabIndex = 1;
+            this.label388.Text = "sq.sq.m";
+            // 
+            // label335
+            // 
+            this.label335.AutoSize = true;
+            this.label335.Location = new System.Drawing.Point(578, 139);
+            this.label335.Name = "label335";
+            this.label335.Size = new System.Drawing.Size(52, 13);
+            this.label335.TabIndex = 1;
+            this.label335.Text = "sq.sq.m";
+            // 
+            // label341
+            // 
+            this.label341.AutoSize = true;
+            this.label341.Location = new System.Drawing.Point(381, 217);
+            this.label341.Name = "label341";
+            this.label341.Size = new System.Drawing.Size(52, 13);
+            this.label341.TabIndex = 1;
+            this.label341.Text = "sq.sq.m";
+            // 
+            // label346
+            // 
+            this.label346.AutoSize = true;
+            this.label346.Location = new System.Drawing.Point(789, 66);
+            this.label346.Name = "label346";
+            this.label346.Size = new System.Drawing.Size(52, 13);
+            this.label346.TabIndex = 1;
+            this.label346.Text = "sq.sq.m";
+            // 
+            // label371
+            // 
+            this.label371.AutoSize = true;
+            this.label371.Location = new System.Drawing.Point(176, 296);
+            this.label371.Name = "label371";
+            this.label371.Size = new System.Drawing.Size(35, 13);
+            this.label371.TabIndex = 1;
+            this.label371.Text = "sq.m";
+            // 
+            // label327
+            // 
+            this.label327.AutoSize = true;
+            this.label327.Location = new System.Drawing.Point(381, 139);
+            this.label327.Name = "label327";
+            this.label327.Size = new System.Drawing.Size(52, 13);
+            this.label327.TabIndex = 1;
+            this.label327.Text = "sq.sq.m";
+            // 
+            // label340
+            // 
+            this.label340.AutoSize = true;
+            this.label340.Location = new System.Drawing.Point(176, 217);
+            this.label340.Name = "label340";
+            this.label340.Size = new System.Drawing.Size(35, 13);
+            this.label340.TabIndex = 1;
+            this.label340.Text = "sq.m";
+            // 
+            // label345
+            // 
+            this.label345.AutoSize = true;
+            this.label345.Location = new System.Drawing.Point(578, 66);
+            this.label345.Name = "label345";
+            this.label345.Size = new System.Drawing.Size(52, 13);
+            this.label345.TabIndex = 1;
+            this.label345.Text = "sq.sq.m";
+            // 
+            // label370
+            // 
+            this.label370.AutoSize = true;
+            this.label370.Location = new System.Drawing.Point(59, 296);
+            this.label370.Name = "label370";
+            this.label370.Size = new System.Drawing.Size(23, 13);
+            this.label370.TabIndex = 1;
+            this.label370.Text = "AX";
+            // 
+            // label326
+            // 
+            this.label326.AutoSize = true;
+            this.label326.Location = new System.Drawing.Point(176, 139);
+            this.label326.Name = "label326";
+            this.label326.Size = new System.Drawing.Size(35, 13);
+            this.label326.TabIndex = 1;
+            this.label326.Text = "sq.m";
+            // 
+            // label337
+            // 
+            this.label337.AutoSize = true;
+            this.label337.Location = new System.Drawing.Point(59, 217);
+            this.label337.Name = "label337";
+            this.label337.Size = new System.Drawing.Size(23, 13);
+            this.label337.TabIndex = 1;
+            this.label337.Text = "AX";
+            // 
+            // label344
+            // 
+            this.label344.AutoSize = true;
+            this.label344.Location = new System.Drawing.Point(381, 66);
+            this.label344.Name = "label344";
+            this.label344.Size = new System.Drawing.Size(52, 13);
+            this.label344.TabIndex = 1;
+            this.label344.Text = "sq.sq.m";
+            // 
+            // label325
+            // 
+            this.label325.AutoSize = true;
+            this.label325.Location = new System.Drawing.Point(59, 139);
+            this.label325.Name = "label325";
+            this.label325.Size = new System.Drawing.Size(23, 13);
+            this.label325.TabIndex = 1;
+            this.label325.Text = "AX";
+            // 
+            // label343
+            // 
+            this.label343.AutoSize = true;
+            this.label343.Location = new System.Drawing.Point(176, 66);
+            this.label343.Name = "label343";
+            this.label343.Size = new System.Drawing.Size(35, 13);
+            this.label343.TabIndex = 1;
+            this.label343.Text = "sq.m";
+            // 
+            // label277
+            // 
+            this.label277.AutoSize = true;
+            this.label277.Location = new System.Drawing.Point(59, 66);
+            this.label277.Name = "label277";
+            this.label277.Size = new System.Drawing.Size(23, 13);
+            this.label277.TabIndex = 1;
+            this.label277.Text = "AX";
+            // 
+            // label498
+            // 
+            this.label498.AutoSize = true;
+            this.label498.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label498.Location = new System.Drawing.Point(3, 37);
+            this.label498.Name = "label498";
+            this.label498.Size = new System.Drawing.Size(88, 14);
+            this.label498.TabIndex = 0;
+            this.label498.Text = "Total Values";
+            // 
+            // label276
+            // 
+            this.label276.AutoSize = true;
+            this.label276.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label276.Location = new System.Drawing.Point(4, 10);
+            this.label276.Name = "label276";
+            this.label276.Size = new System.Drawing.Size(378, 18);
+            this.label276.TabIndex = 0;
+            this.label276.Text = "Average Section Properties for Box Girder";
             // 
             // groupBox26
             // 
             this.groupBox26.Controls.Add(this.pictureBox4);
             this.groupBox26.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox26.Location = new System.Drawing.Point(110, 6);
+            this.groupBox26.Location = new System.Drawing.Point(98, 6);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Size = new System.Drawing.Size(704, 324);
             this.groupBox26.TabIndex = 2;
@@ -3116,9 +4237,20 @@
             this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
             // 
+            // btn_Show_Section_Excel
+            // 
+            this.btn_Show_Section_Excel.Location = new System.Drawing.Point(718, 329);
+            this.btn_Show_Section_Excel.Name = "btn_Show_Section_Excel";
+            this.btn_Show_Section_Excel.Size = new System.Drawing.Size(148, 32);
+            this.btn_Show_Section_Excel.TabIndex = 69;
+            this.btn_Show_Section_Excel.Text = "Open Excel ";
+            this.btn_Show_Section_Excel.UseVisualStyleBackColor = true;
+            this.btn_Show_Section_Excel.Visible = false;
+            this.btn_Show_Section_Excel.Click += new System.EventHandler(this.btn_Show_Section_Result_Click);
+            // 
             // btn_Show_Section_Resulf
             // 
-            this.btn_Show_Section_Resulf.Location = new System.Drawing.Point(628, 340);
+            this.btn_Show_Section_Resulf.Location = new System.Drawing.Point(564, 329);
             this.btn_Show_Section_Resulf.Name = "btn_Show_Section_Resulf";
             this.btn_Show_Section_Resulf.Size = new System.Drawing.Size(148, 32);
             this.btn_Show_Section_Resulf.TabIndex = 69;
@@ -3130,10 +4262,10 @@
             // 
             this.rtb_sections.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtb_sections.Font = new System.Drawing.Font("Lucida Console", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_sections.Location = new System.Drawing.Point(19, 369);
+            this.rtb_sections.Location = new System.Drawing.Point(15, 367);
             this.rtb_sections.Name = "rtb_sections";
             this.rtb_sections.ReadOnly = true;
-            this.rtb_sections.Size = new System.Drawing.Size(886, 227);
+            this.rtb_sections.Size = new System.Drawing.Size(886, 202);
             this.rtb_sections.TabIndex = 3;
             this.rtb_sections.Text = "";
             // 
@@ -3143,7 +4275,7 @@
             this.label176.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label176.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label176.ForeColor = System.Drawing.Color.Red;
-            this.label176.Location = new System.Drawing.Point(418, 346);
+            this.label176.Location = new System.Drawing.Point(354, 335);
             this.label176.Name = "label176";
             this.label176.Size = new System.Drawing.Size(189, 20);
             this.label176.TabIndex = 125;
@@ -3155,7 +4287,7 @@
             this.label226.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label226.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label226.ForeColor = System.Drawing.Color.Green;
-            this.label226.Location = new System.Drawing.Point(165, 346);
+            this.label226.Location = new System.Drawing.Point(101, 335);
             this.label226.Name = "label226";
             this.label226.Size = new System.Drawing.Size(229, 20);
             this.label226.TabIndex = 124;
@@ -3167,7 +4299,7 @@
             this.tab_moving_data_british.Location = new System.Drawing.Point(4, 22);
             this.tab_moving_data_british.Name = "tab_moving_data_british";
             this.tab_moving_data_british.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_moving_data_british.Size = new System.Drawing.Size(955, 634);
+            this.tab_moving_data_british.Size = new System.Drawing.Size(1014, 634);
             this.tab_moving_data_british.TabIndex = 3;
             this.tab_moving_data_british.Text = "Moving Load Data [EURO 2]";
             this.tab_moving_data_british.UseVisualStyleBackColor = true;
@@ -3178,7 +4310,7 @@
             this.groupBox45.Controls.Add(this.label561);
             this.groupBox45.Controls.Add(this.label557);
             this.groupBox45.Controls.Add(this.label558);
-            this.groupBox45.Controls.Add(this.textBox22);
+            this.groupBox45.Controls.Add(this.txt_BS_DL_LL_Comb);
             this.groupBox45.Controls.Add(this.label559);
             this.groupBox45.Controls.Add(this.txt_ll_british_lgen);
             this.groupBox45.Controls.Add(this.btn_bs_view_moving_load);
@@ -3193,7 +4325,7 @@
             this.groupBox45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox45.Location = new System.Drawing.Point(3, 3);
             this.groupBox45.Name = "groupBox45";
-            this.groupBox45.Size = new System.Drawing.Size(949, 628);
+            this.groupBox45.Size = new System.Drawing.Size(1008, 628);
             this.groupBox45.TabIndex = 86;
             this.groupBox45.TabStop = false;
             // 
@@ -3236,16 +4368,16 @@
             this.label558.TabIndex = 126;
             this.label558.Text = "Load Generation";
             // 
-            // textBox22
+            // txt_BS_DL_LL_Comb
             // 
-            this.textBox22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox22.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox22.Location = new System.Drawing.Point(896, 607);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(39, 18);
-            this.textBox22.TabIndex = 123;
-            this.textBox22.Text = "1";
-            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_BS_DL_LL_Comb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_BS_DL_LL_Comb.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BS_DL_LL_Comb.Location = new System.Drawing.Point(896, 607);
+            this.txt_BS_DL_LL_Comb.Name = "txt_BS_DL_LL_Comb";
+            this.txt_BS_DL_LL_Comb.Size = new System.Drawing.Size(39, 18);
+            this.txt_BS_DL_LL_Comb.TabIndex = 123;
+            this.txt_BS_DL_LL_Comb.Text = "1";
+            this.txt_BS_DL_LL_Comb.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label559
             // 
@@ -3343,8 +4475,8 @@
             // spc_HB.Panel2
             // 
             this.spc_HB.Panel2.Controls.Add(this.groupBox105);
-            this.spc_HB.Size = new System.Drawing.Size(943, 254);
-            this.spc_HB.SplitterDistance = 395;
+            this.spc_HB.Size = new System.Drawing.Size(1002, 254);
+            this.spc_HB.SplitterDistance = 419;
             this.spc_HB.TabIndex = 83;
             // 
             // groupBox106
@@ -3356,7 +4488,7 @@
             this.groupBox106.ForeColor = System.Drawing.Color.Black;
             this.groupBox106.Location = new System.Drawing.Point(0, 0);
             this.groupBox106.Name = "groupBox106";
-            this.groupBox106.Size = new System.Drawing.Size(393, 252);
+            this.groupBox106.Size = new System.Drawing.Size(417, 252);
             this.groupBox106.TabIndex = 8;
             this.groupBox106.TabStop = false;
             this.groupBox106.Text = "Define Load Start position";
@@ -3369,7 +4501,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 51);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(387, 23);
+            this.panel3.Size = new System.Drawing.Size(411, 23);
             this.panel3.TabIndex = 16;
             // 
             // label38
@@ -3409,14 +4541,14 @@
             // 
             this.dgv_british_loads.AllowUserToAddRows = false;
             this.dgv_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn77,
@@ -3440,26 +4572,26 @@
             this.Column40,
             this.Column41,
             this.Column42});
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_british_loads.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_british_loads.Name = "dgv_british_loads";
             this.dgv_british_loads.RowHeadersWidth = 21;
-            this.dgv_british_loads.Size = new System.Drawing.Size(387, 198);
+            this.dgv_british_loads.Size = new System.Drawing.Size(411, 198);
             this.dgv_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn77
             // 
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn77.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn77.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn77.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn77.Name = "dataGridViewTextBoxColumn77";
             this.dataGridViewTextBoxColumn77.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -3583,7 +4715,7 @@
             this.label248.ForeColor = System.Drawing.Color.Black;
             this.label248.Location = new System.Drawing.Point(3, 17);
             this.label248.Name = "label248";
-            this.label248.Size = new System.Drawing.Size(387, 34);
+            this.label248.Size = new System.Drawing.Size(411, 34);
             this.label248.TabIndex = 11;
             this.label248.Text = "(Refer to Page 100, ASTRA Pro User Manual)";
             this.label248.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3597,7 +4729,7 @@
             this.groupBox105.ForeColor = System.Drawing.Color.Black;
             this.groupBox105.Location = new System.Drawing.Point(0, 0);
             this.groupBox105.Name = "groupBox105";
-            this.groupBox105.Size = new System.Drawing.Size(542, 252);
+            this.groupBox105.Size = new System.Drawing.Size(577, 252);
             this.groupBox105.TabIndex = 7;
             this.groupBox105.TabStop = false;
             this.groupBox105.Text = "Define Vehicle Axle Loads";
@@ -3606,14 +4738,14 @@
             // 
             this.dgv_long_british_loads.AllowUserToAddRows = false;
             this.dgv_long_british_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_british_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_long_british_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_british_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn55,
@@ -3638,26 +4770,26 @@
             this.dataGridViewTextBoxColumn74,
             this.dataGridViewTextBoxColumn75,
             this.dataGridViewTextBoxColumn76});
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_british_loads.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_long_british_loads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_long_british_loads.Location = new System.Drawing.Point(3, 51);
             this.dgv_long_british_loads.Name = "dgv_long_british_loads";
             this.dgv_long_british_loads.RowHeadersWidth = 21;
-            this.dgv_long_british_loads.Size = new System.Drawing.Size(536, 198);
+            this.dgv_long_british_loads.Size = new System.Drawing.Size(571, 198);
             this.dgv_long_british_loads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn55
             // 
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn55.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             this.dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -3819,7 +4951,7 @@
             this.label247.ForeColor = System.Drawing.Color.Black;
             this.label247.Location = new System.Drawing.Point(3, 17);
             this.label247.Name = "label247";
-            this.label247.Size = new System.Drawing.Size(536, 34);
+            this.label247.Size = new System.Drawing.Size(571, 34);
             this.label247.TabIndex = 10;
             this.label247.Text = "(USER MAY CHANGE THE VAUES IN THE CELLS, THE DATA WILL BE SAVED IN FILE \"LL.TXT\" " +
     "FOR USE)";
@@ -3832,7 +4964,7 @@
             this.lbl_HB.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_HB.Location = new System.Drawing.Point(3, 246);
             this.lbl_HB.Name = "lbl_HB";
-            this.lbl_HB.Size = new System.Drawing.Size(943, 28);
+            this.lbl_HB.Size = new System.Drawing.Size(1002, 28);
             this.lbl_HB.TabIndex = 84;
             this.lbl_HB.Text = "HB LOADING";
             this.lbl_HB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3855,7 +4987,7 @@
             this.groupBox107.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox107.Location = new System.Drawing.Point(3, 17);
             this.groupBox107.Name = "groupBox107";
-            this.groupBox107.Size = new System.Drawing.Size(943, 229);
+            this.groupBox107.Size = new System.Drawing.Size(1002, 229);
             this.groupBox107.TabIndex = 82;
             this.groupBox107.TabStop = false;
             this.groupBox107.Text = "Moving Vehicle Live Load [BS 5400, Part 2, BD 37/01]";
@@ -4410,7 +5542,7 @@
             this.tab_moving_data_indian.Location = new System.Drawing.Point(4, 22);
             this.tab_moving_data_indian.Name = "tab_moving_data_indian";
             this.tab_moving_data_indian.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_moving_data_indian.Size = new System.Drawing.Size(955, 634);
+            this.tab_moving_data_indian.Size = new System.Drawing.Size(1014, 634);
             this.tab_moving_data_indian.TabIndex = 5;
             this.tab_moving_data_indian.Text = "Moving Load Data [IRC 112]";
             this.tab_moving_data_indian.UseVisualStyleBackColor = true;
@@ -4437,7 +5569,7 @@
             this.groupBox79.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox79.Location = new System.Drawing.Point(3, 3);
             this.groupBox79.Name = "groupBox79";
-            this.groupBox79.Size = new System.Drawing.Size(949, 628);
+            this.groupBox79.Size = new System.Drawing.Size(1008, 628);
             this.groupBox79.TabIndex = 82;
             this.groupBox79.TabStop = false;
             // 
@@ -4569,14 +5701,14 @@
             // 
             this.dgv_long_loads.AllowUserToAddRows = false;
             this.dgv_long_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_long_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn31,
@@ -4585,14 +5717,14 @@
             this.dataGridViewTextBoxColumn34,
             this.dataGridViewTextBoxColumn35,
             this.dataGridViewTextBoxColumn36});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_loads.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_loads.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgv_long_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_loads.Name = "dgv_long_loads";
@@ -4602,9 +5734,9 @@
             // 
             // dataGridViewTextBoxColumn31
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn31.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn31.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -4696,14 +5828,14 @@
             // 
             this.dgv_long_liveloads.AllowUserToAddRows = false;
             this.dgv_long_liveloads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgv_long_liveloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_long_liveloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -4728,14 +5860,14 @@
             this.dataGridViewTextBoxColumn28,
             this.dataGridViewTextBoxColumn29,
             this.dataGridViewTextBoxColumn30});
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_long_liveloads.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_long_liveloads.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgv_long_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
@@ -4745,9 +5877,9 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewTextBoxColumn1.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -4939,7 +6071,7 @@
             this.tab_moving_data_LRFD.Location = new System.Drawing.Point(4, 22);
             this.tab_moving_data_LRFD.Name = "tab_moving_data_LRFD";
             this.tab_moving_data_LRFD.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_moving_data_LRFD.Size = new System.Drawing.Size(955, 634);
+            this.tab_moving_data_LRFD.Size = new System.Drawing.Size(1014, 634);
             this.tab_moving_data_LRFD.TabIndex = 6;
             this.tab_moving_data_LRFD.Text = "Moving Load Data [AASHTO LRFD]";
             this.tab_moving_data_LRFD.UseVisualStyleBackColor = true;
@@ -4961,7 +6093,7 @@
             this.groupBox47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox47.Location = new System.Drawing.Point(3, 3);
             this.groupBox47.Name = "groupBox47";
-            this.groupBox47.Size = new System.Drawing.Size(949, 628);
+            this.groupBox47.Size = new System.Drawing.Size(1008, 628);
             this.groupBox47.TabIndex = 83;
             this.groupBox47.TabStop = false;
             // 
@@ -5042,14 +6174,14 @@
             // 
             this.dgv_LRFD_long_loads.AllowUserToAddRows = false;
             this.dgv_LRFD_long_loads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_LRFD_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_LRFD_long_loads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgv_LRFD_long_loads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LRFD_long_loads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn37,
@@ -5058,14 +6190,14 @@
             this.dataGridViewTextBoxColumn40,
             this.dataGridViewTextBoxColumn41,
             this.dataGridViewTextBoxColumn42});
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_LRFD_long_loads.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_LRFD_long_loads.DefaultCellStyle = dataGridViewCellStyle17;
             this.dgv_LRFD_long_loads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_LRFD_long_loads.Location = new System.Drawing.Point(3, 33);
             this.dgv_LRFD_long_loads.Name = "dgv_LRFD_long_loads";
@@ -5075,9 +6207,9 @@
             // 
             // dataGridViewTextBoxColumn37
             // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewTextBoxColumn37.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
             this.dataGridViewTextBoxColumn37.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -5169,14 +6301,14 @@
             // 
             this.dgv_LRFD_long_liveloads.AllowUserToAddRows = false;
             this.dgv_LRFD_long_liveloads.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_LRFD_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_LRFD_long_liveloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgv_LRFD_long_liveloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LRFD_long_liveloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn43,
@@ -5201,14 +6333,14 @@
             this.dataGridViewTextBoxColumn90,
             this.dataGridViewTextBoxColumn91,
             this.dataGridViewTextBoxColumn92});
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_LRFD_long_liveloads.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_LRFD_long_liveloads.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgv_LRFD_long_liveloads.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgv_LRFD_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_LRFD_long_liveloads.Name = "dgv_LRFD_long_liveloads";
@@ -5218,9 +6350,9 @@
             // 
             // dataGridViewTextBoxColumn43
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn43.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn43.DefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridViewTextBoxColumn43.HeaderText = "Moving Load";
             this.dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
             this.dataGridViewTextBoxColumn43.ReadOnly = true;
@@ -5412,9 +6544,9 @@
             this.tab_analysis.Location = new System.Drawing.Point(4, 22);
             this.tab_analysis.Name = "tab_analysis";
             this.tab_analysis.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_analysis.Size = new System.Drawing.Size(955, 634);
+            this.tab_analysis.Size = new System.Drawing.Size(1014, 634);
             this.tab_analysis.TabIndex = 1;
-            this.tab_analysis.Text = "Analysis Process";
+            this.tab_analysis.Text = "Analysis (Normal) Process";
             this.tab_analysis.UseVisualStyleBackColor = true;
             // 
             // splitContainer1
@@ -5433,14 +6565,18 @@
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.tabControl5);
-            this.splitContainer1.Size = new System.Drawing.Size(949, 628);
-            this.splitContainer1.SplitterDistance = 119;
+            this.splitContainer1.Panel2.Controls.Add(this.tc_results);
+            this.splitContainer1.Size = new System.Drawing.Size(1008, 628);
+            this.splitContainer1.SplitterDistance = 206;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 104;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chk_selfweight);
+            this.groupBox2.Controls.Add(this.groupBox50);
+            this.groupBox2.Controls.Add(this.groupBox51);
+            this.groupBox2.Controls.Add(this.groupBox52);
             this.groupBox2.Controls.Add(this.groupBox70);
             this.groupBox2.Controls.Add(this.groupBox109);
             this.groupBox2.Controls.Add(this.btn_Process_LL_Analysis);
@@ -5449,9 +6585,319 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(947, 246);
+            this.groupBox2.Size = new System.Drawing.Size(1006, 246);
             this.groupBox2.TabIndex = 103;
             this.groupBox2.TabStop = false;
+            // 
+            // chk_selfweight
+            // 
+            this.chk_selfweight.AutoSize = true;
+            this.chk_selfweight.Checked = true;
+            this.chk_selfweight.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_selfweight.Location = new System.Drawing.Point(24, 119);
+            this.chk_selfweight.Name = "chk_selfweight";
+            this.chk_selfweight.Size = new System.Drawing.Size(130, 17);
+            this.chk_selfweight.TabIndex = 139;
+            this.chk_selfweight.Text = "ADD SELFWEIGHT";
+            this.chk_selfweight.UseVisualStyleBackColor = true;
+            // 
+            // groupBox50
+            // 
+            this.groupBox50.Controls.Add(this.label252);
+            this.groupBox50.Controls.Add(this.label323);
+            this.groupBox50.Controls.Add(this.label324);
+            this.groupBox50.Controls.Add(this.label328);
+            this.groupBox50.Controls.Add(this.label329);
+            this.groupBox50.Controls.Add(this.txt_PR_cable);
+            this.groupBox50.Controls.Add(this.txt_den_cable);
+            this.groupBox50.Controls.Add(this.txt_emod_cable);
+            this.groupBox50.Location = new System.Drawing.Point(462, 106);
+            this.groupBox50.Name = "groupBox50";
+            this.groupBox50.Size = new System.Drawing.Size(478, 40);
+            this.groupBox50.TabIndex = 136;
+            this.groupBox50.TabStop = false;
+            this.groupBox50.Text = "CABLE Material Constants";
+            // 
+            // label252
+            // 
+            this.label252.AutoSize = true;
+            this.label252.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label252.ForeColor = System.Drawing.Color.Black;
+            this.label252.Location = new System.Drawing.Point(390, 18);
+            this.label252.Name = "label252";
+            this.label252.Size = new System.Drawing.Size(24, 16);
+            this.label252.TabIndex = 100;
+            this.label252.Text = "PR";
+            // 
+            // label323
+            // 
+            this.label323.AutoSize = true;
+            this.label323.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label323.ForeColor = System.Drawing.Color.Black;
+            this.label323.Location = new System.Drawing.Point(224, 18);
+            this.label323.Name = "label323";
+            this.label323.Size = new System.Drawing.Size(33, 16);
+            this.label323.TabIndex = 100;
+            this.label323.Text = "Den";
+            // 
+            // label324
+            // 
+            this.label324.AutoSize = true;
+            this.label324.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label324.ForeColor = System.Drawing.Color.Black;
+            this.label324.Location = new System.Drawing.Point(314, 18);
+            this.label324.Name = "label324";
+            this.label324.Size = new System.Drawing.Size(56, 16);
+            this.label324.TabIndex = 100;
+            this.label324.Text = "T/Cu.m";
+            // 
+            // label328
+            // 
+            this.label328.AutoSize = true;
+            this.label328.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label328.ForeColor = System.Drawing.Color.Black;
+            this.label328.Location = new System.Drawing.Point(145, 18);
+            this.label328.Name = "label328";
+            this.label328.Size = new System.Drawing.Size(56, 16);
+            this.label328.TabIndex = 100;
+            this.label328.Text = "T/Sq.m";
+            // 
+            // label329
+            // 
+            this.label329.AutoSize = true;
+            this.label329.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label329.ForeColor = System.Drawing.Color.Black;
+            this.label329.Location = new System.Drawing.Point(12, 18);
+            this.label329.Name = "label329";
+            this.label329.Size = new System.Drawing.Size(48, 16);
+            this.label329.TabIndex = 100;
+            this.label329.Text = "E Mod";
+            // 
+            // txt_PR_cable
+            // 
+            this.txt_PR_cable.Location = new System.Drawing.Point(420, 17);
+            this.txt_PR_cable.Name = "txt_PR_cable";
+            this.txt_PR_cable.Size = new System.Drawing.Size(48, 21);
+            this.txt_PR_cable.TabIndex = 108;
+            this.txt_PR_cable.Text = "0.30";
+            this.txt_PR_cable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_den_cable
+            // 
+            this.txt_den_cable.Location = new System.Drawing.Point(260, 17);
+            this.txt_den_cable.Name = "txt_den_cable";
+            this.txt_den_cable.Size = new System.Drawing.Size(48, 21);
+            this.txt_den_cable.TabIndex = 108;
+            this.txt_den_cable.Text = "7.85";
+            this.txt_den_cable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_emod_cable
+            // 
+            this.txt_emod_cable.Location = new System.Drawing.Point(66, 17);
+            this.txt_emod_cable.Name = "txt_emod_cable";
+            this.txt_emod_cable.Size = new System.Drawing.Size(76, 21);
+            this.txt_emod_cable.TabIndex = 108;
+            this.txt_emod_cable.Text = "20400000";
+            this.txt_emod_cable.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // groupBox51
+            // 
+            this.groupBox51.Controls.Add(this.label330);
+            this.groupBox51.Controls.Add(this.label331);
+            this.groupBox51.Controls.Add(this.label332);
+            this.groupBox51.Controls.Add(this.label333);
+            this.groupBox51.Controls.Add(this.label334);
+            this.groupBox51.Controls.Add(this.txt_PR_conc);
+            this.groupBox51.Controls.Add(this.txt_den_conc);
+            this.groupBox51.Controls.Add(this.txt_emod_conc);
+            this.groupBox51.Location = new System.Drawing.Point(462, 60);
+            this.groupBox51.Name = "groupBox51";
+            this.groupBox51.Size = new System.Drawing.Size(478, 40);
+            this.groupBox51.TabIndex = 137;
+            this.groupBox51.TabStop = false;
+            this.groupBox51.Text = "CONCRETE Material Constants";
+            // 
+            // label330
+            // 
+            this.label330.AutoSize = true;
+            this.label330.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label330.ForeColor = System.Drawing.Color.Black;
+            this.label330.Location = new System.Drawing.Point(390, 18);
+            this.label330.Name = "label330";
+            this.label330.Size = new System.Drawing.Size(24, 16);
+            this.label330.TabIndex = 100;
+            this.label330.Text = "PR";
+            // 
+            // label331
+            // 
+            this.label331.AutoSize = true;
+            this.label331.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label331.ForeColor = System.Drawing.Color.Black;
+            this.label331.Location = new System.Drawing.Point(224, 18);
+            this.label331.Name = "label331";
+            this.label331.Size = new System.Drawing.Size(33, 16);
+            this.label331.TabIndex = 100;
+            this.label331.Text = "Den";
+            // 
+            // label332
+            // 
+            this.label332.AutoSize = true;
+            this.label332.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label332.ForeColor = System.Drawing.Color.Black;
+            this.label332.Location = new System.Drawing.Point(314, 18);
+            this.label332.Name = "label332";
+            this.label332.Size = new System.Drawing.Size(56, 16);
+            this.label332.TabIndex = 100;
+            this.label332.Text = "T/Cu.m";
+            // 
+            // label333
+            // 
+            this.label333.AutoSize = true;
+            this.label333.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label333.ForeColor = System.Drawing.Color.Black;
+            this.label333.Location = new System.Drawing.Point(145, 18);
+            this.label333.Name = "label333";
+            this.label333.Size = new System.Drawing.Size(56, 16);
+            this.label333.TabIndex = 100;
+            this.label333.Text = "T/Sq.m";
+            // 
+            // label334
+            // 
+            this.label334.AutoSize = true;
+            this.label334.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label334.ForeColor = System.Drawing.Color.Black;
+            this.label334.Location = new System.Drawing.Point(12, 18);
+            this.label334.Name = "label334";
+            this.label334.Size = new System.Drawing.Size(48, 16);
+            this.label334.TabIndex = 100;
+            this.label334.Text = "E Mod";
+            // 
+            // txt_PR_conc
+            // 
+            this.txt_PR_conc.Location = new System.Drawing.Point(420, 17);
+            this.txt_PR_conc.Name = "txt_PR_conc";
+            this.txt_PR_conc.Size = new System.Drawing.Size(48, 21);
+            this.txt_PR_conc.TabIndex = 108;
+            this.txt_PR_conc.Text = "0.15";
+            this.txt_PR_conc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_den_conc
+            // 
+            this.txt_den_conc.Location = new System.Drawing.Point(260, 17);
+            this.txt_den_conc.Name = "txt_den_conc";
+            this.txt_den_conc.Size = new System.Drawing.Size(48, 21);
+            this.txt_den_conc.TabIndex = 108;
+            this.txt_den_conc.Text = "2.5";
+            this.txt_den_conc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_emod_conc
+            // 
+            this.txt_emod_conc.Location = new System.Drawing.Point(66, 17);
+            this.txt_emod_conc.Name = "txt_emod_conc";
+            this.txt_emod_conc.Size = new System.Drawing.Size(76, 21);
+            this.txt_emod_conc.TabIndex = 108;
+            this.txt_emod_conc.Text = "2110000";
+            this.txt_emod_conc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_emod_conc.TextChanged += new System.EventHandler(this.txt_emod_conc_TextChanged);
+            // 
+            // groupBox52
+            // 
+            this.groupBox52.Controls.Add(this.label1194);
+            this.groupBox52.Controls.Add(this.label1193);
+            this.groupBox52.Controls.Add(this.label1196);
+            this.groupBox52.Controls.Add(this.label1195);
+            this.groupBox52.Controls.Add(this.label1192);
+            this.groupBox52.Controls.Add(this.txt_PR_steel);
+            this.groupBox52.Controls.Add(this.txt_den_steel);
+            this.groupBox52.Controls.Add(this.txt_emod_steel);
+            this.groupBox52.Location = new System.Drawing.Point(462, 16);
+            this.groupBox52.Name = "groupBox52";
+            this.groupBox52.Size = new System.Drawing.Size(478, 40);
+            this.groupBox52.TabIndex = 138;
+            this.groupBox52.TabStop = false;
+            this.groupBox52.Text = "STEEL Material Constants";
+            // 
+            // label1194
+            // 
+            this.label1194.AutoSize = true;
+            this.label1194.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1194.ForeColor = System.Drawing.Color.Black;
+            this.label1194.Location = new System.Drawing.Point(390, 18);
+            this.label1194.Name = "label1194";
+            this.label1194.Size = new System.Drawing.Size(24, 16);
+            this.label1194.TabIndex = 100;
+            this.label1194.Text = "PR";
+            // 
+            // label1193
+            // 
+            this.label1193.AutoSize = true;
+            this.label1193.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1193.ForeColor = System.Drawing.Color.Black;
+            this.label1193.Location = new System.Drawing.Point(224, 18);
+            this.label1193.Name = "label1193";
+            this.label1193.Size = new System.Drawing.Size(33, 16);
+            this.label1193.TabIndex = 100;
+            this.label1193.Text = "Den";
+            // 
+            // label1196
+            // 
+            this.label1196.AutoSize = true;
+            this.label1196.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1196.ForeColor = System.Drawing.Color.Black;
+            this.label1196.Location = new System.Drawing.Point(314, 18);
+            this.label1196.Name = "label1196";
+            this.label1196.Size = new System.Drawing.Size(56, 16);
+            this.label1196.TabIndex = 100;
+            this.label1196.Text = "T/Cu.m";
+            // 
+            // label1195
+            // 
+            this.label1195.AutoSize = true;
+            this.label1195.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1195.ForeColor = System.Drawing.Color.Black;
+            this.label1195.Location = new System.Drawing.Point(145, 18);
+            this.label1195.Name = "label1195";
+            this.label1195.Size = new System.Drawing.Size(56, 16);
+            this.label1195.TabIndex = 100;
+            this.label1195.Text = "T/Sq.m";
+            // 
+            // label1192
+            // 
+            this.label1192.AutoSize = true;
+            this.label1192.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1192.ForeColor = System.Drawing.Color.Black;
+            this.label1192.Location = new System.Drawing.Point(12, 18);
+            this.label1192.Name = "label1192";
+            this.label1192.Size = new System.Drawing.Size(48, 16);
+            this.label1192.TabIndex = 100;
+            this.label1192.Text = "E Mod";
+            // 
+            // txt_PR_steel
+            // 
+            this.txt_PR_steel.Location = new System.Drawing.Point(420, 17);
+            this.txt_PR_steel.Name = "txt_PR_steel";
+            this.txt_PR_steel.Size = new System.Drawing.Size(48, 21);
+            this.txt_PR_steel.TabIndex = 108;
+            this.txt_PR_steel.Text = "0.30";
+            this.txt_PR_steel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_den_steel
+            // 
+            this.txt_den_steel.Location = new System.Drawing.Point(260, 17);
+            this.txt_den_steel.Name = "txt_den_steel";
+            this.txt_den_steel.Size = new System.Drawing.Size(48, 21);
+            this.txt_den_steel.TabIndex = 108;
+            this.txt_den_steel.Text = "7.85";
+            this.txt_den_steel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txt_emod_steel
+            // 
+            this.txt_emod_steel.Location = new System.Drawing.Point(66, 17);
+            this.txt_emod_steel.Name = "txt_emod_steel";
+            this.txt_emod_steel.Size = new System.Drawing.Size(76, 21);
+            this.txt_emod_steel.TabIndex = 108;
+            this.txt_emod_steel.Text = "20400000";
+            this.txt_emod_steel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox70
             // 
@@ -5463,9 +6909,9 @@
             this.groupBox70.Controls.Add(this.chk_esprt_fixed_FY);
             this.groupBox70.Controls.Add(this.chk_esprt_fixed_MX);
             this.groupBox70.Controls.Add(this.chk_esprt_fixed_FX);
-            this.groupBox70.Location = new System.Drawing.Point(532, 63);
+            this.groupBox70.Location = new System.Drawing.Point(12, 64);
             this.groupBox70.Name = "groupBox70";
-            this.groupBox70.Size = new System.Drawing.Size(339, 53);
+            this.groupBox70.Size = new System.Drawing.Size(440, 41);
             this.groupBox70.TabIndex = 132;
             this.groupBox70.TabStop = false;
             this.groupBox70.Text = "SUPPORT AT END";
@@ -5486,7 +6932,7 @@
             // 
             this.rbtn_esprt_fixed.AutoSize = true;
             this.rbtn_esprt_fixed.Checked = true;
-            this.rbtn_esprt_fixed.Location = new System.Drawing.Point(6, 32);
+            this.rbtn_esprt_fixed.Location = new System.Drawing.Point(81, 14);
             this.rbtn_esprt_fixed.Name = "rbtn_esprt_fixed";
             this.rbtn_esprt_fixed.Size = new System.Drawing.Size(60, 17);
             this.rbtn_esprt_fixed.TabIndex = 1;
@@ -5498,9 +6944,7 @@
             // chk_esprt_fixed_MZ
             // 
             this.chk_esprt_fixed_MZ.AutoSize = true;
-            this.chk_esprt_fixed_MZ.Checked = true;
-            this.chk_esprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_esprt_fixed_MZ.Location = new System.Drawing.Point(290, 32);
+            this.chk_esprt_fixed_MZ.Location = new System.Drawing.Point(375, 14);
             this.chk_esprt_fixed_MZ.Name = "chk_esprt_fixed_MZ";
             this.chk_esprt_fixed_MZ.Size = new System.Drawing.Size(43, 17);
             this.chk_esprt_fixed_MZ.TabIndex = 0;
@@ -5510,7 +6954,9 @@
             // chk_esprt_fixed_FZ
             // 
             this.chk_esprt_fixed_FZ.AutoSize = true;
-            this.chk_esprt_fixed_FZ.Location = new System.Drawing.Point(162, 32);
+            this.chk_esprt_fixed_FZ.Checked = true;
+            this.chk_esprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_esprt_fixed_FZ.Location = new System.Drawing.Point(237, 14);
             this.chk_esprt_fixed_FZ.Name = "chk_esprt_fixed_FZ";
             this.chk_esprt_fixed_FZ.Size = new System.Drawing.Size(40, 17);
             this.chk_esprt_fixed_FZ.TabIndex = 0;
@@ -5520,7 +6966,9 @@
             // chk_esprt_fixed_MY
             // 
             this.chk_esprt_fixed_MY.AutoSize = true;
-            this.chk_esprt_fixed_MY.Location = new System.Drawing.Point(252, 32);
+            this.chk_esprt_fixed_MY.Checked = true;
+            this.chk_esprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_esprt_fixed_MY.Location = new System.Drawing.Point(327, 14);
             this.chk_esprt_fixed_MY.Name = "chk_esprt_fixed_MY";
             this.chk_esprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
             this.chk_esprt_fixed_MY.TabIndex = 0;
@@ -5530,7 +6978,9 @@
             // chk_esprt_fixed_FY
             // 
             this.chk_esprt_fixed_FY.AutoSize = true;
-            this.chk_esprt_fixed_FY.Location = new System.Drawing.Point(118, 32);
+            this.chk_esprt_fixed_FY.Checked = true;
+            this.chk_esprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_esprt_fixed_FY.Location = new System.Drawing.Point(193, 14);
             this.chk_esprt_fixed_FY.Name = "chk_esprt_fixed_FY";
             this.chk_esprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
             this.chk_esprt_fixed_FY.TabIndex = 0;
@@ -5540,7 +6990,9 @@
             // chk_esprt_fixed_MX
             // 
             this.chk_esprt_fixed_MX.AutoSize = true;
-            this.chk_esprt_fixed_MX.Location = new System.Drawing.Point(203, 32);
+            this.chk_esprt_fixed_MX.Checked = true;
+            this.chk_esprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_esprt_fixed_MX.Location = new System.Drawing.Point(278, 14);
             this.chk_esprt_fixed_MX.Name = "chk_esprt_fixed_MX";
             this.chk_esprt_fixed_MX.Size = new System.Drawing.Size(43, 17);
             this.chk_esprt_fixed_MX.TabIndex = 0;
@@ -5550,9 +7002,7 @@
             // chk_esprt_fixed_FX
             // 
             this.chk_esprt_fixed_FX.AutoSize = true;
-            this.chk_esprt_fixed_FX.Checked = true;
-            this.chk_esprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chk_esprt_fixed_FX.Location = new System.Drawing.Point(72, 32);
+            this.chk_esprt_fixed_FX.Location = new System.Drawing.Point(147, 14);
             this.chk_esprt_fixed_FX.Name = "chk_esprt_fixed_FX";
             this.chk_esprt_fixed_FX.Size = new System.Drawing.Size(40, 17);
             this.chk_esprt_fixed_FX.TabIndex = 0;
@@ -5566,9 +7016,9 @@
             this.groupBox109.Controls.Add(this.btn_view_report);
             this.groupBox109.Controls.Add(this.btn_view_data);
             this.groupBox109.Controls.Add(this.btn_view_preProcess);
-            this.groupBox109.Location = new System.Drawing.Point(198, 7);
+            this.groupBox109.Location = new System.Drawing.Point(13, 152);
             this.groupBox109.Name = "groupBox109";
-            this.groupBox109.Size = new System.Drawing.Size(319, 102);
+            this.groupBox109.Size = new System.Drawing.Size(928, 46);
             this.groupBox109.TabIndex = 106;
             this.groupBox109.TabStop = false;
             this.groupBox109.Text = "Open Analysis File";
@@ -5592,9 +7042,9 @@
             // 
             // btn_view_postProcess
             // 
-            this.btn_view_postProcess.Location = new System.Drawing.Point(168, 73);
+            this.btn_view_postProcess.Location = new System.Drawing.Point(770, 18);
             this.btn_view_postProcess.Name = "btn_view_postProcess";
-            this.btn_view_postProcess.Size = new System.Drawing.Size(146, 22);
+            this.btn_view_postProcess.Size = new System.Drawing.Size(130, 22);
             this.btn_view_postProcess.TabIndex = 78;
             this.btn_view_postProcess.Text = "View Post Process";
             this.btn_view_postProcess.UseVisualStyleBackColor = true;
@@ -5602,9 +7052,9 @@
             // 
             // btn_view_report
             // 
-            this.btn_view_report.Location = new System.Drawing.Point(6, 73);
+            this.btn_view_report.Location = new System.Drawing.Point(611, 18);
             this.btn_view_report.Name = "btn_view_report";
-            this.btn_view_report.Size = new System.Drawing.Size(146, 22);
+            this.btn_view_report.Size = new System.Drawing.Size(153, 22);
             this.btn_view_report.TabIndex = 76;
             this.btn_view_report.Text = "View Analysis Report";
             this.btn_view_report.UseVisualStyleBackColor = true;
@@ -5612,9 +7062,9 @@
             // 
             // btn_view_data
             // 
-            this.btn_view_data.Location = new System.Drawing.Point(6, 45);
+            this.btn_view_data.Location = new System.Drawing.Point(334, 18);
             this.btn_view_data.Name = "btn_view_data";
-            this.btn_view_data.Size = new System.Drawing.Size(146, 22);
+            this.btn_view_data.Size = new System.Drawing.Size(130, 22);
             this.btn_view_data.TabIndex = 74;
             this.btn_view_data.Text = "View Analysis Data";
             this.btn_view_data.UseVisualStyleBackColor = true;
@@ -5622,9 +7072,9 @@
             // 
             // btn_view_preProcess
             // 
-            this.btn_view_preProcess.Location = new System.Drawing.Point(168, 45);
+            this.btn_view_preProcess.Location = new System.Drawing.Point(475, 18);
             this.btn_view_preProcess.Name = "btn_view_preProcess";
-            this.btn_view_preProcess.Size = new System.Drawing.Size(146, 22);
+            this.btn_view_preProcess.Size = new System.Drawing.Size(130, 22);
             this.btn_view_preProcess.TabIndex = 74;
             this.btn_view_preProcess.Text = "View Pre Process";
             this.btn_view_preProcess.UseVisualStyleBackColor = true;
@@ -5633,9 +7083,9 @@
             // btn_Process_LL_Analysis
             // 
             this.btn_Process_LL_Analysis.Enabled = false;
-            this.btn_Process_LL_Analysis.Location = new System.Drawing.Point(10, 63);
+            this.btn_Process_LL_Analysis.Location = new System.Drawing.Point(312, 107);
             this.btn_Process_LL_Analysis.Name = "btn_Process_LL_Analysis";
-            this.btn_Process_LL_Analysis.Size = new System.Drawing.Size(182, 39);
+            this.btn_Process_LL_Analysis.Size = new System.Drawing.Size(136, 39);
             this.btn_Process_LL_Analysis.TabIndex = 104;
             this.btn_Process_LL_Analysis.Text = "Process Analysis";
             this.btn_Process_LL_Analysis.UseVisualStyleBackColor = true;
@@ -5643,9 +7093,9 @@
             // 
             // btn_Ana_DL_create_data
             // 
-            this.btn_Ana_DL_create_data.Location = new System.Drawing.Point(10, 20);
+            this.btn_Ana_DL_create_data.Location = new System.Drawing.Point(171, 107);
             this.btn_Ana_DL_create_data.Name = "btn_Ana_DL_create_data";
-            this.btn_Ana_DL_create_data.Size = new System.Drawing.Size(182, 40);
+            this.btn_Ana_DL_create_data.Size = new System.Drawing.Size(136, 39);
             this.btn_Ana_DL_create_data.TabIndex = 46;
             this.btn_Ana_DL_create_data.Text = "Create Analysis Data";
             this.btn_Ana_DL_create_data.UseVisualStyleBackColor = true;
@@ -5661,9 +7111,9 @@
             this.groupBox71.Controls.Add(this.chk_ssprt_fixed_FY);
             this.groupBox71.Controls.Add(this.chk_ssprt_fixed_MX);
             this.groupBox71.Controls.Add(this.chk_ssprt_fixed_FX);
-            this.groupBox71.Location = new System.Drawing.Point(532, 4);
+            this.groupBox71.Location = new System.Drawing.Point(13, 20);
             this.groupBox71.Name = "groupBox71";
-            this.groupBox71.Size = new System.Drawing.Size(339, 58);
+            this.groupBox71.Size = new System.Drawing.Size(440, 38);
             this.groupBox71.TabIndex = 133;
             this.groupBox71.TabStop = false;
             this.groupBox71.Text = "SUPPORT AT START";
@@ -5685,7 +7135,7 @@
             // rbtn_ssprt_fixed
             // 
             this.rbtn_ssprt_fixed.AutoSize = true;
-            this.rbtn_ssprt_fixed.Location = new System.Drawing.Point(6, 32);
+            this.rbtn_ssprt_fixed.Location = new System.Drawing.Point(81, 13);
             this.rbtn_ssprt_fixed.Name = "rbtn_ssprt_fixed";
             this.rbtn_ssprt_fixed.Size = new System.Drawing.Size(60, 17);
             this.rbtn_ssprt_fixed.TabIndex = 1;
@@ -5696,7 +7146,9 @@
             // chk_ssprt_fixed_MZ
             // 
             this.chk_ssprt_fixed_MZ.AutoSize = true;
-            this.chk_ssprt_fixed_MZ.Location = new System.Drawing.Point(290, 32);
+            this.chk_ssprt_fixed_MZ.Checked = true;
+            this.chk_ssprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_ssprt_fixed_MZ.Location = new System.Drawing.Point(376, 15);
             this.chk_ssprt_fixed_MZ.Name = "chk_ssprt_fixed_MZ";
             this.chk_ssprt_fixed_MZ.Size = new System.Drawing.Size(43, 17);
             this.chk_ssprt_fixed_MZ.TabIndex = 0;
@@ -5706,7 +7158,9 @@
             // chk_ssprt_fixed_FZ
             // 
             this.chk_ssprt_fixed_FZ.AutoSize = true;
-            this.chk_ssprt_fixed_FZ.Location = new System.Drawing.Point(162, 32);
+            this.chk_ssprt_fixed_FZ.Checked = true;
+            this.chk_ssprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_ssprt_fixed_FZ.Location = new System.Drawing.Point(237, 13);
             this.chk_ssprt_fixed_FZ.Name = "chk_ssprt_fixed_FZ";
             this.chk_ssprt_fixed_FZ.Size = new System.Drawing.Size(40, 17);
             this.chk_ssprt_fixed_FZ.TabIndex = 0;
@@ -5716,7 +7170,9 @@
             // chk_ssprt_fixed_MY
             // 
             this.chk_ssprt_fixed_MY.AutoSize = true;
-            this.chk_ssprt_fixed_MY.Location = new System.Drawing.Point(252, 32);
+            this.chk_ssprt_fixed_MY.Checked = true;
+            this.chk_ssprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_ssprt_fixed_MY.Location = new System.Drawing.Point(327, 13);
             this.chk_ssprt_fixed_MY.Name = "chk_ssprt_fixed_MY";
             this.chk_ssprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
             this.chk_ssprt_fixed_MY.TabIndex = 0;
@@ -5726,7 +7182,9 @@
             // chk_ssprt_fixed_FY
             // 
             this.chk_ssprt_fixed_FY.AutoSize = true;
-            this.chk_ssprt_fixed_FY.Location = new System.Drawing.Point(118, 32);
+            this.chk_ssprt_fixed_FY.Checked = true;
+            this.chk_ssprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_ssprt_fixed_FY.Location = new System.Drawing.Point(193, 13);
             this.chk_ssprt_fixed_FY.Name = "chk_ssprt_fixed_FY";
             this.chk_ssprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
             this.chk_ssprt_fixed_FY.TabIndex = 0;
@@ -5736,7 +7194,9 @@
             // chk_ssprt_fixed_MX
             // 
             this.chk_ssprt_fixed_MX.AutoSize = true;
-            this.chk_ssprt_fixed_MX.Location = new System.Drawing.Point(203, 32);
+            this.chk_ssprt_fixed_MX.Checked = true;
+            this.chk_ssprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_ssprt_fixed_MX.Location = new System.Drawing.Point(278, 13);
             this.chk_ssprt_fixed_MX.Name = "chk_ssprt_fixed_MX";
             this.chk_ssprt_fixed_MX.Size = new System.Drawing.Size(43, 17);
             this.chk_ssprt_fixed_MX.TabIndex = 0;
@@ -5746,7 +7206,9 @@
             // chk_ssprt_fixed_FX
             // 
             this.chk_ssprt_fixed_FX.AutoSize = true;
-            this.chk_ssprt_fixed_FX.Location = new System.Drawing.Point(72, 32);
+            this.chk_ssprt_fixed_FX.Checked = true;
+            this.chk_ssprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_ssprt_fixed_FX.Location = new System.Drawing.Point(147, 13);
             this.chk_ssprt_fixed_FX.Name = "chk_ssprt_fixed_FX";
             this.chk_ssprt_fixed_FX.Size = new System.Drawing.Size(40, 17);
             this.chk_ssprt_fixed_FX.TabIndex = 0;
@@ -5839,44 +7301,82 @@
             this.chk_R2.Text = "R2";
             this.chk_R2.UseVisualStyleBackColor = true;
             // 
-            // tabControl5
+            // tc_results
             // 
-            this.tabControl5.Controls.Add(this.tabPage5);
-            this.tabControl5.Controls.Add(this.tabPage6);
-            this.tabControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl5.Location = new System.Drawing.Point(0, 0);
-            this.tabControl5.Name = "tabControl5";
-            this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(947, 501);
-            this.tabControl5.TabIndex = 1;
+            this.tc_results.Controls.Add(this.tabPage5);
+            this.tc_results.Controls.Add(this.tabPage19);
+            this.tc_results.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tc_results.Location = new System.Drawing.Point(0, 0);
+            this.tc_results.Name = "tc_results";
+            this.tc_results.SelectedIndex = 0;
+            this.tc_results.Size = new System.Drawing.Size(1006, 414);
+            this.tc_results.TabIndex = 1;
             // 
             // tabPage5
             // 
+            this.tabPage5.AutoScroll = true;
             this.tabPage5.Controls.Add(this.groupBox44);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(939, 475);
+            this.tabPage5.Size = new System.Drawing.Size(998, 388);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Analysis Results";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // groupBox44
             // 
+            this.groupBox44.Controls.Add(this.lbl_max_delf);
+            this.groupBox44.Controls.Add(this.txt_max_delf);
+            this.groupBox44.Controls.Add(this.label499);
+            this.groupBox44.Controls.Add(this.label500);
             this.groupBox44.Controls.Add(this.groupBox7);
             this.groupBox44.Controls.Add(this.label238);
             this.groupBox44.Controls.Add(this.label164);
             this.groupBox44.Controls.Add(this.groupBox11);
-            this.groupBox44.Controls.Add(this.groupBox58);
-            this.groupBox44.Controls.Add(this.groupBox59);
-            this.groupBox44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox44.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox44.ForeColor = System.Drawing.Color.Red;
             this.groupBox44.Location = new System.Drawing.Point(3, 3);
             this.groupBox44.Name = "groupBox44";
-            this.groupBox44.Size = new System.Drawing.Size(933, 469);
+            this.groupBox44.Size = new System.Drawing.Size(933, 457);
             this.groupBox44.TabIndex = 94;
             this.groupBox44.TabStop = false;
+            // 
+            // lbl_max_delf
+            // 
+            this.lbl_max_delf.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lbl_max_delf.Location = new System.Drawing.Point(512, 326);
+            this.lbl_max_delf.Name = "lbl_max_delf";
+            this.lbl_max_delf.Size = new System.Drawing.Size(387, 14);
+            this.lbl_max_delf.TabIndex = 128;
+            this.lbl_max_delf.Text = "0";
+            // 
+            // txt_max_delf
+            // 
+            this.txt_max_delf.Location = new System.Drawing.Point(380, 323);
+            this.txt_max_delf.Name = "txt_max_delf";
+            this.txt_max_delf.Size = new System.Drawing.Size(83, 21);
+            this.txt_max_delf.TabIndex = 127;
+            this.txt_max_delf.Text = "0";
+            this.txt_max_delf.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label499
+            // 
+            this.label499.AutoSize = true;
+            this.label499.Location = new System.Drawing.Point(469, 326);
+            this.label499.Name = "label499";
+            this.label499.Size = new System.Drawing.Size(18, 13);
+            this.label499.TabIndex = 124;
+            this.label499.Text = "m";
+            // 
+            // label500
+            // 
+            this.label500.AutoSize = true;
+            this.label500.Location = new System.Drawing.Point(240, 326);
+            this.label500.Name = "label500";
+            this.label500.Size = new System.Drawing.Size(137, 13);
+            this.label500.TabIndex = 126;
+            this.label500.Text = "Max Vertical Deflection";
             // 
             // groupBox7
             // 
@@ -6301,156 +7801,13 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.groupBox60);
             this.groupBox11.Controls.Add(this.groupBox1);
             this.groupBox11.Controls.Add(this.groupBox14);
-            this.groupBox11.Location = new System.Drawing.Point(3, 153);
+            this.groupBox11.Location = new System.Drawing.Point(3, 53);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(905, 256);
             this.groupBox11.TabIndex = 106;
             this.groupBox11.TabStop = false;
-            // 
-            // groupBox60
-            // 
-            this.groupBox60.Controls.Add(this.label268);
-            this.groupBox60.Controls.Add(this.label269);
-            this.groupBox60.Controls.Add(this.groupBox61);
-            this.groupBox60.Controls.Add(this.label274);
-            this.groupBox60.Controls.Add(this.label275);
-            this.groupBox60.Controls.Add(this.txt_Ana_dead_cross_max_shear);
-            this.groupBox60.Controls.Add(this.txt_Ana_dead_cross_max_moment);
-            this.groupBox60.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox60.Location = new System.Drawing.Point(32, 31);
-            this.groupBox60.Name = "groupBox60";
-            this.groupBox60.Size = new System.Drawing.Size(39, 72);
-            this.groupBox60.TabIndex = 82;
-            this.groupBox60.TabStop = false;
-            this.groupBox60.Text = "Cross Girder";
-            this.groupBox60.Visible = false;
-            // 
-            // label268
-            // 
-            this.label268.AutoSize = true;
-            this.label268.Location = new System.Drawing.Point(137, 34);
-            this.label268.Name = "label268";
-            this.label268.Size = new System.Drawing.Size(29, 13);
-            this.label268.TabIndex = 31;
-            this.label268.Text = "T-m";
-            // 
-            // label269
-            // 
-            this.label269.AutoSize = true;
-            this.label269.Location = new System.Drawing.Point(279, 34);
-            this.label269.Name = "label269";
-            this.label269.Size = new System.Drawing.Size(27, 13);
-            this.label269.TabIndex = 30;
-            this.label269.Text = "Ton";
-            // 
-            // groupBox61
-            // 
-            this.groupBox61.Controls.Add(this.label270);
-            this.groupBox61.Controls.Add(this.label271);
-            this.groupBox61.Controls.Add(this.label272);
-            this.groupBox61.Controls.Add(this.label273);
-            this.groupBox61.Controls.Add(this.textBox9);
-            this.groupBox61.Controls.Add(this.textBox10);
-            this.groupBox61.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox61.Location = new System.Drawing.Point(6, 15);
-            this.groupBox61.Name = "groupBox61";
-            this.groupBox61.Size = new System.Drawing.Size(19, 25);
-            this.groupBox61.TabIndex = 82;
-            this.groupBox61.TabStop = false;
-            this.groupBox61.Text = "Cross Girder";
-            // 
-            // label270
-            // 
-            this.label270.AutoSize = true;
-            this.label270.Location = new System.Drawing.Point(137, 34);
-            this.label270.Name = "label270";
-            this.label270.Size = new System.Drawing.Size(29, 13);
-            this.label270.TabIndex = 31;
-            this.label270.Text = "T-m";
-            // 
-            // label271
-            // 
-            this.label271.AutoSize = true;
-            this.label271.Location = new System.Drawing.Point(279, 34);
-            this.label271.Name = "label271";
-            this.label271.Size = new System.Drawing.Size(27, 13);
-            this.label271.TabIndex = 30;
-            this.label271.Text = "Ton";
-            // 
-            // label272
-            // 
-            this.label272.AutoSize = true;
-            this.label272.Location = new System.Drawing.Point(224, 15);
-            this.label272.Name = "label272";
-            this.label272.Size = new System.Drawing.Size(41, 13);
-            this.label272.TabIndex = 28;
-            this.label272.Text = "Shear";
-            // 
-            // label273
-            // 
-            this.label273.AutoSize = true;
-            this.label273.Location = new System.Drawing.Point(81, 15);
-            this.label273.Name = "label273";
-            this.label273.Size = new System.Drawing.Size(52, 13);
-            this.label273.TabIndex = 27;
-            this.label273.Text = "Moment";
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(209, 31);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(64, 21);
-            this.textBox9.TabIndex = 20;
-            this.textBox9.Text = "0";
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(67, 31);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(64, 21);
-            this.textBox10.TabIndex = 19;
-            this.textBox10.Text = "0";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label274
-            // 
-            this.label274.AutoSize = true;
-            this.label274.Location = new System.Drawing.Point(224, 15);
-            this.label274.Name = "label274";
-            this.label274.Size = new System.Drawing.Size(41, 13);
-            this.label274.TabIndex = 28;
-            this.label274.Text = "Shear";
-            // 
-            // label275
-            // 
-            this.label275.AutoSize = true;
-            this.label275.Location = new System.Drawing.Point(81, 15);
-            this.label275.Name = "label275";
-            this.label275.Size = new System.Drawing.Size(52, 13);
-            this.label275.TabIndex = 27;
-            this.label275.Text = "Moment";
-            // 
-            // txt_Ana_dead_cross_max_shear
-            // 
-            this.txt_Ana_dead_cross_max_shear.Location = new System.Drawing.Point(209, 31);
-            this.txt_Ana_dead_cross_max_shear.Name = "txt_Ana_dead_cross_max_shear";
-            this.txt_Ana_dead_cross_max_shear.Size = new System.Drawing.Size(64, 21);
-            this.txt_Ana_dead_cross_max_shear.TabIndex = 20;
-            this.txt_Ana_dead_cross_max_shear.Text = "0";
-            this.txt_Ana_dead_cross_max_shear.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_Ana_dead_cross_max_moment
-            // 
-            this.txt_Ana_dead_cross_max_moment.Location = new System.Drawing.Point(67, 31);
-            this.txt_Ana_dead_cross_max_moment.Name = "txt_Ana_dead_cross_max_moment";
-            this.txt_Ana_dead_cross_max_moment.Size = new System.Drawing.Size(64, 21);
-            this.txt_Ana_dead_cross_max_moment.TabIndex = 19;
-            this.txt_Ana_dead_cross_max_moment.Text = "0";
-            this.txt_Ana_dead_cross_max_moment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox1
             // 
@@ -6458,7 +7815,7 @@
             this.groupBox1.Controls.Add(this.grb_Ana_Res_DL);
             this.groupBox1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Red;
-            this.groupBox1.Location = new System.Drawing.Point(452, 14);
+            this.groupBox1.Location = new System.Drawing.Point(188, 14);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(279, 236);
             this.groupBox1.TabIndex = 104;
@@ -6472,7 +7829,7 @@
             this.groupBox14.Controls.Add(this.grb_Ana_Res_LL);
             this.groupBox14.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox14.ForeColor = System.Drawing.Color.Red;
-            this.groupBox14.Location = new System.Drawing.Point(174, 14);
+            this.groupBox14.Location = new System.Drawing.Point(485, 14);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(278, 236);
             this.groupBox14.TabIndex = 105;
@@ -6942,904 +8299,90 @@
             this.txt_Ana_LL_outer_long_L2_moment.Text = "0";
             this.txt_Ana_LL_outer_long_L2_moment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // groupBox58
-            // 
-            this.groupBox58.Controls.Add(this.label534);
-            this.groupBox58.Controls.Add(this.txt_ana_TSRP);
-            this.groupBox58.Controls.Add(this.label535);
-            this.groupBox58.Controls.Add(this.label536);
-            this.groupBox58.Controls.Add(this.txt_ana_MSTD);
-            this.groupBox58.Controls.Add(this.label537);
-            this.groupBox58.Controls.Add(this.label538);
-            this.groupBox58.Controls.Add(this.txt_ana_MSLD);
-            this.groupBox58.Controls.Add(this.label539);
-            this.groupBox58.Location = new System.Drawing.Point(334, 51);
-            this.groupBox58.Name = "groupBox58";
-            this.groupBox58.Size = new System.Drawing.Size(445, 99);
-            this.groupBox58.TabIndex = 91;
-            this.groupBox58.TabStop = false;
-            this.groupBox58.Text = "Design Forces";
-            // 
-            // label534
-            // 
-            this.label534.AutoSize = true;
-            this.label534.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label534.Location = new System.Drawing.Point(401, 22);
-            this.label534.Name = "label534";
-            this.label534.Size = new System.Drawing.Size(24, 13);
-            this.label534.TabIndex = 104;
-            this.label534.Text = "kN";
-            // 
-            // txt_ana_TSRP
-            // 
-            this.txt_ana_TSRP.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ana_TSRP.ForeColor = System.Drawing.Color.Red;
-            this.txt_ana_TSRP.Location = new System.Drawing.Point(308, 19);
-            this.txt_ana_TSRP.Name = "txt_ana_TSRP";
-            this.txt_ana_TSRP.Size = new System.Drawing.Size(87, 20);
-            this.txt_ana_TSRP.TabIndex = 5;
-            this.txt_ana_TSRP.Text = "0";
-            this.txt_ana_TSRP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label535
-            // 
-            this.label535.AutoSize = true;
-            this.label535.Location = new System.Drawing.Point(5, 22);
-            this.label535.Name = "label535";
-            this.label535.Size = new System.Drawing.Size(237, 13);
-            this.label535.TabIndex = 105;
-            this.label535.Text = "Total Support Reaction on The Pier [W1]";
-            // 
-            // label536
-            // 
-            this.label536.AutoSize = true;
-            this.label536.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label536.Location = new System.Drawing.Point(402, 74);
-            this.label536.Name = "label536";
-            this.label536.Size = new System.Drawing.Size(42, 13);
-            this.label536.TabIndex = 101;
-            this.label536.Text = "kN-m";
-            // 
-            // txt_ana_MSTD
-            // 
-            this.txt_ana_MSTD.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ana_MSTD.ForeColor = System.Drawing.Color.Red;
-            this.txt_ana_MSTD.Location = new System.Drawing.Point(308, 71);
-            this.txt_ana_MSTD.Name = "txt_ana_MSTD";
-            this.txt_ana_MSTD.Size = new System.Drawing.Size(88, 20);
-            this.txt_ana_MSTD.TabIndex = 4;
-            this.txt_ana_MSTD.Text = "0";
-            this.txt_ana_MSTD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label537
-            // 
-            this.label537.AutoSize = true;
-            this.label537.Location = new System.Drawing.Point(8, 74);
-            this.label537.Name = "label537";
-            this.label537.Size = new System.Drawing.Size(294, 13);
-            this.label537.TabIndex = 102;
-            this.label537.Text = "Moment at Supports in Transverse Direction [Mz1]";
-            // 
-            // label538
-            // 
-            this.label538.AutoSize = true;
-            this.label538.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label538.Location = new System.Drawing.Point(399, 48);
-            this.label538.Name = "label538";
-            this.label538.Size = new System.Drawing.Size(42, 13);
-            this.label538.TabIndex = 98;
-            this.label538.Text = "kN-m";
-            // 
-            // txt_ana_MSLD
-            // 
-            this.txt_ana_MSLD.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_ana_MSLD.ForeColor = System.Drawing.Color.Red;
-            this.txt_ana_MSLD.Location = new System.Drawing.Point(308, 45);
-            this.txt_ana_MSLD.Name = "txt_ana_MSLD";
-            this.txt_ana_MSLD.Size = new System.Drawing.Size(88, 20);
-            this.txt_ana_MSLD.TabIndex = 3;
-            this.txt_ana_MSLD.Text = "0";
-            this.txt_ana_MSLD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label539
-            // 
-            this.label539.AutoSize = true;
-            this.label539.Location = new System.Drawing.Point(7, 48);
-            this.label539.Name = "label539";
-            this.label539.Size = new System.Drawing.Size(300, 13);
-            this.label539.TabIndex = 99;
-            this.label539.Text = "Moment at Supports in Longitudinal Direction [Mx1]";
-            // 
-            // groupBox59
-            // 
-            this.groupBox59.Controls.Add(this.label541);
-            this.groupBox59.Controls.Add(this.label540);
-            this.groupBox59.Controls.Add(this.txt_ana_DLSR);
-            this.groupBox59.Controls.Add(this.label532);
-            this.groupBox59.Controls.Add(this.label533);
-            this.groupBox59.Controls.Add(this.txt_ana_LLSR);
-            this.groupBox59.Location = new System.Drawing.Point(3, 51);
-            this.groupBox59.Name = "groupBox59";
-            this.groupBox59.Size = new System.Drawing.Size(325, 100);
-            this.groupBox59.TabIndex = 82;
-            this.groupBox59.TabStop = false;
-            this.groupBox59.Text = "Support Reactions per unit width of Abutment/Pier";
-            // 
-            // label541
-            // 
-            this.label541.AutoSize = true;
-            this.label541.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label541.Location = new System.Drawing.Point(273, 72);
-            this.label541.Name = "label541";
-            this.label541.Size = new System.Drawing.Size(44, 13);
-            this.label541.TabIndex = 104;
-            this.label541.Text = "kN/m";
-            // 
-            // label540
-            // 
-            this.label540.AutoSize = true;
-            this.label540.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label540.Location = new System.Drawing.Point(272, 24);
-            this.label540.Name = "label540";
-            this.label540.Size = new System.Drawing.Size(44, 13);
-            this.label540.TabIndex = 104;
-            this.label540.Text = "kN/m";
-            // 
-            // txt_ana_DLSR
-            // 
-            this.txt_ana_DLSR.ForeColor = System.Drawing.Color.Red;
-            this.txt_ana_DLSR.Location = new System.Drawing.Point(186, 21);
-            this.txt_ana_DLSR.Name = "txt_ana_DLSR";
-            this.txt_ana_DLSR.Size = new System.Drawing.Size(80, 21);
-            this.txt_ana_DLSR.TabIndex = 83;
-            this.txt_ana_DLSR.Text = "0";
-            this.txt_ana_DLSR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label532
-            // 
-            this.label532.AutoSize = true;
-            this.label532.Location = new System.Drawing.Point(6, 75);
-            this.label532.Name = "label532";
-            this.label532.Size = new System.Drawing.Size(163, 13);
-            this.label532.TabIndex = 86;
-            this.label532.Text = "Live Load Support Reaction";
-            // 
-            // label533
-            // 
-            this.label533.AutoSize = true;
-            this.label533.Location = new System.Drawing.Point(5, 24);
-            this.label533.Name = "label533";
-            this.label533.Size = new System.Drawing.Size(170, 13);
-            this.label533.TabIndex = 84;
-            this.label533.Text = "Dead Load Support Reaction";
-            this.label533.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // txt_ana_LLSR
-            // 
-            this.txt_ana_LLSR.ForeColor = System.Drawing.Color.Red;
-            this.txt_ana_LLSR.Location = new System.Drawing.Point(186, 68);
-            this.txt_ana_LLSR.Name = "txt_ana_LLSR";
-            this.txt_ana_LLSR.Size = new System.Drawing.Size(80, 21);
-            this.txt_ana_LLSR.TabIndex = 85;
-            this.txt_ana_LLSR.Text = "0";
-            this.txt_ana_LLSR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.groupBox62);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(939, 475);
-            this.tabPage6.TabIndex = 1;
-            this.tabPage6.Text = "Reaction Forces";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // groupBox62
-            // 
-            this.groupBox62.Controls.Add(this.groupBox63);
-            this.groupBox62.Controls.Add(this.groupBox64);
-            this.groupBox62.Controls.Add(this.groupBox65);
-            this.groupBox62.Controls.Add(this.groupBox66);
-            this.groupBox62.Controls.Add(this.groupBox67);
-            this.groupBox62.Controls.Add(this.groupBox68);
-            this.groupBox62.Controls.Add(this.g);
-            this.groupBox62.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox62.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox62.Location = new System.Drawing.Point(3, 3);
-            this.groupBox62.Name = "groupBox62";
-            this.groupBox62.Size = new System.Drawing.Size(933, 469);
-            this.groupBox62.TabIndex = 29;
-            this.groupBox62.TabStop = false;
-            // 
-            // groupBox63
-            // 
-            this.groupBox63.Controls.Add(this.textBox11);
-            this.groupBox63.Controls.Add(this.label276);
-            this.groupBox63.Controls.Add(this.label277);
-            this.groupBox63.Controls.Add(this.txt_final_Mz);
-            this.groupBox63.Controls.Add(this.txt_max_Mz_kN);
-            this.groupBox63.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox63.ForeColor = System.Drawing.Color.Red;
-            this.groupBox63.Location = new System.Drawing.Point(9, 177);
-            this.groupBox63.Name = "groupBox63";
-            this.groupBox63.Size = new System.Drawing.Size(310, 54);
-            this.groupBox63.TabIndex = 26;
-            this.groupBox63.TabStop = false;
-            this.groupBox63.Text = "Maximum Mz";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(364, 176);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(76, 20);
-            this.textBox11.TabIndex = 6;
-            // 
-            // label276
-            // 
-            this.label276.AutoSize = true;
-            this.label276.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label276.Location = new System.Drawing.Point(113, 22);
-            this.label276.Name = "label276";
-            this.label276.Size = new System.Drawing.Size(47, 13);
-            this.label276.TabIndex = 21;
-            this.label276.Text = "Ton-m";
-            // 
-            // label277
-            // 
-            this.label277.AutoSize = true;
-            this.label277.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label277.Location = new System.Drawing.Point(266, 22);
-            this.label277.Name = "label277";
-            this.label277.Size = new System.Drawing.Size(39, 13);
-            this.label277.TabIndex = 18;
-            this.label277.Text = "kN-m";
-            // 
-            // txt_final_Mz
-            // 
-            this.txt_final_Mz.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_final_Mz.ForeColor = System.Drawing.Color.Blue;
-            this.txt_final_Mz.Location = new System.Drawing.Point(22, 19);
-            this.txt_final_Mz.Name = "txt_final_Mz";
-            this.txt_final_Mz.Size = new System.Drawing.Size(85, 20);
-            this.txt_final_Mz.TabIndex = 16;
-            this.txt_final_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_max_Mz_kN
-            // 
-            this.txt_max_Mz_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_max_Mz_kN.ForeColor = System.Drawing.Color.Blue;
-            this.txt_max_Mz_kN.Location = new System.Drawing.Point(175, 19);
-            this.txt_max_Mz_kN.Name = "txt_max_Mz_kN";
-            this.txt_max_Mz_kN.Size = new System.Drawing.Size(85, 20);
-            this.txt_max_Mz_kN.TabIndex = 24;
-            this.txt_max_Mz_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // groupBox64
-            // 
-            this.groupBox64.Controls.Add(this.textBox12);
-            this.groupBox64.Controls.Add(this.txt_final_Mx);
-            this.groupBox64.Controls.Add(this.txt_max_Mx_kN);
-            this.groupBox64.Controls.Add(this.label278);
-            this.groupBox64.Controls.Add(this.label279);
-            this.groupBox64.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox64.ForeColor = System.Drawing.Color.Red;
-            this.groupBox64.Location = new System.Drawing.Point(9, 98);
-            this.groupBox64.Name = "groupBox64";
-            this.groupBox64.Size = new System.Drawing.Size(310, 56);
-            this.groupBox64.TabIndex = 26;
-            this.groupBox64.TabStop = false;
-            this.groupBox64.Text = "Maximum Mx";
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(364, 176);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(76, 20);
-            this.textBox12.TabIndex = 6;
-            // 
-            // txt_final_Mx
-            // 
-            this.txt_final_Mx.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_final_Mx.ForeColor = System.Drawing.Color.Blue;
-            this.txt_final_Mx.Location = new System.Drawing.Point(22, 19);
-            this.txt_final_Mx.Name = "txt_final_Mx";
-            this.txt_final_Mx.Size = new System.Drawing.Size(85, 20);
-            this.txt_final_Mx.TabIndex = 12;
-            this.txt_final_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_max_Mx_kN
-            // 
-            this.txt_max_Mx_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_max_Mx_kN.ForeColor = System.Drawing.Color.Blue;
-            this.txt_max_Mx_kN.Location = new System.Drawing.Point(175, 19);
-            this.txt_max_Mx_kN.Name = "txt_max_Mx_kN";
-            this.txt_max_Mx_kN.Size = new System.Drawing.Size(85, 20);
-            this.txt_max_Mx_kN.TabIndex = 23;
-            this.txt_max_Mx_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label278
-            // 
-            this.label278.AutoSize = true;
-            this.label278.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label278.Location = new System.Drawing.Point(113, 22);
-            this.label278.Name = "label278";
-            this.label278.Size = new System.Drawing.Size(47, 13);
-            this.label278.TabIndex = 21;
-            this.label278.Text = "Ton-m";
-            // 
-            // label279
-            // 
-            this.label279.AutoSize = true;
-            this.label279.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label279.Location = new System.Drawing.Point(266, 22);
-            this.label279.Name = "label279";
-            this.label279.Size = new System.Drawing.Size(39, 13);
-            this.label279.TabIndex = 18;
-            this.label279.Text = "kN-m";
-            // 
-            // groupBox65
-            // 
-            this.groupBox65.Controls.Add(this.lbl_factor);
-            this.groupBox65.Controls.Add(this.txt_final_vert_rec_kN);
-            this.groupBox65.Controls.Add(this.label280);
-            this.groupBox65.Controls.Add(this.textBox17);
-            this.groupBox65.Controls.Add(this.txt_final_vert_reac);
-            this.groupBox65.Controls.Add(this.label281);
-            this.groupBox65.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox65.ForeColor = System.Drawing.Color.Red;
-            this.groupBox65.Location = new System.Drawing.Point(9, 21);
-            this.groupBox65.Name = "groupBox65";
-            this.groupBox65.Size = new System.Drawing.Size(310, 71);
-            this.groupBox65.TabIndex = 26;
-            this.groupBox65.TabStop = false;
-            this.groupBox65.Text = "Total Factored Vertical Reaction";
-            // 
-            // lbl_factor
-            // 
-            this.lbl_factor.AutoSize = true;
-            this.lbl_factor.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.lbl_factor.ForeColor = System.Drawing.Color.Blue;
-            this.lbl_factor.Location = new System.Drawing.Point(3, 22);
-            this.lbl_factor.Name = "lbl_factor";
-            this.lbl_factor.Size = new System.Drawing.Size(167, 13);
-            this.lbl_factor.TabIndex = 23;
-            this.lbl_factor.Text = "DL X 1.25 + LL X 2.5";
-            // 
-            // txt_final_vert_rec_kN
-            // 
-            this.txt_final_vert_rec_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_final_vert_rec_kN.ForeColor = System.Drawing.Color.Blue;
-            this.txt_final_vert_rec_kN.Location = new System.Drawing.Point(180, 45);
-            this.txt_final_vert_rec_kN.Name = "txt_final_vert_rec_kN";
-            this.txt_final_vert_rec_kN.Size = new System.Drawing.Size(85, 20);
-            this.txt_final_vert_rec_kN.TabIndex = 22;
-            this.txt_final_vert_rec_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label280
-            // 
-            this.label280.AutoSize = true;
-            this.label280.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label280.Location = new System.Drawing.Point(271, 22);
-            this.label280.Name = "label280";
-            this.label280.Size = new System.Drawing.Size(31, 13);
-            this.label280.TabIndex = 19;
-            this.label280.Text = "Ton";
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(364, 176);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(76, 20);
-            this.textBox17.TabIndex = 6;
-            // 
-            // txt_final_vert_reac
-            // 
-            this.txt_final_vert_reac.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_final_vert_reac.ForeColor = System.Drawing.Color.Blue;
-            this.txt_final_vert_reac.Location = new System.Drawing.Point(180, 19);
-            this.txt_final_vert_reac.Name = "txt_final_vert_reac";
-            this.txt_final_vert_reac.Size = new System.Drawing.Size(85, 20);
-            this.txt_final_vert_reac.TabIndex = 11;
-            this.txt_final_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label281
-            // 
-            this.label281.AutoSize = true;
-            this.label281.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label281.Location = new System.Drawing.Point(271, 48);
-            this.label281.Name = "label281";
-            this.label281.Size = new System.Drawing.Size(23, 13);
-            this.label281.TabIndex = 14;
-            this.label281.Text = "kN";
-            // 
-            // groupBox66
-            // 
-            this.groupBox66.Controls.Add(this.txt_left_total_Mz);
-            this.groupBox66.Controls.Add(this.txt_left_total_Mx);
-            this.groupBox66.Controls.Add(this.label325);
-            this.groupBox66.Controls.Add(this.label326);
-            this.groupBox66.Controls.Add(this.txt_left_total_vert_reac);
-            this.groupBox66.Controls.Add(this.dgv_left_des_frc);
-            this.groupBox66.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox66.Location = new System.Drawing.Point(9, 246);
-            this.groupBox66.Name = "groupBox66";
-            this.groupBox66.Size = new System.Drawing.Size(459, 172);
-            this.groupBox66.TabIndex = 24;
-            this.groupBox66.TabStop = false;
-            this.groupBox66.Text = "Left End Design Forces";
-            // 
-            // txt_left_total_Mz
-            // 
-            this.txt_left_total_Mz.Location = new System.Drawing.Point(365, 139);
-            this.txt_left_total_Mz.Name = "txt_left_total_Mz";
-            this.txt_left_total_Mz.ReadOnly = true;
-            this.txt_left_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_left_total_Mz.TabIndex = 6;
-            this.txt_left_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_left_total_Mx
-            // 
-            this.txt_left_total_Mx.Location = new System.Drawing.Point(261, 139);
-            this.txt_left_total_Mx.Name = "txt_left_total_Mx";
-            this.txt_left_total_Mx.ReadOnly = true;
-            this.txt_left_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_left_total_Mx.TabIndex = 5;
-            this.txt_left_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label325
-            // 
-            this.label325.AutoSize = true;
-            this.label325.Location = new System.Drawing.Point(95, 142);
-            this.label325.Name = "label325";
-            this.label325.Size = new System.Drawing.Size(47, 13);
-            this.label325.TabIndex = 4;
-            this.label325.Text = "Total";
-            // 
-            // label326
-            // 
-            this.label326.AutoSize = true;
-            this.label326.Location = new System.Drawing.Point(7, 142);
-            this.label326.Name = "label326";
-            this.label326.Size = new System.Drawing.Size(71, 13);
-            this.label326.TabIndex = 3;
-            this.label326.Text = "Left End";
-            // 
-            // txt_left_total_vert_reac
-            // 
-            this.txt_left_total_vert_reac.Location = new System.Drawing.Point(148, 139);
-            this.txt_left_total_vert_reac.Name = "txt_left_total_vert_reac";
-            this.txt_left_total_vert_reac.ReadOnly = true;
-            this.txt_left_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_left_total_vert_reac.TabIndex = 2;
-            this.txt_left_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // dgv_left_des_frc
-            // 
-            this.dgv_left_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
-            this.dgv_left_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_left_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.col_Max_Mx,
-            this.col_Max_Mz});
-            this.dgv_left_des_frc.Location = new System.Drawing.Point(6, 19);
-            this.dgv_left_des_frc.Name = "dgv_left_des_frc";
-            this.dgv_left_des_frc.ReadOnly = true;
-            this.dgv_left_des_frc.Size = new System.Drawing.Size(448, 114);
-            this.dgv_left_des_frc.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "Joints";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle54;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Vertical Reaction (Ton)";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 118;
-            // 
-            // col_Max_Mx
-            // 
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Max_Mx.DefaultCellStyle = dataGridViewCellStyle55;
-            this.col_Max_Mx.HeaderText = "Maximum    Mx   (Ton-m)";
-            this.col_Max_Mx.Name = "col_Max_Mx";
-            this.col_Max_Mx.ReadOnly = true;
-            this.col_Max_Mx.Width = 108;
-            // 
-            // col_Max_Mz
-            // 
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Max_Mz.DefaultCellStyle = dataGridViewCellStyle56;
-            this.col_Max_Mz.HeaderText = "Maximum   Mz  (Ton-m)";
-            this.col_Max_Mz.Name = "col_Max_Mz";
-            this.col_Max_Mz.ReadOnly = true;
-            this.col_Max_Mz.Width = 108;
-            // 
-            // groupBox67
-            // 
-            this.groupBox67.Controls.Add(this.label327);
-            this.groupBox67.Controls.Add(this.txt_dead_kN_m);
-            this.groupBox67.Controls.Add(this.label354);
-            this.groupBox67.Controls.Add(this.txt_dead_vert_reac_kN);
-            this.groupBox67.Controls.Add(this.label370);
-            this.groupBox67.Controls.Add(this.label371);
-            this.groupBox67.Controls.Add(this.dgv_left_end_design_forces);
-            this.groupBox67.Controls.Add(this.txt_dead_vert_reac_ton);
-            this.groupBox67.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox67.Location = new System.Drawing.Point(328, 11);
-            this.groupBox67.Name = "groupBox67";
-            this.groupBox67.Size = new System.Drawing.Size(294, 229);
-            this.groupBox67.TabIndex = 22;
-            this.groupBox67.TabStop = false;
-            this.groupBox67.Text = "Support Reactions from Dead Load";
-            // 
-            // label327
-            // 
-            this.label327.AutoSize = true;
-            this.label327.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label327.Location = new System.Drawing.Point(243, 207);
-            this.label327.Name = "label327";
-            this.label327.Size = new System.Drawing.Size(39, 13);
-            this.label327.TabIndex = 28;
-            this.label327.Text = "kN/m";
-            // 
-            // txt_dead_kN_m
-            // 
-            this.txt_dead_kN_m.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_dead_kN_m.ForeColor = System.Drawing.Color.Blue;
-            this.txt_dead_kN_m.Location = new System.Drawing.Point(124, 204);
-            this.txt_dead_kN_m.Name = "txt_dead_kN_m";
-            this.txt_dead_kN_m.Size = new System.Drawing.Size(113, 20);
-            this.txt_dead_kN_m.TabIndex = 27;
-            this.txt_dead_kN_m.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label354
-            // 
-            this.label354.AutoSize = true;
-            this.label354.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label354.Location = new System.Drawing.Point(243, 185);
-            this.label354.Name = "label354";
-            this.label354.Size = new System.Drawing.Size(23, 13);
-            this.label354.TabIndex = 26;
-            this.label354.Text = "kN";
-            // 
-            // txt_dead_vert_reac_kN
-            // 
-            this.txt_dead_vert_reac_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_dead_vert_reac_kN.ForeColor = System.Drawing.Color.Blue;
-            this.txt_dead_vert_reac_kN.Location = new System.Drawing.Point(124, 182);
-            this.txt_dead_vert_reac_kN.Name = "txt_dead_vert_reac_kN";
-            this.txt_dead_vert_reac_kN.Size = new System.Drawing.Size(113, 20);
-            this.txt_dead_vert_reac_kN.TabIndex = 25;
-            this.txt_dead_vert_reac_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label370
-            // 
-            this.label370.AutoSize = true;
-            this.label370.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label370.Location = new System.Drawing.Point(44, 158);
-            this.label370.Name = "label370";
-            this.label370.Size = new System.Drawing.Size(55, 13);
-            this.label370.TabIndex = 24;
-            this.label370.Text = "Total ";
-            // 
-            // label371
-            // 
-            this.label371.AutoSize = true;
-            this.label371.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label371.Location = new System.Drawing.Point(243, 158);
-            this.label371.Name = "label371";
-            this.label371.Size = new System.Drawing.Size(31, 13);
-            this.label371.TabIndex = 23;
-            this.label371.Text = "Ton";
-            // 
-            // dgv_left_end_design_forces
-            // 
-            this.dgv_left_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_left_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
-            this.dgv_left_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_left_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.col_Joints,
-            this.col_Vert_Reaction});
-            this.dgv_left_end_design_forces.Location = new System.Drawing.Point(18, 19);
-            this.dgv_left_end_design_forces.Name = "dgv_left_end_design_forces";
-            this.dgv_left_end_design_forces.ReadOnly = true;
-            this.dgv_left_end_design_forces.Size = new System.Drawing.Size(258, 130);
-            this.dgv_left_end_design_forces.TabIndex = 1;
-            // 
-            // col_Joints
-            // 
-            this.col_Joints.HeaderText = "Joints";
-            this.col_Joints.Name = "col_Joints";
-            this.col_Joints.ReadOnly = true;
-            this.col_Joints.Width = 63;
-            // 
-            // col_Vert_Reaction
-            // 
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.col_Vert_Reaction.DefaultCellStyle = dataGridViewCellStyle58;
-            this.col_Vert_Reaction.HeaderText = "Vertical Reaction (Ton)";
-            this.col_Vert_Reaction.Name = "col_Vert_Reaction";
-            this.col_Vert_Reaction.ReadOnly = true;
-            this.col_Vert_Reaction.Width = 118;
-            // 
-            // txt_dead_vert_reac_ton
-            // 
-            this.txt_dead_vert_reac_ton.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_dead_vert_reac_ton.ForeColor = System.Drawing.Color.Blue;
-            this.txt_dead_vert_reac_ton.Location = new System.Drawing.Point(124, 155);
-            this.txt_dead_vert_reac_ton.Name = "txt_dead_vert_reac_ton";
-            this.txt_dead_vert_reac_ton.Size = new System.Drawing.Size(113, 20);
-            this.txt_dead_vert_reac_ton.TabIndex = 11;
-            this.txt_dead_vert_reac_ton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_dead_vert_reac_ton.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // groupBox68
-            // 
-            this.groupBox68.Controls.Add(this.txt_live_kN_m);
-            this.groupBox68.Controls.Add(this.label388);
-            this.groupBox68.Controls.Add(this.txt_live_vert_rec_kN);
-            this.groupBox68.Controls.Add(this.label399);
-            this.groupBox68.Controls.Add(this.label400);
-            this.groupBox68.Controls.Add(this.dgv_right_end_design_forces);
-            this.groupBox68.Controls.Add(this.txt_live_vert_rec_Ton);
-            this.groupBox68.Controls.Add(this.label401);
-            this.groupBox68.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox68.Location = new System.Drawing.Point(628, 11);
-            this.groupBox68.Name = "groupBox68";
-            this.groupBox68.Size = new System.Drawing.Size(286, 229);
-            this.groupBox68.TabIndex = 23;
-            this.groupBox68.TabStop = false;
-            this.groupBox68.Text = "Support Reactions from Live Load";
-            // 
-            // txt_live_kN_m
-            // 
-            this.txt_live_kN_m.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_live_kN_m.ForeColor = System.Drawing.Color.Blue;
-            this.txt_live_kN_m.Location = new System.Drawing.Point(120, 204);
-            this.txt_live_kN_m.Name = "txt_live_kN_m";
-            this.txt_live_kN_m.Size = new System.Drawing.Size(113, 20);
-            this.txt_live_kN_m.TabIndex = 28;
-            this.txt_live_kN_m.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label388
-            // 
-            this.label388.AutoSize = true;
-            this.label388.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label388.Location = new System.Drawing.Point(239, 207);
-            this.label388.Name = "label388";
-            this.label388.Size = new System.Drawing.Size(39, 13);
-            this.label388.TabIndex = 27;
-            this.label388.Text = "kN/m";
-            // 
-            // txt_live_vert_rec_kN
-            // 
-            this.txt_live_vert_rec_kN.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_live_vert_rec_kN.ForeColor = System.Drawing.Color.Blue;
-            this.txt_live_vert_rec_kN.Location = new System.Drawing.Point(120, 181);
-            this.txt_live_vert_rec_kN.Name = "txt_live_vert_rec_kN";
-            this.txt_live_vert_rec_kN.Size = new System.Drawing.Size(113, 20);
-            this.txt_live_vert_rec_kN.TabIndex = 26;
-            this.txt_live_vert_rec_kN.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label399
-            // 
-            this.label399.AutoSize = true;
-            this.label399.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label399.Location = new System.Drawing.Point(239, 180);
-            this.label399.Name = "label399";
-            this.label399.Size = new System.Drawing.Size(23, 13);
-            this.label399.TabIndex = 25;
-            this.label399.Text = "kN";
-            // 
-            // label400
-            // 
-            this.label400.AutoSize = true;
-            this.label400.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label400.Location = new System.Drawing.Point(55, 158);
-            this.label400.Name = "label400";
-            this.label400.Size = new System.Drawing.Size(55, 13);
-            this.label400.TabIndex = 24;
-            this.label400.Text = "Total ";
-            // 
-            // dgv_right_end_design_forces
-            // 
-            this.dgv_right_end_design_forces.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_end_design_forces.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
-            this.dgv_right_end_design_forces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_right_end_design_forces.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dgv_right_end_design_forces.Location = new System.Drawing.Point(17, 19);
-            this.dgv_right_end_design_forces.Name = "dgv_right_end_design_forces";
-            this.dgv_right_end_design_forces.ReadOnly = true;
-            this.dgv_right_end_design_forces.Size = new System.Drawing.Size(255, 130);
-            this.dgv_right_end_design_forces.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Joints";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle60;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Vertical Reaction (Ton)";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 118;
-            // 
-            // txt_live_vert_rec_Ton
-            // 
-            this.txt_live_vert_rec_Ton.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.txt_live_vert_rec_Ton.ForeColor = System.Drawing.Color.Blue;
-            this.txt_live_vert_rec_Ton.Location = new System.Drawing.Point(120, 155);
-            this.txt_live_vert_rec_Ton.Name = "txt_live_vert_rec_Ton";
-            this.txt_live_vert_rec_Ton.Size = new System.Drawing.Size(113, 20);
-            this.txt_live_vert_rec_Ton.TabIndex = 22;
-            this.txt_live_vert_rec_Ton.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_live_vert_rec_Ton.TextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
-            // 
-            // label401
-            // 
-            this.label401.AutoSize = true;
-            this.label401.Font = new System.Drawing.Font("Lucida Console", 9.75F);
-            this.label401.Location = new System.Drawing.Point(239, 158);
-            this.label401.Name = "label401";
-            this.label401.Size = new System.Drawing.Size(31, 13);
-            this.label401.TabIndex = 14;
-            this.label401.Text = "Ton";
-            // 
-            // g
-            // 
-            this.g.Controls.Add(this.dgv_right_des_frc);
-            this.g.Controls.Add(this.txt_right_total_Mz);
-            this.g.Controls.Add(this.txt_right_total_Mx);
-            this.g.Controls.Add(this.label402);
-            this.g.Controls.Add(this.label442);
-            this.g.Controls.Add(this.txt_right_total_vert_reac);
-            this.g.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.g.Location = new System.Drawing.Point(470, 246);
-            this.g.Name = "g";
-            this.g.Size = new System.Drawing.Size(447, 172);
-            this.g.TabIndex = 25;
-            this.g.TabStop = false;
-            this.g.Text = "Right End Design Forces";
-            // 
-            // dgv_right_des_frc
-            // 
-            this.dgv_right_des_frc.AllowUserToResizeColumns = false;
-            dataGridViewCellStyle61.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle61.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle61.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle61.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle61.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle61.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle61.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_right_des_frc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle61;
-            this.dgv_right_des_frc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_right_des_frc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.dgv_right_des_frc.Location = new System.Drawing.Point(6, 19);
-            this.dgv_right_des_frc.Name = "dgv_right_des_frc";
-            this.dgv_right_des_frc.ReadOnly = true;
-            this.dgv_right_des_frc.Size = new System.Drawing.Size(427, 114);
-            this.dgv_right_des_frc.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Joints";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 63;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle62;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Vertical Reaction (Ton)";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 118;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewCellStyle63.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle63;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Maximum    Mx   (Ton-m)";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 108;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewCellStyle64.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle64;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Maximum   Mz  (Ton-m)";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 108;
-            // 
-            // txt_right_total_Mz
-            // 
-            this.txt_right_total_Mz.Location = new System.Drawing.Point(364, 139);
-            this.txt_right_total_Mz.Name = "txt_right_total_Mz";
-            this.txt_right_total_Mz.ReadOnly = true;
-            this.txt_right_total_Mz.Size = new System.Drawing.Size(76, 20);
-            this.txt_right_total_Mz.TabIndex = 6;
-            this.txt_right_total_Mz.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_right_total_Mx
-            // 
-            this.txt_right_total_Mx.Location = new System.Drawing.Point(260, 139);
-            this.txt_right_total_Mx.Name = "txt_right_total_Mx";
-            this.txt_right_total_Mx.ReadOnly = true;
-            this.txt_right_total_Mx.Size = new System.Drawing.Size(76, 20);
-            this.txt_right_total_Mx.TabIndex = 5;
-            this.txt_right_total_Mx.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label402
-            // 
-            this.label402.AutoSize = true;
-            this.label402.Location = new System.Drawing.Point(94, 142);
-            this.label402.Name = "label402";
-            this.label402.Size = new System.Drawing.Size(47, 13);
-            this.label402.TabIndex = 4;
-            this.label402.Text = "Total";
-            // 
-            // label442
-            // 
-            this.label442.AutoSize = true;
-            this.label442.Location = new System.Drawing.Point(6, 142);
-            this.label442.Name = "label442";
-            this.label442.Size = new System.Drawing.Size(79, 13);
-            this.label442.TabIndex = 3;
-            this.label442.Text = "Right End";
-            // 
-            // txt_right_total_vert_reac
-            // 
-            this.txt_right_total_vert_reac.Location = new System.Drawing.Point(147, 139);
-            this.txt_right_total_vert_reac.Name = "txt_right_total_vert_reac";
-            this.txt_right_total_vert_reac.ReadOnly = true;
-            this.txt_right_total_vert_reac.Size = new System.Drawing.Size(76, 20);
-            this.txt_right_total_vert_reac.TabIndex = 2;
-            this.txt_right_total_vert_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // tabPage19
+            // 
+            this.tabPage19.Controls.Add(this.tabControl7);
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage19.Size = new System.Drawing.Size(998, 388);
+            this.tabPage19.TabIndex = 2;
+            this.tabPage19.Text = "Reaction Forces";
+            this.tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // tabControl7
+            // 
+            this.tabControl7.Controls.Add(this.tabPage20);
+            this.tabControl7.Controls.Add(this.tabPage21);
+            this.tabControl7.Controls.Add(this.tabPage22);
+            this.tabControl7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl7.Location = new System.Drawing.Point(3, 3);
+            this.tabControl7.Name = "tabControl7";
+            this.tabControl7.SelectedIndex = 0;
+            this.tabControl7.Size = new System.Drawing.Size(992, 382);
+            this.tabControl7.TabIndex = 0;
+            // 
+            // tabPage20
+            // 
+            this.tabPage20.AutoScroll = true;
+            this.tabPage20.Controls.Add(this.uC_SR_DL);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(984, 356);
+            this.tabPage20.TabIndex = 0;
+            this.tabPage20.Text = "Support Reactions [DL]";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // uC_SR_DL
+            // 
+            this.uC_SR_DL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uC_SR_DL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_SR_DL.Location = new System.Drawing.Point(3, 9);
+            this.uC_SR_DL.Name = "uC_SR_DL";
+            this.uC_SR_DL.Size = new System.Drawing.Size(839, 443);
+            this.uC_SR_DL.TabIndex = 0;
+            // 
+            // tabPage21
+            // 
+            this.tabPage21.AutoScroll = true;
+            this.tabPage21.Controls.Add(this.uC_SR_LL);
+            this.tabPage21.Location = new System.Drawing.Point(4, 22);
+            this.tabPage21.Name = "tabPage21";
+            this.tabPage21.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage21.Size = new System.Drawing.Size(984, 356);
+            this.tabPage21.TabIndex = 1;
+            this.tabPage21.Text = "Support Reactions [LL]";
+            this.tabPage21.UseVisualStyleBackColor = true;
+            // 
+            // uC_SR_LL
+            // 
+            this.uC_SR_LL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.uC_SR_LL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_SR_LL.Location = new System.Drawing.Point(4, 3);
+            this.uC_SR_LL.Name = "uC_SR_LL";
+            this.uC_SR_LL.Size = new System.Drawing.Size(839, 443);
+            this.uC_SR_LL.TabIndex = 0;
+            // 
+            // tabPage22
+            // 
+            this.tabPage22.AutoScroll = true;
+            this.tabPage22.Controls.Add(this.uC_MaxSR);
+            this.tabPage22.Location = new System.Drawing.Point(4, 22);
+            this.tabPage22.Name = "tabPage22";
+            this.tabPage22.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage22.Size = new System.Drawing.Size(984, 356);
+            this.tabPage22.TabIndex = 2;
+            this.tabPage22.Text = "Max Forces";
+            this.tabPage22.UseVisualStyleBackColor = true;
+            // 
+            // uC_MaxSR
+            // 
+            this.uC_MaxSR.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_MaxSR.Location = new System.Drawing.Point(10, 16);
+            this.uC_MaxSR.Name = "uC_MaxSR";
+            this.uC_MaxSR.Size = new System.Drawing.Size(870, 462);
+            this.uC_MaxSR.TabIndex = 0;
             // 
             // tab_stage
             // 
@@ -7847,9 +8390,9 @@
             this.tab_stage.Location = new System.Drawing.Point(4, 22);
             this.tab_stage.Name = "tab_stage";
             this.tab_stage.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_stage.Size = new System.Drawing.Size(955, 634);
+            this.tab_stage.Size = new System.Drawing.Size(1014, 634);
             this.tab_stage.TabIndex = 7;
-            this.tab_stage.Text = "Non-Linear Analysis";
+            this.tab_stage.Text = "Stage Analysis";
             this.tab_stage.UseVisualStyleBackColor = true;
             // 
             // tc_stage
@@ -7864,7 +8407,7 @@
             this.tc_stage.Location = new System.Drawing.Point(3, 3);
             this.tc_stage.Name = "tc_stage";
             this.tc_stage.SelectedIndex = 0;
-            this.tc_stage.Size = new System.Drawing.Size(949, 628);
+            this.tc_stage.Size = new System.Drawing.Size(1008, 628);
             this.tc_stage.TabIndex = 0;
             // 
             // tab_stage1
@@ -7873,7 +8416,7 @@
             this.tab_stage1.Location = new System.Drawing.Point(4, 22);
             this.tab_stage1.Name = "tab_stage1";
             this.tab_stage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_stage1.Size = new System.Drawing.Size(941, 602);
+            this.tab_stage1.Size = new System.Drawing.Size(1000, 602);
             this.tab_stage1.TabIndex = 0;
             this.tab_stage1.Text = "STAGE 1";
             this.tab_stage1.UseVisualStyleBackColor = true;
@@ -7884,11 +8427,12 @@
             this.uC_Stage_Extradosed1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_Stage_Extradosed1.Location = new System.Drawing.Point(3, 3);
             this.uC_Stage_Extradosed1.Name = "uC_Stage_Extradosed1";
-            this.uC_Stage_Extradosed1.Size = new System.Drawing.Size(935, 596);
+            this.uC_Stage_Extradosed1.Size = new System.Drawing.Size(994, 596);
             this.uC_Stage_Extradosed1.TabIndex = 0;
             this.uC_Stage_Extradosed1.OnButtonClick += new System.EventHandler(this.btn_stage_data_Click);
             this.uC_Stage_Extradosed1.OnComboboxSelectedIndexChanged += new System.EventHandler(this.cmb_long_open_stage_file_SelectedIndexChanged);
             this.uC_Stage_Extradosed1.OnTextBoxTextChanged += new System.EventHandler(this.txt_dead_vert_reac_ton_TextChanged);
+            this.uC_Stage_Extradosed1.OnEmodTextChanged += new System.EventHandler(this.uC_Stage_Extradosed1_OnEmodTextChanged);
             // 
             // tab_stage2
             // 
@@ -7896,7 +8440,7 @@
             this.tab_stage2.Location = new System.Drawing.Point(4, 22);
             this.tab_stage2.Name = "tab_stage2";
             this.tab_stage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_stage2.Size = new System.Drawing.Size(941, 602);
+            this.tab_stage2.Size = new System.Drawing.Size(1000, 602);
             this.tab_stage2.TabIndex = 1;
             this.tab_stage2.Text = "STAGE 2";
             this.tab_stage2.UseVisualStyleBackColor = true;
@@ -7907,17 +8451,18 @@
             this.uC_Stage_Extradosed2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_Stage_Extradosed2.Location = new System.Drawing.Point(3, 3);
             this.uC_Stage_Extradosed2.Name = "uC_Stage_Extradosed2";
-            this.uC_Stage_Extradosed2.Size = new System.Drawing.Size(935, 596);
+            this.uC_Stage_Extradosed2.Size = new System.Drawing.Size(994, 596);
             this.uC_Stage_Extradosed2.TabIndex = 1;
             this.uC_Stage_Extradosed2.OnButtonClick += new System.EventHandler(this.btn_stage_data_Click);
             this.uC_Stage_Extradosed2.OnComboboxSelectedIndexChanged += new System.EventHandler(this.cmb_long_open_stage_file_SelectedIndexChanged);
+            this.uC_Stage_Extradosed2.OnEmodTextChanged += new System.EventHandler(this.uC_Stage_Extradosed1_OnEmodTextChanged);
             // 
             // tab_stage3
             // 
             this.tab_stage3.Controls.Add(this.uC_Stage_Extradosed3);
             this.tab_stage3.Location = new System.Drawing.Point(4, 22);
             this.tab_stage3.Name = "tab_stage3";
-            this.tab_stage3.Size = new System.Drawing.Size(941, 602);
+            this.tab_stage3.Size = new System.Drawing.Size(1000, 602);
             this.tab_stage3.TabIndex = 2;
             this.tab_stage3.Text = "STAGE 3";
             this.tab_stage3.UseVisualStyleBackColor = true;
@@ -7928,17 +8473,18 @@
             this.uC_Stage_Extradosed3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_Stage_Extradosed3.Location = new System.Drawing.Point(0, 0);
             this.uC_Stage_Extradosed3.Name = "uC_Stage_Extradosed3";
-            this.uC_Stage_Extradosed3.Size = new System.Drawing.Size(941, 602);
+            this.uC_Stage_Extradosed3.Size = new System.Drawing.Size(1000, 602);
             this.uC_Stage_Extradosed3.TabIndex = 1;
             this.uC_Stage_Extradosed3.OnButtonClick += new System.EventHandler(this.btn_stage_data_Click);
             this.uC_Stage_Extradosed3.OnComboboxSelectedIndexChanged += new System.EventHandler(this.cmb_long_open_stage_file_SelectedIndexChanged);
+            this.uC_Stage_Extradosed3.OnEmodTextChanged += new System.EventHandler(this.uC_Stage_Extradosed1_OnEmodTextChanged);
             // 
             // tab_stage4
             // 
             this.tab_stage4.Controls.Add(this.uC_Stage_Extradosed4);
             this.tab_stage4.Location = new System.Drawing.Point(4, 22);
             this.tab_stage4.Name = "tab_stage4";
-            this.tab_stage4.Size = new System.Drawing.Size(941, 602);
+            this.tab_stage4.Size = new System.Drawing.Size(1000, 602);
             this.tab_stage4.TabIndex = 3;
             this.tab_stage4.Text = "STAGE 4";
             this.tab_stage4.UseVisualStyleBackColor = true;
@@ -7949,17 +8495,18 @@
             this.uC_Stage_Extradosed4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_Stage_Extradosed4.Location = new System.Drawing.Point(0, 0);
             this.uC_Stage_Extradosed4.Name = "uC_Stage_Extradosed4";
-            this.uC_Stage_Extradosed4.Size = new System.Drawing.Size(941, 602);
+            this.uC_Stage_Extradosed4.Size = new System.Drawing.Size(1000, 602);
             this.uC_Stage_Extradosed4.TabIndex = 1;
             this.uC_Stage_Extradosed4.OnButtonClick += new System.EventHandler(this.btn_stage_data_Click);
             this.uC_Stage_Extradosed4.OnComboboxSelectedIndexChanged += new System.EventHandler(this.cmb_long_open_stage_file_SelectedIndexChanged);
+            this.uC_Stage_Extradosed4.OnEmodTextChanged += new System.EventHandler(this.uC_Stage_Extradosed1_OnEmodTextChanged);
             // 
             // tab_stage5
             // 
             this.tab_stage5.Controls.Add(this.uC_Stage_Extradosed5);
             this.tab_stage5.Location = new System.Drawing.Point(4, 22);
             this.tab_stage5.Name = "tab_stage5";
-            this.tab_stage5.Size = new System.Drawing.Size(941, 602);
+            this.tab_stage5.Size = new System.Drawing.Size(1000, 602);
             this.tab_stage5.TabIndex = 4;
             this.tab_stage5.Text = "STAGE 5";
             this.tab_stage5.UseVisualStyleBackColor = true;
@@ -7970,30 +8517,51 @@
             this.uC_Stage_Extradosed5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uC_Stage_Extradosed5.Location = new System.Drawing.Point(0, 0);
             this.uC_Stage_Extradosed5.Name = "uC_Stage_Extradosed5";
-            this.uC_Stage_Extradosed5.Size = new System.Drawing.Size(941, 602);
+            this.uC_Stage_Extradosed5.Size = new System.Drawing.Size(1000, 602);
             this.uC_Stage_Extradosed5.TabIndex = 1;
             this.uC_Stage_Extradosed5.OnButtonClick += new System.EventHandler(this.btn_stage_data_Click);
             this.uC_Stage_Extradosed5.OnComboboxSelectedIndexChanged += new System.EventHandler(this.cmb_long_open_stage_file_SelectedIndexChanged);
+            this.uC_Stage_Extradosed5.OnEmodTextChanged += new System.EventHandler(this.uC_Stage_Extradosed1_OnEmodTextChanged);
             // 
             // tab_designSage
             // 
-            this.tab_designSage.Controls.Add(this.label249);
-            this.tab_designSage.Controls.Add(this.cmb_design_stage);
+            this.tab_designSage.Controls.Add(this.uC_Res);
+            this.tab_designSage.Controls.Add(this.panel7);
             this.tab_designSage.Location = new System.Drawing.Point(4, 22);
             this.tab_designSage.Name = "tab_designSage";
-            this.tab_designSage.Size = new System.Drawing.Size(941, 602);
+            this.tab_designSage.Size = new System.Drawing.Size(1000, 602);
             this.tab_designSage.TabIndex = 5;
-            this.tab_designSage.Text = "DESIGN STAGE ";
+            this.tab_designSage.Text = "Design Forces";
             this.tab_designSage.UseVisualStyleBackColor = true;
             // 
-            // label249
+            // uC_Res
             // 
-            this.label249.AutoSize = true;
-            this.label249.Location = new System.Drawing.Point(255, 158);
-            this.label249.Name = "label249";
-            this.label249.Size = new System.Drawing.Size(122, 13);
-            this.label249.TabIndex = 81;
-            this.label249.Text = "Select Design Stage";
+            this.uC_Res.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Res.Location = new System.Drawing.Point(3, 64);
+            this.uC_Res.Name = "uC_Res";
+            this.uC_Res.Size = new System.Drawing.Size(919, 513);
+            this.uC_Res.TabIndex = 83;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.btn_result_summary);
+            this.panel7.Controls.Add(this.cmb_design_stage);
+            this.panel7.Controls.Add(this.label249);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1000, 58);
+            this.panel7.TabIndex = 82;
+            // 
+            // btn_result_summary
+            // 
+            this.btn_result_summary.Location = new System.Drawing.Point(501, 13);
+            this.btn_result_summary.Name = "btn_result_summary";
+            this.btn_result_summary.Size = new System.Drawing.Size(260, 23);
+            this.btn_result_summary.TabIndex = 82;
+            this.btn_result_summary.Text = "Open Analysis Result Summary";
+            this.btn_result_summary.UseVisualStyleBackColor = true;
+            this.btn_result_summary.Click += new System.EventHandler(this.btn_result_summary_Click);
             // 
             // cmb_design_stage
             // 
@@ -8006,20 +8574,29 @@
             "STAGE 3 ANALYSIS",
             "STAGE 4 ANALYSIS",
             "STAGE 5 ANALYSIS"});
-            this.cmb_design_stage.Location = new System.Drawing.Point(399, 155);
+            this.cmb_design_stage.Location = new System.Drawing.Point(202, 15);
             this.cmb_design_stage.Name = "cmb_design_stage";
             this.cmb_design_stage.Size = new System.Drawing.Size(254, 21);
             this.cmb_design_stage.TabIndex = 80;
             this.cmb_design_stage.SelectedIndexChanged += new System.EventHandler(this.cmb_design_stage_SelectedIndexChanged);
+            // 
+            // label249
+            // 
+            this.label249.AutoSize = true;
+            this.label249.Location = new System.Drawing.Point(58, 18);
+            this.label249.Name = "label249";
+            this.label249.Size = new System.Drawing.Size(122, 13);
+            this.label249.TabIndex = 81;
+            this.label249.Text = "Select Design Stage";
             // 
             // tab_worksheet_design
             // 
             this.tab_worksheet_design.Controls.Add(this.tc_bridge_deck);
             this.tab_worksheet_design.Location = new System.Drawing.Point(4, 22);
             this.tab_worksheet_design.Name = "tab_worksheet_design";
-            this.tab_worksheet_design.Size = new System.Drawing.Size(969, 666);
+            this.tab_worksheet_design.Size = new System.Drawing.Size(1028, 666);
             this.tab_worksheet_design.TabIndex = 1;
-            this.tab_worksheet_design.Text = "Design of Bridge Box Girder";
+            this.tab_worksheet_design.Text = "Design of Bridge Super Structure";
             this.tab_worksheet_design.UseVisualStyleBackColor = true;
             // 
             // tc_bridge_deck
@@ -8030,7 +8607,7 @@
             this.tc_bridge_deck.Location = new System.Drawing.Point(0, 0);
             this.tc_bridge_deck.Name = "tc_bridge_deck";
             this.tc_bridge_deck.SelectedIndex = 0;
-            this.tc_bridge_deck.Size = new System.Drawing.Size(969, 666);
+            this.tc_bridge_deck.Size = new System.Drawing.Size(1028, 666);
             this.tc_bridge_deck.TabIndex = 16;
             // 
             // tabPage17
@@ -8039,7 +8616,7 @@
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
             this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(961, 640);
+            this.tabPage17.Size = new System.Drawing.Size(1020, 640);
             this.tabPage17.TabIndex = 0;
             this.tabPage17.Text = "Bridge Deck Design";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -8055,7 +8632,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(955, 634);
+            this.tabControl1.Size = new System.Drawing.Size(1014, 634);
             this.tabControl1.TabIndex = 15;
             // 
             // tabPage10
@@ -8066,7 +8643,7 @@
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(947, 608);
+            this.tabPage10.Size = new System.Drawing.Size(1006, 608);
             this.tabPage10.TabIndex = 0;
             this.tabPage10.Text = "PSC Box Girder";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -8136,7 +8713,7 @@
             this.uC_BoxGirder1.iApp = null;
             this.uC_BoxGirder1.Location = new System.Drawing.Point(3, 3);
             this.uC_BoxGirder1.Name = "uC_BoxGirder1";
-            this.uC_BoxGirder1.Size = new System.Drawing.Size(941, 535);
+            this.uC_BoxGirder1.Size = new System.Drawing.Size(1000, 535);
             this.uC_BoxGirder1.Span = 48.75D;
             this.uC_BoxGirder1.TabIndex = 12;
             this.uC_BoxGirder1.Width = 9.75D;
@@ -8149,7 +8726,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(3, 538);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 67);
+            this.panel2.Size = new System.Drawing.Size(1000, 67);
             this.panel2.TabIndex = 13;
             this.panel2.Visible = false;
             // 
@@ -8183,7 +8760,7 @@
             this.tabPage12.Location = new System.Drawing.Point(4, 22);
             this.tabPage12.Name = "tabPage12";
             this.tabPage12.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage12.Size = new System.Drawing.Size(947, 608);
+            this.tabPage12.Size = new System.Drawing.Size(170, 16);
             this.tabPage12.TabIndex = 2;
             this.tabPage12.Text = "Cable Friction";
             this.tabPage12.UseVisualStyleBackColor = true;
@@ -8218,7 +8795,7 @@
             this.tabPage13.Location = new System.Drawing.Point(4, 22);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage13.Size = new System.Drawing.Size(947, 608);
+            this.tabPage13.Size = new System.Drawing.Size(170, 16);
             this.tabPage13.TabIndex = 3;
             this.tabPage13.Text = "Temperature Stresses";
             this.tabPage13.UseVisualStyleBackColor = true;
@@ -8253,7 +8830,7 @@
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage14.Size = new System.Drawing.Size(947, 608);
+            this.tabPage14.Size = new System.Drawing.Size(170, 16);
             this.tabPage14.TabIndex = 4;
             this.tabPage14.Text = "Cross Diaphragms, End Anchorage , Blister Block";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -8288,7 +8865,7 @@
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
             this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage15.Size = new System.Drawing.Size(947, 608);
+            this.tabPage15.Size = new System.Drawing.Size(170, 16);
             this.tabPage15.TabIndex = 5;
             this.tabPage15.Text = "Structural Design";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -8322,7 +8899,7 @@
             this.tabPage18.Location = new System.Drawing.Point(4, 22);
             this.tabPage18.Name = "tabPage18";
             this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage18.Size = new System.Drawing.Size(961, 640);
+            this.tabPage18.Size = new System.Drawing.Size(184, 48);
             this.tabPage18.TabIndex = 1;
             this.tabPage18.Text = "Cable Structure Design";
             this.tabPage18.UseVisualStyleBackColor = true;
@@ -8341,9 +8918,10 @@
             this.uC_CableStayedDesign1.Location = new System.Drawing.Point(3, 3);
             this.uC_CableStayedDesign1.Name = "uC_CableStayedDesign1";
             this.uC_CableStayedDesign1.Results = null;
-            this.uC_CableStayedDesign1.Size = new System.Drawing.Size(955, 634);
+            this.uC_CableStayedDesign1.Size = new System.Drawing.Size(178, 42);
             this.uC_CableStayedDesign1.TabIndex = 0;
             this.uC_CableStayedDesign1.user_path = "";
+            this.uC_CableStayedDesign1.OnButtonClick += new System.EventHandler(this.uC_CableStayedDesign1_OnButtonClick);
             this.uC_CableStayedDesign1.Load += new System.EventHandler(this.uC_CableStayedDesign1_Load);
             // 
             // tab_Segment
@@ -8353,7 +8931,7 @@
             this.tab_Segment.Location = new System.Drawing.Point(4, 22);
             this.tab_Segment.Name = "tab_Segment";
             this.tab_Segment.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Segment.Size = new System.Drawing.Size(969, 666);
+            this.tab_Segment.Size = new System.Drawing.Size(1028, 666);
             this.tab_Segment.TabIndex = 3;
             this.tab_Segment.Text = "Alternative Design in Text Format";
             this.tab_Segment.UseVisualStyleBackColor = true;
@@ -8367,7 +8945,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 3);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(963, 627);
+            this.tabControl2.Size = new System.Drawing.Size(1022, 627);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage1
@@ -8376,7 +8954,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(955, 601);
+            this.tabPage1.Size = new System.Drawing.Size(1014, 601);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General Design Data [Tab 1]";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -8460,7 +9038,7 @@
             this.groupBox19.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox19.Location = new System.Drawing.Point(3, 3);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(949, 595);
+            this.groupBox19.Size = new System.Drawing.Size(1008, 595);
             this.groupBox19.TabIndex = 0;
             this.groupBox19.TabStop = false;
             // 
@@ -9656,7 +10234,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(955, 601);
+            this.tabPage2.Size = new System.Drawing.Size(178, 9);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pre Stressing Data [Tab 2]";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -9672,7 +10250,7 @@
             this.groupBox22.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox22.Location = new System.Drawing.Point(3, 3);
             this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(949, 595);
+            this.groupBox22.Size = new System.Drawing.Size(172, 3);
             this.groupBox22.TabIndex = 1;
             this.groupBox22.TabStop = false;
             // 
@@ -10102,6 +10680,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackgroundImage = global::LimitStateMethod.Properties.Resources.BOX_tab2;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox3.Location = new System.Drawing.Point(-1, 38);
@@ -10781,7 +11360,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(955, 601);
+            this.tabPage4.Size = new System.Drawing.Size(178, 9);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Reinforcement Data";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -10795,7 +11374,7 @@
             this.groupBox38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox38.Location = new System.Drawing.Point(3, 497);
             this.groupBox38.Name = "groupBox38";
-            this.groupBox38.Size = new System.Drawing.Size(949, 101);
+            this.groupBox38.Size = new System.Drawing.Size(172, 0);
             this.groupBox38.TabIndex = 6;
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "Area for Steel Reinforcement";
@@ -11017,49 +11596,53 @@
             this.tabControl6.Location = new System.Drawing.Point(3, 3);
             this.tabControl6.Name = "tabControl6";
             this.tabControl6.SelectedIndex = 0;
-            this.tabControl6.Size = new System.Drawing.Size(949, 494);
+            this.tabControl6.Size = new System.Drawing.Size(172, 494);
             this.tabControl6.TabIndex = 7;
             // 
             // tabPage3
             // 
+            this.tabPage3.BackgroundImage = global::LimitStateMethod.Properties.Resources.Reinforcement1;
             this.tabPage3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(941, 468);
+            this.tabPage3.Size = new System.Drawing.Size(164, 468);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Details 1";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // tabPage7
             // 
+            this.tabPage7.BackgroundImage = global::LimitStateMethod.Properties.Resources.Reinforcement2;
             this.tabPage7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(941, 468);
+            this.tabPage7.Size = new System.Drawing.Size(1000, 468);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "Details 2";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
+            this.tabPage8.BackgroundImage = global::LimitStateMethod.Properties.Resources.Reinforcement3;
             this.tabPage8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(941, 468);
+            this.tabPage8.Size = new System.Drawing.Size(1000, 468);
             this.tabPage8.TabIndex = 2;
             this.tabPage8.Text = "Details 3";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // tabPage9
             // 
+            this.tabPage9.BackgroundImage = global::LimitStateMethod.Properties.Resources.Reinforcement4;
             this.tabPage9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(941, 468);
+            this.tabPage9.Size = new System.Drawing.Size(1000, 468);
             this.tabPage9.TabIndex = 3;
             this.tabPage9.Text = "Details 4";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -11072,7 +11655,7 @@
             this.panel1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(3, 630);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(963, 33);
+            this.panel1.Size = new System.Drawing.Size(1022, 33);
             this.panel1.TabIndex = 2;
             // 
             // btn_segment_report
@@ -11101,7 +11684,7 @@
             this.tab_rcc_abutment.Location = new System.Drawing.Point(4, 22);
             this.tab_rcc_abutment.Name = "tab_rcc_abutment";
             this.tab_rcc_abutment.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_rcc_abutment.Size = new System.Drawing.Size(969, 666);
+            this.tab_rcc_abutment.Size = new System.Drawing.Size(1028, 666);
             this.tab_rcc_abutment.TabIndex = 5;
             this.tab_rcc_abutment.Text = "Design of RCC Abutment";
             this.tab_rcc_abutment.UseVisualStyleBackColor = true;
@@ -11115,7 +11698,7 @@
             this.tc_abutment.Location = new System.Drawing.Point(3, 3);
             this.tc_abutment.Name = "tc_abutment";
             this.tc_abutment.SelectedIndex = 0;
-            this.tc_abutment.Size = new System.Drawing.Size(963, 660);
+            this.tc_abutment.Size = new System.Drawing.Size(1022, 660);
             this.tc_abutment.TabIndex = 2;
             // 
             // tab_AbutmentLSM
@@ -11124,7 +11707,7 @@
             this.tab_AbutmentLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentLSM.Name = "tab_AbutmentLSM";
             this.tab_AbutmentLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentLSM.Size = new System.Drawing.Size(955, 634);
+            this.tab_AbutmentLSM.Size = new System.Drawing.Size(1014, 634);
             this.tab_AbutmentLSM.TabIndex = 0;
             this.tab_AbutmentLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentLSM.UseVisualStyleBackColor = true;
@@ -11142,7 +11725,7 @@
             this.uC_RCC_Abut1.Location = new System.Drawing.Point(3, 3);
             this.uC_RCC_Abut1.Name = "uC_RCC_Abut1";
             this.uC_RCC_Abut1.Overhang = 0.65D;
-            this.uC_RCC_Abut1.Size = new System.Drawing.Size(949, 628);
+            this.uC_RCC_Abut1.Size = new System.Drawing.Size(1008, 628);
             this.uC_RCC_Abut1.TabIndex = 0;
             this.uC_RCC_Abut1.Width = 551D;
             // 
@@ -11152,7 +11735,7 @@
             this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
             this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(955, 634);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentOpenLSM.TabIndex = 1;
             this.tab_AbutmentOpenLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
@@ -11188,7 +11771,7 @@
             this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
             this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
             this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
-            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(949, 628);
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(172, 36);
             this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentOpenLS1.Span = "25.0";
             this.uC_AbutmentOpenLS1.TabIndex = 0;
@@ -11201,7 +11784,7 @@
             this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
             this.tab_AbutmentPileLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(955, 634);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentPileLSM.TabIndex = 2;
             this.tab_AbutmentPileLSM.Text = "Abutment Design with Pile Foundation in LSM";
             this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
@@ -11244,7 +11827,7 @@
             this.uC_AbutmentPileLS1.Show_Title = false;
             this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
             this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
-            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(949, 628);
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(172, 36);
             this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentPileLS1.Span = "12.687";
             this.uC_AbutmentPileLS1.TabIndex = 0;
@@ -11257,7 +11840,7 @@
             this.tab_pier.Location = new System.Drawing.Point(4, 22);
             this.tab_pier.Name = "tab_pier";
             this.tab_pier.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_pier.Size = new System.Drawing.Size(969, 666);
+            this.tab_pier.Size = new System.Drawing.Size(1028, 666);
             this.tab_pier.TabIndex = 4;
             this.tab_pier.Text = "Design of RCC Pier";
             this.tab_pier.UseVisualStyleBackColor = true;
@@ -11266,12 +11849,11 @@
             // 
             this.tc_pier.Controls.Add(this.tab_PierOpenLSM);
             this.tc_pier.Controls.Add(this.tab_PierPileLSM);
-            this.tc_pier.Controls.Add(this.tab_PierWSM);
             this.tc_pier.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_pier.Location = new System.Drawing.Point(3, 3);
             this.tc_pier.Name = "tc_pier";
             this.tc_pier.SelectedIndex = 0;
-            this.tc_pier.Size = new System.Drawing.Size(963, 660);
+            this.tc_pier.Size = new System.Drawing.Size(1022, 660);
             this.tc_pier.TabIndex = 121;
             // 
             // tab_PierOpenLSM
@@ -11280,7 +11862,7 @@
             this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
             this.tab_PierOpenLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierOpenLSM.Size = new System.Drawing.Size(955, 634);
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(1014, 634);
             this.tab_PierOpenLSM.TabIndex = 2;
             this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
             this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
@@ -11321,7 +11903,7 @@
             this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
             this.uC_PierOpenLS1.Show_Title = false;
             this.uC_PierOpenLS1.SIDL_Force = "723.52";
-            this.uC_PierOpenLS1.Size = new System.Drawing.Size(949, 628);
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(1008, 628);
             this.uC_PierOpenLS1.SkewAngle = "0.0";
             this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
             this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
@@ -11338,7 +11920,7 @@
             this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierPileLSM.Name = "tab_PierPileLSM";
             this.tab_PierPileLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierPileLSM.Size = new System.Drawing.Size(955, 634);
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_PierPileLSM.TabIndex = 1;
             this.tab_PierPileLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierPileLSM.UseVisualStyleBackColor = true;
@@ -11360,2794 +11942,9 @@
             this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
             this.uC_PierDesignLSM1.Show_Note = false;
             this.uC_PierDesignLSM1.Show_Title = false;
-            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(949, 628);
+            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(172, 36);
             this.uC_PierDesignLSM1.TabIndex = 0;
             this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
-            // 
-            // tab_PierWSM
-            // 
-            this.tab_PierWSM.Controls.Add(this.tabControl3);
-            this.tab_PierWSM.Controls.Add(this.panel4);
-            this.tab_PierWSM.Location = new System.Drawing.Point(4, 22);
-            this.tab_PierWSM.Name = "tab_PierWSM";
-            this.tab_PierWSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierWSM.Size = new System.Drawing.Size(955, 634);
-            this.tab_PierWSM.TabIndex = 0;
-            this.tab_PierWSM.Text = "Design of RCC Pier in Working Stress Method";
-            this.tab_PierWSM.UseVisualStyleBackColor = true;
-            // 
-            // tabControl3
-            // 
-            this.tabControl3.Controls.Add(this.tab_des_form1);
-            this.tabControl3.Controls.Add(this.tab_des_form2);
-            this.tabControl3.Controls.Add(this.tab_des_Diagram);
-            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.tabControl3.Location = new System.Drawing.Point(3, 3);
-            this.tabControl3.Name = "tabControl3";
-            this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(949, 572);
-            this.tabControl3.TabIndex = 10;
-            // 
-            // tab_des_form1
-            // 
-            this.tab_des_form1.Controls.Add(this.label246);
-            this.tab_des_form1.Controls.Add(this.label231);
-            this.tab_des_form1.Controls.Add(this.label232);
-            this.tab_des_form1.Controls.Add(this.groupBox42);
-            this.tab_des_form1.Controls.Add(this.label355);
-            this.tab_des_form1.Controls.Add(this.groupBox39);
-            this.tab_des_form1.Controls.Add(this.label362);
-            this.tab_des_form1.Controls.Add(this.label363);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_H7);
-            this.tab_des_form1.Controls.Add(this.label364);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_gama_c);
-            this.tab_des_form1.Controls.Add(this.label365);
-            this.tab_des_form1.Controls.Add(this.label366);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_vehi_load);
-            this.tab_des_form1.Controls.Add(this.label367);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_NR);
-            this.tab_des_form1.Controls.Add(this.label368);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_NP);
-            this.tab_des_form1.Controls.Add(this.label369);
-            this.tab_des_form1.Controls.Add(this.groupBox40);
-            this.tab_des_form1.Controls.Add(this.label389);
-            this.tab_des_form1.Controls.Add(this.label390);
-            this.tab_des_form1.Controls.Add(this.label391);
-            this.tab_des_form1.Controls.Add(this.label392);
-            this.tab_des_form1.Controls.Add(this.label393);
-            this.tab_des_form1.Controls.Add(this.label394);
-            this.tab_des_form1.Controls.Add(this.label395);
-            this.tab_des_form1.Controls.Add(this.label396);
-            this.tab_des_form1.Controls.Add(this.label397);
-            this.tab_des_form1.Controls.Add(this.label398);
-            this.tab_des_form1.Controls.Add(this.label403);
-            this.tab_des_form1.Controls.Add(this.label404);
-            this.tab_des_form1.Controls.Add(this.label405);
-            this.tab_des_form1.Controls.Add(this.label406);
-            this.tab_des_form1.Controls.Add(this.label407);
-            this.tab_des_form1.Controls.Add(this.label408);
-            this.tab_des_form1.Controls.Add(this.label409);
-            this.tab_des_form1.Controls.Add(this.label410);
-            this.tab_des_form1.Controls.Add(this.label411);
-            this.tab_des_form1.Controls.Add(this.label412);
-            this.tab_des_form1.Controls.Add(this.label413);
-            this.tab_des_form1.Controls.Add(this.label414);
-            this.tab_des_form1.Controls.Add(this.label415);
-            this.tab_des_form1.Controls.Add(this.label416);
-            this.tab_des_form1.Controls.Add(this.label417);
-            this.tab_des_form1.Controls.Add(this.label418);
-            this.tab_des_form1.Controls.Add(this.label419);
-            this.tab_des_form1.Controls.Add(this.label420);
-            this.tab_des_form1.Controls.Add(this.groupBox41);
-            this.tab_des_form1.Controls.Add(this.groupBox43);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_overall_height);
-            this.tab_des_form1.Controls.Add(this.label433);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier___B);
-            this.tab_des_form1.Controls.Add(this.label434);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B13);
-            this.tab_des_form1.Controls.Add(this.label435);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B12);
-            this.tab_des_form1.Controls.Add(this.label436);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B11);
-            this.tab_des_form1.Controls.Add(this.label437);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B10);
-            this.tab_des_form1.Controls.Add(this.label438);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B9);
-            this.tab_des_form1.Controls.Add(this.label439);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_H6);
-            this.tab_des_form1.Controls.Add(this.label440);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_H5);
-            this.tab_des_form1.Controls.Add(this.label441);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B8);
-            this.tab_des_form1.Controls.Add(this.label445);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_H4);
-            this.tab_des_form1.Controls.Add(this.label446);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_H3);
-            this.tab_des_form1.Controls.Add(this.label447);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B7);
-            this.tab_des_form1.Controls.Add(this.label448);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_Form_Lev);
-            this.tab_des_form1.Controls.Add(this.label449);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_RL5);
-            this.tab_des_form1.Controls.Add(this.label450);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_RL4);
-            this.tab_des_form1.Controls.Add(this.label451);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_RL3);
-            this.tab_des_form1.Controls.Add(this.label452);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_RL2);
-            this.tab_des_form1.Controls.Add(this.label453);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_RL1);
-            this.tab_des_form1.Controls.Add(this.label454);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B6);
-            this.tab_des_form1.Controls.Add(this.label455);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_B5);
-            this.tab_des_form1.Controls.Add(this.label456);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_DS);
-            this.tab_des_form1.Controls.Add(this.label457);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_DMG);
-            this.tab_des_form1.Controls.Add(this.label458);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_NMG);
-            this.tab_des_form1.Controls.Add(this.label459);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_Hp);
-            this.tab_des_form1.Controls.Add(this.label460);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_Wp);
-            this.tab_des_form1.Controls.Add(this.label461);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier__B);
-            this.tab_des_form1.Controls.Add(this.label462);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_CW);
-            this.tab_des_form1.Controls.Add(this.label463);
-            this.tab_des_form1.Controls.Add(this.txt_RCC_Pier_L);
-            this.tab_des_form1.Controls.Add(this.label464);
-            this.tab_des_form1.Location = new System.Drawing.Point(4, 22);
-            this.tab_des_form1.Name = "tab_des_form1";
-            this.tab_des_form1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form1.Size = new System.Drawing.Size(941, 546);
-            this.tab_des_form1.TabIndex = 0;
-            this.tab_des_form1.Text = "Design Input Data [Form1]";
-            this.tab_des_form1.UseVisualStyleBackColor = true;
-            // 
-            // label246
-            // 
-            this.label246.AutoSize = true;
-            this.label246.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label246.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label246.ForeColor = System.Drawing.Color.Blue;
-            this.label246.Location = new System.Drawing.Point(637, 28);
-            this.label246.Name = "label246";
-            this.label246.Size = new System.Drawing.Size(221, 18);
-            this.label246.TabIndex = 127;
-            this.label246.Text = "Blue Color values are calculated";
-            // 
-            // label231
-            // 
-            this.label231.AutoSize = true;
-            this.label231.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label231.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label231.ForeColor = System.Drawing.Color.Red;
-            this.label231.Location = new System.Drawing.Point(516, 4);
-            this.label231.Name = "label231";
-            this.label231.Size = new System.Drawing.Size(218, 18);
-            this.label231.TabIndex = 126;
-            this.label231.Text = "Default Sample Data are shown";
-            // 
-            // label232
-            // 
-            this.label232.AutoSize = true;
-            this.label232.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label232.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label232.ForeColor = System.Drawing.Color.Green;
-            this.label232.Location = new System.Drawing.Point(364, 4);
-            this.label232.Name = "label232";
-            this.label232.Size = new System.Drawing.Size(135, 18);
-            this.label232.TabIndex = 125;
-            this.label232.Text = "All User Input Data";
-            // 
-            // groupBox42
-            // 
-            this.groupBox42.Controls.Add(this.txt_rcc_pier_m);
-            this.groupBox42.Controls.Add(this.label117);
-            this.groupBox42.Controls.Add(this.cmb_rcc_pier_fy);
-            this.groupBox42.Controls.Add(this.label236);
-            this.groupBox42.Controls.Add(this.cmb_rcc_pier_fck);
-            this.groupBox42.Controls.Add(this.label244);
-            this.groupBox42.Controls.Add(this.label250);
-            this.groupBox42.Controls.Add(this.label251);
-            this.groupBox42.Controls.Add(this.txt_rcc_pier_sigma_st);
-            this.groupBox42.Controls.Add(this.label253);
-            this.groupBox42.Controls.Add(this.label254);
-            this.groupBox42.Controls.Add(this.txt_rcc_pier_sigma_c);
-            this.groupBox42.Controls.Add(this.label258);
-            this.groupBox42.Controls.Add(this.label259);
-            this.groupBox42.Location = new System.Drawing.Point(572, 49);
-            this.groupBox42.Name = "groupBox42";
-            this.groupBox42.Size = new System.Drawing.Size(364, 144);
-            this.groupBox42.TabIndex = 115;
-            this.groupBox42.TabStop = false;
-            // 
-            // txt_rcc_pier_m
-            // 
-            this.txt_rcc_pier_m.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_rcc_pier_m.Location = new System.Drawing.Point(222, 117);
-            this.txt_rcc_pier_m.Name = "txt_rcc_pier_m";
-            this.txt_rcc_pier_m.Size = new System.Drawing.Size(65, 22);
-            this.txt_rcc_pier_m.TabIndex = 88;
-            this.txt_rcc_pier_m.Text = "10";
-            this.txt_rcc_pier_m.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label117
-            // 
-            this.label117.AutoSize = true;
-            this.label117.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label117.Location = new System.Drawing.Point(293, 43);
-            this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(67, 13);
-            this.label117.TabIndex = 81;
-            this.label117.Text = "N/sq.mm";
-            // 
-            // cmb_rcc_pier_fy
-            // 
-            this.cmb_rcc_pier_fy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_rcc_pier_fy.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_rcc_pier_fy.FormattingEnabled = true;
-            this.cmb_rcc_pier_fy.Items.AddRange(new object[] {
-            "240",
-            "415",
-            "500"});
-            this.cmb_rcc_pier_fy.Location = new System.Drawing.Point(226, 67);
-            this.cmb_rcc_pier_fy.Name = "cmb_rcc_pier_fy";
-            this.cmb_rcc_pier_fy.Size = new System.Drawing.Size(61, 21);
-            this.cmb_rcc_pier_fy.TabIndex = 15;
-            this.cmb_rcc_pier_fy.SelectedIndexChanged += new System.EventHandler(this.cmb_concrete_grade_steel_grade_SelectedIndexChanged);
-            // 
-            // label236
-            // 
-            this.label236.AutoSize = true;
-            this.label236.Location = new System.Drawing.Point(5, 42);
-            this.label236.Name = "label236";
-            this.label236.Size = new System.Drawing.Size(211, 13);
-            this.label236.TabIndex = 79;
-            this.label236.Text = "Allowable Flexural Stress in Concrete [σ_c] ";
-            // 
-            // cmb_rcc_pier_fck
-            // 
-            this.cmb_rcc_pier_fck.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_rcc_pier_fck.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmb_rcc_pier_fck.FormattingEnabled = true;
-            this.cmb_rcc_pier_fck.Items.AddRange(new object[] {
-            "15",
-            "20",
-            "25",
-            "30",
-            "35",
-            "40",
-            "45",
-            "50",
-            "55",
-            "60"});
-            this.cmb_rcc_pier_fck.Location = new System.Drawing.Point(226, 12);
-            this.cmb_rcc_pier_fck.Name = "cmb_rcc_pier_fck";
-            this.cmb_rcc_pier_fck.Size = new System.Drawing.Size(61, 21);
-            this.cmb_rcc_pier_fck.TabIndex = 13;
-            this.cmb_rcc_pier_fck.SelectedIndexChanged += new System.EventHandler(this.cmb_concrete_grade_steel_grade_SelectedIndexChanged);
-            // 
-            // label244
-            // 
-            this.label244.AutoSize = true;
-            this.label244.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label244.Location = new System.Drawing.Point(202, 69);
-            this.label244.Name = "label244";
-            this.label244.Size = new System.Drawing.Size(23, 14);
-            this.label244.TabIndex = 59;
-            this.label244.Text = "Fe";
-            // 
-            // label250
-            // 
-            this.label250.AutoSize = true;
-            this.label250.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label250.Location = new System.Drawing.Point(207, 14);
-            this.label250.Name = "label250";
-            this.label250.Size = new System.Drawing.Size(18, 14);
-            this.label250.TabIndex = 58;
-            this.label250.Text = "M";
-            // 
-            // label251
-            // 
-            this.label251.AutoSize = true;
-            this.label251.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label251.Location = new System.Drawing.Point(293, 100);
-            this.label251.Name = "label251";
-            this.label251.Size = new System.Drawing.Size(67, 13);
-            this.label251.TabIndex = 57;
-            this.label251.Text = "N/sq.mm";
-            // 
-            // txt_rcc_pier_sigma_st
-            // 
-            this.txt_rcc_pier_sigma_st.BackColor = System.Drawing.Color.White;
-            this.txt_rcc_pier_sigma_st.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_rcc_pier_sigma_st.ForeColor = System.Drawing.Color.Blue;
-            this.txt_rcc_pier_sigma_st.Location = new System.Drawing.Point(222, 94);
-            this.txt_rcc_pier_sigma_st.Name = "txt_rcc_pier_sigma_st";
-            this.txt_rcc_pier_sigma_st.ReadOnly = true;
-            this.txt_rcc_pier_sigma_st.Size = new System.Drawing.Size(65, 22);
-            this.txt_rcc_pier_sigma_st.TabIndex = 16;
-            this.txt_rcc_pier_sigma_st.Text = "200";
-            this.txt_rcc_pier_sigma_st.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label253
-            // 
-            this.label253.AutoSize = true;
-            this.label253.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label253.Location = new System.Drawing.Point(5, 99);
-            this.label253.Name = "label253";
-            this.label253.Size = new System.Drawing.Size(159, 13);
-            this.label253.TabIndex = 55;
-            this.label253.Text = "Permissible Stress in Steel [σ_st]";
-            // 
-            // label254
-            // 
-            this.label254.AutoSize = true;
-            this.label254.Location = new System.Drawing.Point(5, 74);
-            this.label254.Name = "label254";
-            this.label254.Size = new System.Drawing.Size(80, 13);
-            this.label254.TabIndex = 15;
-            this.label254.Text = "Steel Grade [fy]";
-            // 
-            // txt_rcc_pier_sigma_c
-            // 
-            this.txt_rcc_pier_sigma_c.BackColor = System.Drawing.Color.White;
-            this.txt_rcc_pier_sigma_c.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_rcc_pier_sigma_c.ForeColor = System.Drawing.Color.Blue;
-            this.txt_rcc_pier_sigma_c.Location = new System.Drawing.Point(222, 39);
-            this.txt_rcc_pier_sigma_c.Name = "txt_rcc_pier_sigma_c";
-            this.txt_rcc_pier_sigma_c.ReadOnly = true;
-            this.txt_rcc_pier_sigma_c.Size = new System.Drawing.Size(65, 22);
-            this.txt_rcc_pier_sigma_c.TabIndex = 14;
-            this.txt_rcc_pier_sigma_c.Text = "83.3";
-            this.txt_rcc_pier_sigma_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label258
-            // 
-            this.label258.AutoSize = true;
-            this.label258.Location = new System.Drawing.Point(5, 19);
-            this.label258.Name = "label258";
-            this.label258.Size = new System.Drawing.Size(106, 13);
-            this.label258.TabIndex = 13;
-            this.label258.Text = "Concrete Grade [fck]";
-            // 
-            // label259
-            // 
-            this.label259.AutoSize = true;
-            this.label259.Location = new System.Drawing.Point(5, 121);
-            this.label259.Name = "label259";
-            this.label259.Size = new System.Drawing.Size(90, 13);
-            this.label259.TabIndex = 41;
-            this.label259.Text = "Modular Ratio [m]";
-            // 
-            // label355
-            // 
-            this.label355.AutoSize = true;
-            this.label355.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label355.Location = new System.Drawing.Point(233, 242);
-            this.label355.Name = "label355";
-            this.label355.Size = new System.Drawing.Size(51, 14);
-            this.label355.TabIndex = 107;
-            this.label355.Text = "kN/cu.m";
-            // 
-            // groupBox39
-            // 
-            this.groupBox39.Controls.Add(this.label356);
-            this.groupBox39.Controls.Add(this.txt_RCC_Pier_W1_supp_reac);
-            this.groupBox39.Controls.Add(this.label357);
-            this.groupBox39.Controls.Add(this.label358);
-            this.groupBox39.Controls.Add(this.txt_RCC_Pier_Mz1);
-            this.groupBox39.Controls.Add(this.label359);
-            this.groupBox39.Controls.Add(this.label360);
-            this.groupBox39.Controls.Add(this.txt_RCC_Pier_Mx1);
-            this.groupBox39.Controls.Add(this.label361);
-            this.groupBox39.Location = new System.Drawing.Point(572, 386);
-            this.groupBox39.Name = "groupBox39";
-            this.groupBox39.Size = new System.Drawing.Size(363, 131);
-            this.groupBox39.TabIndex = 90;
-            this.groupBox39.TabStop = false;
-            this.groupBox39.Text = "From Design Forces we have";
-            // 
-            // label356
-            // 
-            this.label356.AutoSize = true;
-            this.label356.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label356.Location = new System.Drawing.Point(292, 22);
-            this.label356.Name = "label356";
-            this.label356.Size = new System.Drawing.Size(24, 13);
-            this.label356.TabIndex = 104;
-            this.label356.Text = "kN";
-            // 
-            // txt_RCC_Pier_W1_supp_reac
-            // 
-            this.txt_RCC_Pier_W1_supp_reac.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_W1_supp_reac.ForeColor = System.Drawing.Color.Red;
-            this.txt_RCC_Pier_W1_supp_reac.Location = new System.Drawing.Point(212, 19);
-            this.txt_RCC_Pier_W1_supp_reac.Name = "txt_RCC_Pier_W1_supp_reac";
-            this.txt_RCC_Pier_W1_supp_reac.Size = new System.Drawing.Size(74, 20);
-            this.txt_RCC_Pier_W1_supp_reac.TabIndex = 5;
-            this.txt_RCC_Pier_W1_supp_reac.Text = " ";
-            this.txt_RCC_Pier_W1_supp_reac.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label357
-            // 
-            this.label357.AutoSize = true;
-            this.label357.Location = new System.Drawing.Point(5, 22);
-            this.label357.Name = "label357";
-            this.label357.Size = new System.Drawing.Size(201, 13);
-            this.label357.TabIndex = 105;
-            this.label357.Text = "Total Support Reaction on The Pier [W1]";
-            // 
-            // label358
-            // 
-            this.label358.AutoSize = true;
-            this.label358.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label358.Location = new System.Drawing.Point(292, 97);
-            this.label358.Name = "label358";
-            this.label358.Size = new System.Drawing.Size(42, 13);
-            this.label358.TabIndex = 101;
-            this.label358.Text = "kN-m";
-            // 
-            // txt_RCC_Pier_Mz1
-            // 
-            this.txt_RCC_Pier_Mz1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_Mz1.ForeColor = System.Drawing.Color.Red;
-            this.txt_RCC_Pier_Mz1.Location = new System.Drawing.Point(211, 96);
-            this.txt_RCC_Pier_Mz1.Name = "txt_RCC_Pier_Mz1";
-            this.txt_RCC_Pier_Mz1.Size = new System.Drawing.Size(75, 20);
-            this.txt_RCC_Pier_Mz1.TabIndex = 4;
-            this.txt_RCC_Pier_Mz1.Text = " ";
-            this.txt_RCC_Pier_Mz1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label359
-            // 
-            this.label359.AutoSize = true;
-            this.label359.Location = new System.Drawing.Point(7, 90);
-            this.label359.Name = "label359";
-            this.label359.Size = new System.Drawing.Size(134, 26);
-            this.label359.TabIndex = 102;
-            this.label359.Text = "Moment at Supports in \r\nTransverse Direction [Mz1]";
-            // 
-            // label360
-            // 
-            this.label360.AutoSize = true;
-            this.label360.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label360.Location = new System.Drawing.Point(290, 63);
-            this.label360.Name = "label360";
-            this.label360.Size = new System.Drawing.Size(42, 13);
-            this.label360.TabIndex = 98;
-            this.label360.Text = "kN-m";
-            // 
-            // txt_RCC_Pier_Mx1
-            // 
-            this.txt_RCC_Pier_Mx1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_Mx1.ForeColor = System.Drawing.Color.Red;
-            this.txt_RCC_Pier_Mx1.Location = new System.Drawing.Point(212, 60);
-            this.txt_RCC_Pier_Mx1.Name = "txt_RCC_Pier_Mx1";
-            this.txt_RCC_Pier_Mx1.Size = new System.Drawing.Size(75, 20);
-            this.txt_RCC_Pier_Mx1.TabIndex = 3;
-            this.txt_RCC_Pier_Mx1.Text = " ";
-            this.txt_RCC_Pier_Mx1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label361
-            // 
-            this.label361.AutoSize = true;
-            this.label361.Location = new System.Drawing.Point(7, 54);
-            this.label361.Name = "label361";
-            this.label361.Size = new System.Drawing.Size(138, 26);
-            this.label361.TabIndex = 99;
-            this.label361.Text = "Moment at Supports in \r\nLongitudinal Direction [Mx1]";
-            // 
-            // label362
-            // 
-            this.label362.AutoSize = true;
-            this.label362.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label362.ForeColor = System.Drawing.Color.Red;
-            this.label362.Location = new System.Drawing.Point(13, 9);
-            this.label362.Name = "label362";
-            this.label362.Size = new System.Drawing.Size(334, 13);
-            this.label362.TabIndex = 106;
-            this.label362.Text = "Refer to the \'Diagram\' Tab for various Dimensions";
-            // 
-            // label363
-            // 
-            this.label363.AutoSize = true;
-            this.label363.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label363.Location = new System.Drawing.Point(535, 334);
-            this.label363.Name = "label363";
-            this.label363.Size = new System.Drawing.Size(19, 13);
-            this.label363.TabIndex = 103;
-            this.label363.Text = "m";
-            // 
-            // txt_RCC_Pier_H7
-            // 
-            this.txt_RCC_Pier_H7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H7.Location = new System.Drawing.Point(476, 331);
-            this.txt_RCC_Pier_H7.Name = "txt_RCC_Pier_H7";
-            this.txt_RCC_Pier_H7.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_H7.TabIndex = 31;
-            this.txt_RCC_Pier_H7.Text = "6.560";
-            this.txt_RCC_Pier_H7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label364
-            // 
-            this.label364.AutoSize = true;
-            this.label364.Location = new System.Drawing.Point(282, 334);
-            this.label364.Name = "label364";
-            this.label364.Size = new System.Drawing.Size(121, 13);
-            this.label364.TabIndex = 104;
-            this.label364.Text = "Total Height of Pier [H7]";
-            // 
-            // txt_RCC_Pier_gama_c
-            // 
-            this.txt_RCC_Pier_gama_c.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_gama_c.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_gama_c.Location = new System.Drawing.Point(183, 236);
-            this.txt_RCC_Pier_gama_c.Name = "txt_RCC_Pier_gama_c";
-            this.txt_RCC_Pier_gama_c.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_gama_c.TabIndex = 8;
-            this.txt_RCC_Pier_gama_c.Text = "24";
-            this.txt_RCC_Pier_gama_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label365
-            // 
-            this.label365.AutoSize = true;
-            this.label365.Location = new System.Drawing.Point(17, 239);
-            this.label365.Name = "label365";
-            this.label365.Size = new System.Drawing.Size(148, 13);
-            this.label365.TabIndex = 101;
-            this.label365.Text = "Unit Weight of Concrete [γ_c]";
-            // 
-            // label366
-            // 
-            this.label366.AutoSize = true;
-            this.label366.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label366.Location = new System.Drawing.Point(862, 523);
-            this.label366.Name = "label366";
-            this.label366.Size = new System.Drawing.Size(24, 13);
-            this.label366.TabIndex = 98;
-            this.label366.Text = "kN";
-            // 
-            // txt_RCC_Pier_vehi_load
-            // 
-            this.txt_RCC_Pier_vehi_load.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_vehi_load.Location = new System.Drawing.Point(805, 520);
-            this.txt_RCC_Pier_vehi_load.Name = "txt_RCC_Pier_vehi_load";
-            this.txt_RCC_Pier_vehi_load.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_vehi_load.TabIndex = 36;
-            this.txt_RCC_Pier_vehi_load.Text = "1000.0";
-            this.txt_RCC_Pier_vehi_load.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label367
-            // 
-            this.label367.AutoSize = true;
-            this.label367.Location = new System.Drawing.Point(578, 523);
-            this.label367.Name = "label367";
-            this.label367.Size = new System.Drawing.Size(119, 13);
-            this.label367.TabIndex = 99;
-            this.label367.Text = "Total Vehicle Live Load";
-            // 
-            // txt_RCC_Pier_NR
-            // 
-            this.txt_RCC_Pier_NR.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_NR.Location = new System.Drawing.Point(183, 378);
-            this.txt_RCC_Pier_NR.Name = "txt_RCC_Pier_NR";
-            this.txt_RCC_Pier_NR.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_NR.TabIndex = 11;
-            this.txt_RCC_Pier_NR.Text = "2";
-            this.txt_RCC_Pier_NR.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label368
-            // 
-            this.label368.AutoSize = true;
-            this.label368.Location = new System.Drawing.Point(17, 381);
-            this.label368.Name = "label368";
-            this.label368.Size = new System.Drawing.Size(91, 13);
-            this.label368.TabIndex = 96;
-            this.label368.Text = "Nos. of Row [NR]";
-            // 
-            // txt_RCC_Pier_NP
-            // 
-            this.txt_RCC_Pier_NP.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_NP.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_NP.Location = new System.Drawing.Point(183, 355);
-            this.txt_RCC_Pier_NP.Name = "txt_RCC_Pier_NP";
-            this.txt_RCC_Pier_NP.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_NP.TabIndex = 10;
-            this.txt_RCC_Pier_NP.Text = "2";
-            this.txt_RCC_Pier_NP.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label369
-            // 
-            this.label369.AutoSize = true;
-            this.label369.Location = new System.Drawing.Point(16, 358);
-            this.label369.Name = "label369";
-            this.label369.Size = new System.Drawing.Size(157, 13);
-            this.label369.TabIndex = 93;
-            this.label369.Text = "Nos. of Pedestals per Row [NP]";
-            // 
-            // groupBox40
-            // 
-            this.groupBox40.Controls.Add(this.label315);
-            this.groupBox40.Controls.Add(this.label316);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_tdia);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_rdia);
-            this.groupBox40.Controls.Add(this.label321);
-            this.groupBox40.Controls.Add(this.label507);
-            this.groupBox40.Controls.Add(this.label372);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_fck_2);
-            this.groupBox40.Controls.Add(this.label373);
-            this.groupBox40.Controls.Add(this.label374);
-            this.groupBox40.Controls.Add(this.label375);
-            this.groupBox40.Controls.Add(this.label376);
-            this.groupBox40.Controls.Add(this.label377);
-            this.groupBox40.Controls.Add(this.label378);
-            this.groupBox40.Controls.Add(this.label379);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_fy2);
-            this.groupBox40.Controls.Add(this.label380);
-            this.groupBox40.Controls.Add(this.label381);
-            this.groupBox40.Controls.Add(this.label382);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_D);
-            this.groupBox40.Controls.Add(this.label383);
-            this.groupBox40.Controls.Add(this.label384);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_b);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_d_dash);
-            this.groupBox40.Controls.Add(this.label385);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_p1);
-            this.groupBox40.Controls.Add(this.label386);
-            this.groupBox40.Controls.Add(this.txt_RCC_Pier_p2);
-            this.groupBox40.Controls.Add(this.label387);
-            this.groupBox40.Location = new System.Drawing.Point(572, 196);
-            this.groupBox40.Name = "groupBox40";
-            this.groupBox40.Size = new System.Drawing.Size(363, 188);
-            this.groupBox40.TabIndex = 90;
-            this.groupBox40.TabStop = false;
-            this.groupBox40.Text = "Steel Reinforcements";
-            // 
-            // label315
-            // 
-            this.label315.AutoSize = true;
-            this.label315.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label315.Location = new System.Drawing.Point(293, 166);
-            this.label315.Name = "label315";
-            this.label315.Size = new System.Drawing.Size(31, 13);
-            this.label315.TabIndex = 107;
-            this.label315.Text = "mm";
-            // 
-            // label316
-            // 
-            this.label316.AutoSize = true;
-            this.label316.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label316.Location = new System.Drawing.Point(293, 141);
-            this.label316.Name = "label316";
-            this.label316.Size = new System.Drawing.Size(31, 13);
-            this.label316.TabIndex = 108;
-            this.label316.Text = "mm";
-            // 
-            // txt_RCC_Pier_tdia
-            // 
-            this.txt_RCC_Pier_tdia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_tdia.Location = new System.Drawing.Point(235, 163);
-            this.txt_RCC_Pier_tdia.Name = "txt_RCC_Pier_tdia";
-            this.txt_RCC_Pier_tdia.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_tdia.TabIndex = 105;
-            this.txt_RCC_Pier_tdia.Text = "12";
-            this.txt_RCC_Pier_tdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_RCC_Pier_rdia
-            // 
-            this.txt_RCC_Pier_rdia.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_rdia.Location = new System.Drawing.Point(235, 138);
-            this.txt_RCC_Pier_rdia.Name = "txt_RCC_Pier_rdia";
-            this.txt_RCC_Pier_rdia.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_rdia.TabIndex = 106;
-            this.txt_RCC_Pier_rdia.Text = "32";
-            this.txt_RCC_Pier_rdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label321
-            // 
-            this.label321.AutoSize = true;
-            this.label321.Location = new System.Drawing.Point(9, 166);
-            this.label321.Name = "label321";
-            this.label321.Size = new System.Drawing.Size(147, 13);
-            this.label321.TabIndex = 109;
-            this.label321.Text = "Lateral Tie Bar Diameter [tdia]";
-            // 
-            // label507
-            // 
-            this.label507.AutoSize = true;
-            this.label507.Location = new System.Drawing.Point(9, 141);
-            this.label507.Name = "label507";
-            this.label507.Size = new System.Drawing.Size(166, 13);
-            this.label507.TabIndex = 110;
-            this.label507.Text = "Reinforcement Bar Diameter [rdia]";
-            // 
-            // label372
-            // 
-            this.label372.AutoSize = true;
-            this.label372.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label372.Location = new System.Drawing.Point(208, 223);
-            this.label372.Name = "label372";
-            this.label372.Size = new System.Drawing.Size(17, 13);
-            this.label372.TabIndex = 92;
-            this.label372.Text = "M";
-            this.label372.Visible = false;
-            // 
-            // txt_RCC_Pier_fck_2
-            // 
-            this.txt_RCC_Pier_fck_2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_fck_2.Location = new System.Drawing.Point(234, 220);
-            this.txt_RCC_Pier_fck_2.Name = "txt_RCC_Pier_fck_2";
-            this.txt_RCC_Pier_fck_2.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_fck_2.TabIndex = 3;
-            this.txt_RCC_Pier_fck_2.Text = "30";
-            this.txt_RCC_Pier_fck_2.Visible = false;
-            // 
-            // label373
-            // 
-            this.label373.AutoSize = true;
-            this.label373.Location = new System.Drawing.Point(7, 215);
-            this.label373.Name = "label373";
-            this.label373.Size = new System.Drawing.Size(104, 13);
-            this.label373.TabIndex = 74;
-            this.label373.Text = "Concrete grade [fck]";
-            this.label373.Visible = false;
-            // 
-            // label374
-            // 
-            this.label374.AutoSize = true;
-            this.label374.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label374.Location = new System.Drawing.Point(292, 64);
-            this.label374.Name = "label374";
-            this.label374.Size = new System.Drawing.Size(31, 13);
-            this.label374.TabIndex = 22;
-            this.label374.Text = "mm";
-            // 
-            // label375
-            // 
-            this.label375.AutoSize = true;
-            this.label375.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label375.Location = new System.Drawing.Point(208, 247);
-            this.label375.Name = "label375";
-            this.label375.Size = new System.Drawing.Size(23, 13);
-            this.label375.TabIndex = 91;
-            this.label375.Text = "Fe";
-            this.label375.Visible = false;
-            // 
-            // label376
-            // 
-            this.label376.AutoSize = true;
-            this.label376.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label376.Location = new System.Drawing.Point(292, 40);
-            this.label376.Name = "label376";
-            this.label376.Size = new System.Drawing.Size(21, 13);
-            this.label376.TabIndex = 22;
-            this.label376.Text = "%";
-            // 
-            // label377
-            // 
-            this.label377.AutoSize = true;
-            this.label377.Location = new System.Drawing.Point(7, 247);
-            this.label377.Name = "label377";
-            this.label377.Size = new System.Drawing.Size(78, 13);
-            this.label377.TabIndex = 76;
-            this.label377.Text = "Steel grade [fy]";
-            this.label377.Visible = false;
-            // 
-            // label378
-            // 
-            this.label378.AutoSize = true;
-            this.label378.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label378.Location = new System.Drawing.Point(292, 13);
-            this.label378.Name = "label378";
-            this.label378.Size = new System.Drawing.Size(21, 13);
-            this.label378.TabIndex = 22;
-            this.label378.Text = "%";
-            // 
-            // label379
-            // 
-            this.label379.AutoSize = true;
-            this.label379.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label379.Location = new System.Drawing.Point(293, 117);
-            this.label379.Name = "label379";
-            this.label379.Size = new System.Drawing.Size(31, 13);
-            this.label379.TabIndex = 22;
-            this.label379.Text = "mm";
-            // 
-            // txt_RCC_Pier_fy2
-            // 
-            this.txt_RCC_Pier_fy2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_fy2.Location = new System.Drawing.Point(234, 244);
-            this.txt_RCC_Pier_fy2.Name = "txt_RCC_Pier_fy2";
-            this.txt_RCC_Pier_fy2.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_fy2.TabIndex = 4;
-            this.txt_RCC_Pier_fy2.Text = "415";
-            this.txt_RCC_Pier_fy2.Visible = false;
-            // 
-            // label380
-            // 
-            this.label380.AutoSize = true;
-            this.label380.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label380.Location = new System.Drawing.Point(293, 90);
-            this.label380.Name = "label380";
-            this.label380.Size = new System.Drawing.Size(31, 13);
-            this.label380.TabIndex = 22;
-            this.label380.Text = "mm";
-            // 
-            // label381
-            // 
-            this.label381.AutoSize = true;
-            this.label381.Location = new System.Drawing.Point(7, 90);
-            this.label381.Name = "label381";
-            this.label381.Size = new System.Drawing.Size(195, 13);
-            this.label381.TabIndex = 78;
-            this.label381.Text = "Width of Pier in Transverse direction [D]";
-            // 
-            // label382
-            // 
-            this.label382.AutoSize = true;
-            this.label382.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label382.Location = new System.Drawing.Point(293, 245);
-            this.label382.Name = "label382";
-            this.label382.Size = new System.Drawing.Size(68, 13);
-            this.label382.TabIndex = 22;
-            this.label382.Text = "N/Sq.mm";
-            this.label382.Visible = false;
-            // 
-            // txt_RCC_Pier_D
-            // 
-            this.txt_RCC_Pier_D.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_D.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_D.Location = new System.Drawing.Point(234, 87);
-            this.txt_RCC_Pier_D.Name = "txt_RCC_Pier_D";
-            this.txt_RCC_Pier_D.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_D.TabIndex = 5;
-            this.txt_RCC_Pier_D.Text = "2500";
-            this.txt_RCC_Pier_D.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label383
-            // 
-            this.label383.AutoSize = true;
-            this.label383.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label383.Location = new System.Drawing.Point(293, 221);
-            this.label383.Name = "label383";
-            this.label383.Size = new System.Drawing.Size(55, 13);
-            this.label383.TabIndex = 22;
-            this.label383.Text = "N/sq.m";
-            this.label383.Visible = false;
-            // 
-            // label384
-            // 
-            this.label384.AutoSize = true;
-            this.label384.Location = new System.Drawing.Point(6, 117);
-            this.label384.Name = "label384";
-            this.label384.Size = new System.Drawing.Size(197, 13);
-            this.label384.TabIndex = 82;
-            this.label384.Text = "Width of Pier in Longitudinal direction [b]";
-            // 
-            // txt_RCC_Pier_b
-            // 
-            this.txt_RCC_Pier_b.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_b.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_b.Location = new System.Drawing.Point(234, 114);
-            this.txt_RCC_Pier_b.Name = "txt_RCC_Pier_b";
-            this.txt_RCC_Pier_b.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_b.TabIndex = 6;
-            this.txt_RCC_Pier_b.Text = "2500";
-            this.txt_RCC_Pier_b.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txt_RCC_Pier_d_dash
-            // 
-            this.txt_RCC_Pier_d_dash.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_d_dash.Location = new System.Drawing.Point(234, 61);
-            this.txt_RCC_Pier_d_dash.Name = "txt_RCC_Pier_d_dash";
-            this.txt_RCC_Pier_d_dash.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_d_dash.TabIndex = 2;
-            this.txt_RCC_Pier_d_dash.Text = "40";
-            this.txt_RCC_Pier_d_dash.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label385
-            // 
-            this.label385.AutoSize = true;
-            this.label385.Location = new System.Drawing.Point(6, 17);
-            this.label385.Name = "label385";
-            this.label385.Size = new System.Drawing.Size(187, 13);
-            this.label385.TabIndex = 68;
-            this.label385.Text = "Standard Minimum Reinforcement [p1]";
-            // 
-            // txt_RCC_Pier_p1
-            // 
-            this.txt_RCC_Pier_p1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_p1.Location = new System.Drawing.Point(234, 10);
-            this.txt_RCC_Pier_p1.Name = "txt_RCC_Pier_p1";
-            this.txt_RCC_Pier_p1.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_p1.TabIndex = 0;
-            this.txt_RCC_Pier_p1.Text = "0.8";
-            this.txt_RCC_Pier_p1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label386
-            // 
-            this.label386.AutoSize = true;
-            this.label386.Location = new System.Drawing.Point(6, 40);
-            this.label386.Name = "label386";
-            this.label386.Size = new System.Drawing.Size(156, 13);
-            this.label386.TabIndex = 70;
-            this.label386.Text = "Design Trial Reinforcement [p2]";
-            // 
-            // txt_RCC_Pier_p2
-            // 
-            this.txt_RCC_Pier_p2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_p2.Location = new System.Drawing.Point(234, 36);
-            this.txt_RCC_Pier_p2.Name = "txt_RCC_Pier_p2";
-            this.txt_RCC_Pier_p2.Size = new System.Drawing.Size(52, 20);
-            this.txt_RCC_Pier_p2.TabIndex = 1;
-            this.txt_RCC_Pier_p2.Text = "1.5";
-            this.txt_RCC_Pier_p2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label387
-            // 
-            this.label387.AutoSize = true;
-            this.label387.Location = new System.Drawing.Point(6, 58);
-            this.label387.Name = "label387";
-            this.label387.Size = new System.Drawing.Size(125, 13);
-            this.label387.TabIndex = 72;
-            this.label387.Text = "Reinforcement Cover [d’]";
-            // 
-            // label389
-            // 
-            this.label389.AutoSize = true;
-            this.label389.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label389.Location = new System.Drawing.Point(533, 524);
-            this.label389.Name = "label389";
-            this.label389.Size = new System.Drawing.Size(19, 13);
-            this.label389.TabIndex = 22;
-            this.label389.Text = "m";
-            // 
-            // label390
-            // 
-            this.label390.AutoSize = true;
-            this.label390.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label390.Location = new System.Drawing.Point(533, 491);
-            this.label390.Name = "label390";
-            this.label390.Size = new System.Drawing.Size(19, 13);
-            this.label390.TabIndex = 22;
-            this.label390.Text = "m";
-            // 
-            // label391
-            // 
-            this.label391.AutoSize = true;
-            this.label391.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label391.Location = new System.Drawing.Point(533, 459);
-            this.label391.Name = "label391";
-            this.label391.Size = new System.Drawing.Size(19, 13);
-            this.label391.TabIndex = 22;
-            this.label391.Text = "m";
-            // 
-            // label392
-            // 
-            this.label392.AutoSize = true;
-            this.label392.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label392.Location = new System.Drawing.Point(535, 104);
-            this.label392.Name = "label392";
-            this.label392.Size = new System.Drawing.Size(19, 13);
-            this.label392.TabIndex = 22;
-            this.label392.Text = "m";
-            // 
-            // label393
-            // 
-            this.label393.AutoSize = true;
-            this.label393.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label393.Location = new System.Drawing.Point(535, 133);
-            this.label393.Name = "label393";
-            this.label393.Size = new System.Drawing.Size(19, 13);
-            this.label393.TabIndex = 22;
-            this.label393.Text = "m";
-            // 
-            // label394
-            // 
-            this.label394.AutoSize = true;
-            this.label394.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label394.Location = new System.Drawing.Point(535, 156);
-            this.label394.Name = "label394";
-            this.label394.Size = new System.Drawing.Size(19, 13);
-            this.label394.TabIndex = 22;
-            this.label394.Text = "m";
-            // 
-            // label395
-            // 
-            this.label395.AutoSize = true;
-            this.label395.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label395.Location = new System.Drawing.Point(535, 180);
-            this.label395.Name = "label395";
-            this.label395.Size = new System.Drawing.Size(19, 13);
-            this.label395.TabIndex = 22;
-            this.label395.Text = "m";
-            // 
-            // label396
-            // 
-            this.label396.AutoSize = true;
-            this.label396.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label396.Location = new System.Drawing.Point(535, 209);
-            this.label396.Name = "label396";
-            this.label396.Size = new System.Drawing.Size(19, 13);
-            this.label396.TabIndex = 22;
-            this.label396.Text = "m";
-            // 
-            // label397
-            // 
-            this.label397.AutoSize = true;
-            this.label397.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label397.Location = new System.Drawing.Point(535, 231);
-            this.label397.Name = "label397";
-            this.label397.Size = new System.Drawing.Size(19, 13);
-            this.label397.TabIndex = 22;
-            this.label397.Text = "m";
-            // 
-            // label398
-            // 
-            this.label398.AutoSize = true;
-            this.label398.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label398.Location = new System.Drawing.Point(535, 256);
-            this.label398.Name = "label398";
-            this.label398.Size = new System.Drawing.Size(19, 13);
-            this.label398.TabIndex = 22;
-            this.label398.Text = "m";
-            // 
-            // label403
-            // 
-            this.label403.AutoSize = true;
-            this.label403.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label403.Location = new System.Drawing.Point(535, 285);
-            this.label403.Name = "label403";
-            this.label403.Size = new System.Drawing.Size(19, 13);
-            this.label403.TabIndex = 22;
-            this.label403.Text = "m";
-            // 
-            // label404
-            // 
-            this.label404.AutoSize = true;
-            this.label404.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label404.Location = new System.Drawing.Point(535, 308);
-            this.label404.Name = "label404";
-            this.label404.Size = new System.Drawing.Size(19, 13);
-            this.label404.TabIndex = 22;
-            this.label404.Text = "m";
-            // 
-            // label405
-            // 
-            this.label405.AutoSize = true;
-            this.label405.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label405.Location = new System.Drawing.Point(237, 497);
-            this.label405.Name = "label405";
-            this.label405.Size = new System.Drawing.Size(19, 13);
-            this.label405.TabIndex = 22;
-            this.label405.Text = "m";
-            this.label405.Visible = false;
-            // 
-            // label406
-            // 
-            this.label406.AutoSize = true;
-            this.label406.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label406.Location = new System.Drawing.Point(237, 524);
-            this.label406.Name = "label406";
-            this.label406.Size = new System.Drawing.Size(19, 13);
-            this.label406.TabIndex = 22;
-            this.label406.Text = "m";
-            // 
-            // label407
-            // 
-            this.label407.AutoSize = true;
-            this.label407.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label407.Location = new System.Drawing.Point(535, 358);
-            this.label407.Name = "label407";
-            this.label407.Size = new System.Drawing.Size(19, 13);
-            this.label407.TabIndex = 22;
-            this.label407.Text = "m";
-            // 
-            // label408
-            // 
-            this.label408.AutoSize = true;
-            this.label408.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label408.Location = new System.Drawing.Point(535, 385);
-            this.label408.Name = "label408";
-            this.label408.Size = new System.Drawing.Size(19, 13);
-            this.label408.TabIndex = 22;
-            this.label408.Text = "m";
-            // 
-            // label409
-            // 
-            this.label409.AutoSize = true;
-            this.label409.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label409.Location = new System.Drawing.Point(535, 414);
-            this.label409.Name = "label409";
-            this.label409.Size = new System.Drawing.Size(19, 13);
-            this.label409.TabIndex = 22;
-            this.label409.Text = "m";
-            // 
-            // label410
-            // 
-            this.label410.AutoSize = true;
-            this.label410.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label410.Location = new System.Drawing.Point(535, 436);
-            this.label410.Name = "label410";
-            this.label410.Size = new System.Drawing.Size(19, 13);
-            this.label410.TabIndex = 22;
-            this.label410.Text = "m";
-            // 
-            // label411
-            // 
-            this.label411.AutoSize = true;
-            this.label411.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label411.Location = new System.Drawing.Point(535, 78);
-            this.label411.Name = "label411";
-            this.label411.Size = new System.Drawing.Size(19, 13);
-            this.label411.TabIndex = 22;
-            this.label411.Text = "m";
-            // 
-            // label412
-            // 
-            this.label412.AutoSize = true;
-            this.label412.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label412.Location = new System.Drawing.Point(536, 54);
-            this.label412.Name = "label412";
-            this.label412.Size = new System.Drawing.Size(19, 13);
-            this.label412.TabIndex = 22;
-            this.label412.Text = "m";
-            // 
-            // label413
-            // 
-            this.label413.AutoSize = true;
-            this.label413.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label413.Location = new System.Drawing.Point(536, 28);
-            this.label413.Name = "label413";
-            this.label413.Size = new System.Drawing.Size(19, 13);
-            this.label413.TabIndex = 22;
-            this.label413.Text = "m";
-            // 
-            // label414
-            // 
-            this.label414.AutoSize = true;
-            this.label414.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label414.Location = new System.Drawing.Point(237, 213);
-            this.label414.Name = "label414";
-            this.label414.Size = new System.Drawing.Size(18, 14);
-            this.label414.TabIndex = 22;
-            this.label414.Text = "m";
-            // 
-            // label415
-            // 
-            this.label415.AutoSize = true;
-            this.label415.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label415.Location = new System.Drawing.Point(237, 187);
-            this.label415.Name = "label415";
-            this.label415.Size = new System.Drawing.Size(18, 14);
-            this.label415.TabIndex = 22;
-            this.label415.Text = "m";
-            // 
-            // label416
-            // 
-            this.label416.AutoSize = true;
-            this.label416.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label416.Location = new System.Drawing.Point(237, 136);
-            this.label416.Name = "label416";
-            this.label416.Size = new System.Drawing.Size(18, 14);
-            this.label416.TabIndex = 22;
-            this.label416.Text = "m";
-            // 
-            // label417
-            // 
-            this.label417.AutoSize = true;
-            this.label417.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label417.Location = new System.Drawing.Point(237, 109);
-            this.label417.Name = "label417";
-            this.label417.Size = new System.Drawing.Size(18, 14);
-            this.label417.TabIndex = 22;
-            this.label417.Text = "m";
-            // 
-            // label418
-            // 
-            this.label418.AutoSize = true;
-            this.label418.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label418.Location = new System.Drawing.Point(237, 83);
-            this.label418.Name = "label418";
-            this.label418.Size = new System.Drawing.Size(18, 14);
-            this.label418.TabIndex = 22;
-            this.label418.Text = "m";
-            // 
-            // label419
-            // 
-            this.label419.AutoSize = true;
-            this.label419.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label419.Location = new System.Drawing.Point(237, 58);
-            this.label419.Name = "label419";
-            this.label419.Size = new System.Drawing.Size(18, 14);
-            this.label419.TabIndex = 22;
-            this.label419.Text = "m";
-            // 
-            // label420
-            // 
-            this.label420.AutoSize = true;
-            this.label420.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label420.Location = new System.Drawing.Point(237, 28);
-            this.label420.Name = "label420";
-            this.label420.Size = new System.Drawing.Size(18, 14);
-            this.label420.TabIndex = 22;
-            this.label420.Text = "m";
-            // 
-            // groupBox41
-            // 
-            this.groupBox41.Controls.Add(this.label421);
-            this.groupBox41.Controls.Add(this.label422);
-            this.groupBox41.Controls.Add(this.label423);
-            this.groupBox41.Controls.Add(this.txt_RCC_Pier_H2);
-            this.groupBox41.Controls.Add(this.label424);
-            this.groupBox41.Controls.Add(this.txt_RCC_Pier_B4);
-            this.groupBox41.Controls.Add(this.label425);
-            this.groupBox41.Controls.Add(this.txt_RCC_Pier_B3);
-            this.groupBox41.Controls.Add(this.label426);
-            this.groupBox41.Location = new System.Drawing.Point(3, 400);
-            this.groupBox41.Name = "groupBox41";
-            this.groupBox41.Size = new System.Drawing.Size(267, 89);
-            this.groupBox41.TabIndex = 12;
-            this.groupBox41.TabStop = false;
-            this.groupBox41.Text = "Size of Bearings (B3 x B4 x H2)";
-            // 
-            // label421
-            // 
-            this.label421.AutoSize = true;
-            this.label421.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label421.Location = new System.Drawing.Point(233, 68);
-            this.label421.Name = "label421";
-            this.label421.Size = new System.Drawing.Size(19, 13);
-            this.label421.TabIndex = 22;
-            this.label421.Text = "m";
-            // 
-            // label422
-            // 
-            this.label422.AutoSize = true;
-            this.label422.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label422.Location = new System.Drawing.Point(233, 42);
-            this.label422.Name = "label422";
-            this.label422.Size = new System.Drawing.Size(19, 13);
-            this.label422.TabIndex = 22;
-            this.label422.Text = "m";
-            // 
-            // label423
-            // 
-            this.label423.AutoSize = true;
-            this.label423.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label423.Location = new System.Drawing.Point(233, 16);
-            this.label423.Name = "label423";
-            this.label423.Size = new System.Drawing.Size(19, 13);
-            this.label423.TabIndex = 22;
-            this.label423.Text = "m";
-            // 
-            // txt_RCC_Pier_H2
-            // 
-            this.txt_RCC_Pier_H2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H2.Location = new System.Drawing.Point(180, 65);
-            this.txt_RCC_Pier_H2.Name = "txt_RCC_Pier_H2";
-            this.txt_RCC_Pier_H2.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_H2.TabIndex = 2;
-            this.txt_RCC_Pier_H2.Text = "0.078";
-            this.txt_RCC_Pier_H2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label424
-            // 
-            this.label424.AutoSize = true;
-            this.label424.Location = new System.Drawing.Point(10, 72);
-            this.label424.Name = "label424";
-            this.label424.Size = new System.Drawing.Size(21, 13);
-            this.label424.TabIndex = 20;
-            this.label424.Text = "H2";
-            // 
-            // txt_RCC_Pier_B4
-            // 
-            this.txt_RCC_Pier_B4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B4.Location = new System.Drawing.Point(180, 39);
-            this.txt_RCC_Pier_B4.Name = "txt_RCC_Pier_B4";
-            this.txt_RCC_Pier_B4.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_B4.TabIndex = 1;
-            this.txt_RCC_Pier_B4.Text = "0.32";
-            this.txt_RCC_Pier_B4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label425
-            // 
-            this.label425.AutoSize = true;
-            this.label425.Location = new System.Drawing.Point(10, 46);
-            this.label425.Name = "label425";
-            this.label425.Size = new System.Drawing.Size(20, 13);
-            this.label425.TabIndex = 18;
-            this.label425.Text = "B4";
-            // 
-            // txt_RCC_Pier_B3
-            // 
-            this.txt_RCC_Pier_B3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B3.Location = new System.Drawing.Point(180, 13);
-            this.txt_RCC_Pier_B3.Name = "txt_RCC_Pier_B3";
-            this.txt_RCC_Pier_B3.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_B3.TabIndex = 0;
-            this.txt_RCC_Pier_B3.Text = "0.50";
-            this.txt_RCC_Pier_B3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label426
-            // 
-            this.label426.AutoSize = true;
-            this.label426.Location = new System.Drawing.Point(11, 20);
-            this.label426.Name = "label426";
-            this.label426.Size = new System.Drawing.Size(20, 13);
-            this.label426.TabIndex = 16;
-            this.label426.Text = "B3";
-            // 
-            // groupBox43
-            // 
-            this.groupBox43.Controls.Add(this.label427);
-            this.groupBox43.Controls.Add(this.label428);
-            this.groupBox43.Controls.Add(this.label429);
-            this.groupBox43.Controls.Add(this.txt_RCC_Pier_H1);
-            this.groupBox43.Controls.Add(this.label430);
-            this.groupBox43.Controls.Add(this.txt_RCC_Pier_B2);
-            this.groupBox43.Controls.Add(this.label431);
-            this.groupBox43.Controls.Add(this.txt_RCC_Pier_B1);
-            this.groupBox43.Controls.Add(this.label432);
-            this.groupBox43.Location = new System.Drawing.Point(6, 259);
-            this.groupBox43.Name = "groupBox43";
-            this.groupBox43.Size = new System.Drawing.Size(267, 90);
-            this.groupBox43.TabIndex = 9;
-            this.groupBox43.TabStop = false;
-            this.groupBox43.Text = "Size of Pedestals (B1 x B2 x H1)";
-            // 
-            // label427
-            // 
-            this.label427.AutoSize = true;
-            this.label427.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label427.Location = new System.Drawing.Point(227, 68);
-            this.label427.Name = "label427";
-            this.label427.Size = new System.Drawing.Size(19, 13);
-            this.label427.TabIndex = 22;
-            this.label427.Text = "m";
-            // 
-            // label428
-            // 
-            this.label428.AutoSize = true;
-            this.label428.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label428.Location = new System.Drawing.Point(227, 46);
-            this.label428.Name = "label428";
-            this.label428.Size = new System.Drawing.Size(19, 13);
-            this.label428.TabIndex = 22;
-            this.label428.Text = "m";
-            // 
-            // label429
-            // 
-            this.label429.AutoSize = true;
-            this.label429.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label429.Location = new System.Drawing.Point(227, 20);
-            this.label429.Name = "label429";
-            this.label429.Size = new System.Drawing.Size(19, 13);
-            this.label429.TabIndex = 22;
-            this.label429.Text = "m";
-            // 
-            // txt_RCC_Pier_H1
-            // 
-            this.txt_RCC_Pier_H1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H1.Location = new System.Drawing.Point(177, 66);
-            this.txt_RCC_Pier_H1.Name = "txt_RCC_Pier_H1";
-            this.txt_RCC_Pier_H1.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_H1.TabIndex = 2;
-            this.txt_RCC_Pier_H1.Text = "0.25";
-            this.txt_RCC_Pier_H1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label430
-            // 
-            this.label430.AutoSize = true;
-            this.label430.Location = new System.Drawing.Point(10, 72);
-            this.label430.Name = "label430";
-            this.label430.Size = new System.Drawing.Size(21, 13);
-            this.label430.TabIndex = 20;
-            this.label430.Text = "H1";
-            // 
-            // txt_RCC_Pier_B2
-            // 
-            this.txt_RCC_Pier_B2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B2.Location = new System.Drawing.Point(177, 40);
-            this.txt_RCC_Pier_B2.Name = "txt_RCC_Pier_B2";
-            this.txt_RCC_Pier_B2.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_B2.TabIndex = 1;
-            this.txt_RCC_Pier_B2.Text = "0.62";
-            this.txt_RCC_Pier_B2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label431
-            // 
-            this.label431.AutoSize = true;
-            this.label431.Location = new System.Drawing.Point(10, 46);
-            this.label431.Name = "label431";
-            this.label431.Size = new System.Drawing.Size(20, 13);
-            this.label431.TabIndex = 18;
-            this.label431.Text = "B2";
-            // 
-            // txt_RCC_Pier_B1
-            // 
-            this.txt_RCC_Pier_B1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B1.Location = new System.Drawing.Point(177, 14);
-            this.txt_RCC_Pier_B1.Name = "txt_RCC_Pier_B1";
-            this.txt_RCC_Pier_B1.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_B1.TabIndex = 0;
-            this.txt_RCC_Pier_B1.Text = "0.80";
-            this.txt_RCC_Pier_B1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label432
-            // 
-            this.label432.AutoSize = true;
-            this.label432.Location = new System.Drawing.Point(11, 20);
-            this.label432.Name = "label432";
-            this.label432.Size = new System.Drawing.Size(20, 13);
-            this.label432.TabIndex = 16;
-            this.label432.Text = "B1";
-            // 
-            // txt_RCC_Pier_overall_height
-            // 
-            this.txt_RCC_Pier_overall_height.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_overall_height.Location = new System.Drawing.Point(476, 522);
-            this.txt_RCC_Pier_overall_height.Name = "txt_RCC_Pier_overall_height";
-            this.txt_RCC_Pier_overall_height.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_overall_height.TabIndex = 39;
-            this.txt_RCC_Pier_overall_height.Text = "7.760";
-            this.txt_RCC_Pier_overall_height.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label433
-            // 
-            this.label433.AutoSize = true;
-            this.label433.Location = new System.Drawing.Point(281, 516);
-            this.label433.Name = "label433";
-            this.label433.Size = new System.Drawing.Size(152, 26);
-            this.label433.TabIndex = 62;
-            this.label433.Text = "Overall Height of Substructure \r\n([H7 + H5 + H6])";
-            // 
-            // txt_RCC_Pier___B
-            // 
-            this.txt_RCC_Pier___B.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier___B.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier___B.Location = new System.Drawing.Point(476, 489);
-            this.txt_RCC_Pier___B.Name = "txt_RCC_Pier___B";
-            this.txt_RCC_Pier___B.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier___B.TabIndex = 38;
-            this.txt_RCC_Pier___B.Text = "3.0";
-            this.txt_RCC_Pier___B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label434
-            // 
-            this.label434.AutoSize = true;
-            this.label434.Location = new System.Drawing.Point(281, 488);
-            this.label434.Name = "label434";
-            this.label434.Size = new System.Drawing.Size(145, 26);
-            this.label434.TabIndex = 60;
-            this.label434.Text = "Pier Cap width in Transverse \r\nDirection [B14]";
-            // 
-            // txt_RCC_Pier_B13
-            // 
-            this.txt_RCC_Pier_B13.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B13.Location = new System.Drawing.Point(476, 456);
-            this.txt_RCC_Pier_B13.Name = "txt_RCC_Pier_B13";
-            this.txt_RCC_Pier_B13.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B13.TabIndex = 37;
-            this.txt_RCC_Pier_B13.Text = "3.0";
-            this.txt_RCC_Pier_B13.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label435
-            // 
-            this.label435.AutoSize = true;
-            this.label435.Location = new System.Drawing.Point(282, 459);
-            this.label435.Name = "label435";
-            this.label435.Size = new System.Drawing.Size(149, 26);
-            this.label435.TabIndex = 58;
-            this.label435.Text = "Pier Cap width in Longitudinal \r\nDirection [B13]";
-            // 
-            // txt_RCC_Pier_B12
-            // 
-            this.txt_RCC_Pier_B12.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B12.Location = new System.Drawing.Point(476, 433);
-            this.txt_RCC_Pier_B12.Name = "txt_RCC_Pier_B12";
-            this.txt_RCC_Pier_B12.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B12.TabIndex = 35;
-            this.txt_RCC_Pier_B12.Text = "5.0";
-            this.txt_RCC_Pier_B12.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label436
-            // 
-            this.label436.AutoSize = true;
-            this.label436.Location = new System.Drawing.Point(282, 436);
-            this.label436.Name = "label436";
-            this.label436.Size = new System.Drawing.Size(183, 13);
-            this.label436.TabIndex = 56;
-            this.label436.Text = "Transverse width of Pier at Top [B12]";
-            // 
-            // txt_RCC_Pier_B11
-            // 
-            this.txt_RCC_Pier_B11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B11.Location = new System.Drawing.Point(476, 407);
-            this.txt_RCC_Pier_B11.Name = "txt_RCC_Pier_B11";
-            this.txt_RCC_Pier_B11.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B11.TabIndex = 34;
-            this.txt_RCC_Pier_B11.Text = "1.0";
-            this.txt_RCC_Pier_B11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label437
-            // 
-            this.label437.AutoSize = true;
-            this.label437.Location = new System.Drawing.Point(282, 410);
-            this.label437.Name = "label437";
-            this.label437.Size = new System.Drawing.Size(187, 13);
-            this.label437.TabIndex = 54;
-            this.label437.Text = "Longitudinal width of Pier at Top [B11]";
-            // 
-            // txt_RCC_Pier_B10
-            // 
-            this.txt_RCC_Pier_B10.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B10.Location = new System.Drawing.Point(476, 381);
-            this.txt_RCC_Pier_B10.Name = "txt_RCC_Pier_B10";
-            this.txt_RCC_Pier_B10.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B10.TabIndex = 33;
-            this.txt_RCC_Pier_B10.Text = "5.0";
-            this.txt_RCC_Pier_B10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label438
-            // 
-            this.label438.AutoSize = true;
-            this.label438.Location = new System.Drawing.Point(282, 388);
-            this.label438.Name = "label438";
-            this.label438.Size = new System.Drawing.Size(188, 13);
-            this.label438.TabIndex = 52;
-            this.label438.Text = "Transverse width of Pier at Base [B10]";
-            // 
-            // txt_RCC_Pier_B9
-            // 
-            this.txt_RCC_Pier_B9.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B9.Location = new System.Drawing.Point(476, 355);
-            this.txt_RCC_Pier_B9.Name = "txt_RCC_Pier_B9";
-            this.txt_RCC_Pier_B9.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B9.TabIndex = 32;
-            this.txt_RCC_Pier_B9.Text = "0.9";
-            this.txt_RCC_Pier_B9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label439
-            // 
-            this.label439.AutoSize = true;
-            this.label439.Location = new System.Drawing.Point(282, 358);
-            this.label439.Name = "label439";
-            this.label439.Size = new System.Drawing.Size(186, 13);
-            this.label439.TabIndex = 50;
-            this.label439.Text = "Longitudinal width of Pier at Base [B9]";
-            // 
-            // txt_RCC_Pier_H6
-            // 
-            this.txt_RCC_Pier_H6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H6.Location = new System.Drawing.Point(476, 305);
-            this.txt_RCC_Pier_H6.Name = "txt_RCC_Pier_H6";
-            this.txt_RCC_Pier_H6.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_H6.TabIndex = 30;
-            this.txt_RCC_Pier_H6.Text = "0.6";
-            this.txt_RCC_Pier_H6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label440
-            // 
-            this.label440.AutoSize = true;
-            this.label440.Location = new System.Drawing.Point(282, 312);
-            this.label440.Name = "label440";
-            this.label440.Size = new System.Drawing.Size(152, 13);
-            this.label440.TabIndex = 48;
-            this.label440.Text = "Varying Depth of Pier Cap [H6]";
-            // 
-            // txt_RCC_Pier_H5
-            // 
-            this.txt_RCC_Pier_H5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H5.Location = new System.Drawing.Point(476, 279);
-            this.txt_RCC_Pier_H5.Name = "txt_RCC_Pier_H5";
-            this.txt_RCC_Pier_H5.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_H5.TabIndex = 29;
-            this.txt_RCC_Pier_H5.Text = "0.6";
-            this.txt_RCC_Pier_H5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label441
-            // 
-            this.label441.AutoSize = true;
-            this.label441.Location = new System.Drawing.Point(282, 286);
-            this.label441.Name = "label441";
-            this.label441.Size = new System.Drawing.Size(151, 13);
-            this.label441.TabIndex = 46;
-            this.label441.Text = "Straight depth of Pier Cap [H5]";
-            // 
-            // txt_RCC_Pier_B8
-            // 
-            this.txt_RCC_Pier_B8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B8.Location = new System.Drawing.Point(476, 253);
-            this.txt_RCC_Pier_B8.Name = "txt_RCC_Pier_B8";
-            this.txt_RCC_Pier_B8.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B8.TabIndex = 25;
-            this.txt_RCC_Pier_B8.Text = "0.15";
-            this.txt_RCC_Pier_B8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label445
-            // 
-            this.label445.AutoSize = true;
-            this.label445.Location = new System.Drawing.Point(282, 247);
-            this.label445.Name = "label445";
-            this.label445.Size = new System.Drawing.Size(130, 26);
-            this.label445.TabIndex = 38;
-            this.label445.Text = "P.C.C. Projection under \r\nFooting on either side [B8]";
-            // 
-            // txt_RCC_Pier_H4
-            // 
-            this.txt_RCC_Pier_H4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H4.Location = new System.Drawing.Point(476, 228);
-            this.txt_RCC_Pier_H4.Name = "txt_RCC_Pier_H4";
-            this.txt_RCC_Pier_H4.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_H4.TabIndex = 24;
-            this.txt_RCC_Pier_H4.Text = "0.60";
-            this.txt_RCC_Pier_H4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label446
-            // 
-            this.label446.AutoSize = true;
-            this.label446.Location = new System.Drawing.Point(282, 231);
-            this.label446.Name = "label446";
-            this.label446.Size = new System.Drawing.Size(147, 13);
-            this.label446.TabIndex = 36;
-            this.label446.Text = "Varying Depth of Footing [H4]";
-            // 
-            // txt_RCC_Pier_H3
-            // 
-            this.txt_RCC_Pier_H3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_H3.Location = new System.Drawing.Point(476, 202);
-            this.txt_RCC_Pier_H3.Name = "txt_RCC_Pier_H3";
-            this.txt_RCC_Pier_H3.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_H3.TabIndex = 23;
-            this.txt_RCC_Pier_H3.Text = "0.60";
-            this.txt_RCC_Pier_H3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label447
-            // 
-            this.label447.AutoSize = true;
-            this.label447.Location = new System.Drawing.Point(282, 202);
-            this.label447.Name = "label447";
-            this.label447.Size = new System.Drawing.Size(148, 13);
-            this.label447.TabIndex = 34;
-            this.label447.Text = "Straight Depth of Footing [H3]";
-            // 
-            // txt_RCC_Pier_B7
-            // 
-            this.txt_RCC_Pier_B7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B7.Location = new System.Drawing.Point(476, 177);
-            this.txt_RCC_Pier_B7.Name = "txt_RCC_Pier_B7";
-            this.txt_RCC_Pier_B7.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_B7.TabIndex = 22;
-            this.txt_RCC_Pier_B7.Text = "9.50";
-            this.txt_RCC_Pier_B7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label448
-            // 
-            this.label448.AutoSize = true;
-            this.label448.Location = new System.Drawing.Point(282, 180);
-            this.label448.Name = "label448";
-            this.label448.Size = new System.Drawing.Size(107, 13);
-            this.label448.TabIndex = 32;
-            this.label448.Text = "Width of Footing [B7]";
-            // 
-            // txt_RCC_Pier_Form_Lev
-            // 
-            this.txt_RCC_Pier_Form_Lev.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_Form_Lev.Location = new System.Drawing.Point(476, 153);
-            this.txt_RCC_Pier_Form_Lev.Name = "txt_RCC_Pier_Form_Lev";
-            this.txt_RCC_Pier_Form_Lev.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_Form_Lev.TabIndex = 21;
-            this.txt_RCC_Pier_Form_Lev.Text = "531.505";
-            this.txt_RCC_Pier_Form_Lev.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label449
-            // 
-            this.label449.AutoSize = true;
-            this.label449.Location = new System.Drawing.Point(282, 156);
-            this.label449.Name = "label449";
-            this.label449.Size = new System.Drawing.Size(187, 13);
-            this.label449.TabIndex = 30;
-            this.label449.Text = "Formation Level [RL1+d1+d2+H1+H2]";
-            // 
-            // txt_RCC_Pier_RL5
-            // 
-            this.txt_RCC_Pier_RL5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_RL5.Location = new System.Drawing.Point(476, 127);
-            this.txt_RCC_Pier_RL5.Name = "txt_RCC_Pier_RL5";
-            this.txt_RCC_Pier_RL5.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_RL5.TabIndex = 20;
-            this.txt_RCC_Pier_RL5.Text = "520.42";
-            this.txt_RCC_Pier_RL5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label450
-            // 
-            this.label450.AutoSize = true;
-            this.label450.Location = new System.Drawing.Point(282, 130);
-            this.label450.Name = "label450";
-            this.label450.Size = new System.Drawing.Size(142, 13);
-            this.label450.TabIndex = 28;
-            this.label450.Text = "R.L. at Footing Bottom [RL5]";
-            // 
-            // txt_RCC_Pier_RL4
-            // 
-            this.txt_RCC_Pier_RL4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_RL4.Location = new System.Drawing.Point(476, 101);
-            this.txt_RCC_Pier_RL4.Name = "txt_RCC_Pier_RL4";
-            this.txt_RCC_Pier_RL4.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_RL4.TabIndex = 19;
-            this.txt_RCC_Pier_RL4.Text = "521.62";
-            this.txt_RCC_Pier_RL4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label451
-            // 
-            this.label451.AutoSize = true;
-            this.label451.Location = new System.Drawing.Point(282, 104);
-            this.label451.Name = "label451";
-            this.label451.Size = new System.Drawing.Size(128, 13);
-            this.label451.TabIndex = 26;
-            this.label451.Text = "R.L. at Footing Top [RL4]";
-            // 
-            // txt_RCC_Pier_RL3
-            // 
-            this.txt_RCC_Pier_RL3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_RL3.Location = new System.Drawing.Point(476, 75);
-            this.txt_RCC_Pier_RL3.Name = "txt_RCC_Pier_RL3";
-            this.txt_RCC_Pier_RL3.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_RL3.TabIndex = 18;
-            this.txt_RCC_Pier_RL3.Text = "523.417";
-            this.txt_RCC_Pier_RL3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label452
-            // 
-            this.label452.AutoSize = true;
-            this.label452.Location = new System.Drawing.Point(282, 82);
-            this.label452.Name = "label452";
-            this.label452.Size = new System.Drawing.Size(139, 13);
-            this.label452.TabIndex = 24;
-            this.label452.Text = "Existing Ground Level [RL3]";
-            // 
-            // txt_RCC_Pier_RL2
-            // 
-            this.txt_RCC_Pier_RL2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_RL2.Location = new System.Drawing.Point(476, 51);
-            this.txt_RCC_Pier_RL2.Name = "txt_RCC_Pier_RL2";
-            this.txt_RCC_Pier_RL2.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_RL2.TabIndex = 17;
-            this.txt_RCC_Pier_RL2.Text = "527.39";
-            this.txt_RCC_Pier_RL2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label453
-            // 
-            this.label453.AutoSize = true;
-            this.label453.Location = new System.Drawing.Point(282, 54);
-            this.label453.Name = "label453";
-            this.label453.Size = new System.Drawing.Size(145, 13);
-            this.label453.TabIndex = 22;
-            this.label453.Text = "High Flood Level (HFL) [RL2]";
-            // 
-            // txt_RCC_Pier_RL1
-            // 
-            this.txt_RCC_Pier_RL1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_RL1.Location = new System.Drawing.Point(476, 25);
-            this.txt_RCC_Pier_RL1.Name = "txt_RCC_Pier_RL1";
-            this.txt_RCC_Pier_RL1.Size = new System.Drawing.Size(53, 20);
-            this.txt_RCC_Pier_RL1.TabIndex = 16;
-            this.txt_RCC_Pier_RL1.Text = "529.377";
-            this.txt_RCC_Pier_RL1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label454
-            // 
-            this.label454.AutoSize = true;
-            this.label454.Location = new System.Drawing.Point(282, 28);
-            this.label454.Name = "label454";
-            this.label454.Size = new System.Drawing.Size(133, 13);
-            this.label454.TabIndex = 20;
-            this.label454.Text = "R.L. at Pier Cap Top [RL1]";
-            // 
-            // txt_RCC_Pier_B6
-            // 
-            this.txt_RCC_Pier_B6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B6.Location = new System.Drawing.Point(183, 521);
-            this.txt_RCC_Pier_B6.Name = "txt_RCC_Pier_B6";
-            this.txt_RCC_Pier_B6.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_B6.TabIndex = 15;
-            this.txt_RCC_Pier_B6.Text = "5.50";
-            this.txt_RCC_Pier_B6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label455
-            // 
-            this.label455.AutoSize = true;
-            this.label455.Location = new System.Drawing.Point(16, 524);
-            this.label455.Name = "label455";
-            this.label455.Size = new System.Drawing.Size(112, 13);
-            this.label455.TabIndex = 18;
-            this.label455.Text = "Length of Footing [B6]";
-            // 
-            // txt_RCC_Pier_B5
-            // 
-            this.txt_RCC_Pier_B5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_B5.Location = new System.Drawing.Point(183, 494);
-            this.txt_RCC_Pier_B5.Name = "txt_RCC_Pier_B5";
-            this.txt_RCC_Pier_B5.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_B5.TabIndex = 14;
-            this.txt_RCC_Pier_B5.Text = "2.65";
-            this.txt_RCC_Pier_B5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_RCC_Pier_B5.Visible = false;
-            // 
-            // label456
-            // 
-            this.label456.AutoSize = true;
-            this.label456.Location = new System.Drawing.Point(16, 497);
-            this.label456.Name = "label456";
-            this.label456.Size = new System.Drawing.Size(152, 13);
-            this.label456.TabIndex = 13;
-            this.label456.Text = "Distance Between Girders [B5]";
-            this.label456.Visible = false;
-            // 
-            // txt_RCC_Pier_DS
-            // 
-            this.txt_RCC_Pier_DS.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_DS.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_DS.Location = new System.Drawing.Point(183, 210);
-            this.txt_RCC_Pier_DS.Name = "txt_RCC_Pier_DS";
-            this.txt_RCC_Pier_DS.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_DS.TabIndex = 7;
-            this.txt_RCC_Pier_DS.Text = "0.25";
-            this.txt_RCC_Pier_DS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label457
-            // 
-            this.label457.AutoSize = true;
-            this.label457.Location = new System.Drawing.Point(16, 213);
-            this.label457.Name = "label457";
-            this.label457.Size = new System.Drawing.Size(122, 13);
-            this.label457.TabIndex = 14;
-            this.label457.Text = "Depth of Deck Slab [d2]";
-            // 
-            // txt_RCC_Pier_DMG
-            // 
-            this.txt_RCC_Pier_DMG.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_DMG.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_DMG.Location = new System.Drawing.Point(183, 184);
-            this.txt_RCC_Pier_DMG.Name = "txt_RCC_Pier_DMG";
-            this.txt_RCC_Pier_DMG.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_DMG.TabIndex = 6;
-            this.txt_RCC_Pier_DMG.Text = "1.55";
-            this.txt_RCC_Pier_DMG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label458
-            // 
-            this.label458.AutoSize = true;
-            this.label458.Location = new System.Drawing.Point(16, 187);
-            this.label458.Name = "label458";
-            this.label458.Size = new System.Drawing.Size(100, 13);
-            this.label458.TabIndex = 12;
-            this.label458.Text = "Depth of Girder [d1]";
-            // 
-            // txt_RCC_Pier_NMG
-            // 
-            this.txt_RCC_Pier_NMG.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_NMG.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_NMG.Location = new System.Drawing.Point(183, 158);
-            this.txt_RCC_Pier_NMG.Name = "txt_RCC_Pier_NMG";
-            this.txt_RCC_Pier_NMG.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_NMG.TabIndex = 5;
-            this.txt_RCC_Pier_NMG.Text = "2";
-            this.txt_RCC_Pier_NMG.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label459
-            // 
-            this.label459.AutoSize = true;
-            this.label459.Location = new System.Drawing.Point(16, 161);
-            this.label459.Name = "label459";
-            this.label459.Size = new System.Drawing.Size(124, 13);
-            this.label459.TabIndex = 10;
-            this.label459.Text = "Number of Bearings [NB]";
-            // 
-            // txt_RCC_Pier_Hp
-            // 
-            this.txt_RCC_Pier_Hp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_Hp.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_Hp.Location = new System.Drawing.Point(183, 132);
-            this.txt_RCC_Pier_Hp.Name = "txt_RCC_Pier_Hp";
-            this.txt_RCC_Pier_Hp.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_Hp.TabIndex = 4;
-            this.txt_RCC_Pier_Hp.Text = "1.05";
-            this.txt_RCC_Pier_Hp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label460
-            // 
-            this.label460.AutoSize = true;
-            this.label460.Location = new System.Drawing.Point(16, 135);
-            this.label460.Name = "label460";
-            this.label460.Size = new System.Drawing.Size(134, 13);
-            this.label460.TabIndex = 8;
-            this.label460.Text = "Height of Crash Barrier [a1]";
-            // 
-            // txt_RCC_Pier_Wp
-            // 
-            this.txt_RCC_Pier_Wp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_Wp.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier_Wp.Location = new System.Drawing.Point(183, 106);
-            this.txt_RCC_Pier_Wp.Name = "txt_RCC_Pier_Wp";
-            this.txt_RCC_Pier_Wp.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_Wp.TabIndex = 3;
-            this.txt_RCC_Pier_Wp.Text = "0.50";
-            this.txt_RCC_Pier_Wp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label461
-            // 
-            this.label461.AutoSize = true;
-            this.label461.Location = new System.Drawing.Point(16, 109);
-            this.label461.Name = "label461";
-            this.label461.Size = new System.Drawing.Size(133, 13);
-            this.label461.TabIndex = 6;
-            this.label461.Text = "Width of Crash Barrier [w3]";
-            // 
-            // txt_RCC_Pier__B
-            // 
-            this.txt_RCC_Pier__B.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier__B.ForeColor = System.Drawing.Color.Black;
-            this.txt_RCC_Pier__B.Location = new System.Drawing.Point(183, 80);
-            this.txt_RCC_Pier__B.Name = "txt_RCC_Pier__B";
-            this.txt_RCC_Pier__B.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier__B.TabIndex = 2;
-            this.txt_RCC_Pier__B.Text = "12.50";
-            this.txt_RCC_Pier__B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label462
-            // 
-            this.label462.AutoSize = true;
-            this.label462.Location = new System.Drawing.Point(16, 83);
-            this.label462.Name = "label462";
-            this.label462.Size = new System.Drawing.Size(132, 13);
-            this.label462.TabIndex = 4;
-            this.label462.Text = "Overall width of Deck [w2]";
-            // 
-            // txt_RCC_Pier_CW
-            // 
-            this.txt_RCC_Pier_CW.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_CW.ForeColor = System.Drawing.Color.Red;
-            this.txt_RCC_Pier_CW.Location = new System.Drawing.Point(183, 54);
-            this.txt_RCC_Pier_CW.Name = "txt_RCC_Pier_CW";
-            this.txt_RCC_Pier_CW.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_CW.TabIndex = 1;
-            this.txt_RCC_Pier_CW.Text = "9.75";
-            this.txt_RCC_Pier_CW.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label463
-            // 
-            this.label463.AutoSize = true;
-            this.label463.Location = new System.Drawing.Point(16, 57);
-            this.label463.Name = "label463";
-            this.label463.Size = new System.Drawing.Size(116, 13);
-            this.label463.TabIndex = 2;
-            this.label463.Text = "Carriageway width [w1]";
-            // 
-            // txt_RCC_Pier_L
-            // 
-            this.txt_RCC_Pier_L.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_RCC_Pier_L.ForeColor = System.Drawing.Color.Red;
-            this.txt_RCC_Pier_L.Location = new System.Drawing.Point(183, 25);
-            this.txt_RCC_Pier_L.Name = "txt_RCC_Pier_L";
-            this.txt_RCC_Pier_L.Size = new System.Drawing.Size(48, 20);
-            this.txt_RCC_Pier_L.TabIndex = 0;
-            this.txt_RCC_Pier_L.Text = "18.0";
-            this.txt_RCC_Pier_L.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label464
-            // 
-            this.label464.AutoSize = true;
-            this.label464.Location = new System.Drawing.Point(16, 28);
-            this.label464.Name = "label464";
-            this.label464.Size = new System.Drawing.Size(162, 13);
-            this.label464.TabIndex = 0;
-            this.label464.Text = "C/C Distance between Piers [L1]";
-            // 
-            // tab_des_form2
-            // 
-            this.tab_des_form2.Controls.Add(this.label471);
-            this.tab_des_form2.Controls.Add(this.label472);
-            this.tab_des_form2.Controls.Add(this.label479);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_vspc);
-            this.tab_des_form2.Controls.Add(this.label480);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_vdia);
-            this.tab_des_form2.Controls.Add(this.label481);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_hdia);
-            this.tab_des_form2.Controls.Add(this.label512);
-            this.tab_des_form2.Controls.Add(this.label513);
-            this.tab_des_form2.Controls.Add(this.label516);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_ldia);
-            this.tab_des_form2.Controls.Add(this.label517);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_vlegs);
-            this.tab_des_form2.Controls.Add(this.label1076);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_hlegs);
-            this.tab_des_form2.Controls.Add(this.label1077);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_slegs);
-            this.tab_des_form2.Controls.Add(this.label1078);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_sdia);
-            this.tab_des_form2.Controls.Add(this.label1079);
-            this.tab_des_form2.Controls.Add(this.label233);
-            this.tab_des_form2.Controls.Add(this.label234);
-            this.tab_des_form2.Controls.Add(this.label465);
-            this.tab_des_form2.Controls.Add(this.label466);
-            this.tab_des_form2.Controls.Add(this.label467);
-            this.tab_des_form2.Controls.Add(this.label468);
-            this.tab_des_form2.Controls.Add(this.label469);
-            this.tab_des_form2.Controls.Add(this.label470);
-            this.tab_des_form2.Controls.Add(this.label473);
-            this.tab_des_form2.Controls.Add(this.label474);
-            this.tab_des_form2.Controls.Add(this.label475);
-            this.tab_des_form2.Controls.Add(this.label476);
-            this.tab_des_form2.Controls.Add(this.label477);
-            this.tab_des_form2.Controls.Add(this.cmb_pier_2_k);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_SBC);
-            this.tab_des_form2.Controls.Add(this.label478);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_Itc);
-            this.tab_des_form2.Controls.Add(this.label482);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_Vr);
-            this.tab_des_form2.Controls.Add(this.label483);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_LL);
-            this.tab_des_form2.Controls.Add(this.label484);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_CF);
-            this.tab_des_form2.Controls.Add(this.label485);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_k);
-            this.tab_des_form2.Controls.Add(this.label486);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_V);
-            this.tab_des_form2.Controls.Add(this.label487);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_HHF);
-            this.tab_des_form2.Controls.Add(this.label488);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_SC);
-            this.tab_des_form2.Controls.Add(this.label489);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_PD);
-            this.tab_des_form2.Controls.Add(this.label490);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_PML);
-            this.tab_des_form2.Controls.Add(this.label491);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_PL);
-            this.tab_des_form2.Controls.Add(this.label492);
-            this.tab_des_form2.Controls.Add(this.label493);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_APD);
-            this.tab_des_form2.Controls.Add(this.label494);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_B16);
-            this.tab_des_form2.Controls.Add(this.label495);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_P3);
-            this.tab_des_form2.Controls.Add(this.label496);
-            this.tab_des_form2.Controls.Add(this.label497);
-            this.tab_des_form2.Controls.Add(this.txt_pier_2_P2);
-            this.tab_des_form2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab_des_form2.Location = new System.Drawing.Point(4, 22);
-            this.tab_des_form2.Name = "tab_des_form2";
-            this.tab_des_form2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form2.Size = new System.Drawing.Size(941, 546);
-            this.tab_des_form2.TabIndex = 2;
-            this.tab_des_form2.Text = "Design Input Data [Form2]";
-            this.tab_des_form2.UseVisualStyleBackColor = true;
-            // 
-            // label471
-            // 
-            this.label471.AutoSize = true;
-            this.label471.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label471.Location = new System.Drawing.Point(869, 430);
-            this.label471.Name = "label471";
-            this.label471.Size = new System.Drawing.Size(31, 13);
-            this.label471.TabIndex = 264;
-            this.label471.Text = "mm";
-            // 
-            // label472
-            // 
-            this.label472.AutoSize = true;
-            this.label472.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label472.Location = new System.Drawing.Point(869, 372);
-            this.label472.Name = "label472";
-            this.label472.Size = new System.Drawing.Size(31, 13);
-            this.label472.TabIndex = 265;
-            this.label472.Text = "mm";
-            // 
-            // label479
-            // 
-            this.label479.AutoSize = true;
-            this.label479.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label479.Location = new System.Drawing.Point(869, 316);
-            this.label479.Name = "label479";
-            this.label479.Size = new System.Drawing.Size(31, 13);
-            this.label479.TabIndex = 266;
-            this.label479.Text = "mm";
-            // 
-            // txt_pier_2_vspc
-            // 
-            this.txt_pier_2_vspc.Location = new System.Drawing.Point(789, 427);
-            this.txt_pier_2_vspc.Name = "txt_pier_2_vspc";
-            this.txt_pier_2_vspc.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_vspc.TabIndex = 261;
-            this.txt_pier_2_vspc.Text = "200";
-            this.txt_pier_2_vspc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label480
-            // 
-            this.label480.AutoSize = true;
-            this.label480.Location = new System.Drawing.Point(471, 430);
-            this.label480.Name = "label480";
-            this.label480.Size = new System.Drawing.Size(263, 13);
-            this.label480.TabIndex = 258;
-            this.label480.Text = "Spacing between Vertical Stirrup Bars [vspc]";
-            // 
-            // txt_pier_2_vdia
-            // 
-            this.txt_pier_2_vdia.Location = new System.Drawing.Point(789, 369);
-            this.txt_pier_2_vdia.Name = "txt_pier_2_vdia";
-            this.txt_pier_2_vdia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_vdia.TabIndex = 262;
-            this.txt_pier_2_vdia.Text = "10";
-            this.txt_pier_2_vdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label481
-            // 
-            this.label481.AutoSize = true;
-            this.label481.Location = new System.Drawing.Point(471, 372);
-            this.label481.Name = "label481";
-            this.label481.Size = new System.Drawing.Size(232, 13);
-            this.label481.TabIndex = 259;
-            this.label481.Text = "Diameter of Vertical Stirrup Bars [vdia]";
-            // 
-            // txt_pier_2_hdia
-            // 
-            this.txt_pier_2_hdia.Location = new System.Drawing.Point(789, 313);
-            this.txt_pier_2_hdia.Name = "txt_pier_2_hdia";
-            this.txt_pier_2_hdia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_hdia.TabIndex = 263;
-            this.txt_pier_2_hdia.Text = "12";
-            this.txt_pier_2_hdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label512
-            // 
-            this.label512.AutoSize = true;
-            this.label512.Location = new System.Drawing.Point(471, 316);
-            this.label512.Name = "label512";
-            this.label512.Size = new System.Drawing.Size(247, 13);
-            this.label512.TabIndex = 260;
-            this.label512.Text = "Diameter of Horizontal Stirrup Bars [hdia]";
-            // 
-            // label513
-            // 
-            this.label513.AutoSize = true;
-            this.label513.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label513.Location = new System.Drawing.Point(869, 289);
-            this.label513.Name = "label513";
-            this.label513.Size = new System.Drawing.Size(31, 13);
-            this.label513.TabIndex = 257;
-            this.label513.Text = "mm";
-            // 
-            // label516
-            // 
-            this.label516.AutoSize = true;
-            this.label516.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label516.Location = new System.Drawing.Point(869, 235);
-            this.label516.Name = "label516";
-            this.label516.Size = new System.Drawing.Size(31, 13);
-            this.label516.TabIndex = 256;
-            this.label516.Text = "mm";
-            // 
-            // txt_pier_2_ldia
-            // 
-            this.txt_pier_2_ldia.Location = new System.Drawing.Point(789, 286);
-            this.txt_pier_2_ldia.Name = "txt_pier_2_ldia";
-            this.txt_pier_2_ldia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_ldia.TabIndex = 255;
-            this.txt_pier_2_ldia.Text = "25";
-            this.txt_pier_2_ldia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label517
-            // 
-            this.label517.AutoSize = true;
-            this.label517.Location = new System.Drawing.Point(471, 289);
-            this.label517.Name = "label517";
-            this.label517.Size = new System.Drawing.Size(295, 13);
-            this.label517.TabIndex = 254;
-            this.label517.Text = "Diameter of Longitudinal reinforcement Bars [ldia]";
-            // 
-            // txt_pier_2_vlegs
-            // 
-            this.txt_pier_2_vlegs.Location = new System.Drawing.Point(789, 399);
-            this.txt_pier_2_vlegs.Name = "txt_pier_2_vlegs";
-            this.txt_pier_2_vlegs.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_vlegs.TabIndex = 253;
-            this.txt_pier_2_vlegs.Text = "4";
-            this.txt_pier_2_vlegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label1076
-            // 
-            this.label1076.AutoSize = true;
-            this.label1076.Location = new System.Drawing.Point(470, 402);
-            this.label1076.Name = "label1076";
-            this.label1076.Size = new System.Drawing.Size(282, 13);
-            this.label1076.TabIndex = 250;
-            this.label1076.Text = "Vertical Stirrup Reinforcement Legs Nos. [vlegs]";
-            // 
-            // txt_pier_2_hlegs
-            // 
-            this.txt_pier_2_hlegs.Location = new System.Drawing.Point(789, 340);
-            this.txt_pier_2_hlegs.Name = "txt_pier_2_hlegs";
-            this.txt_pier_2_hlegs.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_hlegs.TabIndex = 252;
-            this.txt_pier_2_hlegs.Text = "12";
-            this.txt_pier_2_hlegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label1077
-            // 
-            this.label1077.AutoSize = true;
-            this.label1077.Location = new System.Drawing.Point(470, 343);
-            this.label1077.Name = "label1077";
-            this.label1077.Size = new System.Drawing.Size(297, 13);
-            this.label1077.TabIndex = 249;
-            this.label1077.Text = "Horizontal Stirrup Reinforcement Legs Nos. [hlegs]";
-            // 
-            // txt_pier_2_slegs
-            // 
-            this.txt_pier_2_slegs.Location = new System.Drawing.Point(789, 259);
-            this.txt_pier_2_slegs.Name = "txt_pier_2_slegs";
-            this.txt_pier_2_slegs.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_slegs.TabIndex = 251;
-            this.txt_pier_2_slegs.Text = "6";
-            this.txt_pier_2_slegs.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label1078
-            // 
-            this.label1078.AutoSize = true;
-            this.label1078.Location = new System.Drawing.Point(471, 267);
-            this.label1078.Name = "label1078";
-            this.label1078.Size = new System.Drawing.Size(230, 13);
-            this.label1078.TabIndex = 248;
-            this.label1078.Text = "Shear Reinforcement Legs Nos. [slegs]";
-            // 
-            // txt_pier_2_sdia
-            // 
-            this.txt_pier_2_sdia.Location = new System.Drawing.Point(789, 232);
-            this.txt_pier_2_sdia.Name = "txt_pier_2_sdia";
-            this.txt_pier_2_sdia.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_sdia.TabIndex = 247;
-            this.txt_pier_2_sdia.Text = "16";
-            this.txt_pier_2_sdia.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label1079
-            // 
-            this.label1079.AutoSize = true;
-            this.label1079.Location = new System.Drawing.Point(471, 240);
-            this.label1079.Name = "label1079";
-            this.label1079.Size = new System.Drawing.Size(223, 13);
-            this.label1079.TabIndex = 246;
-            this.label1079.Text = "Diameter of Reinforcement Bar [sdia]";
-            // 
-            // label233
-            // 
-            this.label233.AutoSize = true;
-            this.label233.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label233.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label233.ForeColor = System.Drawing.Color.Red;
-            this.label233.Location = new System.Drawing.Point(407, 12);
-            this.label233.Name = "label233";
-            this.label233.Size = new System.Drawing.Size(218, 18);
-            this.label233.TabIndex = 126;
-            this.label233.Text = "Default Sample Data are shown";
-            // 
-            // label234
-            // 
-            this.label234.AutoSize = true;
-            this.label234.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label234.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label234.ForeColor = System.Drawing.Color.Green;
-            this.label234.Location = new System.Drawing.Point(255, 12);
-            this.label234.Name = "label234";
-            this.label234.Size = new System.Drawing.Size(135, 18);
-            this.label234.TabIndex = 125;
-            this.label234.Text = "All User Input Data";
-            // 
-            // label465
-            // 
-            this.label465.AutoSize = true;
-            this.label465.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label465.Location = new System.Drawing.Point(869, 77);
-            this.label465.Name = "label465";
-            this.label465.Size = new System.Drawing.Size(49, 13);
-            this.label465.TabIndex = 39;
-            this.label465.Text = "m/sec";
-            // 
-            // label466
-            // 
-            this.label466.AutoSize = true;
-            this.label466.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label466.Location = new System.Drawing.Point(414, 444);
-            this.label466.Name = "label466";
-            this.label466.Size = new System.Drawing.Size(19, 13);
-            this.label466.TabIndex = 39;
-            this.label466.Text = "m";
-            // 
-            // label467
-            // 
-            this.label467.AutoSize = true;
-            this.label467.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label467.Location = new System.Drawing.Point(414, 330);
-            this.label467.Name = "label467";
-            this.label467.Size = new System.Drawing.Size(24, 13);
-            this.label467.TabIndex = 39;
-            this.label467.Text = "kN";
-            // 
-            // label468
-            // 
-            this.label468.AutoSize = true;
-            this.label468.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label468.Location = new System.Drawing.Point(414, 286);
-            this.label468.Name = "label468";
-            this.label468.Size = new System.Drawing.Size(24, 13);
-            this.label468.TabIndex = 39;
-            this.label468.Text = "kN";
-            // 
-            // label469
-            // 
-            this.label469.AutoSize = true;
-            this.label469.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label469.Location = new System.Drawing.Point(414, 147);
-            this.label469.Name = "label469";
-            this.label469.Size = new System.Drawing.Size(19, 13);
-            this.label469.TabIndex = 39;
-            this.label469.Text = "m";
-            // 
-            // label470
-            // 
-            this.label470.AutoSize = true;
-            this.label470.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label470.Location = new System.Drawing.Point(869, 489);
-            this.label470.Name = "label470";
-            this.label470.Size = new System.Drawing.Size(63, 13);
-            this.label470.TabIndex = 39;
-            this.label470.Text = "kN/sq.m";
-            // 
-            // label473
-            // 
-            this.label473.AutoSize = true;
-            this.label473.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label473.Location = new System.Drawing.Point(869, 201);
-            this.label473.Name = "label473";
-            this.label473.Size = new System.Drawing.Size(56, 13);
-            this.label473.TabIndex = 39;
-            this.label473.Text = "kN/mm";
-            // 
-            // label474
-            // 
-            this.label474.AutoSize = true;
-            this.label474.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label474.Location = new System.Drawing.Point(869, 176);
-            this.label474.Name = "label474";
-            this.label474.Size = new System.Drawing.Size(56, 13);
-            this.label474.TabIndex = 39;
-            this.label474.Text = "kN/mm";
-            // 
-            // label475
-            // 
-            this.label475.AutoSize = true;
-            this.label475.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label475.Location = new System.Drawing.Point(415, 489);
-            this.label475.Name = "label475";
-            this.label475.Size = new System.Drawing.Size(24, 13);
-            this.label475.TabIndex = 39;
-            this.label475.Text = "kN";
-            // 
-            // label476
-            // 
-            this.label476.AutoSize = true;
-            this.label476.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label476.Location = new System.Drawing.Point(414, 113);
-            this.label476.Name = "label476";
-            this.label476.Size = new System.Drawing.Size(44, 13);
-            this.label476.TabIndex = 39;
-            this.label476.Text = "kN/m";
-            // 
-            // label477
-            // 
-            this.label477.AutoSize = true;
-            this.label477.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label477.Location = new System.Drawing.Point(414, 77);
-            this.label477.Name = "label477";
-            this.label477.Size = new System.Drawing.Size(44, 13);
-            this.label477.TabIndex = 39;
-            this.label477.Text = "kN/m";
-            // 
-            // cmb_pier_2_k
-            // 
-            this.cmb_pier_2_k.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_pier_2_k.FormattingEnabled = true;
-            this.cmb_pier_2_k.Items.AddRange(new object[] {
-            "Square End Piers",
-            "Semi Circular End Piers",
-            "Angular End Piers",
-            "User Defined Value"});
-            this.cmb_pier_2_k.Location = new System.Drawing.Point(619, 110);
-            this.cmb_pier_2_k.Name = "cmb_pier_2_k";
-            this.cmb_pier_2_k.Size = new System.Drawing.Size(164, 21);
-            this.cmb_pier_2_k.TabIndex = 38;
-            this.cmb_pier_2_k.SelectedIndexChanged += new System.EventHandler(this.cmb_pier_2_k_SelectedIndexChanged);
-            // 
-            // txt_pier_2_SBC
-            // 
-            this.txt_pier_2_SBC.Location = new System.Drawing.Point(789, 486);
-            this.txt_pier_2_SBC.Name = "txt_pier_2_SBC";
-            this.txt_pier_2_SBC.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_SBC.TabIndex = 37;
-            this.txt_pier_2_SBC.Text = "120";
-            this.txt_pier_2_SBC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label478
-            // 
-            this.label478.AutoSize = true;
-            this.label478.Location = new System.Drawing.Point(468, 489);
-            this.label478.Name = "label478";
-            this.label478.Size = new System.Drawing.Size(274, 13);
-            this.label478.TabIndex = 36;
-            this.label478.Text = "Safe Bearing Capacity of River Bed Soil [SBC]";
-            // 
-            // txt_pier_2_Itc
-            // 
-            this.txt_pier_2_Itc.Location = new System.Drawing.Point(789, 198);
-            this.txt_pier_2_Itc.Name = "txt_pier_2_Itc";
-            this.txt_pier_2_Itc.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_Itc.TabIndex = 29;
-            this.txt_pier_2_Itc.Text = "4.21";
-            this.txt_pier_2_Itc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label482
-            // 
-            this.label482.AutoSize = true;
-            this.label482.Location = new System.Drawing.Point(468, 203);
-            this.label482.Name = "label482";
-            this.label482.Size = new System.Drawing.Size(226, 13);
-            this.label482.TabIndex = 28;
-            this.label482.Text = "Shirnkage Force on Each Bearing [Itc]";
-            // 
-            // txt_pier_2_Vr
-            // 
-            this.txt_pier_2_Vr.Location = new System.Drawing.Point(789, 171);
-            this.txt_pier_2_Vr.Name = "txt_pier_2_Vr";
-            this.txt_pier_2_Vr.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_Vr.TabIndex = 27;
-            this.txt_pier_2_Vr.Text = "2.5";
-            this.txt_pier_2_Vr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label483
-            // 
-            this.label483.AutoSize = true;
-            this.label483.Location = new System.Drawing.Point(468, 179);
-            this.label483.Name = "label483";
-            this.label483.Size = new System.Drawing.Size(239, 13);
-            this.label483.TabIndex = 26;
-            this.label483.Text = "Temperature Force on Each Bearing [Vr]";
-            // 
-            // txt_pier_2_LL
-            // 
-            this.txt_pier_2_LL.Location = new System.Drawing.Point(322, 486);
-            this.txt_pier_2_LL.Name = "txt_pier_2_LL";
-            this.txt_pier_2_LL.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_LL.TabIndex = 25;
-            this.txt_pier_2_LL.Text = "1000";
-            this.txt_pier_2_LL.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label484
-            // 
-            this.label484.AutoSize = true;
-            this.label484.Location = new System.Drawing.Point(6, 489);
-            this.label484.Name = "label484";
-            this.label484.Size = new System.Drawing.Size(222, 13);
-            this.label484.TabIndex = 24;
-            this.label484.Text = "Breaking Force 20% of Live Load [LL]";
-            // 
-            // txt_pier_2_CF
-            // 
-            this.txt_pier_2_CF.Location = new System.Drawing.Point(789, 144);
-            this.txt_pier_2_CF.Name = "txt_pier_2_CF";
-            this.txt_pier_2_CF.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_CF.TabIndex = 23;
-            this.txt_pier_2_CF.Text = "0.6";
-            this.txt_pier_2_CF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label485
-            // 
-            this.label485.AutoSize = true;
-            this.label485.Location = new System.Drawing.Point(468, 139);
-            this.label485.Name = "label485";
-            this.label485.Size = new System.Drawing.Size(180, 26);
-            this.label485.TabIndex = 22;
-            this.label485.Text = "Coefficient of Friction between\r\nConcrete and River Bed [CF]";
-            // 
-            // txt_pier_2_k
-            // 
-            this.txt_pier_2_k.Location = new System.Drawing.Point(789, 110);
-            this.txt_pier_2_k.Name = "txt_pier_2_k";
-            this.txt_pier_2_k.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_k.TabIndex = 21;
-            this.txt_pier_2_k.Text = "0.66";
-            this.txt_pier_2_k.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label486
-            // 
-            this.label486.AutoSize = true;
-            this.label486.Location = new System.Drawing.Point(468, 113);
-            this.label486.Name = "label486";
-            this.label486.Size = new System.Drawing.Size(145, 13);
-            this.label486.TabIndex = 20;
-            this.label486.Text = "Pier Shape Constant [k]";
-            // 
-            // txt_pier_2_V
-            // 
-            this.txt_pier_2_V.Location = new System.Drawing.Point(789, 74);
-            this.txt_pier_2_V.Name = "txt_pier_2_V";
-            this.txt_pier_2_V.Size = new System.Drawing.Size(74, 21);
-            this.txt_pier_2_V.TabIndex = 19;
-            this.txt_pier_2_V.Text = "8.0";
-            this.txt_pier_2_V.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label487
-            // 
-            this.label487.AutoSize = true;
-            this.label487.Location = new System.Drawing.Point(468, 82);
-            this.label487.Name = "label487";
-            this.label487.Size = new System.Drawing.Size(261, 13);
-            this.label487.TabIndex = 18;
-            this.label487.Text = "Observed Velocity of water at High Flood [V]";
-            // 
-            // txt_pier_2_HHF
-            // 
-            this.txt_pier_2_HHF.Location = new System.Drawing.Point(322, 441);
-            this.txt_pier_2_HHF.Name = "txt_pier_2_HHF";
-            this.txt_pier_2_HHF.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_HHF.TabIndex = 17;
-            this.txt_pier_2_HHF.Text = "6.0";
-            this.txt_pier_2_HHF.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label488
-            // 
-            this.label488.AutoSize = true;
-            this.label488.Location = new System.Drawing.Point(6, 436);
-            this.label488.Name = "label488";
-            this.label488.Size = new System.Drawing.Size(304, 26);
-            this.label488.TabIndex = 16;
-            this.label488.Text = "Height of Water from River Bed at High Flood [HHF] \r\n(put value 0 if not required" +
-    ")\r\n";
-            // 
-            // txt_pier_2_SC
-            // 
-            this.txt_pier_2_SC.ForeColor = System.Drawing.Color.Black;
-            this.txt_pier_2_SC.Location = new System.Drawing.Point(322, 400);
-            this.txt_pier_2_SC.Name = "txt_pier_2_SC";
-            this.txt_pier_2_SC.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_SC.TabIndex = 15;
-            this.txt_pier_2_SC.Text = "0.18";
-            this.txt_pier_2_SC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label489
-            // 
-            this.label489.AutoSize = true;
-            this.label489.Location = new System.Drawing.Point(6, 392);
-            this.label489.Name = "label489";
-            this.label489.Size = new System.Drawing.Size(170, 26);
-            this.label489.TabIndex = 14;
-            this.label489.Text = "Seismic Coefficient [SC]\r\n (put value 0 if not required)";
-            // 
-            // txt_pier_2_PD
-            // 
-            this.txt_pier_2_PD.Location = new System.Drawing.Point(258, 242);
-            this.txt_pier_2_PD.Name = "txt_pier_2_PD";
-            this.txt_pier_2_PD.ReadOnly = true;
-            this.txt_pier_2_PD.Size = new System.Drawing.Size(151, 21);
-            this.txt_pier_2_PD.TabIndex = 13;
-            this.txt_pier_2_PD.Text = "2.0,0.5";
-            this.txt_pier_2_PD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label490
-            // 
-            this.label490.AutoSize = true;
-            this.label490.Location = new System.Drawing.Point(6, 237);
-            this.label490.Name = "label490";
-            this.label490.Size = new System.Drawing.Size(246, 26);
-            this.label490.TabIndex = 12;
-            this.label490.Text = "(Get Distances of each pairs of pedestals \r\nwithin the distance of B16) [PD]";
-            // 
-            // txt_pier_2_PML
-            // 
-            this.txt_pier_2_PML.Location = new System.Drawing.Point(322, 327);
-            this.txt_pier_2_PML.Name = "txt_pier_2_PML";
-            this.txt_pier_2_PML.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_PML.TabIndex = 11;
-            this.txt_pier_2_PML.Text = "195.56";
-            this.txt_pier_2_PML.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label491
-            // 
-            this.label491.AutoSize = true;
-            this.label491.Location = new System.Drawing.Point(6, 322);
-            this.label491.Name = "label491";
-            this.label491.Size = new System.Drawing.Size(259, 26);
-            this.label491.TabIndex = 10;
-            this.label491.Text = "(Get Moments on each \r\nPedestal = Total Moment / total Pairs) [PML]";
-            // 
-            // txt_pier_2_PL
-            // 
-            this.txt_pier_2_PL.Location = new System.Drawing.Point(322, 283);
-            this.txt_pier_2_PL.Name = "txt_pier_2_PL";
-            this.txt_pier_2_PL.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_PL.TabIndex = 9;
-            this.txt_pier_2_PL.Text = "306.4";
-            this.txt_pier_2_PL.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label492
-            // 
-            this.label492.AutoSize = true;
-            this.label492.Location = new System.Drawing.Point(6, 275);
-            this.label492.Name = "label492";
-            this.label492.Size = new System.Drawing.Size(303, 26);
-            this.label492.TabIndex = 8;
-            this.label492.Text = "(Get Load Reactions on each pair of\r\nPedestals =   Total Load Reaction / total Pa" +
-    "irs ) [PL]";
-            // 
-            // label493
-            // 
-            this.label493.AutoSize = true;
-            this.label493.Location = new System.Drawing.Point(6, 181);
-            this.label493.Name = "label493";
-            this.label493.Size = new System.Drawing.Size(237, 39);
-            this.label493.TabIndex = 7;
-            this.label493.Text = "Distances from Left Edge of Pier Cap to \r\nCentre of Each  pair of Pedestals [APD]" +
-    "\r\n(seperated by comma \',\' or space \' \')";
-            // 
-            // txt_pier_2_APD
-            // 
-            this.txt_pier_2_APD.Location = new System.Drawing.Point(258, 171);
-            this.txt_pier_2_APD.Multiline = true;
-            this.txt_pier_2_APD.Name = "txt_pier_2_APD";
-            this.txt_pier_2_APD.Size = new System.Drawing.Size(151, 54);
-            this.txt_pier_2_APD.TabIndex = 6;
-            this.txt_pier_2_APD.Text = "0.5,2.0,3.5,6.5, 8.0, 9.5";
-            this.txt_pier_2_APD.TextChanged += new System.EventHandler(this.txt_pier_2_APD_TextChanged);
-            // 
-            // label494
-            // 
-            this.label494.AutoSize = true;
-            this.label494.Location = new System.Drawing.Point(6, 139);
-            this.label494.Name = "label494";
-            this.label494.Size = new System.Drawing.Size(201, 26);
-            this.label494.TabIndex = 5;
-            this.label494.Text = "Distance from Left Edge Pier Cap \r\nEdge to Left face of Pier [B16]";
-            // 
-            // txt_pier_2_B16
-            // 
-            this.txt_pier_2_B16.ForeColor = System.Drawing.Color.Blue;
-            this.txt_pier_2_B16.Location = new System.Drawing.Point(322, 144);
-            this.txt_pier_2_B16.Name = "txt_pier_2_B16";
-            this.txt_pier_2_B16.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_B16.TabIndex = 4;
-            this.txt_pier_2_B16.Text = "2.500";
-            this.txt_pier_2_B16.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label495
-            // 
-            this.label495.AutoSize = true;
-            this.label495.Location = new System.Drawing.Point(6, 113);
-            this.label495.Name = "label495";
-            this.label495.Size = new System.Drawing.Size(283, 13);
-            this.label495.TabIndex = 3;
-            this.label495.Text = "Live Load Support Reaction for all Supports [P3]";
-            // 
-            // txt_pier_2_P3
-            // 
-            this.txt_pier_2_P3.ForeColor = System.Drawing.Color.Red;
-            this.txt_pier_2_P3.Location = new System.Drawing.Point(322, 108);
-            this.txt_pier_2_P3.Name = "txt_pier_2_P3";
-            this.txt_pier_2_P3.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_P3.TabIndex = 2;
-            this.txt_pier_2_P3.Text = " ";
-            this.txt_pier_2_P3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label496
-            // 
-            this.label496.AutoSize = true;
-            this.label496.Location = new System.Drawing.Point(6, 82);
-            this.label496.Name = "label496";
-            this.label496.Size = new System.Drawing.Size(290, 13);
-            this.label496.TabIndex = 1;
-            this.label496.Text = "Dead Load Support Reaction for all Supports [P2]";
-            this.label496.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label497
-            // 
-            this.label497.AutoSize = true;
-            this.label497.Location = new System.Drawing.Point(6, 47);
-            this.label497.Name = "label497";
-            this.label497.Size = new System.Drawing.Size(526, 13);
-            this.label497.TabIndex = 1;
-            this.label497.Text = "Various Load Reactions for Supports within this distance are read from Analysis R" +
-    "eport File";
-            // 
-            // txt_pier_2_P2
-            // 
-            this.txt_pier_2_P2.ForeColor = System.Drawing.Color.Red;
-            this.txt_pier_2_P2.Location = new System.Drawing.Point(322, 74);
-            this.txt_pier_2_P2.Name = "txt_pier_2_P2";
-            this.txt_pier_2_P2.Size = new System.Drawing.Size(87, 21);
-            this.txt_pier_2_P2.TabIndex = 0;
-            this.txt_pier_2_P2.Text = " ";
-            this.txt_pier_2_P2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // tab_des_Diagram
-            // 
-            this.tab_des_Diagram.Controls.Add(this.pic_pier_interactive_diagram);
-            this.tab_des_Diagram.Location = new System.Drawing.Point(4, 22);
-            this.tab_des_Diagram.Name = "tab_des_Diagram";
-            this.tab_des_Diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_Diagram.Size = new System.Drawing.Size(941, 546);
-            this.tab_des_Diagram.TabIndex = 1;
-            this.tab_des_Diagram.Text = "Diagram";
-            this.tab_des_Diagram.UseVisualStyleBackColor = true;
-            // 
-            // pic_pier_interactive_diagram
-            // 
-            this.pic_pier_interactive_diagram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pic_pier_interactive_diagram.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pic_pier_interactive_diagram.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pic_pier_interactive_diagram.Location = new System.Drawing.Point(3, 3);
-            this.pic_pier_interactive_diagram.Name = "pic_pier_interactive_diagram";
-            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(935, 540);
-            this.pic_pier_interactive_diagram.TabIndex = 0;
-            this.pic_pier_interactive_diagram.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btn_RCC_Pier_Report);
-            this.panel4.Controls.Add(this.btn_RCC_Pier_Process);
-            this.panel4.Controls.Add(this.label155);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 575);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(949, 56);
-            this.panel4.TabIndex = 0;
-            // 
-            // btn_RCC_Pier_Report
-            // 
-            this.btn_RCC_Pier_Report.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_RCC_Pier_Report.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RCC_Pier_Report.Location = new System.Drawing.Point(520, 22);
-            this.btn_RCC_Pier_Report.Name = "btn_RCC_Pier_Report";
-            this.btn_RCC_Pier_Report.Size = new System.Drawing.Size(161, 28);
-            this.btn_RCC_Pier_Report.TabIndex = 12;
-            this.btn_RCC_Pier_Report.Text = "Report";
-            this.btn_RCC_Pier_Report.UseVisualStyleBackColor = true;
-            this.btn_RCC_Pier_Report.Click += new System.EventHandler(this.btn_RccPier_Report_Click);
-            // 
-            // btn_RCC_Pier_Process
-            // 
-            this.btn_RCC_Pier_Process.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_RCC_Pier_Process.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RCC_Pier_Process.Location = new System.Drawing.Point(348, 22);
-            this.btn_RCC_Pier_Process.Name = "btn_RCC_Pier_Process";
-            this.btn_RCC_Pier_Process.Size = new System.Drawing.Size(161, 28);
-            this.btn_RCC_Pier_Process.TabIndex = 11;
-            this.btn_RCC_Pier_Process.Text = "Process";
-            this.btn_RCC_Pier_Process.UseVisualStyleBackColor = true;
-            this.btn_RCC_Pier_Process.Click += new System.EventHandler(this.btn_RccPier_Process_Click);
-            // 
-            // label155
-            // 
-            this.label155.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label155.AutoSize = true;
-            this.label155.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label155.ForeColor = System.Drawing.Color.Red;
-            this.label155.Location = new System.Drawing.Point(449, 6);
-            this.label155.Name = "label155";
-            this.label155.Size = new System.Drawing.Size(124, 14);
-            this.label155.TabIndex = 120;
-            this.label155.Text = "Design of RCC Pier";
             // 
             // tab_drawings
             // 
@@ -14161,7 +11958,7 @@
             this.tab_drawings.Controls.Add(this.btn_open_drawings);
             this.tab_drawings.Location = new System.Drawing.Point(4, 22);
             this.tab_drawings.Name = "tab_drawings";
-            this.tab_drawings.Size = new System.Drawing.Size(969, 666);
+            this.tab_drawings.Size = new System.Drawing.Size(1028, 666);
             this.tab_drawings.TabIndex = 2;
             this.tab_drawings.Text = "Design Drawings";
             this.tab_drawings.UseVisualStyleBackColor = true;
@@ -14252,7 +12049,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 692);
+            this.ClientSize = new System.Drawing.Size(1036, 692);
             this.Controls.Add(this.tc_main);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_Extradosed_Stage";
@@ -14271,6 +12068,17 @@
             this.tbc_girder.ResumeLayout(false);
             this.tab_user_input.ResumeLayout(false);
             this.tab_user_input.PerformLayout();
+            this.groupBox39.ResumeLayout(false);
+            this.groupBox39.PerformLayout();
+            this.grb_ana_footpath.ResumeLayout(false);
+            this.grb_ana_footpath.PerformLayout();
+            this.grb_ana_parapet.ResumeLayout(false);
+            this.grb_ana_parapet.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_diagram)).EndInit();
+            this.grb_ana_crash_barrier.ResumeLayout(false);
+            this.grb_ana_crash_barrier.PerformLayout();
+            this.grb_ana_wc.ResumeLayout(false);
+            this.grb_ana_wc.PerformLayout();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -14295,6 +12103,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.groupBox26.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.tab_moving_data_british.ResumeLayout(false);
@@ -14302,6 +12112,7 @@
             this.groupBox45.PerformLayout();
             this.spc_HB.Panel1.ResumeLayout(false);
             this.spc_HB.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spc_HB)).EndInit();
             this.spc_HB.ResumeLayout(false);
             this.groupBox106.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -14341,8 +12152,16 @@
             this.tab_analysis.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox50.ResumeLayout(false);
+            this.groupBox50.PerformLayout();
+            this.groupBox51.ResumeLayout(false);
+            this.groupBox51.PerformLayout();
+            this.groupBox52.ResumeLayout(false);
+            this.groupBox52.PerformLayout();
             this.groupBox70.ResumeLayout(false);
             this.groupBox70.PerformLayout();
             this.groupBox109.ResumeLayout(false);
@@ -14350,7 +12169,7 @@
             this.groupBox71.PerformLayout();
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();
-            this.tabControl5.ResumeLayout(false);
+            this.tc_results.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.groupBox44.ResumeLayout(false);
             this.groupBox44.PerformLayout();
@@ -14363,10 +12182,6 @@
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             this.groupBox11.ResumeLayout(false);
-            this.groupBox60.ResumeLayout(false);
-            this.groupBox60.PerformLayout();
-            this.groupBox61.ResumeLayout(false);
-            this.groupBox61.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox15.ResumeLayout(false);
@@ -14378,30 +12193,11 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox58.ResumeLayout(false);
-            this.groupBox58.PerformLayout();
-            this.groupBox59.ResumeLayout(false);
-            this.groupBox59.PerformLayout();
-            this.tabPage6.ResumeLayout(false);
-            this.groupBox62.ResumeLayout(false);
-            this.groupBox63.ResumeLayout(false);
-            this.groupBox63.PerformLayout();
-            this.groupBox64.ResumeLayout(false);
-            this.groupBox64.PerformLayout();
-            this.groupBox65.ResumeLayout(false);
-            this.groupBox65.PerformLayout();
-            this.groupBox66.ResumeLayout(false);
-            this.groupBox66.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_left_des_frc)).EndInit();
-            this.groupBox67.ResumeLayout(false);
-            this.groupBox67.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_left_end_design_forces)).EndInit();
-            this.groupBox68.ResumeLayout(false);
-            this.groupBox68.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_right_end_design_forces)).EndInit();
-            this.g.ResumeLayout(false);
-            this.g.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_right_des_frc)).EndInit();
+            this.tabPage19.ResumeLayout(false);
+            this.tabControl7.ResumeLayout(false);
+            this.tabPage20.ResumeLayout(false);
+            this.tabPage21.ResumeLayout(false);
+            this.tabPage22.ResumeLayout(false);
             this.tab_stage.ResumeLayout(false);
             this.tc_stage.ResumeLayout(false);
             this.tab_stage1.ResumeLayout(false);
@@ -14410,7 +12206,8 @@
             this.tab_stage4.ResumeLayout(false);
             this.tab_stage5.ResumeLayout(false);
             this.tab_designSage.ResumeLayout(false);
-            this.tab_designSage.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.tab_worksheet_design.ResumeLayout(false);
             this.tc_bridge_deck.ResumeLayout(false);
             this.tabPage17.ResumeLayout(false);
@@ -14468,26 +12265,6 @@
             this.tc_pier.ResumeLayout(false);
             this.tab_PierOpenLSM.ResumeLayout(false);
             this.tab_PierPileLSM.ResumeLayout(false);
-            this.tab_PierWSM.ResumeLayout(false);
-            this.tabControl3.ResumeLayout(false);
-            this.tab_des_form1.ResumeLayout(false);
-            this.tab_des_form1.PerformLayout();
-            this.groupBox42.ResumeLayout(false);
-            this.groupBox42.PerformLayout();
-            this.groupBox39.ResumeLayout(false);
-            this.groupBox39.PerformLayout();
-            this.groupBox40.ResumeLayout(false);
-            this.groupBox40.PerformLayout();
-            this.groupBox41.ResumeLayout(false);
-            this.groupBox41.PerformLayout();
-            this.groupBox43.ResumeLayout(false);
-            this.groupBox43.PerformLayout();
-            this.tab_des_form2.ResumeLayout(false);
-            this.tab_des_form2.PerformLayout();
-            this.tab_des_Diagram.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_pier_interactive_diagram)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.tab_drawings.ResumeLayout(false);
             this.tab_drawings.PerformLayout();
             this.ResumeLayout(false);
@@ -14610,9 +12387,6 @@
         private System.Windows.Forms.TextBox txt_Ana_LL_outer_long_L2_moment;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FolderBrowserDialog fbd;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt_support_distance;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txt_Ana_dead_inner_long_L8_shear;
@@ -14931,330 +12705,14 @@
         private System.Windows.Forms.Label label225;
         private System.Windows.Forms.Label label224;
         private System.Windows.Forms.TabPage tab_pier;
-        private System.Windows.Forms.Button btn_RCC_Pier_Process;
-        private System.Windows.Forms.Button btn_RCC_Pier_Report;
-        private System.Windows.Forms.TabControl tabControl3;
-        private System.Windows.Forms.TabPage tab_des_form1;
-        private System.Windows.Forms.GroupBox groupBox42;
-        private System.Windows.Forms.TextBox txt_rcc_pier_m;
-        private System.Windows.Forms.Label label117;
-        private System.Windows.Forms.ComboBox cmb_rcc_pier_fy;
-        private System.Windows.Forms.Label label236;
-        private System.Windows.Forms.ComboBox cmb_rcc_pier_fck;
-        private System.Windows.Forms.Label label244;
-        private System.Windows.Forms.Label label250;
-        private System.Windows.Forms.Label label251;
-        private System.Windows.Forms.TextBox txt_rcc_pier_sigma_st;
-        private System.Windows.Forms.Label label253;
-        private System.Windows.Forms.Label label254;
-        private System.Windows.Forms.TextBox txt_rcc_pier_sigma_c;
-        private System.Windows.Forms.Label label258;
-        private System.Windows.Forms.Label label259;
-        private System.Windows.Forms.Label label355;
-        private System.Windows.Forms.GroupBox groupBox39;
-        private System.Windows.Forms.Label label356;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_W1_supp_reac;
-        private System.Windows.Forms.Label label357;
-        private System.Windows.Forms.Label label358;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_Mz1;
-        private System.Windows.Forms.Label label359;
-        private System.Windows.Forms.Label label360;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_Mx1;
-        private System.Windows.Forms.Label label361;
-        private System.Windows.Forms.Label label362;
-        private System.Windows.Forms.Label label363;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H7;
-        private System.Windows.Forms.Label label364;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_gama_c;
-        private System.Windows.Forms.Label label365;
-        private System.Windows.Forms.Label label366;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_vehi_load;
-        private System.Windows.Forms.Label label367;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_NR;
-        private System.Windows.Forms.Label label368;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_NP;
-        private System.Windows.Forms.Label label369;
-        private System.Windows.Forms.GroupBox groupBox40;
-        private System.Windows.Forms.Label label372;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_fck_2;
-        private System.Windows.Forms.Label label373;
-        private System.Windows.Forms.Label label374;
-        private System.Windows.Forms.Label label375;
-        private System.Windows.Forms.Label label376;
-        private System.Windows.Forms.Label label377;
-        private System.Windows.Forms.Label label378;
-        private System.Windows.Forms.Label label379;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_fy2;
-        private System.Windows.Forms.Label label380;
-        private System.Windows.Forms.Label label381;
-        private System.Windows.Forms.Label label382;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_D;
-        private System.Windows.Forms.Label label383;
-        private System.Windows.Forms.Label label384;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_b;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_d_dash;
-        private System.Windows.Forms.Label label385;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_p1;
-        private System.Windows.Forms.Label label386;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_p2;
-        private System.Windows.Forms.Label label387;
-        private System.Windows.Forms.Label label389;
-        private System.Windows.Forms.Label label390;
-        private System.Windows.Forms.Label label391;
-        private System.Windows.Forms.Label label392;
-        private System.Windows.Forms.Label label393;
-        private System.Windows.Forms.Label label394;
-        private System.Windows.Forms.Label label395;
-        private System.Windows.Forms.Label label396;
-        private System.Windows.Forms.Label label397;
-        private System.Windows.Forms.Label label398;
-        private System.Windows.Forms.Label label403;
-        private System.Windows.Forms.Label label404;
-        private System.Windows.Forms.Label label405;
-        private System.Windows.Forms.Label label406;
-        private System.Windows.Forms.Label label407;
-        private System.Windows.Forms.Label label408;
-        private System.Windows.Forms.Label label409;
-        private System.Windows.Forms.Label label410;
-        private System.Windows.Forms.Label label411;
-        private System.Windows.Forms.Label label412;
-        private System.Windows.Forms.Label label413;
-        private System.Windows.Forms.Label label414;
-        private System.Windows.Forms.Label label415;
-        private System.Windows.Forms.Label label416;
-        private System.Windows.Forms.Label label417;
-        private System.Windows.Forms.Label label418;
-        private System.Windows.Forms.Label label419;
-        private System.Windows.Forms.Label label420;
-        private System.Windows.Forms.GroupBox groupBox41;
-        private System.Windows.Forms.Label label421;
-        private System.Windows.Forms.Label label422;
-        private System.Windows.Forms.Label label423;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H2;
-        private System.Windows.Forms.Label label424;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B4;
-        private System.Windows.Forms.Label label425;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B3;
-        private System.Windows.Forms.Label label426;
-        private System.Windows.Forms.GroupBox groupBox43;
-        private System.Windows.Forms.Label label427;
-        private System.Windows.Forms.Label label428;
-        private System.Windows.Forms.Label label429;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H1;
-        private System.Windows.Forms.Label label430;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B2;
-        private System.Windows.Forms.Label label431;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B1;
-        private System.Windows.Forms.Label label432;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_overall_height;
-        private System.Windows.Forms.Label label433;
-        private System.Windows.Forms.TextBox txt_RCC_Pier___B;
-        private System.Windows.Forms.Label label434;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B13;
-        private System.Windows.Forms.Label label435;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B12;
-        private System.Windows.Forms.Label label436;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B11;
-        private System.Windows.Forms.Label label437;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B10;
-        private System.Windows.Forms.Label label438;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B9;
-        private System.Windows.Forms.Label label439;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H6;
-        private System.Windows.Forms.Label label440;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H5;
-        private System.Windows.Forms.Label label441;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B8;
-        private System.Windows.Forms.Label label445;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H4;
-        private System.Windows.Forms.Label label446;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_H3;
-        private System.Windows.Forms.Label label447;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B7;
-        private System.Windows.Forms.Label label448;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_Form_Lev;
-        private System.Windows.Forms.Label label449;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_RL5;
-        private System.Windows.Forms.Label label450;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_RL4;
-        private System.Windows.Forms.Label label451;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_RL3;
-        private System.Windows.Forms.Label label452;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_RL2;
-        private System.Windows.Forms.Label label453;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_RL1;
-        private System.Windows.Forms.Label label454;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B6;
-        private System.Windows.Forms.Label label455;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_B5;
-        private System.Windows.Forms.Label label456;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_DS;
-        private System.Windows.Forms.Label label457;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_DMG;
-        private System.Windows.Forms.Label label458;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_NMG;
-        private System.Windows.Forms.Label label459;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_Hp;
-        private System.Windows.Forms.Label label460;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_Wp;
-        private System.Windows.Forms.Label label461;
-        private System.Windows.Forms.TextBox txt_RCC_Pier__B;
-        private System.Windows.Forms.Label label462;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_CW;
-        private System.Windows.Forms.Label label463;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_L;
-        private System.Windows.Forms.Label label464;
-        private System.Windows.Forms.TabPage tab_des_form2;
-        private System.Windows.Forms.Label label465;
-        private System.Windows.Forms.Label label466;
-        private System.Windows.Forms.Label label467;
-        private System.Windows.Forms.Label label468;
-        private System.Windows.Forms.Label label469;
-        private System.Windows.Forms.Label label470;
-        private System.Windows.Forms.Label label473;
-        private System.Windows.Forms.Label label474;
-        private System.Windows.Forms.Label label475;
-        private System.Windows.Forms.Label label476;
-        private System.Windows.Forms.Label label477;
-        private System.Windows.Forms.ComboBox cmb_pier_2_k;
-        private System.Windows.Forms.TextBox txt_pier_2_SBC;
-        private System.Windows.Forms.Label label478;
-        private System.Windows.Forms.TextBox txt_pier_2_Itc;
-        private System.Windows.Forms.Label label482;
-        private System.Windows.Forms.TextBox txt_pier_2_Vr;
-        private System.Windows.Forms.Label label483;
-        private System.Windows.Forms.TextBox txt_pier_2_LL;
-        private System.Windows.Forms.Label label484;
-        private System.Windows.Forms.TextBox txt_pier_2_CF;
-        private System.Windows.Forms.Label label485;
-        private System.Windows.Forms.TextBox txt_pier_2_k;
-        private System.Windows.Forms.Label label486;
-        private System.Windows.Forms.TextBox txt_pier_2_V;
-        private System.Windows.Forms.Label label487;
-        private System.Windows.Forms.TextBox txt_pier_2_HHF;
-        private System.Windows.Forms.Label label488;
-        private System.Windows.Forms.TextBox txt_pier_2_SC;
-        private System.Windows.Forms.Label label489;
-        private System.Windows.Forms.TextBox txt_pier_2_PD;
-        private System.Windows.Forms.Label label490;
-        private System.Windows.Forms.TextBox txt_pier_2_PML;
-        private System.Windows.Forms.Label label491;
-        private System.Windows.Forms.TextBox txt_pier_2_PL;
-        private System.Windows.Forms.Label label492;
-        private System.Windows.Forms.Label label493;
-        private System.Windows.Forms.TextBox txt_pier_2_APD;
-        private System.Windows.Forms.Label label494;
-        private System.Windows.Forms.TextBox txt_pier_2_B16;
-        private System.Windows.Forms.Label label495;
-        private System.Windows.Forms.TextBox txt_pier_2_P3;
-        private System.Windows.Forms.Label label496;
-        private System.Windows.Forms.Label label497;
-        private System.Windows.Forms.TextBox txt_pier_2_P2;
-        private System.Windows.Forms.TabPage tab_des_Diagram;
-        private System.Windows.Forms.PictureBox pic_pier_interactive_diagram;
         private System.Windows.Forms.Button btn_dwg_pier;
         private System.Windows.Forms.TabControl tbc_girder;
         private System.Windows.Forms.TabPage tab_user_input;
         private System.Windows.Forms.TabPage tab_analysis;
         private System.Windows.Forms.GroupBox groupBox11;
-        private System.Windows.Forms.TabControl tabControl5;
+        private System.Windows.Forms.TabControl tc_results;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.GroupBox groupBox44;
-        private System.Windows.Forms.GroupBox groupBox58;
-        private System.Windows.Forms.Label label534;
-        private System.Windows.Forms.TextBox txt_ana_TSRP;
-        private System.Windows.Forms.Label label535;
-        private System.Windows.Forms.Label label536;
-        private System.Windows.Forms.TextBox txt_ana_MSTD;
-        private System.Windows.Forms.Label label537;
-        private System.Windows.Forms.Label label538;
-        private System.Windows.Forms.TextBox txt_ana_MSLD;
-        private System.Windows.Forms.Label label539;
-        private System.Windows.Forms.GroupBox groupBox59;
-        private System.Windows.Forms.Label label541;
-        private System.Windows.Forms.Label label540;
-        private System.Windows.Forms.TextBox txt_ana_DLSR;
-        private System.Windows.Forms.Label label532;
-        private System.Windows.Forms.Label label533;
-        private System.Windows.Forms.GroupBox groupBox60;
-        private System.Windows.Forms.Label label268;
-        private System.Windows.Forms.Label label269;
-        private System.Windows.Forms.GroupBox groupBox61;
-        private System.Windows.Forms.Label label270;
-        private System.Windows.Forms.Label label271;
-        private System.Windows.Forms.Label label272;
-        private System.Windows.Forms.Label label273;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label274;
-        private System.Windows.Forms.Label label275;
-        private System.Windows.Forms.TextBox txt_Ana_dead_cross_max_shear;
-        private System.Windows.Forms.TextBox txt_Ana_dead_cross_max_moment;
-        private System.Windows.Forms.TextBox txt_ana_LLSR;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.GroupBox groupBox62;
-        private System.Windows.Forms.GroupBox groupBox63;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label276;
-        private System.Windows.Forms.Label label277;
-        private System.Windows.Forms.TextBox txt_final_Mz;
-        public System.Windows.Forms.TextBox txt_max_Mz_kN;
-        private System.Windows.Forms.GroupBox groupBox64;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox txt_final_Mx;
-        public System.Windows.Forms.TextBox txt_max_Mx_kN;
-        private System.Windows.Forms.Label label278;
-        private System.Windows.Forms.Label label279;
-        private System.Windows.Forms.GroupBox groupBox65;
-        public System.Windows.Forms.TextBox txt_final_vert_rec_kN;
-        private System.Windows.Forms.Label label280;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox txt_final_vert_reac;
-        private System.Windows.Forms.Label label281;
-        private System.Windows.Forms.GroupBox groupBox66;
-        private System.Windows.Forms.TextBox txt_left_total_Mz;
-        private System.Windows.Forms.TextBox txt_left_total_Mx;
-        private System.Windows.Forms.Label label325;
-        private System.Windows.Forms.Label label326;
-        private System.Windows.Forms.TextBox txt_left_total_vert_reac;
-        private System.Windows.Forms.DataGridView dgv_left_des_frc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Max_Mx;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Max_Mz;
-        private System.Windows.Forms.GroupBox groupBox67;
-        private System.Windows.Forms.Label label327;
-        private System.Windows.Forms.TextBox txt_dead_kN_m;
-        private System.Windows.Forms.Label label354;
-        private System.Windows.Forms.TextBox txt_dead_vert_reac_kN;
-        private System.Windows.Forms.Label label370;
-        private System.Windows.Forms.Label label371;
-        private System.Windows.Forms.DataGridView dgv_left_end_design_forces;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Joints;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Vert_Reaction;
-        private System.Windows.Forms.TextBox txt_dead_vert_reac_ton;
-        private System.Windows.Forms.GroupBox groupBox68;
-        public System.Windows.Forms.TextBox txt_live_kN_m;
-        private System.Windows.Forms.Label label388;
-        public System.Windows.Forms.TextBox txt_live_vert_rec_kN;
-        private System.Windows.Forms.Label label399;
-        private System.Windows.Forms.Label label400;
-        private System.Windows.Forms.DataGridView dgv_right_end_design_forces;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        public System.Windows.Forms.TextBox txt_live_vert_rec_Ton;
-        private System.Windows.Forms.Label label401;
-        private System.Windows.Forms.GroupBox g;
-        private System.Windows.Forms.DataGridView dgv_right_des_frc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.TextBox txt_right_total_Mz;
-        private System.Windows.Forms.TextBox txt_right_total_Mx;
-        private System.Windows.Forms.Label label402;
-        private System.Windows.Forms.Label label442;
-        private System.Windows.Forms.TextBox txt_right_total_vert_reac;
         private System.Windows.Forms.Label label142;
         private System.Windows.Forms.TabPage tab_cs_diagram;
         private System.Windows.Forms.GroupBox groupBox26;
@@ -15267,7 +12725,6 @@
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Label label144;
-        private System.Windows.Forms.Label label155;
         private System.Windows.Forms.Label label157;
         private System.Windows.Forms.Label label164;
         private System.Windows.Forms.Label label176;
@@ -15276,14 +12733,9 @@
         private System.Windows.Forms.Label label228;
         private System.Windows.Forms.Label label229;
         private System.Windows.Forms.Label label230;
-        private System.Windows.Forms.Label label231;
-        private System.Windows.Forms.Label label232;
-        private System.Windows.Forms.Label label233;
-        private System.Windows.Forms.Label label234;
         private System.Windows.Forms.Label label235;
         private System.Windows.Forms.Label label237;
         private System.Windows.Forms.Label label238;
-        private System.Windows.Forms.Label lbl_factor;
         private System.Windows.Forms.Label label239;
         private System.Windows.Forms.TextBox txt_Ana_LL_factor;
         private System.Windows.Forms.Label label240;
@@ -15294,7 +12746,6 @@
         private System.Windows.Forms.Label label241;
         private System.Windows.Forms.Label label242;
         private System.Windows.Forms.Label label245;
-        private System.Windows.Forms.Label label246;
         private System.Windows.Forms.GroupBox groupBox70;
         private System.Windows.Forms.RadioButton rbtn_esprt_pinned;
         private System.Windows.Forms.RadioButton rbtn_esprt_fixed;
@@ -15589,7 +13040,7 @@
         private System.Windows.Forms.PictureBox pcb_cables;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_box_unit_weight;
         private System.Windows.Forms.TextBox txt_cp;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label20;
@@ -15605,37 +13056,8 @@
         private System.Windows.Forms.Label label313;
         public System.Windows.Forms.TextBox txt_cbl_des_E;
         private System.Windows.Forms.Label label314;
-        private System.Windows.Forms.Label label315;
-        private System.Windows.Forms.Label label316;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_tdia;
-        private System.Windows.Forms.TextBox txt_RCC_Pier_rdia;
-        private System.Windows.Forms.Label label321;
-        private System.Windows.Forms.Label label507;
-        private System.Windows.Forms.Label label471;
-        private System.Windows.Forms.Label label472;
-        private System.Windows.Forms.Label label479;
-        private System.Windows.Forms.TextBox txt_pier_2_vspc;
-        private System.Windows.Forms.Label label480;
-        private System.Windows.Forms.TextBox txt_pier_2_vdia;
-        private System.Windows.Forms.Label label481;
-        private System.Windows.Forms.TextBox txt_pier_2_hdia;
-        private System.Windows.Forms.Label label512;
-        private System.Windows.Forms.Label label513;
-        private System.Windows.Forms.Label label516;
-        private System.Windows.Forms.TextBox txt_pier_2_ldia;
-        private System.Windows.Forms.Label label517;
-        private System.Windows.Forms.TextBox txt_pier_2_vlegs;
-        private System.Windows.Forms.Label label1076;
-        private System.Windows.Forms.TextBox txt_pier_2_hlegs;
-        private System.Windows.Forms.Label label1077;
-        private System.Windows.Forms.TextBox txt_pier_2_slegs;
-        private System.Windows.Forms.Label label1078;
-        private System.Windows.Forms.TextBox txt_pier_2_sdia;
-        private System.Windows.Forms.Label label1079;
         private System.Windows.Forms.Button btn_construction_drawings;
         private System.Windows.Forms.TabControl tc_pier;
-        private System.Windows.Forms.TabPage tab_PierWSM;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TabPage tab_PierPileLSM;
         private BridgeAnalysisDesign.Pier.UC_PierDesignLSM uC_PierDesignLSM1;
         private System.Windows.Forms.TabPage tab_PierOpenLSM;
@@ -15661,7 +13083,7 @@
         private System.Windows.Forms.Label label561;
         private System.Windows.Forms.Label label557;
         private System.Windows.Forms.Label label558;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox txt_BS_DL_LL_Comb;
         private System.Windows.Forms.Label label559;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel6;
@@ -15681,6 +13103,179 @@
         private System.Windows.Forms.Label label249;
         private System.Windows.Forms.ComboBox cmb_design_stage;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btn_result_summary;
+        private System.Windows.Forms.GroupBox groupBox50;
+        private System.Windows.Forms.Label label252;
+        private System.Windows.Forms.Label label323;
+        private System.Windows.Forms.Label label324;
+        private System.Windows.Forms.Label label328;
+        private System.Windows.Forms.Label label329;
+        private System.Windows.Forms.TextBox txt_PR_cable;
+        private System.Windows.Forms.TextBox txt_den_cable;
+        private System.Windows.Forms.TextBox txt_emod_cable;
+        private System.Windows.Forms.GroupBox groupBox51;
+        private System.Windows.Forms.Label label330;
+        private System.Windows.Forms.Label label331;
+        private System.Windows.Forms.Label label332;
+        private System.Windows.Forms.Label label333;
+        private System.Windows.Forms.Label label334;
+        private System.Windows.Forms.TextBox txt_PR_conc;
+        private System.Windows.Forms.TextBox txt_den_conc;
+        private System.Windows.Forms.TextBox txt_emod_conc;
+        private System.Windows.Forms.GroupBox groupBox52;
+        private System.Windows.Forms.Label label1194;
+        private System.Windows.Forms.Label label1193;
+        private System.Windows.Forms.Label label1196;
+        private System.Windows.Forms.Label label1195;
+        private System.Windows.Forms.Label label1192;
+        private System.Windows.Forms.TextBox txt_PR_steel;
+        private System.Windows.Forms.TextBox txt_den_steel;
+        private System.Windows.Forms.TextBox txt_emod_steel;
+        private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.TabControl tabControl7;
+        private System.Windows.Forms.TabPage tabPage20;
+        private UC_SupportReactions uC_SR_DL;
+        private System.Windows.Forms.TabPage tabPage21;
+        private UC_SupportReactions uC_SR_LL;
+        private System.Windows.Forms.TabPage tabPage22;
+        private UC_MaxReactions uC_MaxSR;
+        private UC_Extradosed_Results uC_Res;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label276;
+        private System.Windows.Forms.Label label277;
+        private System.Windows.Forms.TextBox txt_tot_IZZ;
+        private System.Windows.Forms.Label label280;
+        private System.Windows.Forms.TextBox txt_tot_IYY;
+        private System.Windows.Forms.Label label279;
+        private System.Windows.Forms.TextBox txt_tot_IXX;
+        private System.Windows.Forms.Label label278;
+        private System.Windows.Forms.TextBox txt_tot_AX;
+        private System.Windows.Forms.TextBox txt_cen_IZZ;
+        private System.Windows.Forms.Label label350;
+        private System.Windows.Forms.TextBox txt_cen_IYY;
+        private System.Windows.Forms.Label label349;
+        private System.Windows.Forms.TextBox txt_cen_IXX;
+        private System.Windows.Forms.Label label348;
+        private System.Windows.Forms.TextBox txt_inn_pcnt;
+        private System.Windows.Forms.TextBox txt_cen_pcnt;
+        private System.Windows.Forms.TextBox txt_cen_AX;
+        private System.Windows.Forms.Label label339;
+        private System.Windows.Forms.Label label338;
+        private System.Windows.Forms.Label label336;
+        private System.Windows.Forms.Label label347;
+        private System.Windows.Forms.Label label281;
+        private System.Windows.Forms.Label label335;
+        private System.Windows.Forms.Label label346;
+        private System.Windows.Forms.Label label327;
+        private System.Windows.Forms.Label label345;
+        private System.Windows.Forms.Label label326;
+        private System.Windows.Forms.Label label344;
+        private System.Windows.Forms.Label label325;
+        private System.Windows.Forms.Label label343;
+        private System.Windows.Forms.TextBox txt_out_IZZ;
+        private System.Windows.Forms.TextBox txt_inn_IZZ;
+        private System.Windows.Forms.Label label444;
+        private System.Windows.Forms.Label label354;
+        private System.Windows.Forms.TextBox txt_out_IYY;
+        private System.Windows.Forms.TextBox txt_inn_IYY;
+        private System.Windows.Forms.Label label443;
+        private System.Windows.Forms.Label label353;
+        private System.Windows.Forms.TextBox txt_out_IXX;
+        private System.Windows.Forms.TextBox txt_inn_IXX;
+        private System.Windows.Forms.Label label442;
+        private System.Windows.Forms.Label label352;
+        private System.Windows.Forms.TextBox txt_out_pcnt;
+        private System.Windows.Forms.TextBox txt_out_AX;
+        private System.Windows.Forms.TextBox txt_inn_AX;
+        private System.Windows.Forms.Label label402;
+        private System.Windows.Forms.Label label401;
+        private System.Windows.Forms.Label label400;
+        private System.Windows.Forms.Label label351;
+        private System.Windows.Forms.Label label399;
+        private System.Windows.Forms.Label label342;
+        private System.Windows.Forms.Label label388;
+        private System.Windows.Forms.Label label341;
+        private System.Windows.Forms.Label label371;
+        private System.Windows.Forms.Label label340;
+        private System.Windows.Forms.Label label370;
+        private System.Windows.Forms.Label label337;
+        private System.Windows.Forms.Label label498;
+        public System.Windows.Forms.CheckBox chk_selfweight;
+        public System.Windows.Forms.TextBox txt_max_delf;
+        private System.Windows.Forms.Label label499;
+        private System.Windows.Forms.Label label500;
+        private System.Windows.Forms.Button btn_Show_Section_Excel;
+        private System.Windows.Forms.Label label505;
+        private System.Windows.Forms.Label label502;
+        private System.Windows.Forms.Label label501;
+        private System.Windows.Forms.Label label271;
+        private System.Windows.Forms.Label label269;
+        private System.Windows.Forms.TextBox txt_overhang_gap;
+        private System.Windows.Forms.Label label270;
+        private System.Windows.Forms.TextBox txt_exp_gap;
+        private System.Windows.Forms.Label label268;
+        private System.Windows.Forms.Label label273;
+        private System.Windows.Forms.TextBox txt_support_distance;
+        private System.Windows.Forms.Label label272;
+        private System.Windows.Forms.TextBox lbl_max_delf;
+        private System.Windows.Forms.Label label155;
+        private System.Windows.Forms.TextBox txt_carriageway_width;
+        private System.Windows.Forms.Label label117;
+        private System.Windows.Forms.GroupBox groupBox39;
+        private System.Windows.Forms.GroupBox grb_ana_footpath;
+        private System.Windows.Forms.TextBox txt_Ana_Wr;
+        private System.Windows.Forms.Label label531;
+        private System.Windows.Forms.TextBox txt_Ana_Wf_RHS;
+        private System.Windows.Forms.TextBox txt_Ana_Wk;
+        private System.Windows.Forms.Label label529;
+        private System.Windows.Forms.Label label530;
+        private System.Windows.Forms.Label label566;
+        private System.Windows.Forms.TextBox txt_Ana_Hf_RHS;
+        private System.Windows.Forms.TextBox txt_Ana_Hf_LHS;
+        private System.Windows.Forms.Label label528;
+        private System.Windows.Forms.Label label565;
+        private System.Windows.Forms.Label label567;
+        private System.Windows.Forms.Label label524;
+        private System.Windows.Forms.Label label525;
+        private System.Windows.Forms.Label label526;
+        private System.Windows.Forms.Label label564;
+        private System.Windows.Forms.TextBox txt_Ana_Wf_LHS;
+        private System.Windows.Forms.Label label527;
+        private System.Windows.Forms.CheckBox chk_fp_right;
+        private System.Windows.Forms.CheckBox chk_footpath;
+        private System.Windows.Forms.CheckBox chk_fp_left;
+        private System.Windows.Forms.GroupBox grb_ana_parapet;
+        private System.Windows.Forms.TextBox txt_Ana_hp;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label231;
+        private System.Windows.Forms.TextBox txt_Ana_wp;
+        private System.Windows.Forms.Label label232;
+        private System.Windows.Forms.CheckBox chk_cb_right;
+        private System.Windows.Forms.CheckBox chk_crash_barrier;
+        private System.Windows.Forms.PictureBox pic_diagram;
+        private System.Windows.Forms.GroupBox grb_ana_crash_barrier;
+        private System.Windows.Forms.TextBox txt_Ana_Hc_RHS;
+        private System.Windows.Forms.Label label563;
+        private System.Windows.Forms.TextBox txt_Ana_Hc_LHS;
+        private System.Windows.Forms.Label label562;
+        private System.Windows.Forms.Label label514;
+        private System.Windows.Forms.Label label481;
+        private System.Windows.Forms.TextBox txt_Ana_Wc_RHS;
+        private System.Windows.Forms.Label label522;
+        private System.Windows.Forms.Label label510;
+        private System.Windows.Forms.Label label480;
+        private System.Windows.Forms.TextBox txt_Ana_Wc_LHS;
+        private System.Windows.Forms.Label label523;
+        private System.Windows.Forms.CheckBox chk_cb_left;
+        private System.Windows.Forms.GroupBox grb_ana_wc;
+        private System.Windows.Forms.Label label511;
+        private System.Windows.Forms.TextBox txt_Ana_gamma_w;
+        private System.Windows.Forms.Label label515;
+        private System.Windows.Forms.Label label520;
+        private System.Windows.Forms.TextBox txt_Ana_Dw;
+        private System.Windows.Forms.Label label521;
     }
 
 

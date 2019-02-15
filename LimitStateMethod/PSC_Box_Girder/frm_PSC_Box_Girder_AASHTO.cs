@@ -3453,20 +3453,20 @@ namespace LimitStateMethod.PSC_Box_Girder
                     kStr = "FIXED";
 
 
-                    if (chk_ssprt_fixed_FX.Checked
-                        || chk_ssprt_fixed_FY.Checked
-                        || chk_ssprt_fixed_FZ.Checked
-                        || chk_ssprt_fixed_MX.Checked
-                        || chk_ssprt_fixed_MY.Checked
-                        || chk_ssprt_fixed_MZ.Checked)
+                    if (!chk_ssprt_fixed_FX.Checked
+                        || !chk_ssprt_fixed_FY.Checked
+                        || !chk_ssprt_fixed_FZ.Checked
+                        || !chk_ssprt_fixed_MX.Checked
+                        || !chk_ssprt_fixed_MY.Checked
+                        || !chk_ssprt_fixed_MZ.Checked)
                         kStr += " BUT";
 
-                    if (chk_ssprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_ssprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_ssprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_ssprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -3481,19 +3481,19 @@ namespace LimitStateMethod.PSC_Box_Girder
                 else if (rbtn_esprt_fixed.Checked)
                 {
                     kStr = "FIXED";
-                    if (chk_esprt_fixed_FX.Checked
-                        || chk_esprt_fixed_FY.Checked
-                        || chk_esprt_fixed_FZ.Checked
-                        || chk_esprt_fixed_MX.Checked
-                        || chk_esprt_fixed_MY.Checked
-                        || chk_esprt_fixed_MZ.Checked)
+                    if (!chk_esprt_fixed_FX.Checked
+                        || !chk_esprt_fixed_FY.Checked
+                        || !chk_esprt_fixed_FZ.Checked
+                        || !chk_esprt_fixed_MX.Checked
+                        || !chk_esprt_fixed_MY.Checked
+                        || !chk_esprt_fixed_MZ.Checked)
                         kStr += " BUT";
-                    if (chk_esprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_esprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_esprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_esprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_esprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_esprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_esprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_esprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_esprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_esprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_esprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_esprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -5147,7 +5147,8 @@ namespace LimitStateMethod.PSC_Box_Girder
             get
             {
                 //return (int)(((WidthBridge - (WidthCantilever)) / Spacing_Long_Girder) + 1);
-                return 11;
+                //return 11;
+                return _Rows;
             }
         }
         public int Total_Columns
@@ -5156,7 +5157,8 @@ namespace LimitStateMethod.PSC_Box_Girder
             {
                 //return (int)(((Length - (Effective_Depth)) / Spacing_Cross_Girder) + 5);
                 //return (int)(((Length) / Spacing_Cross_Girder) + 2);
-                return 11;
+                //return 11;
+                return _Columns;
             }
         }
         public double Skew_Angle { get; set; }
@@ -5168,7 +5170,8 @@ namespace LimitStateMethod.PSC_Box_Girder
         {
             get
             {
-                return MyList.StringToDouble(((WidthBridge - (2 * WidthCantilever)) / 6.0).ToString("0.000"), 0.0);
+                //return MyList.StringToDouble(((WidthBridge - (2 * WidthCantilever)) / 6.0).ToString("0.000"), 0.0);
+                return MyList.StringToDouble(((WidthBridge - (2 * WidthCantilever)) / 2.0).ToString("0.000"), 0.0);
             }
         }
         public double Spacing_Cross_Girder
@@ -5179,6 +5182,43 @@ namespace LimitStateMethod.PSC_Box_Girder
                 return MyList.StringToDouble(((Length) / 8.0).ToString("0.000"), 0.0);
             }
         }
+
+
+
+        public double _cen_Ax = 0.0;
+        public double _cen_Ix = 0.0;
+        public double _cen_Iy = 0.0;
+        public double _cen_Iz = 0.0;
+
+        public double _inn_Ax = 0.0;
+        public double _inn_Ix = 0.0;
+        public double _inn_Iy = 0.0;
+        public double _inn_Iz = 0.0;
+
+        public double _out_Ax = 0.0;
+        public double _out_Ix = 0.0;
+        public double _out_Iy = 0.0;
+        public double _out_Iz = 0.0;
+
+
+
+        #region Material Constant
+        public string E_CONC { get; set; }
+        public string DEN_CONC { get; set; }
+        public string PR_CONC { get; set; }
+
+        #endregion Material Constant
+
+
+
+
+        public List<int> _L8_jnts = new List<int>();
+        public List<int> _L4_jnts = new List<int>();
+        public List<int> _3L8_jnts = new List<int>();
+        public List<int> _L2_jnts = new List<int>();
+        public List<int> _supp_jnts = new List<int>();
+        public List<int> _deff_jnts = new List<int>();
+        public List<int> _End_jnts = new List<int>();
 
 
         #endregion Properties
@@ -5223,6 +5263,175 @@ namespace LimitStateMethod.PSC_Box_Girder
             }
         }
 
+
+
+        public void Set_Joints()
+        {
+
+            List<int> _joints = new List<int>();
+            int node = 0;
+            MaxForce force = new MaxForce();
+
+            //Bridge_Analysis = All_Analysis[1];
+            MemberCollection mc = new MemberCollection(Bridge_Analysis.Analysis.Members);
+            JointNodeCollection jn_col = Bridge_Analysis.Analysis.Joints;
+
+
+            double L = Bridge_Analysis.Analysis.Length;
+            double W = Bridge_Analysis.Analysis.Width;
+            double cant_wi = Bridge_Analysis.Analysis.Width_Cantilever;
+
+            //double support = Bridge_Analysis.Supports.Count > 0 ? Bridge_Analysis.Supports[0].X : 0.5;
+            double support = Support_Distance;
+            support = Support_Distance;
+
+
+            double eff_d = Effective_Depth;
+
+
+            double val = L / 2;
+            int i = 0;
+
+            List<int> _L2_joints = new List<int>();
+            List<int> _L4_joints = new List<int>();
+            List<int> _deff_joints = new List<int>();
+
+            List<int> _L8_joints = new List<int>();
+            List<int> _3L8_joints = new List<int>();
+            List<int> _support_joints = new List<int>();
+
+
+            for (i = 0; i < Bridge_Analysis.Supports.Count; i++)
+            {
+                _support_joints.Add(Bridge_Analysis.Supports[i].NodeNo);
+                //_support_joints.Add(item.
+            }
+
+
+
+            List<double> _X_joints = new List<double>();
+            List<double> _Z_joints = new List<double>();
+
+            for (i = 0; i < jn_col.Count; i++)
+            {
+                if (_X_joints.Contains(jn_col[i].X) == false) _X_joints.Add(jn_col[i].X);
+                if (_Z_joints.Contains(jn_col[i].Z) == false) _Z_joints.Add(jn_col[i].Z);
+            }
+            val = -999;
+
+
+            List<double> _X_min = new List<double>();
+            List<double> _X_max = new List<double>();
+            double x_max, x_min;
+            double vvv = 99999999999999999;
+            for (int zc = 0; zc < _Z_joints.Count; zc++)
+            {
+
+                x_min = vvv;
+                x_max = -vvv;
+
+                for (i = 0; i < jn_col.Count; i++)
+                {
+
+                    if (_Z_joints[zc] == jn_col[i].Z)
+                    {
+                        if (x_min > jn_col[i].X)
+                            x_min = jn_col[i].X;
+                        if (x_max < jn_col[i].X)
+                            x_max = jn_col[i].X;
+                    }
+
+                }
+                if (x_max != -vvv)
+                    _X_max.Add(x_max);
+                if (x_min != vvv)
+                    _X_min.Add(x_min);
+            }
+
+            eff_d = Bridge_Analysis.Analysis.Effective_Depth;
+            if (_X_joints.Contains(eff_d))
+            {
+                Effective_Depth = eff_d;
+            }
+            else
+            {
+                Effective_Depth = _X_joints.Count > 1 ? _X_joints[2] : 0.0;
+
+                eff_d = Effective_Depth;
+            }
+
+            cant_wi = _Z_joints.Count > 1 ? _Z_joints[2] : 0.0;
+            WidthCantilever = cant_wi;
+
+
+            if (_X_joints.Contains(eff_d))
+            {
+                Effective_Depth = eff_d;
+            }
+            else
+            {
+                Effective_Depth = _X_joints.Count > 1 ? _X_joints[2] : 0.0; ;
+            }
+
+            for (i = 0; i < jn_col.Count; i++)
+            {
+                if ((jn_col[i].Z >= cant_wi && jn_col[i].Z <= (W - cant_wi)) == false) continue;
+                x_min = _X_min[_Z_joints.IndexOf(jn_col[i].Z)];
+
+
+
+                if ((jn_col[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
+                {
+                    _L2_joints.Add(jn_col[i].NodeNo);
+                }
+                if (jn_col[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
+                {
+                    _L4_joints.Add(jn_col[i].NodeNo);
+                }
+                if (jn_col[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
+                {
+                    _L4_joints.Add(jn_col[i].NodeNo);
+                }
+
+
+
+                if ((jn_col[i].X.ToString("0.0") == (Effective_Depth + x_min).ToString("0.0")))
+                {
+                    _deff_joints.Add(jn_col[i].NodeNo);
+                }
+                if ((jn_col[i].X.ToString("0.0") == (L - Effective_Depth + x_min).ToString("0.0")))
+                {
+                    _deff_joints.Add(jn_col[i].NodeNo);
+                }
+
+
+
+                if (jn_col[i].X.ToString("0.0") == ((L / 8.0) + x_min).ToString("0.0"))
+                {
+                    _L8_joints.Add(jn_col[i].NodeNo);
+                }
+                if (jn_col[i].X.ToString("0.0") == ((L - (L / 8.0)) + x_min).ToString("0.0"))
+                {
+                    _L8_joints.Add(jn_col[i].NodeNo);
+                }
+
+
+                if ((jn_col[i].X.ToString("0.0") == ((3.0 * L / 8.0) + x_min).ToString("0.0")))
+                {
+                    _3L8_joints.Add(jn_col[i].NodeNo);
+                }
+                if ((jn_col[i].X.ToString("0.0") == ((L - (3.0 * L / 8.0)) + x_min).ToString("0.0")))
+                {
+                    _3L8_joints.Add(jn_col[i].NodeNo);
+                }
+            }
+            _L2_jnts = _L2_joints;
+            _L8_jnts = _L8_joints;
+            _L4_jnts = _L4_joints;
+            _3L8_jnts = _3L8_joints;
+            _deff_jnts = _deff_joints;
+            _supp_jnts = _support_joints;
+        }
         public void CreateData()
         {
             double x_incr = Spacing_Cross_Girder;
@@ -5258,6 +5467,10 @@ namespace LimitStateMethod.PSC_Box_Girder
             double last_ll = 0.0;
             double last_len = 0.0;
             int i = 0;
+            if(Spans.Count == 0)
+            {
+                Spans.Add(Length);
+            }
 
             for (i = 0; i < Spans.Count; i++)
             {
@@ -5403,11 +5616,6 @@ namespace LimitStateMethod.PSC_Box_Girder
                 last_x = Length / 2.0;
                 last_x = MyList.StringToDouble(last_x.ToString("0.000"), 0.0);
                 list_x.Add(last_x);
-
-
-
-
-
                 #endregion Chiranjit [2011 09 23] Correct Create Data
 
             }
@@ -5425,16 +5633,16 @@ namespace LimitStateMethod.PSC_Box_Girder
             last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
             list_z.Add(last_z);
 
-            last_z = WidthCantilever / 2;
-            last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
-            list_z.Add(last_z);
+            //last_z = WidthCantilever / 2;
+            //last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+            //list_z.Add(last_z);
 
             last_z = WidthBridge - WidthCantilever;
             last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
             list_z.Add(last_z);
-            last_z = WidthBridge - (WidthCantilever / 2.0);
-            last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
-            list_z.Add(last_z);
+            //last_z = WidthBridge - (WidthCantilever / 2.0);
+            //last_z = MyList.StringToDouble(last_z.ToString("0.000"), 0.0);
+            //list_z.Add(last_z);
 
 
             last_z = WidthBridge;
@@ -5504,7 +5712,13 @@ namespace LimitStateMethod.PSC_Box_Girder
             }
             int nodeNo = 0;
             Joints.Clear();
-
+            _supp_jnts.Clear();
+            _deff_jnts.Clear();
+            _L8_jnts.Clear();
+            _L4_jnts.Clear();
+            _3L8_jnts.Clear();
+            _L2_jnts.Clear();
+            
             for (iCols = 0; iCols < _Columns; iCols++)
             {
                 for (iRows = 0; iRows < _Rows; iRows++)
@@ -5513,6 +5727,42 @@ namespace LimitStateMethod.PSC_Box_Girder
                     Joints_Array[iRows, iCols].NodeNo = nodeNo;
                     Joints.Add(Joints_Array[iRows, iCols]);
 
+
+
+                    //if (iRows == 2)
+                    {
+                        var x = Joints_Array[iRows, iCols].X;
+                        if (Support_Distance.ToString("f3") == x.ToString("f3") ||
+                            (Length - Support_Distance).ToString("f3") == x.ToString("f3")
+                            )
+                        {
+                            _supp_jnts.Add(nodeNo);
+                        }
+                        else if (Effective_Depth.ToString("f3") == x.ToString("f3") ||
+                            (Length - Effective_Depth).ToString("f3") == x.ToString("f3"))
+                        {
+                            _deff_jnts.Add(nodeNo);
+                        }
+                        else if ((Length / 8).ToString("f3") == x.ToString("f3") ||
+                            (Length - (Length / 8)).ToString("f3") == x.ToString("f3"))
+                        {
+                            _L8_jnts.Add(nodeNo);
+                        }
+                        else if ((Length / 4).ToString("f3") == x.ToString("f3") ||
+                            (Length - (Length / 4)).ToString("f3") == x.ToString("f3"))
+                        {
+                            _L4_jnts.Add(nodeNo);
+                        }
+                        else if ((3 * Length / 8).ToString("f3") == x.ToString("f3") ||
+                            (Length - (3 * Length / 8)).ToString("f3") == x.ToString("f3"))
+                        {
+                            _3L8_jnts.Add(nodeNo);
+                        }
+                        else if ((Length / 2).ToString("f3") == x.ToString("f3"))
+                        {
+                            _L2_jnts.Add(nodeNo);
+                        }
+                    }
                 }
             }
 
@@ -5596,6 +5846,7 @@ namespace LimitStateMethod.PSC_Box_Girder
             int i = 0;
             bool flag = true;
 
+            if (Spans.Count == 0) Spans.Add(Length);
             for (i = 0; i < Spans.Count; i++)
             {
                 last_ll = Spans[i];
@@ -5940,15 +6191,12 @@ namespace LimitStateMethod.PSC_Box_Girder
 
         }
 
-
-        public void WriteData_LiveLoad(string file_name, PSC_Box_Section_Data psc_section)
+        List<string> Get_Structure_Data(string title)
         {
-            string kStr = "";
             List<string> list = new List<string>();
             int i = 0;
 
-            list.Add("ASTRA FLOOR PSC BOX GIRDER BRIDGE DECK ANALYSIS WITH MOVING LOAD");
-            //list.Add("UNIT METER MKip");
+            list.Add(string.Format("ASTRA FLOOR PSC BOX GIRDER BRIDGE DECK ANALYSIS WITH {0}", title));
             list.Add("UNIT FT KIP");
             list.Add("JOINT COORDINATES");
             for (i = 0; i < Joints.Count; i++)
@@ -5962,71 +6210,68 @@ namespace LimitStateMethod.PSC_Box_Girder
             }
 
             list.Add("SECTION PROPERTIES");
-            //list.Add("191 TO 226 215 TO 226 239 TO 262  PRIS AX 0.001 IX 0.0001 IZ 0.0001");
-            //list.Add("181 TO 188 205 TO 212 PRIS AX 1.146 IX 0.022 IZ 0.187 ");
-            //list.Add("180 189 204 213 PRIS AX 0.7001 IX 0.0442 IZ 0.105 ");
-            //list.Add("179 190 203 214 PRIS AX 1.1037 IX 0.067 IZ 0.167");
-            //list.Add("157 TO 164 229 TO 236 PRIS AX 1.215 IX 0.023 IZ 0.192 ");
-            //list.Add("155 166 227 238 PRIS AX 1.2407 IX 0.0698 IZ 0.181 ");
-            //list.Add("156 165 228 237 PRIS AX 0.7897 IX 0.0461 IZ 0.115 ");
-            //list.Add("61 TO 70 PRIS AX 0.385 IX 0.008 IZ 0.277");
-            //list.Add("51 TO 60 71 TO 80 PRIS AX 0.523 IX 0.010 IZ 0.003");
-            //list.Add("41 TO 50 81 TO 90 PRIS AX 0.406 IX 0.008 IZ 0.002");
-            //list.Add("31 TO 30 91 TO 100 PRIS AX 0.482 IX 0.009 IZ 0.003");
-            //list.Add("21 TO 30 101 TO 110  PRIS AX 0.482 IX 0.009 IZ 0.003");
-            //list.Add("11 TO 20 111 TO 120 131 TO 154 167 TO 178  PRIS AX 0.001 IX 0.0001 IZ 0.0001");
-            //list.Add("1 TO 10 121 TO 130  PRIS AX 0.001 IX 0.0001 IZ 0.0001");
 
+            if (_cen_Ax != 0.0)
+            {
+                list.Add(string.Format("{0} TO {1}    PRI   AX  {2:f4}   IX   {3:f4}   IY {4:f4}   IZ   {5:f4}",
+                    Long_Girder_Members_Array[0, 0].MemberNo, Long_Girder_Members_Array[0, _Columns - 2].MemberNo,
 
-            //list.Add(string.Format("1 TO 130   PRIS AX 0.001 IX 0.0001 IZ 0.0001"));
-            list.Add(string.Format(
-            Cross_Girder_Members_Array[0, 0].MemberNo +
-                    " TO " +
-                Cross_Girder_Members_Array[_Rows - 2, _Columns - 1].MemberNo
+                _out_Ax, _out_Ix, _out_Iy, _out_Iz));
+                list.Add(string.Format("{0} TO {1}    PRI   AX  {2:f4}   IX   {3:f4}   IY {4:f4}   IZ   {5:f4}",
 
-                + "  PRIS AX 0.001 IX 0.0001 IZ 0.0001"));
+                    Long_Girder_Members_Array[1, 0].MemberNo, Long_Girder_Members_Array[1, _Columns - 2].MemberNo,
+                    _inn_Ax, _inn_Ix, _inn_Iy, _inn_Iz));
 
-            //Support
-            //list.Add(string.Format("131 143 155 167 179 191 203 215 227 239 251  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            //list.Add(string.Format("141 153 165 177 189 201 213 225 237 249 261  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            //list.Add(string.Format("132 144 156 168 180 192 204 216 228 240 252  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            //list.Add(string.Format("142 154 166 178 190 202 214 226 238 250 262  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
+                list.Add(string.Format("{0} TO {1}    PRI   AX  {2:f4}   IX   {3:f4}   IY {4:f4}   IZ   {5:f4}",
 
-            ////L/2
-            //list.Add(string.Format("133 TO 140  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("145 TO 152  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("157 TO 164 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("169 TO 176 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("181 TO 188 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("193 TO 200 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("205 TO 212 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("217 TO 224 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("229 TO 236 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("241 TO 248 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            //list.Add(string.Format("253 TO 260 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
+                    Long_Girder_Members_Array[2, 0].MemberNo, Long_Girder_Members_Array[2, _Columns - 2].MemberNo,
+                    _cen_Ax, _cen_Ix, _cen_Iy, _cen_Iz));
 
-            
-          //_Columns, _Rows
+                list.Add(string.Format("{0} TO {1}    PRI   AX  {2:f4}   IX   {3:f4}   IY {4:f4}   IZ   {5:f4}",
+                    Long_Girder_Members_Array[3, 0].MemberNo, Long_Girder_Members_Array[3, _Columns - 2].MemberNo,
+                    _inn_Ax, _inn_Ix, _inn_Iy, _inn_Iz));
 
-            list.Add(string.Format(Long_Girder_Members_Array[0,0].MemberNo +
-                    " TO " + 
-                Long_Girder_Members_Array[_Rows-1,_Columns - 2].MemberNo
-
-                + " PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-
-            //list.Add(string.Format("1 TO 130   PRIS AX 0.001 IX 0.0001 IZ 0.0001"));
-
+                list.Add(string.Format("{0} TO {1}    PRI   AX  {2:f4}   IX   {3:f4}   IY {4:f4}   IZ   {5:f4}",
+                    Long_Girder_Members_Array[4, 0].MemberNo, Long_Girder_Members_Array[4, _Columns - 2].MemberNo,
+                    _out_Ax, _out_Ix, _out_Iy, _out_Iz));
+            }
 
             list.Add("MATERIAL CONSTANT");
-            list.Add("E CONCRETE ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
+            if (E_CONC != "")
+            {
+
+                list.Add(string.Format("E {0} ALL", E_CONC));
+                list.Add(string.Format("DENSITY {0} ALL", DEN_CONC));
+                list.Add(string.Format("POISSON {0} ALL", PR_CONC));
+            }
+            else
+            {
+                list.Add("E 2.85E6 ALL");
+                list.Add("DENSITY CONCRETE ALL");
+                list.Add("POISSON CONCRETE ALL");
+            }
             list.Add("SUPPORT");
-            string support_left_joints = "12 13 14 15 16 17 18 19 20 21 22";
-            string support_right_joints = "122 123 124 125 126 127 128 129 130 131 132";
+
+
+            //string support_left_joints = "12 13 14 15 16 17 18 19 20 21 22";
+            //string support_right_joints = "122 123 124 125 126 127 128 129 130 131 132";
+
+
+            support_left_joints = Joints_Array[1, 1].NodeNo + " TO " + Joints_Array[3, 1].NodeNo;
+            support_right_joints = Joints_Array[1, _Columns - 2].NodeNo + " TO " + Joints_Array[3, _Columns - 2].NodeNo; ;
 
             list.Add(string.Format("{0} {1}", support_left_joints, Start_Support));
             list.Add(string.Format("{0} {1}", support_right_joints, End_Support));
+
+            return list;
+        }
+        public string support_left_joints, support_right_joints;
+        public void WriteData_LiveLoad(string file_name, PSC_Box_Section_Data psc_section)
+        {
+            string kStr = "";
+            List<string> list = Get_Structure_Data("LIVE LOAD");
+
+           
             list.Add("LOAD 1 DEAD LOAD + SIDL");
             list.Add("**dEAD lOAD");
             list.Add("MEMBER LOAD");
@@ -6153,58 +6398,7 @@ namespace LimitStateMethod.PSC_Box_Girder
 
         public void WriteData_LiveLoad(string file_name, PSC_Box_Section_Data psc_section, List<string> ll_loads)
         {
-            string kStr = "";
-            List<string> list = new List<string>();
-            int i = 0;
-
-            list.Add("ASTRA FLOOR PSC BOX GIRDER BRIDGE DECK ANALYSIS WITH MOVING LOAD");
-            list.Add("UNIT FT KIP");
-            list.Add("JOINT COORDINATES");
-            for (i = 0; i < Joints.Count; i++)
-            {
-                list.Add(Joints[i].ToString());
-            }
-            list.Add("MEMBER INCIDENCES");
-            for (i = 0; i < MemColls.Count; i++)
-            {
-                list.Add(MemColls[i].ToString());
-            }
-
-            list.Add("SECTION PROPERTIES");
-
-            list.Add(string.Format("1 TO 130   PRIS AX 0.001 IX 0.0001 IZ 0.0001"));
-            //Support
-            list.Add(string.Format("131 143 155 167 179 191 203 215 227 239 251  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            list.Add(string.Format("141 153 165 177 189 201 213 225 237 249 261  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            list.Add(string.Format("132 144 156 168 180 192 204 216 228 240 252  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            list.Add(string.Format("142 154 166 178 190 202 214 226 238 250 262  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-
-            //L/2
-            list.Add(string.Format("133 TO 140  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("145 TO 152  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("157 TO 164 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("169 TO 176 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("181 TO 188 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("193 TO 200 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("205 TO 212 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("217 TO 224 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("229 TO 236 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("241 TO 248 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add(string.Format("253 TO 260 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}", psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-           
-            list.Add("MATERIAL CONSTANT");
-            list.Add("E 2.85E6 ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
-            list.Add("SUPPORT");
-
-          
-            string support_left_joints = "12 13 14 15 16 17 18 19 20 21 22";
-            string support_right_joints = "122 123 124 125 126 127 128 129 130 131 132";
-
-            list.Add(string.Format("{0} {1}", support_left_joints, Start_Support));
-            list.Add(string.Format("{0} {1}", support_right_joints, End_Support));
-
+            List<string> list = Get_Structure_Data("MOVING LOAD");
             list.Add("LOAD 1 DEAD LOAD + SIDL");
             list.Add("**dEAD lOAD");
             list.Add("MEMBER LOAD");
@@ -6234,7 +6428,6 @@ namespace LimitStateMethod.PSC_Box_Girder
             list.Add("PERFORM ANALYSIS");
             list.Add("FINISH");
 
-            list.Add(kStr);
             File.WriteAllLines(file_name, list.ToArray());
             if (ll_loads.Count > 0)
                 File.WriteAllLines(MyList.Get_LL_TXT_File(file_name), ll_loads.ToArray());
@@ -6350,77 +6543,8 @@ namespace LimitStateMethod.PSC_Box_Girder
         public void WriteData_DeadLoad(string file_name, PSC_Box_Section_Data psc_section)
         {
             string kStr = "";
-            List<string> list = new List<string>();
-            int i = 0;
-
-            list.Add("ASTRA FLOOR PSC BOX GIRDER BRIDGE DECK ANALYSIS WITH DEAD LOAD");
-             
-            list.Add("UNIT FT KIP");
-            list.Add("JOINT COORDINATES");
-            for (i = 0; i < Joints.Count; i++)
-            {
-                list.Add(Joints[i].ToString());
-            }
-            list.Add("MEMBER INCIDENCES");
-            for (i = 0; i < MemColls.Count; i++)
-            {
-                list.Add(MemColls[i].ToString());
-            }
-
-            list.Add("SECTION PROPERTIES");
-            //list.Add("1 13 PRIS AX 6.1997 IX 3.1639 IY 35.886 IZ 35.886");
-            //list.Add("2 12 PRIS AX 7.099 IX 6.062 IY 35.886 IZ 35.886");
-            //list.Add("3 11 PRIS AX 6.008 IX 5.034 IY 34.516 IZ 34.516");
-            //list.Add("4 10 PRIS AX 5.6081 IX 4.886 IY 32.772 IZ 32.772");
-            //list.Add("5 9  PRIS AX 4.966 IX 4.676 IY 29.546 IZ 29.546");
-            //list.Add("6 8  PRIS AX 4.966 IX 4.676 IY 29.546 IZ 29.546");
-            //list.Add("7 PRIS AX 4.966 IX 4.676 IY 29.546 IZ 29.546");
-
-            //Chiranjit [2012 11 01]
-            //Support
-            //list.Add(string.Format("1 13 PRIS AX 6.1997 IX 3.1639 IY 35.886 IZ 35.886"));
-            //list.Add(string.Format("1 2 11 12 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-            //    psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            //list.Add(string.Format("2 12 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-            //    psc_section.Area.F1, psc_section.Ixx.F1, psc_section.Iyy.F1, psc_section.Izz.F1));
-            ////D eff
-            //list.Add(string.Format("3 11 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-            //    psc_section.Area.F2, psc_section.Ixx.F2, psc_section.Iyy.F2, psc_section.Izz.F2));
-            ////L/8
-            //list.Add(string.Format("4 10 PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-            //    psc_section.Area.F3, psc_section.Ixx.F3, psc_section.Iyy.F3, psc_section.Izz.F3));
-            ////L/4
-            //list.Add(string.Format("5 9  PRISAX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-            //    psc_section.Area.F4, psc_section.Ixx.F4, psc_section.Iyy.F4, psc_section.Izz.F4));
-            ////3L/8
-            //list.Add(string.Format("6 8  PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-            //    psc_section.Area.F5, psc_section.Ixx.F5, psc_section.Iyy.F5, psc_section.Izz.F5));
-            //L/2
-            list.Add(string.Format("1 TO " + MemColls.Count + " PRIS AX {0:f4} IX {1:f4} IY {2:f4} IZ {3:f4}",
-                psc_section.Area.F6, psc_section.Ixx.F6, psc_section.Iyy.F6, psc_section.Izz.F6));
-            list.Add("MATERIAL CONSTANT");
-            list.Add("E 2.85E6 ALL");
-            list.Add("DENSITY CONCRETE ALL");
-            list.Add("POISSON CONCRETE ALL");
-            list.Add("SUPPORTS");
-            //list.Add("2 PINNED");
-            //list.Add("12 FIXED BUT FX MZ");
-
-
-
-
-            list.Add(string.Format("{0} {1}", Joints[1].NodeNo, Start_Support));
-
-            if (Spans.Count > 1)
-            {
-                for (i = 1; i < Spans.Count - 1; i++)
-                {
-                    var jn = Joints.GetJoints(Spans[i], 0, 0);
-                    list.Add(string.Format("{0} {1}", jn.NodeNo, End_Support));
-
-                }
-            }
-
+            List<string> list = Get_Structure_Data("DEAD LOAD");
+          
 
             list.Add(string.Format("****SELF WEIGHT {0} K/FT*****", Load1));
             list.Add(string.Format("LOAD 1 DEAD LOAD"));
@@ -6560,7 +6684,6 @@ namespace LimitStateMethod.PSC_Box_Girder
             File.WriteAllLines(file_name, list.ToArray());
         }
 
-        
         public void LoadReadFromGrid(DataGridView dgv_live_load)
         {
             LoadData ld = new LoadData();
@@ -8132,9 +8255,31 @@ namespace LimitStateMethod.PSC_Box_Girder
             list.Add(string.Format(format, "Zb", "ft^3", Zb[0], Zb[1], Zb[2], Zb[3], Zb[4], Zb[5]));
             list.Add(string.Format(""));
             list.Add(string.Format("".PadLeft(108, '-')));
-            list.Add(string.Format(""));
+            //list.Add(string.Format(""));
 
             psc_setion = new PSC_Box_Section_Data(A, Ixx, Iyy, Iself_A_Yt_Yt);
+
+
+            #region Write Average
+
+
+            double a = (MyList.Get_Array_Sum(psc_setion.Area) / psc_setion.Area.Count);
+            double ix = (MyList.Get_Array_Sum(psc_setion.Ixx) / psc_setion.Area.Count);
+            double iy = (MyList.Get_Array_Sum(psc_setion.Iyy) / psc_setion.Area.Count);
+            double iz = ix + iy;
+
+
+            list.Add(string.Format("Total Value :   Area = {0:f3} sq.ft, Ixx = {1:f3} sq.sq.ft, Iyy = {2:f3} sq.sq.ft, Izz = {3:f3} sq.sq.ft",
+               a, ix, iy, iz));
+
+            list.Add(string.Format("".PadLeft(108, '-')));
+            list.Add(string.Format(""));
+
+
+            #endregion Write Average
+
+
+
             #endregion STEP 2
 
             return list;
@@ -8525,7 +8670,7 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -8678,7 +8823,7 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -8789,7 +8934,7 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -8966,7 +9111,7 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;

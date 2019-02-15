@@ -724,6 +724,36 @@ namespace AstraInterface.DataStructure
             return true;
         }
 
+        public static bool Copy_All_Control_Data(Control src, Control dst)
+        {
+
+
+
+
+            Save_FormRecord sfr_src = new Save_FormRecord();
+            sfr_src.AddControls(src);
+            Save_FormRecord sfr_dst = new Save_FormRecord();
+            sfr_dst.AddControls(dst);
+
+            for (int i = 0; i < sfr_src.Count; i++)
+            {
+                if (sfr_src[i] is TextBox)
+                {
+                    sfr_dst[i].Text = sfr_src[i].Text;
+                }
+                if (sfr_src[i] is RichTextBox)
+                {
+                    sfr_dst[i].Text = sfr_src[i].Text;
+                }
+                if (sfr_src[i] is DataGridView)
+                {
+                    DataGridView dgvSrc = sfr_src[i] as DataGridView;
+                    DataGridView dgvDst = sfr_dst[i] as DataGridView;
+                    MyList.Copy_Data_Grid_View(dgvSrc, dgvDst);
+                }
+            }
+            return true;
+        }
     }
 
 }

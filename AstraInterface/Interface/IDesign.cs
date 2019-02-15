@@ -77,12 +77,12 @@ namespace AstraInterface.Interface
         void ToStream(System.IO.StreamWriter sw);
         double TotalBridgeWeight { get; }
         double TotalSteelWeight { get; }
-        void WriteForces_Capacity_Summery(System.IO.StreamWriter sw);
-        void WriteForces_Capacity_Summery(string file_name);
-        void WriteForcesSummery(System.IO.StreamWriter sw);
-        void WriteForcesSummery(string file_name);
-        void WriteGroupSummery(System.IO.StreamWriter sw);
-        void WriteGroupSummery(string file_name);
+        void WriteForces_Capacity_Summary(System.IO.StreamWriter sw);
+        void WriteForces_Capacity_Summary(string file_name);
+        void WriteForcesSummary(System.IO.StreamWriter sw);
+        void WriteForcesSummary(string file_name);
+        void WriteGroupSummary(System.IO.StreamWriter sw);
+        void WriteGroupSummary(string file_name);
     }
 
 

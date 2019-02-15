@@ -532,7 +532,7 @@ namespace LimitStateMethod.SuspensionBridge
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -1112,7 +1112,7 @@ namespace LimitStateMethod.SuspensionBridge
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -1848,7 +1848,7 @@ namespace LimitStateMethod.SuspensionBridge
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -1923,7 +1923,7 @@ namespace LimitStateMethod.SuspensionBridge
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -4314,12 +4314,11 @@ namespace LimitStateMethod.SuspensionBridge
 
 
 
-
-
             list.Add(string.Format("UNIT KG CM"));
             list.Add(string.Format("MATERIAL CONSTANT"));
             list.Add(string.Format("E 2000000 ALL"));
             list.Add(string.Format("DEN 78 ALL"));
+            list.Add(string.Format("PR STEEL ALL"));
             list.Add(string.Format("SUPPORTS"));
             //list.Add(string.Format("1 17 33 49 65 81 97 113 FIXED"));
             list.Add(string.Format("{0} FIXED", supp_jnts));

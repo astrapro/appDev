@@ -5114,20 +5114,20 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
                     kStr = "FIXED";
 
 
-                    if (chk_ssprt_fixed_FX.Checked
-                        || chk_ssprt_fixed_FY.Checked
-                        || chk_ssprt_fixed_FZ.Checked
-                        || chk_ssprt_fixed_MX.Checked
-                        || chk_ssprt_fixed_MY.Checked
-                        || chk_ssprt_fixed_MZ.Checked)
+                    if (!chk_ssprt_fixed_FX.Checked
+                        || !chk_ssprt_fixed_FY.Checked
+                        || !chk_ssprt_fixed_FZ.Checked
+                        || !chk_ssprt_fixed_MX.Checked
+                        || !chk_ssprt_fixed_MY.Checked
+                        || !chk_ssprt_fixed_MZ.Checked)
                         kStr += " BUT";
 
-                    if (chk_ssprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_ssprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_ssprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_ssprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -5142,19 +5142,19 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
                 else if (rbtn_esprt_fixed.Checked)
                 {
                     kStr = "FIXED";
-                    if (chk_esprt_fixed_FX.Checked
-                        || chk_esprt_fixed_FY.Checked
-                        || chk_esprt_fixed_FZ.Checked
-                        || chk_esprt_fixed_MX.Checked
-                        || chk_esprt_fixed_MY.Checked
-                        || chk_esprt_fixed_MZ.Checked)
+                    if (!chk_esprt_fixed_FX.Checked
+                        || !chk_esprt_fixed_FY.Checked
+                        || !chk_esprt_fixed_FZ.Checked
+                        || !chk_esprt_fixed_MX.Checked
+                        || !chk_esprt_fixed_MY.Checked
+                        || !chk_esprt_fixed_MZ.Checked)
                         kStr += " BUT";
-                    if (chk_esprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_esprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_esprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_esprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_esprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_esprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_esprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_esprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_esprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_esprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_esprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_esprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -9957,9 +9957,29 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             list.Add(string.Format(format, "Zb", "m^3", Zb[0], Zb[1], Zb[2], Zb[3], Zb[4], Zb[5]));
             list.Add(string.Format(""));
             list.Add(string.Format("".PadLeft(108, '-')));
-            list.Add(string.Format(""));
+            //list.Add(string.Format(""));
 
             psc_setion = new PSC_Box_Section_Data(A, Ixx, Iyy, Iself_A_Yt_Yt);
+
+
+            #region Write Average 
+            
+
+            double a = (MyList.Get_Array_Sum(psc_setion.Area) / psc_setion.Area.Count);
+            double ix = (MyList.Get_Array_Sum(psc_setion.Ixx) / psc_setion.Area.Count);
+            double iy = (MyList.Get_Array_Sum(psc_setion.Iyy) / psc_setion.Area.Count);
+            double iz = ix+iy;
+
+
+            list.Add(string.Format("Total Value :   Area = {0:f3} sq.m, Ixx = {1:f3} sq.sq.m, Iyy = {2:f3} sq.sq.m, Izz = {3:f3} sq.sq.m",
+               a, ix, iy, iz));
+
+            list.Add(string.Format("".PadLeft(108, '-')));
+            list.Add(string.Format(""));
+
+
+            #endregion Write Average
+
             #endregion STEP 2
 
             return list;

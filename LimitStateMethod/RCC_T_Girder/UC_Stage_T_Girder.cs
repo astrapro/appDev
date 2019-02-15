@@ -13,7 +13,6 @@ using AstraFunctionOne.BridgeDesign.SteelTruss;
 using AstraFunctionOne.BridgeDesign;
 using AstraInterface.Interface;
 
-
 using BridgeAnalysisDesign.Abutment;
 using BridgeAnalysisDesign.Pier;
 using BridgeAnalysisDesign.RCC_T_Girder;
@@ -28,14 +27,23 @@ namespace LimitStateMethod.RCC_T_Girder
     {
         public event EventHandler OnButtonClick;
         public event EventHandler OnComboboxSelectedIndexChanged;
+        public event EventHandler OnEmodTextChanged;
         IApplication iApp;
 
         public UC_Stage_T_Girder()
         {
             InitializeComponent();
+            Support_Changed(); ;
+            
         }
         private void rbtn_ssprt_pinned_CheckedChanged(object sender, EventArgs e)
         {
+            Support_Changed();
+        }
+
+        private void Support_Changed()
+        {
+
             chk_esprt_fixed_FX.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_FY.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_FZ.Enabled = rbtn_esprt_fixed.Checked;
@@ -61,6 +69,15 @@ namespace LimitStateMethod.RCC_T_Girder
             if (OnComboboxSelectedIndexChanged != null)
             {
                 OnComboboxSelectedIndexChanged(sender, e);
+            }
+        }
+
+        private void txt_conc_prct_TextChanged(object sender, EventArgs e)
+        {
+
+            if (OnEmodTextChanged != null)
+            {
+                OnEmodTextChanged(sender, e);
             }
         }
 

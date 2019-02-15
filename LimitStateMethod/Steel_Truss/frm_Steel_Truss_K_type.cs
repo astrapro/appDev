@@ -171,6 +171,7 @@ namespace LimitStateMethod.Steel_Truss
                 return kStr;
             }
         }
+
         #endregion Chiranjit [2014 03 12] Support Input
 
         //Chiranjit [2012 07 14]
@@ -953,17 +954,17 @@ namespace LimitStateMethod.Steel_Truss
                 //WriteTable3(sw);
                 //WriteTable4(sw);
                 //Complete_Design.WriteForcesSummery(sw);
-                Complete_Design.WriteForces_Capacity_Summery(sw);
-                Complete_Design.WriteGroupSummery(sw);
+                Complete_Design.WriteForces_Capacity_Summary(sw);
+                Complete_Design.WriteGroupSummary(sw);
                 string file_ds_frc = "";
                 file_ds_frc = Path.Combine(user_path, "DESIGN_SECTION_SUMMARY.TXT");
-                Complete_Design.WriteGroupSummery(file_ds_frc);
+                Complete_Design.WriteGroupSummary(file_ds_frc);
                 file_ds_frc = Path.Combine(user_path, "DESIGN_FORCES_SUMMARY.TXT");
 
 
 
                 //Complete_Design.WriteForcesSummery(file_ds_frc);
-                Complete_Design.WriteForces_Capacity_Summery(file_ds_frc);
+                Complete_Design.WriteForces_Capacity_Summary(file_ds_frc);
 
 
 
@@ -9624,10 +9625,11 @@ namespace LimitStateMethod.Steel_Truss
         }
 
 
-
+        
 
         private void btn_write_load_Click(object sender, EventArgs e)
         {
+           
             //Chiranjit [2012 07 13]
             Write_All_Data();
 
@@ -14097,7 +14099,7 @@ namespace LimitStateMethod.Steel_Truss
 
     }
 
-    public class CompleteDesign
+    public class CompleteDesign : ICompleteDesign
     {
         public CompleteDesign()
         {
@@ -14264,12 +14266,12 @@ namespace LimitStateMethod.Steel_Truss
             }
             catch (Exception ex) { }
         }
-        public void WriteGroupSummery(string file_name)
+        public void WriteGroupSummary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteGroupSummery(sw);
+                WriteGroupSummary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -14278,7 +14280,7 @@ namespace LimitStateMethod.Steel_Truss
                 sw.Close();
             }
         }
-        public void WriteGroupSummery(StreamWriter sw)
+        public void WriteGroupSummary(StreamWriter sw)
         {
             sw.WriteLine();
             sw.WriteLine();
@@ -14951,12 +14953,12 @@ namespace LimitStateMethod.Steel_Truss
             sw.WriteLine();
 
         }
-        public void WriteForcesSummery(string file_name)
+        public void WriteForcesSummary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteForcesSummery(sw);
+                WriteForcesSummary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -14967,7 +14969,7 @@ namespace LimitStateMethod.Steel_Truss
 
 
         }
-        public void WriteForcesSummery(StreamWriter sw)
+        public void WriteForcesSummary(StreamWriter sw)
         {
             //StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
@@ -15406,12 +15408,12 @@ namespace LimitStateMethod.Steel_Truss
 
 
         }
-        public void WriteForces_Capacity_Summery(string file_name)
+        public void WriteForces_Capacity_Summary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteForces_Capacity_Summery(sw);
+                WriteForces_Capacity_Summary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -15422,7 +15424,7 @@ namespace LimitStateMethod.Steel_Truss
 
 
         }
-        public void WriteForces_Capacity_Summery(StreamWriter sw)
+        public void WriteForces_Capacity_Summary(StreamWriter sw)
         {
             try
             {

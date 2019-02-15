@@ -201,8 +201,7 @@ namespace LimitStateMethod.Extradossed
         public UC_CableStayedDesign()
         {
             InitializeComponent();
-            //iApp = app;
-            //user_path = app.LastDesignWorkingFolder;
+          
             SectionProperty = new List<MemberSectionProperty>();
             long_girders = new MemberCollection();
             cross_girders = new MemberCollection();
@@ -211,12 +210,7 @@ namespace LimitStateMethod.Extradossed
             tie_beam = new MemberCollection();
 
             Cable_Members = new CableMemberCollection();
-
             Deck = new CableStayedDeckSlab(iApp);
-
-
-
-            tc_main.TabPages.Remove(tab_non_linear);
         }
 
         List<int> HA_Loading_Members = new List<int>();
@@ -416,13 +410,14 @@ namespace LimitStateMethod.Extradossed
 
             if (CS_Analysis.DeadLoad_Analysis != null) lst_ana.Add(CS_Analysis.DeadLoad_Analysis);
 
-            lst_ana.AddRange(CS_Analysis.All_LL_Analysis);
+            if (CS_Analysis.All_LL_Analysis != null)
+                lst_ana.AddRange(CS_Analysis.All_LL_Analysis);
 
             //if (CS_Analysis.TotalLoad_Analysis != null) lst_ana.Add(CS_Analysis.TotalLoad_Analysis);
 
 
 
-            //if (CS_Analysis.TotalLoad_Analysis == null)
+            if (CS_Analysis.TotalLoad_Analysis == null)
                 CS_Analysis.TotalLoad_Analysis = lst_ana[0];
             Bridge_Analysis = CS_Analysis.TotalLoad_Analysis;
 
@@ -787,10 +782,13 @@ namespace LimitStateMethod.Extradossed
             //try
             //{
             Button_Enable_Disable();
-
         }
         private void btn_cbl_des_read_data_Click(object sender, EventArgs e)
         {
+            if(OnButtonClick != null)
+            {
+                OnButtonClick(sender, e);
+            }
             Read_Cable_Member();
         }
         private void txt_cbl_des_mem_nos_KeyDown(object sender, KeyEventArgs e)
@@ -871,15 +869,6 @@ namespace LimitStateMethod.Extradossed
                 cmb_Long_ang_thk.Items.Clear();
                 cmb_Long_ang_thk.Visible = true;
                 tbl = cmb_cross_ang_section_name.Items.Contains("IS") ? iApp.Tables.IS_SteelAngles : iApp.Tables.BS_SteelAngles;
-
-                //foreach (var item in tbl_rolledSteelAngles.List_Table)
-                //{
-                //    if (item.SectionSize == cmb_cross_ang_section_code.Text)
-                //    {
-                //        cmb_cross_ang_thk.Items.Add(item.Thickness);
-                //    }
-                //}
-                //cmb_cross_ang_thk.SelectedIndex = cmb_cross_ang_thk.Items.Count > 0 ? 0 : -1;
             }
         }
 
@@ -904,6 +893,17 @@ namespace LimitStateMethod.Extradossed
                 else if (cmb_Long_ang_section_name.Text.Contains("IS"))
                 {
                     foreach (var item in iApp.Tables.IS_SteelAngles.List_Table)
+                    {
+                        if (cmb_Long_ang_section_name.Text == item.SectionName)
+                        {
+                            if (cmb_Long_ang_section_code.Items.Contains(item.SectionSize) == false)
+                                cmb_Long_ang_section_code.Items.Add(item.SectionSize);
+                        }
+                    }
+                }
+                else if (cmb_Long_ang_section_name.Text.Contains("L"))
+                {
+                    foreach (var item in iApp.Tables.USCS_SteelAngles.List_Table)
                     {
                         if (cmb_Long_ang_section_name.Text == item.SectionName)
                         {
@@ -939,6 +939,17 @@ namespace LimitStateMethod.Extradossed
                 else if (cmb_cross_ang_section_name.Text.Contains("IS"))
                 {
                     foreach (var item in iApp.Tables.IS_SteelAngles.List_Table)
+                    {
+                        if (cmb_cross_ang_section_name.Text == item.SectionName)
+                        {
+                            if (cmb_cross_ang_section_code.Items.Contains(item.SectionSize) == false)
+                                cmb_cross_ang_section_code.Items.Add(item.SectionSize);
+                        }
+                    }
+                }
+                else if (cmb_cross_ang_section_name.Text.Contains("L"))
+                {
+                    foreach (var item in iApp.Tables.USCS_SteelAngles.List_Table)
                     {
                         if (cmb_cross_ang_section_name.Text == item.SectionName)
                         {

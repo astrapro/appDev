@@ -53,7 +53,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
 
 
             myExcelApp.Visible = true;
@@ -67,7 +67,8 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             myExcelWorkbook = myExcelWorkbooks.Open(fileName, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
             //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["CWLL"];
+            //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["CWLL"];
+            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet) myExcelWorkbook.Sheets["CWLL"];
          
 
             String cellFormulaAsString = myExcelWorksheet.get_Range("A1", misValue).Formula.ToString(); // this puts the formula in Cell A2 or text depending whats in it in the string.
@@ -146,7 +147,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
             if (Analysis_Data != null)
             {
-                myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["CWLL"];
+                myExcelWorksheet = (Excel.Worksheet) myExcelWorkbook.Sheets["CWLL"];
 
                 List<int> lst_F = new List<int>();
 
@@ -767,7 +768,8 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            //myExcelApp = new Excel.Application();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;

@@ -58,7 +58,7 @@ namespace LimitStateMethod.PSC_I_Girder
 
                 object misValue = System.Reflection.Missing.Value;
 
-                myExcelApp = new Excel.ApplicationClass();
+                myExcelApp = new Excel.Application();
                 myExcelApp.Visible = true;
                 //myExcelApp.Visible = false;
                 myExcelWorkbooks = myExcelApp.Workbooks;
@@ -351,7 +351,7 @@ namespace LimitStateMethod.PSC_I_Girder
 
                 object misValue = System.Reflection.Missing.Value;
 
-                myExcelApp = new Excel.ApplicationClass();
+                myExcelApp = new Excel.Application();
                 myExcelApp.Visible = true;
                 //myExcelApp.Visible = false;
                 myExcelWorkbooks = myExcelApp.Workbooks;

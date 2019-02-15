@@ -22,6 +22,20 @@ namespace BridgeAnalysisDesign.Abutment
             InitializeComponent();
             
         }
+        public DataGridView DGV_Input_Open
+        {
+            get
+            {
+                return uC_Abut_Counterfort_LS1.DGV_Input;
+            }
+        }
+        //public DataGridView DGV_Input_Pile
+        //{
+        //    get
+        //    {
+        //        return uC_Abut_.DGV_Input;
+        //    }
+        //}
         public TabControl TAB_MAIN
         {
             get
@@ -169,6 +183,11 @@ namespace BridgeAnalysisDesign.Abutment
         }
 
         private void uC_Abut_Counterfort_LS1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uC_Abut1_Load(object sender, EventArgs e)
         {
 
         }

@@ -272,6 +272,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label151 = new System.Windows.Forms.Label();
+            this.label150 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -462,7 +464,7 @@
             this.pnl_content.Controls.Add(this.panel9);
             this.pnl_content.Controls.Add(this.panel5);
             this.pnl_content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnl_content.Location = new System.Drawing.Point(0, 124);
+            this.pnl_content.Location = new System.Drawing.Point(0, 54);
             this.pnl_content.Name = "pnl_content";
             this.pnl_content.Size = new System.Drawing.Size(803, 530);
             this.pnl_content.TabIndex = 0;
@@ -2724,6 +2726,8 @@
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label151);
+            this.groupBox2.Controls.Add(this.label150);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label22);
             this.groupBox2.Controls.Add(this.label17);
@@ -2782,18 +2786,18 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(435, 47);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 13);
+            this.label12.Size = new System.Drawing.Size(48, 13);
             this.label12.TabIndex = 1;
-            this.label12.Text = "Right";
+            this.label12.Text = "Normal";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(236, 44);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.Size = new System.Drawing.Size(48, 13);
             this.label10.TabIndex = 1;
-            this.label10.Text = "Right";
+            this.label10.Text = "Normal";
             // 
             // label6
             // 
@@ -2921,6 +2925,26 @@
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "m";
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label151.Location = new System.Drawing.Point(236, 7);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(103, 13);
+            this.label151.TabIndex = 1;
+            this.label151.Text = "Side/End Span";
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label150.Location = new System.Drawing.Point(416, 7);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(184, 13);
+            this.label150.TabIndex = 1;
+            this.label150.Text = "Central/Intermediate Span";
             // 
             // label8
             // 
@@ -3425,8 +3449,8 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabControl1.Location = new System.Drawing.Point(0, 54);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl1.Location = new System.Drawing.Point(0, 584);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(803, 70);
@@ -3784,18 +3808,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_xls_inp_E4;
-        private System.Windows.Forms.TextBox txt_xls_inp_J9;
-        private System.Windows.Forms.TextBox txt_xls_inp_J8;
-        private System.Windows.Forms.TextBox txt_xls_inp_J7;
-        private System.Windows.Forms.TextBox txt_xls_inp_H9;
-        private System.Windows.Forms.TextBox txt_xls_inp_H8;
-        private System.Windows.Forms.TextBox txt_xls_inp_I9;
-        private System.Windows.Forms.TextBox txt_xls_inp_H7;
-        private System.Windows.Forms.TextBox txt_xls_inp_I8;
-        private System.Windows.Forms.TextBox txt_xls_inp_G9;
-        private System.Windows.Forms.TextBox txt_xls_inp_I7;
-        private System.Windows.Forms.TextBox txt_xls_inp_G8;
-        private System.Windows.Forms.TextBox txt_xls_inp_G7;
         private System.Windows.Forms.Panel pnl_2;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label32;
@@ -3844,37 +3856,9 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.TextBox txt_xls_inp_I31;
-        private System.Windows.Forms.TextBox txt_xls_inp_I30;
-        private System.Windows.Forms.TextBox txt_xls_inp_I29;
-        private System.Windows.Forms.TextBox txt_xls_inp_I28;
-        private System.Windows.Forms.TextBox txt_xls_inp_I26;
-        private System.Windows.Forms.TextBox txt_xls_inp_I25;
-        private System.Windows.Forms.TextBox txt_xls_inp_I22;
-        private System.Windows.Forms.TextBox txt_xls_inp_I21;
-        private System.Windows.Forms.TextBox txt_xls_inp_I20;
-        private System.Windows.Forms.TextBox txt_xls_inp_I19;
-        private System.Windows.Forms.TextBox txt_xls_inp_I18;
-        private System.Windows.Forms.TextBox txt_xls_inp_I17;
-        private System.Windows.Forms.TextBox txt_xls_inp_I16;
-        private System.Windows.Forms.TextBox txt_xls_inp_G31;
-        private System.Windows.Forms.TextBox txt_xls_inp_G30;
-        private System.Windows.Forms.TextBox txt_xls_inp_G29;
-        private System.Windows.Forms.TextBox txt_xls_inp_G28;
-        private System.Windows.Forms.TextBox txt_xls_inp_G26;
-        private System.Windows.Forms.TextBox txt_xls_inp_G25;
-        private System.Windows.Forms.TextBox txt_xls_inp_G22;
         private System.Windows.Forms.TextBox txt_xls_inp_D18;
-        private System.Windows.Forms.TextBox txt_xls_inp_G21;
-        private System.Windows.Forms.TextBox txt_xls_inp_I15;
-        private System.Windows.Forms.TextBox txt_xls_inp_G20;
-        private System.Windows.Forms.TextBox txt_xls_inp_G19;
         private System.Windows.Forms.TextBox txt_xls_inp_D17;
-        private System.Windows.Forms.TextBox txt_xls_inp_G18;
         private System.Windows.Forms.TextBox txt_xls_inp_D16;
-        private System.Windows.Forms.TextBox txt_xls_inp_G17;
-        private System.Windows.Forms.TextBox txt_xls_inp_G16;
-        private System.Windows.Forms.TextBox txt_xls_inp_G15;
         private System.Windows.Forms.Panel pnl_3;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label label98;
@@ -4058,6 +4042,48 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btn_open_worksheet;
+        public System.Windows.Forms.TextBox txt_xls_inp_J9;
+        public System.Windows.Forms.TextBox txt_xls_inp_J8;
+        public System.Windows.Forms.TextBox txt_xls_inp_J7;
+        public System.Windows.Forms.TextBox txt_xls_inp_H9;
+        public System.Windows.Forms.TextBox txt_xls_inp_H8;
+        public System.Windows.Forms.TextBox txt_xls_inp_I9;
+        public System.Windows.Forms.TextBox txt_xls_inp_H7;
+        public System.Windows.Forms.TextBox txt_xls_inp_I8;
+        public System.Windows.Forms.TextBox txt_xls_inp_G9;
+        public System.Windows.Forms.TextBox txt_xls_inp_I7;
+        public System.Windows.Forms.TextBox txt_xls_inp_G8;
+        public System.Windows.Forms.TextBox txt_xls_inp_G7;
+        public System.Windows.Forms.TextBox txt_xls_inp_I31;
+        public System.Windows.Forms.TextBox txt_xls_inp_I30;
+        public System.Windows.Forms.TextBox txt_xls_inp_I29;
+        public System.Windows.Forms.TextBox txt_xls_inp_I28;
+        public System.Windows.Forms.TextBox txt_xls_inp_I26;
+        public System.Windows.Forms.TextBox txt_xls_inp_I25;
+        public System.Windows.Forms.TextBox txt_xls_inp_I22;
+        public System.Windows.Forms.TextBox txt_xls_inp_I21;
+        public System.Windows.Forms.TextBox txt_xls_inp_I20;
+        public System.Windows.Forms.TextBox txt_xls_inp_I19;
+        public System.Windows.Forms.TextBox txt_xls_inp_I18;
+        public System.Windows.Forms.TextBox txt_xls_inp_I17;
+        public System.Windows.Forms.TextBox txt_xls_inp_I16;
+        public System.Windows.Forms.TextBox txt_xls_inp_G31;
+        public System.Windows.Forms.TextBox txt_xls_inp_G30;
+        public System.Windows.Forms.TextBox txt_xls_inp_G29;
+        public System.Windows.Forms.TextBox txt_xls_inp_G28;
+        public System.Windows.Forms.TextBox txt_xls_inp_G26;
+        public System.Windows.Forms.TextBox txt_xls_inp_G25;
+        public System.Windows.Forms.TextBox txt_xls_inp_G22;
+        public System.Windows.Forms.TextBox txt_xls_inp_G21;
+        public System.Windows.Forms.TextBox txt_xls_inp_I15;
+        public System.Windows.Forms.TextBox txt_xls_inp_G20;
+        public System.Windows.Forms.TextBox txt_xls_inp_G19;
+        public System.Windows.Forms.TextBox txt_xls_inp_G18;
+        public System.Windows.Forms.TextBox txt_xls_inp_G17;
+        public System.Windows.Forms.TextBox txt_xls_inp_G16;
+        public System.Windows.Forms.TextBox txt_xls_inp_G15;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.Label label150;
     }
 
 

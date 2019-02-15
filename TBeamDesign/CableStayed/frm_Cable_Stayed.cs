@@ -11249,7 +11249,7 @@ namespace BridgeAnalysisDesign.CableStayed
 
         public bool flg = false;
 
-        public List<string> DesignSummery { get; set; }
+        public List<string> DesignSummary { get; set; }
         public List<string> DesignResult { get; set; }
 
         public bool IsPlateArrangement
@@ -11290,7 +11290,7 @@ namespace BridgeAnalysisDesign.CableStayed
 
 
             DesignResult = new List<string>();
-            DesignSummery = new List<string>();
+            DesignSummary = new List<string>();
         }
         #region User Method
 
@@ -11304,7 +11304,7 @@ namespace BridgeAnalysisDesign.CableStayed
             try
             {
                 DesignResult.Clear();
-                DesignSummery.Clear();
+                DesignSummary.Clear();
                 #region TechSOFT Banner
                 sw.WriteLine();
                 sw.WriteLine();
@@ -11488,22 +11488,22 @@ namespace BridgeAnalysisDesign.CableStayed
                     //DesignSummery.Add("==============================================================================");
                     if (step == 1)
                     {
-                        DesignSummery.Add("==========================      LONG GIRDER       ===============================");
+                        DesignSummary.Add("==========================      LONG GIRDER       ===============================");
                     }
                     else if (step == 2)
                     {
-                        DesignSummery.Add("==========================     CROSS GIRDER       ===============================");
+                        DesignSummary.Add("==========================     CROSS GIRDER       ===============================");
                     }
 
                     sw.WriteLine();
-                    DesignSummery.Add("");
-                    DesignSummery.Add(string.Format("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw));
-                    DesignSummery.Add("");
+                    DesignSummary.Add("");
+                    DesignSummary.Add(string.Format("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw));
+                    DesignSummary.Add("");
 
                     sw.WriteLine("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw);
                     sw.WriteLine();
-                    DesignSummery.Add(string.Format("Flange Plates : Number of Plates [nf] = {0}, Breadth [bf] = {1} mm, Thickness [tf] = {2} mm", nf, bf1, tf1));
-                    DesignSummery.Add("");
+                    DesignSummary.Add(string.Format("Flange Plates : Number of Plates [nf] = {0}, Breadth [bf] = {1} mm, Thickness [tf] = {2} mm", nf, bf1, tf1));
+                    DesignSummary.Add("");
                     //sw.WriteLine("Top Flange Plates : Number of Plates [nf] = {0}, Breadth [bf] = {1} mm, Thickness [tf] = {2} mm", nf, bf1, tf1);
                     sw.WriteLine("Top Flange Plates    :    Breadth [bf1] = {0} mm,   Thickness [tf1] = {1} mm", bf1, tf1);
                     sw.WriteLine("Bottom Flange Plates :    Breadth [bf2] = {0} mm,   Thickness [tf2] = {1} mm", bf2, tf2);
@@ -11518,16 +11518,16 @@ namespace BridgeAnalysisDesign.CableStayed
                     catch (Exception ex) { }
                     //sw.WriteLine("Angles : Number of Angles = {0}, {1} x {2}", na, ang, ang_thk);
                     sw.WriteLine();
-                    DesignSummery.Add("");
+                    DesignSummary.Add("");
                     if (tab_data != null)
                     {
-                        DesignSummery.Add(string.Format("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk));
+                        DesignSummary.Add(string.Format("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk));
                         sw.WriteLine("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk);
-                        DesignSummery.Add("");
+                        DesignSummary.Add("");
                     }
-                    DesignSummery.Add("==============================================================================");
-                    DesignSummery.Add("");
-                    DesignSummery.Add("");
+                    DesignSummary.Add("==============================================================================");
+                    DesignSummary.Add("");
+                    DesignSummary.Add("");
                     sw.WriteLine();
                     sw.WriteLine();
                     sw.WriteLine("------------------------------------------------------------");
@@ -12819,7 +12819,7 @@ namespace BridgeAnalysisDesign.CableStayed
 
 
 
-                if (DesignSummery.Count != 0)
+                if (DesignSummary.Count != 0)
                 {
                     sw.WriteLine("---------------------------------------------------------------------------");
                     sw.WriteLine("---------------------       DESIGN SUMMARY       --------------------------");
@@ -12845,7 +12845,7 @@ namespace BridgeAnalysisDesign.CableStayed
 
 
 
-                    foreach (string s in DesignSummery)
+                    foreach (string s in DesignSummary)
                     {
                         sw.WriteLine(s);
                     }

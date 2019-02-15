@@ -1674,9 +1674,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(12, 42);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(140, 13);
+            this.label7.Size = new System.Drawing.Size(203, 13);
             this.label7.TabIndex = 0;
-            this.label7.Text = "c/L of brg. c/L of exp. J";
+            this.label7.Text = "C/L of Bearing to C/L of Exp. Joint";
             // 
             // txt_GEN_I3
             // 
@@ -1873,9 +1873,9 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(12, 204);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(156, 13);
+            this.label28.Size = new System.Drawing.Size(117, 13);
             this.label28.TabIndex = 0;
-            this.label28.Text = "Overall carriageway width";
+            this.label28.Text = "Overall Deck Width";
             // 
             // label33
             // 
@@ -2234,16 +2234,9 @@
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label lbl_2;
         private System.Windows.Forms.Panel pnl_1;
-        private System.Windows.Forms.TextBox txt_GEN_I10;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txt_GEN_I9;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_GEN_I8;
-        private System.Windows.Forms.TextBox txt_GEN_I6;
-        private System.Windows.Forms.TextBox txt_GEN_I5;
-        private System.Windows.Forms.TextBox txt_GEN_I4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt_GEN_I3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label12;
@@ -2254,35 +2247,25 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txt_GEN_G14;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.TextBox txt_GEN_G13;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt_GEN_G12;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt_GEN_G8;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txt_GEN_G6;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txt_GEN_G5;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt_GEN_G10;
-        private System.Windows.Forms.TextBox txt_GEN_G9;
-        private System.Windows.Forms.TextBox txt_GEN_G3;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txt_GEN_G4;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label22;
@@ -2312,13 +2295,6 @@
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox txt_SI_H52;
-        private System.Windows.Forms.TextBox txt_SI_H51;
-        private System.Windows.Forms.TextBox txt_SI_J52;
-        private System.Windows.Forms.TextBox txt_SUP_G132;
-        private System.Windows.Forms.TextBox txt_SI_J51;
-        private System.Windows.Forms.TextBox txt_SI_J50;
-        private System.Windows.Forms.TextBox txt_SI_H50;
         private System.Windows.Forms.Label lbl_5;
         private System.Windows.Forms.Label lbl_note;
         private System.Windows.Forms.Button btn_abutment_open_report;
@@ -2354,5 +2330,29 @@
         private System.Windows.Forms.ComboBox cmb_bs_ll_2;
         private System.Windows.Forms.ComboBox cmb_bs_ll_1;
         private System.Windows.Forms.Button btn_abutment_open;
+        public System.Windows.Forms.TextBox txt_GEN_G14;
+        public System.Windows.Forms.TextBox txt_GEN_G13;
+        public System.Windows.Forms.TextBox txt_GEN_G12;
+        public System.Windows.Forms.TextBox txt_GEN_G8;
+        public System.Windows.Forms.TextBox txt_GEN_G6;
+        public System.Windows.Forms.TextBox txt_GEN_G5;
+        public System.Windows.Forms.TextBox txt_GEN_G10;
+        public System.Windows.Forms.TextBox txt_GEN_G9;
+        public System.Windows.Forms.TextBox txt_GEN_G3;
+        public System.Windows.Forms.TextBox txt_GEN_G4;
+        public System.Windows.Forms.TextBox txt_GEN_I10;
+        public System.Windows.Forms.TextBox txt_GEN_I9;
+        public System.Windows.Forms.TextBox txt_GEN_I8;
+        public System.Windows.Forms.TextBox txt_GEN_I6;
+        public System.Windows.Forms.TextBox txt_GEN_I5;
+        public System.Windows.Forms.TextBox txt_GEN_I4;
+        public System.Windows.Forms.TextBox txt_GEN_I3;
+        public System.Windows.Forms.TextBox txt_SI_H52;
+        public System.Windows.Forms.TextBox txt_SI_H51;
+        public System.Windows.Forms.TextBox txt_SI_J52;
+        public System.Windows.Forms.TextBox txt_SUP_G132;
+        public System.Windows.Forms.TextBox txt_SI_J51;
+        public System.Windows.Forms.TextBox txt_SI_J50;
+        public System.Windows.Forms.TextBox txt_SI_H50;
     }
 }

@@ -692,7 +692,6 @@
             this.btn_view_data = new System.Windows.Forms.Button();
             this.btn_view_postprocess = new System.Windows.Forms.Button();
             this.btn_view_preprocess = new System.Windows.Forms.Button();
-            this.btn_stage_analysis = new System.Windows.Forms.Button();
             this.btn_process_analysis = new System.Windows.Forms.Button();
             this.tabControl4 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -8047,7 +8046,6 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.groupBox14);
-            this.groupBox2.Controls.Add(this.btn_stage_analysis);
             this.groupBox2.Controls.Add(this.btn_process_analysis);
             this.groupBox2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Navy;
@@ -8157,21 +8155,11 @@
             this.btn_view_preprocess.UseVisualStyleBackColor = true;
             this.btn_view_preprocess.Click += new System.EventHandler(this.btn_Ana_view_data_Click);
             // 
-            // btn_stage_analysis
-            // 
-            this.btn_stage_analysis.Location = new System.Drawing.Point(6, 55);
-            this.btn_stage_analysis.Name = "btn_stage_analysis";
-            this.btn_stage_analysis.Size = new System.Drawing.Size(207, 27);
-            this.btn_stage_analysis.TabIndex = 75;
-            this.btn_stage_analysis.Text = "Stage Analysis";
-            this.btn_stage_analysis.UseVisualStyleBackColor = true;
-            this.btn_stage_analysis.Click += new System.EventHandler(this.btn_Ana_process_analysis_Click);
-            // 
             // btn_process_analysis
             // 
-            this.btn_process_analysis.Location = new System.Drawing.Point(6, 26);
+            this.btn_process_analysis.Location = new System.Drawing.Point(6, 44);
             this.btn_process_analysis.Name = "btn_process_analysis";
-            this.btn_process_analysis.Size = new System.Drawing.Size(207, 27);
+            this.btn_process_analysis.Size = new System.Drawing.Size(207, 38);
             this.btn_process_analysis.TabIndex = 75;
             this.btn_process_analysis.Text = "Process Analysis";
             this.btn_process_analysis.UseVisualStyleBackColor = true;
@@ -19007,7 +18995,6 @@
         private System.Windows.Forms.ComboBox cmb_bs_view_moving_load;
         private System.Windows.Forms.TextBox txt_bs_vehicle_gap;
         private System.Windows.Forms.Label label1191;
-        private System.Windows.Forms.Button btn_stage_analysis;
 
     }
 

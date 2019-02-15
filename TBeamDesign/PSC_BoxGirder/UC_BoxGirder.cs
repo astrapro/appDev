@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using AstraInterface.DataStructure;
 using AstraInterface.Interface;
 
+using System.Runtime.InteropServices;
+using Microsoft.Office.Interop;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Reflection;
 
@@ -86,7 +88,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -96,7 +98,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             myExcelWorkbook = myExcelWorkbooks.Open(copy_path, 0, false, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
             //Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.ActiveSheet;
-            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Input"];
+            Excel.Worksheet myExcelWorksheet = (Excel.Worksheet) myExcelWorkbook.Sheets["Input"];
 
 
             //Excel.Range formatRange;
@@ -255,7 +257,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             #endregion BM-SF
 
             #region Prestress
-            myExcelWorksheet = (Excel.Worksheet)myExcelWorkbook.Sheets["Prestress"];
+            myExcelWorksheet = (Excel.Worksheet) myExcelWorkbook.Sheets["Prestress"];
 
             try
             {
@@ -651,7 +653,8 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
         private void UC_BoxGirder_Load(object sender, EventArgs e)
         {
-            Load_Data();
+            if (dgv_user_input.RowCount == 0)
+                Load_Data();
         }
 
         private void btn_psc_box_Click(object sender, EventArgs e)
@@ -671,7 +674,18 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
 
         private void btn_worksheet_open_Click(object sender, EventArgs e)
         {
-            iApp.Open_WorkSheet_Design();
+            Button btn = sender as Button;
+            if (btn == btn_open_design)
+            {
+                string file_path = Get_Project_Folder();
+                file_path = Path.Combine(file_path, "Design Of PSC Box Girder Bridge.xlsx");
+                if (File.Exists(file_path)) iApp.OpenExcelFile(file_path, "2011ap");
+            }
+            else
+            {
+
+                iApp.Open_WorkSheet_Design();
+            }
         }
 
       

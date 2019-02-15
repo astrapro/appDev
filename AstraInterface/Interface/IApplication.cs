@@ -161,6 +161,7 @@ namespace AstraInterface.Interface
         void Open_Excel_Macro_Notes();
 
         void Write_Data_to_File(string fname, string sap_path);
+        void Write_Data_to_File(string fname, string sap_path, string emod_file);
         void Write_Skew_Data_to_File(string fname, string sap_path);
         List<string> IRC_6_2014_Load_Combinations(double CW);
 
@@ -181,7 +182,8 @@ namespace AstraInterface.Interface
 
         //for stage analysis
         void Change_Stage_Coordinates(string prev_File, string new_file);
-
+        void Change_Stage_Coordinates(string org_File, string prev_File, string new_file);
+        void Change_Stage_Coordinates(string org_File, string prev_File, string new_file, bool IsYCoordinateCheck);
     }
 
 }

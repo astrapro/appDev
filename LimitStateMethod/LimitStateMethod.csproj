@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LimitStateMethod</RootNamespace>
     <AssemblyName>LimitStateMethod</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -38,6 +40,7 @@
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -46,19 +49,34 @@
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+    <Reference Include="HEADSNeed, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ASTRA Viewer Code\HeadsViewer\bin\x86\Debug\HEADSNeed.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MovingLoadAnalysis, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ASTRA Viewer Code\HeadsViewer\bin\x86\Debug\MovingLoadAnalysis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VDrawBaseControl, Version=7.7016.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="vdScrollableControl, Version=7.7016.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Geometry, Version=7.7016.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Professional, Version=7.7016.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
+    <Reference Include="VectorDraw.Serialize, Version=7.7016.1.0, Culture=neutral, PublicKeyToken=54eac14e23c9ee53, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abutment\Form1.cs">
@@ -115,11 +133,23 @@
     <Compile Include="CableStayed\frmCableStayed_LS_Stage.Designer.cs">
       <DependentUpon>frmCableStayed_LS_Stage.cs</DependentUpon>
     </Compile>
+    <Compile Include="CableStayed\UC_CableStayed_Results_AASHTO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CableStayed\UC_CableStayed_Results_AASHTO.Designer.cs">
+      <DependentUpon>UC_CableStayed_Results_AASHTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="CableStayed\UC_CableStayed_Stage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="CableStayed\UC_CableStayed_Stage.Designer.cs">
       <DependentUpon>UC_CableStayed_Stage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CableStayed\UC_CableStayed_Stage_AASHTO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CableStayed\UC_CableStayed_Stage_AASHTO.Designer.cs">
+      <DependentUpon>UC_CableStayed_Stage_AASHTO.cs</DependentUpon>
     </Compile>
     <Compile Include="CableStayed\UC_CompositeResults.cs">
       <SubType>UserControl</SubType>
@@ -157,11 +187,42 @@
     <Compile Include="Composite\frm_Composite_LS.Designer.cs">
       <DependentUpon>frm_Composite_LS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Composite\IComposite_LS_Analysis.cs" />
     <Compile Include="Composite\UC_CompositeBridgeLSM.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Composite\UC_CompositeBridgeLSM.Designer.cs">
       <DependentUpon>UC_CompositeBridgeLSM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_AASHTO_Stage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_AASHTO_Stage.Designer.cs">
+      <DependentUpon>UC_Composite_AASHTO_Stage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Orthotropic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Orthotropic.Designer.cs">
+      <DependentUpon>UC_Composite_Orthotropic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Orthotropic_AASHTO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Orthotropic_AASHTO.Designer.cs">
+      <DependentUpon>UC_Composite_Orthotropic_AASHTO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Results.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Results.Designer.cs">
+      <DependentUpon>UC_Composite_Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Stage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Composite\UC_Composite_Stage.Designer.cs">
+      <DependentUpon>UC_Composite_Stage.cs</DependentUpon>
     </Compile>
     <Compile Include="CostEstimation\frm_CostEstimation.cs">
       <SubType>Form</SubType>
@@ -200,6 +261,12 @@
     <Compile Include="Extradossed\frm_Extradosed.Designer.cs">
       <DependentUpon>frm_Extradosed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extradossed\frm_Extradosed_AASHTO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Extradossed\frm_Extradosed_AASHTO.Designer.cs">
+      <DependentUpon>frm_Extradosed_AASHTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extradossed\frm_Extradosed_Stage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,11 +279,29 @@
     <Compile Include="Extradossed\UC_CableStayedDesign.Designer.cs">
       <DependentUpon>UC_CableStayedDesign.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extradossed\UC_Extradosed_Results.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extradossed\UC_Extradosed_Results.Designer.cs">
+      <DependentUpon>UC_Extradosed_Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extradossed\UC_Extradosed_Results_LRFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extradossed\UC_Extradosed_Results_LRFD.Designer.cs">
+      <DependentUpon>UC_Extradosed_Results_LRFD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Extradossed\UC_Stage_Extradosed.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Extradossed\UC_Stage_Extradosed.Designer.cs">
       <DependentUpon>UC_Stage_Extradosed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extradossed\UC_Stage_Extradosed_LRFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Extradossed\UC_Stage_Extradosed_LRFD.Designer.cs">
+      <DependentUpon>UC_Stage_Extradosed_LRFD.cs</DependentUpon>
     </Compile>
     <Compile Include="JettyDesign\frm_PSC_Jetty.cs">
       <SubType>Form</SubType>
@@ -241,6 +326,24 @@
     </Compile>
     <Compile Include="PSC_Box_Girder\frm_PSC_Box_Girder_AASHTO.Designer.cs">
       <DependentUpon>frm_PSC_Box_Girder_AASHTO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\frm_PSC_Box_Girder_Stage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\frm_PSC_Box_Girder_Stage.Designer.cs">
+      <DependentUpon>frm_PSC_Box_Girder_Stage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Results.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Results.Designer.cs">
+      <DependentUpon>UC_BoxGirder_Results.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Stage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Stage.Designer.cs">
+      <DependentUpon>UC_BoxGirder_Stage.cs</DependentUpon>
     </Compile>
     <Compile Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.cs">
       <SubType>Form</SubType>
@@ -366,6 +469,12 @@
     <Compile Include="RCC_T_Girder\UC_Stage_T_Girder.Designer.cs">
       <DependentUpon>UC_Stage_T_Girder.cs</DependentUpon>
     </Compile>
+    <Compile Include="RCC_T_Girder\UC_TGirder_Result.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RCC_T_Girder\UC_TGirder_Result.Designer.cs">
+      <DependentUpon>UC_TGirder_Result.cs</DependentUpon>
+    </Compile>
     <Compile Include="SlabBridge\frmSlabBridge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +505,12 @@
     </Compile>
     <Compile Include="Steel_Truss\frm_Steel_Truss_K_type.Designer.cs">
       <DependentUpon>frm_Steel_Truss_K_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Steel_Truss\frm_Steel_Truss_LS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Steel_Truss\frm_Steel_Truss_LS.Designer.cs">
+      <DependentUpon>frm_Steel_Truss_LS.cs</DependentUpon>
     </Compile>
     <Compile Include="Steel_Truss\frm_Steel_Truss_Warren.cs">
       <SubType>Form</SubType>
@@ -476,6 +591,30 @@
     <Compile Include="TowerDesign\frm_TransmissionTower.Designer.cs">
       <DependentUpon>frm_TransmissionTower.cs</DependentUpon>
     </Compile>
+    <Compile Include="UC_MaxReactions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MaxReactions.Designer.cs">
+      <DependentUpon>UC_MaxReactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_MaxReactions_LRFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_MaxReactions_LRFD.Designer.cs">
+      <DependentUpon>UC_MaxReactions_LRFD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_SupportReactions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_SupportReactions.Designer.cs">
+      <DependentUpon>UC_SupportReactions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UC_SupportReactions_LRFD.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UC_SupportReactions_LRFD.Designer.cs">
+      <DependentUpon>UC_SupportReactions_LRFD.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AstraAccess\AstraAccess.csproj">
@@ -489,6 +628,10 @@
     <ProjectReference Include="..\AstraInterface\AstraInterface.csproj">
       <Project>{39488388-529F-43F1-AAA5-03E17909B872}</Project>
       <Name>AstraInterface</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ASTRAStructures\ASTRAStructures.csproj">
+      <Project>{3F32A706-7C84-40BD-81F5-30A7497F3253}</Project>
+      <Name>ASTRAStructures</Name>
     </ProjectReference>
     <ProjectReference Include="..\TBeamDesign\BridgeAnalysisDesign.csproj">
       <Project>{EBBAB6BD-2680-47C5-9E76-087A0D0DC9F7}</Project>
@@ -523,8 +666,14 @@
     <EmbeddedResource Include="CableStayed\frmCableStayed_LS_Stage.resx">
       <DependentUpon>frmCableStayed_LS_Stage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\UC_CableStayed_Results_AASHTO.resx">
+      <DependentUpon>UC_CableStayed_Results_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CableStayed\UC_CableStayed_Stage.resx">
       <DependentUpon>UC_CableStayed_Stage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CableStayed\UC_CableStayed_Stage_AASHTO.resx">
+      <DependentUpon>UC_CableStayed_Stage_AASHTO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CableStayed\UC_CompositeResults.resx">
       <DependentUpon>UC_CompositeResults.cs</DependentUpon>
@@ -547,6 +696,21 @@
     <EmbeddedResource Include="Composite\UC_CompositeBridgeLSM.resx">
       <DependentUpon>UC_CompositeBridgeLSM.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Composite\UC_Composite_AASHTO_Stage.resx">
+      <DependentUpon>UC_Composite_AASHTO_Stage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Composite\UC_Composite_Orthotropic.resx">
+      <DependentUpon>UC_Composite_Orthotropic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Composite\UC_Composite_Orthotropic_AASHTO.resx">
+      <DependentUpon>UC_Composite_Orthotropic_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Composite\UC_Composite_Results.resx">
+      <DependentUpon>UC_Composite_Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Composite\UC_Composite_Stage.resx">
+      <DependentUpon>UC_Composite_Stage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CostEstimation\frm_CostEstimation.resx">
       <DependentUpon>frm_CostEstimation.cs</DependentUpon>
     </EmbeddedResource>
@@ -565,14 +729,26 @@
     <EmbeddedResource Include="Extradossed\frm_Extradosed.resx">
       <DependentUpon>frm_Extradosed.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Extradossed\frm_Extradosed_AASHTO.resx">
+      <DependentUpon>frm_Extradosed_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Extradossed\frm_Extradosed_Stage.resx">
       <DependentUpon>frm_Extradosed_Stage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Extradossed\UC_CableStayedDesign.resx">
       <DependentUpon>UC_CableStayedDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Extradossed\UC_Extradosed_Results.resx">
+      <DependentUpon>UC_Extradosed_Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extradossed\UC_Extradosed_Results_LRFD.resx">
+      <DependentUpon>UC_Extradosed_Results_LRFD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Extradossed\UC_Stage_Extradosed.resx">
       <DependentUpon>UC_Stage_Extradosed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Extradossed\UC_Stage_Extradosed_LRFD.resx">
+      <DependentUpon>UC_Stage_Extradosed_LRFD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="JettyDesign\frm_PSC_Jetty.resx">
       <DependentUpon>frm_PSC_Jetty.cs</DependentUpon>
@@ -585,6 +761,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PSC_Box_Girder\frm_PSC_Box_Girder_AASHTO.resx">
       <DependentUpon>frm_PSC_Box_Girder_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSC_Box_Girder\frm_PSC_Box_Girder_Stage.resx">
+      <DependentUpon>frm_PSC_Box_Girder_Stage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSC_Box_Girder\UC_BoxGirder_Results.resx">
+      <DependentUpon>UC_BoxGirder_Results.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSC_Box_Girder\UC_BoxGirder_Stage.resx">
+      <DependentUpon>UC_BoxGirder_Stage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.resx">
       <DependentUpon>frm_PSC_I_Girder_AASHTO.cs</DependentUpon>
@@ -647,6 +832,9 @@
     <EmbeddedResource Include="RCC_T_Girder\UC_Stage_T_Girder.resx">
       <DependentUpon>UC_Stage_T_Girder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RCC_T_Girder\UC_TGirder_Result.resx">
+      <DependentUpon>UC_TGirder_Result.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SlabBridge\frmSlabBridge.resx">
       <DependentUpon>frmSlabBridge.cs</DependentUpon>
     </EmbeddedResource>
@@ -661,6 +849,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Steel_Truss\frm_Steel_Truss_K_type.resx">
       <DependentUpon>frm_Steel_Truss_K_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Steel_Truss\frm_Steel_Truss_LS.resx">
+      <DependentUpon>frm_Steel_Truss_LS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Steel_Truss\frm_Steel_Truss_Warren.resx">
       <DependentUpon>frm_Steel_Truss_Warren.cs</DependentUpon>
@@ -700,6 +891,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TowerDesign\frm_TransmissionTower.resx">
       <DependentUpon>frm_TransmissionTower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MaxReactions.resx">
+      <DependentUpon>UC_MaxReactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_MaxReactions_LRFD.resx">
+      <DependentUpon>UC_MaxReactions_LRFD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_SupportReactions.resx">
+      <DependentUpon>UC_SupportReactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UC_SupportReactions_LRFD.resx">
+      <DependentUpon>UC_SupportReactions_LRFD.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -993,6 +1196,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ExtradosedEitherSideTower.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BOX_tab2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pier_Box_drawing.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reinforcement1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reinforcement2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reinforcement3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Reinforcement4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on LHS [Case_11].jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Crash Barrier on RHS [Case_12].jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

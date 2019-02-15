@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_2 = new System.Windows.Forms.Panel();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.txt_SUMM_N81 = new System.Windows.Forms.TextBox();
             this.txt_SUMM_N21 = new System.Windows.Forms.TextBox();
             this.txt_SUMM_L81 = new System.Windows.Forms.TextBox();
@@ -190,12 +191,11 @@
             this.btn_worksheet_open = new System.Windows.Forms.Button();
             this.btn_worksheet_report = new System.Windows.Forms.Button();
             this.btn_process = new System.Windows.Forms.Button();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pnl_2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.pnl_1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -305,6 +305,17 @@
             this.pnl_2.Name = "pnl_2";
             this.pnl_2.Size = new System.Drawing.Size(747, 499);
             this.pnl_2.TabIndex = 3;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(3, 406);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(876, 69);
+            this.pictureBox10.TabIndex = 128;
+            this.pictureBox10.TabStop = false;
             // 
             // txt_SUMM_N81
             // 
@@ -1800,9 +1811,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(13, 83);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 13);
+            this.label6.Size = new System.Drawing.Size(182, 13);
             this.label6.TabIndex = 0;
-            this.label6.Text = "c/L of brg. c/L of exp. J";
+            this.label6.Text = "C/L of Bearing C/L of Exp. Jnt.";
             // 
             // txt_GEN_G2
             // 
@@ -1819,9 +1830,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 13);
+            this.label4.Size = new System.Drawing.Size(92, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Exp. Gap";
+            this.label4.Text = "Expansion Gap";
             // 
             // label3
             // 
@@ -1909,17 +1920,6 @@
             this.btn_process.UseVisualStyleBackColor = true;
             this.btn_process.Click += new System.EventHandler(this.btn_process_Click);
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImage = global::LimitStateMethod.Properties.Resources.Excel_note;
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(3, 406);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(876, 69);
-            this.pictureBox10.TabIndex = 128;
-            this.pictureBox10.TabStop = false;
-            // 
             // UC_CompositeBridgeLSM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -1932,10 +1932,10 @@
             this.panel1.ResumeLayout(false);
             this.pnl_2.ResumeLayout(false);
             this.pnl_2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.pnl_1.ResumeLayout(false);
             this.pnl_1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -4726,8 +4726,8 @@ namespace LimitStateMethod.Extradossed
 
 
 
-            Deck_Analysis_DL = new PSC_BoxGirderAnalysis(iApp);
-            Deck_Analysis_LL = new PSC_BoxGirderAnalysis(iApp);
+            Deck_Analysis_DL = new BridgeAnalysisDesign.PSC_BoxGirder.PSC_BoxGirderAnalysis(iApp);
+            Deck_Analysis_LL = new BridgeAnalysisDesign.PSC_BoxGirder.PSC_BoxGirderAnalysis(iApp);
 
             Extradosed = new CABLE_STAYED_Extradosed_LS_Analysis(iApp);
 
@@ -9077,7 +9077,7 @@ namespace LimitStateMethod.Extradossed
         public List<LoadData> LoadList_5 = null;
         public List<LoadData> LoadList_6 = null;
 
-
+        public bool Apply_Selfweight { get; set; }
         public List<LoadData> Live_Load_List = null;
         TotalDeadLoad SIDL = null;
 
@@ -9097,6 +9097,27 @@ namespace LimitStateMethod.Extradossed
         public string Start_Support { get; set; }
         public string End_Support { get; set; }
 
+
+        //E_CONC;
+        //E_STEEL;
+        //E_CABLE;
+        //DEN_CONC;
+        //DEN_STEEL;
+        //DEN_CABLE;
+        //PR_CONC;
+        //PR_STEEL;
+        //PR_CABLE;
+        #region Material Constant
+        public string E_CONC { get; set; }
+        public string E_STEEL { get; set; }
+        public string E_CABLE { get; set; }
+        public string DEN_CONC { get; set; }
+        public string DEN_STEEL { get; set; }
+        public string DEN_CABLE { get; set; }
+        public string PR_CONC { get; set; }
+        public string PR_STEEL { get; set; }
+        public string PR_CABLE { get; set; }
+        #endregion Material Constant
 
         public string LiveLoad_File
         {
@@ -9218,7 +9239,7 @@ namespace LimitStateMethod.Extradossed
             Cable_intv_dist = 1.5;
             Tower_height = 12.0;
 
-
+            Apply_Selfweight = true;
 
 
             L1 = 0.0;
@@ -10273,10 +10294,31 @@ namespace LimitStateMethod.Extradossed
        public List<int> _End_mems = new List<int>();
 
 
+
+       public List<int> _L8_jnts = new List<int>();
+       public List<int> _L4_jnts = new List<int>();
+       public List<int> _3L8_jnts = new List<int>();
+       public List<int> _L2_jnts = new List<int>();
+       public List<int> _supp_jnts = new List<int>();
+       public List<int> _deff_jnts = new List<int>();
+       public List<int> _End_jnts = new List<int>();
+       public List<int> _Cable_jnts = new List<int>();
+
+
        public bool IsCentral_Cable { get; set; }
 
         public void Create_Extradossed_Data()
         {
+            _L8_jnts.Clear();
+            _L4_jnts.Clear();
+            _3L8_jnts.Clear();
+            _L2_jnts.Clear();
+            _supp_jnts.Clear();
+            _deff_jnts.Clear();
+            _End_jnts.Clear();
+
+            _Cable_jnts.Clear();
+
 
             Long_Girder_members.Clear();
             Cross_Girder_members.Clear();
@@ -10460,7 +10502,7 @@ namespace LimitStateMethod.Extradossed
 
 
 
-                lst2.Sort();
+                //lst2.Sort();
 
 
                 //foreach (var item in lst1)
@@ -10680,7 +10722,8 @@ namespace LimitStateMethod.Extradossed
             {
                 foreach (var item in list_x)
                 {
-                    if (Math.Abs(item - (L1 + L2 + lst1[i])) < 0.9)
+                    //if (Math.Abs(item - (L1 + L2 + lst1[i])) < 0.9)
+                    if (Math.Abs(item - (L1 + L2 + lst1[i])) < 0.1)
                     {
                         lst1.RemoveAt(i); i--; break;
                     }
@@ -10875,6 +10918,43 @@ namespace LimitStateMethod.Extradossed
                     nodeNo++;
                     Joints_Array[iRows, iCols].NodeNo = nodeNo;
                     Joints.Add(Joints_Array[iRows, iCols]);
+
+                    if (iRows == 1 || iRows == 3)
+                    {
+                        if (Joints_Array[iRows, iCols].X >= L1 && Joints_Array[iRows, iCols].X <= L1 + L2)
+                        {
+                            _Cable_jnts.Add(nodeNo);
+                        }
+                    }
+
+                    if (iRows == 2)
+                    {
+                        var x = Joints_Array[iRows, iCols].X;
+                        if (_Support_Dist.Contains(x))
+                        {
+                            _supp_jnts.Add(nodeNo);
+                        }
+                        else if (_Deff_Dist.Contains(x))
+                        {
+                            _deff_jnts.Add(nodeNo);
+                        }
+                        else if (_L8_Dist.Contains(x))
+                        {
+                            _L8_jnts.Add(nodeNo);
+                        }
+                        else if (_L4_Dist.Contains(x))
+                        {
+                            _L4_jnts.Add(nodeNo);
+                        }
+                        else if (_3L8_Dist.Contains(x))
+                        {
+                            _3L8_jnts.Add(nodeNo);
+                        }
+                        else if (_L2_Dist.Contains(x))
+                        {
+                            _L2_jnts.Add(nodeNo);
+                        }
+                    }
                 }
             }
 
@@ -17351,58 +17431,84 @@ namespace LimitStateMethod.Extradossed
 
             list.Add(string.Format("MEMBER CABLE"));
             list.Add(string.Format("_CABLES"));
-            list.Add(string.Format("MATERIAL CONSTANT"));
-            list.Add(string.Format("E 3162277  {0}", MyList.Get_Array_Text(Long_Girder_members)));
-            list.Add(string.Format("DENSITY CONCRETE {0}", MyList.Get_Array_Text(Long_Girder_members)));
-            list.Add(string.Format("POISSON CONCRETE {0}", MyList.Get_Array_Text(Long_Girder_members)));
-
-
-            if (Cross_Girder_members.Count > 0)
+            if (false)
             {
+                #region Mat Constants
+                list.Add(string.Format("MEMBER CABLE"));
+                list.Add(string.Format("_CABLES"));
                 list.Add(string.Format("MATERIAL CONSTANT"));
-                list.Add(string.Format("E 3162277  {0}", MyList.Get_Array_Text(Cross_Girder_members)));
-                list.Add(string.Format("DENSITY CONCRETE {0}", MyList.Get_Array_Text(Cross_Girder_members)));
-                list.Add(string.Format("POISSON CONCRETE {0}", MyList.Get_Array_Text(Cross_Girder_members)));
+                list.Add(string.Format("E 3162277  {0}", MyList.Get_Array_Text(Long_Girder_members)));
+                list.Add(string.Format("DENSITY CONCRETE {0}", MyList.Get_Array_Text(Long_Girder_members)));
+                list.Add(string.Format("POISSON CONCRETE {0}", MyList.Get_Array_Text(Long_Girder_members)));
+
+
+                if (Cross_Girder_members.Count > 0)
+                {
+                    list.Add(string.Format("MATERIAL CONSTANT"));
+                    list.Add(string.Format("E 3162277  {0}", MyList.Get_Array_Text(Cross_Girder_members)));
+                    list.Add(string.Format("DENSITY CONCRETE {0}", MyList.Get_Array_Text(Cross_Girder_members)));
+                    list.Add(string.Format("POISSON CONCRETE {0}", MyList.Get_Array_Text(Cross_Girder_members)));
+                }
+
+
+                list.Add(string.Format("MATERIAL CONSTANT"));
+                list.Add(string.Format("E 3162277  {0}", MyList.Get_Array_Text(Tower_members)));
+                list.Add(string.Format("DENSITY STEEL {0}", MyList.Get_Array_Text(Tower_members)));
+                list.Add(string.Format("POISSON STEEL {0}", MyList.Get_Array_Text(Tower_members)));
+
+
+
+
+                list.Add(string.Format("MATERIAL CONSTANT"));
+                list.Add(string.Format("E 1950000  {0}", MyList.Get_Array_Text(Cable_members)));
+                list.Add(string.Format("DENSITY STEEL {0}", MyList.Get_Array_Text(Cable_members)));
+                list.Add(string.Format("POISSON STEEL {0}", MyList.Get_Array_Text(Cable_members)));
+
+                //list.Add(string.Format("MATERIAL CONSTANTS "));
+                //list.Add(string.Format("E 3150 ALL"));
+                //list.Add(string.Format("DEN 0.000383 ALL"));
+
+
+
+                //list.Add(string.Format("MATERIAL CONSTANTS "));
+                //list.Add(string.Format("E 29000 ALL "));
+                //list.Add(string.Format("DEN 0.000283 ALL"));
+                //list.Add(string.Format("PR STEEL ALL"));
+
+
+                //list.Add(string.Format("MATERIAL CONSTANTS"));
+                //list.Add(string.Format("E 200 1 TO 47"));
+                //list.Add(string.Format("DEN 0.078 1 TO 47"));
+
+
+                //list.Add(string.Format("CONSTANTS"));
+                //list.Add(string.Format("E 4200E3 ALL"));
+                //list.Add(string.Format("CONSTANT"));
+                //list.Add(string.Format("E 2.85E6 ALL"));
+                //list.Add(string.Format("DENSITY CONCRETE ALL"));
+                //list.Add(string.Format("POISSON CONCRETE ALL"));
+                //list.Add(string.Format(""));
+
+                #endregion Mat Constants
             }
-
-
             list.Add(string.Format("MATERIAL CONSTANT"));
-            list.Add(string.Format("E 3162277  {0}", MyList.Get_Array_Text(Tower_members)));
-            list.Add(string.Format("DENSITY STEEL {0}", MyList.Get_Array_Text(Tower_members)));
-            list.Add(string.Format("POISSON STEEL {0}", MyList.Get_Array_Text(Tower_members)));
+            list.Add(string.Format("E {0}  {1}", E_CONC, MyList.Get_Array_Text(Long_Girder_members)));
+            list.Add(string.Format("E {0}  {1}", E_CONC, MyList.Get_Array_Text(Cross_Girder_members)));
+            list.Add(string.Format("E {0}  {1}", E_STEEL, MyList.Get_Array_Text(Tower_members)));
+            list.Add(string.Format("E {0}  {1}", E_CABLE, MyList.Get_Array_Text(Cable_members)));
+
+            list.Add(string.Format("DENSITY {0} {1}", DEN_CONC, MyList.Get_Array_Text(Long_Girder_members)));
+            list.Add(string.Format("DENSITY {0} {1}", DEN_CONC, MyList.Get_Array_Text(Cross_Girder_members)));
+            list.Add(string.Format("DENSITY {0} {1}", DEN_STEEL, MyList.Get_Array_Text(Tower_members)));
+            list.Add(string.Format("DENSITY {0} {1}", DEN_CABLE, MyList.Get_Array_Text(Cable_members)));
 
 
 
+            list.Add(string.Format("POISSON {0} {1}", PR_CONC, MyList.Get_Array_Text(Long_Girder_members)));
+            list.Add(string.Format("POISSON {0} {1}", PR_CONC, MyList.Get_Array_Text(Cross_Girder_members)));
+            list.Add(string.Format("POISSON {0} {1}", PR_STEEL, MyList.Get_Array_Text(Tower_members)));
+            list.Add(string.Format("POISSON {0} {1}", PR_CABLE, MyList.Get_Array_Text(Cable_members)));
 
-            list.Add(string.Format("MATERIAL CONSTANT"));
-            list.Add(string.Format("E 1950000  {0}", MyList.Get_Array_Text(Cable_members)));
-            list.Add(string.Format("DENSITY STEEL {0}", MyList.Get_Array_Text(Cable_members)));
-            list.Add(string.Format("POISSON STEEL {0}", MyList.Get_Array_Text(Cable_members)));
-
-            //list.Add(string.Format("MATERIAL CONSTANTS "));
-            //list.Add(string.Format("E 3150 ALL"));
-            //list.Add(string.Format("DEN 0.000383 ALL"));
-
-
-
-            //list.Add(string.Format("MATERIAL CONSTANTS "));
-            //list.Add(string.Format("E 29000 ALL "));
-            //list.Add(string.Format("DEN 0.000283 ALL"));
-            //list.Add(string.Format("PR STEEL ALL"));
-
-
-            //list.Add(string.Format("MATERIAL CONSTANTS"));
-            //list.Add(string.Format("E 200 1 TO 47"));
-            //list.Add(string.Format("DEN 0.078 1 TO 47"));
-
-
-            //list.Add(string.Format("CONSTANTS"));
-            //list.Add(string.Format("E 4200E3 ALL"));
-            //list.Add(string.Format("CONSTANT"));
-            //list.Add(string.Format("E 2.85E6 ALL"));
-            //list.Add(string.Format("DENSITY CONCRETE ALL"));
-            //list.Add(string.Format("POISSON CONCRETE ALL"));
-            //list.Add(string.Format(""));
 
             list.Add("SUPPORT");
             //list.Add("11 TO 15  116 TO 120 276 TO 280 381 TO 385 FIXED");
@@ -17416,15 +17522,22 @@ namespace LimitStateMethod.Extradossed
             }
             else
             {
-                list.Add(string.Format("{0} {1} FIXED", Supports[0], Supports[4]));
-                //list.Add(string.Format("{0} {1} PINNED", Supports[1], Supports[2]));
-                //list.Add(string.Format("{0} {1} FIXED BUT FX MZ", Supports[1], Supports[5]));
-                //list.Add(string.Format("{0} {1} FIXED BUT FX MZ", Supports[2], Supports[6]));
+                //list.Add(string.Format("{0} {1} FIXED", Supports[0], Supports[4]));
+                ////list.Add(string.Format("{0} {1} PINNED", Supports[1], Supports[2]));
+                ////list.Add(string.Format("{0} {1} FIXED BUT FX MZ", Supports[1], Supports[5]));
+                ////list.Add(string.Format("{0} {1} FIXED BUT FX MZ", Supports[2], Supports[6]));
 
 
-                list.Add(string.Format("{0} {1} PINNED", Supports[1], Supports[5]));
-                list.Add(string.Format("{0} {1} PINNED", Supports[2], Supports[6]));
-                list.Add(string.Format("{0} {1} FIXED", Supports[3], Supports[7]));
+                //list.Add(string.Format("{0} {1} PINNED", Supports[1], Supports[5]));
+                //list.Add(string.Format("{0} {1} PINNED", Supports[2], Supports[6]));
+                //list.Add(string.Format("{0} {1} FIXED", Supports[3], Supports[7]));
+
+
+                list.Add(string.Format("{0} {1} {2}", Supports[0], Supports[4], Start_Support));
+                list.Add(string.Format("{0} {1}  {2}", Supports[1], Supports[5], Start_Support));
+                list.Add(string.Format("{0} {1}  {2}", Supports[2], Supports[6], End_Support));
+                list.Add(string.Format("{0} {1}  {2}", Supports[3], Supports[7], End_Support));
+
             }
 
 
@@ -17818,11 +17931,220 @@ namespace LimitStateMethod.Extradossed
             File.WriteAllLines(ll, ll_txt_data.ToArray());
         }
 
+
+       public double _cen_Ax = 0.0;
+       public double _cen_Ix = 0.0;
+       public double _cen_Iy = 0.0;
+       public double _cen_Iz = 0.0;
+
+       public double _inn_Ax = 0.0;
+       public double _inn_Ix = 0.0;
+       public double _inn_Iy = 0.0;
+       public double _inn_Iz = 0.0;
+
+       public double _out_Ax = 0.0;
+       public double _out_Ix = 0.0;
+       public double _out_Iy = 0.0;
+       public double _out_Iz = 0.0;
+
         public List<string> Get_Continuous_LL_Member_Properties_Data()
         {
             List<string> list = new List<string>();
 
             list.Add(string.Format("START GROUP DEFINITION"));
+
+
+
+
+            //list.Add(string.Format("_LGIRDER " + MyList.Get_Array_Text(Long_Girder_members)));
+
+            if (_Rows == 1)
+            {
+                list.Add(string.Format("_LGIRDER1 {0} TO {1}", Long_Girder_Members_Array[0, 0].MemberNo, Long_Girder_Members_Array[0, _Columns - 2].MemberNo));
+            }
+            else
+            {
+                list.Add(string.Format("_LGIRDER1 {0} TO {1}", Long_Girder_Members_Array[0, 0].MemberNo, Long_Girder_Members_Array[0, _Columns - 2].MemberNo));
+
+
+
+                list.Add(string.Format("_LGIRDER2 {0} TO {1} ", Long_Girder_Members_Array[1, 0].MemberNo, Long_Girder_Members_Array[1, _Columns - 2].MemberNo));
+
+
+                if (IsCentral_Cable)
+                {
+
+                    list.Add(string.Format("_LGIRDER3 {0} TO {1} ", Long_Girder_Members_Array[2, 0].MemberNo, Long_Girder_Members_Array[2, _Columns - 2].MemberNo));
+                }
+                else
+                {
+                    //list.Add(string.Format("_LGIRDER3 {0} TO {1} ", Long_Girder_Members_Array[2, 0].MemberNo, Long_Girder_Members_Array[2, _Columns - 2].MemberNo));
+                    //list.Add(string.Format("_LGIRDER3 {0} TO {1} ", Long_Girder_Members_Array[2, 0].MemberNo, Long_Girder_Members_Array[2, _Columns - 2].MemberNo));
+                    //list.Add(string.Format("_LGIRDER3 {0} TO {1} ", Long_Girder_Members_Array[2, 0].MemberNo, Long_Girder_Members_Array[2, _Columns - 2].MemberNo));
+
+
+                    //list.Add(string.Format("_LGIRDER3 {0}", MyList.Get_Array_Text(_End_mems)));
+                    //list.Add(string.Format("_LSUPP {0}", MyList.Get_Array_Text(_supp_mems)));
+                    //list.Add(string.Format("_LDEFF {0}", MyList.Get_Array_Text(_deff_mems)));
+                    //list.Add(string.Format("_L8 {0}", MyList.Get_Array_Text(_L8_mems)));
+                    //list.Add(string.Format("_L4 {0}", MyList.Get_Array_Text(_L4_mems)));
+                    //list.Add(string.Format("_3L8 {0}", MyList.Get_Array_Text(_3L8_mems)));
+                    //list.Add(string.Format("_L2 {0}", MyList.Get_Array_Text(_L2_mems)));
+
+                    list.Add(string.Format("_LGIRDER3 {0} TO {1} ", Long_Girder_Members_Array[2, 0].MemberNo, Long_Girder_Members_Array[2, _Columns - 2].MemberNo));
+
+
+                }
+                list.Add(string.Format("_LGIRDER4 {0} TO {1} ", Long_Girder_Members_Array[3, 0].MemberNo, Long_Girder_Members_Array[3, _Columns - 2].MemberNo));
+                list.Add(string.Format("_LGIRDER5 {0} TO {1} ", Long_Girder_Members_Array[4, 0].MemberNo, Long_Girder_Members_Array[4, _Columns - 2].MemberNo));
+
+                list.Add(string.Format("_XGIRDER " + MyList.Get_Array_Text(Cross_Girder_members)));
+            }
+            list.Add(string.Format("_TOWERS " + MyList.Get_Array_Text(Tower_members)));
+            list.Add(string.Format("_CABLES " + MyList.Get_Array_Text(Cable_members)));
+
+
+
+            //list.Add(string.Format("_LGIRDER2 13 TO 37 62 TO 86 111 TO 135 160 TO 184 209 TO 233 258 TO 282 307 TO 331"));
+            //list.Add(string.Format("_XGIRDER1 344 TO 415 572 TO 643"));
+            //list.Add(string.Format("_XGIRDER2 416 TO 571"));
+            //list.Add(string.Format("_PYLON1 644 TO 673"));
+            //list.Add(string.Format("_PYLON2 674 TO 703"));
+            //list.Add(string.Format("_CABLE1 704 TO 727"));
+            //list.Add(string.Format("_CABLE2 728 TO 751"));
+            //list.Add(string.Format("_CABLE3 752 TO 775"));
+            //list.Add(string.Format("_CABLE4 776 TO 799"));
+            //list.Add(string.Format("_TIEBEAM1 800"));
+            //list.Add(string.Format("_TIEBEAM2 801"));
+            list.Add(string.Format("END GROUP DEFINITION"));
+
+            list.Add(string.Format("SECTION PROPERTIES"));
+
+
+            List<string> mem_nos = new List<string>();
+            List<int> lval = new List<int>();
+            List<int> lval_dummy = new List<int>();
+            List<string> mem_nos_dummy = new List<string>();
+
+            //int nd = 0;
+            //for (int i = 1; i < _Columns; i++)
+            //{
+            //    lval.Clear();
+            //    //lval_dummy.Clear();
+            //    for (int j = 0; j < _Rows; j++)
+            //    {
+            //        //nd = i + 78*j;
+            //        if (j == ((_Rows / 2)))
+            //            lval.Add(i + (_Columns - 1) * j);
+            //        else
+            //            lval_dummy.Add(i + (_Columns - 1) * j);
+            //    }
+            //    mem_nos.Add(MyList.Get_Array_Text(lval));
+            //    //mem_nos_dummy.Add(MyList.Get_Array_Text(lval_dummy));
+            //}
+            //mem_nos_dummy.Add(MyList.Get_Array_Text(lval_dummy));
+
+            //list.Add(mem_nos[nd++] + string.Format("      PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+            //list.Add(string.Format("1 TO {0}      PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011", MemColls.Count));
+            //list.Add(string.Format("_LGIRDER1    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+            //list.Add(string.Format("_LGIRDER2    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+            //list.Add(string.Format("_LGIRDER3    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+            //list.Add(string.Format("_LGIRDER4    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+            //list.Add(string.Format("_LGIRDER5    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+
+            if (PSC_SECIONS != null)
+            {
+                //list.Add(string.Format("_LGIRDER    PRI   AX  {0:f4}   IX   {0:f4}   IY {0:f4}   IZ   {0:f4}", PSC_SECIONS.Area, PSC_SECIONS.Ixx, PSC_SECIONS.Iyy, PSC_SECIONS.Izz));
+                //list.Add(string.Format("_LGIRDER1    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Izz[0]));
+                //list.Add(string.Format("_LGIRDER2    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Izz[0]));
+                //list.Add(string.Format("_LGIRDER3    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Izz[0]));
+                //list.Add(string.Format("_LGIRDER4    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}",  PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Izz[0]));
+                //list.Add(string.Format("_LGIRDER5    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}",  PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Izz[0]));
+
+                if (_Rows == 1)
+                {
+                    //list.Add(string.Format("_LGIRDER1    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    list.Add(string.Format("_LGIRDER1    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", _cen_Ax, _cen_Ix, _cen_Iy, _cen_Iz));
+                }
+                else
+                {
+
+                    //list.Add(string.Format("_LGIRDER1    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    ////list.Add(string.Format("_LGIRDER2    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+
+
+                    //if (IsCentral_Cable)
+                    //{
+                    //    //list.Add(string.Format("_LGIRDER2    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    //    //list.Add(string.Format("_LGIRDER3    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    //    //list.Add(string.Format("_LGIRDER4    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+
+
+                    //    list.Add(string.Format("_LGIRDER2    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0] / 2, PSC_SECIONS.Ixx[0] / 2, PSC_SECIONS.Iyy[0] / 2, (PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]) / 2));
+                    //    list.Add(string.Format("_LGIRDER3    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0] / 2, PSC_SECIONS.Iyy[0] / 2, (PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]) / 2));
+                    //    list.Add(string.Format("_LGIRDER4    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0] / 2, PSC_SECIONS.Ixx[0] / 2, PSC_SECIONS.Iyy[0] / 2, (PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]) / 2));
+
+                    //}
+                    //else
+                    //{
+
+                    //    list.Add(string.Format("_LGIRDER2    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    //    list.Add(string.Format("_LGIRDER3    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    //    list.Add(string.Format("_LSUPP    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    //    list.Add(string.Format("_LDEFF    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[1], PSC_SECIONS.Ixx[1], PSC_SECIONS.Iyy[1], PSC_SECIONS.Iyy[1] + PSC_SECIONS.Ixx[1]));
+                    //    list.Add(string.Format("_L8    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[2], PSC_SECIONS.Ixx[2], PSC_SECIONS.Iyy[2], PSC_SECIONS.Iyy[2] + PSC_SECIONS.Ixx[2]));
+                    //    list.Add(string.Format("_L4    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[3], PSC_SECIONS.Ixx[3], PSC_SECIONS.Iyy[3], PSC_SECIONS.Iyy[3] + PSC_SECIONS.Ixx[3]));
+                    //    list.Add(string.Format("_3L8    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[4], PSC_SECIONS.Ixx[4], PSC_SECIONS.Iyy[4], PSC_SECIONS.Iyy[4] + PSC_SECIONS.Ixx[4]));
+                    //    list.Add(string.Format("_L2    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[5], PSC_SECIONS.Ixx[5], PSC_SECIONS.Iyy[5], PSC_SECIONS.Iyy[5] + PSC_SECIONS.Ixx[5]));
+                    //    list.Add(string.Format("_LGIRDER4    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                    //}
+
+
+                    //list.Add(string.Format("_LGIRDER5    PRI   AX  0.0001   IX   {0:f4}   IY {1:f4}   IZ   {2:f4}", PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+                }
+                //list.Add(string.Format("_LGIRDER1    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", PSC_SECIONS.Area[0], PSC_SECIONS.Ixx[0], PSC_SECIONS.Iyy[0], PSC_SECIONS.Iyy[0] + PSC_SECIONS.Ixx[0]));
+
+
+                list.Add(string.Format("_LGIRDER1    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", _out_Ax, _out_Ix, _out_Iy, _out_Iz));
+                list.Add(string.Format("_LGIRDER2    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", _inn_Ax, _inn_Ix, _inn_Iy, _inn_Iz));
+                list.Add(string.Format("_LGIRDER3    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", _cen_Ax, _cen_Ix, _cen_Iy, _cen_Iz));
+                list.Add(string.Format("_LGIRDER4    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", _inn_Ax, _inn_Ix, _inn_Iy, _inn_Iz));
+                list.Add(string.Format("_LGIRDER5    PRI   AX  {0:f4}   IX   {1:f4}   IY {2:f4}   IZ   {3:f4}", _out_Ax, _out_Ix, _out_Iy, _out_Iz));
+
+            }
+            else
+            {
+                list.Add(string.Format("_LGIRDER    PRI   AX  7.0989   IX   6.0395   IY 35.8858   IZ   15.8871"));
+
+            }
+
+            //list.Add(string.Format("_LGIRDER1    PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+            //list.Add(string.Format("_LGIRDER2    PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+            ////list.Add(string.Format("_LGIRDER2    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+            //list.Add(string.Format("_LGIRDER3    PRI   AX  7.0989   IX   6.0395   IY 35.8858   IZ   15.8871"));
+            ////list.Add(string.Format("_LGIRDER4    PRI   AX 7.0989 IX 6.0395 IY 35.8858 IZ 15.8871"));
+            //list.Add(string.Format("_LGIRDER4    PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+            //list.Add(string.Format("_LGIRDER5    PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+
+
+
+            if (_Rows > 1)
+            {
+                list.Add(string.Format("_XGIRDER    PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+            }
+
+            //list.Add(string.Format("_XGIRDER    PRI   AX   0.001   IX   0.0001   IY   0.001   IZ   0.00011"));
+            list.Add(string.Format("_TOWERS     PRI   AX 6.20000   IX 16.52000   IY 3.86100   IZ 20.38100"));
+            list.Add(string.Format("_CABLES     PRI   AX 0.01767   IX 0.00002   IY 0.00002   IZ 0.00005"));
+            return list;
+        }
+
+        public List<string> Get_Continuous_LL_Member_Properties_Data_2019_01_24()
+        {
+            List<string> list = new List<string>();
+
+            list.Add(string.Format("START GROUP DEFINITION"));
+
 
 
 

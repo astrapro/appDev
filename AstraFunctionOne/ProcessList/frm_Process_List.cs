@@ -75,16 +75,15 @@ namespace AstraFunctionOne.ProcessList
                     {
                         dgv_process[3, i].Value = "Processing...";
                         dgv_process.Rows[i].DefaultCellStyle.BackColor = Color.Yellow;
+                        
                         dgv_process.FirstDisplayedScrollingRowIndex = i;
 
                         if (ProcessList[i].IS_Stage_File)
                         {
-
                             //if (File.Exists(ProcessList[i].Stage_File_Name))
                             //    Run_Exe(ProcessList[i].Stage_File_Name);
                             //iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
-
-
+                            
                             if (File.Exists(ProcessList[i].Stage_File_Name))
                             {
                                 string sap_file = "";
@@ -92,16 +91,23 @@ namespace AstraFunctionOne.ProcessList
                                 sap_file = Path.Combine(Path.GetDirectoryName(ProcessList[i].Stage_File_Name), "SAP_Input_Data.txt");
                                 if (File.Exists(sap_file))
                                 {
-                                    iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
+                                    if (File.Exists(ProcessList.EMod_File))
+                                        iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name, ProcessList.EMod_File);
+                                    else
+                                        iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
                                 }
                                 else
                                 {
-                                    Run_Exe(ProcessList[i].Stage_File_Name);
+                                    //if (ProcessList[i].IS_Orthotropic)
+                                    //{
+                                    //    Run_Exe(ProcessList[i].Stage_File_Name, "ORTHO.EXE");
+                                    //}
+                                    //else
+                                        Run_Exe(ProcessList[i].Stage_File_Name);
+
                                     iapp.Write_Data_to_File(flpath, ProcessList[i].Stage_File_Name);
                                 }
                             }
-
-
                             if (File.Exists(flpath))
                                 Run_Data2(flpath);
                             //Run_Exe(flpath);
@@ -126,7 +132,16 @@ namespace AstraFunctionOne.ProcessList
                         {
                             if (File.Exists(flpath))
                             {
-                                Run_Exe(flpath, ProcessList.IsAst006);
+
+                                //if (ProcessList[i].IS_Orthotropic)
+                                //{
+                                //    Run_Exe(flpath, "ORTHO.EXE");
+                                //}
+                                //else 
+                                    if (ProcessList.AstEXE != "")
+                                    Run_Exe(flpath, ProcessList.AstEXE);
+                                else
+                                    Run_Exe(flpath, ProcessList.IsAst006);
                             }
                         }
 
@@ -199,6 +214,31 @@ namespace AstraFunctionOne.ProcessList
             PRC.WaitForExit();
         }
 
+
+        void Run_Exe(string flPath, string AstEXE)
+        {
+            PRC = new Process();
+
+            iapp.Delete_Temporary_Files(flPath);
+
+            string exe_file = Path.Combine(Application.StartupPath, "AST001.EXE");
+
+            if (AstEXE != "") exe_file = Path.Combine(Application.StartupPath, AstEXE);
+
+            File.WriteAllText(Path.Combine(Path.GetDirectoryName(flPath), "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
+            File.WriteAllText(Path.Combine(Application.StartupPath, "PAT001.tmp"), Path.GetDirectoryName(flPath) + "\\");
+            //System.Environment.SetEnvironmentVariable("SURVEY", flPath);
+
+            System.Diagnostics.Process prs = new System.Diagnostics.Process();
+
+            System.Environment.SetEnvironmentVariable("SURVEY", flPath);
+            System.Environment.SetEnvironmentVariable("ASTRA", flPath);
+
+
+            PRC.StartInfo.FileName = exe_file;
+            PRC.Start();
+            PRC.WaitForExit();
+        }
 
         void Run_SkewFile(string flPath)
         {

@@ -107,20 +107,20 @@ namespace LimitStateMethod.Steel_Truss
                     kStr = "FIXED";
 
 
-                    if (chk_ssprt_fixed_FX.Checked
-                        || chk_ssprt_fixed_FY.Checked
-                        || chk_ssprt_fixed_FZ.Checked
-                        || chk_ssprt_fixed_MX.Checked
-                        || chk_ssprt_fixed_MY.Checked
-                        || chk_ssprt_fixed_MZ.Checked)
+                    if (!chk_ssprt_fixed_FX.Checked
+                        || !chk_ssprt_fixed_FY.Checked
+                        || !chk_ssprt_fixed_FZ.Checked
+                        || !chk_ssprt_fixed_MX.Checked
+                        || !chk_ssprt_fixed_MY.Checked
+                        || !chk_ssprt_fixed_MZ.Checked)
                         kStr += " BUT";
 
-                    if (chk_ssprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_ssprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_ssprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_ssprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -1003,17 +1003,17 @@ namespace LimitStateMethod.Steel_Truss
                 //WriteTable3(sw);
                 //WriteTable4(sw);
                 //Complete_Design.WriteForcesSummery(sw);
-                Complete_Design.WriteForces_Capacity_Summery(sw);
-                Complete_Design.WriteGroupSummery(sw);
+                Complete_Design.WriteForces_Capacity_Summary(sw);
+                Complete_Design.WriteGroupSummary(sw);
                 string file_ds_frc = "";
                 file_ds_frc = Path.Combine(user_path, "DESIGN_SECTION_SUMMARY.TXT");
-                Complete_Design.WriteGroupSummery(file_ds_frc);
+                Complete_Design.WriteGroupSummary(file_ds_frc);
                 file_ds_frc = Path.Combine(user_path, "DESIGN_FORCES_SUMMARY.TXT");
 
 
 
                 //Complete_Design.WriteForcesSummery(file_ds_frc);
-                Complete_Design.WriteForces_Capacity_Summery(file_ds_frc);
+                Complete_Design.WriteForces_Capacity_Summary(file_ds_frc);
 
 
 

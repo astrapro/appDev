@@ -82,46 +82,46 @@ namespace AstraFunctionOne
             {
                 #region Chiranjit Bridge Design
                 //Application.Exit();
-                if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Enterprise_Bridge)
+                if (txt_Auth_code_Bridge.Text == ASTRA_R23.NewCode_Enterprise_Bridge)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Bridge);
                     MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Enterprise_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.UpgradeCode_Enterprise_Bridge)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Bridge);
 
                     MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Professional_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.NewCode_Professional_Bridge)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Professional_Bridge);
                     MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Professional_Bridge)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.UpgradeCode_Professional_Bridge)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Professional_Bridge);
                     MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Enterprise_Structure)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.NewCode_Enterprise_Structure)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Structure);
 
                     MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge & Structure Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.NewCode_Professional_Structure)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.NewCode_Professional_Structure)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Professional_Structure);
 
                     MessageBox.Show(this, "Dongle successfully authorized for : ASTRA Pro Bridge & Structure Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Enterprise_Structure)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.UpgradeCode_Enterprise_Structure)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Enterprise_Structure);
 
                     MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge & Structure Design [Enterprise]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else if (txt_Auth_code_Bridge.Text == ASTRA_R22.UpgradeCode_Professional_Structure)
+                else if (txt_Auth_code_Bridge.Text == ASTRA_R23.UpgradeCode_Professional_Structure)
                 {
                     LockProgram.Write_ASTRA_Code(eVersionType.Professional_Structure);
                     MessageBox.Show(this, "Dongle successfully Upgraded for : ASTRA Pro Bridge & Structure Design [Professional]. ", "ASTRA Pro", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -2975,14 +2975,21 @@ namespace AstraFunctionOne
         public static string UpgradeCode_Professional_Structure_SP = "254s9659q965342p";
     }
 
-    public static class ASTRA_R22
+    public static class ASTRA_R23
     {
         public static string Authorization_Code = "983a1254c321542f";
 
-        public static string NewCode_Enterprise_Bridge = "854e4895c951784w";
-        public static string NewCode_Enterprise_Structure = "543u9247c197458d";
-        public static string NewCode_Professional_Bridge = "745h7951c424887w";
-        public static string NewCode_Professional_Structure = "326j8745c754874a";
+        public static string NewCode_Enterprise_Bridge = "784e0215c987457w";
+        public static string NewCode_Enterprise_Structure = "385u9856c547945d";
+        public static string NewCode_Professional_Bridge = "245h5487c632541w";
+        public static string NewCode_Professional_Structure = "875j9584c652487a";
+
+
+        //public static string NewCode_Enterprise_Bridge = "854e4895c951784w";
+        //public static string NewCode_Enterprise_Structure = "543u9247c197458d";
+        //public static string NewCode_Professional_Bridge = "745h7951c424887w";
+        //public static string NewCode_Professional_Structure = "326j8745c754874a";
+
         public static string UpgradeCode_Enterprise_Bridge = "214u3954c541248s";
         public static string UpgradeCode_Enterprise_Structure = "983z5197c498547r";
         public static string UpgradeCode_Professional_Bridge = "976h4026c501254x";

@@ -1156,6 +1156,8 @@ namespace LimitStateMethod.RCC_T_Girder
                     txt_abut_w5.Text = Total_DeadLoad_Reaction;
                     txt_pier_2_P2.Text = Total_DeadLoad_Reaction;
                     txt_abut_w5.ForeColor = Color.Red;
+                    
+
 
                     #endregion Abutment & Pier
                 }

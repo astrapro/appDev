@@ -3152,6 +3152,9 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             frm_Pier_ViewDesign_Forces(Analysis.Analysis_REP_LL_3_CONTINUOUS_SPANS, s1, s2);
             frm_ViewDesign_Forces_Load();
 
+
+            
+
             //txt_ana_DLSR.Text = Total_DeadLoad_Reaction;
             //txt_ana_LLSR.Text = Total_LiveLoad_Reaction;
 
@@ -3213,8 +3216,24 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
         {
             try
             {
+                //DL_support_reactions = new SupportReactionTable(iApp, DL_Analysis_Rep);
                 DL_support_reactions = new SupportReactionTable(iApp, DL_Analysis_Rep);
+                DL_support_reactions.Clear();
+                for (int i = 0; i < Analysis.DL_SIDL_3_CONTINUOUS_SPANS.Supports.Count; i++)
+                {
+                    SupportReaction sr = new SupportReaction();
+
+                    sr.JointNo = Analysis.DL_SIDL_3_CONTINUOUS_SPANS.Supports[i].NodeNo;
+                    var sl = new List<int>();
+                    sl.Add(sr.JointNo);
+                    sr.Max_Reaction = Analysis.DL_SIDL_3_CONTINUOUS_SPANS.GetJoint_R2_Shear(sl);
+                    DL_support_reactions.Add(sr);
+                }
+
+
                 LL_support_reactions = new SupportReactionTable(iApp, LL_Analysis_Rep);
+
+                
                 Show_and_Save_Data_DeadLoad();
             }
             catch (Exception ex) { }
@@ -3230,11 +3249,11 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             double tot_dead_vert_reac = 0.0;
             double tot_live_vert_reac = 0.0;
 
-            for (int i = 0; i < mlist.Count; i++)
+            for (int i = 0; i < DL_support_reactions.Count; i++)
             {
                 try
                 {
-                    sr = DL_support_reactions.Get_Data(mlist.GetInt(i));
+                    sr = DL_support_reactions[i];
                     dgv_left_end_design_forces.Rows.Add(sr.JointNo, Math.Abs(sr.Max_Reaction).ToString("f3"));
 
                     tot_dead_vert_reac += Math.Abs(sr.Max_Reaction); ;

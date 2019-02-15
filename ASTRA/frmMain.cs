@@ -2262,10 +2262,24 @@ namespace AstraFunctionOne
 
             if (IsRelease_22)
             {
-                frm_RCC_T_Girder_LS_New frm = new frm_RCC_T_Girder_LS_New(this);
-                //frmRCC_T_Girder_Stage frm = new frmRCC_T_Girder_Stage(this);
+
+                //frm_RCC_T_Girder_LS_New frm = new frm_RCC_T_Girder_LS_New(this);
+                frmRCC_T_Girder_Stage frm = new frmRCC_T_Girder_Stage(this);
                 frm.Owner = this;
                 frm.Show();
+                //if (DesignStandard == eDesignStandard.IndianStandard)
+                //{
+                //    //frm_RCC_T_Girder_LS_New frm = new frm_RCC_T_Girder_LS_New(this);
+                //    frmRCC_T_Girder_Stage frm = new frmRCC_T_Girder_Stage(this);
+                //    frm.Owner = this;
+                //    frm.Show();
+                //}
+                //else
+                //{
+                //    frm_RCC_T_Girder_LS_New frm = new frm_RCC_T_Girder_LS_New(this);
+                //    frm.Owner = this;
+                //    frm.Show();
+                //}
             }
             else
             {
@@ -2660,7 +2674,8 @@ namespace AstraFunctionOne
             {
                 //Chiranjit [2011 10 17] New PSC Box girder Analysis
                 //BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_BoxGirder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_BoxGirder(this);
-                BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder(this);
+                //BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder frm = new BridgeAnalysisDesign.PSC_BoxGirder.frm_PSC_Box_Girder(this);
+                LimitStateMethod.PSC_Box_Girder.frm_PSC_Box_Girder_Stage frm = new LimitStateMethod.PSC_Box_Girder.frm_PSC_Box_Girder_Stage(this);
                 frm.Owner = this;
                 frm.Show();
             }
@@ -3158,7 +3173,7 @@ namespace AstraFunctionOne
                 object misValue;
                 misValue = System.Reflection.Missing.Value;
 
-                xlApp = new Excel.ApplicationClass();
+                xlApp = new Excel.Application();
                 //xlWorkBook = xlApp.Workbooks.Open("csharp.net-informations.xls", 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
                 //xlWorkBook = xlApp.Workbooks.Open(txt_file.Text, 0, true, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
@@ -3212,7 +3227,7 @@ namespace AstraFunctionOne
                 object misValue;
                 misValue = System.Reflection.Missing.Value;
 
-                xlApp = new Excel.ApplicationClass();
+                xlApp = new Excel.Application();
                 //xlWorkBook = xlApp.Workbooks.Open("csharp.net-informations.xls", 0, true, 5, "", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
                 //xlWorkBook = xlApp.Workbooks.Open(txt_file.Text, 0, true, 5, "2011ap", "", true, Microsoft.Office.Interop.Excel.XlPlatform.xlWindows, "\t", false, false, 0, true, 1, 0);
 
@@ -4144,35 +4159,39 @@ namespace AstraFunctionOne
             {
                 ShowTimerScreen(eASTRAImage.Extradosed_SideTowers);
 
-                //if (DesignStandard == eDesignStandard.IndianStandard)
-                //{
-                frm = new frm_Extradosed_Stage(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
-                frm.Owner = this;
-                frm.Show();
-                //}
-                //else
-                //{
-                //    frm = new frm_Extradosed(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
-                //    frm.Owner = this;
-                //    frm.Show();
-                //}
+                if (DesignStandard == eDesignStandard.LRFDStandard)
+                {
+                    frm = new frm_Extradosed_AASHTO(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
+                    frm.Owner = this;
+                    frm.Show();
+                }
+                else
+                {
+                    frm = new frm_Extradosed_Stage(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
+                    frm.Owner = this;
+                    frm.Show();
+                    //frm = new frm_Extradosed(this, eASTRADesignType.Extradossed_Side_Towers_Bridge_LS);
+                    //frm.Owner = this;
+                    //frm.Show();
+                }
             }
             if (tsmi == tsmi_extradossed_central_towers)
             {
                 ShowTimerScreen(eASTRAImage.Extradosed_CentralTowers);
 
-                //if (DesignStandard == eDesignStandard.IndianStandard)
-                //{
-                frm = new frm_Extradosed_Stage(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
-                frm.Owner = this;
-                frm.ShowDialog();
-                //}
-                //else
-                //{
-                //    frm = new frm_Extradosed(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
-                //    frm.Owner = this;
-                //    frm.ShowDialog();
-                //}
+                if (DesignStandard == eDesignStandard.LRFDStandard)
+                {
+                    frm = new frm_Extradosed_AASHTO(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                }
+                else
+                {
+                    //frm = new frm_Extradosed(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
+                    frm = new frm_Extradosed_Stage(this, eASTRADesignType.Extradossed_Central_Towers_Bridge_LS);
+                    frm.Owner = this;
+                    frm.ShowDialog();
+                }
             }
         }
 
@@ -4195,20 +4214,19 @@ namespace AstraFunctionOne
                 //chiranjit comment this line
                 //frm_Steel_Truss_Warren f_cd = new frm_Steel_Truss_Warren(this);
 
-                BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this);
+                //BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this);
+                LimitStateMethod.Steel_Truss.frm_Steel_Truss_LS f_cd = new LimitStateMethod.Steel_Truss.frm_Steel_Truss_LS(this);
 
                 f_cd.Owner = this;
                 f_cd.Show();
             }
             else if (tsmi.Name == tsmi_Steel_Truss_Bridge_Warren_2.Name)
             {
-
                 ShowTimerScreen(eASTRAImage.Steel_Truss_Bridge);
                 //frmCompleteDesign f_cd = new frmCompleteDesign(this, true);
                 //frm_Steel_Truss_Warren f_cd = new frm_Steel_Truss_Warren(this, true); //Chiranjit Comment
-
-
-                BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this, true);
+                //BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this, true);
+                LimitStateMethod.Steel_Truss.frm_Steel_Truss_LS f_cd = new LimitStateMethod.Steel_Truss.frm_Steel_Truss_LS(this, true);
                 f_cd.Owner = this;
                 f_cd.Show();
             }
@@ -4218,7 +4236,8 @@ namespace AstraFunctionOne
                 ShowTimerScreen(eASTRAImage.Steel_Truss_Bridge);
                 //frmCompleteDesign f_cd = new frmCompleteDesign(this, true);
                 //frm_Steel_Truss_Warren3 f_cd = new frm_Steel_Truss_Warren3(this);
-                BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this, eASTRADesignType.Steel_Truss_Bridge_Warren_3);
+                //BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this, eASTRADesignType.Steel_Truss_Bridge_Warren_3);
+                frm_Steel_Truss_LS f_cd = new frm_Steel_Truss_LS(this, eASTRADesignType.Steel_Truss_Bridge_Warren_3);
                 f_cd.Owner = this;
                 f_cd.Show();
             }
@@ -4226,7 +4245,8 @@ namespace AstraFunctionOne
             {
                 ShowTimerScreen(eASTRAImage.Steel_Truss_Bridge_K_type);
                 //LimitStateMethod.Steel_Truss.frm_Steel_Truss_K_type  f_cd = new LimitStateMethod.Steel_Truss.frm_Steel_Truss_K_type(this, false);
-                BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this, eASTRADesignType.Steel_Truss_Bridge_K_Type);
+                //BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren f_cd = new BridgeAnalysisDesign.SteelTruss.frm_Steel_Warren(this, eASTRADesignType.Steel_Truss_Bridge_K_Type);
+                frm_Steel_Truss_LS f_cd = new frm_Steel_Truss_LS(this, eASTRADesignType.Steel_Truss_Bridge_K_Type);
                 f_cd.Owner = this;
                 f_cd.Show();
             }
@@ -4638,6 +4658,61 @@ namespace AstraFunctionOne
 
             if (Path.GetDirectoryName(fname).ToLower() == Path.GetDirectoryName(sap_path).ToLower()) return;
 
+            #region SAP Analysis
+            SAP_Document sap = new SAP_Document();
+
+            string sap_file = "", sap_file2 = "";
+
+            sap_file = Path.Combine(Path.GetDirectoryName(sap_path), "SAP_Input_Data.txt");
+
+
+            sap_file2 = Path.Combine(Path.GetDirectoryName(fname), "inp.tmp");
+            SAP_Document sap2 = new SAP_Document();
+
+            BridgeMemberAnalysis bma = new BridgeMemberAnalysis(this, fname);
+
+            if (File.Exists(sap_file))
+            {
+                sap.Read_SAP_Data(sap_file);
+
+                if (sap.Joints.Count > 0)
+                {
+                    //if (dgv.RowCount > 0)
+                    {
+                        for (int i = 0; i < sap.Joints.Count; i++)
+                        {
+                            var item = sap.Joints[i];
+                            var item2 = bma.Analysis.Joints[i];
+                            item.X = item2.X;
+                            item.Y = item2.Y;
+                            //item.Y = item2.Y + Math.Abs(bma.Analysis.Joints.MinY);
+                            
+                          
+                            item.Z = item2.Z;
+                        }
+                    }
+                }
+
+                sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp.tmp");
+                File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+                //sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "SAP_Input_Data1.txt");
+
+                //File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+
+                //sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp2.tmp");
+                //File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+            }
+            #endregion SAP Analysis
+        }
+
+        public void Write_Data_to_File(string fname, string sap_path, string emod_File)
+        {
+
+            if (Path.GetDirectoryName(fname).ToLower() == Path.GetDirectoryName(sap_path).ToLower()) return;
+
 
             #region SAP Analysis
             SAP_Document sap = new SAP_Document();
@@ -4652,13 +4727,64 @@ namespace AstraFunctionOne
 
             BridgeMemberAnalysis bma = new BridgeMemberAnalysis(this, fname);
 
-            //sap_file = Path.Combine(sap_path, "SAP_Input_Data.txt");
+
+            List<double> emod_beam = new List<double>();
+            List<double> emod_truss = new List<double>();
+            bool isBeam, isTruss;
+
+            isBeam = false;
+            isTruss = false;
+            if (File.Exists(emod_File))
+            {
+                List<string> list = new List<string>(File.ReadAllLines(emod_File));
+                foreach (var item in list)
+                {
+                    try
+                    {
+                        if (item == "BEAM")
+                        {
+                            isBeam = true;
+                            isTruss = false;
+                            continue;
+                        }
+                        if (item == "TRUSS")
+                        {
+                            isBeam = false;
+                            isTruss = true;
+                            continue;
+                        }
+                        if (isBeam)
+                        {
+                            emod_beam.Add(double.Parse(item));
+                        }
+                        if (isTruss)
+                        {
+                            emod_truss.Add(double.Parse(item));
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+            }
 
             if (File.Exists(sap_file))
             {
                 sap.Read_SAP_Data(sap_file);
 
-
+                try
+                {
+                    for (int i = 0; i < sap.Beam_Mat_Properties.Count; i++)
+                    {
+                        sap.Beam_Mat_Properties[i].Youngs_Modulus = emod_beam[i];
+                    }
+                    for (int i = 0; i < sap.Truss_Mat_Properties.Count; i++)
+                    {
+                        sap.Truss_Mat_Properties[i].Modulus_of_Elasticity = emod_truss[i];
+                    }
+                }
+                catch (Exception exx) { }
 
                 if (sap.Joints.Count > 0)
                 {
@@ -4670,6 +4796,9 @@ namespace AstraFunctionOne
                             var item2 = bma.Analysis.Joints[i];
                             item.X = item2.X;
                             item.Y = item2.Y;
+                            //item.Y = item2.Y + Math.Abs(bma.Analysis.Joints.MinY);
+
+
                             item.Z = item2.Z;
                         }
                     }
@@ -4677,6 +4806,10 @@ namespace AstraFunctionOne
 
                 sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp.tmp");
                 File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
+
+                //sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "SAP_Input_Data1.txt");
+
+                //File.WriteAllLines(sap_file, sap.Get_SAP_Data().ToArray());
 
 
                 //sap_file = Path.Combine(Path.GetDirectoryName(sap_file2), "inp2.tmp");
@@ -6434,14 +6567,34 @@ namespace AstraFunctionOne
 
         public void Change_Stage_Coordinates(string prev_File, string new_file)
         {
-            CBridgeStructure prv = new CBridgeStructure(prev_File);
+            Change_Stage_Coordinates("", prev_File, new_file, true);
+        }
+
+        public void Change_Stage_Coordinates(string org_File, string prev_File, string new_file)
+        {
+            Change_Stage_Coordinates(org_File, prev_File, new_file, true);
+        }
+        public void Change_Stage_Coordinates(string org_File, string prev_File, string new_file, bool IsYCoordinateCheck)
+        {
+            CBridgeStructure prv;
+
+            if(File.Exists(org_File))
+                prv = new CBridgeStructure(org_File);
+            else
+                prv = new CBridgeStructure(prev_File);
+
             NodeResults nr = new NodeResults();
 
             string max_defl = Path.Combine(Path.GetDirectoryName(prev_File), "MAX_DEFLECTION.TXT");
+
+
+
             List<string> list = new List<string>();
 
             if (!File.Exists(max_defl)) return;
 
+
+            //double minY = 0.0;
             if (File.Exists(max_defl))
             {
                 list.AddRange(File.ReadAllLines(max_defl));
@@ -6458,21 +6611,30 @@ namespace AstraFunctionOne
                             nrd.Y_Translation = ml.GetDouble(2);
                             nrd.Z_Translation = ml.GetDouble(3);
                             nr.Add(nrd);
+
+                            //if (minY > nrd.Y_Translation)
+                            //    minY = nrd.Y_Translation;
+
                         }
                         catch (Exception exx) { }
                     }
                 }
             }
 
-
             List<string> lst_delf = new List<string>();
-
 
             for (int i = 0; i < prv.Joints.Count; i++)
             {
                 var jnt = prv.Joints[i];
                 jnt.X += nr[i].X_Translation;
-                jnt.Y += nr[i].Y_Translation;
+                if (IsYCoordinateCheck)
+                {
+                    if (Math.Abs(jnt.Y) < 1)
+                        jnt.Y += nr[i].Y_Translation;
+                }
+                else
+                    jnt.Y += nr[i].Y_Translation;
+                //jnt.Y += nr[i].Y_Translation + Math.Abs(minY);
                 jnt.Z += nr[i].Z_Translation;
 
                 //lst_delf.Add(jnt.ToString());

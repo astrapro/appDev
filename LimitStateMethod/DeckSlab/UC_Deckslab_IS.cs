@@ -159,9 +159,6 @@ namespace LimitStateMethod.DeckSlab
             //Write_All_Data(true);
             //user_path = IsCreateData ? Path.Combine(iApp.LastDesignWorkingFolder, Title) : user_path;
 
-          
-
-
             OnCreateData(sender, e);
             OnButtonClick(sender, e);
 
@@ -421,8 +418,6 @@ namespace LimitStateMethod.DeckSlab
 
                 Ana_Initialize_Analysis_InputData();
 
-               
-
                 Deckslab_Moving_Loads();
 
                 Deck_Analysis.WriteData_DeadLoad_Analysis(Deck_Analysis.Input_File);
@@ -476,10 +471,7 @@ namespace LimitStateMethod.DeckSlab
                 cmb_deck_input_files.SelectedIndex = 0;
 
                 #endregion Create Data
-
                 //Write_All_Data(false);
-
-
             }
             catch (Exception ex) { }
             OnButtonClick(sender, e);
@@ -5223,6 +5215,10 @@ namespace LimitStateMethod.DeckSlab
 
         public void Deckslab_User_Input()
         {
+
+
+            if (dgv_deck_user_input.Rows.Count > 0) return;
+
             List<string> lst_input = new List<string>();
 
             #region user input
@@ -5297,7 +5293,7 @@ namespace LimitStateMethod.DeckSlab
             lst_inp_vals.Add(string.Format("0.00"));
             lst_inp_vals.Add(string.Format("0.00"));
             lst_inp_vals.Add(string.Format("0.800"));
-            lst_inp_vals.Add(string.Format("1.00"));
+            lst_inp_vals.Add(string.Format("1"));
             lst_inp_vals.Add(string.Format("M35"));
             lst_inp_vals.Add(string.Format("Fe500"));
 
@@ -7681,7 +7677,7 @@ namespace LimitStateMethod.DeckSlab
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;

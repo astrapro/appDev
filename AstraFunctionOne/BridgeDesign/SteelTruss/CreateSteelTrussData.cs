@@ -14687,12 +14687,12 @@ namespace AstraInterface.TrussBridge
             }
             catch (Exception ex) { }
         }
-        public void WriteGroupSummery(string file_name)
+        public void WriteGroupSummary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteGroupSummery(sw);
+                WriteGroupSummary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -14701,7 +14701,7 @@ namespace AstraInterface.TrussBridge
                 sw.Close();
             }
         }
-        public void WriteGroupSummery(StreamWriter sw)
+        public void WriteGroupSummary(StreamWriter sw)
         {
             sw.WriteLine();
             sw.WriteLine();
@@ -15374,12 +15374,12 @@ namespace AstraInterface.TrussBridge
             sw.WriteLine();
 
         }
-        public void WriteForcesSummery(string file_name)
+        public void WriteForcesSummary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteForcesSummery(sw);
+                WriteForcesSummary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -15390,7 +15390,7 @@ namespace AstraInterface.TrussBridge
 
 
         }
-        public void WriteForcesSummery(StreamWriter sw)
+        public void WriteForcesSummary(StreamWriter sw)
         {
             //StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
@@ -15829,12 +15829,12 @@ namespace AstraInterface.TrussBridge
 
 
         }
-        public void WriteForces_Capacity_Summery(string file_name)
+        public void WriteForces_Capacity_Summary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteForces_Capacity_Summery(sw);
+                WriteForces_Capacity_Summary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -15845,7 +15845,7 @@ namespace AstraInterface.TrussBridge
 
 
         }
-        public void WriteForces_Capacity_Summery(StreamWriter sw)
+        public void WriteForces_Capacity_Summary(StreamWriter sw)
         {
             try
             {

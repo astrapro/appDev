@@ -12407,6 +12407,8 @@ namespace LimitStateMethod.PSC_I_Girder
                 if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
                     pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_10_;
 
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_11_;
 
             }
             else if (chk_crash_barrier.Checked)
@@ -13708,20 +13710,20 @@ namespace LimitStateMethod.PSC_I_Girder
                     kStr = "FIXED";
 
 
-                    if (chk_ssprt_fixed_FX.Checked
-                        || chk_ssprt_fixed_FY.Checked
-                        || chk_ssprt_fixed_FZ.Checked
-                        || chk_ssprt_fixed_MX.Checked
-                        || chk_ssprt_fixed_MY.Checked
-                        || chk_ssprt_fixed_MZ.Checked)
+                    if (!chk_ssprt_fixed_FX.Checked
+                        || !chk_ssprt_fixed_FY.Checked
+                        || !chk_ssprt_fixed_FZ.Checked
+                        || !chk_ssprt_fixed_MX.Checked
+                        || !chk_ssprt_fixed_MY.Checked
+                        || !chk_ssprt_fixed_MZ.Checked)
                         kStr += " BUT";
 
-                    if (chk_ssprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_ssprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_ssprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_ssprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -13736,19 +13738,19 @@ namespace LimitStateMethod.PSC_I_Girder
                 else if (rbtn_esprt_fixed.Checked)
                 {
                     kStr = "FIXED";
-                    if (chk_esprt_fixed_FX.Checked
-                        || chk_esprt_fixed_FY.Checked
-                        || chk_esprt_fixed_FZ.Checked
-                        || chk_esprt_fixed_MX.Checked
-                        || chk_esprt_fixed_MY.Checked
-                        || chk_esprt_fixed_MZ.Checked)
+                    if (!chk_esprt_fixed_FX.Checked
+                        || !chk_esprt_fixed_FY.Checked
+                        || !chk_esprt_fixed_FZ.Checked
+                        || !chk_esprt_fixed_MX.Checked
+                        || !chk_esprt_fixed_MY.Checked
+                        || !chk_esprt_fixed_MZ.Checked)
                         kStr += " BUT";
-                    if (chk_esprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_esprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_esprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_esprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_esprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_esprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_esprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_esprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_esprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_esprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_esprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_esprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }

@@ -427,7 +427,7 @@ namespace BridgeAnalysisDesign.Pier
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -577,7 +577,7 @@ namespace BridgeAnalysisDesign.Pier
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -1003,18 +1003,18 @@ namespace BridgeAnalysisDesign.Pier
 
         private void txt_GEN_G3_TextChanged(object sender, EventArgs e)
         {
-            double left_span = MyList.StringToDouble(Left_Span, 0.0);
-            double right_span = MyList.StringToDouble(Right_Span, 0.0);
+            //double left_span = MyList.StringToDouble(Left_Span, 0.0);
+            //double right_span = MyList.StringToDouble(Right_Span, 0.0);
 
 
-            double left_exp = MyList.StringToDouble(txt_GEN_G4.Text, 0.0);
-            double right_exp = MyList.StringToDouble(txt_GEN_I4.Text, 0.0);
+            //double left_exp = MyList.StringToDouble(txt_GEN_G4.Text, 0.0);
+            //double right_exp = MyList.StringToDouble(txt_GEN_I4.Text, 0.0);
 
-            double left_exp_gap = MyList.StringToDouble(txt_GEN_G5.Text, 0.0);
-            double right_exp_gap = MyList.StringToDouble(txt_GEN_I5.Text, 0.0);
+            //double left_exp_gap = MyList.StringToDouble(txt_GEN_G5.Text, 0.0);
+            //double right_exp_gap = MyList.StringToDouble(txt_GEN_I5.Text, 0.0);
 
-            txt_GEN_G6.Text = (left_span + left_exp + left_exp_gap / 1000.0).ToString("f3");
-            txt_GEN_I6.Text = (right_span + right_exp + right_exp_gap / 1000.0).ToString("f3");
+            //txt_GEN_G6.Text = (left_span + left_exp + left_exp_gap / 1000.0).ToString("f3");
+            //txt_GEN_I6.Text = (right_span + right_exp + right_exp_gap / 1000.0).ToString("f3");
 
         }
 

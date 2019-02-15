@@ -1967,6 +1967,8 @@ namespace LimitStateMethod.DeckSlab
 
         private void Deckslab_Text_Changed()
         {
+            //txt_ds_d.Text = (MyList.StringToDouble(txt_ds_d_total) - MyList.StringToDouble(txt_ds_cover) - MyList.StringToDouble(txt_ds_bar_dia) / 2).ToString("f2");
+
             d = h - cover - bar_dia / 2;
             d_total = h + d1;
 
@@ -2044,6 +2046,8 @@ namespace LimitStateMethod.DeckSlab
 
 
             #endregion SC
+
+
         }
 
         private void frm_Deckslab_LS_Load(object sender, EventArgs e)

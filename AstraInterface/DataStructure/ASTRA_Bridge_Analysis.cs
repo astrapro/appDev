@@ -1104,6 +1104,46 @@ namespace AstraInterface.DataStructure
             }
             return i;
         }
+
+        public static int StringToInt(string s)
+        {
+
+            int i = 0;
+            try
+            {
+                s = s.Replace('\t', ' ').TrimStart().TrimEnd().Trim();
+                while (s.Contains("  "))
+                {
+                    s = s.Replace("  ", " ");
+                }
+                i = int.Parse(s);
+            }
+            catch (Exception ex)
+            {
+                i = 0;
+            }
+            return i;
+        }
+        public static int StringToInt(TextBox txt)
+        {
+
+            int i = 0;
+            try
+            {
+                string s = txt.Text.Replace('\t', ' ').TrimStart().TrimEnd().Trim();
+                while (s.Contains("  "))
+                {
+                    s = s.Replace("  ", " ");
+                }
+                i = int.Parse(s);
+            }
+            catch (Exception ex)
+            {
+                i = 0;
+            }
+            return i;
+        }
+
         public int Count
         {
             get
@@ -1315,6 +1355,25 @@ namespace AstraInterface.DataStructure
         public static double Convert_Degree_To_Radian(double degree)
         {
             return (degree * (Math.PI / 180.0));
+        }
+        public static void Copy_Data_Grid_View(DataGridView dgvSrc, DataGridView dgvDst)
+        {
+            int i = 0;
+            dgvDst.Rows.Clear();
+            dgvDst.AllowUserToAddRows = false;
+            for (i = 0; i < dgvSrc.RowCount; i++)
+            {
+                try
+                {
+                    dgvDst.Rows.Add("", "", "", "");
+                    //dgv2.Rows.Add(dgv1.Rows[i]);
+                    for (int j = 0; j < dgvSrc.ColumnCount; j++)
+                    {
+                        dgvDst[j, i].Value = dgvSrc[j, i].Value;
+                    }
+                }
+                catch (Exception exx) { }
+            }
         }
         public static double Convert_Radian_To_Degree(double radian)
         {
@@ -1690,6 +1749,9 @@ namespace AstraInterface.DataStructure
         public Hashtable hash_table = null;
 
         public List<AstraMember> ASTRA_USER_Member_table { get; set; }
+        public Hashtable ASTRA_BEAM_Member_table { get; set; }
+        public Hashtable ASTRA_Truss_Member_table { get; set; }
+        public Hashtable ASTRA_Cable_Member_table { get; set; }
 
 
 
@@ -1816,6 +1878,8 @@ namespace AstraInterface.DataStructure
         }
         public AstraMember Get_ASTRA_Member_Number(int user_mem_no)
         {
+            var usr = hash_table[user_mem_no] as AstraMember;
+            if (usr != null) return usr;
             foreach (var item in ASTRA_USER_Member_table)
             {
                 if (item.UserNo == user_mem_no)
@@ -1832,12 +1896,21 @@ namespace AstraInterface.DataStructure
                 am.UserNo = astra_mem_no;
                 return am;
             }
+
+
+            var wes = ASTRA_BEAM_Member_table[astra_mem_no] as AstraMember;
+            if (wes != null)
+                return wes;
+
             foreach (var item in ASTRA_USER_Member_table)
             {
                 if (item.AstraMemberNo == astra_mem_no && item.AstraMemberType == eAstraMemberType.BEAM)
                     return item;
             }
+
+
             return null;
+
         }
         public BridgeMemberAnalysis(IApplication app, string analysis_file, ReadForceType rft)
         {
@@ -1966,7 +2039,8 @@ namespace AstraInterface.DataStructure
                         Node_Max_Displacements.Add(md);
 
                         //max_dfl.Add(string.Format("{0,6:f3} {1,10:E3} {2,10:E3} {3,10:E3} {4,10:E3} {5,10:E3} {6,10:E2}",
-                        max_dfl.Add(string.Format("{0,6} {1,12:E3} {2,12:E3} {3,12:E3}",
+                        //max_dfl.Add(string.Format("{0,6} {1,12:E3} {2,12:E3} {3,12:E3}",
+                        max_dfl.Add(string.Format("{0,6} {1,12:F4} {2,12:F4} {3,12:F4}",
                             md.NodeNo, md.X_Translation, md.Y_Translation, md.Z_Translation, md.X_Rotation, md.Y_Rotation, md.Z_Rotation));
                     }
                     File.WriteAllLines(max_delf, max_dfl.ToArray());
@@ -2102,6 +2176,9 @@ namespace AstraInterface.DataStructure
                 string kStr = "";
                 hash_table = new Hashtable();
                 ASTRA_USER_Member_table = new List<AstraMember>();
+                ASTRA_BEAM_Member_table = new Hashtable();
+                ASTRA_Truss_Member_table = new Hashtable();
+                ASTRA_Cable_Member_table = new Hashtable();
                 AstraMember ast_mem = new AstraMember();
                 MyList mList = null;
 
@@ -2166,20 +2243,22 @@ namespace AstraInterface.DataStructure
                         {
                             ast_mem.AstraMemberType = eAstraMemberType.CABLE;
                             ast_mem.UserNo = mList.GetInt(3);
-                            ast_mem.AstraMemberNo = mList.GetInt(3);
+                            //ast_mem.AstraMemberNo = mList.GetInt(3);
                             ast_mem.AstraMemberNo = mList.GetInt(6);
                             hash_table.Add(ast_mem.UserNo, ast_mem);
                             ASTRA_USER_Member_table.Add(ast_mem);
+                            ASTRA_Cable_Member_table.Add(ast_mem.AstraMemberNo, ast_mem);
                         }
                         else if (kStr.StartsWith("TRUSS"))
                         {
                             ast_mem.AstraMemberType = eAstraMemberType.TRUSS;
                             ast_mem.UserNo = mList.GetInt(3);
-                            ast_mem.AstraMemberNo = mList.GetInt(3);
+                            //ast_mem.AstraMemberNo = mList.GetInt(3);
                             ast_mem.AstraMemberNo = mList.GetInt(6);
                             hash_table.Add(ast_mem.UserNo, ast_mem);
 
                             ASTRA_USER_Member_table.Add(ast_mem);
+                            ASTRA_Truss_Member_table.Add(ast_mem.AstraMemberNo, ast_mem);
                         }
                         else if (kStr.StartsWith("CABLE")) // Chiranjit [2011 11 12] this is a new Item for ASTRA Members
                         {
@@ -2187,10 +2266,11 @@ namespace AstraInterface.DataStructure
                             {
                                 ast_mem.AstraMemberType = eAstraMemberType.CABLE;
                                 ast_mem.UserNo = mList.GetInt(3);
-                                ast_mem.AstraMemberNo = mList.GetInt(3);
+                                //ast_mem.AstraMemberNo = mList.GetInt(3);
                                 ast_mem.AstraMemberNo = mList.GetInt(6);
                                 hash_table.Add(ast_mem.UserNo, ast_mem);
                                 ASTRA_USER_Member_table.Add(ast_mem);
+                                ASTRA_Cable_Member_table.Add(ast_mem.AstraMemberNo, ast_mem);
                             }
                             catch (Exception ex) { }
                         }
@@ -2201,6 +2281,7 @@ namespace AstraInterface.DataStructure
                             ast_mem.AstraMemberNo = mList.GetInt(7);
                             hash_table.Add(ast_mem.UserNo, ast_mem);
                             ASTRA_USER_Member_table.Add(ast_mem);
+                            ASTRA_BEAM_Member_table.Add(ast_mem.AstraMemberNo, ast_mem);
                         }
                         list_mem_no.Add(ast_mem.UserNo);
 
@@ -4523,8 +4604,8 @@ namespace AstraInterface.DataStructure
                     }
                     else
                     {
-                        Member m = structure.Get_Member(list_beams[j].BeamNo);
-                        if (m.StartNode.Z == m.EndNode.Z) continue;
+                        //Member m = structure.Get_Member(list_beams[j].BeamNo);
+                        //if (m.StartNode.Z == m.EndNode.Z) continue;
                     }
 
                     if (list_beams[j].StartNodeForce.JointNo == joint_array[i])
@@ -5477,6 +5558,9 @@ namespace AstraInterface.DataStructure
                     {
 
 
+                        //Member m = structure.Get_Member(list_beams[j].BeamNo);
+                        //if (m.StartNode.Z != m.EndNode.Z) continue;
+
                         list_beams[j].StartNodeForce.ForceType = ForceType;
                         list_beams[j].EndNodeForce.ForceType = ForceType;
 
@@ -5491,6 +5575,10 @@ namespace AstraInterface.DataStructure
                     }
                     if (list_beams[j].EndNodeForce.JointNo == joint_array[i])
                     {
+
+                        Member m = structure.Get_Member(list_beams[j].BeamNo);
+                        if (m.StartNode.Z != m.EndNode.Z) continue;
+
                         list_beams[j].StartNodeForce.ForceType = ForceType;
                         list_beams[j].EndNodeForce.ForceType = ForceType;
 
@@ -7119,12 +7207,12 @@ namespace AstraInterface.DataStructure
             }
             catch (Exception ex) { }
         }
-        public void WriteGroupSummery(string file_name)
+        public void WriteGroupSummary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteGroupSummery(sw);
+                WriteGroupSummary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -7133,7 +7221,7 @@ namespace AstraInterface.DataStructure
                 sw.Close();
             }
         }
-        public void WriteGroupSummery(StreamWriter sw)
+        public void WriteGroupSummary(StreamWriter sw)
         {
             sw.WriteLine();
             sw.WriteLine();
@@ -7806,12 +7894,12 @@ namespace AstraInterface.DataStructure
             sw.WriteLine();
 
         }
-        public void WriteForcesSummery(string file_name)
+        public void WriteForcesSummary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteForcesSummery(sw);
+                WriteForcesSummary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -7822,7 +7910,7 @@ namespace AstraInterface.DataStructure
 
 
         }
-        public void WriteForcesSummery(StreamWriter sw)
+        public void WriteForcesSummary(StreamWriter sw)
         {
             //StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
@@ -8261,12 +8349,12 @@ namespace AstraInterface.DataStructure
 
 
         }
-        public void WriteForces_Capacity_Summery(string file_name)
+        public void WriteForces_Capacity_Summary(string file_name)
         {
             StreamWriter sw = new StreamWriter(new FileStream(file_name, FileMode.Create));
             try
             {
-                WriteForces_Capacity_Summery(sw);
+                WriteForces_Capacity_Summary(sw);
             }
             catch (Exception ex) { }
             finally
@@ -8277,7 +8365,7 @@ namespace AstraInterface.DataStructure
 
 
         }
-        public void WriteForces_Capacity_Summery(StreamWriter sw)
+        public void WriteForces_Capacity_Summary(StreamWriter sw)
         {
             try
             {
@@ -9142,6 +9230,7 @@ namespace AstraInterface.DataStructure
                 kStr = file_con[i];
 
                 if (kStr == "") continue;
+                if (kStr.StartsWith("--------")) continue;
 
                 if (i >= 56)
                 {
@@ -9287,6 +9376,31 @@ namespace AstraInterface.DataStructure
                         flag = true;
                     }
 
+                    else if (mLIst.Count == 11 && (mLIst.StringList[2] == "BUILTUP"))
+                    {
+                        if (flag)
+                        {
+                            Add(mem);
+                            flag = false;
+                        }
+                        mem = new CMember();
+                        index = 0;
+                        mem.Group.GroupName = mLIst.StringList[index]; index++;
+                        mem.SectionDetails.DefineSection = GetDefineSection(mLIst.StringList[index]); index++;
+                        mem.SectionDetails.SectionName = mLIst.StringList[index]; index++;
+                        //mem.SectionDetails.SectionCode = mLIst.StringList[index]; index++; index++;
+                        //mem.SectionDetails.AngleThickness = mLIst.GetDouble(index); index++;
+                        mem.WeightPerMetre = mLIst.GetDouble(index); index++;
+                        mem.SectionDetails.NoOfElements = mLIst.GetDouble(index); index++; index++;
+                        mem.SectionDetails.LateralSpacing = mLIst.GetDouble(index); index++;
+                        mem.SectionDetails.BoltDia = mLIst.GetDouble(index); index++;
+                        mem.SectionDetails.NoOfBolts = mLIst.GetInt(index); index++;
+                        mem.Length = mLIst.GetDouble(index); index++;
+                        //mem.Weight = mLIst.GetDouble(index); index++;
+
+                        mem.MemberType = memType;
+                        flag = true;
+                    }
                     else if (mLIst.Count == 13 && (mLIst.StringList[2] == "CABLE" || mLIst.StringList[4] == "STRAND"))
                     {
                         if (flag)
@@ -12132,6 +12246,26 @@ namespace AstraInterface.DataStructure
                     SectionWeight);//12
                     //Weight);//12
             }
+            else if (SectionDetails.DefineSection == eDefineSection.Section15)
+            {
+
+                str = string.Format("{0,-16} {1,-12} {2,-20} {3,-5} {4,-10} {5,-10:f4} {6,-10} {7,-10:f0} {8,10} {9,10} {10,10:f0} {11,10:f4} {12,10:f4}",
+                    Group.GroupName,//0
+                    SectionDetails.DefineSection.ToString(),//1
+                    //SectionDetails.SectionName + " " + SectionDetails.SectionCode,//2
+                    "BUILTUP",//2
+                    " ",//3
+                    " ",//4
+                    WeightPerMetre,//5
+                    SectionDetails.NoOfElements,//6
+                    Group.MemberNos.Count,//7
+                    SectionDetails.LateralSpacing,//8
+                    SectionDetails.BoltDia,//9
+                    SectionDetails.NoOfBolts,//10
+                    Length,//11
+                    SectionWeight);//12
+                //Weight);//12
+            }
             else if (SectionDetails.DefineSection == eDefineSection.Section16 )
             {
 
@@ -12173,6 +12307,27 @@ namespace AstraInterface.DataStructure
                 //Weight);//12
             }
             sw.WriteLine(str);
+
+            if (SectionDetails.TopFlangePlate.Area > 0)
+            {
+                //str = string.Format("{0, -6} {1, -15} {2, -12} {3, -15} {4, -10} {5, -10} {6, -10:f4} {7, -10:f0}",
+                str = string.Format("{0, -16} {1, -12} {2, -15} {3, -10} {4, -10} {5, -10:f4} {6, -10:f0} {7, -10:f0} {8,10} {9,10} {10,10:f4} {11,10:f4} {12,10:f4}",
+                   "",
+                    //"",
+                   "",
+                   "TF PL " + SectionDetails.TopFlangePlate.Width + " x " + SectionDetails.TopFlangePlate.Thickness,
+                   SectionDetails.TopFlangePlate.Width,
+                   SectionDetails.TopFlangePlate.Thickness,
+                   SectionDetails.TopFlangePlate.WeightPerMetre,
+                   SectionDetails.TopFlangePlate.TotalPlates,
+                   "",
+                   "",
+                   "",
+                   "",
+                   SectionDetails.TopFlangePlate.Length,
+                   SectionDetails.TopFlangePlate.Weight * tot_mem);
+                sw.WriteLine(str);
+            }
             if (SectionDetails.TopPlate.Area > 0)
             {
                 //str = string.Format("{0, -6} {1, -15} {2, -12} {3, -15} {4, -10} {5, -10} {6, -10:f4} {7, -10:f0}",
@@ -12210,6 +12365,26 @@ namespace AstraInterface.DataStructure
                    "",
                    SectionDetails.BottomPlate.Length,
                    SectionDetails.BottomPlate.Weight * tot_mem);
+                sw.WriteLine(str);
+            }
+            if (SectionDetails.BottomFlangePlate.Area > 0)
+            {
+                //str = string.Format("{0, -6} {1, -15} {2, -12} {3, -15} {4, -10} {5, -10} {6, -10:f4} {7, -10:f0}",
+                str = string.Format("{0, -16} {1, -12} {2, -15} {3, -10} {4, -10} {5, -10:f4} {6, -10:f0} {7, -10:f0} {8,10} {9,10} {10,10:f4} {11,10:f4} {12,10:f4}",
+                   "",
+                    //"",
+                   "",
+                   "BF PL " + SectionDetails.BottomFlangePlate.Width + " x " + SectionDetails.BottomFlangePlate.Thickness,
+                   SectionDetails.BottomFlangePlate.Width,
+                   SectionDetails.BottomFlangePlate.Thickness,
+                   SectionDetails.BottomFlangePlate.WeightPerMetre,
+                   SectionDetails.BottomFlangePlate.TotalPlates,
+                   "",
+                   "",
+                   "",
+                   "",
+                   SectionDetails.BottomFlangePlate.Length,
+                   SectionDetails.BottomFlangePlate.Weight * tot_mem);
                 sw.WriteLine(str);
             }
             if (SectionDetails.SidePlate.Area > 0)
@@ -12563,6 +12738,11 @@ namespace AstraInterface.DataStructure
 
             double tp, Bp, np; // Top Plate
             double tbp, Bbp, nbp; // Bottom Plate
+
+            double tfp, Btfp, ntfp; // Bottom Plate
+            double bfp, Bbfp, nbfp; // Bottom Plate
+
+
             double ts, Bs, ns; // Side Plate
             double tss, Bss, nss; // Vertical Stiffener Plate
             double Z = 0.0;
@@ -12591,6 +12771,18 @@ namespace AstraInterface.DataStructure
             Bp = SectionDetails.TopPlate.Width;
             tp = SectionDetails.TopPlate.Thickness;
             np = SectionDetails.TopPlate.TotalPlates;
+
+
+
+            Btfp = SectionDetails.TopFlangePlate.Width;
+            tfp = SectionDetails.TopPlate.Thickness;
+            ntfp = SectionDetails.TopPlate.TotalPlates;
+
+
+            Bbfp = SectionDetails.BottomFlangePlate.Width;
+            bfp = SectionDetails.BottomFlangePlate.Thickness;
+            nbfp = SectionDetails.BottomFlangePlate.TotalPlates;
+
 
             Bbp = SectionDetails.BottomPlate.Width;
             tbp = SectionDetails.BottomPlate.Thickness;
@@ -14331,6 +14523,8 @@ namespace AstraInterface.DataStructure
                     DesignReport.Add(string.Format(""));
                     #endregion Section 12
                     break;
+
+
                 case eDefineSection.Section14:
                     #region Section 14
                     DesignReport.Add(string.Format(""));
@@ -14415,6 +14609,177 @@ namespace AstraInterface.DataStructure
                     DesignReport.Add(string.Format(""));
                     DesignReport.Add(string.Format(""));
                     #endregion Section 12
+                    break;
+
+                case eDefineSection.Section15: // Cross Girder
+                    #region Section 6
+                    //DesignReport.Add(string.Format("SELECTED SECTION DATA"));
+                    //DesignReport.Add(string.Format("---------------------"));
+                    //DesignReport.Add(string.Format(""));
+                    //DesignReport.Add(string.Format("{0} x {1} {2}", n, SectionDetails.SectionName, SectionDetails.SectionCode));
+
+                    //tabBeam = iApp.Tables.Get_BeamData_FromTable(SectionDetails.SectionName, SectionDetails.SectionCode);
+                    //a = tabBeam.Area;
+                    //D = tabBeam.Depth;
+                    //Iyy = tabBeam.Iyy;
+                    //Ixx = tabBeam.Ixx;
+                    //Zxx = tabBeam.Zxx;
+
+                    //t = tabBeam.WebThickness;
+                    //tf = tabBeam.FlangeThickness;
+
+                    DesignReport.Add(string.Format(""));
+                    //DesignReport.Add(string.Format("Spacing = S = {0} mm", S));
+                    DesignReport.Add(string.Format("Top Plate Width = Bbp = {0} mm", Bp));
+                    DesignReport.Add(string.Format("Top Plate Thickness = tbp = {0} mm", tp));
+                    DesignReport.Add(string.Format("No Of Top Plate = nbp = {0}", np));
+                    DesignReport.Add(string.Format(""));
+
+                    
+                    DesignReport.Add(string.Format("Top Flange Plate Width = Bbp = {0} mm", Btfp));
+                    DesignReport.Add(string.Format("Top Flange Plate Thickness = tbp = {0} mm", tfp));
+                    DesignReport.Add(string.Format("No Of Top Flange  Plate = nbp = {0}", ntfp));
+                    DesignReport.Add(string.Format(""));
+
+
+                    DesignReport.Add(string.Format("Bottom Plate Width = Bbp = {0} mm", Bbp));
+                    DesignReport.Add(string.Format("Bottom Plate Thickness = tbp = {0} mm", tbp));
+                    DesignReport.Add(string.Format("No Of Bottom Plate = nbp = {0}", nbp));
+                    DesignReport.Add(string.Format(""));
+
+                    DesignReport.Add(string.Format("Bottom Flange Plate Width = Bbp = {0} mm", Bbfp));
+                    DesignReport.Add(string.Format("Bottom Flange Plate Thickness = tbp = {0} mm", bfp));
+                    DesignReport.Add(string.Format("No Of Bottom Flange  Plate = nbp = {0}", nbfp));
+                    DesignReport.Add(string.Format(""));
+
+                    DesignReport.Add(string.Format("Web Plate Width = Bbp = {0} mm", Bs));
+                    DesignReport.Add(string.Format("Web Plate Thickness = tbp = {0} mm", ts));
+                    DesignReport.Add(string.Format("No Of Bottom Plate = nbp = {0}", ns));
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format("Vertical Stiffener Plate Width = Bss = {0} mm", Bss));
+                    DesignReport.Add(string.Format("Vertical Stiffener Plate Thickness = tss = {0} mm", tss));
+                    DesignReport.Add(string.Format("No Of Vertical Stiffener Plates = nss = {0}", nss));
+
+                    a = 0;
+                    D = 0;
+                    t = 0;
+                    tf = 0;
+
+                    //DesignReport.Add(string.Format(""));
+                    //DesignReport.Add(string.Format("Area = a = {0} sq.cm", a));
+                    //DesignReport.Add(string.Format("Depth = D = {0} mm", D));
+                    //DesignReport.Add(string.Format("Web Thickness = t = {0} mm", t));
+                    //DesignReport.Add(string.Format("Flange Thickness = tf = {0} mm", tf));
+                    //DesignReport.Add(string.Format("Moment of Inertia = Ixx = {0} sq.sq.mm", Ixx));
+
+
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format("DESIGN CALCULATION"));
+                    DesignReport.Add(string.Format("------------------"));
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format(""));
+
+                    // Chiranjit [2011 10 21] this formula is wrong
+                    //Ix = Ixx * 10000 + ((tbp * Bbp * Bbp * Bbp / 12.0) + (tbp * Bbp) * (Math.Pow(((D / 2) + (tbp / 2)), 2.0))) * nbp + (nss * (tss * Bss) * ((t / 2.0) + (tss / 2.0)));
+                    Ix = ((Bbp * tbp * tbp * tbp / 12.0) + (tbp * Bbp) * (Math.Pow(((D / 2) + (tbp / 2)), 2.0))) * nbp + (nss * (tss * Bss) * ((t / 2.0) + (tss / 2.0)));
+
+                    Ix = Ixx * 10000.0;
+                    Ix += ((Bbp * tbp * tbp * tbp / 12.0) + (tbp * Bbp) * (Math.Pow(((D / 2) + (tbp / 2)), 2.0)));
+                    Ix += (tss * Bss * Bss * Bss / 12.0) * nss;
+
+
+                    #region Chiranjit [2011 10 26]
+                    //According to Mr. Sandipan Goswami
+                    //DesignReport.Add(string.Format("Moment of Inertia = Ix = Ixx * 10000 + ((Bbp * tbp^3 / 12.0) + (tbp * Bbp) * (((D / 2) + (tbp / 2))^2)) * nbp + (nss * (tss * Bss) * ((t / 2.0) + (tss / 2.0)))"));
+                    //DesignReport.Add(string.Format("                       = {0} * 10000 + (({1} * {2}^3 / 12.0) + ({1} * {2}) * ((({3} / 2) + ({2} / 2))^2))) * {4} + ({5} * ({6} * {7}) * (({8} / 2.0) + ({6} / 2.0))) ",
+                    //                                                                                                            Ixx, Bbp, tbp, D, nbp, nss, tss, Bss, t));
+                    //DesignReport.Add(string.Format(""));
+                    //DesignReport.Add(string.Format("                       = {0:e3} sq.sq.mm", Ix));
+                    //DesignReport.Add(string.Format(""));
+                    #endregion Chiranjit [2011 10 26]
+                    //DesignReport.Add(string.Format("Moment of Inertia = Ix = Ixx * 10000 + (Bbp * tbp^3 / 12.0) + (tbp * Bbp) * (((D / 2) + (tbp / 2))^2)) * nbp"));
+                    //DesignReport.Add(string.Format("                         + (tss * Bss^3 / 12.0) * nss"));
+                    //DesignReport.Add(string.Format("                       = {0} * 10000 + ({1} * {2}^3 / 12.0) + ({1} * {2}) * ((({3} / 2) + (tbp / 2))^2)) * {4}", Ixx, Bbp, tbp, D, nbp));
+                    //DesignReport.Add(string.Format("                         + ({0} * {1}^3 / 12.0) * {2} ", tss, Bss, nss));
+                    //DesignReport.Add(string.Format(""));
+                    //DesignReport.Add(string.Format("                       = {0:e3} sq.sq.mm", Ix));
+                    #region Sandiapan Goswami [2011 10 26]   Moment of Inertia
+
+                    DesignReport.Add(string.Format("Moment of Inertia = Ix = Ixx * 10000 "));
+                    // Top Plate
+                    if ((Bp * tp) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + ((Bp * tp^3 / 12.0) + (Bp * tp) * (((D / 2) + (tp / 2))^2)) * np"));
+                    }
+                    // Bottom Plate
+                    if ((Bbp * tbp) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + (Bbp * tbp^3 / 12.0) + (Bbp * tbp) * (((D / 2) + (tbp / 2))^2)) * nbp"));
+                    }
+                    // Side Plate
+                    if ((Bs * ts) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + (ts * Bs^3 / 12) * ns"));
+                    }
+                    // Vertical Stiffener Plate
+                    if ((Bss * tss) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + (tss * Bss^3 / 12) * nss"));
+                    }
+
+                    DesignReport.Add(string.Format(""));
+                    // Top Plate
+                    DesignReport.Add(string.Format("                       = {0} * 10000 ", Ixx));
+                    Ix = Ixx * 10000.0;
+                    //Area of Top Plate   A = tp*Bp,    r = (D/2 + tp/2)
+                    //Moment of Inertia   Ix  = (Bp*tp^3)/12 + Ar^2  
+                    Ix += (Bp * tp * tp * tp / 12 + (Bp * tp) * ((D / 2) + (tp / 2)) * ((D / 2) + (tp / 2))) * np;
+                    if ((Bp * tp) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + ({0} * {1}^3 / 12.0) + ({0} * {1}) * ((({2} / 2) + ({1} / 2))^2)) * {3}", Bp, tp, D, np));
+                    }
+                    // Bottom Plate
+                    //Area of Bottom Plate   A = tbp*Bbp,    r = (D/2 + tbp/2)
+                    //Moment of Inertia   Ix  = (Bbp*tbp^3/12) + Ar^2  
+                    Ix += (Bbp * tbp * tbp * tbp / 12 + (Bbp * tbp) * ((D / 2) + (tbp / 2)) * ((D / 2) + (tbp / 2))) * nbp;
+
+                    if ((Bbp * tbp) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + ({0} * {1}^3 / 12.0) + ({0} * {1}) * ((({2} / 2) + ({1} / 2))^2)) * {3}", Bbp, tbp, D, nbp));
+                    }
+                    // Side Plate
+                    //Area of Side Plate   A = ts*Bs
+                    //Moment of Inertia   Ix  = (ts*Bs^3/12)*ns
+                    Ix += (ts * Bs * Bs * Bs / 12) * ns;
+                    if ((Bs * ts) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + ({0} * {1}^3 / 12.0) * {2} ", ts, Bs, ns));
+                    }
+                    // Vertical Stiffener Plate
+                    //Area of Vertical Stiffener Plate   A = tss*Bss,    r = (D/2 + tbp/2)
+                    //Moment of Inertia   Ix  = (ts*Bs^3)*ns
+
+                    Ix += (tss * Bss * Bss * Bss / 12) * nss;
+                    if ((Bss * tss) != 0.0)
+                    {
+                        DesignReport.Add(string.Format("                         + ({0} * {1}^3 / 12.0) * {2} ", tss, Bss, nss));
+                    }
+                    DesignReport.Add(string.Format(""));
+                    DesignReport.Add(string.Format("                       = {0:e3} sq.sq.mm", Ix));
+
+
+                    A = n * a * 100 + (tbp * Bbp * nbp);
+
+                    A = n * a * 100 + (tbp * Bbp * nbp) + (tss * Bss * nss) + (tfp * Btfp * ntfp) + (bfp * Bbfp * nbfp);
+                    Iy = Ix;
+                    Ixx = Ix;
+                    #endregion Sandiapan Goswami [2011 10 26]
+
+                    DesignReport.Add(string.Format(""));
+                    #endregion Section 6
                     break;
                 case eDefineSection.Section16:
                     #region Section 16
@@ -14649,7 +15014,9 @@ namespace AstraInterface.DataStructure
             SectionCode = "";
             AngleThickness = 0.0;
             TopPlate = new Plate();
+            TopFlangePlate = new Plate();
             BottomPlate = new Plate();
+            BottomFlangePlate = new Plate();
             SidePlate = new Plate();
             VerticalStiffenerPlate = new Plate();
             BoltDia = 20;
@@ -14687,7 +15054,9 @@ namespace AstraInterface.DataStructure
 
         public double AngleThickness { get; set; }
         public Plate TopPlate { get; set; }
+        public Plate TopFlangePlate { get; set; }
         public Plate BottomPlate { get; set; }
+        public Plate BottomFlangePlate { get; set; }
         public Plate SidePlate { get; set; }
         public Plate VerticalStiffenerPlate { get; set; }
 
@@ -14736,6 +15105,20 @@ namespace AstraInterface.DataStructure
         public double Length { get; set; }
         public int TotalPlates { get; set; }
 
+        public double Ixx
+        {
+            get
+            {
+                return (Width * Math.Pow(Thickness, 3)) / 12;
+            }
+        }
+        public double Iyy
+        {
+            get
+            {
+                return (Thickness * Math.Pow(Width, 3)) / 12;
+            }
+        }
         public double Area
         {
             get
@@ -15813,6 +16196,17 @@ namespace AstraInterface.DataStructure
             }
             return nrd;
         }
+        public NodeResultData Get_Max_Y_Deflection()
+        {
+            NodeResultData nrd = new NodeResultData();
+
+            foreach (var item in this)
+            {
+                if (Math.Abs(item.Y_Translation) > Math.Abs(nrd.Y_Translation))
+                    nrd = item;
+            }
+            return nrd;
+        }
         public NodeResultData Get_Node_Deflection(int node_no)
         {
             NodeResultData nrd = null;
@@ -15852,14 +16246,28 @@ namespace AstraInterface.DataStructure
                     if (nrd == null)
                         nrd = item;
 
-                    if (Math.Abs(item.X_Translation) > Math.Abs(max_xt))
-                        max_xt = item.X_Translation;
+                    //if (Math.Abs(item.X_Translation) > Math.Abs(max_xt))
+                    //    max_xt = item.X_Translation;
+
+                    ////if (item.Y_Translation < 0)
+                    ////{
+                    //    if (Math.Abs(item.Y_Translation) > Math.Abs(max_yt))
+                    //        max_yt = item.Y_Translation;
+                    ////}
+
+                    //if (Math.Abs(item.Z_Translation) > Math.Abs(max_zt))
+                    //    max_zt = item.Z_Translation;
+
+
+
 
                     if (Math.Abs(item.Y_Translation) > Math.Abs(max_yt))
+                    {
+                        max_xt = item.X_Translation;
                         max_yt = item.Y_Translation;
-
-                    if (Math.Abs(item.Z_Translation) > Math.Abs(max_zt))
                         max_zt = item.Z_Translation;
+                    }
+
 
                     if (Math.Abs(item.X_Rotation) > Math.Abs(max_xr))
                         max_xr = item.X_Rotation;

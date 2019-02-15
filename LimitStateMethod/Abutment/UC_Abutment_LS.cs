@@ -248,7 +248,7 @@ namespace LimitStateMethod.Abutment
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             myExcelWorkbooks = myExcelApp.Workbooks;
 

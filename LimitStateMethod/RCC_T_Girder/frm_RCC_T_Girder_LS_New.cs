@@ -1104,17 +1104,17 @@ namespace LimitStateMethod.RCC_T_Girder
                     //Long_Girder_Analysis.LiveLoad_5_Analysis = new BridgeMemberAnalysis(iApp,
                     //    Long_Girder_Analysis.Get_Analysis_Report_File(Long_Girder_Analysis.LL_Analysis_5_Input_File));
                 }
-                else if (btn == btn_stage_analysis)
-                {
-                    ProgressList pl = new ProgressList();
-                    pl.AddRange(iApp.Progress_Works.ToArray());
+                //else if (btn == btn_stage_analysis)
+                //{
+                //    ProgressList pl = new ProgressList();
+                //    pl.AddRange(iApp.Progress_Works.ToArray());
 
                    
-                    if (!iApp.Show_and_Run_Stage_Analysis(pcol)) return;
+                //    if (!iApp.Show_and_Run_Stage_Analysis(pcol)) return;
 
-                    iApp.Progress_Works = pl; ;
+                //    iApp.Progress_Works = pl; ;
 
-                }
+                //}
 
 
                 Long_Girder_Analysis.TotalLoad_Analysis = null;

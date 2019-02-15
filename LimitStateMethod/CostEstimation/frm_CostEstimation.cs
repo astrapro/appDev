@@ -1333,7 +1333,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -1603,7 +1603,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -1795,7 +1795,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -2064,7 +2064,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -2264,7 +2264,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -3643,7 +3643,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -3941,7 +3941,7 @@ namespace LimitStateMethod.CostEstimation
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp_cost = new Excel.ApplicationClass();
+            myExcelApp_cost = new Excel.Application();
             myExcelApp_cost.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks_cost = myExcelApp_cost.Workbooks;
@@ -3972,7 +3972,7 @@ namespace LimitStateMethod.CostEstimation
 
             //object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp_boq = new Excel.ApplicationClass();
+            myExcelApp_boq = new Excel.Application();
             myExcelApp_boq.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks_boq = myExcelApp_boq.Workbooks;
@@ -4002,7 +4002,7 @@ namespace LimitStateMethod.CostEstimation
 
             //object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp_rate = new Excel.ApplicationClass();
+            myExcelApp_rate = new Excel.Application();
             myExcelApp_rate.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks_rate = myExcelApp_rate.Workbooks;

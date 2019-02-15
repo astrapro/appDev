@@ -28,12 +28,14 @@ namespace LimitStateMethod.CableStayed
     public partial class UC_CableStayed_Stage : UserControl
     {
         public event EventHandler OnButtonClick;
+        public event EventHandler OnTextBoxChanged;
         public event EventHandler OnComboboxSelectedIndexChanged;
         IApplication iApp;
 
         public UC_CableStayed_Stage()
         {
             InitializeComponent();
+            ChangeSupport();
         }
 
         private void uC_CompositeResults1_Load(object sender, EventArgs e)
@@ -42,12 +44,19 @@ namespace LimitStateMethod.CableStayed
         }
         private void rbtn_ssprt_pinned_CheckedChanged(object sender, EventArgs e)
         {
+            ChangeSupport();
+        }
+
+        public void ChangeSupport()
+        {
+
             chk_esprt_fixed_FX.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_FY.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_FZ.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_MX.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_MY.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_MZ.Enabled = rbtn_esprt_fixed.Checked;
+
             chk_ssprt_fixed_FX.Enabled = rbtn_ssprt_fixed.Checked;
             chk_ssprt_fixed_FY.Enabled = rbtn_ssprt_fixed.Checked;
             chk_ssprt_fixed_FZ.Enabled = rbtn_ssprt_fixed.Checked;
@@ -68,6 +77,12 @@ namespace LimitStateMethod.CableStayed
             {
                 OnComboboxSelectedIndexChanged(sender, e);
             }
+        }
+
+        private void txt_steel_prct_TextChanged(object sender, EventArgs e)
+        {
+            if (OnTextBoxChanged != null)
+                OnTextBoxChanged(sender, e);
         }
     }
 }

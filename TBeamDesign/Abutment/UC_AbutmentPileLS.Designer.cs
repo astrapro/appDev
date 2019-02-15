@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnl_content = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -293,6 +293,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lbl_5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label176 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.txt_xls_inp_D44 = new System.Windows.Forms.TextBox();
@@ -364,7 +365,9 @@
             this.pnl_7 = new System.Windows.Forms.Panel();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label176 = new System.Windows.Forms.Label();
+            this.label177 = new System.Windows.Forms.Label();
+            this.label178 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.pnl_content.SuspendLayout();
             this.panel9.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -1123,9 +1126,11 @@
             this.groupBox2.Controls.Add(this.txt_xls_inp_E20);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.txt_xls_inp_E17);
+            this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.txt_xls_inp_E18);
             this.groupBox2.Controls.Add(this.label31);
             this.groupBox2.Controls.Add(this.label137);
+            this.groupBox2.Controls.Add(this.label178);
             this.groupBox2.Controls.Add(this.label27);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label25);
@@ -1134,6 +1139,7 @@
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Controls.Add(this.label18);
             this.groupBox2.Controls.Add(this.label136);
+            this.groupBox2.Controls.Add(this.label177);
             this.groupBox2.Controls.Add(this.txt_xls_inp_E14);
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label20);
@@ -1223,7 +1229,7 @@
             // 
             // txt_xls_inp_E20
             // 
-            this.txt_xls_inp_E20.Location = new System.Drawing.Point(192, 153);
+            this.txt_xls_inp_E20.Location = new System.Drawing.Point(199, 153);
             this.txt_xls_inp_E20.Name = "txt_xls_inp_E20";
             this.txt_xls_inp_E20.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_E20.TabIndex = 1;
@@ -1233,7 +1239,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(266, 156);
+            this.label14.Location = new System.Drawing.Point(273, 156);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(18, 13);
             this.label14.TabIndex = 0;
@@ -1241,7 +1247,7 @@
             // 
             // txt_xls_inp_E17
             // 
-            this.txt_xls_inp_E17.Location = new System.Drawing.Point(192, 100);
+            this.txt_xls_inp_E17.Location = new System.Drawing.Point(199, 100);
             this.txt_xls_inp_E17.Name = "txt_xls_inp_E17";
             this.txt_xls_inp_E17.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_E17.TabIndex = 1;
@@ -1250,7 +1256,7 @@
             // 
             // txt_xls_inp_E18
             // 
-            this.txt_xls_inp_E18.Location = new System.Drawing.Point(192, 126);
+            this.txt_xls_inp_E18.Location = new System.Drawing.Point(199, 126);
             this.txt_xls_inp_E18.Name = "txt_xls_inp_E18";
             this.txt_xls_inp_E18.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_E18.TabIndex = 1;
@@ -1269,7 +1275,7 @@
             // label137
             // 
             this.label137.AutoSize = true;
-            this.label137.Location = new System.Drawing.Point(266, 103);
+            this.label137.Location = new System.Drawing.Point(273, 103);
             this.label137.Name = "label137";
             this.label137.Size = new System.Drawing.Size(18, 13);
             this.label137.TabIndex = 0;
@@ -1287,7 +1293,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(266, 129);
+            this.label15.Location = new System.Drawing.Point(273, 129);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(18, 13);
             this.label15.TabIndex = 0;
@@ -1304,7 +1310,7 @@
             // 
             // txt_xls_inp_E15
             // 
-            this.txt_xls_inp_E15.Location = new System.Drawing.Point(193, 73);
+            this.txt_xls_inp_E15.Location = new System.Drawing.Point(200, 73);
             this.txt_xls_inp_E15.Name = "txt_xls_inp_E15";
             this.txt_xls_inp_E15.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_E15.TabIndex = 1;
@@ -1323,7 +1329,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(267, 76);
+            this.label17.Location = new System.Drawing.Point(274, 76);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(29, 13);
             this.label17.TabIndex = 0;
@@ -1349,7 +1355,7 @@
             // 
             // txt_xls_inp_E14
             // 
-            this.txt_xls_inp_E14.Location = new System.Drawing.Point(193, 47);
+            this.txt_xls_inp_E14.Location = new System.Drawing.Point(200, 47);
             this.txt_xls_inp_E14.Name = "txt_xls_inp_E14";
             this.txt_xls_inp_E14.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_E14.TabIndex = 1;
@@ -1368,7 +1374,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(267, 50);
+            this.label20.Location = new System.Drawing.Point(274, 50);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(18, 13);
             this.label20.TabIndex = 0;
@@ -1385,7 +1391,7 @@
             // 
             // txt_xls_inp_E13
             // 
-            this.txt_xls_inp_E13.Location = new System.Drawing.Point(193, 20);
+            this.txt_xls_inp_E13.Location = new System.Drawing.Point(200, 20);
             this.txt_xls_inp_E13.Name = "txt_xls_inp_E13";
             this.txt_xls_inp_E13.Size = new System.Drawing.Size(68, 21);
             this.txt_xls_inp_E13.TabIndex = 1;
@@ -1397,14 +1403,14 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(10, 50);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(140, 13);
+            this.label22.Size = new System.Drawing.Size(190, 13);
             this.label22.TabIndex = 0;
-            this.label22.Text = "c/L of brg. c/L of exp. J";
+            this.label22.Text = "C/L of Bearing to C/L of Exp. Jt.";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(267, 23);
+            this.label23.Location = new System.Drawing.Point(274, 23);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(18, 13);
             this.label23.TabIndex = 0;
@@ -1793,27 +1799,27 @@
             // 
             this.dgv_bs_ll_2.AllowUserToAddRows = false;
             this.dgv_bs_ll_2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_bs_ll_2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_bs_ll_2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_bs_ll_2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_bs_ll_2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_bs_ll_2.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_bs_ll_2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_bs_ll_2.Location = new System.Drawing.Point(362, 84);
             this.dgv_bs_ll_2.Name = "dgv_bs_ll_2";
             this.dgv_bs_ll_2.RowHeadersWidth = 27;
@@ -1844,27 +1850,27 @@
             // 
             this.dgv_bs_ll_1.AllowUserToAddRows = false;
             this.dgv_bs_ll_1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_bs_ll_1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_bs_ll_1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_bs_ll_1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_bs_ll_1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.Column1,
             this.dataGridViewTextBoxColumn5});
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_bs_ll_1.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_bs_ll_1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_bs_ll_1.Location = new System.Drawing.Point(19, 84);
             this.dgv_bs_ll_1.Name = "dgv_bs_ll_1";
             this.dgv_bs_ll_1.RowHeadersWidth = 27;
@@ -3079,6 +3085,16 @@
             this.panel6.Size = new System.Drawing.Size(824, 665);
             this.panel6.TabIndex = 4;
             // 
+            // label176
+            // 
+            this.label176.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label176.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label176.Location = new System.Drawing.Point(0, 0);
+            this.label176.Name = "label176";
+            this.label176.Size = new System.Drawing.Size(824, 18);
+            this.label176.TabIndex = 18;
+            this.label176.Text = "GIRDER CROSS SECTION";
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.textBox33);
@@ -3594,7 +3610,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(835, 57);
+            this.tabPage1.Size = new System.Drawing.Size(835, 0);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "DESIGN DATA 2";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -3607,7 +3623,7 @@
             this.pnl_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_1.Location = new System.Drawing.Point(3, 3);
             this.pnl_1.Name = "pnl_1";
-            this.pnl_1.Size = new System.Drawing.Size(829, 51);
+            this.pnl_1.Size = new System.Drawing.Size(829, 0);
             this.pnl_1.TabIndex = 14;
             // 
             // pictureBox4
@@ -3636,7 +3652,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(835, 57);
+            this.tabPage2.Size = new System.Drawing.Size(835, 0);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DESIGN DATA 3";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -3648,7 +3664,7 @@
             this.pnl_2.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_2.Location = new System.Drawing.Point(3, 3);
             this.pnl_2.Name = "pnl_2";
-            this.pnl_2.Size = new System.Drawing.Size(812, 837);
+            this.pnl_2.Size = new System.Drawing.Size(829, 837);
             this.pnl_2.TabIndex = 8;
             // 
             // label174
@@ -3677,7 +3693,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(835, 57);
+            this.tabPage3.Size = new System.Drawing.Size(835, 0);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "DESIGN DATA 4";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -3690,7 +3706,7 @@
             this.pnl_3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_3.Location = new System.Drawing.Point(3, 3);
             this.pnl_3.Name = "pnl_3";
-            this.pnl_3.Size = new System.Drawing.Size(829, 51);
+            this.pnl_3.Size = new System.Drawing.Size(829, 0);
             this.pnl_3.TabIndex = 13;
             // 
             // label175
@@ -3719,7 +3735,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(835, 57);
+            this.tabPage4.Size = new System.Drawing.Size(835, 0);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "DESIGN DATA 5";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -3729,7 +3745,7 @@
             this.pnl_4.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_4.Location = new System.Drawing.Point(3, 3);
             this.pnl_4.Name = "pnl_4";
-            this.pnl_4.Size = new System.Drawing.Size(812, 1051);
+            this.pnl_4.Size = new System.Drawing.Size(829, 1051);
             this.pnl_4.TabIndex = 9;
             // 
             // tabPage5
@@ -3739,7 +3755,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(835, 57);
+            this.tabPage5.Size = new System.Drawing.Size(835, 0);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "DESIGN DATA 6";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -3749,7 +3765,7 @@
             this.pnl_5.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_5.Location = new System.Drawing.Point(3, 3);
             this.pnl_5.Name = "pnl_5";
-            this.pnl_5.Size = new System.Drawing.Size(812, 739);
+            this.pnl_5.Size = new System.Drawing.Size(829, 739);
             this.pnl_5.TabIndex = 11;
             // 
             // tabPage6
@@ -3759,7 +3775,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(835, 57);
+            this.tabPage6.Size = new System.Drawing.Size(835, 0);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "DESIGN DATA 7";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -3770,7 +3786,7 @@
             this.pnl_6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_6.Location = new System.Drawing.Point(3, 3);
             this.pnl_6.Name = "pnl_6";
-            this.pnl_6.Size = new System.Drawing.Size(829, 51);
+            this.pnl_6.Size = new System.Drawing.Size(829, 0);
             this.pnl_6.TabIndex = 10;
             // 
             // tabPage7
@@ -3780,7 +3796,7 @@
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(835, 57);
+            this.tabPage7.Size = new System.Drawing.Size(835, 0);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "DESIGN DATA 8";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -3791,7 +3807,7 @@
             this.pnl_7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_7.Location = new System.Drawing.Point(3, 3);
             this.pnl_7.Name = "pnl_7";
-            this.pnl_7.Size = new System.Drawing.Size(829, 51);
+            this.pnl_7.Size = new System.Drawing.Size(829, 0);
             this.pnl_7.TabIndex = 12;
             // 
             // tabPage9
@@ -3801,7 +3817,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(835, 57);
+            this.tabPage9.Size = new System.Drawing.Size(835, 0);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "DESIGN DATA 9";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -3812,18 +3828,35 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(812, 372);
+            this.panel1.Size = new System.Drawing.Size(829, 372);
             this.panel1.TabIndex = 73;
             // 
-            // label176
+            // label177
             // 
-            this.label176.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label176.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label176.Location = new System.Drawing.Point(0, 0);
-            this.label176.Name = "label176";
-            this.label176.Size = new System.Drawing.Size(824, 18);
-            this.label176.TabIndex = 18;
-            this.label176.Text = "GIRDER CROSS SECTION";
+            this.label177.AutoSize = true;
+            this.label177.Location = new System.Drawing.Point(331, 129);
+            this.label177.Name = "label177";
+            this.label177.Size = new System.Drawing.Size(115, 13);
+            this.label177.TabIndex = 0;
+            this.label177.Text = "Overall Deck width";
+            // 
+            // label178
+            // 
+            this.label178.AutoSize = true;
+            this.label178.Location = new System.Drawing.Point(588, 129);
+            this.label178.Name = "label178";
+            this.label178.Size = new System.Drawing.Size(18, 13);
+            this.label178.TabIndex = 0;
+            this.label178.Text = "m";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(514, 126);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(68, 21);
+            this.textBox4.TabIndex = 1;
+            this.textBox4.Text = "10.5";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // UC_AbutmentPileLS
             // 
@@ -4002,54 +4035,38 @@
         private System.Windows.Forms.Label label140;
         private System.Windows.Forms.TextBox txt_xls_inp_D137;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox txt_xls_inp_D136;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox txt_xls_inp_E23;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox txt_xls_inp_E22;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txt_xls_inp_E21;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txt_xls_inp_E20;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label139;
-        private System.Windows.Forms.TextBox txt_xls_inp_E17;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox txt_xls_inp_E18;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label137;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt_xls_inp_E15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label136;
-        private System.Windows.Forms.TextBox txt_xls_inp_E14;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txt_xls_inp_E13;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Panel pnl_3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txt_xls_inp_E34;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txt_xls_inp_E33;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox txt_xls_inp_E31;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txt_xls_inp_E30;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox txt_xls_inp_E29;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.TextBox txt_xls_inp_E28;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
@@ -4236,5 +4253,24 @@
         private System.Windows.Forms.Label lbl_9;
         private System.Windows.Forms.Button btn_open_wroksheet;
         private System.Windows.Forms.Label label176;
+        public System.Windows.Forms.TextBox txt_xls_inp_D136;
+        public System.Windows.Forms.TextBox txt_xls_inp_E23;
+        public System.Windows.Forms.TextBox txt_xls_inp_E22;
+        public System.Windows.Forms.TextBox txt_xls_inp_E21;
+        public System.Windows.Forms.TextBox txt_xls_inp_E20;
+        public System.Windows.Forms.TextBox txt_xls_inp_E17;
+        public System.Windows.Forms.TextBox txt_xls_inp_E18;
+        public System.Windows.Forms.TextBox txt_xls_inp_E15;
+        public System.Windows.Forms.TextBox txt_xls_inp_E14;
+        public System.Windows.Forms.TextBox txt_xls_inp_E13;
+        public System.Windows.Forms.TextBox txt_xls_inp_E34;
+        public System.Windows.Forms.TextBox txt_xls_inp_E33;
+        public System.Windows.Forms.TextBox txt_xls_inp_E31;
+        public System.Windows.Forms.TextBox txt_xls_inp_E30;
+        public System.Windows.Forms.TextBox txt_xls_inp_E29;
+        public System.Windows.Forms.TextBox txt_xls_inp_E28;
+        public System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label178;
+        private System.Windows.Forms.Label label177;
     }
 }

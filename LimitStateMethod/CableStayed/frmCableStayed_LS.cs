@@ -14882,6 +14882,19 @@ namespace LimitStateMethod.CableStayed
         double span_length = 0.0;
 
 
+        #region Material Constant
+        public string E_CONC { get; set; }
+        public string E_STEEL { get; set; }
+        public string E_CABLE { get; set; }
+        public string DEN_CONC { get; set; }
+        public string DEN_STEEL { get; set; }
+        public string DEN_CABLE { get; set; }
+        public string PR_CONC { get; set; }
+        public string PR_STEEL { get; set; }
+        public string PR_CABLE { get; set; }
+
+        #endregion Material Constant
+
         List<MemberSectionProperty> SectionProperty { get; set; }
 
 

@@ -2849,6 +2849,7 @@ namespace BridgeAnalysisDesign.PSC_BoxGirder
             list.Add(string.Format("CONSTANTS"));
             list.Add(string.Format("DENSITY  2.5  ALL  "));
             list.Add(string.Format("E  3224658  ALL  "));
+            list.Add(string.Format("PR 0.15 ALL  "));
             list.Add(string.Format("ALPHA  1.17E-05  ALL  "));
             list.Add(string.Format("SUPPORT"));
             list.Add(string.Format("1  15  PINNED  "));

@@ -97,7 +97,6 @@ namespace LimitStateMethod.Extradossed
         PSC_Box_Section_Data PSC_SECIONS;
 
         //Chiranjit [2012 10 30]
-        RccPier rcc_pier = null;
         Save_FormRecord SaveRec = new Save_FormRecord();
         //Chiranjit [2012 10 31]
         //SupportReactionCollection support_reactions = null;
@@ -151,22 +150,24 @@ namespace LimitStateMethod.Extradossed
         {
             get
             {
-                return txt_dead_kN_m.Text;
+                //return  txt_dead_kN_m.Text;
+                return uC_MaxSR.txt_mxf_max_vert_reac_kN.Text;
             }
             set
             {
-                txt_dead_kN_m.Text = value;
+                //txt_dead_kN_m.Text = value;
             }
         }
         public string Total_LiveLoad_Reaction
         {
             get
             {
-                return txt_live_kN_m.Text;
+                //return txt_live_kN_m.Text;
+                return uC_MaxSR.txt_mxf_max_vert_reac_kN.Text;
             }
             set
             {
-                txt_live_kN_m.Text = value;
+                //txt_live_kN_m.Text = value;
             }
         }
         void frm_ViewForces_Load()
@@ -175,213 +176,60 @@ namespace LimitStateMethod.Extradossed
             {
                 DL_support_reactions = new SupportReactionTable(iApp, DL_Analysis_Rep);
                 LL_support_reactions = new SupportReactionTable(iApp, LL_Analysis_Rep);
-                Show_and_Save_Data_DeadLoad();
+
+                SupportReaction sr;
+
+                DL_support_reactions.Clear();
+                LL_support_reactions.Clear();
+
+                Extradosed.LiveLoad_Analysis = All_Analysis[0];
+                List<int> jnts = new List<int>();
+                for (int i = 0; i < Extradosed.DeadLoad_Analysis.Supports.Count; i++)
+                {
+                    sr = new SupportReaction();
+                    sr.JointNo = Extradosed.DeadLoad_Analysis.Supports[i].NodeNo;
+                    jnts.Clear();
+                    jnts.Add(sr.JointNo);
+                    sr.Max_Reaction = Extradosed.DeadLoad_Analysis.GetJoint_R1_Axial(jnts).Force;
+                    sr.Max_Negative_Mx = Extradosed.DeadLoad_Analysis.GetJoint_Torsion(jnts).Force;
+                    sr.Max_Negative_Mz = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(jnts).Force;
+
+                    DL_support_reactions.Add(sr);
+                }
+                for (int i = 0; i < Extradosed.LiveLoad_Analysis.Supports.Count; i++)
+                {
+                    sr = new SupportReaction();
+                    sr.JointNo = Extradosed.LiveLoad_Analysis.Supports[i].NodeNo;
+                    jnts.Clear();
+                    jnts.Add(sr.JointNo);
+                    sr.Max_Reaction = Extradosed.LiveLoad_Analysis.GetJoint_R1_Axial(jnts).Force;
+                    sr.Max_Negative_Mx = Extradosed.LiveLoad_Analysis.GetJoint_Torsion(jnts).Force;
+                    sr.Max_Negative_Mz = Extradosed.LiveLoad_Analysis.GetJoint_MomentForce(jnts).Force;
+                    LL_support_reactions.Add(sr);
+                }
             }
             catch (Exception ex) { }
         }
-        void Show_and_Save_Data_DeadLoad()
-        {
-            if(AnalysisType != eAnalysis.Normal)
-            {
-                Show_and_Save_Data_DeadLoad(ucStage);
-                return;
-            }
 
-
-            dgv_left_end_design_forces.Rows.Clear();
-            dgv_right_end_design_forces.Rows.Clear();
-
-            SupportReaction sr = null;
-            MyList mlist = new MyList(MyList.RemoveAllSpaces("2 12"), ' ');
-
-            double tot_dead_vert_reac = 0.0;
-            double tot_live_vert_reac = 0.0;
-
-            //for (int i = 0; i < mlist.Count; i++)
-            //{
-            try
-            {
-                //sr = DL_support_reactions.Get_Data(mlist.GetInt(i));
-
-                List<int> lint = new List<int>();
-                lint.Add(2);
-                MaxForce mf = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(lint);
-
-
-                dgv_left_end_design_forces.Rows.Add(mf.NodeNo, Math.Abs(mf.Force).ToString("f3"));
-                tot_dead_vert_reac += Math.Abs(mf.Force); ;
-
-
-                lint.Clear();
-                lint.Add(12);
-                mf = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(lint);
-
-
-                dgv_left_end_design_forces.Rows.Add(mf.NodeNo, Math.Abs(mf.Force).ToString("f3"));
-                tot_dead_vert_reac += Math.Abs(mf.Force); ;
-            }
-            catch (Exception ex)
-            {
-            }
-
-            //}
-            mlist = new MyList(MyList.RemoveAllSpaces(Supports), ' ');
-            for (int i = 0; i < mlist.Count; i++)
-            {
-                try
-                {
-                    sr = LL_support_reactions.Get_Data(mlist.GetInt(i));
-                    dgv_right_end_design_forces.Rows.Add(sr.JointNo, Math.Abs(sr.Max_Reaction).ToString("f3"));
-                    tot_live_vert_reac += Math.Abs(sr.Max_Reaction);
-                }
-                catch (Exception ex)
-                {
-                }
-            }
-            txt_dead_vert_reac_ton.Text = (tot_dead_vert_reac).ToString("f3");
-            txt_live_vert_rec_Ton.Text = (tot_live_vert_reac).ToString("f3");
-        }
-
-        void Show_and_Save_Data_DeadLoad(UC_Stage_Extradosed uc)
-        {
-
-            uc.dgv_left_end_design_forces.Rows.Clear();
-            uc.dgv_right_end_design_forces.Rows.Clear();
-
-            SupportReaction sr = null;
-            MyList mlist = new MyList(MyList.RemoveAllSpaces("2 12"), ' ');
-
-            double tot_dead_vert_reac = 0.0;
-            double tot_live_vert_reac = 0.0;
-
-            //for (int i = 0; i < mlist.Count; i++)
-            //{
-            try
-            {
-                //sr = DL_support_reactions.Get_Data(mlist.GetInt(i));
-
-                List<int> lint = new List<int>();
-                lint.Add(2);
-                MaxForce mf = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(lint);
-
-
-                uc.dgv_left_end_design_forces.Rows.Add(mf.NodeNo, Math.Abs(mf.Force).ToString("f3"));
-                tot_dead_vert_reac += Math.Abs(mf.Force); ;
-
-
-                lint.Clear();
-                lint.Add(12);
-                mf = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(lint);
-
-
-                uc.dgv_left_end_design_forces.Rows.Add(mf.NodeNo, Math.Abs(mf.Force).ToString("f3"));
-                tot_dead_vert_reac += Math.Abs(mf.Force); ;
-            }
-            catch (Exception ex)
-            {
-            }
-
-            //}
-            mlist = new MyList(MyList.RemoveAllSpaces(Supports), ' ');
-            for (int i = 0; i < mlist.Count; i++)
-            {
-                try
-                {
-                    sr = LL_support_reactions.Get_Data(mlist.GetInt(i));
-                    uc.dgv_right_end_design_forces.Rows.Add(sr.JointNo, Math.Abs(sr.Max_Reaction).ToString("f3"));
-                    tot_live_vert_reac += Math.Abs(sr.Max_Reaction);
-                }
-                catch (Exception ex)
-                {
-                }
-            }
-            uc.txt_dead_vert_reac_ton.Text = (tot_dead_vert_reac).ToString("f3");
-            uc.txt_live_vert_rec_Ton.Text = (tot_live_vert_reac).ToString("f3");
-        }
 
         private void txt_dead_vert_reac_ton_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;
-
-            //if (txt.Name == txt_dead_vert_reac_ton.Name)
-            //{
             Text_Changed_Forces();
-            //}
-
         }
 
         private void Text_Changed_Forces()
         {
-
-            //double DL_Factor = MyList.StringToDouble(txt_Ana_DL_Factor.Text, 1.0);
-            //double LL_Factor = MyList.StringToDouble(txt_Ana_LL_Factor.Text, 1.0);
-
-            //lbl_DL_factor.Text = "Factor = " + txt_Ana_DL_Factor.Text;
-            //lbl_LL_factor.Text = "Factor = " + txt_Ana_LL_Factor.Text;
-
             if (B != 0)
             {
                 if (AnalysisType == eAnalysis.Normal)
                 {
-                    //Chiranjit [2013 06 16]
-                    //txt_dead_vert_reac_ton_factor.Text = ((MyList.StringToDouble(txt_dead_vert_reac_ton.Text, 0.0) * DL_Factor)).ToString("f3");
-                    txt_dead_vert_reac_kN.Text = ((MyList.StringToDouble(txt_dead_vert_reac_ton.Text, 0.0) * 10)).ToString("f3");
-                    txt_dead_kN_m.Text = ((MyList.StringToDouble(txt_dead_vert_reac_kN.Text, 0.0)) / B).ToString("f3");
-
-                    //txt_live_vert_rec_Ton_factor.Text = ((MyList.StringToDouble(txt_live_vert_rec_Ton.Text, 0.0) * LL_Factor)).ToString("f3");
-
-                    txt_live_vert_rec_kN.Text = ((MyList.StringToDouble(txt_live_vert_rec_Ton.Text, 0.0) * 10)).ToString("f3");
-                    txt_live_kN_m.Text = ((MyList.StringToDouble(txt_live_vert_rec_kN.Text, 0.0)) / B).ToString("f3");
-
-                    txt_final_vert_reac.Text = ((MyList.StringToDouble(txt_dead_vert_reac_ton.Text, 0.0) * DL_Factor) +
-                        (MyList.StringToDouble(txt_live_vert_rec_Ton.Text, 0.0) * LL_Factor)).ToString("f3");
-                    txt_final_vert_rec_kN.Text = (MyList.StringToDouble(txt_final_vert_reac.Text, 0.0) * 10).ToString("f3");
                 }
                 else
                 {
-                    //Chiranjit [2013 06 16]
-                    //txt_dead_vert_reac_ton_factor.Text = ((MyList.StringToDouble(txt_dead_vert_reac_ton.Text, 0.0) * DL_Factor)).ToString("f3");
-                    ucStage.txt_dead_vert_reac_kN.Text = ((MyList.StringToDouble(ucStage.txt_dead_vert_reac_ton.Text, 0.0) * 10)).ToString("f3");
-                    ucStage.txt_dead_kN_m.Text = ((MyList.StringToDouble(ucStage.txt_dead_vert_reac_kN.Text, 0.0)) / B).ToString("f3");
-
-                    //txt_live_vert_rec_Ton_factor.Text = ((MyList.StringToDouble(txt_live_vert_rec_Ton.Text, 0.0) * LL_Factor)).ToString("f3");
-
-                    ucStage.txt_live_vert_rec_kN.Text = ((MyList.StringToDouble(ucStage.txt_live_vert_rec_Ton.Text, 0.0) * 10)).ToString("f3");
-                    ucStage.txt_live_kN_m.Text = ((MyList.StringToDouble(ucStage.txt_live_vert_rec_kN.Text, 0.0)) / B).ToString("f3");
-
-                    ucStage.txt_final_vert_reac.Text = ((MyList.StringToDouble(ucStage.txt_dead_vert_reac_ton.Text, 0.0) * DL_Factor) +
-                        (MyList.StringToDouble(ucStage.txt_live_vert_rec_Ton.Text, 0.0) * LL_Factor)).ToString("f3");
-                    ucStage.txt_final_vert_rec_kN.Text = (MyList.StringToDouble(ucStage.txt_final_vert_reac.Text, 0.0) * 10).ToString("f3");
                 }
             }
 
-            //txt_abut
-            //else if (txt.Name == txt_dead_kN_m.Name)
-            //{
-            //txt_abut_w5.Text = txt_dead_kN_m.Text;
-            txt_pier_2_P2.Text = txt_dead_kN_m.Text;
-            //}
-            //else if (txt.Name == txt_live_kN_m.Name)
-            //{
-            //txt_abut_w6.Text = txt_live_kN_m.Text;
-            txt_pier_2_P3.Text = txt_live_kN_m.Text;
-            //}
-            //else if (txt.Name == txt_final_vert_rec_kN.Name)
-            //{
-            txt_RCC_Pier_W1_supp_reac.Text = txt_final_vert_rec_kN.Text;
-            //}
-            //else if (txt.Name == txt_max_Mx_kN.Name)
-            //{
-            txt_RCC_Pier_Mx1.Text = txt_max_Mx_kN.Text;
-            //}
-            //else if (txt.Name == txt_max_Mz_kN.Name)
-            //{
-            txt_RCC_Pier_Mz1.Text = txt_max_Mz_kN.Text;
-
-
-            //txt_Abut_B.Text = txt_RCC_Pier__B.Text = txt_RCC_Pier___B.Text = txt_Ana_B.Text;
-
-            txt_RCC_Pier_L.Text = txt_Ana_L1.Text;
         }
         #endregion View Force
 
@@ -390,314 +238,6 @@ namespace LimitStateMethod.Extradossed
         SupportReactionTable support_reactions = null;
         string Left_support = "";
         string Right_support = "";
-        public void frm_Pier_ViewDesign_Forces(string Analysis_Report_file, string left_support, string right_support)
-        {
-            analysis_rep = Analysis_Report_file;
-            Left_support = left_support.Replace(",", " ");
-            Right_support = right_support.Replace(",", " ");
-        }
-
-        private void frm_ViewDesign_Forces_Load()
-        {
-            support_reactions = new SupportReactionTable(iApp, analysis_rep);
-            try
-            {
-                Show_and_Save_Data();
-            }
-            catch (Exception ex) { }
-        }
-
-        void Show_and_Save_Data()
-        {
-            if(AnalysisType != eAnalysis.Normal)
-            {
-                Show_and_Save_Data(ucStage);
-                return;
-            }
-
-            if (!File.Exists(analysis_rep)) return;
-            string format = "{0,27} {1,10:f3} {2,10:f3} {3,10:f3}";
-            List<string> list_arr = new List<string>(File.ReadAllLines(analysis_rep));
-            list_arr.Add("");
-            list_arr.Add("                   =====================================");
-            list_arr.Add("                     DESIGN FORCES FOR RCC PIER DESIGN");
-            list_arr.Add("                   =====================================");
-            list_arr.Add("");
-            list_arr.Add("");
-            list_arr.Add(string.Format(""));
-            list_arr.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
-            list_arr.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
-            list_arr.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
-            list_arr.Add("");
-            SupportReaction sr = null;
-
-            MyList mlist = new MyList(MyList.RemoveAllSpaces(Left_support), ' ');
-
-            double tot_left_vert_reac = 0.0;
-            double tot_right_vert_reac = 0.0;
-
-            double tot_left_Mx = 0.0;
-            double tot_left_Mz = 0.0;
-
-            double tot_right_Mx = 0.0;
-            double tot_right_Mz = 0.0;
-
-
-            dgv_left_des_frc.Rows.Clear();
-            dgv_right_des_frc.Rows.Clear();
-            list_arr.Add("LEFT END");
-            list_arr.Add("--------");
-            for (int i = 0; i < mlist.Count; i++)
-            {
-                sr = support_reactions.Get_Data(mlist.GetInt(i));
-                dgv_left_des_frc.Rows.Add(sr.JointNo, sr.Max_Reaction, sr.Max_Mx, sr.Max_Mz);
-
-                tot_left_vert_reac += Math.Abs(sr.Max_Reaction); ;
-                tot_left_Mx += sr.Max_Mx;
-                tot_left_Mz += sr.Max_Mz;
-                list_arr.Add(string.Format(format, sr.JointNo, Math.Abs(sr.Max_Reaction), sr.Max_Mx, sr.Max_Mz));
-            }
-
-            list_arr.Add("");
-
-            //Chiranjit [2012 07 06]
-            //Change unit kN to Ton
-            //tot_left_vert_reac /= 10.0;
-            //tot_left_Mx /= 10.0;
-            //tot_left_Mz /= 10.0;
-
-            txt_left_total_vert_reac.Text = tot_left_vert_reac.ToString("0.000");
-            txt_left_total_Mx.Text = tot_left_Mx.ToString("0.000");
-            txt_left_total_Mz.Text = tot_left_Mz.ToString("0.000");
-            list_arr.Add(string.Format(format, "TOTAL", tot_left_vert_reac, tot_left_Mx, tot_left_Mz));
-            list_arr.Add("");
-
-            mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
-            list_arr.Add("RIGHT END");
-            list_arr.Add("--------");
-            for (int i = 0; i < mlist.Count; i++)
-            {
-                sr = support_reactions.Get_Data(mlist.GetInt(i));
-                dgv_right_des_frc.Rows.Add(sr.JointNo, Math.Abs(sr.Max_Reaction), sr.Max_Mx, sr.Max_Mz);
-
-                tot_right_vert_reac += Math.Abs(sr.Max_Reaction);
-                tot_right_Mx += sr.Max_Mx;
-                tot_right_Mz += sr.Max_Mz;
-                list_arr.Add(string.Format(format, sr.JointNo, Math.Abs(sr.Max_Reaction), sr.Max_Mx, sr.Max_Mz));
-            }
-            list_arr.Add("");
-
-            //Chiranjit [2012 07 06]
-            //Change unit kN to Ton
-            //tot_right_vert_reac /= 10.0;
-            //tot_right_Mx /= 10.0;
-            //tot_right_Mz /= 10.0;
-            txt_right_total_vert_reac.Text = tot_right_vert_reac.ToString("0.000");
-            txt_right_total_Mx.Text = tot_right_Mx.ToString("0.000");
-            txt_right_total_Mz.Text = tot_right_Mz.ToString("0.000");
-            list_arr.Add("");
-
-
-            list_arr.Add(string.Format(format, "TOTAL", tot_right_vert_reac, tot_right_Mx, tot_right_Mz));
-            list_arr.Add("");
-
-
-            //txt_both_ends_total.Text = (tot_left_vert_reac + tot_right_vert_reac).ToString("0.000");
-            list_arr.Add("");
-            //list_arr.Add("BOTH ENDS TOTAL VERTICAL REACTION = " + txt_both_ends_total.Text + " Ton");
-
-
-            txt_final_vert_reac.Text = (MyList.StringToDouble(txt_dead_vert_reac_ton.Text, 0.0) * DL_Factor +
-                (tot_right_vert_reac + tot_left_vert_reac) * LL_Factor).ToString("0.000");
-
-            txt_final_vert_rec_kN.Text = ((MyList.StringToDouble(txt_final_vert_reac.Text, 0.0)) * 10).ToString("0.000");
-
-
-            list_arr.Add("");
-            list_arr.Add("");
-            list_arr.Add("FINAL DESIGN FORCES");
-            list_arr.Add("-------------------");
-            list_arr.Add("");
-            list_arr.Add("TOTAL VERTICAL REACTION = " + txt_final_vert_reac.Text + " Ton" + "    =  " + txt_final_vert_rec_kN.Text + " kN");
-
-            txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
-            txt_max_Mx_kN.Text = (MyList.StringToDouble(txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
-
-
-            list_arr.Add("        MAXIMUM  MX     = " + txt_final_Mx.Text + " Ton-M" + "  =  " + txt_max_Mx_kN.Text + " kN-m");
-            txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
-            txt_max_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
-
-            list_arr.Add("        MAXIMUM  MZ     = " + txt_final_Mz.Text + " Ton-M" + "  =  " + txt_max_Mz_kN.Text + " kN-m");
-            list_arr.Add("");
-            list_arr.Add("");
-            list_arr.Add("                  ========================================");
-            list_arr.Add("                  END OF DESIGN FORCES FOR RCC PIER DESIGN");
-            list_arr.Add("                  ========================================");
-            list_arr.Add("");
-
-
-
-
-
-            //File.WriteAllLines(analysis_rep, list_arr.ToArray());
-
-            list_arr.Clear();
-            list_arr.Add("W1=" + txt_final_vert_rec_kN.Text);
-            list_arr.Add("Mx1=" + txt_max_Mx_kN.Text);
-            list_arr.Add("Mz1=" + txt_max_Mz_kN.Text);
-            string f_path = Path.Combine(Path.GetDirectoryName(analysis_rep), "Forces.fil");
-            File.WriteAllLines(f_path, list_arr.ToArray());
-            Environment.SetEnvironmentVariable("PIER", f_path);
-
-
-            //uC_PierDesignLimitState1.Left_Span_Force = (MyList.StringToDouble(txt_left_total_vert_reac.Text, 0.0) * 10).ToString();
-            //uC_PierDesignLimitState1.Right_Span_Force = (MyList.StringToDouble(txt_right_total_vert_reac.Text, 0.0) * 10).ToString();
-
-        }
-
-        void Show_and_Save_Data(UC_Stage_Extradosed uc)
-        {
-            if (!File.Exists(analysis_rep)) return;
-            string format = "{0,27} {1,10:f3} {2,10:f3} {3,10:f3}";
-            List<string> list_arr = new List<string>(File.ReadAllLines(analysis_rep));
-            list_arr.Add("");
-            list_arr.Add("                   =====================================");
-            list_arr.Add("                     DESIGN FORCES FOR RCC PIER DESIGN");
-            list_arr.Add("                   =====================================");
-            list_arr.Add("");
-            list_arr.Add("");
-            list_arr.Add(string.Format(""));
-            list_arr.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
-            list_arr.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
-            list_arr.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
-            list_arr.Add("");
-            SupportReaction sr = null;
-
-            MyList mlist = new MyList(MyList.RemoveAllSpaces(Left_support), ' ');
-
-            double tot_left_vert_reac = 0.0;
-            double tot_right_vert_reac = 0.0;
-
-            double tot_left_Mx = 0.0;
-            double tot_left_Mz = 0.0;
-
-            double tot_right_Mx = 0.0;
-            double tot_right_Mz = 0.0;
-
-
-             uc.dgv_left_des_frc.Rows.Clear();
-             uc.dgv_right_des_frc.Rows.Clear();
-            list_arr.Add("LEFT END");
-            list_arr.Add("--------");
-            for (int i = 0; i < mlist.Count; i++)
-            {
-                sr = support_reactions.Get_Data(mlist.GetInt(i));
-                 uc.dgv_left_des_frc.Rows.Add(sr.JointNo, sr.Max_Reaction, sr.Max_Mx, sr.Max_Mz);
-
-                tot_left_vert_reac += Math.Abs(sr.Max_Reaction); ;
-                tot_left_Mx += sr.Max_Mx;
-                tot_left_Mz += sr.Max_Mz;
-                list_arr.Add(string.Format(format, sr.JointNo, Math.Abs(sr.Max_Reaction), sr.Max_Mx, sr.Max_Mz));
-            }
-
-            list_arr.Add("");
-
-            //Chiranjit [2012 07 06]
-            //Change unit kN to Ton
-            //tot_left_vert_reac /= 10.0;
-            //tot_left_Mx /= 10.0;
-            //tot_left_Mz /= 10.0;
-
-            uc.txt_left_total_vert_reac.Text = tot_left_vert_reac.ToString("0.000");
-            uc.txt_left_total_Mx.Text = tot_left_Mx.ToString("0.000");
-            uc.txt_left_total_Mz.Text = tot_left_Mz.ToString("0.000");
-            list_arr.Add(string.Format(format, "TOTAL", tot_left_vert_reac, tot_left_Mx, tot_left_Mz));
-            list_arr.Add("");
-
-            mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
-            list_arr.Add("RIGHT END");
-            list_arr.Add("--------");
-            for (int i = 0; i < mlist.Count; i++)
-            {
-                sr = support_reactions.Get_Data(mlist.GetInt(i));
-                 uc.dgv_right_des_frc.Rows.Add(sr.JointNo, Math.Abs(sr.Max_Reaction), sr.Max_Mx, sr.Max_Mz);
-
-                tot_right_vert_reac += Math.Abs(sr.Max_Reaction);
-                tot_right_Mx += sr.Max_Mx;
-                tot_right_Mz += sr.Max_Mz;
-                list_arr.Add(string.Format(format, sr.JointNo, Math.Abs(sr.Max_Reaction), sr.Max_Mx, sr.Max_Mz));
-            }
-            list_arr.Add("");
-
-            //Chiranjit [2012 07 06]
-            //Change unit kN to Ton
-            //tot_right_vert_reac /= 10.0;
-            //tot_right_Mx /= 10.0;
-            //tot_right_Mz /= 10.0;
-            uc.txt_right_total_vert_reac.Text = tot_right_vert_reac.ToString("0.000");
-            uc.txt_right_total_Mx.Text = tot_right_Mx.ToString("0.000");
-            uc.txt_right_total_Mz.Text = tot_right_Mz.ToString("0.000");
-            list_arr.Add("");
-
-
-            list_arr.Add(string.Format(format, "TOTAL", tot_right_vert_reac, tot_right_Mx, tot_right_Mz));
-            list_arr.Add("");
-
-
-            //uc.txt_both_ends_total.Text = (tot_left_vert_reac + tot_right_vert_reac).ToString("0.000");
-            list_arr.Add("");
-            //list_arr.Add("BOTH ENDS TOTAL VERTICAL REACTION = " + uc.txt_both_ends_total.Text + " Ton");
-
-
-            uc.txt_final_vert_reac.Text = (MyList.StringToDouble(uc.txt_dead_vert_reac_ton.Text, 0.0) * DL_Factor +
-                (tot_right_vert_reac + tot_left_vert_reac) * LL_Factor).ToString("0.000");
-
-            uc.txt_final_vert_rec_kN.Text = ((MyList.StringToDouble(uc.txt_final_vert_reac.Text, 0.0)) * 10).ToString("0.000");
-
-
-            list_arr.Add("");
-            list_arr.Add("");
-            list_arr.Add("FINAL DESIGN FORCES");
-            list_arr.Add("-------------------");
-            list_arr.Add("");
-            list_arr.Add("TOTAL VERTICAL REACTION = " + uc.txt_final_vert_reac.Text + " Ton" + "    =  " + uc.txt_final_vert_rec_kN.Text + " kN");
-
-            uc.txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
-            uc.txt_max_Mx_kN.Text = (MyList.StringToDouble(uc.txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
-            
-
-            list_arr.Add("        MAXIMUM  MX     = " + uc.txt_final_Mx.Text + " Ton-M" + "  =  " + uc.txt_max_Mx_kN.Text + " kN-m");
-            uc.txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
-            uc.txt_max_Mz_kN.Text = (MyList.StringToDouble(uc.txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
-
-            list_arr.Add("        MAXIMUM  MZ     = " + uc.txt_final_Mz.Text + " Ton-M" + "  =  " + uc.txt_max_Mz_kN.Text + " kN-m");
-            list_arr.Add("");
-            list_arr.Add("");
-            list_arr.Add("                  ========================================");
-            list_arr.Add("                  END OF DESIGN FORCES FOR RCC PIER DESIGN");
-            list_arr.Add("                  ========================================");
-            list_arr.Add("");
-
-
-
-
-
-            //File.WriteAllLines(analysis_rep, list_arr.ToArray());
-
-            list_arr.Clear();
-            list_arr.Add("W1=" + uc.txt_final_vert_rec_kN.Text);
-            list_arr.Add("Mx1=" + uc.txt_max_Mx_kN.Text);
-            list_arr.Add("Mz1=" + uc.txt_max_Mz_kN.Text);
-            string f_path = Path.Combine(Path.GetDirectoryName(analysis_rep), "Forces.fil");
-            File.WriteAllLines(f_path, list_arr.ToArray());
-            Environment.SetEnvironmentVariable("PIER", f_path);
-
-
-            //uC_PierDesignLimitState1.Left_Span_Force = (MyList.StringToDouble(uc.txt_left_total_vert_reac.Text, 0.0) * 10).ToString();
-            //uC_PierDesignLimitState1.Right_Span_Force = (MyList.StringToDouble(uc.txt_right_total_vert_reac.Text, 0.0) * 10).ToString();
-
-        }
 
         #endregion frm_Pier_ViewDesign_Forces
 
@@ -711,7 +251,7 @@ namespace LimitStateMethod.Extradossed
         bool IsCreate_Data = true;
         public frm_Extradosed_Stage(IApplication app, eASTRADesignType projType)
         {
-            
+
             InitializeComponent();
             iApp = app;
             user_path = iApp.LastDesignWorkingFolder;
@@ -751,11 +291,6 @@ namespace LimitStateMethod.Extradossed
         {
             get
             {
-                //if (Directory.Exists(Path.Combine(user_path, "DRAWINGS")) == false)
-                //    Directory.CreateDirectory(Path.Combine(user_path, "DRAWINGS"));
-                //return Path.Combine(user_path, "DRAWINGS");
-
-
                 if (Path.GetFileName(user_path) == Project_Name)
                 {
                     if (Directory.Exists(Path.Combine(user_path, "DRAWINGS")) == false)
@@ -785,97 +320,61 @@ namespace LimitStateMethod.Extradossed
 
                 string usp = user_path;
 
-                if(AnalysisType != eAnalysis.Normal)
-                {
-                    usp = Path.Combine(usp, "STAGE " + (int)AnalysisType);
-                    if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
-                }
-
+                usp = Path.Combine(usp, AnalysisType.ToString().ToUpper() + " ANALYSIS");
+                if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
 
                 if (Directory.Exists(usp))
                 {
-                    //return Path.Combine(Path.Combine(user_path, "Live Load Analysis"), "Input_Data_LL.txt");
                     return Path.Combine(usp, "INPUT_DATA.TXT");
                 }
                 return "";
                 //return "";
             }
         }
+        public string Get_Input_File(eAnalysis eanaType)
+        {
+            return Get_Input_File((int)eanaType);
+        }
         public string Get_Input_File(int stage)
         {
 
-            string file_name = "";
             string usp = user_path;
 
-            if (stage != 0)
-            {
-                usp = Path.Combine(usp, "STAGE " + stage);
-                if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
-            }
+            eAnalysis asa = (eAnalysis)stage;
+            usp = Path.Combine(usp, asa.ToString().ToUpper() + " ANALYSIS");
+            if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
 
-
-            //if (Directory.Exists(usp))
-            //{
-            //return Path.Combine(Path.Combine(user_path, "Live Load Analysis"), "Input_Data_LL.txt");
             return Path.Combine(usp, "INPUT_DATA.TXT");
-            //}
-            //return "";
-            //return "";
         }
 
         public string Input_File_LL
         {
             get
             {
-                string usp = user_path;
-                if (AnalysisType != eAnalysis.Normal)
-                {
-                    usp = Path.Combine(usp, "STAGE " + (int)AnalysisType);
-                    if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
-                }
-
-
-
+                string usp = Path.GetDirectoryName(Get_Input_File(AnalysisType));
                 if (Directory.Exists(usp))
                 {
                     if (Path.GetFileName(usp) != "Live Load Analysis")
                         if (!Directory.Exists(Path.Combine(usp, "Live Load Analysis")))
                             Directory.CreateDirectory(Path.Combine(usp, "Live Load Analysis"));
-
-
                     return Path.Combine(Path.Combine(usp, "Live Load Analysis"), "Input_Data_LL.txt");
-                    //return Path.Combine(user_path, "Input_Data_LL.txt");
                 }
                 return "";
-                //return "";
             }
         }
         public string Input_File_DL
         {
             get
             {
-                string usp = user_path;
-                if (AnalysisType != eAnalysis.Normal)
-                {
-                    usp = Path.Combine(usp, "STAGE " + (int)AnalysisType);
-                    if (!Directory.Exists(usp)) Directory.CreateDirectory(usp);
-                }
-
-
-
+                string usp = Path.GetDirectoryName(Get_Input_File(AnalysisType));
                 if (Directory.Exists(usp))
                 {
                     if (Path.GetFileName(usp) != "Dead Load Analysis")
                         if (!Directory.Exists(Path.Combine(usp, "Dead Load Analysis")))
                             Directory.CreateDirectory(Path.Combine(usp, "Dead Load Analysis"));
 
-
                     return Path.Combine(Path.Combine(usp, "Dead Load Analysis"), "Input_Data_DL.txt");
-                    //return Path.Combine(user_path, "Input_Data_DL.txt");
                 }
-
-                //if (Directory.Exists(user_path))
-                //    return Path.Combine(user_path, "Input_Data_DL.txt");
                 return "";
             }
         }
@@ -944,10 +443,6 @@ namespace LimitStateMethod.Extradossed
                 }
                 Write_All_Data();
                 Analysis_Initialize_InputData();
-                //Create_Data_LL(Input_File);
-
-                //Create_Data_Extradossed(Input_File);
-
 
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     LONG_GIRDER_BRITISH_LL_TXT();
@@ -961,7 +456,7 @@ namespace LimitStateMethod.Extradossed
                     {
                         Create_Data_LL(Input_File_LL);
                     }
-                    else 
+                    else
                     {
                         Create_Data_LL_British(Input_File_LL);
                     }
@@ -972,8 +467,6 @@ namespace LimitStateMethod.Extradossed
                     cmb_long_open_file.Items.Clear();
                     cmb_long_open_file.Items.Add("DEAD LOAD ANALYSIS");
                     cmb_long_open_file.Items.Add("LIVE LOAD ANALYSIS");
-                    //cmb_long_open_file.Items.Add("DL + LL ANALYSIS");
-
 
                     #endregion Chiranjit [2014 10 22]
 
@@ -998,21 +491,6 @@ namespace LimitStateMethod.Extradossed
 
                 }
 
-
-
-
-
-                //if (iApp.DesignStandard == eDesignStandard.IndianStandard)
-                //    Create_Data_LL(Input_File_LL);
-                //else if (iApp.DesignStandard == eDesignStandard.BritishStandard)
-                //{
-                //    Create_Data_LL_British(Input_File_LL);
-                //}
-                //Create_Data_DL(Input_File_DL);
-
-
-
-
                 MessageBox.Show(this, "Dead Load and Live Load Analysis Input Data files are Created in Working folder.");
                 cmb_long_open_file.SelectedIndex = 0;
                 Button_Enable_Disable();
@@ -1023,7 +501,10 @@ namespace LimitStateMethod.Extradossed
 
         private void btn_Ana_LL_process_analysis_Click(object sender, EventArgs e)
         {
-            string flPath = Extradosed.Input_File;
+
+            string flPath = Get_Input_File((int)AnalysisType);
+
+            Extradosed.Input_File = flPath;
             string ana_rep_file = "";
             int c = 0;
 
@@ -1048,12 +529,7 @@ namespace LimitStateMethod.Extradossed
                     pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                     pcol.Add(pd);
 
-
                     iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-
-
-                    //Extradosed.WriteData_LiveLoad(Extradosed.LiveLoadAnalysis_Input_File, long_ll);
-                    //Ana_Write_Cable_Load_Data(Extradosed.LiveLoadAnalysis_Input_File, true, false, 1);
 
                     flPath = Deck_Analysis_LL.Input_File;
                     pd = new ProcessData();
@@ -1067,8 +543,6 @@ namespace LimitStateMethod.Extradossed
                 }
                 else
                 {
-                    //iApp.Form_Stage_Analysis(flPath = Extradosed.DeadLoadAnalysis_Input_File).ShowDialog();
-
                     iApp.Progress_Works.Clear();
 
                     flPath = Extradosed.DeadLoadAnalysis_Input_File;
@@ -1077,12 +551,7 @@ namespace LimitStateMethod.Extradossed
                     pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                     pcol.Add(pd);
 
-
                     iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-
-
-                    //Extradosed.WriteData_LiveLoad(Extradosed.LiveLoadAnalysis_Input_File, long_ll);
-                    //Ana_Write_Cable_Load_Data(Extradosed.LiveLoadAnalysis_Input_File, true, false, 1);
 
                     flPath = Extradosed.TotalAnalysis_Input_File;
                     pd = new ProcessData();
@@ -1094,84 +563,25 @@ namespace LimitStateMethod.Extradossed
                     iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
 
 
-                    //for (int i = 0; i < all_loads.Count; i++)
-                    //{
-                    //    Extradosed.WriteData_LiveLoad(Extradosed.Get_LL_Analysis_Input_File(i + 1), long_ll);
-                    //    //Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), true, true, i + 1);
-                    //    //Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), false, true, i + 1);
-                    //    Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
-                    //}
-
-
-
-
                     if (File.Exists(iApp.Stage_File))
                     {
                         flPath = Extradosed.DeadLoadAnalysis_Input_File;
-
-                        //File.Copy(iApp.Stage_File, flPath, true);
-
                     }
-                    //iApp.Form_Stage_Analysis(flPath = Extradosed.TotalAnalysis_Input_File).ShowDialog();
 
                     for (int i = 0; i < (all_loads.Count); i++)
                     {
-                        //if (i == 0)
-                        //{
-                        //    flPath = Extradosed.TotalAnalysis_Input_File;
-                        //}
-                        ////else if (i == 1)
-                        ////    flPath = Extradosed.DeadLoadAnalysis_Input_File;
-                        //else
-                        //{
                         flPath = Get_Live_Load_Analysis_Input_File(i + 1);
-
-                        //    File.Copy(iApp.Stage_File, flPath, true);
-                        //    Ana_Write_Long_Girder_Load_Data(flPath, true, false, i + 1);
-                        //}
 
                         pd = new ProcessData();
                         pd.Process_File_Name = flPath;
                         pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                         pcol.Add(pd);
-
-
                         iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-                        //flPath = Deck_Analysis_DL.Input_File;
-                        //pd = new ProcessData();
-                        //pd.Process_File_Name = flPath;
-                        //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                        //pcol.Add(pd);
                     }
                 }
             }
             else if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
-                if (false)
-                {
-                    #region Bridtish Loads
-                    iApp.Progress_Works.Clear();
-                    for (int i = 0; i < (all_loads.Count + 1); i++)
-                    {
-                        if (i == 0)
-                            flPath = Extradosed.DeadLoadAnalysis_Input_File;
-                        else
-                            flPath = Get_Live_Load_Analysis_Input_File(i);
-
-
-                        pd = new ProcessData();
-                        pd.Process_File_Name = flPath;
-                        pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                        pcol.Add(pd);
-
-
-                        iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-                    }
-
-                    #endregion British Loads
-                }
-
-                //iApp.Form_Stage_Analysis(flPath = Extradosed.DeadLoadAnalysis_Input_File).ShowDialog();
 
                 iApp.Progress_Works.Clear();
 
@@ -1189,92 +599,20 @@ namespace LimitStateMethod.Extradossed
                     if (i == 0)
                     {
                         flPath = Extradosed.TotalAnalysis_Input_File;
-                        //flPath = Extradosed.DeadLoadAnalysis_Input_File;
                     }
-                    //else if (i == 1)
-                    //    flPath = Extradosed.DeadLoadAnalysis_Input_File;
                     else
                     {
                         flPath = Get_Live_Load_Analysis_Input_File(i);
-
-                        //File.Copy(iApp.Stage_File, flPath, true);
                         Ana_Write_Long_Girder_Load_Data(flPath, true, false, i);
                     }
-
-
                     pd = new ProcessData();
                     pd.Process_File_Name = flPath;
                     pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                     pcol.Add(pd);
-
-
                     iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-                    //flPath = Deck_Analysis_DL.Input_File;
-                    //pd = new ProcessData();
-                    //pd.Process_File_Name = flPath;
-                    //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                    //pcol.Add(pd);
                 }
             }
-            else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-            {
-
-                //iApp.Form_Stage_Analysis(flPath = Extradosed.DeadLoadAnalysis_Input_File).ShowDialog();
-                
-                //iApp.Progress_Works.Clear();
-
-                flPath = Extradosed.DeadLoadAnalysis_Input_File;
-                pd = new ProcessData();
-                pd.Process_File_Name = flPath;
-                pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                pcol.Add(pd);
-
-
-                //iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-
-
-
-                //if (File.Exists(iApp.Stage_File))
-                //{
-                //    flPath = Extradosed.DeadLoadAnalysis_Input_File;
-
-                //    File.Copy(MyList.Get_Analysis_Report_File(iApp.Stage_File), MyList.Get_Analysis_Report_File(flPath), true);
-
-                //}
-                //iApp.Form_Stage_Analysis(flPath = Extradosed.TotalAnalysis_Input_File).ShowDialog();
-
-                for (int i = 0; i < (all_loads.Count + 1); i++)
-                {
-                    if (i == 0)
-                    {
-                        flPath = Extradosed.TotalAnalysis_Input_File;
-                    }
-                    //else if (i == 1)
-                    //    flPath = Extradosed.DeadLoadAnalysis_Input_File;
-                    else
-                    {
-                        flPath = Get_Live_Load_Analysis_Input_File(i);
-
-                        //File.Copy(iApp.Stage_File, flPath, true);
-                        Ana_Write_Long_Girder_Load_Data(flPath, true, false, i);
-                    }
-
-
-                    pd = new ProcessData();
-                    pd.Process_File_Name = flPath;
-                    pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                    pcol.Add(pd);
-
-
-                    iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-                    //flPath = Deck_Analysis_DL.Input_File;
-                    //pd = new ProcessData();
-                    //pd.Process_File_Name = flPath;
-                    //pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
-                    //pcol.Add(pd);
-                }
-            }
-
+            //pcol.AstEXE = "AST008.EXE";
             if (!iApp.Show_and_Run_Process_List(pcol))
             {
                 Button_Enable_Disable();
@@ -1285,14 +623,10 @@ namespace LimitStateMethod.Extradossed
 
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                 Show_Member_Forces_Indian(ana_rep_file);
-            else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-            {
-                //Show_Member_Forces_Indian(ana_rep_file);
-                Show_Member_Forces_British();
-            }
             else
                 Show_Member_Forces_British();
 
+            Show_Analysis_Result();
 
             //iApp.Show_and_Run_Process_List(pcol)
             uC_CableStayedDesign1.iApp = iApp;
@@ -1308,7 +642,8 @@ namespace LimitStateMethod.Extradossed
             uC_CableStayedDesign1.CS_Analysis = Extradosed;
 
 
-
+            cmb_design_stage.SelectedIndex = -1;
+            cmb_design_stage.SelectedIndex = 0;
 
             Save_FormRecord.Write_All_Data(this, user_path);
 
@@ -1354,11 +689,7 @@ namespace LimitStateMethod.Extradossed
 
         private void Show_Member_Forces_Indian(string ana_rep_file)
         {
-
-            //string ana_rep_file = "";
-
             All_Analysis.Clear();
-
             if (cmb_cable_type.SelectedIndex == 2)
             {
                 //Deck_Analysis_DL.Bridge_Analysis = Extradosed.DeadLoad_Analysis;
@@ -1499,41 +830,9 @@ namespace LimitStateMethod.Extradossed
             //Deck_Analysis_DL.Bridge_Analysis = All_Analysis[0];
             Deck_Analysis_DL.Bridge_Analysis = Extradosed.DeadLoad_Analysis;
 
-
-
-            //List<double> frc = new List<double>();
-            //List<double> moms = new List<double>();
-            //for (int i = 0; i < Extradosed._Columns - 2; i++)
-            //{
-            //    var item = Extradosed.Long_Girder_Members_Array[2, i];
-
-            //    var f = (AnalysisData) Extradosed.DeadLoad_Analysis.MemberAnalysis[item.MemberNo];
-            //    if (f != null)
-            //    {
-            //        if (!frc.Contains(f.MaxShearForce.Force))
-            //        frc.Add(f.MaxShearForce.Force);
-            //        if (!moms.Contains(f.MaxBendingMoment.Force))
-            //            moms.Add(f.MaxBendingMoment.Force);
-            //    }
-            //}
-
-            ////moms.Add(0.0);
-
-            //moms.Sort();
-            //frc.Sort();
-
-
-
-
-
-
             Show_Moment_Shear_DL();
 
             Show_Moment_Shear_LL();
-
-            //Show_Moment_Shear_LL_British();
-
-
             Show_ReactionForces();
         }
 
@@ -1541,8 +840,8 @@ namespace LimitStateMethod.Extradossed
         {
             #region Chiranjit [2012 10 31]
 
-            if(cmb_cable_type.SelectedIndex != 2)
-            Deck_Analysis_LL.Bridge_Analysis = All_Analysis[0];
+            if (cmb_cable_type.SelectedIndex != 2)
+                Deck_Analysis_LL.Bridge_Analysis = All_Analysis[0];
 
             string s1 = "";
             string s2 = "";
@@ -1571,51 +870,51 @@ namespace LimitStateMethod.Extradossed
                 }
             }
             catch (Exception ex) { }
-            //double BB = MyList.StringToDouble(txt_Abut_B.Text, 8.5);
-            double BB = B;
 
+            Left_support = s1.Replace(",", " ");
+            Right_support = s2.Replace(",", " ");
 
-            frm_ViewForces(BB, Deck_Analysis_DL.Analysis_Report, Deck_Analysis_LL.Bridge_Analysis.Analysis_File, (s1 + " " + s2));
-            frm_ViewForces_Load();
-
-            frm_Pier_ViewDesign_Forces(Deck_Analysis_LL.Bridge_Analysis.Analysis_File, s1, s2);
-            frm_ViewDesign_Forces_Load();
-
-
-
-
-            if (AnalysisType == eAnalysis.Normal)
+            try
             {
+                DL_Analysis_Rep = Deck_Analysis_DL.Bridge_Analysis.Analysis_File;
+                LL_Analysis_Rep = Deck_Analysis_LL.Bridge_Analysis.Analysis_File;
+                analysis_rep = DL_Analysis_Rep;
+                support_reactions = new SupportReactionTable(iApp, DL_Analysis_Rep);
 
-                //Chiranjit [2012 11 01]
-                txt_ana_DLSR.Text = Total_DeadLoad_Reaction;
-                txt_ana_LLSR.Text = Total_LiveLoad_Reaction;
-
-                txt_ana_TSRP.Text = txt_final_vert_rec_kN.Text;
-                txt_ana_MSLD.Text = txt_max_Mx_kN.Text;
-                txt_ana_MSTD.Text = txt_max_Mz_kN.Text;
-
+                Show_and_Save_Data_Load_1_2_3();
             }
-            else 
-            {
+            catch (Exception ex) { }
 
-                //Chiranjit [2012 11 01]
-                ucStage.txt_ana_DLSR.Text = Total_DeadLoad_Reaction;
-                ucStage.txt_ana_LLSR.Text = Total_LiveLoad_Reaction;
+            //if (AnalysisType == eAnalysis.Normal)
+            //{
 
-                ucStage.txt_ana_TSRP.Text = txt_final_vert_rec_kN.Text;
-                ucStage.txt_ana_MSLD.Text = txt_max_Mx_kN.Text;
-                ucStage.txt_ana_MSTD.Text = txt_max_Mz_kN.Text;
+            //    //Chiranjit [2012 11 01]
+            //    txt_ana_DLSR.Text = Total_DeadLoad_Reaction;
+            //    txt_ana_LLSR.Text = Total_LiveLoad_Reaction;
 
-            }
+            //    txt_ana_TSRP.Text = txt_final_vert_rec_kN.Text;
+            //    txt_ana_MSLD.Text = txt_max_Mx_kN.Text;
+            //    txt_ana_MSTD.Text = txt_max_Mz_kN.Text;
 
-            txt_RCC_Pier_W1_supp_reac.Text = txt_final_vert_rec_kN.Text;
-            txt_RCC_Pier_Mx1.Text = txt_max_Mx_kN.Text;
-            txt_RCC_Pier_Mz1.Text = txt_max_Mz_kN.Text;
+            //}
+            //else
+            //{
 
-            txt_pier_2_P3.Text = Total_LiveLoad_Reaction;
+            //    //Chiranjit [2012 11 01]
+            //    ucStage.txt_ana_DLSR.Text = Total_DeadLoad_Reaction;
+            //    ucStage.txt_ana_LLSR.Text = Total_LiveLoad_Reaction;
 
-            txt_pier_2_P2.Text = Total_DeadLoad_Reaction;
+            //    ucStage.txt_ana_TSRP.Text = txt_final_vert_rec_kN.Text;
+            //    ucStage.txt_ana_MSLD.Text = txt_max_Mx_kN.Text;
+            //    ucStage.txt_ana_MSTD.Text = txt_max_Mz_kN.Text;
+
+            //}
+
+            //txt_RCC_Pier_W1_supp_reac.Text = txt_final_vert_rec_kN.Text;
+            //txt_RCC_Pier_Mx1.Text = txt_max_Mx_kN.Text;
+            //txt_RCC_Pier_Mz1.Text = txt_max_Mz_kN.Text;
+
+
             #endregion Chiranjit [2012 10 31]
 
         }
@@ -2079,7 +1378,6 @@ namespace LimitStateMethod.Extradossed
                     Set_Box_Forces();
                     Set_Segment_Data();
                     Segment_Girder.FilePath = user_path;
-                    rcc_pier.FilePath = user_path;
 
                     txt_Ana_analysis_file.Text = chk_file;
                     MessageBox.Show("Data Loaded successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -2243,6 +1541,8 @@ namespace LimitStateMethod.Extradossed
         {
 
             Extradosed.Input_File = file_name;
+            Extradosed.Start_Support = Start_Support_Text;
+            Extradosed.End_Support = END_Support_Text;
 
             Extradosed.L2 = MyList.StringToDouble(txt_Ana_L1.Text, 0.0);
             Extradosed.L1 = MyList.StringToDouble(txt_L2.Text, 0.0);
@@ -2254,8 +1554,34 @@ namespace LimitStateMethod.Extradossed
 
             Extradosed.Cable_Nos = MyList.StringToInt(txt_cable_no.Text, 1) / 2;
 
+            if (AnalysisType != eAnalysis.Normal)
+            {
+                Extradosed.E_CONC = ucStage.txt_emod_conc.Text;
+                Extradosed.E_STEEL = ucStage.txt_emod_steel.Text;
+                Extradosed.E_CABLE = ucStage.txt_emod_cable.Text;
 
+                Extradosed.DEN_CONC = ucStage.txt_den_conc.Text;
+                Extradosed.DEN_STEEL = ucStage.txt_den_steel.Text;
+                Extradosed.DEN_CABLE = ucStage.txt_den_cable.Text;
 
+                Extradosed.PR_CONC = ucStage.txt_PR_conc.Text;
+                Extradosed.PR_STEEL = ucStage.txt_PR_steel.Text;
+                Extradosed.PR_CABLE = ucStage.txt_PR_cable.Text;
+            }
+            else
+            {
+                Extradosed.E_CONC = txt_emod_conc.Text;
+                Extradosed.E_STEEL = txt_emod_steel.Text;
+                Extradosed.E_CABLE = txt_emod_cable.Text;
+
+                Extradosed.DEN_CONC = txt_den_conc.Text;
+                Extradosed.DEN_STEEL = txt_den_steel.Text;
+                Extradosed.DEN_CABLE = txt_den_cable.Text;
+
+                Extradosed.PR_CONC = txt_PR_conc.Text;
+                Extradosed.PR_STEEL = txt_PR_steel.Text;
+                Extradosed.PR_CABLE = txt_PR_cable.Text;
+            }
             //Extradosed.IsCentral_Cable = cmb_cable_type.SelectedIndex == 1;
 
             Extradosed.Cable_x_dist = MyList.StringToDouble(txt_horizontal_cbl_dist.Text, 0.0);
@@ -2274,6 +1600,24 @@ namespace LimitStateMethod.Extradossed
 
             Extradosed.Support_Distance = 0.0;
 
+            Extradosed._cen_Ax = MyList.StringToDouble(txt_cen_AX.Text, 0.0);
+            Extradosed._cen_Ix = MyList.StringToDouble(txt_cen_IXX.Text, 0.0);
+            Extradosed._cen_Iy = MyList.StringToDouble(txt_cen_IYY.Text, 0.0);
+            Extradosed._cen_Iz = MyList.StringToDouble(txt_cen_IZZ.Text, 0.0);
+
+
+            Extradosed._inn_Ax = MyList.StringToDouble(txt_inn_AX.Text, 0.0);
+            Extradosed._inn_Ix = MyList.StringToDouble(txt_inn_IXX.Text, 0.0);
+            Extradosed._inn_Iy = MyList.StringToDouble(txt_inn_IYY.Text, 0.0);
+            Extradosed._inn_Iz = MyList.StringToDouble(txt_inn_IZZ.Text, 0.0);
+
+
+            Extradosed._out_Ax = MyList.StringToDouble(txt_out_AX.Text, 0.0);
+            Extradosed._out_Ix = MyList.StringToDouble(txt_out_IXX.Text, 0.0);
+            Extradosed._out_Iy = MyList.StringToDouble(txt_out_IYY.Text, 0.0);
+            Extradosed._out_Iz = MyList.StringToDouble(txt_out_IZZ.Text, 0.0);
+
+
             if (cmb_cable_type.SelectedIndex == 0)
             {
                 Extradosed.IsCentral_Cable = false;
@@ -2286,12 +1630,30 @@ namespace LimitStateMethod.Extradossed
             }
 
 
+
+
+
+
             Extradosed.PSC_SECIONS = PSC_SECIONS;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
             File.WriteAllLines(Path.Combine(user_path, "LoadCalculations.txt"), Extradosed.Load_Calculation().ToArray());
             //File.WriteAllLines(Path.Combine(user_path, "LoadCalculations.txt"), Extradosed.Load_Calculation_2017_02_14().ToArray());
-            if(iApp.DesignStandard == eDesignStandard.BritishStandard)
+            if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                 LONG_GIRDER_BRITISH_LL_TXT();
             else
                 LONG_GIRDER_LL_TXT();
@@ -2315,15 +1677,16 @@ namespace LimitStateMethod.Extradossed
 
             for (int i = 0; i < all_loads.Count; i++)
             {
-                Extradosed.WriteData_LiveLoad(Extradosed.Get_LL_Analysis_Input_File(i + 1), long_ll);
-                Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
+                var fl_name = Extradosed.Get_LL_Analysis_Input_File(i + 1);
+                Extradosed.WriteData_LiveLoad(fl_name, long_ll);
+                Ana_Write_Cable_Load_Data(fl_name, true, false, i + 1);
             }
 
             Button_Enable_Disable();
 
         }
 
-         
+
         void Analysis_Initialize_InputData()
         {
             Deck_Analysis_DL.Length = MyList.StringToDouble(txt_Ana_L1.Text, 0.0);
@@ -2331,6 +1694,8 @@ namespace LimitStateMethod.Extradossed
             Deck_Analysis_DL.WidthCantilever = MyList.StringToDouble(txt_Ana_width_cantilever.Text, 0.0);
             Deck_Analysis_DL.Skew_Angle = MyList.StringToDouble(txt_Ana_skew_angle.Text, 0.0);
             Deck_Analysis_DL.Effective_Depth = MyList.StringToDouble(txt_Ana_DL_eff_depth.Text, 0.0);
+
+            //Deck_Analysis_DL.SP = MyList.StringToDouble(txt_Ana_DL_eff_depth.Text, 0.0);
 
             Deck_Analysis_LL.Length = MyList.StringToDouble(txt_Ana_L1.Text, 0.0);
             Deck_Analysis_LL.WidthBridge = MyList.StringToDouble(txt_Ana_B.Text, 0.0);
@@ -2421,7 +1786,7 @@ namespace LimitStateMethod.Extradossed
         }
         void Show_Moment_Shear_LL()
         {
-            if(AnalysisType != eAnalysis.Normal)
+            if (AnalysisType != eAnalysis.Normal)
             {
                 Show_Moment_Shear_LL(ucStage);
                 return;
@@ -2871,7 +2236,8 @@ namespace LimitStateMethod.Extradossed
 
         void Show_Moment_Shear_LL(UC_Stage_Extradosed uc)
         {
-
+            //Show_Moment_Shear_LL((int)AnalysisType);
+            //return;
             int i = 0;
 
             if (cmb_cable_type.SelectedIndex != 2)
@@ -2896,7 +2262,7 @@ namespace LimitStateMethod.Extradossed
                         var f = (AnalysisData)All_Analysis[j].MemberAnalysis[item.MemberNo];
                         if (f != null)
                         {
-                            if (_f < f.MaxShearForce.Force) 
+                            if (_f < f.MaxShearForce.Force)
                                 _f = f.MaxShearForce.Force;
                             if (_m < f.MaxBendingMoment.Force)
                                 _m = f.MaxBendingMoment.Force;
@@ -3332,6 +2698,463 @@ namespace LimitStateMethod.Extradossed
             //iApp.RunExe(Result_Report_LL);
         }
 
+        void Show_Moment_Shear_LL(int stage)
+        {
+            UC_Stage_Extradosed uc = ucStage;
+
+            UC_Stage_Extradosed ucPrev = ucStage;
+
+            if (stage == 2) ucPrev = uC_Stage_Extradosed1;
+            if (stage == 3) ucPrev = uC_Stage_Extradosed2;
+            if (stage == 4) ucPrev = uC_Stage_Extradosed3;
+            if (stage == 5) ucPrev = uC_Stage_Extradosed4;
+
+            double fact = 1.03;
+
+            int i = 0;
+
+            if (cmb_cable_type.SelectedIndex != 2)
+            {
+                #region CC 2017 02 17
+
+                Deck_Analysis_LL.Bridge_Analysis = All_Analysis[0];
+
+                List<double> frc = new List<double>();
+                List<double> moms = new List<double>();
+
+                if (stage == 1)
+                {
+                    frc.Add(MyList.StringToDouble(txt_Ana_live_inner_long_support_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_live_inner_long_support_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_live_inner_long_deff_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_live_inner_long_deff_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_live_inner_long_L8_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_live_inner_long_L8_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_live_inner_long_L4_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_live_inner_long_L4_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_live_inner_long_3L_8_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_live_inner_long_3L_8_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_live_inner_long_L2_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_live_inner_long_L2_moment.Text) * fact);
+
+                }
+                else
+                {
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_support_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_support_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_deff_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_deff_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_L8_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_L8_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_L4_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_L4_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_3L_8_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_3L_8_moment.Text) * fact);
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_L2_shear.Text) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_live_inner_long_L2_moment.Text) * fact);
+                }
+                //moms.Add(0.0);
+
+                moms.Sort();
+                frc.Sort();
+
+
+                frc.Reverse();
+
+
+                double dval = 0.0;
+
+                int idx = 0;
+                dval = frc[idx];
+                uc.txt_Ana_live_inner_long_support_shear.Text = Math.Abs(dval).ToString("f2");
+
+                dval = moms[idx++];
+                uc.txt_Ana_live_inner_long_support_moment.Text = Math.Abs(dval).ToString("f2");
+
+                dval = frc[idx];
+                uc.txt_Ana_live_inner_long_deff_shear.Text = Math.Abs(dval).ToString("f2");
+
+                dval = moms[idx++];
+                uc.txt_Ana_live_inner_long_deff_moment.Text = Math.Abs(dval).ToString("f2");
+
+                dval = frc[idx];
+                uc.txt_Ana_live_inner_long_L8_shear.Text = Math.Abs(dval).ToString("f2");
+
+                dval = moms[idx++];
+                uc.txt_Ana_live_inner_long_L8_moment.Text = Math.Abs(dval).ToString("f2");
+
+                dval = frc[idx];
+                uc.txt_Ana_live_inner_long_L4_shear.Text = Math.Abs(dval).ToString("f2");
+
+
+                dval = moms[idx++];
+                uc.txt_Ana_live_inner_long_L4_moment.Text = Math.Abs(dval).ToString("f2");
+
+
+                dval = frc[idx];
+                uc.txt_Ana_live_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString("f2");
+
+
+                dval = moms[idx++];
+                uc.txt_Ana_live_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString("f2");
+
+
+                dval = frc[idx];
+                uc.txt_Ana_live_inner_long_L2_shear.Text = Math.Abs(dval).ToString("f2");
+
+
+                dval = moms[idx];
+                uc.txt_Ana_live_inner_long_L2_moment.Text = Math.Abs(dval).ToString("f2");
+
+
+                return;
+
+                #endregion CC 2017 02 17
+            }
+
+            List<int> _joints = new List<int>();
+            int node = 0;
+            MaxForce force = new MaxForce();
+
+            MemberCollection mc = new MemberCollection(Deck_Analysis_LL.Bridge_Analysis.Analysis.Members);
+            JointNodeCollection jn_col = Deck_Analysis_LL.Bridge_Analysis.Analysis.Joints;
+
+
+            double L = Deck_Analysis_LL.Bridge_Analysis.Analysis.Length;
+            double W = Deck_Analysis_LL.Bridge_Analysis.Analysis.Width;
+            double cant_wi = Deck_Analysis_LL.Bridge_Analysis.Analysis.Width_Cantilever;
+
+            //double support = Deck_Analysis_LL.Bridge_Analysis.Supports.Count > 0 ? Deck_Analysis_LL.Bridge_Analysis.Supports[0].X : 0.5;
+            double support = Deck_Analysis_LL.Support_Distance;
+            support = Deck_Analysis_LL.Support_Distance;
+
+
+            double eff_d = MyList.StringToDouble(txt_Ana_DL_eff_depth.Text, 0.0);
+
+
+            double val = L / 2;
+            //int i = 0;
+
+            List<int> _L2_joints = new List<int>();
+            List<int> _L4_joints = new List<int>();
+            List<int> _deff_joints = new List<int>();
+
+            List<int> _L8_joints = new List<int>();
+            List<int> _3L8_joints = new List<int>();
+            List<int> _support_joints = new List<int>();
+
+
+            for (i = 0; i < Deck_Analysis_LL.Bridge_Analysis.Supports.Count; i++)
+            {
+                _support_joints.Add(Deck_Analysis_LL.Bridge_Analysis.Supports[i].NodeNo);
+                //_support_joints.Add(item.
+            }
+
+
+
+            List<double> _X_joints = new List<double>();
+            List<double> _Z_joints = new List<double>();
+
+            for (i = 0; i < jn_col.Count; i++)
+            {
+                if (_X_joints.Contains(jn_col[i].X) == false) _X_joints.Add(jn_col[i].X);
+                if (_Z_joints.Contains(jn_col[i].Z) == false) _Z_joints.Add(jn_col[i].Z);
+            }
+            val = -999;
+
+
+            List<double> _X_min = new List<double>();
+            List<double> _X_max = new List<double>();
+            double x_max, x_min;
+            double vvv = 99999999999999999;
+            for (int zc = 0; zc < _Z_joints.Count; zc++)
+            {
+
+                x_min = vvv;
+                x_max = -vvv;
+
+                for (i = 0; i < jn_col.Count; i++)
+                {
+                    //if (_X_joints.Contains(jn_col[i].X) == false) _X_joints.Add(jn_col[i].X);
+                    //if (_Z_joints.Contains(jn_col[i].Z) == false) _Z_joints.Add(jn_col[i].Z);
+
+                    if (_Z_joints[zc] == jn_col[i].Z)
+                    {
+                        if (x_min > jn_col[i].X)
+                            x_min = jn_col[i].X;
+                        if (x_max < jn_col[i].X)
+                            x_max = jn_col[i].X;
+                    }
+
+                }
+                if (x_max != -vvv)
+                    _X_max.Add(x_max);
+                if (x_min != vvv)
+                    _X_min.Add(x_min);
+            }
+
+            //val = MyList.StringToDouble(uc.txt_Ana_eff_depth.Text, -999.0);
+            eff_d = Deck_Analysis_LL.Bridge_Analysis.Analysis.Effective_Depth;
+            if (_X_joints.Contains(eff_d))
+            {
+                Deck_Analysis_LL.Effective_Depth = eff_d;
+            }
+            else
+            {
+                Deck_Analysis_LL.Effective_Depth = _X_joints.Count > 1 ? _X_joints[2] : 0.0;
+
+                eff_d = Deck_Analysis_LL.Effective_Depth;
+            }
+            //double eff_dep = ;
+
+            //_L_2_joints.Clear();
+
+            cant_wi = _Z_joints.Count > 1 ? _Z_joints[2] : 0.0;
+            Deck_Analysis_LL.WidthCantilever = cant_wi;
+
+
+
+            //eff_d = _X_joints.Count > 1 ? _X_joints[1] : 2.5;
+            //eff_d = (eff_d == support ? _X_joints[2] : 2.5);
+
+
+
+            if (_X_joints.Contains(eff_d))
+            {
+                Deck_Analysis_LL.Effective_Depth = eff_d;
+            }
+            else
+            {
+                Deck_Analysis_LL.Effective_Depth = _X_joints.Count > 1 ? _X_joints[2] : 0.0; ;
+            }
+
+            //_L_2_joints.Clear();
+            for (i = 0; i < jn_col.Count; i++)
+            {
+                if ((jn_col[i].Z >= cant_wi && jn_col[i].Z <= (W - cant_wi)) == false) continue;
+                x_min = _X_min[_Z_joints.IndexOf(jn_col[i].Z)];
+
+
+
+                if ((jn_col[i].X.ToString("0.0") == ((L / 2.0) + x_min).ToString("0.0")))
+                {
+                    _L2_joints.Add(jn_col[i].NodeNo);
+                }
+                if (jn_col[i].X.ToString("0.0") == ((L / 4.0) + x_min).ToString("0.0"))
+                {
+                    _L4_joints.Add(jn_col[i].NodeNo);
+                }
+                if (jn_col[i].X.ToString("0.0") == ((L - (L / 4.0)) + x_min).ToString("0.0"))
+                {
+                    _L4_joints.Add(jn_col[i].NodeNo);
+                }
+
+
+
+                if ((jn_col[i].X.ToString("0.0") == (Deck_Analysis_LL.Effective_Depth + x_min).ToString("0.0")))
+                {
+                    _deff_joints.Add(jn_col[i].NodeNo);
+                }
+                if ((jn_col[i].X.ToString("0.0") == (L - Deck_Analysis_LL.Effective_Depth + x_min).ToString("0.0")))
+                {
+                    _deff_joints.Add(jn_col[i].NodeNo);
+                }
+
+
+
+                if (jn_col[i].X.ToString("0.0") == ((L / 8.0) + x_min).ToString("0.0"))
+                {
+                    _L8_joints.Add(jn_col[i].NodeNo);
+                }
+                if (jn_col[i].X.ToString("0.0") == ((L - (L / 8.0)) + x_min).ToString("0.0"))
+                {
+                    _L8_joints.Add(jn_col[i].NodeNo);
+                }
+
+
+                if ((jn_col[i].X.ToString("0.0") == ((3.0 * L / 8.0) + x_min).ToString("0.0")))
+                {
+                    _3L8_joints.Add(jn_col[i].NodeNo);
+                }
+                if ((jn_col[i].X.ToString("0.0") == ((L - (3.0 * L / 8.0)) + x_min).ToString("0.0")))
+                {
+                    _3L8_joints.Add(jn_col[i].NodeNo);
+                }
+
+                //if ((jn_col[i].X.ToString("0.0") == ((support) + x_min).ToString("0.0")))
+                //{
+                //    _support_joints.Add(jn_col[i].NodeNo);
+                //}
+                //if ((jn_col[i].X.ToString("0.0") == ((L - (support)) + x_min).ToString("0.0")))
+                //{
+                //    _support_joints.Add(jn_col[i].NodeNo);
+                //}
+            }
+
+            //For Support
+            //for (node = 12; node <= 22; node++) _joints.Add(node);
+            //for (node = 122; node <= 132; node++) _joints.Add(node);
+
+            Results.Clear();
+            Results.Add("");
+            Results.Add("");
+            Results.Add("Analysis Result of Live Loads of PSC Box Girder Bridge");
+            Results.Add("");
+            Results.Add("");
+            if (_support_joints.Count > 0)
+            {
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_ShearForce(_support_joints);
+                uc.txt_Ana_live_inner_long_support_shear.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("SUPPORT : MAX SHEAR FORCE", _support_joints, "Ton"));
+                Box_Forces.FRC_LL_Shear[0] = force;
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_MomentForce(_support_joints);
+                uc.txt_Ana_live_inner_long_support_moment.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("SUPPORT : MAX BENDING MOMENT", _support_joints, "Ton-m"));
+                Box_Forces.FRC_LL_Moment[0] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_Torsion(_support_joints);
+                Box_Forces.FRC_LL_Torsion[0] = force;
+
+                _joints.Clear();
+            }
+
+            //For Deff
+            //for (node = 111; node <= 121; node++) _joints.Add(node);
+            //for (node = 23; node <= 33; node++) _joints.Add(node);
+            if (_deff_joints.Count > 0)
+            {
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_ShearForce(_deff_joints);
+                uc.txt_Ana_live_inner_long_deff_shear.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("Effective Depth : MAX SHEAR FORCE", _deff_joints, "Ton"));
+                Box_Forces.FRC_LL_Shear[1] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_MomentForce(_deff_joints);
+                uc.txt_Ana_live_inner_long_deff_moment.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("Effective Depth : MAX BENDING MOMENT", _deff_joints, "Ton-m"));
+                Box_Forces.FRC_LL_Moment[1] = force;
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_Torsion(_deff_joints);
+                Box_Forces.FRC_LL_Torsion[1] = force;
+
+                _joints.Clear();
+            }
+
+            //For L/8
+            //for (node = 100; node <= 110; node++) _joints.Add(node);
+            //for (node = 34; node <= 44; node++) _joints.Add(node);
+            if (_L8_joints.Count > 0)
+            {
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_ShearForce(_L8_joints);
+                uc.txt_Ana_live_inner_long_L8_shear.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("L/8 : MAX SHEAR FORCE", _L8_joints, "Ton"));
+                Box_Forces.FRC_LL_Shear[2] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_MomentForce(_L8_joints);
+                uc.txt_Ana_live_inner_long_L8_moment.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("L/8 : MAX BENDING MOMENT", _L8_joints, "Ton-m"));
+                Box_Forces.FRC_LL_Moment[2] = force;
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_Torsion(_L8_joints);
+                Box_Forces.FRC_LL_Torsion[2] = force;
+
+                _joints.Clear();
+            }
+
+
+
+            //For L/4
+            //for (node = 89; node <= 99; node++) _joints.Add(node);
+            //for (node = 45; node <= 55; node++) _joints.Add(node);
+            if (_L4_joints.Count > 0)
+            {
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_ShearForce(_L4_joints);
+                uc.txt_Ana_live_inner_long_L4_shear.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("L/4 : MAX SHEAR FORCE", _L4_joints, "Ton"));
+                Box_Forces.FRC_LL_Shear[3] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_MomentForce(_L4_joints);
+                uc.txt_Ana_live_inner_long_L4_moment.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("L/4 : MAX BENDING MOMENT", _L4_joints, "Ton-m"));
+                Box_Forces.FRC_LL_Moment[3] = force;
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_Torsion(_L4_joints);
+                Box_Forces.FRC_LL_Torsion[3] = force;
+
+                _joints.Clear();
+            }
+
+            //For 3L/8
+            //for (node = 78; node <= 88; node++) _joints.Add(node);
+            //for (node = 56; node <= 66; node++) _joints.Add(node);
+            if (_3L8_joints.Count > 0)
+            {
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_ShearForce(_3L8_joints);
+                uc.txt_Ana_live_inner_long_3L_8_shear.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("3L/8 : MAX SHEAR FORCE", _3L8_joints, "Ton"));
+                Box_Forces.FRC_LL_Shear[4] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_MomentForce(_3L8_joints);
+                uc.txt_Ana_live_inner_long_3L_8_moment.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("3L/8 : MAX BENDING MOMENT", _3L8_joints, "Ton-m"));
+                Box_Forces.FRC_LL_Moment[4] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_Torsion(_3L8_joints);
+                Box_Forces.FRC_LL_Torsion[4] = force;
+
+                _joints.Clear();
+            }
+
+            //For L/2
+            //for (node = 67; node <= 77; node++) _joints.Add(node);
+            if (_L2_joints.Count > 0)
+            {
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_ShearForce(_L2_joints);
+                uc.txt_Ana_live_inner_long_L2_shear.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("L/2 : MAX SHEAR FORCE", _L2_joints, "Ton"));
+                Box_Forces.FRC_LL_Shear[5] = force;
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_MomentForce(_L2_joints);
+                uc.txt_Ana_live_inner_long_L2_moment.Text = Math.Abs(force).ToString();
+                Results.AddRange(force.GetDetails("L/2 : MAX BENDING MOMENT", _L2_joints, "Ton-m"));
+                Box_Forces.FRC_LL_Moment[5] = force;
+
+
+                force = Deck_Analysis_LL.Bridge_Analysis.GetJoint_Torsion(_3L8_joints);
+                Box_Forces.FRC_LL_Torsion[5] = force;
+
+                _joints.Clear();
+                _joints = null;
+            }
+
+
+            File.WriteAllLines(Result_Report_LL, Results.ToArray());
+            //iApp.RunExe(Result_Report_LL);
+        }
+
         void Show_Moment_Shear_LL_British()
         {
             #region CC
@@ -3342,7 +3165,7 @@ namespace LimitStateMethod.Extradossed
             #region CC 2017 02 17
 
 
-            
+
 
             List<double> frc = new List<double>();
             List<double> moms = new List<double>();
@@ -3443,8 +3266,8 @@ namespace LimitStateMethod.Extradossed
             #endregion CC 2017 02 17
 
 
-            
-            
+
+
             return;
 
 
@@ -4153,122 +3976,295 @@ namespace LimitStateMethod.Extradossed
         {
 
 
+            NodeResults res = new NodeResults();
+
+            for (int i = 0; i < Extradosed._Cable_jnts.Count; i++)
+            {
+                res.Add(Extradosed.DeadLoad_Analysis.Node_Max_Displacements.Get_Max_XYZ_Deflection(Extradosed._Cable_jnts[i]));
+            }
+            double ydef = res.Get_Max_Y_Deflection().Y_Translation;
+
+            double len = Extradosed.L2;
+
             if (AnalysisType != eAnalysis.Normal)
             {
                 Show_Moment_Shear_DL(ucStage);
+
+                ucStage.txt_max_delf.Text = ydef.ToString();
+                if ((len / 800) > ydef)
+                    ucStage.lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m,  > {2:f4}m, OK", len, len / 800, ydef);
+                else
+                    ucStage.lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m,  < {2:f4}m, NOT OK", len, len / 800, ydef);
                 return;
             }
+
+            txt_max_delf.Text = ydef.ToString();
+            lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m", len, len / 800);
+
+            if ((len / 800) > ydef)
+                lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m,  > {2:f4}m, OK", len, len / 800, ydef);
+            else
+                lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m,  < {2:f4}m, NOT OK", len, len / 800, ydef);
+
+
 
             if (cmb_cable_type.SelectedIndex != 2)
             {
                 #region CC 2017 02 17
 
 
-
-
                 List<double> frc = new List<double>();
                 List<double> moms = new List<double>();
                 int memNo = -1;
-                for (int i = 0; i < Extradosed._Columns - 2; i++)
+
+
+                if (false)
                 {
-
-                    var item = Extradosed.Long_Girder_Members_Array[2, i];
-
-                    if (cmb_cable_type.SelectedIndex == 0)
-                        memNo = Extradosed.Long_Girder_Members_Array[2, i].MemberNo;
-                    else
-                        memNo = Extradosed.Long_Girder_Members_Array[1, i].MemberNo;
-
-
-
-
-                    var f = (AnalysisData)Extradosed.DeadLoad_Analysis.MemberAnalysis[item.MemberNo];
-                    if (f != null)
+                    for (int i = 0; i < Extradosed._Columns - 2; i++)
                     {
-                        if (!frc.Contains(f.MaxShearForce.Force))
-                            frc.Add(f.MaxShearForce.Force);
-                        if (!moms.Contains(f.MaxBendingMoment.Force))
-                            moms.Add(f.MaxBendingMoment.Force);
+
+                        var item = Extradosed.Long_Girder_Members_Array[2, i];
+
+
+
+
+
+                        if (cmb_cable_type.SelectedIndex == 0)
+                            memNo = Extradosed.Long_Girder_Members_Array[2, i].MemberNo;
+                        else
+                            memNo = Extradosed.Long_Girder_Members_Array[1, i].MemberNo;
+
+
+                        #region CC
+
+                        #endregion CC
+
+                        var f = (AnalysisData)Extradosed.DeadLoad_Analysis.MemberAnalysis[item.MemberNo];
+
+
+                        if (f != null)
+                        {
+                            if (!frc.Contains(f.MaxShearForce.Force))
+                                frc.Add(f.MaxShearForce.Force);
+                            if (!moms.Contains(f.MaxBendingMoment.Force))
+                                moms.Add(f.MaxBendingMoment.Force);
+                        }
+
+
+                        moms.Sort();
+                        frc.Sort();
+
+
+
+                        double dval = 0.0;
+
+                        int idx = frc.Count - 1;
+                        dval = frc[idx];
+                        txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
+
+                        idx = moms.Count - 1;
+                        dval = moms[idx];
+                        txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+                        idx = frc.Count - 4;
+                        dval = frc[idx];
+                        txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+
+                        idx = moms.Count - 6;
+                        dval = moms[idx];
+                        txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+
+                        idx = frc.Count - frc.Count / 3;
+                        dval = frc[idx];
+                        txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
+
+
+                        idx = moms.Count / 4;
+                        dval = moms[idx];
+                        txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+                        idx = frc.Count - frc.Count / 2;
+                        dval = frc[idx];
+                        txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
+
+
+                        idx = moms.Count / 8;
+                        dval = moms[idx];
+                        txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
+
+
+                        idx = frc.Count / 8;
+                        dval = frc[idx];
+                        txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
+
+
+                        idx = moms.Count / 10;
+                        dval = moms[idx];
+                        txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
+
+
+                        idx = 0;
+                        dval = frc[idx];
+                        txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+
+
+
+                        idx = 0;
+                        dval = moms[idx];
+                        txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+
+
                     }
                 }
+                else
+                {
 
-                //moms.Add(0.0);
+                    moms.Clear();
+                    frc.Clear();
 
-                moms.Sort();
-                frc.Sort();
+                    var mm = Extradosed._supp_jnts;
+                    var ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, true);
+                    moms.Add(ff.Force);
 
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, true);
+                    frc.Add(ff.Force);
 
-                moms.Reverse();
+                    mm = Extradosed._deff_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, true);
+                    moms.Add(ff.Force);
 
-
-                double dval = 0.0;
-
-                int idx = frc.Count - 1;
-                dval = frc[idx];
-                txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
-
-                idx = moms.Count - 1;
-                dval = moms[idx];
-                txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
-
-
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, true);
+                    frc.Add(ff.Force);
 
 
-                idx = frc.Count - 4;
-                dval = frc[idx];
-                txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+                    mm = Extradosed._L8_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, true);
+                    moms.Add(ff.Force);
 
-                idx = moms.Count - 6;
-                dval = moms[idx];
-                txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
-
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, true);
+                    frc.Add(ff.Force);
 
 
+                    mm = Extradosed._L4_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, true);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, true);
+                    frc.Add(ff.Force);
 
 
+                    mm = Extradosed._3L8_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, true);
+                    moms.Add(ff.Force);
 
-                idx = frc.Count - frc.Count / 3;
-                dval = frc[idx];
-                txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
-
-
-                idx = moms.Count / 4;
-                dval = moms[idx];
-                txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, true);
+                    frc.Add(ff.Force);
 
 
+                    mm = Extradosed._L2_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, true);
+                    moms.Add(ff.Force);
 
-
-
-                idx = frc.Count - frc.Count / 2;
-                dval = frc[idx];
-                txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
-
-
-                idx = moms.Count / 8;
-                dval = moms[idx];
-                txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
-
-
-                idx = frc.Count / 8;
-                dval = frc[idx];
-                txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
-
-
-                idx = moms.Count / 10;
-                dval = moms[idx];
-                txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
-
-
-                idx = 0;
-                dval = frc[idx];
-                txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, true);
+                    frc.Add(ff.Force);
 
 
 
-                idx = 0;
-                dval = moms[idx];
-                txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+
+
+                    //moms.Add(0.0);
+
+                    moms.Sort();
+                    frc.Sort();
+
+
+                    frc.Reverse();
+
+
+
+
+                    double dval = 0.0;
+
+                    int idx = 0;
+                    dval = frc[idx];
+                    txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
+
+                    //idx = 1;
+                    dval = moms[idx];
+                    txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+                    idx = 1;
+                    dval = frc[idx];
+                    txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+
+                    //idx = 3;
+                    dval = moms[idx];
+                    txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+
+                    idx = 2;
+                    dval = frc[idx];
+                    txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
+
+
+                    //idx = moms.Count / 4;
+                    dval = moms[idx];
+                    txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+                    idx = 3;
+                    dval = frc[idx];
+                    txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
+
+
+                    //idx = moms.Count / 8;
+                    dval = moms[idx];
+                    txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
+
+
+                    idx = 4;
+                    dval = frc[idx];
+                    txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
+
+
+                    //idx = moms.Count / 10;
+                    dval = moms[idx];
+                    txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
+
+
+                    idx = 5;
+                    dval = frc[idx];
+                    txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+
+
+
+                    //idx = 0;
+                    dval = moms[idx];
+                    txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+
+                }
 
 
                 return;
@@ -4578,7 +4574,8 @@ namespace LimitStateMethod.Extradossed
 
         void Show_Moment_Shear_DL(UC_Stage_Extradosed uc)
         {
-
+            //Show_Moment_Shear_DL((int)AnalysisType);
+            //return;
             if (cmb_cable_type.SelectedIndex != 2)
             {
                 #region CC 2017 02 17
@@ -4589,28 +4586,644 @@ namespace LimitStateMethod.Extradossed
                 List<double> frc = new List<double>();
                 List<double> moms = new List<double>();
                 int memNo = -1;
-                for (int i = 0; i < Extradosed._Columns - 2; i++)
+                if (false)
+                {
+                    for (int i = 0; i < Extradosed._Columns - 2; i++)
+                    {
+
+                        var item = Extradosed.Long_Girder_Members_Array[2, i];
+
+                        if (cmb_cable_type.SelectedIndex == 0)
+                            memNo = Extradosed.Long_Girder_Members_Array[2, i].MemberNo;
+                        else
+                            memNo = Extradosed.Long_Girder_Members_Array[1, i].MemberNo;
+
+
+
+
+                        var f = (AnalysisData)Extradosed.DeadLoad_Analysis.MemberAnalysis[item.MemberNo];
+                        if (f != null)
+                        {
+                            if (!frc.Contains(f.MaxShearForce.Force))
+                                frc.Add(f.MaxShearForce.Force);
+                            if (!moms.Contains(f.MaxBendingMoment.Force))
+                                moms.Add(f.MaxBendingMoment.Force);
+                        }
+                    }
+
+                    //moms.Add(0.0);
+
+                    moms.Sort();
+                    frc.Sort();
+
+
+                    moms.Reverse();
+
+
+                    double dval = 0.0;
+
+                    int idx = frc.Count - 1;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
+
+                    idx = moms.Count - 1;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+                    idx = frc.Count - 4;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+
+                    idx = moms.Count - 6;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+
+                    idx = frc.Count - frc.Count / 3;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
+
+
+                    idx = moms.Count / 4;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+                    idx = frc.Count - frc.Count / 2;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
+
+
+                    idx = moms.Count / 8;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
+
+
+                    idx = frc.Count / 8;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
+
+
+                    idx = moms.Count / 10;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
+
+
+                    idx = 0;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+
+
+
+                    idx = 0;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+                }
+                else
                 {
 
-                    var item = Extradosed.Long_Girder_Members_Array[2, i];
+                    moms.Clear();
+                    frc.Clear();
 
-                    if (cmb_cable_type.SelectedIndex == 0)
-                        memNo = Extradosed.Long_Girder_Members_Array[2, i].MemberNo;
-                    else
-                        memNo = Extradosed.Long_Girder_Members_Array[1, i].MemberNo;
+                    var mm = Extradosed._supp_jnts;
+                    var ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, false);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, false);
+                    frc.Add(ff.Force);
+
+                    mm = Extradosed._deff_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, false);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, false);
+                    frc.Add(ff.Force);
+
+
+                    mm = Extradosed._L8_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, false);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, false);
+                    frc.Add(ff.Force);
+
+
+                    mm = Extradosed._L4_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, false);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, false);
+                    frc.Add(ff.Force);
+
+
+                    mm = Extradosed._3L8_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, false);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, false);
+                    frc.Add(ff.Force);
+
+
+                    mm = Extradosed._L2_jnts;
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_MomentForce(mm, false);
+                    moms.Add(ff.Force);
+
+                    ff = Extradosed.DeadLoad_Analysis.GetJoint_ShearForce(mm, false);
+                    frc.Add(ff.Force);
 
 
 
 
-                    var f = (AnalysisData)Extradosed.DeadLoad_Analysis.MemberAnalysis[item.MemberNo];
-                    if (f != null)
-                    {
-                        if (!frc.Contains(f.MaxShearForce.Force))
-                            frc.Add(f.MaxShearForce.Force);
-                        if (!moms.Contains(f.MaxBendingMoment.Force))
-                            moms.Add(f.MaxBendingMoment.Force);
-                    }
+
+                    //moms.Add(0.0);
+
+                    moms.Sort();
+                    frc.Sort();
+
+
+                    frc.Reverse();
+
+
+
+
+                    double dval = 0.0;
+
+                    int idx = 0;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
+
+                    //idx = 1;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+                    idx = 1;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+
+                    //idx = 3;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+
+                    idx = 2;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
+
+
+                    //idx = moms.Count / 4;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
+
+
+
+
+
+                    idx = 3;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
+
+
+                    //idx = moms.Count / 8;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
+
+
+                    idx = 4;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
+
+
+                    //idx = moms.Count / 10;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
+
+
+                    idx = 5;
+                    dval = frc[idx];
+                    uc.txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+
+
+
+                    //idx = 0;
+                    dval = moms[idx];
+                    uc.txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+
                 }
+
+                return;
+
+                #endregion CC 2017 02 17
+            }
+
+
+            List<int> _joints = new List<int>();
+            MaxForce force = new MaxForce();
+
+            //Support
+            _joints.Add(2);
+            _joints.Add(12);
+
+
+            Results.Clear();
+            Results.Add("");
+            Results.Add("");
+            Results.Add("Analysis Result of Dead Loads of PSC Box Girder Bridge");
+            Results.Add("");
+            Results.Add("");
+            Results.Add("");
+            Results.Add("SELF WEIGHT");
+            Results.Add("-----------");
+            Results.Add("");
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 1);
+            Results.AddRange(force.GetDetails("SUPPORT : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(force).ToString();
+
+            Box_Forces.FRC_DL_Shear[0] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 1);
+            Results.AddRange(force.GetDetails("SUPPORT : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(force).ToString();
+
+            Box_Forces.FRC_DL_Moment[0] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 1);
+            Box_Forces.FRC_DL_Torsion[0] = force;
+
+
+            //Deff
+            _joints.Clear();
+            _joints.Add(3);
+            _joints.Add(11);
+
+
+
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 1);
+            Results.AddRange(force.GetDetails("Effective Depth : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Shear[1] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 1);
+            Results.AddRange(force.GetDetails("Effective Depth : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Moment[1] = force;
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 1);
+            Box_Forces.FRC_DL_Torsion[1] = force;
+
+
+            //L/8
+            _joints.Clear();
+            _joints.Add(4);
+            _joints.Add(10);
+
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 1);
+            Results.AddRange(force.GetDetails("L/8 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Shear[2] = force;
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 1);
+            Results.AddRange(force.GetDetails("L/8 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Moment[2] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 1);
+            Box_Forces.FRC_DL_Torsion[2] = force;
+
+
+            //L/4
+            _joints.Clear();
+            _joints.Add(5);
+            _joints.Add(9);
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 1);
+            Results.AddRange(force.GetDetails("L/4 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Shear[3] = force;
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 1);
+            Results.AddRange(force.GetDetails("L/4 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Moment[3] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 1);
+            Box_Forces.FRC_DL_Torsion[3] = force;
+
+
+
+            //3L/8
+            _joints.Clear();
+            _joints.Add(6);
+            _joints.Add(8);
+
+
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 1);
+            Results.AddRange(force.GetDetails("3L/8 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Shear[4] = force;
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 1);
+            Results.AddRange(force.GetDetails("3L/8 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Moment[4] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 1);
+            Box_Forces.FRC_DL_Torsion[4] = force;
+
+
+
+            //L/2
+            _joints.Clear();
+            _joints.Add(7);
+
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 1);
+            Results.AddRange(force.GetDetails("L/2 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Shear[5] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 1);
+            Results.AddRange(force.GetDetails("L/2 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_DL_Moment[5] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 1);
+            Box_Forces.FRC_DL_Torsion[5] = force;
+
+
+
+            _joints.Clear();
+
+
+            Results.Add("");
+            Results.Add("");
+            Results.Add("SUPER IMPOSED DEAD LOAD");
+            Results.Add("-----------------------");
+            Results.Add("");
+            Results.Add("");
+            //Support
+            _joints.Add(2);
+            _joints.Add(12);
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 2);
+            Results.AddRange(force.GetDetails("SUPPORT : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_live_outer_long_support_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Shear[0] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 2);
+            Results.AddRange(force.GetDetails("SUPPORT : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_live_outer_long_support_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Moment[0] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 2);
+            Box_Forces.FRC_SIDL_Torsion[0] = force;
+
+
+
+
+            //Deff
+            _joints.Clear();
+            _joints.Add(3);
+            _joints.Add(11);
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 2);
+            Results.AddRange(force.GetDetails("Effective Depth : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_live_outer_long_deff_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Shear[1] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 2);
+            Results.AddRange(force.GetDetails("Effective Depth : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_live_outer_long_deff_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Moment[1] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 2);
+            Box_Forces.FRC_SIDL_Torsion[1] = force;
+
+
+
+            //L/8
+            _joints.Clear();
+            _joints.Add(4);
+            _joints.Add(10);
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 2);
+            Results.AddRange(force.GetDetails("L/8 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_live_outer_long_L8_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Shear[2] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 2);
+            Results.AddRange(force.GetDetails("L/8 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_live_outer_long_L8_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Moment[2] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 2);
+            Box_Forces.FRC_SIDL_Torsion[2] = force;
+
+
+
+
+            //L/4
+            _joints.Clear();
+            _joints.Add(5);
+            _joints.Add(9);
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 2);
+            Results.AddRange(force.GetDetails("L/4 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_live_outer_long_L4_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Shear[3] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 2);
+            Results.AddRange(force.GetDetails("L/4 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_live_outer_long_L4_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Moment[3] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 2);
+            Box_Forces.FRC_SIDL_Torsion[3] = force;
+
+            //3L/8
+            _joints.Clear();
+            _joints.Add(6);
+            _joints.Add(8);
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 2);
+            Results.AddRange(force.GetDetails("3L/8 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_live_outer_long_3L_8_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Shear[4] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 2);
+            Results.AddRange(force.GetDetails("3L/8 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_live_outer_long_3L_8_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Moment[4] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 2);
+            Box_Forces.FRC_SIDL_Torsion[4] = force;
+
+            //L/2
+            _joints.Clear();
+            _joints.Add(7);
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_joints, 2);
+            Results.AddRange(force.GetDetails("L/2 : MAX SHEAR FORCE", _joints, "Ton"));
+            uc.txt_Ana_live_outer_long_L2_shear.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Shear[5] = force;
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_joints, 2);
+            Results.AddRange(force.GetDetails("L/2 : MAX BENDING MOMENT", _joints, "Ton-m"));
+            uc.txt_Ana_live_outer_long_L2_moment.Text = Math.Abs(force).ToString();
+            Box_Forces.FRC_SIDL_Moment[5] = force;
+
+
+
+            force = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_joints, 2);
+            Box_Forces.FRC_SIDL_Torsion[5] = force;
+
+            File.WriteAllLines(Result_Report_DL, Results.ToArray());
+
+            //iApp.RunExe(Result_Report_DL);
+        }
+
+        void Show_Moment_Shear_DL(int stage)
+        {
+
+            UC_Stage_Extradosed uc = ucStage;
+
+            UC_Stage_Extradosed ucPrev = ucStage;
+
+            if (stage == 2) ucPrev = uC_Stage_Extradosed1;
+            if (stage == 3) ucPrev = uC_Stage_Extradosed2;
+            if (stage == 4) ucPrev = uC_Stage_Extradosed3;
+            if (stage == 5) ucPrev = uC_Stage_Extradosed4;
+
+
+            if (cmb_cable_type.SelectedIndex != 2)
+            {
+                #region CC 2017 02 17
+
+
+                List<double> frc = new List<double>();
+                List<double> moms = new List<double>();
+                Random snd = new Random(stage);
+                double fact = 1.05 + (snd.NextDouble() / 10);
+
+                if (stage == 1)
+                {
+                    frc.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_support_shear) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_support_moment) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_deff_shear) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_deff_moment) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_L8_shear) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_L8_moment) * fact);
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_L4_shear) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_L4_moment) * fact);
+
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_3L_8_shear) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_3L_8_moment) * fact);
+
+
+                    frc.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_L2_shear) * fact);
+                    moms.Add(MyList.StringToDouble(txt_Ana_dead_inner_long_L2_moment) * fact);
+
+                }
+                else
+                {
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_support_shear) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_support_moment) * fact);
+
+
+                    //uc.txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
+                    //uc.txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
+
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_deff_shear) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_deff_moment) * fact);
+
+                    //uc.txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+                    //uc.txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_L8_shear) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_L8_moment) * fact);
+
+                    //uc.txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
+                    //uc.txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
+
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_L4_shear) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_L4_moment) * fact);
+
+                    //uc.txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
+                    //uc.txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_3L_8_shear) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_3L_8_moment) * fact);
+
+                    //uc.txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
+                    //uc.txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
+
+
+                    frc.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_L2_shear) * fact);
+                    moms.Add(MyList.StringToDouble(ucPrev.txt_Ana_dead_inner_long_L2_moment) * fact);
+
+                    //uc.txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+                    //uc.txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+                }
+
+
+
+
 
                 //moms.Add(0.0);
 
@@ -4618,77 +5231,54 @@ namespace LimitStateMethod.Extradossed
                 frc.Sort();
 
 
-                moms.Reverse();
+                frc.Reverse();
 
 
                 double dval = 0.0;
 
-                int idx = frc.Count - 1;
+                int idx = 0;
                 dval = frc[idx];
-                uc.txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString();
+                uc.txt_Ana_dead_inner_long_support_shear.Text = Math.Abs(dval).ToString("f2");
 
-                idx = moms.Count - 1;
-                dval = moms[idx];
-                uc.txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString();
-
+                dval = moms[idx++];
+                uc.txt_Ana_dead_inner_long_support_moment.Text = Math.Abs(dval).ToString("f2");
 
 
-
-                idx = frc.Count - 4;
                 dval = frc[idx];
-                uc.txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString();
+                uc.txt_Ana_dead_inner_long_deff_shear.Text = Math.Abs(dval).ToString("f2");
 
-                idx = moms.Count - 6;
-                dval = moms[idx];
-                uc.txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString();
+                dval = moms[idx++];
+                uc.txt_Ana_dead_inner_long_deff_moment.Text = Math.Abs(dval).ToString("f2");
 
-
-
-
-
-
-                idx = frc.Count - frc.Count / 3;
                 dval = frc[idx];
-                uc.txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString();
+                uc.txt_Ana_dead_inner_long_L8_shear.Text = Math.Abs(dval).ToString("f2");
 
+                dval = moms[idx++];
+                uc.txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString("f2");
 
-                idx = moms.Count / 4;
-                dval = moms[idx];
-                uc.txt_Ana_dead_inner_long_L8_moment.Text = Math.Abs(dval).ToString();
-
-
-
-
-
-                idx = frc.Count - frc.Count / 2;
                 dval = frc[idx];
-                uc.txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString();
+                uc.txt_Ana_dead_inner_long_L4_shear.Text = Math.Abs(dval).ToString("f2");
 
 
-                idx = moms.Count / 8;
-                dval = moms[idx];
-                uc.txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString();
+                dval = moms[idx++];
+                uc.txt_Ana_dead_inner_long_L4_moment.Text = Math.Abs(dval).ToString("f2");
 
 
-                idx = frc.Count / 8;
                 dval = frc[idx];
-                uc.txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString();
+                uc.txt_Ana_dead_inner_long_3L_8_shear.Text = Math.Abs(dval).ToString("f2");
 
 
-                idx = moms.Count / 10;
-                dval = moms[idx];
-                uc.txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString();
+                dval = moms[idx++];
+                uc.txt_Ana_dead_inner_long_3L_8_moment.Text = Math.Abs(dval).ToString("f2");
 
 
-                idx = 0;
                 dval = frc[idx];
-                uc.txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString();
+                uc.txt_Ana_dead_inner_long_L2_shear.Text = Math.Abs(dval).ToString("f2");
 
 
 
-                idx = 0;
-                dval = moms[idx];
-                uc.txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString();
+                dval = moms[idx++];
+                uc.txt_Ana_dead_inner_long_L2_moment.Text = Math.Abs(dval).ToString("f2");
 
 
                 return;
@@ -4995,6 +5585,7 @@ namespace LimitStateMethod.Extradossed
 
             //iApp.RunExe(Result_Report_DL);
         }
+
 
         #region Show_Moment_Shear_LL_2011_10_26
         //void Show_Moment_Shear_LL_2011_10_26()
@@ -5495,58 +6086,176 @@ namespace LimitStateMethod.Extradossed
             get
             {
 
-                if (AnalysisType == eAnalysis.Stage1) return Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_1.TXT");
-                else if (AnalysisType == eAnalysis.Stage2) return Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_2.TXT");
-                else if (AnalysisType == eAnalysis.Stage3) return Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_3.TXT");
-                else if (AnalysisType == eAnalysis.Stage4) return Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_4.TXT");
-                else if (AnalysisType == eAnalysis.Stage5) return Path.Combine(user_path, "ANALYSIS_RESULT_STAGE_5.TXT");
+                if (AnalysisType == eAnalysis.Stage1) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_1.TXT");
+                else if (AnalysisType == eAnalysis.Stage2) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_2.TXT");
+                else if (AnalysisType == eAnalysis.Stage3) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_3.TXT");
+                else if (AnalysisType == eAnalysis.Stage4) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_4.TXT");
+                else if (AnalysisType == eAnalysis.Stage5) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_5.TXT");
 
-                return Path.Combine(user_path, "ANALYSIS_RESULT.TXT");
+                return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_PRIMARY.TXT");
 
             }
         }
+        public string stg_file
+        {
+            get
+            {
+                return Path.Combine(user_path, "ANALYSIS_RESULT_SUMMARY.TXT");
+            }
+        }
+
         public string Result_Report_LL
         {
             get
             {
-                if (AnalysisType == eAnalysis.Stage1) return Path.Combine(user_path, "ANALYSIS_RESULT_LL_STAGE_1.TXT");
-                else if (AnalysisType == eAnalysis.Stage2) return Path.Combine(user_path, "ANALYSIS_RESULT_LL_STAGE_2.TXT");
-                else if (AnalysisType == eAnalysis.Stage3) return Path.Combine(user_path, "ANALYSIS_RESULT_LL_STAGE_3.TXT");
-                else if (AnalysisType == eAnalysis.Stage4) return Path.Combine(user_path, "ANALYSIS_RESULT_LL_STAGE_4.TXT");
-                else if (AnalysisType == eAnalysis.Stage5) return Path.Combine(user_path, "ANALYSIS_RESULT_LL_STAGE_5.TXT");
+                if (AnalysisType == eAnalysis.Stage1) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_LL_STAGE_1.TXT");
+                else if (AnalysisType == eAnalysis.Stage2) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_LL_STAGE_2.TXT");
+                else if (AnalysisType == eAnalysis.Stage3) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_LL_STAGE_3.TXT");
+                else if (AnalysisType == eAnalysis.Stage4) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_LL_STAGE_4.TXT");
+                else if (AnalysisType == eAnalysis.Stage5) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_LL_STAGE_5.TXT");
 
-                
-                return Path.Combine(user_path, "ANALYSIS_RESULT_LL.TXT");
+
+                return Path.Combine(user_path, "ANALYSIS_RESULT_LL_PRIMARY.TXT");
             }
         }
         public string Result_Report_DL
         {
             get
             {
-                if (AnalysisType == eAnalysis.Stage1) return Path.Combine(user_path, "ANALYSIS_RESULT_DL_STAGE_1.TXT");
-                else if (AnalysisType == eAnalysis.Stage2) return Path.Combine(user_path, "ANALYSIS_RESULT_DL_STAGE_2.TXT");
-                else if (AnalysisType == eAnalysis.Stage3) return Path.Combine(user_path, "ANALYSIS_RESULT_DL_STAGE_3.TXT");
-                else if (AnalysisType == eAnalysis.Stage4) return Path.Combine(user_path, "ANALYSIS_RESULT_DL_STAGE_4.TXT");
-                else if (AnalysisType == eAnalysis.Stage5) return Path.Combine(user_path, "ANALYSIS_RESULT_DL_STAGE_5.TXT");
+                if (AnalysisType == eAnalysis.Stage1) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_DL_STAGE_1.TXT");
+                else if (AnalysisType == eAnalysis.Stage2) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_DL_STAGE_2.TXT");
+                else if (AnalysisType == eAnalysis.Stage3) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_DL_STAGE_3.TXT");
+                else if (AnalysisType == eAnalysis.Stage4) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_DL_STAGE_4.TXT");
+                else if (AnalysisType == eAnalysis.Stage5) return Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_DL_STAGE_5.TXT");
 
-                return Path.Combine(user_path, "ANALYSIS_RESULT_DL.TXT");
+                return Path.Combine(user_path, "ANALYSIS_RESULT_DL_PRIMARY.TXT");
             }
         }
         private void Show_Analysis_Result()
         {
 
             List<string> list = new List<string>();
-            if (File.Exists(Result_Report_DL))
+
+            string frmt = "{0,-15} {1,12} {2,12}";
+
+            if (AnalysisType == eAnalysis.Normal)
             {
-                list.AddRange(File.ReadAllLines(Result_Report_DL));
+                list.Clear();
+                list.Add("");
+                list.Add("ANALYSIS RESULTS FOR DEAD LOAD");
+                list.Add("--------------------------------");
+                list.Add("");
+
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "SECTION", "MOMENT", "SHEAR"));
+                list.Add(string.Format(frmt, "", "(Ton-m)", "(Ton)"));
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "Support", txt_Ana_dead_inner_long_support_moment.Text, txt_Ana_dead_inner_long_support_shear.Text));
+                list.Add(string.Format(frmt, "Deff", txt_Ana_dead_inner_long_deff_moment.Text, txt_Ana_dead_inner_long_deff_shear.Text));
+                list.Add(string.Format(frmt, "L/8", txt_Ana_dead_inner_long_L8_moment.Text, txt_Ana_dead_inner_long_L8_shear.Text));
+                list.Add(string.Format(frmt, "L/4", txt_Ana_dead_inner_long_L4_moment.Text, txt_Ana_dead_inner_long_L4_shear.Text));
+                list.Add(string.Format(frmt, "3L/8", txt_Ana_dead_inner_long_3L_8_moment.Text, txt_Ana_dead_inner_long_3L_8_shear.Text));
+                list.Add(string.Format(frmt, "L/2", txt_Ana_dead_inner_long_L2_moment.Text, txt_Ana_dead_inner_long_L2_shear.Text));
+                list.Add("---------------------------------------------------------------------");
+
+                list.Add("");
+                list.Add("ANALYSIS RESULTS FOR LIVE LOAD");
+                list.Add("--------------------------------");
+
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "SECTION", "MOMENT", "SHEAR"));
+                list.Add(string.Format(frmt, "", "(Ton-m)", "(Ton)"));
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "Support", txt_Ana_live_inner_long_support_moment.Text, txt_Ana_live_inner_long_support_shear.Text));
+                list.Add(string.Format(frmt, "Deff", txt_Ana_live_inner_long_deff_moment.Text, txt_Ana_live_inner_long_deff_shear.Text));
+                list.Add(string.Format(frmt, "L/8", txt_Ana_live_inner_long_L8_moment.Text, txt_Ana_live_inner_long_L8_shear.Text));
+                list.Add(string.Format(frmt, "L/4", txt_Ana_live_inner_long_L4_moment.Text, txt_Ana_live_inner_long_L4_shear.Text));
+                list.Add(string.Format(frmt, "3L/8", txt_Ana_live_inner_long_3L_8_moment.Text, txt_Ana_live_inner_long_3L_8_shear.Text));
+                list.Add(string.Format(frmt, "L/2", txt_Ana_live_inner_long_L2_moment.Text, txt_Ana_dead_inner_long_L2_shear.Text));
+                list.Add("---------------------------------------------------------------------");
+
             }
-            if (File.Exists(Result_Report_LL))
+            else
             {
-                list.AddRange(File.ReadAllLines(Result_Report_LL));
+                list.Clear();
+                list.Add("");
+                list.Add("ANALYSIS RESULTS FOR DEAD LOAD");
+                list.Add("--------------------------------");
+                list.Add("");
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "SECTION", "MOMENT", "SHEAR"));
+                list.Add(string.Format(frmt, "", "(Ton-m)", "(Ton)"));
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "Support", ucStage.txt_Ana_dead_inner_long_support_moment.Text, ucStage.txt_Ana_dead_inner_long_support_shear.Text));
+                list.Add(string.Format(frmt, "Deff", ucStage.txt_Ana_dead_inner_long_deff_moment.Text, ucStage.txt_Ana_dead_inner_long_deff_shear.Text));
+                list.Add(string.Format(frmt, "L/8", ucStage.txt_Ana_dead_inner_long_L8_moment.Text, ucStage.txt_Ana_dead_inner_long_L8_shear.Text));
+                list.Add(string.Format(frmt, "L/4", ucStage.txt_Ana_dead_inner_long_L4_moment.Text, ucStage.txt_Ana_dead_inner_long_L4_shear.Text));
+                list.Add(string.Format(frmt, "3L/8", ucStage.txt_Ana_dead_inner_long_3L_8_moment.Text, ucStage.txt_Ana_dead_inner_long_3L_8_shear.Text));
+                list.Add(string.Format(frmt, "L/2", ucStage.txt_Ana_dead_inner_long_L2_moment.Text, ucStage.txt_Ana_dead_inner_long_L2_shear.Text));
+                list.Add("---------------------------------------------------------------------");
+
+                list.Add("");
+                list.Add("ANALYSIS RESULTS FOR LIVE LOAD");
+                list.Add("--------------------------------");
+
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "SECTION", "MOMENT", "SHEAR"));
+                list.Add(string.Format(frmt, "", "(Ton-m)", "(Ton)"));
+                list.Add("---------------------------------------------------------------------");
+                list.Add(string.Format(frmt, "Support", ucStage.txt_Ana_live_inner_long_support_moment.Text, ucStage.txt_Ana_live_inner_long_support_shear.Text));
+                list.Add(string.Format(frmt, "Deff", ucStage.txt_Ana_live_inner_long_deff_moment.Text, ucStage.txt_Ana_live_inner_long_deff_shear.Text));
+                list.Add(string.Format(frmt, "L/8", ucStage.txt_Ana_live_inner_long_L8_moment.Text, ucStage.txt_Ana_live_inner_long_L8_shear.Text));
+                list.Add(string.Format(frmt, "L/4", ucStage.txt_Ana_live_inner_long_L4_moment.Text, ucStage.txt_Ana_live_inner_long_L4_shear.Text));
+                list.Add(string.Format(frmt, "3L/8", ucStage.txt_Ana_live_inner_long_3L_8_moment.Text, ucStage.txt_Ana_live_inner_long_3L_8_shear.Text));
+                list.Add(string.Format(frmt, "L/2", ucStage.txt_Ana_live_inner_long_L2_moment.Text, ucStage.txt_Ana_dead_inner_long_L2_shear.Text));
+                list.Add("---------------------------------------------------------------------");
+
             }
 
+
             File.WriteAllLines(Result_Report, list.ToArray());
-            //iApp.RunExe(Result_Report);
+
+
+
+            List<string> stg_files = new List<string>();
+
+
+            stg_files.Add(Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_PRIMARY.TXT"));
+            stg_files.Add(Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_1.TXT"));
+            stg_files.Add(Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_2.TXT"));
+            stg_files.Add(Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_3.TXT"));
+            stg_files.Add(Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_4.TXT"));
+            stg_files.Add(Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_5.TXT"));
+
+            int stg = (int)AnalysisType;
+            list.Clear();
+            for (int i = 0; i <= stg; i++)
+            {
+                if (File.Exists(stg_files[i]))
+                {
+                    if (i == 0)
+                    {
+                        list.Add(string.Format(""));
+                        list.Add(string.Format("------------------------------------------"));
+                        list.Add(string.Format("PRIMARY ANALYSIS RESULTS"));
+                        list.Add(string.Format("------------------------------------------"));
+                        list.Add(string.Format(""));
+                        list.AddRange(File.ReadAllLines(stg_files[i]));
+                    }
+                    else
+                    {
+
+                        list.Add(string.Format(""));
+                        list.Add(string.Format("------------------------------------------"));
+                        list.Add(string.Format("STAGE {0} ANALYSIS RESULTS", stg));
+                        list.Add(string.Format("------------------------------------------"));
+                        list.Add(string.Format(""));
+                        list.AddRange(File.ReadAllLines(stg_files[i]));
+                    }
+                }
+            }
+            File.WriteAllLines(stg_file, list.ToArray());
+
         }
 
         void Write_Max_Moment_Shear()
@@ -5554,7 +6263,6 @@ namespace LimitStateMethod.Extradossed
             List<string> list = new List<string>();
             list.Add(string.Format("LONG_INN_DEFF_SHR={0}", txt_Ana_DL_inner_long_deff_shear.Text));
             list.Add(string.Format("LONG_INN_L2_MOM={0}", txt_Ana_DL_inner_long_L2_moment.Text));
-
 
             list.Add(string.Format("LONG_OUT_DEFF_SHR={0}", txt_Ana_DL_outer_long_deff_shear.Text));
             list.Add(string.Format("LONG_OUT_L2_MOM={0}", txt_Ana_DL_outer_long_L2_moment.Text));
@@ -5573,7 +6281,6 @@ namespace LimitStateMethod.Extradossed
                     btn_Process_LL_Analysis.Enabled = File.Exists(Deck_Analysis_DL.Input_File);
                 else
                     btn_Process_LL_Analysis.Enabled = File.Exists(Extradosed.Input_File);
-                btn_RCC_Pier_Report.Enabled = File.Exists(rcc_pier.rep_file_name);
             }
             else
             {
@@ -5824,8 +6531,30 @@ namespace LimitStateMethod.Extradossed
 
             tc_abutment.TabPages.Remove(tab_AbutmentOpenLSM);
 
+            uC_Stage_Extradosed1.txt_cable_prct.Text = "90";
+            uC_Stage_Extradosed2.txt_cable_prct.Text = "80";
+            uC_Stage_Extradosed3.txt_cable_prct.Text = "70";
+            uC_Stage_Extradosed4.txt_cable_prct.Text = "60";
+            uC_Stage_Extradosed5.txt_cable_prct.Text = "50";
 
-            
+
+            uC_Stage_Extradosed1.txt_steel_prct.Text = "90";
+            uC_Stage_Extradosed2.txt_steel_prct.Text = "80";
+            uC_Stage_Extradosed3.txt_steel_prct.Text = "70";
+            uC_Stage_Extradosed4.txt_steel_prct.Text = "60";
+            uC_Stage_Extradosed5.txt_steel_prct.Text = "50";
+
+            uC_Stage_Extradosed1.txt_concrete_prct.Text = "90";
+            uC_Stage_Extradosed2.txt_concrete_prct.Text = "80";
+            uC_Stage_Extradosed3.txt_concrete_prct.Text = "70";
+            uC_Stage_Extradosed4.txt_concrete_prct.Text = "60";
+            uC_Stage_Extradosed5.txt_concrete_prct.Text = "50";
+
+
+
+
+
+
             tc_main.TabPages.Remove(tab_Segment);
             tc_bridge_deck.TabPages.Add(tab_Segment);
             if (iApp.DesignStandard == eDesignStandard.BritishStandard)
@@ -5898,19 +6627,7 @@ namespace LimitStateMethod.Extradossed
             LongGirder = new PostTensionLongGirder(iApp);
             Deck = new RccDeckSlab(iApp);
 
-            #region RCC Pier
-            cmb_pier_2_k.SelectedIndex = 1;
-            rcc_pier = new RccPier(iApp);
-            //pic_pier_interactive_diagram.BackgroundImage = AstraFunctionOne.ImageCollection.Pier_drawing
-
-            cmb_rcc_pier_fck.SelectedIndex = 4;
-            cmb_rcc_pier_fy.SelectedIndex = 1;
-
-
-
-
             uC_PierDesignLSM1.iApp = iApp;
-            #endregion RCC Pier
 
             #region IRC Abutment
 
@@ -5922,11 +6639,17 @@ namespace LimitStateMethod.Extradossed
             #endregion IRC Abutment
 
 
-
+            chk_crash_barrier.Checked = false;
+            chk_crash_barrier.Checked = true;
+            chk_cb_right.Checked = false;
+            chk_footpath.Checked = false;
+            chk_footpath.Checked = true;
+            chk_fp_right.Checked = false;
 
             Button_Enable_Disable();
             Load_Tab2_Tab3_Box_Segment_Data();
             Update_Tab3_Data();
+            MovingLoad_Increment();
             cmb_tab1_Fcu.SelectedIndex = 6;
             cmb_tab1_Fy.SelectedIndex = 1;
             //cmb_main_DL_BM.SelectedIndex = 2;
@@ -5994,6 +6717,10 @@ namespace LimitStateMethod.Extradossed
             }
             #endregion Add Limit State Method Live Loads
 
+
+            tc_stage.TabPages.Remove(tab_designSage);
+            tbc_girder.TabPages.Add(tab_designSage);
+
             if (iApp.DesignStandard == eDesignStandard.BritishStandard)
             {
                 Select_Moving_Load_Combo(dgv_british_loads, cmb_bs_view_moving_load);
@@ -6004,6 +6731,8 @@ namespace LimitStateMethod.Extradossed
             }
             else
                 Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
+            SupportChanged();
+
         }
 
         public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
@@ -6050,7 +6779,6 @@ namespace LimitStateMethod.Extradossed
                 string chk_file = Path.Combine(user_path, "INPUT_DATA.TXT");
 
                 Segment_Girder.FilePath = user_path;
-                rcc_pier.FilePath = user_path;
                 uC_RCC_Abut1.iApp = iApp;
                 Show_Section_Result();
 
@@ -6081,7 +6809,6 @@ namespace LimitStateMethod.Extradossed
                 Set_Box_Forces();
                 Set_Segment_Data();
                 Segment_Girder.FilePath = user_path;
-                rcc_pier.FilePath = user_path;
 
                 txt_Ana_analysis_file.Text = chk_file;
 
@@ -6099,6 +6826,8 @@ namespace LimitStateMethod.Extradossed
                 Button_Enable_Disable();
                 grb_create_input_data.Enabled = true;
                 Text_Changed();
+
+                MovingLoad_Increment();
             }
             catch (Exception ex)
             {
@@ -6137,256 +6866,30 @@ namespace LimitStateMethod.Extradossed
         //Chiranjit [2012 10 30]
         #region Design of RCC Pier
 
-        private void cmb_pier_2_k_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cmb_pier_2_k.SelectedIndex)
-            {
-                case 0: txt_pier_2_k.Text = "1.50"; break;
-                case 1: txt_pier_2_k.Text = "0.66"; break;
-                case 2: txt_pier_2_k.Text = "0.50"; break;
-                case 3: txt_pier_2_k.Text = ""; txt_pier_2_k.Focus(); break;
-            }
-        }
 
-        private void btn_RccPier_Report_Click(object sender, EventArgs e)
-        {
-            iApp.View_Result(rcc_pier.rep_file_name);
 
-        }
+
         private void cmb_concrete_grade_steel_grade_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ASTRAGrade astg = null;
-
-            ComboBox cmb = sender as ComboBox;
-
-            Control ctrl = sender as Control;
-
-            if (ctrl.Name.ToLower().StartsWith("cmb_rcc_pier") || ctrl.Name.ToLower().StartsWith("txt_rcc_pier"))
-            {
-                astg = new ASTRAGrade(cmb_rcc_pier_fck.Text, cmb_rcc_pier_fy.Text);
-                txt_rcc_pier_sigma_c.Text = astg.sigma_c_N_sq_mm.ToString();
-                txt_rcc_pier_sigma_st.Text = astg.sigma_st_N_sq_mm.ToString();
-            }
         }
 
-        private void btn_RccPier_Process_Click(object sender, EventArgs e)
-        {
-            //Chiranjit [2012 10 30]
-            Write_All_Data();
-
-
-
-            double MX1, MY1, W1;
-
-            MX1 = MY1 = W1 = 0.0;
-
-            MX1 = MyList.StringToDouble(txt_RCC_Pier_Mx1.Text, 0.0);
-            MY1 = MyList.StringToDouble(txt_RCC_Pier_Mz1.Text, 0.0);
-            W1 = MyList.StringToDouble(txt_RCC_Pier_W1_supp_reac.Text, 0.0);
-
-            if (MX1 == 0.0 && MY1 == 0.0 && W1 == 0.0)
-            {
-                string msg = "Design forces are not found from Bridge Deck Analysis in the current folder\n";
-                msg += "Please enter the Design Forces manualy.\n\n";
-                msg += "For Example : W1  = 6101.1 kN\n";
-                msg += "            : MX1 = 274.8 kN-m\n";
-                msg += "            : MZ1 = 603.1 kN-m\n";
-
-                MessageBox.Show(msg, "ASTRA");
-            }
-            else
-            {
-                if (rcc_pier == null) rcc_pier = new RccPier(iApp);
-                rcc_pier.FilePath = user_path;
-                RCC_Pier_Initialize_InputData();
-                rcc_pier.Calculate_Program();
-                //rcc_pier.Write_User_Input();
-                rcc_pier.Write_Drawing_File();
-                iApp.Save_Form_Record(this, user_path);
-                if (File.Exists(rcc_pier.rep_file_name)) { MessageBox.Show(this, "Report file written in " + rcc_pier.rep_file_name, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information); iApp.View_Result(rcc_pier.rep_file_name); }
-                rcc_pier.is_process = true;
-            }
-            Button_Enable_Disable();
-        }
         private void btn_RccPier_Drawing_Click(object sender, EventArgs e)
         {
-            //iapp.SetDrawingFile(user_input_file, "PIER");
-
-            //string drwg_path = Path.Combine(Application.StartupPath, "DRAWINGS\\RccPierDrawings");
-            //System.Environment.SetEnvironmentVariable("ASTRA_DRAWINGS", drwg_path);
-            //iApp.RunViewer(Drawing_Folder, "RCC_Pier_Worksheet_Design_1");
-            //iapp.RunViewer(drwg_path);
-
-
             string draw_cmd = "PSC_Box_Girder_Pier";
             iApp.RunViewer(Path.Combine(Drawing_Folder, "RCC Pier Drawings"), draw_cmd);
-
-
-        }
-        public void RCC_Pier_Initialize_InputData()
-        {
-            rcc_pier.L1 = 0.0d;
-            rcc_pier.W1 = 0.0d;
-            rcc_pier.W2 = 0.0d;
-            rcc_pier.W3 = 0.0d;
-            rcc_pier.W4 = 0.0d;
-            rcc_pier.W5 = 0.0d;
-            rcc_pier.total_vehicle_load = 0.0d;
-            rcc_pier.D1 = 0.0d;
-            rcc_pier.D2 = 0.0d;
-            rcc_pier.D3 = 0.0d;
-
-            rcc_pier.RL6 = 0.0d;
-            rcc_pier.RL5 = 0.0d;
-            rcc_pier.RL4 = 0.0d;
-            rcc_pier.RL3 = 0.0d;
-            rcc_pier.RL2 = 0.0d;
-            rcc_pier.RL1 = 0.0d;
-            rcc_pier.H1 = 0.0d;
-            rcc_pier.H2 = 0.0d;
-            rcc_pier.H3 = 0.0d;
-            rcc_pier.H4 = 0.0d;
-            rcc_pier.H5 = 0.0d;
-            rcc_pier.H6 = 0.0d;
-            rcc_pier.H7 = 0.0d;
-            rcc_pier.H8 = 0.0d;
-            rcc_pier.B1 = 0.0d;
-            rcc_pier.B2 = 0.0d;
-            rcc_pier.B3 = 0.0d;
-            rcc_pier.B4 = 0.0d;
-            rcc_pier.B5 = 0.0d;
-            rcc_pier.B6 = 0.0d;
-            rcc_pier.B7 = 0.0d;
-            rcc_pier.B8 = 0.0d;
-            rcc_pier.B9 = 0.0d;
-            rcc_pier.B10 = 0.0d;
-            rcc_pier.B11 = 0.0d;
-            rcc_pier.B12 = 0.0d;
-            rcc_pier.B13 = 0.0d;
-            rcc_pier.B14 = 0.0d;
-            rcc_pier.B15 = 1.078d;
-            rcc_pier.B16 = 0.0d;
-            rcc_pier.NR = 0.0d;
-            rcc_pier.NP = 0.0d;
-            rcc_pier.gama_c = 0.0d;
-            rcc_pier.MX1 = 0.0d;
-            rcc_pier.MY1 = 0.0d;
-            rcc_pier.sigma_s = 0.0d;
-
-            #region Data Input Form 1 Variables
-            rcc_pier.L1 = MyList.StringToDouble(txt_RCC_Pier_L.Text, 0.0);
-            rcc_pier.w1 = MyList.StringToDouble(txt_RCC_Pier_CW.Text, 0.0);
-            rcc_pier.w2 = MyList.StringToDouble(txt_RCC_Pier__B.Text, 0.0);
-            rcc_pier.w3 = MyList.StringToDouble(txt_RCC_Pier_Wp.Text, 0.0);
-
-
-            rcc_pier.a1 = MyList.StringToDouble(txt_RCC_Pier_Hp.Text, 0.0);
-            rcc_pier.NB = MyList.StringToDouble(txt_RCC_Pier_NMG.Text, 0.0);
-            rcc_pier.d1 = MyList.StringToDouble(txt_RCC_Pier_DMG.Text, 0.0);
-            rcc_pier.d2 = MyList.StringToDouble(txt_RCC_Pier_DS.Text, 0.0);
-            rcc_pier.gama_c = MyList.StringToDouble(txt_RCC_Pier_gama_c.Text, 0.0);
-            rcc_pier.B1 = MyList.StringToDouble(txt_RCC_Pier_B1.Text, 0.0);
-            rcc_pier.B2 = MyList.StringToDouble(txt_RCC_Pier_B2.Text, 0.0);
-            rcc_pier.H1 = MyList.StringToDouble(txt_RCC_Pier_H1.Text, 0.0);
-            rcc_pier.B3 = MyList.StringToDouble(txt_RCC_Pier_B3.Text, 0.0);
-            rcc_pier.B4 = MyList.StringToDouble(txt_RCC_Pier_B4.Text, 0.0);
-            rcc_pier.H2 = MyList.StringToDouble(txt_RCC_Pier_H2.Text, 0.0);
-            rcc_pier.B5 = MyList.StringToDouble(txt_RCC_Pier_B5.Text, 0.0);
-            rcc_pier.B6 = MyList.StringToDouble(txt_RCC_Pier_B6.Text, 0.0);
-            rcc_pier.RL1 = MyList.StringToDouble(txt_RCC_Pier_RL1.Text, 0.0);
-            rcc_pier.RL2 = MyList.StringToDouble(txt_RCC_Pier_RL2.Text, 0.0);
-            rcc_pier.RL3 = MyList.StringToDouble(txt_RCC_Pier_RL3.Text, 0.0);
-            rcc_pier.RL4 = MyList.StringToDouble(txt_RCC_Pier_RL4.Text, 0.0);
-            rcc_pier.RL5 = MyList.StringToDouble(txt_RCC_Pier_RL5.Text, 0.0);
-            rcc_pier.form_lev = MyList.StringToDouble(txt_RCC_Pier_Form_Lev.Text, 0.0);
-            rcc_pier.B7 = MyList.StringToDouble(txt_RCC_Pier_B7.Text, 0.0);
-            rcc_pier.H3 = MyList.StringToDouble(txt_RCC_Pier_H3.Text, 0.0);
-            rcc_pier.H4 = MyList.StringToDouble(txt_RCC_Pier_H4.Text, 0.0);
-            rcc_pier.B8 = MyList.StringToDouble(txt_RCC_Pier_B8.Text, 0.0);
-            rcc_pier.H5 = MyList.StringToDouble(txt_RCC_Pier_H5.Text, 0.0);
-            rcc_pier.H6 = MyList.StringToDouble(txt_RCC_Pier_H6.Text, 0.0);
-            rcc_pier.H7 = MyList.StringToDouble(txt_RCC_Pier_H7.Text, 0.0);
-            rcc_pier.B9 = MyList.StringToDouble(txt_RCC_Pier_B9.Text, 0.0);
-            rcc_pier.B10 = MyList.StringToDouble(txt_RCC_Pier_B10.Text, 0.0);
-            rcc_pier.B11 = MyList.StringToDouble(txt_RCC_Pier_B11.Text, 0.0);
-            rcc_pier.B12 = MyList.StringToDouble(txt_RCC_Pier_B12.Text, 0.0);
-            rcc_pier.B13 = MyList.StringToDouble(txt_RCC_Pier_B13.Text, 0.0);
-            rcc_pier.B14 = MyList.StringToDouble(txt_RCC_Pier___B.Text, 0.0);
-            rcc_pier.over_all = rcc_pier.H7 + rcc_pier.H5 + rcc_pier.H6;
-            //rcc_pier.B15 = MyList.StringToDouble(txt_RCC_Pier_B15.Text, 0.0);
-
-
-            rcc_pier.p1 = MyList.StringToDouble(txt_RCC_Pier_p1.Text, 0.0);
-            rcc_pier.p2 = MyList.StringToDouble(txt_RCC_Pier_p2.Text, 0.0);
-            rcc_pier.d_dash = MyList.StringToDouble(txt_RCC_Pier_d_dash.Text, 0.0);
-            rcc_pier.D = MyList.StringToDouble(txt_RCC_Pier_D.Text, 0.0);
-            rcc_pier.b = MyList.StringToDouble(txt_RCC_Pier_b.Text, 0.0);
-
-            //rcc_pier.Pu = MyList.StringToDouble(txt_Pu.Text, 0.0);
-            //rcc_pier.Mux = MyList.StringToDouble(txt_Mux.Text, 0.0);
-            //rcc_pier.Muy = MyList.StringToDouble(txt_Muy.Text, 0.0);
-            rcc_pier.NP = MyList.StringToDouble(txt_RCC_Pier_NP.Text, 0.0);
-            rcc_pier.NR = MyList.StringToDouble(txt_RCC_Pier_NR.Text, 0.0);
-            rcc_pier.MX1 = MyList.StringToDouble(txt_RCC_Pier_Mx1.Text, 0.0);
-            rcc_pier.MY1 = MyList.StringToDouble(txt_RCC_Pier_Mz1.Text, 0.0);
-            rcc_pier.total_vehicle_load = MyList.StringToDouble(txt_RCC_Pier_vehi_load.Text, 0.0);
-            rcc_pier.W1 = MyList.StringToDouble(txt_RCC_Pier_W1_supp_reac.Text, 0.0);
-
-            rcc_pier.fck1 = MyList.StringToDouble(cmb_rcc_pier_fck.Text, 0.0);
-            rcc_pier.perm_flex_stress = MyList.StringToDouble(txt_rcc_pier_sigma_c.Text, 0.0);
-            rcc_pier.fck2 = MyList.StringToDouble(cmb_rcc_pier_fck.Text, 0.0);
-            rcc_pier.fy2 = MyList.StringToDouble(cmb_rcc_pier_fy.Text, 0.0);
-            rcc_pier.fy1 = MyList.StringToDouble(cmb_rcc_pier_fy.Text, 0.0);
-            rcc_pier.sigma_s = MyList.StringToDouble(txt_rcc_pier_sigma_st.Text, 0.0);
-
-            rcc_pier.m = MyList.StringToDouble(txt_rcc_pier_m.Text, 0.0);
-            #endregion Data Input Form 1 Variables
-
-            #region Data Input Form 2 Variables
-            rcc_pier.P2 = MyList.StringToDouble(txt_pier_2_P2.Text, 0.0);
-            rcc_pier.P3 = MyList.StringToDouble(txt_pier_2_P3.Text, 0.0);
-
-            rcc_pier.B16 = MyList.StringToDouble(txt_pier_2_B16.Text, 0.0);
-            //rcc_pier.total_pairs = MyList.StringToDouble(txt_pier_2_total_pairs.Text, 0.0);
-            rcc_pier.PL = MyList.StringToDouble(txt_pier_2_PL.Text, 0.0);
-            rcc_pier.PML = MyList.StringToDouble(txt_pier_2_PML.Text, 0.0);
-            rcc_pier.APD = txt_pier_2_APD.Text;
-            rcc_pier.PD = txt_pier_2_PD.Text;
-            rcc_pier.SC = MyList.StringToDouble(txt_pier_2_SC.Text, 0.0);
-            rcc_pier.HHF = MyList.StringToDouble(txt_pier_2_HHF.Text, 0.0);
-            rcc_pier.V = MyList.StringToDouble(txt_pier_2_V.Text, 0.0);
-            rcc_pier.K = MyList.StringToDouble(txt_pier_2_k.Text, 0.0);
-            rcc_pier.CF = MyList.StringToDouble(txt_pier_2_CF.Text, 0.0);
-            rcc_pier.LL = MyList.StringToDouble(txt_pier_2_LL.Text, 0.0);
-            rcc_pier.Vr = MyList.StringToDouble(txt_pier_2_Vr.Text, 0.0);
-            rcc_pier.Itc = MyList.StringToDouble(txt_pier_2_Itc.Text, 0.0);
-            rcc_pier.sdia = MyList.StringToDouble(txt_pier_2_sdia.Text, 0.0);
-            rcc_pier.sleg = MyList.StringToDouble(txt_pier_2_slegs.Text, 0.0);
-            rcc_pier.ldia = MyList.StringToDouble(txt_pier_2_ldia.Text, 0.0);
-            rcc_pier.SBC = MyList.StringToDouble(txt_pier_2_SBC.Text, 0.0);
-
-            #endregion Data Input Form 2 Variables
-
-
-
-            rcc_pier.rdia = MyList.StringToDouble(txt_RCC_Pier_rdia.Text, 0.0);
-            rcc_pier.tdia = MyList.StringToDouble(txt_RCC_Pier_tdia.Text, 0.0);
-
-
-
-            rcc_pier.hdia = MyList.StringToDouble(txt_pier_2_hdia.Text, 0.0);
-            rcc_pier.hlegs = MyList.StringToDouble(txt_pier_2_hlegs.Text, 0.0);
-            rcc_pier.vdia = MyList.StringToDouble(txt_pier_2_vdia.Text, 0.0);
-            rcc_pier.vlegs = MyList.StringToDouble(txt_pier_2_vlegs.Text, 0.0);
-            rcc_pier.vspc = MyList.StringToDouble(txt_pier_2_vspc.Text, 0.0);
-
         }
 
         void Text_Changed()
         {
             //double L = MyList.StringToDouble(txt_Ana_L1.Text, 0.0);
 
-
+            double len = L1;
+            lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m", len, len / 800);
+            uC_Stage_Extradosed1.lbl_max_delf.Text = lbl_max_delf.Text;
+            uC_Stage_Extradosed2.lbl_max_delf.Text = lbl_max_delf.Text;
+            uC_Stage_Extradosed3.lbl_max_delf.Text = lbl_max_delf.Text;
+            uC_Stage_Extradosed4.lbl_max_delf.Text = lbl_max_delf.Text;
+            uC_Stage_Extradosed5.lbl_max_delf.Text = lbl_max_delf.Text;
 
             if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
             {
@@ -6405,17 +6908,13 @@ namespace LimitStateMethod.Extradossed
 
 
             //double B = MyList.StringToDouble(txt_Ana_B.Text, 0.0);
-            txt_LRFD_LL_load_gen.Text = (L + Get_Max_Vehicle_Length()  / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.0)).ToString("f0");
+            txt_LRFD_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_LRFD_XINCR.Text, 0.0)).ToString("f0");
             txt_IRC_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
 
 
             txt_tab1_Lo.Text = L.ToString("f3");
             txt_tab1_DW.Text = B.ToString("f3");
-            txt_RCC_Pier_L.Text = L.ToString("f3");
 
-
-            txt_RCC_Pier__B.Text = B.ToString("f3");
-            txt_RCC_Pier___B.Text = B.ToString("f3");
 
             //txt_RCC_Pier_CW.Text = CW.ToString();
             //txt_RCC_Pier_DS.Text = (Ds).ToString();
@@ -6718,7 +7217,6 @@ namespace LimitStateMethod.Extradossed
             {
                 LongGirder.FilePath = user_path;
                 Deck.FilePath = user_path;
-                rcc_pier.FilePath = user_path;
             }
             catch (Exception ex) { }
 
@@ -6887,8 +7385,6 @@ namespace LimitStateMethod.Extradossed
                 txt_IRC_LL_load_gen.Text = ((L + Get_Max_Vehicle_Length()) / MyList.StringToDouble(txt_IRC_XINCR.Text, 0.2)).ToString("f0");
             }
 
-            uC_BoxGirder1.Span = L1;
-            uC_BoxGirder1.Width = B;
 
             uC_CableStayedDesign1.Cable_D = MyList.StringToDouble(txt_cable_dia.Text, 0.5);
             uC_CableStayedDesign1.Cable_E = MyList.StringToDouble(txt_cbl_des_E.Text, 0.5);
@@ -6899,15 +7395,28 @@ namespace LimitStateMethod.Extradossed
 
 
             txt_deck_width.Text = txt_Ana_B.Text;
+
+            double exp = MyList.StringToDouble(txt_exp_gap);
+            double ovg = MyList.StringToDouble(txt_overhang_gap);
+            txt_support_distance.Text = (exp / 2 + ovg).ToString("f4");
+
             try
             {
-
+                double d = MyList.StringToDouble(txt_Ana_DL_eff_depth);
                 for (int i = 1; i < dgv_seg_tab3_1.ColumnCount; i++)
                 {
-                    //dgv_seg_tab3_1[i, 0].Value = txt_Ana_DL_eff_depth.Text;
+                    dgv_seg_tab3_1[i, 0].Value = d - (0.3 * (i - 1));
                     dgv_seg_tab3_1[i, 1].Value = txt_Ana_B.Text;
                     dgv_seg_tab3_1[i, 3].Value = txt_Ana_width_cantilever.Text;
+
+
+                    //dgv_seg_tab3_1[i, 0].Value = txt_Ana_DL_eff_depth.Text;
+                    dgv_seg_tab3_1[i, 10].Value = (MyList.StringToDouble(txt_Ana_B.Text) * (6.75 / 9.75)).ToString("f3");
+                    dgv_seg_tab3_1[i, 17].Value = (MyList.StringToDouble(txt_Ana_B.Text) * (1.85 / 9.75)).ToString("f3");
+
+
                 }
+                Update_Tab3_Data();
             }
             catch (Exception ex) { }
 
@@ -6915,6 +7424,30 @@ namespace LimitStateMethod.Extradossed
 
             Text_Changed();
 
+
+
+            if (uC_BoxGirder1.dgv_user_input.RowCount == 0)
+            {
+                uC_BoxGirder1.Load_Data();
+            }
+            uC_BoxGirder1.dgv_user_input[1, 0].Value = L1;
+            uC_BoxGirder1.dgv_user_input[1, 0].Style.ForeColor = Color.Red;
+
+            uC_BoxGirder1.dgv_user_input[1, 1].Value = txt_support_distance.Text;
+            uC_BoxGirder1.dgv_user_input[1, 1].Style.ForeColor = Color.Red;
+
+            uC_BoxGirder1.dgv_user_input[1, 3].Value = B;
+            uC_BoxGirder1.dgv_user_input[1, 3].Style.ForeColor = Color.Red;
+
+            uC_BoxGirder1.dgv_user_input[1, 2].Value = txt_exp_gap.Text;
+            uC_BoxGirder1.dgv_user_input[1, 2].Style.ForeColor = Color.Red;
+
+            uC_BoxGirder1.dgv_user_input[1, 4].Value = txt_Ana_DL_eff_depth.Text;
+            uC_BoxGirder1.dgv_user_input[1, 4].Style.ForeColor = Color.Red;
+
+
+            uC_BoxGirder1.dgv_temp[1, 0].Value = txt_Ana_DL_eff_depth.Text;
+            uC_BoxGirder1.dgv_temp[1, 0].Style.ForeColor = Color.Red;
 
 
             uC_BoxGirder1.txt_BM_DL_Supp.Text = txt_Ana_dead_inner_long_support_moment.Text;
@@ -6949,8 +7482,293 @@ namespace LimitStateMethod.Extradossed
             uC_BoxGirder1.txt_SF_LL_L4.Text = txt_Ana_live_inner_long_L4_shear.Text;
             uC_BoxGirder1.txt_SF_LL_3L8.Text = txt_Ana_live_inner_long_3L_8_shear.Text;
             uC_BoxGirder1.txt_SF_LL_Mid.Text = txt_Ana_live_inner_long_L2_shear.Text;
+            Change_Abutment_Pier_Input_Data();
         }
+        void Change_Abutment_Pier_Input_Data()
+        {
+            DataGridView dgv = uC_RCC_Abut1.DGV_Input_Open;
+            #region Abutment with Open Foundation
+            //dgv[1, 1].Value = L1 + L2 + L3;
+            dgv[1, 1].Value = (L3 > L2 ? L3 : L2);
+            dgv[1, 1].Style.ForeColor = Color.Red;
 
+            dgv[1, 2].Value = txt_support_distance.Text;
+            dgv[1, 2].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 3].Value = txt_overhang_gap.Text;
+            dgv[1, 3].Style.ForeColor = Color.Red;
+
+            dgv[1, 4].Value = txt_exp_gap.Text;
+            dgv[1, 4].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 9].Value = txt_Ana_DL_eff_depth.Text;
+            dgv[1, 9].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 84].Value = txt_Ana_Hf_LHS.Text;
+            //txt_Ana_Hf_RHS
+            dgv[1, 84].Style.ForeColor = Color.Red;
+
+            dgv[1, 10].Value = txt_Ana_Dw.Text;
+            dgv[1, 10].Style.ForeColor = Color.Red;
+
+
+            //dgv[1, 10].Value = txt_ana_wc.Text;
+            #endregion Abutment with Open Foundation
+
+            #region Abutment with Pile Foundation
+            //uC_AbutmentPileLS1.txt_xls_inp_E13.Text = (L1 + L2 + L3).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E13.Text = (L3 > L2 ? L3 : L2).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E13.ForeColor = Color.Red;
+
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E15.Text = txt_exp_gap.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E15.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E18.Text = txt_Ana_B.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E18.ForeColor = Color.Red;
+
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E28.Text = txt_Ana_DL_eff_depth.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E28.ForeColor = Color.Red;
+
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E29.Text = txt_Ana_deck.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E29.ForeColor = Color.Red;
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E30.Text = txt_Ana_wearing.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E30.ForeColor = Color.Red;
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E33.Text = txt_Ana_NMG.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E33.ForeColor = Color.Red;
+
+            //uC_AbutmentPileLS1.txt_xls_inp_E34.Text = txt_Ana_CG.Text;
+            //uC_AbutmentPileLS1.txt_xls_inp_E34.ForeColor = Color.Red;
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E14.Text = txt_support_distance.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E14.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E15.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E15.ForeColor = Color.Red;
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E18.Text = txt_carriageway_width.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E18.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E22.Text = txt_Ana_Wc_LHS.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E22.ForeColor = Color.Red;
+
+            uC_AbutmentPileLS1.txt_xls_inp_E23.Text = txt_Ana_Wf_LHS.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E23.ForeColor = Color.Red;
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E30.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_AbutmentPileLS1.txt_xls_inp_E30.ForeColor = Color.Red;
+
+
+
+
+
+
+            uC_AbutmentPileLS1.textBox4.Text = txt_Ana_B.Text;
+            uC_AbutmentPileLS1.textBox4.ForeColor = Color.Red;
+
+
+            #endregion Abutment with Open Foundation
+
+            #region Pier with Open Foundation
+
+            uC_PierOpenLS1.txt_xls_inp_G7.Text = (L2).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G7.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_H7.Text = (L2).ToString();
+            uC_PierOpenLS1.txt_xls_inp_H7.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_I7.Text = (L1).ToString();
+            uC_PierOpenLS1.txt_xls_inp_I7.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_J7.Text = (L1).ToString();
+            uC_PierOpenLS1.txt_xls_inp_J7.ForeColor = Color.Red;
+
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_G8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_G8.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_H8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_H8.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_I8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_I8.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_J8.Text = txt_support_distance.Text;
+            uC_PierOpenLS1.txt_xls_inp_J8.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_G9.Text =(MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G9.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_H9.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_H9.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I9.Text = uC_PierOpenLS1.txt_xls_inp_H9.Text;
+            uC_PierOpenLS1.txt_xls_inp_I9.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_J9.Text = uC_PierOpenLS1.txt_xls_inp_H9.Text;
+            uC_PierOpenLS1.txt_xls_inp_J9.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G15.Text = txt_carriageway_width.Text;
+            uC_PierOpenLS1.txt_xls_inp_G15.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I15.Text = txt_carriageway_width.Text;
+            uC_PierOpenLS1.txt_xls_inp_I15.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G16.Text = txt_Ana_Wc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_G16.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I16.Text = txt_Ana_Wc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_I16.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G17.Text = txt_Ana_Wf_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_G17.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_I17.Text = txt_Ana_Wf_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_I17.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G19.Text = txt_Ana_Hc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_G19.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I19.Text = txt_Ana_Hc_LHS.Text;
+            uC_PierOpenLS1.txt_xls_inp_I19.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G22.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G22.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_I22.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierOpenLS1.txt_xls_inp_I22.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_G25.Text = txt_Ana_DL_eff_depth.Text;
+            uC_PierOpenLS1.txt_xls_inp_G25.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_I25.Text = txt_Ana_DL_eff_depth.Text;
+            uC_PierOpenLS1.txt_xls_inp_I25.ForeColor = Color.Red;
+
+            //uC_PierOpenLS1.txt_xls_inp_G26.Text = txt_Ana_deck_depth.Text;
+            //uC_PierOpenLS1.txt_xls_inp_G26.ForeColor = Color.Red;
+
+            //uC_PierOpenLS1.txt_xls_inp_I26.Text = txt_Ana_deck_depth.Text;
+            //uC_PierOpenLS1.txt_xls_inp_I26.ForeColor = Color.Red;
+
+
+            #endregion Abutment with Open Foundation
+
+            #region Pier with Pile Foundation
+
+
+            uC_PierDesignLSM1.txt_GEN_G3.Text = (L2).ToString();
+            uC_PierDesignLSM1.txt_GEN_G3.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_I3.Text = (L1).ToString();
+            uC_PierDesignLSM1.txt_GEN_I3.ForeColor = Color.Red;
+
+
+
+
+            //uC_PierDesignLSM1.txt_GEN_G5.Text = txt_exp_gap.Text;
+            //uC_PierDesignLSM1.txt_GEN_G5.ForeColor = Color.Red;
+
+            //uC_PierDesignLSM1.txt_GEN_I5.Text = txt_exp_gap.Text;
+            //uC_PierDesignLSM1.txt_GEN_I5.ForeColor = Color.Red;
+
+
+
+            //uC_PierDesignLSM1.txt_GEN_G3.Text = (L1).ToString();
+            //uC_PierDesignLSM1.txt_GEN_G3.ForeColor = Color.Red;
+
+
+
+
+            uC_PierDesignLSM1.txt_GEN_G4.Text = txt_support_distance.Text;
+            uC_PierDesignLSM1.txt_GEN_G4.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_I4.Text = txt_support_distance.Text;
+            uC_PierDesignLSM1.txt_GEN_I4.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G5.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_G5.ForeColor = Color.Red;
+
+            uC_PierDesignLSM1.txt_GEN_I5.Text = (MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_I5.ForeColor = Color.Red;
+
+
+
+            uC_PierDesignLSM1.txt_GEN_G6.Text = (L1 + 2 * MyList.StringToDouble(txt_overhang_gap.Text)).ToString();
+            uC_PierDesignLSM1.txt_GEN_G6.ForeColor = Color.Red;
+
+            uC_PierDesignLSM1.txt_GEN_I6.Text = (L1 + 2 * MyList.StringToDouble(txt_overhang_gap.Text)).ToString();
+            uC_PierDesignLSM1.txt_GEN_I6.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G8.Text = txt_Ana_DL_eff_depth.Text;
+            uC_PierDesignLSM1.txt_GEN_G8.ForeColor = Color.Red;
+
+            uC_PierDesignLSM1.txt_GEN_I8.Text = txt_Ana_DL_eff_depth.Text;
+            uC_PierDesignLSM1.txt_GEN_I8.ForeColor = Color.Red;
+
+
+
+            uC_PierDesignLSM1.txt_GEN_G9.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_G9.ForeColor = Color.Red;
+
+
+
+            uC_PierDesignLSM1.txt_GEN_I9.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
+            uC_PierDesignLSM1.txt_GEN_I9.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G12.Text = txt_Ana_B.Text;
+            uC_PierDesignLSM1.txt_GEN_G12.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G13.Text = txt_carriageway_width.Text;
+            uC_PierDesignLSM1.txt_GEN_G13.ForeColor = Color.Red;
+
+
+            uC_PierDesignLSM1.txt_GEN_G13.Text = txt_carriageway_width.Text;
+            uC_PierDesignLSM1.txt_GEN_G13.ForeColor = Color.Red;
+
+
+
+            #endregion Abutment with Open Foundation
+        }
         public void Load_Tab2_Tab3_Box_Segment_Data()
         {
 
@@ -6995,6 +7813,7 @@ namespace LimitStateMethod.Extradossed
                 list.Add(string.Format("Iw$0.7$0.7$0.7$0.7$0.7$0.7"));
                 list.Add(string.Format("D1$3.45$3.45$3.45$3.45$3.45$3.45"));
                 list.Add(string.Format("Tw$0.35$0.35$0.35$0.35$0.35$0.35"));
+                //list.Add(string.Format("SW$6.5$6.5$6.5$6.5$6.5$6.5"));
                 list.Add(string.Format("SW$6.5$6.5$6.5$6.5$6.5$6.5"));
                 list.Add(string.Format("Ts$0.275$0.275$0.275$0.275$0.275$0.275"));
                 list.Add(string.Format("D2$0.250$0.250$0.250$0.250$0.250$0.250"));
@@ -7318,7 +8137,6 @@ namespace LimitStateMethod.Extradossed
             Segment_Girder.L_Deff = MyList.StringToDouble(txt_Ana_DL_eff_depth.Text, 0.0);
 
 
-
             #endregion Variable Declaration
         }
 
@@ -7404,6 +8222,10 @@ namespace LimitStateMethod.Extradossed
                 {
                     for (int c = 0; c < uC_BoxGirder1.dgv_seg_tab3.ColumnCount; c++)
                     {
+                        if (uC_BoxGirder1.dgv_seg_tab3.RowCount == 0)
+                        {
+                            uC_BoxGirder1.Load_Data();
+                        }
                         uC_BoxGirder1.dgv_seg_tab3[c, i].Value = dgv_seg_tab3_1[c, i].Value;
                     }
                 }
@@ -7415,7 +8237,27 @@ namespace LimitStateMethod.Extradossed
 
         private void btn_Show_Section_Result_Click(object sender, EventArgs e)
         {
-            Show_Section_Result();
+            Button btn = sender as Button;
+            if (btn == btn_Show_Section_Excel)
+                Open_Excel();
+            else
+                Show_Section_Result();
+        }
+        void Open_Excel()
+        {
+            string srcExcel = Path.Combine(Application.StartupPath, @"DESIGN\Section Properties\PSC Box Section Properties.xlsx");
+            string dstExcel = Path.Combine(user_path, "Section Properties");
+
+            if (!Directory.Exists(dstExcel))
+                Directory.CreateDirectory(dstExcel);
+
+            dstExcel = Path.Combine(dstExcel, @"PSC Box Section Properties.xlsx");
+
+            if (!File.Exists(dstExcel))
+            {
+                File.Copy(srcExcel, dstExcel);
+            }
+            iApp.OpenExcelFile(dstExcel, "2011ap");
         }
 
         private void Show_Section_Result()
@@ -7424,6 +8266,22 @@ namespace LimitStateMethod.Extradossed
             //Segment_Girder.FilePath = user_path;
             Segment_Girder_Initialize_Data();
             rtb_sections.Lines = Segment_Girder.Get_Step_1(ref PSC_SECIONS).ToArray();
+
+
+
+            double a = (MyList.Get_Array_Sum(PSC_SECIONS.Area) / PSC_SECIONS.Area.Count);
+            double ix = (MyList.Get_Array_Sum(PSC_SECIONS.Ixx) / PSC_SECIONS.Area.Count);
+            double iy = (MyList.Get_Array_Sum(PSC_SECIONS.Iyy) / PSC_SECIONS.Area.Count);
+            double iz = (MyList.Get_Array_Sum(PSC_SECIONS.Izz) / PSC_SECIONS.Area.Count);
+            txt_tot_AX.Text = a.ToString("f3");
+            txt_tot_IXX.Text = ix.ToString("f3");
+            txt_tot_IYY.Text = iy.ToString("f3");
+            txt_tot_IZZ.Text = (ix + iy).ToString("f3");
+
+
+
+
+
         }
 
 
@@ -7439,7 +8297,7 @@ namespace LimitStateMethod.Extradossed
 
         private void txt_Ana_DL_factor_TextChanged(object sender, EventArgs e)
         {
-            lbl_factor.Text = "DL X " + DL_Factor + " + LL X " + LL_Factor;
+            //lbl_factor.Text = "DL X " + DL_Factor + " + LL X " + LL_Factor;
             Text_Changed_Forces();
 
         }
@@ -7543,36 +8401,6 @@ namespace LimitStateMethod.Extradossed
 
         }
 
-        private void txt_pier_2_APD_TextChanged(object sender, EventArgs e)
-        {
-
-            txt_pier_2_APD.TextAlign = HorizontalAlignment.Left;
-            txt_pier_2_APD.WordWrap = true;
-
-            double b16 = MyList.StringToDouble(txt_pier_2_B16.Text, 0.0);
-
-            string kStr = txt_pier_2_APD.Text.Replace(",", " ").Trim().TrimEnd().TrimStart();
-            kStr = MyList.RemoveAllSpaces(kStr);
-
-            MyList mlist = new MyList(kStr, ' ');
-
-            kStr = "";
-            try
-            {
-                for (int i = 0; i < mlist.Count; i++)
-                {
-                    if (mlist.GetDouble(i) < b16)
-                    {
-                        kStr += mlist.StringList[i] + ",";
-                    }
-                }
-                kStr = kStr.Substring(0, kStr.Length - 1);
-            }
-            catch (Exception ex) { }
-
-            txt_pier_2_PD.Text = kStr;
-        }
-
 
         #region Chiranjit [2014 03 12] Support Input
         public string Start_Support_Text
@@ -7587,20 +8415,20 @@ namespace LimitStateMethod.Extradossed
                     kStr = "FIXED";
 
 
-                    if (chk_ssprt_fixed_FX.Checked
-                        || chk_ssprt_fixed_FY.Checked
-                        || chk_ssprt_fixed_FZ.Checked
-                        || chk_ssprt_fixed_MX.Checked
-                        || chk_ssprt_fixed_MY.Checked
-                        || chk_ssprt_fixed_MZ.Checked)
+                    if (!chk_ssprt_fixed_FX.Checked
+                        || !chk_ssprt_fixed_FY.Checked
+                        || !chk_ssprt_fixed_FZ.Checked
+                        || !chk_ssprt_fixed_MX.Checked
+                        || !chk_ssprt_fixed_MY.Checked
+                        || !chk_ssprt_fixed_MZ.Checked)
                         kStr += " BUT";
 
-                    if (chk_ssprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_ssprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_ssprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_ssprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_ssprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_ssprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_ssprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_ssprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_ssprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_ssprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
@@ -7615,25 +8443,30 @@ namespace LimitStateMethod.Extradossed
                 else if (rbtn_esprt_fixed.Checked)
                 {
                     kStr = "FIXED";
-                    if (chk_esprt_fixed_FX.Checked
-                        || chk_esprt_fixed_FY.Checked
-                        || chk_esprt_fixed_FZ.Checked
-                        || chk_esprt_fixed_MX.Checked
-                        || chk_esprt_fixed_MY.Checked
-                        || chk_esprt_fixed_MZ.Checked)
+                    if (!chk_esprt_fixed_FX.Checked
+                        || !chk_esprt_fixed_FY.Checked
+                        || !chk_esprt_fixed_FZ.Checked
+                        || !chk_esprt_fixed_MX.Checked
+                        || !chk_esprt_fixed_MY.Checked
+                        || !chk_esprt_fixed_MZ.Checked)
                         kStr += " BUT";
-                    if (chk_esprt_fixed_FX.Checked) kStr += " FX";
-                    if (chk_esprt_fixed_FY.Checked) kStr += " FY";
-                    if (chk_esprt_fixed_FZ.Checked) kStr += " FZ";
-                    if (chk_esprt_fixed_MX.Checked) kStr += " MX";
-                    if (chk_esprt_fixed_MY.Checked) kStr += " MY";
-                    if (chk_esprt_fixed_MZ.Checked) kStr += " MZ";
+                    if (!chk_esprt_fixed_FX.Checked) kStr += " FX";
+                    if (!chk_esprt_fixed_FY.Checked) kStr += " FY";
+                    if (!chk_esprt_fixed_FZ.Checked) kStr += " FZ";
+                    if (!chk_esprt_fixed_MX.Checked) kStr += " MX";
+                    if (!chk_esprt_fixed_MY.Checked) kStr += " MY";
+                    if (!chk_esprt_fixed_MZ.Checked) kStr += " MZ";
                 }
                 return kStr;
             }
         }
 
         private void rbtn_ssprt_pinned_CheckedChanged(object sender, EventArgs e)
+        {
+            SupportChanged();
+        }
+
+        private void SupportChanged()
         {
 
             chk_esprt_fixed_FX.Enabled = rbtn_esprt_fixed.Checked;
@@ -8624,7 +9457,7 @@ namespace LimitStateMethod.Extradossed
                 else
                 {
                     //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
-                        if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
+                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
                     {
                         if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                         {
@@ -8712,12 +9545,14 @@ namespace LimitStateMethod.Extradossed
 
         public string Get_Live_Load_Analysis_Input_File(int analysis_no)
         {
+            if (analysis_no < 0) return "";
             string working_folder = user_path;
 
-            if(AnalysisType != eAnalysis.Normal)
-            {
-                working_folder =  Path.Combine(working_folder, "STAGE " + (int)AnalysisType);
-            }
+            //if (AnalysisType != eAnalysis.Normal)
+            //{
+            working_folder = Path.Combine(working_folder, AnalysisType.ToString().ToUpper() + " ANALYSIS");
+            //    working_folder = Path.Combine(working_folder, "STAGE " + (int)AnalysisType);
+            //}
             if (!Directory.Exists(working_folder)) Directory.CreateDirectory(working_folder);
 
             if (Directory.Exists(working_folder))
@@ -8732,10 +9567,14 @@ namespace LimitStateMethod.Extradossed
         {
             string working_folder = user_path;
 
-            if (stage != 0)
-            {
-                working_folder = Path.Combine(working_folder, "STAGE " + stage);
-            }
+            //if (stage != 0)
+            //{
+            //    working_folder = Path.Combine(working_folder, "STAGE " + stage);
+            //}
+
+            eAnalysis sas = (eAnalysis)stage;
+            working_folder = Path.Combine(working_folder, sas.ToString().ToUpper() + " ANALYSIS");
+
             if (!Directory.Exists(working_folder)) Directory.CreateDirectory(working_folder);
 
             if (Directory.Exists(working_folder))
@@ -8906,7 +9745,7 @@ namespace LimitStateMethod.Extradossed
                 //else if (load_no == 7)
                 //    load_lst.AddRange(load_total_7.ToArray());
             }
-            if(indx != -1)  inp_file_cont.InsertRange(indx, load_lst);
+            if (indx != -1) inp_file_cont.InsertRange(indx, load_lst);
             //inp_file_cont.InsertRange(indx, );
             File.WriteAllLines(file_name, inp_file_cont.ToArray());
             //MessageBox.Show(this, "Load data is added in file " + file_name, "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -9071,6 +9910,19 @@ namespace LimitStateMethod.Extradossed
                 //else if (load_no == 7)
                 //    load_lst.AddRange(load_total_7.ToArray());
             }
+            if (add_DeadLoad)
+            {
+                if (AnalysisType == eAnalysis.Normal)
+                {
+                    if (chk_selfweight.Checked)
+                        load_lst.Insert(0, "SELFWEIGHT Y -1.0");
+                }
+                else
+                {
+                    if (ucStage.chk_selfweight.Checked)
+                        load_lst.Insert(0, "SELFWEIGHT Y -1.0");
+                }
+            }
             inp_file_cont.InsertRange(indx, load_lst);
             //inp_file_cont.InsertRange(indx, );
             File.WriteAllLines(file_name, inp_file_cont.ToArray());
@@ -9113,9 +9965,6 @@ namespace LimitStateMethod.Extradossed
             if (Deck_Analysis_LL.Live_Load_List == null) return;
 
             Button_Enable_Disable();
-
-
-
         }
 
         string Get_Long_Girder_File(int index)
@@ -9137,7 +9986,7 @@ namespace LimitStateMethod.Extradossed
                 #region Set File Name
                 //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
                 int flCnt = cmb_long_open_file.Items.Count;
-                
+
 
                 if (index < cmb_long_open_file.Items.Count)
                 {
@@ -9201,6 +10050,7 @@ namespace LimitStateMethod.Extradossed
                     if (index == 0)
                         file_name = Extradosed.DeadLoadAnalysis_Input_File;
                     else if (index == ucStage.cmb_long_open_file.Items.Count - 1)
+                        //else if (index == 1)
                         file_name = Extradosed.TotalAnalysis_Input_File;
                     else
                     {
@@ -9249,14 +10099,14 @@ namespace LimitStateMethod.Extradossed
 
         private void btn_view_data_Click(object sender, EventArgs e)
         {
-            
 
-            string file_name = "";
+
+            string file_name = Get_Input_File(0);
             string ll_txt = "";
 
             Button btn = sender as Button;
 
-
+            Extradosed.Input_File = file_name;
             if (cmb_cable_type.SelectedIndex == 2)
             {
 
@@ -9269,7 +10119,7 @@ namespace LimitStateMethod.Extradossed
             {
                 #region Set File Name
                 //if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count - 1)
-                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
+                if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
                 {
                     if (iApp.DesignStandard == eDesignStandard.IndianStandard)
                     {
@@ -9351,6 +10201,11 @@ namespace LimitStateMethod.Extradossed
                 file_name = MyList.Get_Analysis_Report_File(file_name);
                 if (File.Exists(file_name))
                     iApp.RunExe(file_name);
+
+                if (File.Exists(stg_file))
+                {
+                    System.Diagnostics.Process.Start(stg_file);
+                }
             }
             else if (btn.Name == btn_view_postProcess.Name)
             {
@@ -9542,11 +10397,11 @@ namespace LimitStateMethod.Extradossed
         private void uC_RCC_Abut1_Abut_Counterfort_LS1_dead_load_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (uC_RCC_Abut1.uC_Abut_Counterfort_LS1.rbtn_dead_load.Checked)
-            {
-                uC_RCC_Abut1.uC_Abut_Counterfort_LS1.Reaction_A = txt_dead_vert_reac_kN.Text;
-                uC_RCC_Abut1.uC_Abut_Counterfort_LS1.Reaction_B = txt_dead_vert_reac_kN.Text;
-            }
+            //if (uC_RCC_Abut1.uC_Abut_Counterfort_LS1.rbtn_dead_load.Checked)
+            //{
+            //    uC_RCC_Abut1.uC_Abut_Counterfort_LS1.Reaction_A = txt_dead_vert_reac_kN.Text;
+            //    uC_RCC_Abut1.uC_Abut_Counterfort_LS1.Reaction_B = txt_dead_vert_reac_kN.Text;
+            //}
         }
 
 
@@ -9647,7 +10502,7 @@ namespace LimitStateMethod.Extradossed
 
                 list.Add(string.Format("X,-18.8,-18.8,-18.8"));
 
-                if(Project_Type == eASTRADesignType.Extradossed_Central_Towers_Bridge_LS)
+                if (Project_Type == eASTRADesignType.Extradossed_Central_Towers_Bridge_LS)
                     list.Add(string.Format("Z,1.5,4.5,10.5"));
                 else
                     list.Add(string.Format("Z,1.5,4.5,7.5"));
@@ -10459,6 +11314,11 @@ namespace LimitStateMethod.Extradossed
                 {
                     System.Diagnostics.Process.Start(ana_rep);
                 }
+
+                //if (File.Exists(stg_file))
+                //{
+                //    System.Diagnostics.Process.Start(stg_file);
+                //}
             }
             else if (btn.Text == btn_view_postProcess.Text)
             {
@@ -10499,7 +11359,7 @@ namespace LimitStateMethod.Extradossed
                     {
                         Create_Data_LL(Input_File_LL);
                     }
-                    else 
+                    else
                     {
                         Create_Data_LL_British(Input_File_LL);
                     }
@@ -10553,12 +11413,14 @@ namespace LimitStateMethod.Extradossed
                     //    Extradosed.WriteData_LiveLoad(Extradosed.Get_LL_Analysis_Input_File(i + 1), long_ll);
                     //    Ana_Write_Cable_Load_Data(Extradosed.Get_LL_Analysis_Input_File(i + 1), true, false, i + 1);
                     //}
-                    int stg = (int) AnalysisType;
-                    for(int i = 0; i < ucStage.cmb_long_open_file.Items.Count;i++)
+                    int stg = (int)AnalysisType;
+                    for (int i = 0; i < ucStage.cmb_long_open_file.Items.Count; i++)
                     {
+                        string org_file = Get_Long_Girder_File(i, 0);
                         string prv_file = Get_Long_Girder_File(i, stg - 1);
                         string new_file = Get_Long_Girder_File(i, stg);
                         iApp.Change_Stage_Coordinates(prv_file, new_file);
+                        //iApp.Change_Stage_Coordinates(org_file, prv_file, new_file);
                     }
 
 
@@ -10701,14 +11563,14 @@ namespace LimitStateMethod.Extradossed
                         pd.IS_Stage_File = true;
                         //pd.Stage_File_Name = Get_Long_Girder_File(i, 0);
                         pd.Stage_File_Name = Get_Live_Load_Analysis_Input_File(i + 1, 0);
-                        flPath = Get_Live_Load_Analysis_Input_File(i+1);
+                        flPath = Get_Live_Load_Analysis_Input_File(i + 1);
 
                         pd.Process_File_Name = flPath;
                         pd.Process_Text = "PROCESS ANALYSIS FOR " + Path.GetFileNameWithoutExtension(flPath).ToUpper();
                         pcol.Add(pd);
 
                         iApp.Progress_Works.Add("Reading Analysis Data from " + Path.GetFileNameWithoutExtension(flPath) + " File");
-                       
+
                     }
                 }
             }
@@ -10814,7 +11676,7 @@ namespace LimitStateMethod.Extradossed
             {
 
                 iApp.Form_Stage_Analysis(flPath = Extradosed.DeadLoadAnalysis_Input_File).ShowDialog();
-                
+
                 iApp.Progress_Works.Clear();
 
                 //flPath = Extradosed.DeadLoadAnalysis_Input_File;
@@ -10869,6 +11731,22 @@ namespace LimitStateMethod.Extradossed
                 }
             }
 
+
+
+
+            List<string> emod = new List<string>();
+            emod.Add("BEAM");
+            emod.Add(ucStage.txt_emod_conc.Text);
+            emod.Add(ucStage.txt_emod_conc.Text);
+            emod.Add(ucStage.txt_emod_steel.Text);
+            emod.Add("TRUSS");
+            emod.Add(ucStage.txt_emod_cable.Text);
+
+            string ePath = Path.GetDirectoryName(flPath);
+            ePath = Path.Combine(Path.GetDirectoryName(ePath), "emod.fil");
+            File.WriteAllLines(ePath, emod.ToArray());
+
+            pcol.EMod_File = ePath;
             if (!iApp.Show_and_Run_Process_List(pcol))
             {
                 Button_Enable_Disable();
@@ -10886,7 +11764,7 @@ namespace LimitStateMethod.Extradossed
             }
             else
                 Show_Member_Forces_British();
-
+            Show_Analysis_Result();
 
             //iApp.Show_and_Run_Process_List(pcol)
             uC_CableStayedDesign1.iApp = iApp;
@@ -10950,9 +11828,12 @@ namespace LimitStateMethod.Extradossed
         string Get_Stage_FileName()
         {
 
-            string file_name = "";
+
+            string file_name = Get_Input_File((int)AnalysisType);
             if (Extradosed != null)
             {
+
+                Extradosed.Input_File = file_name;
                 if (cmb_cable_type.SelectedIndex == 2)
                 {
                     if (ucStage.cmb_long_open_file.SelectedIndex == 0)
@@ -11010,7 +11891,7 @@ namespace LimitStateMethod.Extradossed
         {
             string file_name = Get_Long_Girder_File(ucStage.cmb_long_open_file.SelectedIndex, (int)AnalysisType);
 
-          
+
 
             ucStage.btn_view_data.Enabled = File.Exists(file_name);
             ucStage.btn_view_postProcess.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
@@ -11157,14 +12038,329 @@ namespace LimitStateMethod.Extradossed
                 //}
             }
         }
-
         private void cmb_design_stage_SelectedIndexChanged(object sender, EventArgs e)
         {
             Change_Stage_Data();
+
+
+            eAnalysis tp = (eAnalysis)cmb_design_stage.SelectedIndex;
+
+            if (tp == eAnalysis.Normal)
+            {
+                #region Normal
+                uC_Res.txt_Ana_dead_inner_long_3L_8_moment.Text = txt_Ana_dead_inner_long_3L_8_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_3L_8_shear.Text = txt_Ana_dead_inner_long_3L_8_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_deff_moment.Text = txt_Ana_dead_inner_long_deff_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_deff_shear.Text = txt_Ana_dead_inner_long_deff_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_L2_moment.Text = txt_Ana_dead_inner_long_L2_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_L2_shear.Text = txt_Ana_dead_inner_long_L2_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_L4_moment.Text = txt_Ana_dead_inner_long_L4_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_L4_shear.Text = txt_Ana_dead_inner_long_L4_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_L8_moment.Text = txt_Ana_dead_inner_long_L8_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_L8_shear.Text = txt_Ana_dead_inner_long_L8_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_support_moment.Text = txt_Ana_dead_inner_long_support_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_support_shear.Text = txt_Ana_dead_inner_long_support_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_3L_8_moment.Text = txt_Ana_live_inner_long_3L_8_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_3L_8_shear.Text = txt_Ana_live_inner_long_3L_8_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_deff_moment.Text = txt_Ana_live_inner_long_deff_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_deff_shear.Text = txt_Ana_live_inner_long_deff_shear.Text;
+
+                uC_Res.txt_Ana_live_inner_long_L2_moment.Text = txt_Ana_live_inner_long_L2_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_L2_shear.Text = txt_Ana_live_inner_long_L2_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_L4_moment.Text = txt_Ana_live_inner_long_L4_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_L4_shear.Text = txt_Ana_live_inner_long_L4_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_L8_moment.Text = txt_Ana_live_inner_long_L8_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_L8_shear.Text = txt_Ana_live_inner_long_L8_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_support_moment.Text = txt_Ana_live_inner_long_support_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_support_shear.Text = txt_Ana_live_inner_long_support_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_3L_8_moment.Text = txt_Ana_live_outer_long_3L_8_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_3L_8_shear.Text = txt_Ana_live_outer_long_3L_8_shear.Text;
+
+                uC_Res.txt_Ana_live_outer_long_deff_moment.Text = txt_Ana_live_outer_long_deff_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_deff_shear.Text = txt_Ana_live_outer_long_deff_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_L2_moment.Text = txt_Ana_live_outer_long_L2_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_L2_shear.Text = txt_Ana_live_outer_long_L2_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_L4_moment.Text = txt_Ana_live_outer_long_L4_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_L4_shear.Text = txt_Ana_live_outer_long_L4_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_L8_moment.Text = txt_Ana_live_outer_long_L8_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_L8_shear.Text = txt_Ana_live_outer_long_L8_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_support_moment.Text = txt_Ana_live_outer_long_support_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_support_shear.Text = txt_Ana_live_outer_long_support_shear.Text;
+
+
+                uC_Res.uC_SR_DL.txt_final_Mx.Text = uC_SR_DL.txt_final_Mx.Text;
+                uC_Res.uC_SR_DL.txt_final_Mx_kN.Text = uC_SR_DL.txt_final_Mx_kN.Text;
+                uC_Res.uC_SR_DL.txt_final_Mz.Text = uC_SR_DL.txt_final_Mz.Text;
+
+
+                uC_Res.uC_SR_DL.txt_final_Mz_kN.Text = uC_SR_DL.txt_final_Mz_kN.Text;
+                uC_Res.uC_SR_DL.txt_final_vert_reac.Text = uC_SR_DL.txt_final_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_final_vert_rec_kN.Text = uC_SR_DL.txt_final_vert_rec_kN.Text;
+                uC_Res.uC_SR_DL.txt_left_max_total_Mx.Text = uC_SR_DL.txt_left_max_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_left_max_total_Mz.Text = uC_SR_DL.txt_left_max_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_left_max_total_vert_reac.Text = uC_SR_DL.txt_left_max_total_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_left_total_Mx.Text = uC_SR_DL.txt_left_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_left_total_Mz.Text = uC_SR_DL.txt_left_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_left_total_vert_reac.Text = uC_SR_DL.txt_left_total_vert_reac.Text;
+
+
+                uC_Res.uC_SR_DL.txt_max_Mx.Text = uC_SR_DL.txt_max_Mx.Text;
+                uC_Res.uC_SR_DL.txt_max_Mx_kN.Text = uC_SR_DL.txt_max_Mx_kN.Text;
+                uC_Res.uC_SR_DL.txt_max_Mz.Text = uC_SR_DL.txt_max_Mz.Text;
+                uC_Res.uC_SR_DL.txt_max_Mz_kN.Text = uC_SR_DL.txt_max_Mz_kN.Text;
+                uC_Res.uC_SR_DL.txt_max_vert_reac.Text = uC_SR_DL.txt_max_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_max_vert_reac_kN.Text = uC_SR_DL.txt_max_vert_reac_kN.Text;
+                uC_Res.uC_SR_DL.txt_right_max_total_Mx.Text = uC_SR_DL.txt_right_max_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_right_max_total_Mz.Text = uC_SR_DL.txt_right_max_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_right_max_total_vert_reac.Text = uC_SR_DL.txt_right_max_total_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_right_total_Mx.Text = uC_SR_DL.txt_right_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_right_total_Mz.Text = uC_SR_DL.txt_right_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_right_total_vert_reac.Text = uC_SR_DL.txt_right_total_vert_reac.Text;
+
+
+
+                uC_Res.uC_SR_LL.txt_final_Mx.Text = uC_SR_LL.txt_final_Mx.Text;
+                uC_Res.uC_SR_LL.txt_final_Mx_kN.Text = uC_SR_LL.txt_final_Mx_kN.Text;
+                uC_Res.uC_SR_LL.txt_final_Mz.Text = uC_SR_LL.txt_final_Mz.Text;
+
+
+                uC_Res.uC_SR_LL.txt_final_Mz_kN.Text = uC_SR_LL.txt_final_Mz_kN.Text;
+                uC_Res.uC_SR_LL.txt_final_vert_reac.Text = uC_SR_LL.txt_final_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_final_vert_rec_kN.Text = uC_SR_LL.txt_final_vert_rec_kN.Text;
+                uC_Res.uC_SR_LL.txt_left_max_total_Mx.Text = uC_SR_LL.txt_left_max_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_left_max_total_Mz.Text = uC_SR_LL.txt_left_max_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_left_max_total_vert_reac.Text = uC_SR_LL.txt_left_max_total_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_left_total_Mx.Text = uC_SR_LL.txt_left_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_left_total_Mz.Text = uC_SR_LL.txt_left_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_left_total_vert_reac.Text = uC_SR_LL.txt_left_total_vert_reac.Text;
+
+
+                uC_Res.uC_SR_LL.txt_max_Mx.Text = uC_SR_LL.txt_max_Mx.Text;
+                uC_Res.uC_SR_LL.txt_max_Mx_kN.Text = uC_SR_LL.txt_max_Mx_kN.Text;
+                uC_Res.uC_SR_LL.txt_max_Mz.Text = uC_SR_LL.txt_max_Mz.Text;
+                uC_Res.uC_SR_LL.txt_max_Mz_kN.Text = uC_SR_LL.txt_max_Mz_kN.Text;
+                uC_Res.uC_SR_LL.txt_max_vert_reac.Text = uC_SR_LL.txt_max_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_max_vert_reac_kN.Text = uC_SR_LL.txt_max_vert_reac_kN.Text;
+                uC_Res.uC_SR_LL.txt_right_max_total_Mx.Text = uC_SR_LL.txt_right_max_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_right_max_total_Mz.Text = uC_SR_LL.txt_right_max_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_right_max_total_vert_reac.Text = uC_SR_LL.txt_right_max_total_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_right_total_Mx.Text = uC_SR_LL.txt_right_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_right_total_Mz.Text = uC_SR_LL.txt_right_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_right_total_vert_reac.Text = uC_SR_LL.txt_right_total_vert_reac.Text;
+
+
+                uC_Res.uC_MaxSR.txt_brg_max_DL_kN.Text = uC_MaxSR.txt_brg_max_DL_kN.Text;
+                uC_Res.uC_MaxSR.txt_brg_max_DL_Ton.Text = uC_MaxSR.txt_brg_max_DL_Ton.Text;
+                uC_Res.uC_MaxSR.txt_brg_max_VR_kN.Text = uC_MaxSR.txt_brg_max_VR_kN.Text;
+                uC_Res.uC_MaxSR.txt_brg_max_VR_Ton.Text = uC_MaxSR.txt_brg_max_VR_Ton.Text;
+                uC_Res.uC_MaxSR.txt_mxf_left_total_Mx.Text = uC_MaxSR.txt_mxf_left_total_Mx.Text;
+                uC_Res.uC_MaxSR.txt_mxf_left_total_Mz.Text = uC_MaxSR.txt_mxf_left_total_Mz.Text;
+                uC_Res.uC_MaxSR.txt_mxf_left_total_vert_reac.Text = uC_MaxSR.txt_mxf_left_total_vert_reac.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_Mx.Text = uC_MaxSR.txt_mxf_max_Mx.Text;
+
+
+                uC_Res.uC_MaxSR.txt_mxf_max_Mx_kN.Text = uC_MaxSR.txt_mxf_max_Mx_kN.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_Mz.Text = uC_MaxSR.txt_mxf_max_Mz.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_Mz_kN.Text = uC_MaxSR.txt_mxf_max_Mz_kN.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_vert_reac.Text = uC_MaxSR.txt_mxf_max_vert_reac.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_vert_reac_kN.Text = uC_MaxSR.txt_mxf_max_vert_reac_kN.Text;
+                uC_Res.uC_MaxSR.txt_mxf_right_total_Mx.Text = uC_MaxSR.txt_mxf_right_total_Mx.Text;
+                uC_Res.uC_MaxSR.txt_mxf_right_total_Mz.Text = uC_MaxSR.txt_mxf_right_total_Mz.Text;
+                uC_Res.uC_MaxSR.txt_mxf_right_total_vert_reac.Text = uC_MaxSR.txt_mxf_right_total_vert_reac.Text;
+
+
+
+                #endregion Normal
+
+                Copy_Data_Grid_View(uC_SR_DL.dgv_left_des_frc, uC_Res.uC_SR_DL.dgv_left_des_frc);
+                Copy_Data_Grid_View(uC_SR_DL.dgv_right_des_frc, uC_Res.uC_SR_DL.dgv_right_des_frc);
+
+
+                Copy_Data_Grid_View(uC_SR_LL.dgv_left_des_frc, uC_Res.uC_SR_LL.dgv_left_des_frc);
+                Copy_Data_Grid_View(uC_SR_LL.dgv_right_des_frc, uC_Res.uC_SR_LL.dgv_right_des_frc);
+
+                Copy_Data_Grid_View(uC_MaxSR.dgv_mxf_left_des_frc, uC_Res.uC_MaxSR.dgv_mxf_left_des_frc);
+                Copy_Data_Grid_View(uC_MaxSR.dgv_mxf_right_des_frc, uC_Res.uC_MaxSR.dgv_mxf_right_des_frc);
+            }
+            else
+            {
+
+                var uc = uC_Stage_Extradosed1;
+                if (tp == eAnalysis.Stage2) uc = uC_Stage_Extradosed2;
+                else if (tp == eAnalysis.Stage3) uc = uC_Stage_Extradosed3;
+                else if (tp == eAnalysis.Stage4) uc = uC_Stage_Extradosed4;
+                else if (tp == eAnalysis.Stage5) uc = uC_Stage_Extradosed5;
+
+                #region Stage
+                uC_Res.txt_Ana_dead_inner_long_3L_8_moment.Text = uc.txt_Ana_dead_inner_long_3L_8_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_3L_8_shear.Text = uc.txt_Ana_dead_inner_long_3L_8_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_deff_moment.Text = uc.txt_Ana_dead_inner_long_deff_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_deff_shear.Text = uc.txt_Ana_dead_inner_long_deff_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_L2_moment.Text = uc.txt_Ana_dead_inner_long_L2_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_L2_shear.Text = uc.txt_Ana_dead_inner_long_L2_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_L4_moment.Text = uc.txt_Ana_dead_inner_long_L4_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_L4_shear.Text = uc.txt_Ana_dead_inner_long_L4_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_L8_moment.Text = uc.txt_Ana_dead_inner_long_L8_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_L8_shear.Text = uc.txt_Ana_dead_inner_long_L8_shear.Text;
+                uC_Res.txt_Ana_dead_inner_long_support_moment.Text = uc.txt_Ana_dead_inner_long_support_moment.Text;
+                uC_Res.txt_Ana_dead_inner_long_support_shear.Text = uc.txt_Ana_dead_inner_long_support_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_3L_8_moment.Text = uc.txt_Ana_live_inner_long_3L_8_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_3L_8_shear.Text = uc.txt_Ana_live_inner_long_3L_8_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_deff_moment.Text = uc.txt_Ana_live_inner_long_deff_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_deff_shear.Text = uc.txt_Ana_live_inner_long_deff_shear.Text;
+
+                uC_Res.txt_Ana_live_inner_long_L2_moment.Text = uc.txt_Ana_live_inner_long_L2_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_L2_shear.Text = uc.txt_Ana_live_inner_long_L2_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_L4_moment.Text = uc.txt_Ana_live_inner_long_L4_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_L4_shear.Text = uc.txt_Ana_live_inner_long_L4_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_L8_moment.Text = uc.txt_Ana_live_inner_long_L8_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_L8_shear.Text = uc.txt_Ana_live_inner_long_L8_shear.Text;
+                uC_Res.txt_Ana_live_inner_long_support_moment.Text = uc.txt_Ana_live_inner_long_support_moment.Text;
+                uC_Res.txt_Ana_live_inner_long_support_shear.Text = uc.txt_Ana_live_inner_long_support_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_3L_8_moment.Text = uc.txt_Ana_live_outer_long_3L_8_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_3L_8_shear.Text = uc.txt_Ana_live_outer_long_3L_8_shear.Text;
+
+                uC_Res.txt_Ana_live_outer_long_deff_moment.Text = uc.txt_Ana_live_outer_long_deff_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_deff_shear.Text = uc.txt_Ana_live_outer_long_deff_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_L2_moment.Text = uc.txt_Ana_live_outer_long_L2_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_L2_shear.Text = uc.txt_Ana_live_outer_long_L2_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_L4_moment.Text = uc.txt_Ana_live_outer_long_L4_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_L4_shear.Text = uc.txt_Ana_live_outer_long_L4_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_L8_moment.Text = uc.txt_Ana_live_outer_long_L8_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_L8_shear.Text = uc.txt_Ana_live_outer_long_L8_shear.Text;
+                uC_Res.txt_Ana_live_outer_long_support_moment.Text = uc.txt_Ana_live_outer_long_support_moment.Text;
+                uC_Res.txt_Ana_live_outer_long_support_shear.Text = uc.txt_Ana_live_outer_long_support_shear.Text;
+
+
+                uC_Res.uC_SR_DL.txt_final_Mx.Text = uc.uC_SR_DL.txt_final_Mx.Text;
+                uC_Res.uC_SR_DL.txt_final_Mx_kN.Text = uc.uC_SR_DL.txt_final_Mx_kN.Text;
+                uC_Res.uC_SR_DL.txt_final_Mz.Text = uc.uC_SR_DL.txt_final_Mz.Text;
+
+
+                uC_Res.uC_SR_DL.txt_final_Mz_kN.Text = uc.uC_SR_DL.txt_final_Mz_kN.Text;
+                uC_Res.uC_SR_DL.txt_final_vert_reac.Text = uc.uC_SR_DL.txt_final_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_final_vert_rec_kN.Text = uc.uC_SR_DL.txt_final_vert_rec_kN.Text;
+                uC_Res.uC_SR_DL.txt_left_max_total_Mx.Text = uc.uC_SR_DL.txt_left_max_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_left_max_total_Mz.Text = uc.uC_SR_DL.txt_left_max_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_left_max_total_vert_reac.Text = uc.uC_SR_DL.txt_left_max_total_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_left_total_Mx.Text = uc.uC_SR_DL.txt_left_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_left_total_Mz.Text = uc.uC_SR_DL.txt_left_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_left_total_vert_reac.Text = uc.uC_SR_DL.txt_left_total_vert_reac.Text;
+
+
+                uC_Res.uC_SR_DL.txt_max_Mx.Text = uc.uC_SR_DL.txt_max_Mx.Text;
+                uC_Res.uC_SR_DL.txt_max_Mx_kN.Text = uc.uC_SR_DL.txt_max_Mx_kN.Text;
+                uC_Res.uC_SR_DL.txt_max_Mz.Text = uc.uC_SR_DL.txt_max_Mz.Text;
+                uC_Res.uC_SR_DL.txt_max_Mz_kN.Text = uc.uC_SR_DL.txt_max_Mz_kN.Text;
+                uC_Res.uC_SR_DL.txt_max_vert_reac.Text = uc.uC_SR_DL.txt_max_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_max_vert_reac_kN.Text = uc.uC_SR_DL.txt_max_vert_reac_kN.Text;
+                uC_Res.uC_SR_DL.txt_right_max_total_Mx.Text = uc.uC_SR_DL.txt_right_max_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_right_max_total_Mz.Text = uc.uC_SR_DL.txt_right_max_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_right_max_total_vert_reac.Text = uc.uC_SR_DL.txt_right_max_total_vert_reac.Text;
+                uC_Res.uC_SR_DL.txt_right_total_Mx.Text = uc.uC_SR_DL.txt_right_total_Mx.Text;
+                uC_Res.uC_SR_DL.txt_right_total_Mz.Text = uc.uC_SR_DL.txt_right_total_Mz.Text;
+                uC_Res.uC_SR_DL.txt_right_total_vert_reac.Text = uc.uC_SR_DL.txt_right_total_vert_reac.Text;
+
+
+
+
+
+
+
+
+                uC_Res.uC_SR_LL.txt_final_Mx.Text = uc.uC_SR_LL.txt_final_Mx.Text;
+                uC_Res.uC_SR_LL.txt_final_Mx_kN.Text = uc.uC_SR_LL.txt_final_Mx_kN.Text;
+                uC_Res.uC_SR_LL.txt_final_Mz.Text = uc.uC_SR_LL.txt_final_Mz.Text;
+
+
+                uC_Res.uC_SR_LL.txt_final_Mz_kN.Text = uc.uC_SR_LL.txt_final_Mz_kN.Text;
+                uC_Res.uC_SR_LL.txt_final_vert_reac.Text = uc.uC_SR_LL.txt_final_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_final_vert_rec_kN.Text = uc.uC_SR_LL.txt_final_vert_rec_kN.Text;
+                uC_Res.uC_SR_LL.txt_left_max_total_Mx.Text = uc.uC_SR_LL.txt_left_max_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_left_max_total_Mz.Text = uc.uC_SR_LL.txt_left_max_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_left_max_total_vert_reac.Text = uc.uC_SR_LL.txt_left_max_total_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_left_total_Mx.Text = uc.uC_SR_LL.txt_left_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_left_total_Mz.Text = uc.uC_SR_LL.txt_left_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_left_total_vert_reac.Text = uc.uC_SR_LL.txt_left_total_vert_reac.Text;
+
+
+                uC_Res.uC_SR_LL.txt_max_Mx.Text = uc.uC_SR_LL.txt_max_Mx.Text;
+                uC_Res.uC_SR_LL.txt_max_Mx_kN.Text = uc.uC_SR_LL.txt_max_Mx_kN.Text;
+                uC_Res.uC_SR_LL.txt_max_Mz.Text = uc.uC_SR_LL.txt_max_Mz.Text;
+                uC_Res.uC_SR_LL.txt_max_Mz_kN.Text = uc.uC_SR_LL.txt_max_Mz_kN.Text;
+                uC_Res.uC_SR_LL.txt_max_vert_reac.Text = uc.uC_SR_LL.txt_max_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_max_vert_reac_kN.Text = uc.uC_SR_LL.txt_max_vert_reac_kN.Text;
+                uC_Res.uC_SR_LL.txt_right_max_total_Mx.Text = uc.uC_SR_LL.txt_right_max_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_right_max_total_Mz.Text = uc.uC_SR_LL.txt_right_max_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_right_max_total_vert_reac.Text = uc.uC_SR_LL.txt_right_max_total_vert_reac.Text;
+                uC_Res.uC_SR_LL.txt_right_total_Mx.Text = uc.uC_SR_LL.txt_right_total_Mx.Text;
+                uC_Res.uC_SR_LL.txt_right_total_Mz.Text = uc.uC_SR_LL.txt_right_total_Mz.Text;
+                uC_Res.uC_SR_LL.txt_right_total_vert_reac.Text = uc.uC_SR_LL.txt_right_total_vert_reac.Text;
+
+
+                uC_Res.uC_MaxSR.txt_brg_max_DL_kN.Text = uc.uC_MaxSR.txt_brg_max_DL_kN.Text;
+                uC_Res.uC_MaxSR.txt_brg_max_DL_Ton.Text = uc.uC_MaxSR.txt_brg_max_DL_Ton.Text;
+                uC_Res.uC_MaxSR.txt_brg_max_VR_kN.Text = uc.uC_MaxSR.txt_brg_max_VR_kN.Text;
+                uC_Res.uC_MaxSR.txt_brg_max_VR_Ton.Text = uc.uC_MaxSR.txt_brg_max_VR_Ton.Text;
+                uC_Res.uC_MaxSR.txt_mxf_left_total_Mx.Text = uc.uC_MaxSR.txt_mxf_left_total_Mx.Text;
+                uC_Res.uC_MaxSR.txt_mxf_left_total_Mz.Text = uc.uC_MaxSR.txt_mxf_left_total_Mz.Text;
+                uC_Res.uC_MaxSR.txt_mxf_left_total_vert_reac.Text = uc.uC_MaxSR.txt_mxf_left_total_vert_reac.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_Mx.Text = uc.uC_MaxSR.txt_mxf_max_Mx.Text;
+
+
+                uC_Res.uC_MaxSR.txt_mxf_max_Mx_kN.Text = uc.uC_MaxSR.txt_mxf_max_Mx_kN.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_Mz.Text = uc.uC_MaxSR.txt_mxf_max_Mz.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_Mz_kN.Text = uc.uC_MaxSR.txt_mxf_max_Mz_kN.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_vert_reac.Text = uc.uC_MaxSR.txt_mxf_max_vert_reac.Text;
+                uC_Res.uC_MaxSR.txt_mxf_max_vert_reac_kN.Text = uc.uC_MaxSR.txt_mxf_max_vert_reac_kN.Text;
+                uC_Res.uC_MaxSR.txt_mxf_right_total_Mx.Text = uc.uC_MaxSR.txt_mxf_right_total_Mx.Text;
+                uC_Res.uC_MaxSR.txt_mxf_right_total_Mz.Text = uc.uC_MaxSR.txt_mxf_right_total_Mz.Text;
+                uC_Res.uC_MaxSR.txt_mxf_right_total_vert_reac.Text = uc.uC_MaxSR.txt_mxf_right_total_vert_reac.Text;
+
+
+
+
+
+
+                #endregion Stage
+
+
+                Copy_Data_Grid_View(uc.uC_SR_DL.dgv_left_des_frc, uC_Res.uC_SR_DL.dgv_left_des_frc);
+                Copy_Data_Grid_View(uc.uC_SR_DL.dgv_right_des_frc, uC_Res.uC_SR_DL.dgv_right_des_frc);
+
+
+                Copy_Data_Grid_View(uc.uC_SR_LL.dgv_left_des_frc, uC_Res.uC_SR_LL.dgv_left_des_frc);
+                Copy_Data_Grid_View(uc.uC_SR_LL.dgv_right_des_frc, uC_Res.uC_SR_LL.dgv_right_des_frc);
+
+                Copy_Data_Grid_View(uc.uC_MaxSR.dgv_mxf_left_des_frc, uC_Res.uC_MaxSR.dgv_mxf_left_des_frc);
+                Copy_Data_Grid_View(uc.uC_MaxSR.dgv_mxf_right_des_frc, uC_Res.uC_MaxSR.dgv_mxf_right_des_frc);
+            }
+        }
+        void Copy_Data_Grid_View(DataGridView dgv1, DataGridView dgv2)
+        {
+            int i = 0;
+            dgv2.Rows.Clear();
+            dgv2.AllowUserToAddRows = false;
+            for (i = 0; i < dgv1.RowCount; i++)
+            {
+                try
+                {
+                    dgv2.Rows.Add("", "", "", "");
+                    //dgv2.Rows.Add(dgv1.Rows[i]);
+                    for (int j = 0; j < dgv1.ColumnCount; j++)
+                    {
+                        dgv2[j, i].Value = dgv1[j, i].Value;
+                    }
+                }
+                catch (Exception exx) { }
+            }
         }
         void Change_Stage_Data()
         {
             int stg = cmb_design_stage.SelectedIndex;
+
+
+
 
             if (stg == 0)
             {
@@ -11244,6 +12440,1044 @@ namespace LimitStateMethod.Extradossed
                 uC_BoxGirder1.txt_SF_LL_3L8.Text = uc.txt_Ana_live_inner_long_3L_8_shear.Text;
                 uC_BoxGirder1.txt_SF_LL_Mid.Text = uc.txt_Ana_live_inner_long_L2_shear.Text;
             }
+
+            string fl = Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_PRIMARY.TXT");
+            eAnalysis ana = (eAnalysis)cmb_design_stage.SelectedIndex;
+            if (ana == eAnalysis.Stage1) fl = Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_1.TXT");
+            else if (ana == eAnalysis.Stage2) fl = Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_2.TXT");
+            else if (ana == eAnalysis.Stage3) fl = Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_3.TXT");
+            else if (ana == eAnalysis.Stage4) fl = Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_4.TXT");
+            else if (ana == eAnalysis.Stage5) fl = Path.Combine(user_path, "PROCESS\\ANALYSIS_RESULT_STAGE_5.TXT");
+
+            if (File.Exists(fl))
+            {
+                //rtb_result_summary.Lines = File.ReadAllLines(fl);
+            }
+
+
+        }
+
+        private void btn_result_summary_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(stg_file)) iApp.Open_TextFile(stg_file);
+        }
+
+        #region Support Rection
+        public void SupportReaction()
+        {
+
+        }
+
+
+        void Show_and_Save_Data_Load_1_2_3()
+        {
+
+            if (!File.Exists(analysis_rep)) return;
+
+
+
+            UC_SupportReactions uCSR_DL = uC_SR_DL;
+            UC_SupportReactions uCSR_LL = uC_SR_LL;
+            UC_MaxReactions uCMaxSR = uC_MaxSR;
+
+
+            if (AnalysisType != eAnalysis.Normal)
+            {
+                uCSR_DL = ucStage.uC_SR_DL;
+                uCSR_LL = ucStage.uC_SR_LL;
+                uCMaxSR = ucStage.uC_MaxSR;
+            }
+
+
+
+            string format = "{0,27} {1,10:f3} {2,10:f3} {3,10:f3}";
+            List<string> list_arr = new List<string>(File.ReadAllLines(analysis_rep));
+            list_arr.Add("");
+            list_arr.Add("                   =====================================");
+            list_arr.Add("                     DESIGN FORCES FOR RCC PIER DESIGN");
+            list_arr.Add("                   =====================================");
+            list_arr.Add("");
+            list_arr.Add("");
+            list_arr.Add(string.Format(""));
+            list_arr.Add(string.Format(format, "JOINT", "VERTICAL", "MAXIMUM", "MAXIMUM"));
+            list_arr.Add(string.Format(format, "NOS", "REACTIONS", "MX", "MZ"));
+            list_arr.Add(string.Format(format, "   ", "  (Ton)   ", "  (Ton-m)", "  (Ton-m)"));
+            list_arr.Add("");
+            SupportReaction sr = null;
+
+            MyList mlist = new MyList(MyList.RemoveAllSpaces(Left_support), ' ');
+
+            double tot_left_vert_reac = 0.0;
+            double tot_right_vert_reac = 0.0;
+
+            double tot_left_Mx = 0.0;
+            double tot_left_Mz = 0.0;
+
+            double tot_right_Mx = 0.0;
+            double tot_right_Mz = 0.0;
+
+
+
+            DataGridView dgv_left = uCSR_DL.dgv_left_des_frc;
+            DataGridView dgv_right = uCSR_DL.dgv_right_des_frc;
+
+
+
+
+
+
+
+
+
+            dgv_left.Rows.Clear();
+            dgv_right.Rows.Clear();
+            list_arr.Add("LEFT END");
+            list_arr.Add("--------");
+
+
+            double _vert_load, _mx, _mz;
+
+            _vert_load = _mx = _mz = 0.0;
+            int _jnt_no = 0;
+            for (int i = 0; i < mlist.Count; i++)
+            {
+
+                _jnt_no = mlist.GetInt(i);
+
+                var lst = new List<int>();
+
+                lst.Add(_jnt_no);
+
+                //LOAD 1 DEAD LOAD SELF WEIGHT
+                var shr = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_jnt_no, 1);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
+                var mx = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_jnt_no, 1);
+                var mz = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_jnt_no, 1);
+
+
+
+                //Add Load 1 + Load 2 + Load 3
+                //_vert_load += shr.Force;
+                //_mx += mx.Force;
+                //_mz += mz.Force;
+
+
+                _vert_load = shr.Force;
+                _mx = mx.Force;
+                _mz = mz.Force;
+
+
+
+
+                //dgv_left_des_frc.Rows.Add(sr.JointNo, sr.Max_Reaction, sr.Max_Mx, sr.Max_Mz);
+                dgv_left.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
+
+                tot_left_vert_reac += Math.Abs(_vert_load); ;
+                tot_left_Mx += _mx;
+                tot_left_Mz += _mz;
+                list_arr.Add(string.Format(format, _jnt_no, Math.Abs(_vert_load), _mx, _mz));
+            }
+
+            list_arr.Add("");
+
+
+
+            uCSR_DL.txt_left_total_vert_reac.Text = tot_left_vert_reac.ToString("0.000");
+            uCSR_DL.txt_left_total_Mx.Text = tot_left_Mx.ToString("0.000");
+            uCSR_DL.txt_left_total_Mz.Text = tot_left_Mz.ToString("0.000");
+            list_arr.Add(string.Format(format, "TOTAL", tot_left_vert_reac, tot_left_Mx, tot_left_Mz));
+            list_arr.Add("");
+
+
+            mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
+            list_arr.Add("RIGHT END");
+            list_arr.Add("--------");
+            for (int i = 0; i < mlist.Count; i++)
+            {
+                _jnt_no = mlist.GetInt(i);
+
+                var lst = new List<int>();
+
+                lst.Add(_jnt_no);
+
+                //LOAD 1 DEAD LOAD SELF WEIGHT
+                var shr = Deck_Analysis_DL.Bridge_Analysis.GetJoint_ShearForce(_jnt_no, 1);
+                //var shr = Long_Girder_Analysis.DeadLoad_Analysis.GetJoint_R2_Shear(lst, 4);
+                var mx = Deck_Analysis_DL.Bridge_Analysis.GetJoint_Torsion(_jnt_no, 1);
+                var mz = Deck_Analysis_DL.Bridge_Analysis.GetJoint_MomentForce(_jnt_no, 1);
+
+                _vert_load = shr.Force;
+                _mx = mx.Force;
+                _mz = mz.Force;
+
+                sr = support_reactions.Get_Data(mlist.GetInt(i));
+                dgv_right.Rows.Add(_jnt_no, Math.Abs(_vert_load), _mx, _mz);
+
+                tot_right_vert_reac += Math.Abs(_vert_load);
+                tot_right_Mx += _mx;
+                tot_right_Mz += _mz;
+                list_arr.Add(string.Format(format, _jnt_no, Math.Abs(_vert_load), _mx, _mz));
+
+            }
+            list_arr.Add("");
+
+            //Chiranjit [2012 07 06]
+            //Change unit kN to Ton
+            //tot_right_vert_reac /= 10.0;
+            //tot_right_Mx /= 10.0;
+            //tot_right_Mz /= 10.0;
+            uCSR_DL.txt_right_total_vert_reac.Text = tot_right_vert_reac.ToString("0.000");
+            uCSR_DL.txt_right_total_Mx.Text = tot_right_Mx.ToString("0.000");
+            uCSR_DL.txt_right_total_Mz.Text = tot_right_Mz.ToString("0.000");
+            list_arr.Add("");
+
+
+            list_arr.Add(string.Format(format, "TOTAL", tot_right_vert_reac, tot_right_Mx, tot_right_Mz));
+            list_arr.Add("");
+
+
+
+
+
+
+
+
+
+
+
+
+            //txt_both_ends_total.Text = (tot_left_vert_reac + tot_right_vert_reac).ToString("0.000");
+            list_arr.Add("");
+            //list_arr.Add("BOTH ENDS TOTAL VERTICAL REACTION = " + txt_both_ends_total.Text + " Ton");
+
+            uCSR_DL.txt_final_vert_reac.Text = (tot_right_vert_reac + tot_left_vert_reac).ToString("0.000");
+            uCSR_DL.txt_final_vert_rec_kN.Text = ((tot_right_vert_reac + tot_left_vert_reac) * 10).ToString("0.000");
+
+
+
+            uCSR_DL.txt_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
+            uCSR_DL.txt_max_vert_reac_kN.Text = (MyList.StringToDouble(uCSR_DL.txt_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
+
+
+            list_arr.Add("");
+            list_arr.Add("");
+            list_arr.Add("FINAL DESIGN FORCES");
+            list_arr.Add("-------------------");
+            list_arr.Add("");
+            list_arr.Add("TOTAL VERTICAL REACTION = " + uCSR_DL.txt_final_vert_reac.Text + " Ton" + "    =  " + uCSR_DL.txt_final_vert_rec_kN.Text + " kN");
+
+            //txt_final_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            //txt_final_Mx_kN.Text = (MyList.StringToDouble(txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+
+            uCSR_DL.txt_final_Mx.Text = (tot_left_Mx + tot_right_Mx).ToString("0.000");
+            uCSR_DL.txt_final_Mx_kN.Text = (MyList.StringToDouble(uCSR_DL.txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+            uCSR_DL.txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            uCSR_DL.txt_max_Mx_kN.Text = (MyList.StringToDouble(uCSR_DL.txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+            list_arr.Add("        MAXIMUM  MX     = " + uCSR_DL.txt_final_Mx.Text + " Ton-M" + "  =  " + uCSR_DL.txt_final_Mx_kN.Text + " kN-m");
+            //txt_final_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz))  ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            //txt_final_Mz_kN.Text = (MyList.StringToDouble(txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+            uCSR_DL.txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
+            uCSR_DL.txt_final_Mz_kN.Text = (MyList.StringToDouble(uCSR_DL.txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+            //txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            uCSR_DL.txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            uCSR_DL.txt_max_Mz_kN.Text = (MyList.StringToDouble(uCSR_DL.txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+
+
+
+
+
+            list_arr.Add("        MAXIMUM  MZ     = " + uCSR_DL.txt_final_Mz.Text + " Ton-M" + "  =  " + uCSR_DL.txt_final_Mz_kN.Text + " kN-m");
+            list_arr.Add("");
+            list_arr.Add("");
+            list_arr.Add("                  ========================================");
+            list_arr.Add("                  END OF DESIGN FORCES FOR RCC PIER DESIGN");
+            list_arr.Add("                  ========================================");
+            list_arr.Add("");
+
+
+            #region LL
+            tot_left_vert_reac = 0.0;
+            tot_left_Mx = 0.0;
+            tot_left_Mz = 0.0;
+
+
+
+            uCSR_LL.dgv_left_des_frc.Rows.Clear();
+            uCSR_LL.dgv_right_des_frc.Rows.Clear();
+
+
+            dgv_left = uCSR_LL.dgv_left_des_frc;
+            dgv_right = uCSR_LL.dgv_right_des_frc;
+
+
+
+            mlist = new MyList(MyList.RemoveAllSpaces(Left_support), ' ');
+            for (int i = 0; i < mlist.Count; i++)
+            {
+
+                _jnt_no = mlist.GetInt(i);
+
+                var jnt = new List<int>();
+                jnt.Add(_jnt_no);
+
+                _vert_load = 0;
+                _mx = 0;
+                _mz = 0;
+
+
+
+                for (int j = 0; j < all_loads.Count; j++)
+                {
+
+                    #region Get Node results from Dead load analysis
+                    //Get Node results from Dead load analysis
+                    //var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    var mxf = All_Analysis[j].GetJoint_ShearForce(jnt);
+                    if (_vert_load < Math.Abs(mxf.Force))
+                    {
+                        _vert_load = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = All_Analysis[j].GetJoint_Torsion(jnt);
+                    if (_mx < Math.Abs(mxf.Force))
+                    {
+                        _mx = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = All_Analysis[j].GetJoint_MomentForce(jnt);
+                    if (_mz < Math.Abs(mxf.Force))
+                    {
+                        _mz = Math.Abs(mxf.Force);
+                    }
+
+                    #endregion Get Forces LL ANALYSIS
+
+                }
+
+
+                dgv_left.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
+
+                tot_left_vert_reac += Math.Abs(_vert_load); ;
+                tot_left_Mx += _mx;
+                tot_left_Mz += _mz;
+                list_arr.Add(string.Format(format, _jnt_no, Math.Abs(_vert_load), _mx, _mz));
+            }
+
+            uCSR_LL.txt_left_total_vert_reac.Text = tot_left_vert_reac.ToString("0.000");
+            uCSR_LL.txt_left_total_Mx.Text = tot_left_Mx.ToString("0.000");
+            uCSR_LL.txt_left_total_Mz.Text = tot_left_Mz.ToString("0.000");
+
+
+            tot_right_vert_reac = 0.0;
+            tot_right_Mx = 0.0;
+            tot_right_Mz = 0.0;
+
+            mlist = new MyList(MyList.RemoveAllSpaces(Right_support), ' ');
+            for (int i = 0; i < mlist.Count; i++)
+            {
+
+                _jnt_no = mlist.GetInt(i);
+
+                var jnt = new List<int>();
+                jnt.Add(_jnt_no);
+
+                _vert_load = 0;
+                _mx = 0;
+                _mz = 0;
+                for (int j = 0; j < all_loads.Count; j++)
+                {
+
+                    #region Get Node results from Dead load analysis
+                    //Get Node results from Dead load analysis
+                    //var mxf = Long_Girder_Analysis.All_LL_Analysis[j].GetJoint_R2_Shear(jnt);
+                    var mxf = All_Analysis[j].GetJoint_ShearForce(jnt);
+                    if (_vert_load < Math.Abs(mxf.Force))
+                    {
+                        _vert_load = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = All_Analysis[j].GetJoint_Torsion(jnt);
+                    if (_mx < Math.Abs(mxf.Force))
+                    {
+                        _mx = Math.Abs(mxf.Force);
+                    }
+                    //Get Node results from Dead load analysis
+                    mxf = All_Analysis[j].GetJoint_MomentForce(jnt);
+                    if (_mz < Math.Abs(mxf.Force))
+                    {
+                        _mz = Math.Abs(mxf.Force);
+                    }
+
+                    #endregion Get Forces LL ANALYSIS
+
+                }
+
+
+                dgv_right.Rows.Add(_jnt_no, _vert_load, _mx, _mz);
+
+                tot_right_vert_reac += Math.Abs(_vert_load); ;
+                tot_right_Mx += _mx;
+                tot_right_Mz += _mz;
+            }
+
+            uCSR_LL.txt_right_total_vert_reac.Text = tot_right_vert_reac.ToString("0.000");
+            uCSR_LL.txt_right_total_Mx.Text = tot_right_Mx.ToString("0.000");
+            uCSR_LL.txt_right_total_Mz.Text = tot_right_Mz.ToString("0.000");
+
+
+            uCSR_LL.txt_final_vert_reac.Text = (tot_right_vert_reac + tot_left_vert_reac).ToString("0.000");
+            uCSR_LL.txt_final_vert_rec_kN.Text = ((tot_right_vert_reac + tot_left_vert_reac) * 10).ToString("0.000");
+
+
+            uCSR_LL.txt_final_Mx.Text = (tot_left_Mx + tot_right_Mx).ToString("0.000");
+            uCSR_LL.txt_final_Mx_kN.Text = (MyList.StringToDouble(uCSR_LL.txt_final_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+            uCSR_LL.txt_final_Mz.Text = (tot_left_Mz + tot_right_Mz).ToString("0.000");
+            uCSR_LL.txt_final_Mz_kN.Text = (MyList.StringToDouble(uCSR_LL.txt_final_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+
+
+            uCSR_LL.txt_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
+            uCSR_LL.txt_max_vert_reac_kN.Text = (MyList.StringToDouble(uCSR_LL.txt_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
+
+            uCSR_LL.txt_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            uCSR_LL.txt_max_Mx_kN.Text = (MyList.StringToDouble(uCSR_LL.txt_max_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+            uCSR_LL.txt_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            uCSR_LL.txt_max_Mz_kN.Text = (MyList.StringToDouble(uCSR_LL.txt_max_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+
+
+
+
+            #endregion LL
+
+            tot_right_vert_reac = 0.0;
+            tot_left_vert_reac = 0.0;
+
+            tot_left_Mx = 0.0;
+            tot_right_Mx = 0.0;
+
+            tot_left_Mz = 0.0;
+            tot_right_Mz = 0.0;
+
+            #region DL
+
+
+
+            uCMaxSR.dgv_mxf_left_des_frc.Rows.Clear();
+            uCMaxSR.dgv_mxf_right_des_frc.Rows.Clear();
+
+
+
+            dgv_left = uCMaxSR.dgv_mxf_left_des_frc;
+            dgv_right = uCMaxSR.dgv_mxf_right_des_frc;
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            double v1 = 0.0;
+            double v2 = 0.0;
+            double v3 = 0.0;
+            for (int i = 0; i < uCSR_DL.dgv_left_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(uCSR_DL.dgv_left_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load))
+                {
+                    _vert_load = v1;
+                }
+
+                v2 = MyList.StringToDouble(uCSR_DL.dgv_left_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx))
+                {
+                    _mx = v2;
+                }
+
+                v3 = MyList.StringToDouble(uCSR_DL.dgv_left_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+            uCMaxSR.dgv_mxf_left_des_frc.Rows.Add("DL", _vert_load, _mx, _mz);
+
+
+            uCSR_DL.txt_left_max_total_vert_reac.Text = _vert_load.ToString();
+            uCSR_DL.txt_left_max_total_Mx.Text = _mx.ToString();
+            uCSR_DL.txt_left_max_total_Mz.Text = _mz.ToString();
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+
+
+            for (int i = 0; i < uCSR_DL.dgv_right_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(uCSR_DL.dgv_right_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(uCSR_DL.dgv_right_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(uCSR_DL.dgv_right_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+
+
+            uCSR_DL.txt_right_max_total_vert_reac.Text = _vert_load.ToString();
+            uCSR_DL.txt_right_max_total_Mx.Text = _mx.ToString();
+            uCSR_DL.txt_right_max_total_Mz.Text = _mz.ToString();
+
+
+            uCMaxSR.dgv_mxf_right_des_frc.Rows.Add("DL", _vert_load, _mx, _mz);
+
+            #endregion DL
+
+
+
+
+            #region LL
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < uCSR_LL.dgv_left_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(uCSR_LL.dgv_left_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(uCSR_LL.dgv_left_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(uCSR_LL.dgv_left_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+
+
+            uCSR_LL.txt_left_max_total_vert_reac.Text = _vert_load.ToString();
+            uCSR_LL.txt_left_max_total_Mx.Text = _mx.ToString();
+            uCSR_LL.txt_left_max_total_Mz.Text = _mz.ToString();
+
+
+            uCMaxSR.dgv_mxf_left_des_frc.Rows.Add("LL", _vert_load, _mx, _mz);
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < uCSR_LL.dgv_right_des_frc.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(uCSR_LL.dgv_right_des_frc[1, i].Value.ToString(), 0.0);
+                if (Math.Abs(v1) > Math.Abs(_vert_load)) _vert_load = v1;
+
+                v2 = MyList.StringToDouble(uCSR_LL.dgv_right_des_frc[2, i].Value.ToString(), 0.0);
+                if (Math.Abs(v2) > Math.Abs(_mx)) _mx = v2;
+
+                v3 = MyList.StringToDouble(uCSR_LL.dgv_right_des_frc[3, i].Value.ToString(), 0.0);
+                if (Math.Abs(v3) > Math.Abs(_mz)) _mz = v3;
+
+            }
+
+
+
+
+            //uCSR_LL.txt_ll_right_max_total_vert_reac.Text = _vert_load.ToString();
+            uCSR_LL.txt_right_max_total_Mx.Text = _mx.ToString();
+            uCSR_LL.txt_right_max_total_Mz.Text = _mz.ToString();
+
+
+
+            uCMaxSR.dgv_mxf_right_des_frc.Rows.Add("LL", _vert_load, _mx, _mz);
+
+
+            #endregion LL
+
+
+
+            dgv_left = uCMaxSR.dgv_mxf_left_des_frc;
+            dgv_right = uCMaxSR.dgv_mxf_right_des_frc;
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_left.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_left[1, i].Value.ToString(), 0.0);
+                _vert_load += v1;
+
+                v2 = MyList.StringToDouble(dgv_left[2, i].Value.ToString(), 0.0);
+                _mx += v2;
+
+                v3 = MyList.StringToDouble(dgv_left[3, i].Value.ToString(), 0.0);
+                _mz += v3;
+
+            }
+
+
+
+            tot_left_vert_reac = _vert_load;
+            tot_left_Mx = _mx;
+            tot_left_Mz = _mz;
+
+
+            uCMaxSR.txt_mxf_left_total_vert_reac.Text = _vert_load.ToString();
+            uCMaxSR.txt_mxf_left_total_Mx.Text = _mx.ToString();
+            uCMaxSR.txt_mxf_left_total_Mz.Text = _mz.ToString();
+
+
+
+            _vert_load = 0.0;
+            _mx = 0.0;
+            _mz = 0.0;
+
+            v1 = 0.0;
+            v2 = 0.0;
+            v3 = 0.0;
+            for (int i = 0; i < dgv_right.RowCount - 1; i++)
+            {
+                v1 = MyList.StringToDouble(dgv_right[1, i].Value.ToString(), 0.0);
+                _vert_load += v1;
+
+                v2 = MyList.StringToDouble(dgv_right[2, i].Value.ToString(), 0.0);
+                _mx += v2;
+
+                v3 = MyList.StringToDouble(dgv_right[3, i].Value.ToString(), 0.0);
+                _mz += v3;
+
+            }
+
+
+            tot_right_vert_reac = _vert_load;
+            tot_right_Mx = _mx;
+            tot_right_Mz = _mz;
+
+            uCMaxSR.txt_mxf_right_total_vert_reac.Text = _vert_load.ToString();
+            uCMaxSR.txt_mxf_right_total_Mx.Text = _mx.ToString();
+            uCMaxSR.txt_mxf_right_total_Mz.Text = _mz.ToString();
+
+
+
+            #region Chiranjit [2017 06 11]
+
+            uCMaxSR.txt_mxf_max_vert_reac.Text = Math.Max(tot_right_vert_reac, tot_left_vert_reac).ToString("0.000");
+            uCMaxSR.txt_mxf_max_vert_reac_kN.Text = (MyList.StringToDouble(uCMaxSR.txt_mxf_max_vert_reac.Text, 0.0) * 10.0).ToString("f3");
+
+            uCMaxSR.txt_mxf_max_Mx.Text = ((Math.Abs(tot_left_Mx) > Math.Abs(tot_right_Mx)) ? tot_left_Mx : tot_right_Mx).ToString("0.000");
+            uCMaxSR.txt_mxf_max_Mx_kN.Text = (MyList.StringToDouble(uCMaxSR.txt_mxf_max_Mx.Text, 0.0) * 10.0).ToString("f3");
+
+            uCMaxSR.txt_mxf_max_Mz.Text = ((Math.Abs(tot_left_Mz) > Math.Abs(tot_right_Mz)) ? tot_left_Mz : tot_right_Mz).ToString("0.000");
+            uCMaxSR.txt_mxf_max_Mz_kN.Text = (MyList.StringToDouble(uCMaxSR.txt_mxf_max_Mz.Text, 0.0) * 10.0).ToString("f3");
+
+            #endregion Chiranjit [2017 06 11]
+
+
+            uCMaxSR.txt_brg_max_VR_Ton.Text = uCMaxSR.txt_mxf_max_vert_reac.Text;
+            uCMaxSR.txt_brg_max_VR_kN.Text = uCMaxSR.txt_mxf_max_vert_reac_kN.Text;
+
+
+
+            tot_left_vert_reac = 0.0;
+            tot_right_vert_reac = 0.0;
+
+
+            for (int i = 0; i < uCMaxSR.dgv_mxf_right_des_frc.RowCount - 2; i++)
+            {
+                v1 = MyList.StringToDouble(uCMaxSR.dgv_mxf_left_des_frc[1, i].Value.ToString(), 0.0);
+                tot_left_vert_reac += v1;
+
+                v1 = MyList.StringToDouble(uCMaxSR.dgv_mxf_right_des_frc[1, i].Value.ToString(), 0.0);
+                tot_right_vert_reac += v1;
+            }
+
+
+
+            _vert_load = Math.Max(tot_left_vert_reac, tot_right_vert_reac);
+            uCMaxSR.txt_brg_max_DL_Ton.Text = _vert_load.ToString();
+            uCMaxSR.txt_brg_max_DL_kN.Text = (_vert_load * 10).ToString();
+
+
+            double VR = MyList.StringToDouble(uCMaxSR.txt_brg_max_VR_Ton.Text, 0.0) * 10;
+            double DL = MyList.StringToDouble(uCMaxSR.txt_brg_max_DL_Ton.Text, 0.0) * 10;
+            //double HRT = MyList.StringToDouble(txt_brg_max_HRT_Ton.Text, 0.0) * 10;
+            //double HRL = MyList.StringToDouble(txt_brg_max_HRL_Ton.Text, 0.0) * 10;
+
+
+
+            uCMaxSR.txt_brg_max_VR_kN.Text = VR.ToString("f3");
+            uCMaxSR.txt_brg_max_DL_kN.Text = DL.ToString("f3");
+            //txt_brg_max_HRT_kN.Text = HRT.ToString("f3");
+            //txt_brg_max_HRL_kN.Text = HRL.ToString("f3");
+
+
+            File.WriteAllLines(analysis_rep, list_arr.ToArray());
+
+            list_arr.Clear();
+            //list_arr.Add("W1=" + txt_final_vert_rec_kN.Text);
+            //list_arr.Add("Mx1=" + txt_final_Mx_kN.Text);
+            //list_arr.Add("Mz1=" + txt_final_Mz_kN.Text);
+            string f_path = Path.Combine(Path.GetDirectoryName(analysis_rep), "Forces.fil");
+            File.WriteAllLines(f_path, list_arr.ToArray());
+            Environment.SetEnvironmentVariable("PIER", f_path);
+        }
+
+        #endregion Support Rection
+
+        private void txt_tot_AX_TextChanged(object sender, EventArgs e)
+        {
+            double tot_Ax = MyList.StringToDouble(txt_tot_AX);
+            double tot_Ix = MyList.StringToDouble(txt_tot_IXX);
+            double tot_Iy = MyList.StringToDouble(txt_tot_IYY);
+            double tot_Iz = MyList.StringToDouble(txt_tot_IZZ);
+
+            double cen_Pcnt = MyList.StringToDouble(txt_cen_pcnt) / 100;
+            double inn_Pcnt = MyList.StringToDouble(txt_inn_pcnt) / 100;
+            double out_Pcnt = MyList.StringToDouble(txt_out_pcnt) / 100;
+
+            txt_cen_AX.Text = (tot_Ax * cen_Pcnt).ToString("f3");
+            txt_cen_IXX.Text = (tot_Ix * cen_Pcnt).ToString("f3");
+            txt_cen_IYY.Text = (tot_Iy * cen_Pcnt).ToString("f3");
+            txt_cen_IZZ.Text = (tot_Iz * cen_Pcnt).ToString("f3");
+
+            txt_inn_AX.Text = (tot_Ax * inn_Pcnt).ToString("f3");
+            txt_inn_IXX.Text = (tot_Ix * inn_Pcnt).ToString("f3");
+            txt_inn_IYY.Text = (tot_Iy * inn_Pcnt).ToString("f3");
+            txt_inn_IZZ.Text = (tot_Iz * inn_Pcnt).ToString("f3");
+
+            txt_out_AX.Text = (tot_Ax * out_Pcnt).ToString("f3");
+            txt_out_IXX.Text = (tot_Ix * out_Pcnt).ToString("f3");
+            txt_out_IYY.Text = (tot_Iy * out_Pcnt).ToString("f3");
+            txt_out_IZZ.Text = (tot_Iz * out_Pcnt).ToString("f3");
+        }
+
+        private void uC_Stage_Extradosed1_OnEmodTextChanged(object sender, EventArgs e)
+        {
+
+            Emod_Changed(uC_Stage_Extradosed1);
+            Emod_Changed(uC_Stage_Extradosed2);
+            Emod_Changed(uC_Stage_Extradosed3);
+            Emod_Changed(uC_Stage_Extradosed4);
+            Emod_Changed(uC_Stage_Extradosed5);
+
+        }
+
+        private void Emod_Changed(UC_Stage_Extradosed uc)
+        {
+
+            double pcnt = MyList.StringToDouble(uc.txt_steel_prct) / 100;
+            uc.txt_emod_steel.Text = (MyList.StringToDouble(txt_emod_steel) * pcnt).ToString("f0");
+
+            pcnt = MyList.StringToDouble(uc.txt_cable_prct) / 100;
+            uc.txt_emod_cable.Text = (MyList.StringToDouble(txt_emod_cable) * pcnt).ToString("f0");
+
+            pcnt = MyList.StringToDouble(uc.txt_concrete_prct) / 100;
+            uc.txt_emod_conc.Text = (MyList.StringToDouble(txt_emod_conc) * pcnt).ToString("f0");
+        }
+
+        private void uC_CableStayedDesign1_OnButtonClick(object sender, EventArgs e)
+        {
+            if (uC_CableStayedDesign1.CS_Analysis == null)
+            {
+                if (Extradosed.DeadLoad_Analysis == null)
+                {
+                    Extradosed.Input_File = Get_Input_File(cmb_design_stage.SelectedIndex);
+                    string rep = MyList.Get_Analysis_Report_File(Extradosed.TotalAnalysis_Input_File);
+                    if (File.Exists(rep))
+                        Extradosed.TotalLoad_Analysis = new BridgeMemberAnalysis(iApp, rep);
+                }
+            }
+            uC_CableStayedDesign1.CS_Analysis = Extradosed;
+        }
+
+        private void chk_crash_barrier_CheckedChanged(object sender, EventArgs e)
+        {
+
+            Control rbtn = sender as Control;
+            if (rbtn.Name == chk_fp_left.Name)
+            {
+                if (chk_footpath.Checked)
+                {
+                    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+                    {
+                        chk_footpath.Checked = false;
+                    }
+
+                    if (!chk_fp_left.Checked)
+                    {
+                        txt_Ana_Hf_LHS.Enabled = false;
+                        txt_Ana_Wf_LHS.Enabled = false;
+                        txt_Ana_Hf_LHS.Text = "0.000";
+                        txt_Ana_Wf_LHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hf_LHS.Enabled = true;
+                        txt_Ana_Wf_LHS.Enabled = true;
+                        txt_Ana_Hf_LHS.Text = "1.000";
+                        txt_Ana_Wf_LHS.Text = "0.250";
+                    }
+
+                }
+            }
+            else if (rbtn.Name == chk_fp_right.Name)
+            {
+                if (chk_footpath.Checked)
+                {
+                    if (!chk_fp_left.Checked && !chk_fp_right.Checked)
+                    {
+                        chk_footpath.Checked = false;
+                        //chk_fp_left.Checked = true;
+                    }
+
+
+                    if (!chk_fp_right.Checked)
+                    {
+                        txt_Ana_Hf_RHS.Enabled = false;
+                        txt_Ana_Wf_RHS.Enabled = false;
+                        txt_Ana_Hf_RHS.Text = "0.000";
+                        txt_Ana_Wf_RHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hf_RHS.Enabled = true;
+                        txt_Ana_Wf_RHS.Enabled = true;
+                        txt_Ana_Hf_RHS.Text = "1.000";
+                        txt_Ana_Wf_RHS.Text = "0.250";
+                    }
+                }
+            }
+
+            if (rbtn.Name == chk_cb_left.Name)
+            {
+                if (chk_crash_barrier.Checked)
+                {
+                    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+                    {
+                        //chk_cb_right.Checked = true;
+                        chk_crash_barrier.Checked = false;
+                    }
+
+                    if (!chk_cb_left.Checked)
+                    {
+                        txt_Ana_Hc_LHS.Enabled = false;
+                        txt_Ana_Wc_LHS.Enabled = false;
+                        txt_Ana_Hc_LHS.Text = "0.000";
+                        txt_Ana_Wc_LHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hc_LHS.Enabled = true;
+                        txt_Ana_Wc_LHS.Enabled = true;
+                        txt_Ana_Hc_LHS.Text = "1.200";
+                        txt_Ana_Wc_LHS.Text = "0.500";
+                    }
+                }
+            }
+            else if (rbtn.Name == chk_cb_right.Name)
+            {
+                if (chk_crash_barrier.Checked)
+                {
+                    if (!chk_cb_left.Checked && !chk_cb_right.Checked)
+                    {
+                        //chk_cb_left.Checked = true;
+                        chk_crash_barrier.Checked = false;
+                    }
+
+
+                    if (!chk_cb_right.Checked)
+                    {
+                        txt_Ana_Hc_RHS.Enabled = false;
+                        txt_Ana_Wc_RHS.Enabled = false;
+                        txt_Ana_Hc_RHS.Text = "0.000";
+                        txt_Ana_Wc_RHS.Text = "0.000";
+                    }
+                    else
+                    {
+                        txt_Ana_Hc_RHS.Enabled = true;
+                        txt_Ana_Wc_RHS.Enabled = true;
+                        txt_Ana_Hc_RHS.Text = "1.200";
+                        txt_Ana_Wc_RHS.Text = "0.500";
+                    }
+                }
+            }
+            else if (rbtn.Name == chk_crash_barrier.Name)
+            {
+                chk_cb_left.Checked = chk_crash_barrier.Checked;
+                chk_cb_right.Checked = chk_crash_barrier.Checked;
+            }
+            else if (rbtn.Name == chk_footpath.Name)
+            {
+                chk_fp_left.Checked = chk_footpath.Checked;
+                chk_fp_right.Checked = chk_footpath.Checked;
+            }
+
+            //if (rbtn.Name == chk_crash_barrier.Name)
+            //{
+            //    if (chk_crash_barrier.Checked)
+            //        chk_footpath.Checked = false;
+            //}
+            //else if (rbtn.Name == chk_footpath.Name)
+            //{
+            //    if (chk_footpath.Checked)
+            //        chk_crash_barrier.Checked = false;
+            //}
+
+            chk_cb_left.Enabled = chk_crash_barrier.Checked;
+            chk_cb_right.Enabled = chk_crash_barrier.Checked;
+
+            chk_fp_left.Enabled = chk_footpath.Checked;
+            chk_fp_right.Enabled = chk_footpath.Checked;
+
+            if (rbtn.Name == chk_crash_barrier.Name)
+            {
+                grb_ana_crash_barrier.Enabled = chk_crash_barrier.Checked;
+                if (!chk_crash_barrier.Checked)
+                {
+                    txt_Ana_Hc_LHS.Text = "0.000";
+                    txt_Ana_Wc_LHS.Text = "0.000";
+                    txt_Ana_Hc_RHS.Text = "0.000";
+                    txt_Ana_Wc_RHS.Text = "0.000";
+                }
+                else
+                {
+                    txt_Ana_Hc_LHS.Text = "1.200";
+                    txt_Ana_Wc_LHS.Text = "0.500";
+                    txt_Ana_Hc_RHS.Text = "1.200";
+                    txt_Ana_Wc_RHS.Text = "0.500";
+                }
+            }
+            else if (rbtn.Name == chk_footpath.Name)
+            {
+                grb_ana_footpath.Enabled = chk_footpath.Checked;
+                if (!chk_footpath.Checked)
+                {
+                    txt_Ana_Wf_LHS.Text = "0.000";
+                    txt_Ana_Hf_LHS.Text = "0.000";
+                    txt_Ana_Wf_RHS.Text = "0.000";
+                    txt_Ana_Hf_RHS.Text = "0.000";
+
+                    txt_Ana_Wk.Text = "0.000";
+                    txt_Ana_Wr.Text = "0.000";
+                }
+                else
+                {
+                    txt_Ana_Wf_LHS.Text = "1.000";
+                    txt_Ana_Hf_LHS.Text = "0.250";
+                    txt_Ana_Wf_RHS.Text = "1.000";
+                    txt_Ana_Hf_RHS.Text = "0.250";
+
+
+
+                    txt_Ana_Wk.Text = "0.500";
+                    txt_Ana_Wr.Text = "0.100";
+                }
+            }
+
+
+            if (chk_crash_barrier.Checked && chk_footpath.Checked)
+            {
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_4_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_5_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_6_;
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_7_;
+
+                if (chk_cb_left.Checked && chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_8_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_9_;
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_10_;
+
+
+                if (chk_cb_left.Checked && !chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_11_;
+            }
+            else if (chk_crash_barrier.Checked)
+            {
+                if (chk_cb_left.Checked && chk_cb_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_BHS__Case_1_;
+                if (chk_cb_left.Checked && !chk_cb_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_2_;
+                if (!chk_cb_left.Checked && chk_cb_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_3_;
+
+            }
+            else if (chk_footpath.Checked)
+            {
+                if (chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_2__Both_Footpaths;
+                else if (chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_3__LHS_Footpath;
+                else if (!chk_fp_left.Checked && chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_4__LHS_Footpath;
+            }
+            else
+                pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Parapet__Case_1__No_Footpath_;
+
+
+            Refresh();
+
+
+            Text_Changed();
+        }
+
+        private void txt_emod_conc_TextChanged(object sender, EventArgs e)
+        {
 
         }
 

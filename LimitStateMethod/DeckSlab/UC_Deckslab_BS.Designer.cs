@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -653,6 +653,7 @@
             this.tabPage2.SuspendLayout();
             this.tab_deck_british.SuspendLayout();
             this.tab_DS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
@@ -662,16 +663,19 @@
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.tab_TBR.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tab_FC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tab_SC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -684,6 +688,7 @@
             this.tabPage3.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
@@ -695,21 +700,25 @@
             this.panel13.SuspendLayout();
             this.panel11.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
             this.splitContainer6.Panel1.SuspendLayout();
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
             this.splitContainer7.Panel1.SuspendLayout();
             this.splitContainer7.Panel2.SuspendLayout();
             this.splitContainer7.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
             this.splitContainer8.Panel1.SuspendLayout();
             this.splitContainer8.Panel2.SuspendLayout();
             this.splitContainer8.SuspendLayout();
             this.panel9.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
             this.splitContainer9.Panel1.SuspendLayout();
             this.splitContainer9.Panel2.SuspendLayout();
             this.splitContainer9.SuspendLayout();
@@ -2018,9 +2027,9 @@
             this.label60.AutoSize = true;
             this.label60.Location = new System.Drawing.Point(6, 44);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(99, 13);
+            this.label60.Size = new System.Drawing.Size(171, 13);
             this.label60.TabIndex = 1;
-            this.label60.Text = "Cantilever Span";
+            this.label60.Text = "Cantilever Span (Long. Dir. )";
             // 
             // label61
             // 
@@ -4305,14 +4314,14 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_cant_DC_sls_uls_factor.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_cant_DC_sls_uls_factor.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_cant_DC_sls_uls_factor.Location = new System.Drawing.Point(4, 56);
             this.dgv_cant_DC_sls_uls_factor.Name = "dgv_cant_DC_sls_uls_factor";
             this.dgv_cant_DC_sls_uls_factor.RowHeadersVisible = false;
@@ -4347,8 +4356,8 @@
             // 
             // Column4
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column4.Frozen = true;
             this.Column4.HeaderText = "";
             this.Column4.Name = "Column4";
@@ -7363,6 +7372,7 @@
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -7377,6 +7387,7 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -7384,6 +7395,7 @@
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -7391,6 +7403,7 @@
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             this.splitContainer3.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -7405,6 +7418,7 @@
             this.tabPage4.ResumeLayout(false);
             this.splitContainer5.Panel1.ResumeLayout(false);
             this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
@@ -7423,6 +7437,7 @@
             this.splitContainer6.Panel1.ResumeLayout(false);
             this.splitContainer6.Panel2.ResumeLayout(false);
             this.splitContainer6.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -7430,6 +7445,7 @@
             this.splitContainer7.Panel1.ResumeLayout(false);
             this.splitContainer7.Panel2.ResumeLayout(false);
             this.splitContainer7.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
             this.splitContainer7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
@@ -7437,6 +7453,7 @@
             this.splitContainer8.Panel1.ResumeLayout(false);
             this.splitContainer8.Panel2.ResumeLayout(false);
             this.splitContainer8.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
             this.splitContainer8.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
@@ -7444,6 +7461,7 @@
             this.splitContainer9.Panel1.ResumeLayout(false);
             this.splitContainer9.Panel2.ResumeLayout(false);
             this.splitContainer9.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
             this.splitContainer9.ResumeLayout(false);
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
@@ -7512,83 +7530,57 @@
         private System.Windows.Forms.Button btn_process_analysis;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txt_ds_wheel_a2;
-        private System.Windows.Forms.TextBox txt_ds_span_deckslab;
         private System.Windows.Forms.TextBox txt_ds_wheel_a1;
         private System.Windows.Forms.Label label119;
-        private System.Windows.Forms.TextBox txt_ds_load_wheel;
-        private System.Windows.Forms.TextBox txt_ds_b1;
         private System.Windows.Forms.Label label124;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_ds_axle_unit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label120;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_ds_b2;
-        private System.Windows.Forms.TextBox txt_ds_wload_unit;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label121;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_ds_Fy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label117;
-        private System.Windows.Forms.TextBox txt_ds_Fck;
         private System.Windows.Forms.Label label115;
-        private System.Windows.Forms.TextBox txt_ds_unitwt_surfacing;
         private System.Windows.Forms.Label label113;
-        private System.Windows.Forms.TextBox txt_ds_unitwt_concrete;
         private System.Windows.Forms.Label label110;
-        private System.Windows.Forms.TextBox txt_ds_bar_no;
         private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.TextBox txt_ds_bar_spacing;
         private System.Windows.Forms.Label label86;
-        private System.Windows.Forms.TextBox txt_ds_bar_dia;
         private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.TextBox txt_ds_cover;
         private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.TextBox txt_ds_thickness_surfacing;
         private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.TextBox txt_ds_d_total;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label118;
         private System.Windows.Forms.Label label123;
-        private System.Windows.Forms.TextBox txt_ds_d1;
         private System.Windows.Forms.Label label122;
         private System.Windows.Forms.Label label116;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.Label label114;
-        private System.Windows.Forms.TextBox txt_ds_d;
         private System.Windows.Forms.Label label111;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.Label label109;
-        private System.Windows.Forms.TextBox txt_ds_h;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.TextBox txt_ds_width_girderflange;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.TextBox txt_ds_width_girderweb;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.TextBox txt_ds_girder_no;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.TextBox txt_ds_cr;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.TextBox txt_ds_cl;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.TextBox txt_ds_cs;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.TextBox txt_ds_b;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
@@ -8079,6 +8071,32 @@
         private System.Windows.Forms.Button btn_view_ana_model;
         private System.Windows.Forms.Button btn_view_ana_report;
         private System.Windows.Forms.Button btn_view_data;
+        public System.Windows.Forms.TextBox txt_ds_span_deckslab;
+        public System.Windows.Forms.TextBox txt_ds_load_wheel;
+        public System.Windows.Forms.TextBox txt_ds_b1;
+        public System.Windows.Forms.TextBox txt_ds_axle_unit;
+        public System.Windows.Forms.TextBox txt_ds_b2;
+        public System.Windows.Forms.TextBox txt_ds_wload_unit;
+        public System.Windows.Forms.TextBox txt_ds_Fy;
+        public System.Windows.Forms.TextBox txt_ds_Fck;
+        public System.Windows.Forms.TextBox txt_ds_unitwt_surfacing;
+        public System.Windows.Forms.TextBox txt_ds_unitwt_concrete;
+        public System.Windows.Forms.TextBox txt_ds_bar_no;
+        public System.Windows.Forms.TextBox txt_ds_bar_spacing;
+        public System.Windows.Forms.TextBox txt_ds_bar_dia;
+        public System.Windows.Forms.TextBox txt_ds_cover;
+        public System.Windows.Forms.TextBox txt_ds_thickness_surfacing;
+        public System.Windows.Forms.TextBox txt_ds_d_total;
+        public System.Windows.Forms.TextBox txt_ds_d1;
+        public System.Windows.Forms.TextBox txt_ds_d;
+        public System.Windows.Forms.TextBox txt_ds_h;
+        public System.Windows.Forms.TextBox txt_ds_width_girderflange;
+        public System.Windows.Forms.TextBox txt_ds_width_girderweb;
+        public System.Windows.Forms.TextBox txt_ds_girder_no;
+        public System.Windows.Forms.TextBox txt_ds_cr;
+        public System.Windows.Forms.TextBox txt_ds_cl;
+        public System.Windows.Forms.TextBox txt_ds_cs;
+        public System.Windows.Forms.TextBox txt_ds_b;
 
 
 

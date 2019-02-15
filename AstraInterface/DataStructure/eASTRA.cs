@@ -137,11 +137,22 @@
         Demo = 0,
         Activation_Trial = 1,
 
-        Professional_Bridge = 11,
-        Enterprise_Bridge = 31,
+        //Release 22
+        //Professional_Bridge = 11,
+        //Enterprise_Bridge = 31,
 
-        Professional_Structure = 12,
-        Enterprise_Structure = 32,
+        //Professional_Structure = 12,
+        //Enterprise_Structure = 32,
+
+
+        //Release 23
+        Professional_Bridge = 21,
+        Enterprise_Bridge = 22,
+
+        Professional_Structure = 23,
+        Enterprise_Structure = 24,
+
+
     }
 
     public enum eDesignOption
@@ -185,5 +196,6 @@
         Stage3 = 3,
         Stage4 = 4,
         Stage5 = 5,
+        Orthotropic = 6,
     }
 }

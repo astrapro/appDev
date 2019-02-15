@@ -11559,7 +11559,7 @@ namespace BridgeAnalysisDesign.Composite
         public double outer_deff_shear = 0.0;
         public bool flg = false;
 
-        public List<string> DesignSummery { get; set; }
+        public List<string> DesignSummary { get; set; }
         public List<string> DesignResult { get; set; }
 
         public bool IsPlateArrangement
@@ -11600,7 +11600,7 @@ namespace BridgeAnalysisDesign.Composite
 
 
             DesignResult = new List<string>();
-            DesignSummery = new List<string>();
+            DesignSummary = new List<string>();
             IsInnerGirder = true;
         }
         #region User Method
@@ -11623,7 +11623,7 @@ namespace BridgeAnalysisDesign.Composite
             try
             {
                 DesignResult.Clear();
-                DesignSummery.Clear();
+                DesignSummary.Clear();
                 #region TechSOFT Banner
                 sw.WriteLine();
                 sw.WriteLine();
@@ -11853,10 +11853,10 @@ namespace BridgeAnalysisDesign.Composite
                     //DesignSummery.Add("==============================================================================");
                     if (step == 1)
                     {
-                        DesignSummery.Add("==========================     AT MID SPAN     ===============================");
-                        DesignSummery.Add(string.Format(""));
-                        DesignSummery.Add(string.Format("For Mid Span Section (L/2), Starting from    (L/2–L/4) to (L/2+L/4),"));
-                        DesignSummery.Add(string.Format("                                     from =  {0:f3}m  to {1:f3}m,", (S / 2.0 - S / 4.0), (S / 2.0 + S / 4.0)));
+                        DesignSummary.Add("==========================     AT MID SPAN     ===============================");
+                        DesignSummary.Add(string.Format(""));
+                        DesignSummary.Add(string.Format("For Mid Span Section (L/2), Starting from    (L/2–L/4) to (L/2+L/4),"));
+                        DesignSummary.Add(string.Format("                                     from =  {0:f3}m  to {1:f3}m,", (S / 2.0 - S / 4.0), (S / 2.0 + S / 4.0)));
                         sw.WriteLine("For Mid Span Section (L/2), Starting from L/2 – L/4 to L/2+L/4,");
 
 
@@ -11866,11 +11866,11 @@ namespace BridgeAnalysisDesign.Composite
                     }
                     else if (step == 2)
                     {
-                        DesignSummery.Add("=====================  AT QUARTER SPAN ON BOTH SIDES  =========================");
-                        DesignSummery.Add(string.Format(""));
-                        DesignSummery.Add(string.Format("For Quarter Span Section (L/4),"));
-                        DesignSummery.Add(string.Format("On the left side from   Deff  to   L/4  =  {0:f3}m. to  {1:f3}m. and", deff, (S / 4)));
-                        DesignSummery.Add(string.Format("On the right side from L/2+L/4  to  L-Deff = from {0:f3}m. to {1:f3}m.", (3 * S / 4.0), (S - deff)));
+                        DesignSummary.Add("=====================  AT QUARTER SPAN ON BOTH SIDES  =========================");
+                        DesignSummary.Add(string.Format(""));
+                        DesignSummary.Add(string.Format("For Quarter Span Section (L/4),"));
+                        DesignSummary.Add(string.Format("On the left side from   Deff  to   L/4  =  {0:f3}m. to  {1:f3}m. and", deff, (S / 4)));
+                        DesignSummary.Add(string.Format("On the right side from L/2+L/4  to  L-Deff = from {0:f3}m. to {1:f3}m.", (3 * S / 4.0), (S - deff)));
 
 
                         //For Quarter Span Section (L/4),
@@ -11885,12 +11885,12 @@ namespace BridgeAnalysisDesign.Composite
                     }
                     else if (step == 3)
                     {
-                        DesignSummery.Add("=================     AT END SECTIONS ON BOTH SIDES   =========================");
-                        DesignSummery.Add("");
-                        DesignSummery.Add(string.Format("For Span Section (Deff)"));
-                        DesignSummery.Add(string.Format("from either End up to distance equals to Effective Depth of Girder,"));
-                        DesignSummery.Add(string.Format("On the left side from   0  to   Deff  =  from {0:f3}m. to  {1:f3}m. and ", 0, deff));
-                        DesignSummery.Add(string.Format("On the right side from L - Deff  to  L = from {0:f3}m. to  {1:f3}m.", (S - deff), S));
+                        DesignSummary.Add("=================     AT END SECTIONS ON BOTH SIDES   =========================");
+                        DesignSummary.Add("");
+                        DesignSummary.Add(string.Format("For Span Section (Deff)"));
+                        DesignSummary.Add(string.Format("from either End up to distance equals to Effective Depth of Girder,"));
+                        DesignSummary.Add(string.Format("On the left side from   0  to   Deff  =  from {0:f3}m. to  {1:f3}m. and ", 0, deff));
+                        DesignSummary.Add(string.Format("On the right side from L - Deff  to  L = from {0:f3}m. to  {1:f3}m.", (S - deff), S));
 
 
                         //For Span Section (Deff) 
@@ -11909,7 +11909,7 @@ namespace BridgeAnalysisDesign.Composite
                         Steel_Section.Section_Long_Girder_at_End_Span.Input_Data_ToStream(sw);
                     }
                     sw.WriteLine();
-                    DesignSummery.Add("");
+                    DesignSummary.Add("");
 
                     #region Chiranjit [2012 12 17
                     //DesignSummery.Add(string.Format("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw));
@@ -11931,13 +11931,13 @@ namespace BridgeAnalysisDesign.Composite
 
                     //sw.WriteLine("Angles : Number of Angles = {0}, {1} x {2}", na, ang, ang_thk);
                     sw.WriteLine();
-                    DesignSummery.Add("");
-                    DesignSummery.Add(string.Format("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk));
+                    DesignSummary.Add("");
+                    DesignSummary.Add(string.Format("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk));
                     sw.WriteLine("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk);
-                    DesignSummery.Add("");
-                    DesignSummery.Add("==============================================================================");
-                    DesignSummery.Add("");
-                    DesignSummery.Add("");
+                    DesignSummary.Add("");
+                    DesignSummary.Add("==============================================================================");
+                    DesignSummary.Add("");
+                    DesignSummary.Add("");
                     sw.WriteLine();
                     sw.WriteLine();
 
@@ -13254,7 +13254,7 @@ namespace BridgeAnalysisDesign.Composite
 
 
 
-                if (DesignSummery.Count != 0)
+                if (DesignSummary.Count != 0)
                 {
                     sw.WriteLine("---------------------------------------------------------------------------");
                     sw.WriteLine("---------------------       DESIGN SUMMARY       --------------------------");
@@ -13280,7 +13280,7 @@ namespace BridgeAnalysisDesign.Composite
 
 
 
-                    foreach (string s in DesignSummery)
+                    foreach (string s in DesignSummary)
                     {
                         sw.WriteLine(s);
                     }
@@ -13347,7 +13347,7 @@ namespace BridgeAnalysisDesign.Composite
             try
             {
                 DesignResult.Clear();
-                DesignSummery.Clear();
+                DesignSummary.Clear();
                 #region TechSOFT Banner
                 sw.WriteLine();
                 sw.WriteLine();
@@ -13551,19 +13551,19 @@ namespace BridgeAnalysisDesign.Composite
                     //DesignSummery.Add("==============================================================================");
                     if (step == 1)
                     {
-                        DesignSummery.Add("==========================     AT MID SPAN     ===============================");
-                        DesignSummery.Add(string.Format(""));
-                        DesignSummery.Add(string.Format("For Mid Span Section (L/2), Starting from    (L/2–L/4) to (L/2+L/4),"));
-                        DesignSummery.Add(string.Format("                                     from =  {0:f3}m  to {1:f3}m,", (S / 2.0 - S / 4.0), (S / 2.0 + S / 4.0)));
+                        DesignSummary.Add("==========================     AT MID SPAN     ===============================");
+                        DesignSummary.Add(string.Format(""));
+                        DesignSummary.Add(string.Format("For Mid Span Section (L/2), Starting from    (L/2–L/4) to (L/2+L/4),"));
+                        DesignSummary.Add(string.Format("                                     from =  {0:f3}m  to {1:f3}m,", (S / 2.0 - S / 4.0), (S / 2.0 + S / 4.0)));
                         sw.WriteLine("For Mid Span Section (L/2), Starting from L/2 – L/4 to L/2+L/4,");
                     }
                     else if (step == 2)
                     {
-                        DesignSummery.Add("=====================  AT QUARTER SPAN ON BOTH SIDES  =========================");
-                        DesignSummery.Add(string.Format(""));
-                        DesignSummery.Add(string.Format("For Quarter Span Section (L/4),"));
-                        DesignSummery.Add(string.Format("On the left side from   Deff  to   L/4  =  {0:f3}m. to  {1:f3}m. and", deff, (S / 4)));
-                        DesignSummery.Add(string.Format("On the right side from L/2+L/4  to  L-Deff = from {0:f3}m. to {1:f3}m.", (3 * S / 4.0), (S - deff)));
+                        DesignSummary.Add("=====================  AT QUARTER SPAN ON BOTH SIDES  =========================");
+                        DesignSummary.Add(string.Format(""));
+                        DesignSummary.Add(string.Format("For Quarter Span Section (L/4),"));
+                        DesignSummary.Add(string.Format("On the left side from   Deff  to   L/4  =  {0:f3}m. to  {1:f3}m. and", deff, (S / 4)));
+                        DesignSummary.Add(string.Format("On the right side from L/2+L/4  to  L-Deff = from {0:f3}m. to {1:f3}m.", (3 * S / 4.0), (S - deff)));
 
 
                         //For Quarter Span Section (L/4),
@@ -13577,12 +13577,12 @@ namespace BridgeAnalysisDesign.Composite
                     }
                     else if (step == 3)
                     {
-                        DesignSummery.Add("=================     AT END SECTIONS ON BOTH SIDES   =========================");
-                        DesignSummery.Add("");
-                        DesignSummery.Add(string.Format("For Span Section (Deff)"));
-                        DesignSummery.Add(string.Format("from either End up to distance equals to Effective Depth of Girder,"));
-                        DesignSummery.Add(string.Format("On the left side from   0  to   Deff  =  from {0:f3}m. to  {1:f3}m. and ", 0, deff));
-                        DesignSummery.Add(string.Format("On the right side from L - Deff  to  L = from {0:f3}m. to  {1:f3}m.", (S - deff), S));
+                        DesignSummary.Add("=================     AT END SECTIONS ON BOTH SIDES   =========================");
+                        DesignSummary.Add("");
+                        DesignSummary.Add(string.Format("For Span Section (Deff)"));
+                        DesignSummary.Add(string.Format("from either End up to distance equals to Effective Depth of Girder,"));
+                        DesignSummary.Add(string.Format("On the left side from   0  to   Deff  =  from {0:f3}m. to  {1:f3}m. and ", 0, deff));
+                        DesignSummary.Add(string.Format("On the right side from L - Deff  to  L = from {0:f3}m. to  {1:f3}m.", (S - deff), S));
 
 
                         //For Span Section (Deff) 
@@ -13600,14 +13600,14 @@ namespace BridgeAnalysisDesign.Composite
                         sw.WriteLine("Starting from Deff  to L/4 and  Deff  L-L/4  to  L-Deff, ");
                     }
                     sw.WriteLine();
-                    DesignSummery.Add("");
-                    DesignSummery.Add(string.Format("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw));
-                    DesignSummery.Add("");
+                    DesignSummary.Add("");
+                    DesignSummary.Add(string.Format("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw));
+                    DesignSummary.Add("");
 
                     sw.WriteLine("Web Plates : Number of Plates [nw] = {0}, Depth [dw] = {1} mm, Thickness [tw] = {2} mm", nw, dw, tw);
                     sw.WriteLine();
-                    DesignSummery.Add(string.Format("Flange Plates : Number of Plates [nf] = {0}, Breadth [bf] = {1} mm, Thickness [tf] = {2} mm", nf, bf1, tf1));
-                    DesignSummery.Add("");
+                    DesignSummary.Add(string.Format("Flange Plates : Number of Plates [nf] = {0}, Breadth [bf] = {1} mm, Thickness [tf] = {2} mm", nf, bf1, tf1));
+                    DesignSummary.Add("");
                     //sw.WriteLine("Top Flange Plates : Number of Plates [nf] = {0}, Breadth [bf] = {1} mm, Thickness [tf] = {2} mm", nf, bf1, tf1);
                     sw.WriteLine("Top Flange Plates    :    Breadth [bf1] = {0} mm,   Thickness [tf1] = {1} mm", bf1, tf1);
                     sw.WriteLine("Bottom Flange Plates :    Breadth [bf2] = {0} mm,   Thickness [tf2] = {1} mm", bf2, tf2);
@@ -13619,13 +13619,13 @@ namespace BridgeAnalysisDesign.Composite
 
                     //sw.WriteLine("Angles : Number of Angles = {0}, {1} x {2}", na, ang, ang_thk);
                     sw.WriteLine();
-                    DesignSummery.Add("");
-                    DesignSummery.Add(string.Format("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk));
+                    DesignSummary.Add("");
+                    DesignSummary.Add(string.Format("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk));
                     sw.WriteLine("Angles : Number of Angles [na] = {0}, Size: {1} {2}X{3}", na, tab_data.SectionName, tab_data.SectionSize, ang_thk);
-                    DesignSummery.Add("");
-                    DesignSummery.Add("==============================================================================");
-                    DesignSummery.Add("");
-                    DesignSummery.Add("");
+                    DesignSummary.Add("");
+                    DesignSummary.Add("==============================================================================");
+                    DesignSummary.Add("");
+                    DesignSummary.Add("");
                     sw.WriteLine();
                     sw.WriteLine();
                     sw.WriteLine("-------------------------------------------------------------");
@@ -14921,7 +14921,7 @@ namespace BridgeAnalysisDesign.Composite
 
 
 
-                if (DesignSummery.Count != 0)
+                if (DesignSummary.Count != 0)
                 {
                     sw.WriteLine("---------------------------------------------------------------------------");
                     sw.WriteLine("---------------------       DESIGN SUMMARY       --------------------------");
@@ -14947,7 +14947,7 @@ namespace BridgeAnalysisDesign.Composite
 
 
 
-                    foreach (string s in DesignSummery)
+                    foreach (string s in DesignSummary)
                     {
                         sw.WriteLine(s);
                     }

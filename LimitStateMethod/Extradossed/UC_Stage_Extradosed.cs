@@ -13,7 +13,6 @@ using AstraFunctionOne.BridgeDesign.SteelTruss;
 using AstraFunctionOne.BridgeDesign;
 using AstraInterface.Interface;
 
-
 using BridgeAnalysisDesign.Abutment;
 using BridgeAnalysisDesign.Pier;
 using BridgeAnalysisDesign.RCC_T_Girder;
@@ -29,11 +28,13 @@ namespace LimitStateMethod.Extradossed
         public event EventHandler OnButtonClick;
         public event EventHandler OnComboboxSelectedIndexChanged;
         public event EventHandler OnTextBoxTextChanged;
+        public event EventHandler OnEmodTextChanged;
         IApplication iApp;
 
         public UC_Stage_Extradosed()
         {
             InitializeComponent();
+            SupportChanged();
         }
         public string Start_Support_Text
         {
@@ -95,6 +96,11 @@ namespace LimitStateMethod.Extradossed
 
         private void rbtn_ssprt_pinned_CheckedChanged(object sender, EventArgs e)
         {
+            SupportChanged();
+        }
+
+        private void SupportChanged()
+        {
             chk_esprt_fixed_FX.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_FY.Enabled = rbtn_esprt_fixed.Checked;
             chk_esprt_fixed_FZ.Enabled = rbtn_esprt_fixed.Checked;
@@ -125,8 +131,14 @@ namespace LimitStateMethod.Extradossed
 
         private void txt_dead_vert_reac_ton_TextChanged(object sender, EventArgs e)
         {
-            if (OnTextBoxTextChanged != null)
-                OnTextBoxTextChanged(sender, e);
+
+        }
+
+        private void txt_steel_prct_TextChanged(object sender, EventArgs e)
+        {
+            if (OnEmodTextChanged != null)
+                OnEmodTextChanged(sender, e);
+            
         }
     }
 }

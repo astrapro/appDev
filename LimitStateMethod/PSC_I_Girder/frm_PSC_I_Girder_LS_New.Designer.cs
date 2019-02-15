@@ -1148,7 +1148,9 @@
             this.btn_LS_deck_ws = new System.Windows.Forms.Button();
             this.btn_LS_deck_ws_open = new System.Windows.Forms.Button();
             this.tab_deck_slab_BS = new System.Windows.Forms.TabPage();
+            this.uC_Deckslab_BS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_BS();
             this.tab_deck_slab_IS = new System.Windows.Forms.TabPage();
+            this.uC_Deckslab_IS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_IS();
             this.tab_abutment = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.label508 = new System.Windows.Forms.Label();
@@ -1526,6 +1528,7 @@
             this.tab_PierPileLSM = new System.Windows.Forms.TabPage();
             this.uC_PierPileLS1 = new BridgeAnalysisDesign.Pier.UC_PierPileLS();
             this.tab_bearing = new System.Windows.Forms.TabPage();
+            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btn_dwg_open_Pier = new System.Windows.Forms.Button();
             this.btn_dwg_open_Cantilever = new System.Windows.Forms.Button();
@@ -1536,9 +1539,6 @@
             this.btn_dwg_rcc_abut = new System.Windows.Forms.Button();
             this.btn_dwg_open_consts = new System.Windows.Forms.Button();
             this.btn_dwg_open = new System.Windows.Forms.Button();
-            this.uC_Deckslab_BS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_BS();
-            this.uC_Deckslab_IS1 = new LimitStateMethod.DeckSlab.UC_Deckslab_IS();
-            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tc_limit_design.SuspendLayout();
             this.tab_analysis_deck.SuspendLayout();
             this.tbc_PSC_Girder.SuspendLayout();
@@ -8011,8 +8011,6 @@
             // chk_esprt_fixed_MZ
             // 
             this.chk_esprt_fixed_MZ.AutoSize = true;
-            this.chk_esprt_fixed_MZ.Checked = true;
-            this.chk_esprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MZ.Location = new System.Drawing.Point(290, 32);
             this.chk_esprt_fixed_MZ.Name = "chk_esprt_fixed_MZ";
             this.chk_esprt_fixed_MZ.Size = new System.Drawing.Size(43, 17);
@@ -8023,6 +8021,8 @@
             // chk_esprt_fixed_FZ
             // 
             this.chk_esprt_fixed_FZ.AutoSize = true;
+            this.chk_esprt_fixed_FZ.Checked = true;
+            this.chk_esprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FZ.Location = new System.Drawing.Point(162, 32);
             this.chk_esprt_fixed_FZ.Name = "chk_esprt_fixed_FZ";
             this.chk_esprt_fixed_FZ.Size = new System.Drawing.Size(40, 17);
@@ -8033,6 +8033,8 @@
             // chk_esprt_fixed_MY
             // 
             this.chk_esprt_fixed_MY.AutoSize = true;
+            this.chk_esprt_fixed_MY.Checked = true;
+            this.chk_esprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MY.Location = new System.Drawing.Point(252, 32);
             this.chk_esprt_fixed_MY.Name = "chk_esprt_fixed_MY";
             this.chk_esprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
@@ -8043,6 +8045,8 @@
             // chk_esprt_fixed_FY
             // 
             this.chk_esprt_fixed_FY.AutoSize = true;
+            this.chk_esprt_fixed_FY.Checked = true;
+            this.chk_esprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FY.Location = new System.Drawing.Point(118, 32);
             this.chk_esprt_fixed_FY.Name = "chk_esprt_fixed_FY";
             this.chk_esprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
@@ -8053,6 +8057,8 @@
             // chk_esprt_fixed_MX
             // 
             this.chk_esprt_fixed_MX.AutoSize = true;
+            this.chk_esprt_fixed_MX.Checked = true;
+            this.chk_esprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MX.Location = new System.Drawing.Point(203, 32);
             this.chk_esprt_fixed_MX.Name = "chk_esprt_fixed_MX";
             this.chk_esprt_fixed_MX.Size = new System.Drawing.Size(43, 17);
@@ -8063,8 +8069,6 @@
             // chk_esprt_fixed_FX
             // 
             this.chk_esprt_fixed_FX.AutoSize = true;
-            this.chk_esprt_fixed_FX.Checked = true;
-            this.chk_esprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FX.Location = new System.Drawing.Point(72, 32);
             this.chk_esprt_fixed_FX.Name = "chk_esprt_fixed_FX";
             this.chk_esprt_fixed_FX.Size = new System.Drawing.Size(40, 17);
@@ -8127,6 +8131,8 @@
             // chk_ssprt_fixed_MZ
             // 
             this.chk_ssprt_fixed_MZ.AutoSize = true;
+            this.chk_ssprt_fixed_MZ.Checked = true;
+            this.chk_ssprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MZ.Location = new System.Drawing.Point(290, 32);
             this.chk_ssprt_fixed_MZ.Name = "chk_ssprt_fixed_MZ";
             this.chk_ssprt_fixed_MZ.Size = new System.Drawing.Size(43, 17);
@@ -8137,6 +8143,8 @@
             // chk_ssprt_fixed_FZ
             // 
             this.chk_ssprt_fixed_FZ.AutoSize = true;
+            this.chk_ssprt_fixed_FZ.Checked = true;
+            this.chk_ssprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FZ.Location = new System.Drawing.Point(162, 32);
             this.chk_ssprt_fixed_FZ.Name = "chk_ssprt_fixed_FZ";
             this.chk_ssprt_fixed_FZ.Size = new System.Drawing.Size(40, 17);
@@ -8147,6 +8155,8 @@
             // chk_ssprt_fixed_MY
             // 
             this.chk_ssprt_fixed_MY.AutoSize = true;
+            this.chk_ssprt_fixed_MY.Checked = true;
+            this.chk_ssprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MY.Location = new System.Drawing.Point(252, 32);
             this.chk_ssprt_fixed_MY.Name = "chk_ssprt_fixed_MY";
             this.chk_ssprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
@@ -8157,6 +8167,8 @@
             // chk_ssprt_fixed_FY
             // 
             this.chk_ssprt_fixed_FY.AutoSize = true;
+            this.chk_ssprt_fixed_FY.Checked = true;
+            this.chk_ssprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FY.Location = new System.Drawing.Point(118, 32);
             this.chk_ssprt_fixed_FY.Name = "chk_ssprt_fixed_FY";
             this.chk_ssprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
@@ -8167,6 +8179,8 @@
             // chk_ssprt_fixed_MX
             // 
             this.chk_ssprt_fixed_MX.AutoSize = true;
+            this.chk_ssprt_fixed_MX.Checked = true;
+            this.chk_ssprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MX.Location = new System.Drawing.Point(203, 32);
             this.chk_ssprt_fixed_MX.Name = "chk_ssprt_fixed_MX";
             this.chk_ssprt_fixed_MX.Size = new System.Drawing.Size(43, 17);
@@ -8177,6 +8191,8 @@
             // chk_ssprt_fixed_FX
             // 
             this.chk_ssprt_fixed_FX.AutoSize = true;
+            this.chk_ssprt_fixed_FX.Checked = true;
+            this.chk_ssprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FX.Location = new System.Drawing.Point(72, 32);
             this.chk_ssprt_fixed_FX.Name = "chk_ssprt_fixed_FX";
             this.chk_ssprt_fixed_FX.Size = new System.Drawing.Size(40, 17);
@@ -12457,7 +12473,7 @@
             this.tab_deck_ll_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_ll_data.Name = "tab_deck_ll_data";
             this.tab_deck_ll_data.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_deck_ll_data.Size = new System.Drawing.Size(946, 488);
+            this.tab_deck_ll_data.Size = new System.Drawing.Size(184, 0);
             this.tab_deck_ll_data.TabIndex = 0;
             this.tab_deck_ll_data.Text = "Deck Slab Live Load Data";
             this.tab_deck_ll_data.UseVisualStyleBackColor = true;
@@ -12847,7 +12863,7 @@
             this.tab_deck_des_data.Controls.Add(this.dgv_deck_design_input);
             this.tab_deck_des_data.Location = new System.Drawing.Point(4, 22);
             this.tab_deck_des_data.Name = "tab_deck_des_data";
-            this.tab_deck_des_data.Size = new System.Drawing.Size(946, 488);
+            this.tab_deck_des_data.Size = new System.Drawing.Size(184, 0);
             this.tab_deck_des_data.TabIndex = 2;
             this.tab_deck_des_data.Text = "Design Data";
             this.tab_deck_des_data.UseVisualStyleBackColor = true;
@@ -13133,6 +13149,63 @@
             this.tab_deck_slab_BS.Text = "Deck Slab [BS 5400]";
             this.tab_deck_slab_BS.UseVisualStyleBackColor = true;
             // 
+            // uC_Deckslab_BS1
+            // 
+            this.uC_Deckslab_BS1.axle_unit = 10D;
+            this.uC_Deckslab_BS1.b = 12D;
+            this.uC_Deckslab_BS1.b1 = 1.874D;
+            this.uC_Deckslab_BS1.b2 = 0.845D;
+            this.uC_Deckslab_BS1.bar_dia = 16D;
+            this.uC_Deckslab_BS1.bar_no = 7D;
+            this.uC_Deckslab_BS1.bar_spacing = 150D;
+            this.uC_Deckslab_BS1.c_span = 0.815D;
+            this.uC_Deckslab_BS1.cl = 1.315D;
+            this.uC_Deckslab_BS1.cover = 55D;
+            this.uC_Deckslab_BS1.cr = 1.315D;
+            this.uC_Deckslab_BS1.d = 117D;
+            this.uC_Deckslab_BS1.d_total = 205D;
+            this.uC_Deckslab_BS1.d_YD = 0.18D;
+            this.uC_Deckslab_BS1.d1 = 25D;
+            this.uC_Deckslab_BS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Deckslab_BS1.Fck = 50D;
+            this.uC_Deckslab_BS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_Deckslab_BS1.Fy = 500D;
+            this.uC_Deckslab_BS1.gf1_sls_Mhog = 1.1D;
+            this.uC_Deckslab_BS1.gf1_sls_sur = 1.2D;
+            this.uC_Deckslab_BS1.gf1_sls_swt = 1D;
+            this.uC_Deckslab_BS1.gf1_uls_Mhog = 1.3D;
+            this.uC_Deckslab_BS1.gf1_uls_sur = 1.75D;
+            this.uC_Deckslab_BS1.gf1_uls_swt = 1.15D;
+            this.uC_Deckslab_BS1.gf3_sls_Mhog = 1D;
+            this.uC_Deckslab_BS1.gf3_sls_sur = 1D;
+            this.uC_Deckslab_BS1.gf3_sls_swt = 1D;
+            this.uC_Deckslab_BS1.gf3_uls_Mhog = 1.1D;
+            this.uC_Deckslab_BS1.gf3_uls_sur = 1.1D;
+            this.uC_Deckslab_BS1.gf3_uls_swt = 1.1D;
+            this.uC_Deckslab_BS1.girder_no = 4D;
+            this.uC_Deckslab_BS1.h = 180D;
+            this.uC_Deckslab_BS1.load_wheel = 2.5D;
+            this.uC_Deckslab_BS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Deckslab_BS1.Mhog = 0D;
+            this.uC_Deckslab_BS1.Msag = 0D;
+            this.uC_Deckslab_BS1.Name = "uC_Deckslab_BS1";
+            this.uC_Deckslab_BS1.Size = new System.Drawing.Size(948, 668);
+            this.uC_Deckslab_BS1.span_deckslab = 0.962D;
+            this.uC_Deckslab_BS1.TabIndex = 0;
+            this.uC_Deckslab_BS1.thickness_surfacing = 150D;
+            this.uC_Deckslab_BS1.unitwt_concrete = 24D;
+            this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
+            this.uC_Deckslab_BS1.user_path = "";
+            this.uC_Deckslab_BS1.V = 0D;
+            this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
+            this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
+            this.uC_Deckslab_BS1.width_girderflange = 1.029D;
+            this.uC_Deckslab_BS1.width_girderweb = 0.325D;
+            this.uC_Deckslab_BS1.wload_unit = 30D;
+            this.uC_Deckslab_BS1.YD = "0.18";
+            this.uC_Deckslab_BS1.ZD = "1.0";
+            this.uC_Deckslab_BS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.CreateData(this.uC_Deckslab_BS1_OnCreateData);
+            // 
             // tab_deck_slab_IS
             // 
             this.tab_deck_slab_IS.Controls.Add(this.uC_Deckslab_IS1);
@@ -13143,6 +13216,29 @@
             this.tab_deck_slab_IS.TabIndex = 7;
             this.tab_deck_slab_IS.Text = "Deck Slab [IRC 112]";
             this.tab_deck_slab_IS.UseVisualStyleBackColor = true;
+            // 
+            // uC_Deckslab_IS1
+            // 
+            this.uC_Deckslab_IS1.B = 0D;
+            this.uC_Deckslab_IS1.Deff = 0D;
+            this.uC_Deckslab_IS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_Deckslab_IS1.Dw = 0D;
+            this.uC_Deckslab_IS1.Location = new System.Drawing.Point(3, 3);
+            this.uC_Deckslab_IS1.Name = "uC_Deckslab_IS1";
+            this.uC_Deckslab_IS1.Number_Of_Cross_Girder = 0;
+            this.uC_Deckslab_IS1.Number_Of_Long_Girder = 0;
+            this.uC_Deckslab_IS1.Result = null;
+            this.uC_Deckslab_IS1.Size = new System.Drawing.Size(948, 668);
+            this.uC_Deckslab_IS1.Skew_Angle = 0D;
+            this.uC_Deckslab_IS1.SMG = 0D;
+            this.uC_Deckslab_IS1.TabIndex = 0;
+            this.uC_Deckslab_IS1.user_path = null;
+            this.uC_Deckslab_IS1.Wc = 0D;
+            this.uC_Deckslab_IS1.Wf = 0D;
+            this.uC_Deckslab_IS1.Width_LeftCantilever = 0D;
+            this.uC_Deckslab_IS1.Width_RightCantilever = 0D;
+            this.uC_Deckslab_IS1.WidthBridge = 0D;
+            this.uC_Deckslab_IS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_IS.CreateData(this.uC_Deckslab_IS1_OnCreateData);
             // 
             // tab_abutment
             // 
@@ -14368,7 +14464,7 @@
             this.tab_AbutmentOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentOpenLSM.Name = "tab_AbutmentOpenLSM";
             this.tab_AbutmentOpenLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentOpenLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentOpenLSM.TabIndex = 1;
             this.tab_AbutmentOpenLSM.Text = "Abutment Design with Open Foundation in LSM";
             this.tab_AbutmentOpenLSM.UseVisualStyleBackColor = true;
@@ -14404,7 +14500,7 @@
             this.uC_AbutmentOpenLS1.RCC_Density = "2.5";
             this.uC_AbutmentOpenLS1.SIDL_MLL = "0.0";
             this.uC_AbutmentOpenLS1.SIDL_MTT = "-458.64";
-            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentOpenLS1.Size = new System.Drawing.Size(172, 36);
             this.uC_AbutmentOpenLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentOpenLS1.Span = "25.0";
             this.uC_AbutmentOpenLS1.TabIndex = 0;
@@ -14417,7 +14513,7 @@
             this.tab_AbutmentPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_AbutmentPileLSM.Name = "tab_AbutmentPileLSM";
             this.tab_AbutmentPileLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(940, 642);
+            this.tab_AbutmentPileLSM.Size = new System.Drawing.Size(178, 42);
             this.tab_AbutmentPileLSM.TabIndex = 2;
             this.tab_AbutmentPileLSM.Text = "Abutment Design with Pile Foundation in LSM";
             this.tab_AbutmentPileLSM.UseVisualStyleBackColor = true;
@@ -14460,7 +14556,7 @@
             this.uC_AbutmentPileLS1.Show_Title = false;
             this.uC_AbutmentPileLS1.SIDL_MLL = "0.0";
             this.uC_AbutmentPileLS1.SIDL_MTT = "-315.30";
-            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(934, 636);
+            this.uC_AbutmentPileLS1.Size = new System.Drawing.Size(172, 36);
             this.uC_AbutmentPileLS1.Slab_Thickness = "0.22";
             this.uC_AbutmentPileLS1.Span = "12.687";
             this.uC_AbutmentPileLS1.TabIndex = 0;
@@ -16538,7 +16634,7 @@
             this.tab_des_form2.Location = new System.Drawing.Point(4, 22);
             this.tab_des_form2.Name = "tab_des_form2";
             this.tab_des_form2.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_form2.Size = new System.Drawing.Size(932, 577);
+            this.tab_des_form2.Size = new System.Drawing.Size(170, 0);
             this.tab_des_form2.TabIndex = 2;
             this.tab_des_form2.Text = "Design Input Data [Form2]";
             this.tab_des_form2.UseVisualStyleBackColor = true;
@@ -17200,7 +17296,7 @@
             this.tab_des_Diagram.Location = new System.Drawing.Point(4, 22);
             this.tab_des_Diagram.Name = "tab_des_Diagram";
             this.tab_des_Diagram.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_des_Diagram.Size = new System.Drawing.Size(932, 577);
+            this.tab_des_Diagram.Size = new System.Drawing.Size(170, 0);
             this.tab_des_Diagram.TabIndex = 1;
             this.tab_des_Diagram.Text = "Diagram";
             this.tab_des_Diagram.UseVisualStyleBackColor = true;
@@ -17213,7 +17309,7 @@
             this.pic_pier_interactive_diagram.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_pier_interactive_diagram.Location = new System.Drawing.Point(3, 3);
             this.pic_pier_interactive_diagram.Name = "pic_pier_interactive_diagram";
-            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(926, 571);
+            this.pic_pier_interactive_diagram.Size = new System.Drawing.Size(164, 0);
             this.pic_pier_interactive_diagram.TabIndex = 0;
             this.pic_pier_interactive_diagram.TabStop = false;
             // 
@@ -17256,7 +17352,7 @@
             this.tab_PierWSM_Excel.Location = new System.Drawing.Point(4, 22);
             this.tab_PierWSM_Excel.Name = "tab_PierWSM_Excel";
             this.tab_PierWSM_Excel.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierWSM_Excel.Size = new System.Drawing.Size(184, 48);
             this.tab_PierWSM_Excel.TabIndex = 2;
             this.tab_PierWSM_Excel.Text = "Design of RCC Pier in Working Stress Method";
             this.tab_PierWSM_Excel.UseVisualStyleBackColor = true;
@@ -17271,7 +17367,7 @@
             this.uC_PierDesignWSM1.Right_Span_Force = "1300.0";
             this.uC_PierDesignWSM1.Show_Note = false;
             this.uC_PierDesignWSM1.Show_Title = false;
-            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(940, 642);
+            this.uC_PierDesignWSM1.Size = new System.Drawing.Size(178, 42);
             this.uC_PierDesignWSM1.TabIndex = 0;
             // 
             // tab_PierOpenLSM
@@ -17279,7 +17375,7 @@
             this.tab_PierOpenLSM.Controls.Add(this.uC_PierOpenLS1);
             this.tab_PierOpenLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierOpenLSM.Name = "tab_PierOpenLSM";
-            this.tab_PierOpenLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierOpenLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierOpenLSM.TabIndex = 3;
             this.tab_PierOpenLSM.Text = "Pier Design with Open Foundation in LS";
             this.tab_PierOpenLSM.UseVisualStyleBackColor = true;
@@ -17320,7 +17416,7 @@
             this.uC_PierOpenLS1.RailingWidth_Right = "0.50";
             this.uC_PierOpenLS1.Show_Title = false;
             this.uC_PierOpenLS1.SIDL_Force = "723.52";
-            this.uC_PierOpenLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierOpenLS1.Size = new System.Drawing.Size(184, 48);
             this.uC_PierOpenLS1.SkewAngle = "0.0";
             this.uC_PierOpenLS1.SlabDepth_Left = "0.22";
             this.uC_PierOpenLS1.SlabDepth_Right = "0.22";
@@ -17337,7 +17433,7 @@
             this.tab_PierLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierLSM.Name = "tab_PierLSM";
             this.tab_PierLSM.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_PierLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierLSM.TabIndex = 1;
             this.tab_PierLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierLSM.UseVisualStyleBackColor = true;
@@ -17359,7 +17455,7 @@
             this.uC_PierDesignLSM1.Right_Span_Vertical_Load = "42";
             this.uC_PierDesignLSM1.Show_Note = false;
             this.uC_PierDesignLSM1.Show_Title = false;
-            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(940, 642);
+            this.uC_PierDesignLSM1.Size = new System.Drawing.Size(178, 42);
             this.uC_PierDesignLSM1.TabIndex = 0;
             this.uC_PierDesignLSM1.Total_weight_of_superstructure = "460";
             // 
@@ -17368,7 +17464,7 @@
             this.tab_PierPileLSM.Controls.Add(this.uC_PierPileLS1);
             this.tab_PierPileLSM.Location = new System.Drawing.Point(4, 22);
             this.tab_PierPileLSM.Name = "tab_PierPileLSM";
-            this.tab_PierPileLSM.Size = new System.Drawing.Size(946, 648);
+            this.tab_PierPileLSM.Size = new System.Drawing.Size(184, 48);
             this.tab_PierPileLSM.TabIndex = 4;
             this.tab_PierPileLSM.Text = "Pier Design with Pile Foundation in LS";
             this.tab_PierPileLSM.UseVisualStyleBackColor = true;
@@ -17406,7 +17502,7 @@
             this.uC_PierPileLS1.RailingWidth_Nos = "0";
             this.uC_PierPileLS1.RailingWidth_Right = "0.0";
             this.uC_PierPileLS1.Show_Title = false;
-            this.uC_PierPileLS1.Size = new System.Drawing.Size(946, 648);
+            this.uC_PierPileLS1.Size = new System.Drawing.Size(184, 48);
             this.uC_PierPileLS1.SkewAngle = "18.0";
             this.uC_PierPileLS1.SlabDepth_Left = "0.22";
             this.uC_PierPileLS1.SlabDepth_Right = "0.22";
@@ -17426,6 +17522,24 @@
             this.tab_bearing.TabIndex = 9;
             this.tab_bearing.Text = "Bearing";
             this.tab_bearing.UseVisualStyleBackColor = true;
+            // 
+            // uC_BRD1
+            // 
+            this.uC_BRD1.Bearings_Nos = "8";
+            this.uC_BRD1.Bearings_Span = "11.0";
+            this.uC_BRD1.Bearings_Trans = "3.0";
+            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BRD1.Effective_Length = "14.70";
+            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BRD1.Girder_Length = "15.50";
+            this.uC_BRD1.Length = "15.52";
+            this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
+            this.uC_BRD1.Name = "uC_BRD1";
+            this.uC_BRD1.Overall_Span = "11.5";
+            this.uC_BRD1.Show_Forces = true;
+            this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
+            this.uC_BRD1.TabIndex = 0;
+            this.uC_BRD1.user_path = null;
             // 
             // tabPage3
             // 
@@ -17538,104 +17652,6 @@
             this.btn_dwg_open.Text = "Open Bridge Drawings";
             this.btn_dwg_open.UseVisualStyleBackColor = true;
             this.btn_dwg_open.Click += new System.EventHandler(this.btn_dwg_open_Click);
-            // 
-            // uC_Deckslab_BS1
-            // 
-            this.uC_Deckslab_BS1.axle_unit = 10D;
-            this.uC_Deckslab_BS1.b = 12D;
-            this.uC_Deckslab_BS1.b1 = 1.874D;
-            this.uC_Deckslab_BS1.b2 = 0.845D;
-            this.uC_Deckslab_BS1.bar_dia = 16D;
-            this.uC_Deckslab_BS1.bar_no = 7D;
-            this.uC_Deckslab_BS1.bar_spacing = 150D;
-            this.uC_Deckslab_BS1.c_span = 0.815D;
-            this.uC_Deckslab_BS1.cl = 1.315D;
-            this.uC_Deckslab_BS1.cover = 55D;
-            this.uC_Deckslab_BS1.cr = 1.315D;
-            this.uC_Deckslab_BS1.d = 117D;
-            this.uC_Deckslab_BS1.d_total = 205D;
-            this.uC_Deckslab_BS1.d_YD = 0.18D;
-            this.uC_Deckslab_BS1.d1 = 25D;
-            this.uC_Deckslab_BS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Deckslab_BS1.Fck = 50D;
-            this.uC_Deckslab_BS1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_Deckslab_BS1.Fy = 500D;
-            this.uC_Deckslab_BS1.gf1_sls_Mhog = 1.1D;
-            this.uC_Deckslab_BS1.gf1_sls_sur = 1.2D;
-            this.uC_Deckslab_BS1.gf1_sls_swt = 1D;
-            this.uC_Deckslab_BS1.gf1_uls_Mhog = 1.3D;
-            this.uC_Deckslab_BS1.gf1_uls_sur = 1.75D;
-            this.uC_Deckslab_BS1.gf1_uls_swt = 1.15D;
-            this.uC_Deckslab_BS1.gf3_sls_Mhog = 1D;
-            this.uC_Deckslab_BS1.gf3_sls_sur = 1D;
-            this.uC_Deckslab_BS1.gf3_sls_swt = 1D;
-            this.uC_Deckslab_BS1.gf3_uls_Mhog = 1.1D;
-            this.uC_Deckslab_BS1.gf3_uls_sur = 1.1D;
-            this.uC_Deckslab_BS1.gf3_uls_swt = 1.1D;
-            this.uC_Deckslab_BS1.girder_no = 4D;
-            this.uC_Deckslab_BS1.h = 180D;
-            this.uC_Deckslab_BS1.load_wheel = 2.5D;
-            this.uC_Deckslab_BS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Deckslab_BS1.Mhog = 0D;
-            this.uC_Deckslab_BS1.Msag = 0D;
-            this.uC_Deckslab_BS1.Name = "uC_Deckslab_BS1";
-            this.uC_Deckslab_BS1.Size = new System.Drawing.Size(948, 668);
-            this.uC_Deckslab_BS1.span_deckslab = 0.962D;
-            this.uC_Deckslab_BS1.TabIndex = 0;
-            this.uC_Deckslab_BS1.thickness_surfacing = 150D;
-            this.uC_Deckslab_BS1.unitwt_concrete = 24D;
-            this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
-            this.uC_Deckslab_BS1.user_path = "";
-            this.uC_Deckslab_BS1.V = 0D;
-            this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
-            this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
-            this.uC_Deckslab_BS1.width_girderflange = 1.029D;
-            this.uC_Deckslab_BS1.width_girderweb = 0.325D;
-            this.uC_Deckslab_BS1.wload_unit = 30D;
-            this.uC_Deckslab_BS1.YD = "0.18";
-            this.uC_Deckslab_BS1.ZD = "1.0";
-            this.uC_Deckslab_BS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_BS.CreateData(this.uC_Deckslab_BS1_OnCreateData);
-            // 
-            // uC_Deckslab_IS1
-            // 
-            this.uC_Deckslab_IS1.B = 0D;
-            this.uC_Deckslab_IS1.Deff = 0D;
-            this.uC_Deckslab_IS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_Deckslab_IS1.Dw = 0D;
-            this.uC_Deckslab_IS1.Location = new System.Drawing.Point(3, 3);
-            this.uC_Deckslab_IS1.Name = "uC_Deckslab_IS1";
-            this.uC_Deckslab_IS1.Number_Of_Cross_Girder = 0;
-            this.uC_Deckslab_IS1.Number_Of_Long_Girder = 0;
-            this.uC_Deckslab_IS1.Result = null;
-            this.uC_Deckslab_IS1.Size = new System.Drawing.Size(948, 668);
-            this.uC_Deckslab_IS1.Skew_Angle = 0D;
-            this.uC_Deckslab_IS1.SMG = 0D;
-            this.uC_Deckslab_IS1.TabIndex = 0;
-            this.uC_Deckslab_IS1.user_path = null;
-            this.uC_Deckslab_IS1.Wc = 0D;
-            this.uC_Deckslab_IS1.Wf = 0D;
-            this.uC_Deckslab_IS1.Width_LeftCantilever = 0D;
-            this.uC_Deckslab_IS1.Width_RightCantilever = 0D;
-            this.uC_Deckslab_IS1.WidthBridge = 0D;
-            this.uC_Deckslab_IS1.OnCreateData += new LimitStateMethod.DeckSlab.UC_Deckslab_IS.CreateData(this.uC_Deckslab_IS1_OnCreateData);
-            // 
-            // uC_BRD1
-            // 
-            this.uC_BRD1.Bearings_Nos = "8";
-            this.uC_BRD1.Bearings_Span = "11.0";
-            this.uC_BRD1.Bearings_Trans = "3.0";
-            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_BRD1.Effective_Length = "14.70";
-            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_BRD1.Girder_Length = "15.50";
-            this.uC_BRD1.Length = "15.52";
-            this.uC_BRD1.Location = new System.Drawing.Point(3, 3);
-            this.uC_BRD1.Name = "uC_BRD1";
-            this.uC_BRD1.Overall_Span = "11.5";
-            this.uC_BRD1.Show_Forces = true;
-            this.uC_BRD1.Size = new System.Drawing.Size(948, 668);
-            this.uC_BRD1.TabIndex = 0;
-            this.uC_BRD1.user_path = null;
             // 
             // frm_PSC_I_Girder_LS_New
             // 

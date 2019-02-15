@@ -52,12 +52,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tc_main = new System.Windows.Forms.TabControl();
-            this.tab_linear = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tc_analysis = new System.Windows.Forms.TabControl();
-            this.tab_cable_design = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label68 = new System.Windows.Forms.Label();
@@ -105,17 +99,6 @@
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.tab_non_linear = new System.Windows.Forms.TabPage();
-            this.label185 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_NLNR_report = new System.Windows.Forms.Button();
-            this.btn_NLNR_process = new System.Windows.Forms.Button();
-            this.btn_NLNR_open = new System.Windows.Forms.Button();
-            this.btn_NLNR_view = new System.Windows.Forms.Button();
-            this.btn_NLNR_create = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnReport = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -294,14 +277,6 @@
             this.label233 = new System.Windows.Forms.Label();
             this.btnProcess = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tc_main.SuspendLayout();
-            this.tab_linear.SuspendLayout();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tc_analysis.SuspendLayout();
-            this.tab_cable_design.SuspendLayout();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
@@ -310,8 +285,6 @@
             this.panel4.SuspendLayout();
             this.grb_members.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cable_design)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.tab_non_linear.SuspendLayout();
             this.panel6.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage5.SuspendLayout();
@@ -340,81 +313,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // tc_main
-            // 
-            this.tc_main.Controls.Add(this.tab_linear);
-            this.tc_main.Controls.Add(this.tab_non_linear);
-            this.tc_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_main.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tc_main.Location = new System.Drawing.Point(0, 0);
-            this.tc_main.Name = "tc_main";
-            this.tc_main.SelectedIndex = 0;
-            this.tc_main.Size = new System.Drawing.Size(905, 700);
-            this.tc_main.TabIndex = 13;
-            // 
-            // tab_linear
-            // 
-            this.tab_linear.Controls.Add(this.splitContainer1);
-            this.tab_linear.Location = new System.Drawing.Point(4, 22);
-            this.tab_linear.Name = "tab_linear";
-            this.tab_linear.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_linear.Size = new System.Drawing.Size(897, 674);
-            this.tab_linear.TabIndex = 0;
-            this.tab_linear.Text = "Linear Analysis";
-            this.tab_linear.UseVisualStyleBackColor = true;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Panel1.Controls.Add(this.panel2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Panel2Collapsed = true;
-            this.splitContainer1.Size = new System.Drawing.Size(891, 668);
-            this.splitContainer1.SplitterDistance = 572;
-            this.splitContainer1.SplitterWidth = 7;
-            this.splitContainer1.TabIndex = 105;
-            // 
-            // panel2
-            // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.tc_analysis);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(891, 668);
-            this.panel2.TabIndex = 12;
-            // 
-            // tc_analysis
-            // 
-            this.tc_analysis.Controls.Add(this.tab_cable_design);
-            this.tc_analysis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tc_analysis.Location = new System.Drawing.Point(0, 0);
-            this.tc_analysis.Name = "tc_analysis";
-            this.tc_analysis.SelectedIndex = 0;
-            this.tc_analysis.Size = new System.Drawing.Size(889, 666);
-            this.tc_analysis.TabIndex = 12;
-            // 
-            // tab_cable_design
-            // 
-            this.tab_cable_design.Controls.Add(this.splitContainer2);
-            this.tab_cable_design.Location = new System.Drawing.Point(4, 22);
-            this.tab_cable_design.Name = "tab_cable_design";
-            this.tab_cable_design.Size = new System.Drawing.Size(881, 640);
-            this.tab_cable_design.TabIndex = 4;
-            this.tab_cable_design.Text = "Cable Design";
-            this.tab_cable_design.UseVisualStyleBackColor = true;
-            // 
             // splitContainer2
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -429,8 +327,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel4);
-            this.splitContainer2.Size = new System.Drawing.Size(881, 640);
-            this.splitContainer2.SplitterDistance = 196;
+            this.splitContainer2.Size = new System.Drawing.Size(905, 700);
+            this.splitContainer2.SplitterDistance = 213;
             this.splitContainer2.SplitterWidth = 9;
             this.splitContainer2.TabIndex = 5;
             // 
@@ -456,7 +354,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(881, 196);
+            this.panel5.Size = new System.Drawing.Size(905, 213);
             this.panel5.TabIndex = 3;
             // 
             // label68
@@ -478,7 +376,7 @@
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox8.Location = new System.Drawing.Point(0, 0);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(879, 74);
+            this.groupBox8.Size = new System.Drawing.Size(903, 74);
             this.groupBox8.TabIndex = 2;
             this.groupBox8.TabStop = false;
             // 
@@ -667,7 +565,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(881, 435);
+            this.panel4.Size = new System.Drawing.Size(905, 478);
             this.panel4.TabIndex = 5;
             // 
             // grb_members
@@ -677,7 +575,7 @@
             this.grb_members.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.grb_members.Location = new System.Drawing.Point(0, 0);
             this.grb_members.Name = "grb_members";
-            this.grb_members.Size = new System.Drawing.Size(879, 433);
+            this.grb_members.Size = new System.Drawing.Size(903, 476);
             this.grb_members.TabIndex = 4;
             this.grb_members.TabStop = false;
             this.grb_members.Text = "Member Details";
@@ -722,7 +620,7 @@
             this.dgv_cable_design.ReadOnly = true;
             this.dgv_cable_design.RowHeadersWidth = 30;
             this.dgv_cable_design.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_cable_design.Size = new System.Drawing.Size(873, 413);
+            this.dgv_cable_design.Size = new System.Drawing.Size(897, 456);
             this.dgv_cable_design.TabIndex = 3;
             this.dgv_cable_design.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_cable_design_CellDoubleClick);
             // 
@@ -945,129 +843,6 @@
             this.Column18.ReadOnly = true;
             this.Column18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column18.Width = 99;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.groupBox6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 46);
-            this.panel1.TabIndex = 105;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.BackColor = System.Drawing.Color.White;
-            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox6.Location = new System.Drawing.Point(0, 0);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(148, 44);
-            this.groupBox6.TabIndex = 104;
-            this.groupBox6.TabStop = false;
-            // 
-            // tab_non_linear
-            // 
-            this.tab_non_linear.Controls.Add(this.label185);
-            this.tab_non_linear.Controls.Add(this.comboBox1);
-            this.tab_non_linear.Controls.Add(this.button1);
-            this.tab_non_linear.Controls.Add(this.btn_NLNR_report);
-            this.tab_non_linear.Controls.Add(this.btn_NLNR_process);
-            this.tab_non_linear.Controls.Add(this.btn_NLNR_open);
-            this.tab_non_linear.Controls.Add(this.btn_NLNR_view);
-            this.tab_non_linear.Controls.Add(this.btn_NLNR_create);
-            this.tab_non_linear.Location = new System.Drawing.Point(4, 22);
-            this.tab_non_linear.Name = "tab_non_linear";
-            this.tab_non_linear.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_non_linear.Size = new System.Drawing.Size(897, 674);
-            this.tab_non_linear.TabIndex = 1;
-            this.tab_non_linear.Text = "Non Linear Analysis";
-            this.tab_non_linear.UseVisualStyleBackColor = true;
-            // 
-            // label185
-            // 
-            this.label185.AutoSize = true;
-            this.label185.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label185.Location = new System.Drawing.Point(334, 160);
-            this.label185.Name = "label185";
-            this.label185.Size = new System.Drawing.Size(226, 14);
-            this.label185.TabIndex = 81;
-            this.label185.Text = "Select File for Nonlinear Analysis";
-            this.label185.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Total Bridge Structure",
-            "Left Side of Bridge",
-            "Right Side of Bridge",
-            "Bridge Deck Model"});
-            this.comboBox1.Location = new System.Drawing.Point(337, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(325, 21);
-            this.comboBox1.TabIndex = 80;
-            this.comboBox1.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(337, 100);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(325, 53);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Technical Note";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn_NLNR_report
-            // 
-            this.btn_NLNR_report.Location = new System.Drawing.Point(337, 391);
-            this.btn_NLNR_report.Name = "btn_NLNR_report";
-            this.btn_NLNR_report.Size = new System.Drawing.Size(325, 53);
-            this.btn_NLNR_report.TabIndex = 0;
-            this.btn_NLNR_report.Text = "Open Analysis Report File";
-            this.btn_NLNR_report.UseVisualStyleBackColor = true;
-            this.btn_NLNR_report.Visible = false;
-            // 
-            // btn_NLNR_process
-            // 
-            this.btn_NLNR_process.Location = new System.Drawing.Point(337, 203);
-            this.btn_NLNR_process.Name = "btn_NLNR_process";
-            this.btn_NLNR_process.Size = new System.Drawing.Size(325, 53);
-            this.btn_NLNR_process.TabIndex = 0;
-            this.btn_NLNR_process.Text = "Process Analysis";
-            this.btn_NLNR_process.UseVisualStyleBackColor = true;
-            // 
-            // btn_NLNR_open
-            // 
-            this.btn_NLNR_open.Location = new System.Drawing.Point(337, 332);
-            this.btn_NLNR_open.Name = "btn_NLNR_open";
-            this.btn_NLNR_open.Size = new System.Drawing.Size(325, 53);
-            this.btn_NLNR_open.TabIndex = 0;
-            this.btn_NLNR_open.Text = "Open Analysis Input Data File";
-            this.btn_NLNR_open.UseVisualStyleBackColor = true;
-            this.btn_NLNR_open.Visible = false;
-            // 
-            // btn_NLNR_view
-            // 
-            this.btn_NLNR_view.Location = new System.Drawing.Point(337, 273);
-            this.btn_NLNR_view.Name = "btn_NLNR_view";
-            this.btn_NLNR_view.Size = new System.Drawing.Size(325, 53);
-            this.btn_NLNR_view.TabIndex = 0;
-            this.btn_NLNR_view.Text = "View Structure";
-            this.btn_NLNR_view.UseVisualStyleBackColor = true;
-            this.btn_NLNR_view.Visible = false;
-            // 
-            // btn_NLNR_create
-            // 
-            this.btn_NLNR_create.Location = new System.Drawing.Point(337, 482);
-            this.btn_NLNR_create.Name = "btn_NLNR_create";
-            this.btn_NLNR_create.Size = new System.Drawing.Size(325, 53);
-            this.btn_NLNR_create.TabIndex = 0;
-            this.btn_NLNR_create.Text = "Create Analysis Input data File";
-            this.btn_NLNR_create.UseVisualStyleBackColor = true;
-            this.btn_NLNR_create.Visible = false;
             // 
             // panel6
             // 
@@ -2972,7 +2747,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.tc_main);
+            this.panel3.Controls.Add(this.splitContainer2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -2990,14 +2765,6 @@
             this.Name = "UC_CableStayedDesign";
             this.Size = new System.Drawing.Size(905, 700);
             this.Load += new System.EventHandler(this.frm_Cable_Stayed_Load);
-            this.tc_main.ResumeLayout(false);
-            this.tab_linear.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.tc_analysis.ResumeLayout(false);
-            this.tab_cable_design.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             this.splitContainer2.ResumeLayout(false);
@@ -3008,9 +2775,6 @@
             this.panel4.ResumeLayout(false);
             this.grb_members.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_cable_design)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.tab_non_linear.ResumeLayout(false);
-            this.tab_non_linear.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
@@ -3047,17 +2811,11 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TabControl tc_analysis;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Button btn_cbl_mem_process;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.DataGridView dgv_cable_design;
         private System.Windows.Forms.Button btn_cbl_des_read_data;
-        private System.Windows.Forms.TabPage tab_cable_design;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.GroupBox grb_members;
         private System.Windows.Forms.Label label65;
@@ -3248,21 +3006,10 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox cmb_cross_ang_section_name;
         private System.Windows.Forms.ComboBox cmb_Long_ang_section_name;
-        private System.Windows.Forms.TabControl tc_main;
-        private System.Windows.Forms.TabPage tab_linear;
-        private System.Windows.Forms.TabPage tab_non_linear;
-        private System.Windows.Forms.Button btn_NLNR_report;
-        private System.Windows.Forms.Button btn_NLNR_process;
-        private System.Windows.Forms.Button btn_NLNR_view;
-        private System.Windows.Forms.Button btn_NLNR_create;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_NLNR_open;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
         private SuspensionBridge.UC_Superstructure uC_Superstructure1;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Label label185;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.TextBox txt_cbl_des_mem_nos;
         public System.Windows.Forms.TextBox txt_cbl_des_gamma;

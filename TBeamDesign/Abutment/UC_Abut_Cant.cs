@@ -22,7 +22,13 @@ namespace BridgeAnalysisDesign.Abutment
         {
             InitializeComponent();
         }
-
+        public DataGridView DGV_Input
+        {
+            get
+            {
+                return dgv_abutment_input;
+            }
+        }
         public void SetIApplication(IApplication app)
         {
             iApp = app;
@@ -313,7 +319,6 @@ namespace BridgeAnalysisDesign.Abutment
                 return;
             }
 
-
             iApp.Excel_Open_Message();
 
             Excel.Application myExcelApp;
@@ -322,7 +327,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;
@@ -568,7 +573,7 @@ namespace BridgeAnalysisDesign.Abutment
 
             object misValue = System.Reflection.Missing.Value;
 
-            myExcelApp = new Excel.ApplicationClass();
+            myExcelApp = new Excel.Application();
             myExcelApp.Visible = true;
             //myExcelApp.Visible = false;
             myExcelWorkbooks = myExcelApp.Workbooks;

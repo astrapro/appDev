@@ -1063,6 +1063,8 @@
             this.btn_RCC_Pier_Process = new System.Windows.Forms.Button();
             this.btn_RCC_Pier_Report = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox34 = new System.Windows.Forms.GroupBox();
+            this.label209 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
             this.btnDrawing = new System.Windows.Forms.Button();
             this.btn_dwg_pier = new System.Windows.Forms.Button();
@@ -1070,8 +1072,6 @@
             this.btn_dwg_abut = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmr_blink = new System.Windows.Forms.Timer(this.components);
-            this.groupBox34 = new System.Windows.Forms.GroupBox();
-            this.label209 = new System.Windows.Forms.Label();
             this.tab_des.SuspendLayout();
             this.tab_ana.SuspendLayout();
             this.tab_truss.SuspendLayout();
@@ -5156,8 +5156,6 @@
             // chk_esprt_fixed_MZ
             // 
             this.chk_esprt_fixed_MZ.AutoSize = true;
-            this.chk_esprt_fixed_MZ.Checked = true;
-            this.chk_esprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MZ.Location = new System.Drawing.Point(331, 34);
             this.chk_esprt_fixed_MZ.Name = "chk_esprt_fixed_MZ";
             this.chk_esprt_fixed_MZ.Size = new System.Drawing.Size(42, 17);
@@ -5168,6 +5166,8 @@
             // chk_esprt_fixed_FZ
             // 
             this.chk_esprt_fixed_FZ.AutoSize = true;
+            this.chk_esprt_fixed_FZ.Checked = true;
+            this.chk_esprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FZ.Location = new System.Drawing.Point(210, 34);
             this.chk_esprt_fixed_FZ.Name = "chk_esprt_fixed_FZ";
             this.chk_esprt_fixed_FZ.Size = new System.Drawing.Size(39, 17);
@@ -5178,6 +5178,8 @@
             // chk_esprt_fixed_MY
             // 
             this.chk_esprt_fixed_MY.AutoSize = true;
+            this.chk_esprt_fixed_MY.Checked = true;
+            this.chk_esprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MY.Location = new System.Drawing.Point(290, 34);
             this.chk_esprt_fixed_MY.Name = "chk_esprt_fixed_MY";
             this.chk_esprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
@@ -5188,6 +5190,8 @@
             // chk_esprt_fixed_FY
             // 
             this.chk_esprt_fixed_FY.AutoSize = true;
+            this.chk_esprt_fixed_FY.Checked = true;
+            this.chk_esprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FY.Location = new System.Drawing.Point(175, 34);
             this.chk_esprt_fixed_FY.Name = "chk_esprt_fixed_FY";
             this.chk_esprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
@@ -5198,6 +5202,8 @@
             // chk_esprt_fixed_MX
             // 
             this.chk_esprt_fixed_MX.AutoSize = true;
+            this.chk_esprt_fixed_MX.Checked = true;
+            this.chk_esprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_MX.Location = new System.Drawing.Point(250, 34);
             this.chk_esprt_fixed_MX.Name = "chk_esprt_fixed_MX";
             this.chk_esprt_fixed_MX.Size = new System.Drawing.Size(42, 17);
@@ -5208,8 +5214,6 @@
             // chk_esprt_fixed_FX
             // 
             this.chk_esprt_fixed_FX.AutoSize = true;
-            this.chk_esprt_fixed_FX.Checked = true;
-            this.chk_esprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_esprt_fixed_FX.Location = new System.Drawing.Point(136, 34);
             this.chk_esprt_fixed_FX.Name = "chk_esprt_fixed_FX";
             this.chk_esprt_fixed_FX.Size = new System.Drawing.Size(39, 17);
@@ -5442,8 +5446,6 @@
             // chk_ssprt_fixed_MZ
             // 
             this.chk_ssprt_fixed_MZ.AutoSize = true;
-            this.chk_ssprt_fixed_MZ.Checked = true;
-            this.chk_ssprt_fixed_MZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MZ.Location = new System.Drawing.Point(328, 33);
             this.chk_ssprt_fixed_MZ.Name = "chk_ssprt_fixed_MZ";
             this.chk_ssprt_fixed_MZ.Size = new System.Drawing.Size(42, 17);
@@ -5454,6 +5456,8 @@
             // chk_ssprt_fixed_FZ
             // 
             this.chk_ssprt_fixed_FZ.AutoSize = true;
+            this.chk_ssprt_fixed_FZ.Checked = true;
+            this.chk_ssprt_fixed_FZ.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FZ.Location = new System.Drawing.Point(207, 33);
             this.chk_ssprt_fixed_FZ.Name = "chk_ssprt_fixed_FZ";
             this.chk_ssprt_fixed_FZ.Size = new System.Drawing.Size(39, 17);
@@ -5464,6 +5468,8 @@
             // chk_ssprt_fixed_MY
             // 
             this.chk_ssprt_fixed_MY.AutoSize = true;
+            this.chk_ssprt_fixed_MY.Checked = true;
+            this.chk_ssprt_fixed_MY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MY.Location = new System.Drawing.Point(287, 33);
             this.chk_ssprt_fixed_MY.Name = "chk_ssprt_fixed_MY";
             this.chk_ssprt_fixed_MY.Size = new System.Drawing.Size(42, 17);
@@ -5474,6 +5480,8 @@
             // chk_ssprt_fixed_FY
             // 
             this.chk_ssprt_fixed_FY.AutoSize = true;
+            this.chk_ssprt_fixed_FY.Checked = true;
+            this.chk_ssprt_fixed_FY.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FY.Location = new System.Drawing.Point(172, 33);
             this.chk_ssprt_fixed_FY.Name = "chk_ssprt_fixed_FY";
             this.chk_ssprt_fixed_FY.Size = new System.Drawing.Size(39, 17);
@@ -5484,6 +5492,8 @@
             // chk_ssprt_fixed_MX
             // 
             this.chk_ssprt_fixed_MX.AutoSize = true;
+            this.chk_ssprt_fixed_MX.Checked = true;
+            this.chk_ssprt_fixed_MX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_MX.Location = new System.Drawing.Point(247, 33);
             this.chk_ssprt_fixed_MX.Name = "chk_ssprt_fixed_MX";
             this.chk_ssprt_fixed_MX.Size = new System.Drawing.Size(42, 17);
@@ -5494,6 +5504,8 @@
             // chk_ssprt_fixed_FX
             // 
             this.chk_ssprt_fixed_FX.AutoSize = true;
+            this.chk_ssprt_fixed_FX.Checked = true;
+            this.chk_ssprt_fixed_FX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_ssprt_fixed_FX.Location = new System.Drawing.Point(133, 33);
             this.chk_ssprt_fixed_FX.Name = "chk_ssprt_fixed_FX";
             this.chk_ssprt_fixed_FX.Size = new System.Drawing.Size(39, 17);
@@ -8393,7 +8405,7 @@
             this.uC_Deckslab_BS1.thickness_surfacing = 150D;
             this.uC_Deckslab_BS1.unitwt_concrete = 24D;
             this.uC_Deckslab_BS1.unitwt_surfacing = 24D;
-            this.uC_Deckslab_BS1.user_path = "Deckslab Analysis [BS 5400]";
+            this.uC_Deckslab_BS1.user_path = "";
             this.uC_Deckslab_BS1.V = 0D;
             this.uC_Deckslab_BS1.wheel_a1 = 261.116D;
             this.uC_Deckslab_BS1.wheel_a2 = 261.116D;
@@ -12142,6 +12154,28 @@
             this.tabPage1.Text = "Drawings";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox34
+            // 
+            this.groupBox34.Controls.Add(this.label209);
+            this.groupBox34.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox34.ForeColor = System.Drawing.Color.Red;
+            this.groupBox34.Location = new System.Drawing.Point(329, 440);
+            this.groupBox34.Name = "groupBox34";
+            this.groupBox34.Size = new System.Drawing.Size(307, 65);
+            this.groupBox34.TabIndex = 81;
+            this.groupBox34.TabStop = false;
+            this.groupBox34.Text = "Note :";
+            // 
+            // label209
+            // 
+            this.label209.AutoSize = true;
+            this.label209.Location = new System.Drawing.Point(6, 18);
+            this.label209.Name = "label209";
+            this.label209.Size = new System.Drawing.Size(301, 28);
+            this.label209.TabIndex = 0;
+            this.label209.Text = "Design Drawing Converter is not added, \r\nCAD Editable Sample Drawings will be ope" +
+    "ned.";
+            // 
             // label101
             // 
             this.label101.AutoSize = true;
@@ -12205,28 +12239,6 @@
             // 
             this.tmr_blink.Interval = 900;
             this.tmr_blink.Tick += new System.EventHandler(this.tmr_blink_Tick);
-            // 
-            // groupBox34
-            // 
-            this.groupBox34.Controls.Add(this.label209);
-            this.groupBox34.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox34.ForeColor = System.Drawing.Color.Red;
-            this.groupBox34.Location = new System.Drawing.Point(329, 440);
-            this.groupBox34.Name = "groupBox34";
-            this.groupBox34.Size = new System.Drawing.Size(307, 65);
-            this.groupBox34.TabIndex = 81;
-            this.groupBox34.TabStop = false;
-            this.groupBox34.Text = "Note :";
-            // 
-            // label209
-            // 
-            this.label209.AutoSize = true;
-            this.label209.Location = new System.Drawing.Point(6, 18);
-            this.label209.Name = "label209";
-            this.label209.Size = new System.Drawing.Size(301, 28);
-            this.label209.TabIndex = 0;
-            this.label209.Text = "Design Drawing Converter is not added, \r\nCAD Editable Sample Drawings will be ope" +
-    "ned.";
             // 
             // frm_Steel_Truss_K_type
             // 
