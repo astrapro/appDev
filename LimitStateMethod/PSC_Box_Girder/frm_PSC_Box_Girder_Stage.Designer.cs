@@ -1025,7 +1025,7 @@
             // 
             // txt_Ana_Wf_RHS
             // 
-            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(130, 44);
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(351, 20);
             this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
             this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wf_RHS.TabIndex = 2;
@@ -1065,7 +1065,7 @@
             // label566
             // 
             this.label566.AutoSize = true;
-            this.label566.Location = new System.Drawing.Point(186, 47);
+            this.label566.Location = new System.Drawing.Point(407, 23);
             this.label566.Name = "label566";
             this.label566.Size = new System.Drawing.Size(18, 13);
             this.label566.TabIndex = 2;
@@ -1083,7 +1083,7 @@
             // 
             // txt_Ana_Hf_LHS
             // 
-            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(351, 17);
+            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(130, 44);
             this.txt_Ana_Hf_LHS.Name = "txt_Ana_Hf_LHS";
             this.txt_Ana_Hf_LHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Hf_LHS.TabIndex = 1;
@@ -1123,7 +1123,7 @@
             // 
             this.label524.AutoSize = true;
             this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label524.Location = new System.Drawing.Point(245, 20);
+            this.label524.Location = new System.Drawing.Point(6, 47);
             this.label524.Name = "label524";
             this.label524.Size = new System.Drawing.Size(98, 13);
             this.label524.TabIndex = 3;
@@ -1132,7 +1132,7 @@
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(407, 20);
+            this.label525.Location = new System.Drawing.Point(186, 47);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(18, 13);
             this.label525.TabIndex = 2;
@@ -1151,7 +1151,7 @@
             // 
             this.label564.AutoSize = true;
             this.label564.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label564.Location = new System.Drawing.Point(8, 44);
+            this.label564.Location = new System.Drawing.Point(245, 23);
             this.label564.Name = "label564";
             this.label564.Size = new System.Drawing.Size(98, 13);
             this.label564.TabIndex = 0;

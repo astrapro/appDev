@@ -999,6 +999,8 @@
             this.btn_process_analysis = new System.Windows.Forms.Button();
             this.btn_view_data = new System.Windows.Forms.Button();
             this.btn_create_data = new System.Windows.Forms.Button();
+            this.tab_bearing = new System.Windows.Forms.TabPage();
+            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tc_main.SuspendLayout();
             this.tab_linear.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1143,6 +1145,7 @@
             this.groupBox25.SuspendLayout();
             this.groupBox36.SuspendLayout();
             this.groupBox37.SuspendLayout();
+            this.tab_bearing.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -1156,6 +1159,7 @@
             this.tc_main.Controls.Add(this.tab_linear);
             this.tc_main.Controls.Add(this.tab_steel_girder_design);
             this.tc_main.Controls.Add(this.tab_tower_ana);
+            this.tc_main.Controls.Add(this.tab_bearing);
             this.tc_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tc_main.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tc_main.Location = new System.Drawing.Point(0, 0);
@@ -1865,6 +1869,7 @@
             this.txt_Ana_wr.TabIndex = 1;
             this.txt_Ana_wr.Text = "0.100";
             this.txt_Ana_wr.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_wr.TextChanged += new System.EventHandler(this.txt_L1_TextChanged);
             // 
             // label527
             // 
@@ -1883,6 +1888,7 @@
             this.txt_Ana_Wk.TabIndex = 1;
             this.txt_Ana_Wk.Text = "0.500";
             this.txt_Ana_Wk.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wk.TextChanged += new System.EventHandler(this.txt_L1_TextChanged);
             // 
             // label1184
             // 
@@ -11273,6 +11279,34 @@
             this.btn_create_data.UseVisualStyleBackColor = true;
             this.btn_create_data.Click += new System.EventHandler(this.btn_create_data_Click);
             // 
+            // tab_bearing
+            // 
+            this.tab_bearing.Controls.Add(this.uC_BRD1);
+            this.tab_bearing.Location = new System.Drawing.Point(4, 22);
+            this.tab_bearing.Name = "tab_bearing";
+            this.tab_bearing.Size = new System.Drawing.Size(1129, 674);
+            this.tab_bearing.TabIndex = 4;
+            this.tab_bearing.Text = "Bearing";
+            this.tab_bearing.UseVisualStyleBackColor = true;
+            // 
+            // uC_BRD1
+            // 
+            this.uC_BRD1.Bearings_Nos = "8";
+            this.uC_BRD1.Bearings_Span = "11.0";
+            this.uC_BRD1.Bearings_Trans = "3.0";
+            this.uC_BRD1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_BRD1.Effective_Length = "14.70";
+            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BRD1.Girder_Length = "15.50";
+            this.uC_BRD1.Length = "15.52";
+            this.uC_BRD1.Location = new System.Drawing.Point(0, 0);
+            this.uC_BRD1.Name = "uC_BRD1";
+            this.uC_BRD1.Overall_Span = "11.5";
+            this.uC_BRD1.Show_Forces = false;
+            this.uC_BRD1.Size = new System.Drawing.Size(1129, 674);
+            this.uC_BRD1.TabIndex = 1;
+            this.uC_BRD1.user_path = null;
+            // 
             // frmCableStayed_LS_Stage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -11496,6 +11530,7 @@
             this.groupBox36.PerformLayout();
             this.groupBox37.ResumeLayout(false);
             this.groupBox37.PerformLayout();
+            this.tab_bearing.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -12412,6 +12447,8 @@
         private BridgeAnalysisDesign.Pier.UC_PierOpenLS uC_PierOpenLS1;
         private System.Windows.Forms.TabPage tab_PierPileLSM;
         private BridgeAnalysisDesign.Pier.UC_PierDesignLSM uC_PierDesignLSM1;
+        private System.Windows.Forms.TabPage tab_bearing;
+        private Bearing.UC_BRD uC_BRD1;
     }
 
 }

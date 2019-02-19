@@ -2581,6 +2581,7 @@
             // 
             // txt_xls_inp_I18
             // 
+            this.txt_xls_inp_I18.ForeColor = System.Drawing.Color.Red;
             this.txt_xls_inp_I18.Location = new System.Drawing.Point(483, 123);
             this.txt_xls_inp_I18.Name = "txt_xls_inp_I18";
             this.txt_xls_inp_I18.Size = new System.Drawing.Size(56, 21);
@@ -2662,6 +2663,7 @@
             // 
             // txt_xls_inp_G18
             // 
+            this.txt_xls_inp_G18.ForeColor = System.Drawing.Color.Red;
             this.txt_xls_inp_G18.Location = new System.Drawing.Point(370, 123);
             this.txt_xls_inp_G18.Name = "txt_xls_inp_G18";
             this.txt_xls_inp_G18.Size = new System.Drawing.Size(56, 21);

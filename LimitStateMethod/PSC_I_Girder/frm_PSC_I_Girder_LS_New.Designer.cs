@@ -1578,6 +1578,7 @@
             this.groupBox23.SuspendLayout();
             this.groupBox40.SuspendLayout();
             this.tab_details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tab_mov_data_Indian.SuspendLayout();
@@ -1588,6 +1589,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_long_liveloads)).BeginInit();
             this.tab_mov_data_British.SuspendLayout();
             this.groupBox60.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sp_hb)).BeginInit();
             this.sp_hb.Panel1.SuspendLayout();
             this.sp_hb.Panel2.SuspendLayout();
             this.sp_hb.SuspendLayout();
@@ -1609,6 +1611,7 @@
             this.groupBox50.SuspendLayout();
             this.groupBox51.SuspendLayout();
             this.tab_ana_process.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -2785,17 +2788,18 @@
             // 
             // txt_Ana_Wf_RHS
             // 
-            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(135, 35);
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(356, 11);
             this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
             this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wf_RHS.TabIndex = 9;
             this.txt_Ana_Wf_RHS.Text = "0.0";
             this.txt_Ana_Wf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label566
             // 
             this.label566.AutoSize = true;
-            this.label566.Location = new System.Drawing.Point(191, 38);
+            this.label566.Location = new System.Drawing.Point(412, 14);
             this.label566.Name = "label566";
             this.label566.Size = new System.Drawing.Size(18, 13);
             this.label566.TabIndex = 10;
@@ -2809,6 +2813,7 @@
             this.txt_Ana_Hf_RHS.TabIndex = 8;
             this.txt_Ana_Hf_RHS.Text = "0.0";
             this.txt_Ana_Hf_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hf_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label567
             // 
@@ -2833,7 +2838,7 @@
             // 
             this.label524.AutoSize = true;
             this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label524.Location = new System.Drawing.Point(253, 14);
+            this.label524.Location = new System.Drawing.Point(11, 38);
             this.label524.Name = "label524";
             this.label524.Size = new System.Drawing.Size(98, 13);
             this.label524.TabIndex = 7;
@@ -2843,7 +2848,7 @@
             // 
             this.label564.AutoSize = true;
             this.label564.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label564.Location = new System.Drawing.Point(11, 38);
+            this.label564.Location = new System.Drawing.Point(252, 14);
             this.label564.Name = "label564";
             this.label564.Size = new System.Drawing.Size(98, 13);
             this.label564.TabIndex = 4;
@@ -2910,7 +2915,7 @@
             // 
             // txt_Ana_Hf_LHS
             // 
-            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(356, 11);
+            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(135, 35);
             this.txt_Ana_Hf_LHS.Name = "txt_Ana_Hf_LHS";
             this.txt_Ana_Hf_LHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Hf_LHS.TabIndex = 1;
@@ -2930,7 +2935,7 @@
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(412, 14);
+            this.label525.Location = new System.Drawing.Point(191, 38);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(18, 13);
             this.label525.TabIndex = 2;
@@ -3013,6 +3018,7 @@
             this.txt_Ana_Dw.TabIndex = 5;
             this.txt_Ana_Dw.Text = "0.075";
             this.txt_Ana_Dw.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Dw.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label521
             // 
@@ -3158,6 +3164,7 @@
             this.txt_Ana_Hc_RHS.TabIndex = 7;
             this.txt_Ana_Hc_RHS.Text = "1.200";
             this.txt_Ana_Hc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Hc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label504
             // 
@@ -3215,6 +3222,7 @@
             this.txt_Ana_Wc_RHS.TabIndex = 6;
             this.txt_Ana_Wc_RHS.Text = " 0.500";
             this.txt_Ana_Wc_RHS.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_Ana_Wc_RHS.TextChanged += new System.EventHandler(this.txt_Ana_length_TextChanged);
             // 
             // label480
             // 
@@ -17729,6 +17737,7 @@
             this.groupBox40.PerformLayout();
             this.tab_details.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tab_mov_data_Indian.ResumeLayout(false);
             this.groupBox79.ResumeLayout(false);
@@ -17744,6 +17753,7 @@
             this.groupBox60.PerformLayout();
             this.sp_hb.Panel1.ResumeLayout(false);
             this.sp_hb.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.sp_hb)).EndInit();
             this.sp_hb.ResumeLayout(false);
             this.groupBox61.ResumeLayout(false);
             this.groupBox61.PerformLayout();
@@ -17776,6 +17786,7 @@
             this.tab_ana_process.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.groupBox35.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);

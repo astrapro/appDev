@@ -104,9 +104,19 @@ namespace LimitStateMethod.SuspensionBridge
             Loads_Suspension_Sections();
 
             Calculate_Load();
-            
 
-            
+
+
+            #region Bearings
+
+            //Chiranjit [2016 03 1]
+            uC_BRD1.iApp = iApp;
+            uC_BRD1.Load_Default_Data();
+            iApp.user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title); ;
+
+
+            #endregion Bearings
+
 
 
 

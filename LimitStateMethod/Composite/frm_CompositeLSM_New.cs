@@ -4512,6 +4512,55 @@ namespace LimitStateMethod.Composite
         #region Chiranjit [2012 06 20]
         //Chiranjit [2012 06 20]
         //Define Properties
+
+        public double L1
+        {
+            get
+            {
+
+                string kstr = txt_multiSpan.Text.Replace(",", " ");
+
+                try
+                {
+                    MyList ml = new MyList(MyList.RemoveAllSpaces(kstr), ' ');
+                    if (ml.Count > 0)
+                    {
+                        return ml.GetDouble(0);
+                    }
+                }
+                catch (Exception exx)
+                {
+
+                }
+                return 0.0;
+            }
+        }
+        public double L2
+        {
+            get
+            {
+
+                string kstr = txt_multiSpan.Text.Replace(",", " ");
+
+                try
+                {
+                    MyList ml = new MyList(MyList.RemoveAllSpaces(kstr), ' ');
+                    if (ml.Count > 1)
+                    {
+                        return ml.GetMax(1);
+                    } 
+                    else if (ml.Count == 0)
+                    {
+                        return ml.GetMax(0);
+                    }
+                }
+                catch (Exception exx)
+                {
+
+                }
+                return 0.0;
+            }
+        }
         public double L { get { return MyList.StringToDouble(txt_Ana_L.Text, 13.0); } set { txt_Ana_L.Text = value.ToString("f3"); } }
         public double B { get { return MyList.StringToDouble(txt_Ana_B.Text, 0.0); } set { txt_Ana_B.Text = value.ToString("f3"); } }
         public double CW { get { return MyList.StringToDouble(txt_Ana_CW.Text, 0.0); } set { txt_Ana_CW.Text = value.ToString("f3"); } }
@@ -4699,8 +4748,8 @@ namespace LimitStateMethod.Composite
 
             //txt_Long_L.Text = L.ToString("f3");
             txt_Deck_L.Text = L.ToString("f3");
-            txt_abut_L.Text = L.ToString("f3");
-            txt_RCC_Pier_L.Text = L.ToString("f3");
+            txt_abut_L.Text = L1.ToString("f3");
+            txt_RCC_Pier_L.Text = L2.ToString("f3");
 
             txt_abut_DMG.Text = (DMG + 0.2).ToString("f3");
 
@@ -4832,18 +4881,18 @@ namespace LimitStateMethod.Composite
 
             uC_Deckslab_BS1.h = Ds * 1000;
 
-            uC_RCC_Abut1.Length = L;
+            uC_RCC_Abut1.Length = L1;
             uC_RCC_Abut1.Width = B;
 
-            uC_PierDesignLSM1.Left_Span = L.ToString();
-            uC_PierDesignLSM1.Right_Span = L.ToString();
+            uC_PierDesignLSM1.Left_Span = L2.ToString();
+            uC_PierDesignLSM1.Right_Span = L2.ToString();
             //uC_Abut1.Overhang = og;
 
 
             #region Chiranjit [2017 09 18]
             //Abutment Design with Open Foundation n Limit State Method
             #region Abutment Open Foundation
-            uC_AbutmentOpenLS1.Span = txt_Ana_L.Text;
+            uC_AbutmentOpenLS1.Span = L1.ToString();
             //uC_AbutmentOpenLS1.Exp_Gap = txt_Ana_eg.Text;
             uC_AbutmentOpenLS1.Carriageway_width = txt_Ana_B.Text;
 
@@ -4874,7 +4923,7 @@ namespace LimitStateMethod.Composite
             //Chiranjit [2017 09 18]
             //Abutment Design with Pile Foundation n Limit State Method
             #region Abutment Pile Foundation
-            uC_AbutmentPileLS1.Span = txt_Ana_L.Text;
+            uC_AbutmentPileLS1.Span = L1.ToString();
             //uC_AbutmentPileLS1.Exp_Gap = txt_Ana_eg.Text;
             uC_AbutmentPileLS1.Carriageway_width = txt_Ana_B.Text;
 
@@ -5027,7 +5076,7 @@ namespace LimitStateMethod.Composite
         }
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
-
+            
             var uc = uC_Des_Res;
             //if (rbtn_singleSpan.Checked) txt_multiSpan.Text = txt_Ana_L.Text;
 
@@ -5154,9 +5203,9 @@ namespace LimitStateMethod.Composite
             //TextBox txt_n = txt_Ana_NMG;
             //TextBox txt_n = txt_Ana_NMG;
 
-            double L1 = L;
-            double L2 = L;
-            double L3 = L;
+            //double L1 = L;
+            //double L2 = L;
+            double L3 = L1;
 
             //Deckslab
             if (iApp.DesignStandard == eDesignStandard.IndianStandard)
@@ -5326,8 +5375,8 @@ namespace LimitStateMethod.Composite
             dgv[1, 86].Value = txt_Ana_Wk.Text;
             dgv[1, 86].Style.ForeColor = Color.Red;
 
-            dgv[1, 87].Value = txt_Ana_wr.Text;
-            dgv[1, 87].Style.ForeColor = Color.Red;
+            //dgv[1, 87].Value = txt_Ana_wr.Text;
+            //dgv[1, 87].Style.ForeColor = Color.Red;
 
 
             //dgv[1, 10].Value = txt_ana_wc.Text;
@@ -5381,6 +5430,7 @@ namespace LimitStateMethod.Composite
             uC_AbutmentPileLS1.txt_xls_inp_E23.Text = txt_Ana_wf.Text;
             uC_AbutmentPileLS1.txt_xls_inp_E23.ForeColor = Color.Red;
 
+            
 
             uC_AbutmentPileLS1.txt_xls_inp_E30.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
             uC_AbutmentPileLS1.txt_xls_inp_E30.ForeColor = Color.Red;
@@ -21871,6 +21921,11 @@ namespace LimitStateMethod.Composite
         private void uC_Composite_Stage1_OnEModTextChanged(object sender, EventArgs e)
         {
             Emod_Change(ucStage);
+        }
+
+        private void uC_AbutmentOpenLS1_Load(object sender, EventArgs e)
+        {
+
         }
 
     }

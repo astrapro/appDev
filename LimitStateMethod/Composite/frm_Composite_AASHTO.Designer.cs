@@ -2537,7 +2537,7 @@
             // 
             this.label524.AutoSize = true;
             this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label524.Location = new System.Drawing.Point(282, 16);
+            this.label524.Location = new System.Drawing.Point(9, 43);
             this.label524.Name = "label524";
             this.label524.Size = new System.Drawing.Size(98, 13);
             this.label524.TabIndex = 7;
@@ -2547,7 +2547,7 @@
             // 
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(8, 40);
+            this.label49.Location = new System.Drawing.Point(282, 16);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(98, 13);
             this.label49.TabIndex = 4;
@@ -2557,7 +2557,7 @@
             // 
             this.label527.AutoSize = true;
             this.label527.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label527.Location = new System.Drawing.Point(8, 16);
+            this.label527.Location = new System.Drawing.Point(11, 16);
             this.label527.Name = "label527";
             this.label527.Size = new System.Drawing.Size(96, 13);
             this.label527.TabIndex = 4;
@@ -2594,7 +2594,7 @@
             // 
             // txt_Ana_hf_RHS
             // 
-            this.txt_Ana_hf_RHS.Location = new System.Drawing.Point(389, 40);
+            this.txt_Ana_hf_RHS.Location = new System.Drawing.Point(388, 37);
             this.txt_Ana_hf_RHS.Name = "txt_Ana_hf_RHS";
             this.txt_Ana_hf_RHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_hf_RHS.TabIndex = 1;
@@ -2604,7 +2604,7 @@
             // 
             // txt_Ana_hf_LHS
             // 
-            this.txt_Ana_hf_LHS.Location = new System.Drawing.Point(389, 16);
+            this.txt_Ana_hf_LHS.Location = new System.Drawing.Point(151, 40);
             this.txt_Ana_hf_LHS.Name = "txt_Ana_hf_LHS";
             this.txt_Ana_hf_LHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_hf_LHS.TabIndex = 1;
@@ -2615,7 +2615,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(445, 43);
+            this.label48.Location = new System.Drawing.Point(444, 40);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(15, 13);
             this.label48.TabIndex = 2;
@@ -2633,7 +2633,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(207, 40);
+            this.label47.Location = new System.Drawing.Point(444, 16);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(15, 13);
             this.label47.TabIndex = 2;
@@ -2642,7 +2642,7 @@
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(445, 19);
+            this.label525.Location = new System.Drawing.Point(207, 43);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(15, 13);
             this.label525.TabIndex = 2;
@@ -2650,7 +2650,7 @@
             // 
             // txt_Ana_wf_RHS
             // 
-            this.txt_Ana_wf_RHS.Location = new System.Drawing.Point(151, 37);
+            this.txt_Ana_wf_RHS.Location = new System.Drawing.Point(388, 13);
             this.txt_Ana_wf_RHS.Name = "txt_Ana_wf_RHS";
             this.txt_Ana_wf_RHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_wf_RHS.TabIndex = 0;
@@ -5797,7 +5797,7 @@
             this.tab_Analysis_Result.Padding = new System.Windows.Forms.Padding(3);
             this.tab_Analysis_Result.Size = new System.Drawing.Size(940, 642);
             this.tab_Analysis_Result.TabIndex = 1;
-            this.tab_Analysis_Result.Text = "Analysis Process";
+            this.tab_Analysis_Result.Text = "Analysis (Normal) Process";
             this.tab_Analysis_Result.UseVisualStyleBackColor = true;
             // 
             // tc_AnaProcess
@@ -5925,6 +5925,7 @@
             this.txt_emod.TabIndex = 108;
             this.txt_emod.Text = "4180000";
             this.txt_emod.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_emod.TextChanged += new System.EventHandler(this.txt_emod_TextChanged);
             // 
             // groupBox136
             // 
@@ -6350,7 +6351,7 @@
             // 
             // btn_Ana_process_analysis
             // 
-            this.btn_Ana_process_analysis.Location = new System.Drawing.Point(6, 30);
+            this.btn_Ana_process_analysis.Location = new System.Drawing.Point(24, 29);
             this.btn_Ana_process_analysis.Name = "btn_Ana_process_analysis";
             this.btn_Ana_process_analysis.Size = new System.Drawing.Size(155, 46);
             this.btn_Ana_process_analysis.TabIndex = 75;
@@ -9749,6 +9750,7 @@
             this.uC_Composite_AASHTO_Stage1.TabIndex = 0;
             this.uC_Composite_AASHTO_Stage1.OnButtonClick += new System.EventHandler(this.btn_stage_buttons_Click);
             this.uC_Composite_AASHTO_Stage1.OnComboboxSelectedIndexChanged += new System.EventHandler(this.cmb_long_open_stage_file_SelectedIndexChanged);
+            this.uC_Composite_AASHTO_Stage1.OnEmodTextChanged += new System.EventHandler(this.uC_Composite_AASHTO_Stage1_OnEmodTextChanged);
             // 
             // tab_stage2
             // 

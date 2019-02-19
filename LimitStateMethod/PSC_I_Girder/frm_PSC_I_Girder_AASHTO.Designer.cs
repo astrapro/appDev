@@ -982,6 +982,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox23.SuspendLayout();
             this.groupBox40.SuspendLayout();
             this.tab_details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tab_mov_data_Indian.SuspendLayout();
@@ -997,6 +998,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox50.SuspendLayout();
             this.groupBox51.SuspendLayout();
             this.tab_ana_process.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
@@ -2099,7 +2101,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // txt_Ana_Hf_LHS
             // 
-            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(376, 17);
+            this.txt_Ana_Hf_LHS.Location = new System.Drawing.Point(132, 44);
             this.txt_Ana_Hf_LHS.Name = "txt_Ana_Hf_LHS";
             this.txt_Ana_Hf_LHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Hf_LHS.TabIndex = 1;
@@ -2139,7 +2141,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label524.AutoSize = true;
             this.label524.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label524.Location = new System.Drawing.Point(271, 20);
+            this.label524.Location = new System.Drawing.Point(6, 47);
             this.label524.Name = "label524";
             this.label524.Size = new System.Drawing.Size(98, 13);
             this.label524.TabIndex = 3;
@@ -2148,7 +2150,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // label100
             // 
             this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(188, 47);
+            this.label100.Location = new System.Drawing.Point(432, 20);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(15, 13);
             this.label100.TabIndex = 2;
@@ -2157,7 +2159,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(432, 20);
+            this.label525.Location = new System.Drawing.Point(188, 47);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(15, 13);
             this.label525.TabIndex = 2;
@@ -2165,7 +2167,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             // txt_Ana_Wf_RHS
             // 
-            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(132, 44);
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(376, 17);
             this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
             this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wf_RHS.TabIndex = 0;
@@ -2186,7 +2188,7 @@ namespace LimitStateMethod.PSC_I_Girder
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(6, 47);
+            this.label38.Location = new System.Drawing.Point(271, 20);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(98, 13);
             this.label38.TabIndex = 0;
@@ -10491,6 +10493,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.groupBox40.PerformLayout();
             this.tab_details.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tab_mov_data_Indian.ResumeLayout(false);
             this.groupBox79.ResumeLayout(false);
@@ -10513,6 +10516,7 @@ namespace LimitStateMethod.PSC_I_Girder
             this.tab_ana_process.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.groupBox35.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);

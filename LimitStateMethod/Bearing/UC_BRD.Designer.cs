@@ -958,6 +958,7 @@
             // 
             // panel3
             // 
+            this.panel3.AutoScroll = true;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Controls.Add(this.label36);
@@ -1127,7 +1128,7 @@
             this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(935, 33);
+            this.label1.Size = new System.Drawing.Size(937, 33);
             this.label1.TabIndex = 1;
             this.label1.Text = "DESIGN OF Steflomet POT/PTFE VERSO-MONO AXIAL BEARING (TRANSVERSE)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1138,9 +1139,9 @@
             this.panel1.Controls.Add(this.btn_VMABT_report);
             this.panel1.Controls.Add(this.btn_VMABT_process);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 600);
+            this.panel1.Location = new System.Drawing.Point(0, 592);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(935, 30);
+            this.panel1.Size = new System.Drawing.Size(937, 30);
             this.panel1.TabIndex = 100;
             // 
             // btn_VMABT_report
@@ -2577,6 +2578,7 @@
             // 
             // pnl_VMABL
             // 
+            this.pnl_VMABL.AutoScroll = true;
             this.pnl_VMABL.Controls.Add(this.label251);
             this.pnl_VMABL.Controls.Add(this.panel5);
             this.pnl_VMABL.Controls.Add(this.label253);
@@ -4195,6 +4197,7 @@
             // 
             // pnl_VBAB
             // 
+            this.pnl_VBAB.AutoScroll = true;
             this.pnl_VBAB.Controls.Add(this.label294);
             this.pnl_VBAB.Controls.Add(this.txt_VBAB_3_8_bot_sigma_bq_perm);
             this.pnl_VBAB.Controls.Add(this.txt_VBAB_3_8_bot_mu);
@@ -5713,6 +5716,7 @@
             // 
             // tab_VFB
             // 
+            this.tab_VFB.AutoScroll = true;
             this.tab_VFB.Controls.Add(this.panel2);
             this.tab_VFB.Controls.Add(this.label202);
             this.tab_VFB.Controls.Add(this.label43);
@@ -5864,9 +5868,9 @@
             this.panel2.Controls.Add(this.btn_VFB_report);
             this.panel2.Controls.Add(this.btn_VFB_process);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 599);
+            this.panel2.Location = new System.Drawing.Point(0, 582);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(941, 37);
+            this.panel2.Size = new System.Drawing.Size(942, 37);
             this.panel2.TabIndex = 415;
             // 
             // btn_VFB_report
@@ -5896,7 +5900,7 @@
             this.label202.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label202.Location = new System.Drawing.Point(0, 0);
             this.label202.Name = "label202";
-            this.label202.Size = new System.Drawing.Size(941, 33);
+            this.label202.Size = new System.Drawing.Size(942, 33);
             this.label202.TabIndex = 414;
             this.label202.Text = "DESIGN OF Steflomet POT/PTFE VERSO-FIXED BEARING";
             this.label202.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

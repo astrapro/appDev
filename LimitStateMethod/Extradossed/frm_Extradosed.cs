@@ -13568,6 +13568,44 @@ namespace LimitStateMethod.Extradossed
                     nodeNo++;
                     Joints_Array[iRows, iCols].NodeNo = nodeNo;
                     Joints.Add(Joints_Array[iRows, iCols]);
+
+
+                    if (iRows == 2)
+                    {
+                        if (Joints_Array[iRows, iCols].X >= L1 && Joints_Array[iRows, iCols].X <= L1 + L2)
+                        {
+                            _Cable_jnts.Add(nodeNo);
+                        }
+                    }
+
+                    if (iRows == 1 || iRows == 3)
+                    {
+                        var x = Joints_Array[iRows, iCols].X;
+                        if (_Support_Dist.Contains(x))
+                        {
+                            _supp_jnts.Add(nodeNo);
+                        }
+                        else if (_Deff_Dist.Contains(x))
+                        {
+                            _deff_jnts.Add(nodeNo);
+                        }
+                        else if (_L8_Dist.Contains(x))
+                        {
+                            _L8_jnts.Add(nodeNo);
+                        }
+                        else if (_L4_Dist.Contains(x))
+                        {
+                            _L4_jnts.Add(nodeNo);
+                        }
+                        else if (_3L8_Dist.Contains(x))
+                        {
+                            _3L8_jnts.Add(nodeNo);
+                        }
+                        else if (_L2_Dist.Contains(x))
+                        {
+                            _L2_jnts.Add(nodeNo);
+                        }
+                    }
                 }
             }
 
@@ -14890,6 +14928,8 @@ namespace LimitStateMethod.Extradossed
                     nodeNo++;
                     Joints_Array[iRows, iCols].NodeNo = nodeNo;
                     Joints.Add(Joints_Array[iRows, iCols]);
+
+
                 }
             }
 

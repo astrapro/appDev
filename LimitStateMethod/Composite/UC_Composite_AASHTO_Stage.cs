@@ -29,6 +29,7 @@ namespace LimitStateMethod.Composite
     {
         public event EventHandler OnButtonClick;
         public event EventHandler OnComboboxSelectedIndexChanged;
+        public event EventHandler OnEmodTextChanged;
         IApplication iApp;
 
         public UC_Composite_AASHTO_Stage()
@@ -80,6 +81,12 @@ namespace LimitStateMethod.Composite
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void txt_emod_prct_TextChanged(object sender, EventArgs e)
+        {
+            if (OnEmodTextChanged != null)
+                OnEmodTextChanged(sender, e);
         }
 
     }

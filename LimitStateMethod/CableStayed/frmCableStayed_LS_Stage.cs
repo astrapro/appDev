@@ -11695,8 +11695,10 @@ namespace LimitStateMethod.CableStayed
 
                 tc_main.TabPages.Add(tab_abutment_Design);
                 tc_main.TabPages.Add(tab_pier);
+                
+                tc_main.TabPages.Remove(tab_bearing);
+                tc_main.TabPages.Add(tab_bearing);
                 tc_main.TabPages.Add(tab_drawing);
-
                 //tc_main.TabPages.Remove(tab_tower_ana);
 
                 if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
@@ -11855,6 +11857,17 @@ namespace LimitStateMethod.CableStayed
             chk_footpath.Checked = true;
             chk_fp_left.Checked = true;
             chk_fp_right.Checked = false;
+
+
+            #region Bearings
+
+            //Chiranjit [2016 03 1]
+            uC_BRD1.iApp = iApp;
+            uC_BRD1.Load_Default_Data();
+            iApp.user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title); ;
+
+
+            #endregion Bearings
         }
 
         public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
@@ -15805,8 +15818,8 @@ namespace LimitStateMethod.CableStayed
             dgv[1, 86].Value = txt_Ana_Wk.Text;
             dgv[1, 86].Style.ForeColor = Color.Red;
 
-            dgv[1, 87].Value = txt_Ana_wr.Text;
-            dgv[1, 87].Style.ForeColor = Color.Red;
+            //dgv[1, 87].Value = txt_Ana_wr.Text;
+            //dgv[1, 87].Style.ForeColor = Color.Red;
             //dgv[1, 10].Value = txt_ana_wc.Text;
             #endregion Abutment with Open Foundation
 

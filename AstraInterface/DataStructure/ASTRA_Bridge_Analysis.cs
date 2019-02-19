@@ -1005,6 +1005,68 @@ namespace AstraInterface.DataStructure
             //}
             //return -1;
         }
+        public double GetMax()
+        {
+            return GetMax(0, Count - 1);
+        }
+        public double GetMax(int afterIndex)
+        {
+            return GetMax(afterIndex, Count - 1);
+        }
+        public double GetMax(int fromIndex, int toIndex)
+        {
+
+            double max = 0.0;
+            try
+            {
+                for (int i = fromIndex; i <= toIndex; i++)
+                {
+                    if (i == 0)
+                    {
+                        max = GetDouble(i);
+                    }
+                    else if (max < GetDouble(i))
+                    {
+                        max = GetDouble(i);
+                    }
+                }
+            }
+            catch (Exception exx)
+            {
+            }
+            return max;
+        }
+        public double GetMin()
+        {
+            return GetMin(0, Count - 1);
+        }
+        public double GetMin(int afterIndex)
+        {
+            return GetMin(afterIndex, Count - 1);
+        }
+        public double GetMin(int fromIndex, int toIndex)
+        {
+
+            double min = 0.0;
+            try
+            {
+                for (int i = fromIndex; i < toIndex; i++)
+                {
+                    if(i == 0)
+                    {
+                        min = GetDouble(i);
+                    }
+                    else if (min > GetDouble(i))
+                    {
+                        min = GetDouble(i);
+                    }
+                }
+            }
+            catch (Exception exx)
+            {
+            }
+            return min;
+        }
         public bool IsDouble(int index)
         {
             try

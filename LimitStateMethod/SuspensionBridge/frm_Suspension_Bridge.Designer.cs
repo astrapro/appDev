@@ -594,6 +594,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage26 = new System.Windows.Forms.TabPage();
+            this.uC_BRD1 = new LimitStateMethod.Bearing.UC_BRD();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox34 = new System.Windows.Forms.GroupBox();
             this.label89 = new System.Windows.Forms.Label();
@@ -647,6 +649,7 @@
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_est_steel)).BeginInit();
+            this.tabPage26.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox34.SuspendLayout();
             this.SuspendLayout();
@@ -657,12 +660,13 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage26);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(852, 584);
+            this.tabControl1.Size = new System.Drawing.Size(981, 584);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage14
@@ -6601,6 +6605,35 @@
             this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.Column9.Width = 99;
             // 
+            // tabPage26
+            // 
+            this.tabPage26.AutoScroll = true;
+            this.tabPage26.Controls.Add(this.uC_BRD1);
+            this.tabPage26.Location = new System.Drawing.Point(4, 22);
+            this.tabPage26.Name = "tabPage26";
+            this.tabPage26.Size = new System.Drawing.Size(973, 558);
+            this.tabPage26.TabIndex = 5;
+            this.tabPage26.Text = "Design Of Bearing";
+            this.tabPage26.UseVisualStyleBackColor = true;
+            // 
+            // uC_BRD1
+            // 
+            this.uC_BRD1.AutoScroll = true;
+            this.uC_BRD1.Bearings_Nos = "8";
+            this.uC_BRD1.Bearings_Span = "11.0";
+            this.uC_BRD1.Bearings_Trans = "3.0";
+            this.uC_BRD1.Effective_Length = "14.70";
+            this.uC_BRD1.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_BRD1.Girder_Length = "15.50";
+            this.uC_BRD1.Length = "15.52";
+            this.uC_BRD1.Location = new System.Drawing.Point(0, 0);
+            this.uC_BRD1.Name = "uC_BRD1";
+            this.uC_BRD1.Overall_Span = "11.5";
+            this.uC_BRD1.Show_Forces = false;
+            this.uC_BRD1.Size = new System.Drawing.Size(961, 558);
+            this.uC_BRD1.TabIndex = 1;
+            this.uC_BRD1.user_path = null;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.groupBox34);
@@ -6649,7 +6682,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 584);
+            this.ClientSize = new System.Drawing.Size(981, 584);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -6723,6 +6756,7 @@
             this.groupBox4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_est_steel)).EndInit();
+            this.tabPage26.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.groupBox34.ResumeLayout(false);
             this.groupBox34.PerformLayout();
@@ -7296,6 +7330,8 @@
         private System.Windows.Forms.Label label283;
         private System.Windows.Forms.Label label294;
         private System.Windows.Forms.Label label295;
+        private System.Windows.Forms.TabPage tabPage26;
+        private Bearing.UC_BRD uC_BRD1;
 
     }
 }

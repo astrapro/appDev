@@ -26148,8 +26148,8 @@ namespace LimitStateMethod.RCC_T_Girder
             dgv[1, 86].Value = txt_Ana_Wk.Text;
             dgv[1, 86].Style.ForeColor = Color.Red;
 
-            dgv[1, 87].Value = txt_Ana_Wr.Text;
-            dgv[1, 87].Style.ForeColor = Color.Red;
+            //dgv[1, 87].Value = txt_Ana_Wr.Text;
+            //dgv[1, 87].Style.ForeColor = Color.Red;
 
 
 

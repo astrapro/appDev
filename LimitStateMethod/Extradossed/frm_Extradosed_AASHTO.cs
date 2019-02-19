@@ -5374,6 +5374,13 @@ namespace LimitStateMethod.Extradossed
             Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
             MovingLoad_Increment();
 
+            chk_crash_barrier.Checked = false;
+            chk_crash_barrier.Checked = true;
+            chk_cb_right.Checked = false;
+            chk_footpath.Checked = false;
+            chk_footpath.Checked = true;
+            chk_fp_right.Checked = false;
+
         }
 
         public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)

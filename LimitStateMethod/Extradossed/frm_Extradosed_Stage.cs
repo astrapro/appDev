@@ -6733,6 +6733,16 @@ namespace LimitStateMethod.Extradossed
                 Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
             SupportChanged();
 
+            #region Bearings
+
+            //Chiranjit [2016 03 1]
+            uC_BRD1.iApp = iApp;
+            uC_BRD1.Load_Default_Data();
+            iApp.user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title); ;
+
+
+            #endregion Bearings
+
         }
 
         public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
@@ -7445,6 +7455,9 @@ namespace LimitStateMethod.Extradossed
             uC_BoxGirder1.dgv_user_input[1, 4].Value = txt_Ana_DL_eff_depth.Text;
             uC_BoxGirder1.dgv_user_input[1, 4].Style.ForeColor = Color.Red;
 
+            uC_BoxGirder1.dgv_user_input[1, 11].Value = txt_Ana_Dw.Text;
+            uC_BoxGirder1.dgv_user_input[1, 11].Style.ForeColor = Color.Red;
+
 
             uC_BoxGirder1.dgv_temp[1, 0].Value = txt_Ana_DL_eff_depth.Text;
             uC_BoxGirder1.dgv_temp[1, 0].Style.ForeColor = Color.Red;
@@ -7482,6 +7495,7 @@ namespace LimitStateMethod.Extradossed
             uC_BoxGirder1.txt_SF_LL_L4.Text = txt_Ana_live_inner_long_L4_shear.Text;
             uC_BoxGirder1.txt_SF_LL_3L8.Text = txt_Ana_live_inner_long_3L_8_shear.Text;
             uC_BoxGirder1.txt_SF_LL_Mid.Text = txt_Ana_live_inner_long_L2_shear.Text;
+
             Change_Abutment_Pier_Input_Data();
         }
         void Change_Abutment_Pier_Input_Data()
@@ -7507,12 +7521,18 @@ namespace LimitStateMethod.Extradossed
             dgv[1, 9].Style.ForeColor = Color.Red;
 
 
-            dgv[1, 84].Value = txt_Ana_Hf_LHS.Text;
-            //txt_Ana_Hf_RHS
-            dgv[1, 84].Style.ForeColor = Color.Red;
-
             dgv[1, 10].Value = txt_Ana_Dw.Text;
             dgv[1, 10].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 84].Value = Math.Max(MyList.StringToDouble(txt_Ana_Wf_LHS), MyList.StringToDouble(txt_Ana_Wf_RHS));
+            dgv[1, 84].Style.ForeColor = Color.Red;
+
+            dgv[1, 86].Value = txt_Ana_Wk.Text;
+            dgv[1, 86].Style.ForeColor = Color.Red;
+
+            //dgv[1, 87].Value = txt_Ana_Wr.Text;
+            //dgv[1, 87].Style.ForeColor = Color.Red;
 
 
             //dgv[1, 10].Value = txt_ana_wc.Text;
@@ -7560,7 +7580,7 @@ namespace LimitStateMethod.Extradossed
             uC_AbutmentPileLS1.txt_xls_inp_E18.Text = txt_carriageway_width.Text;
             uC_AbutmentPileLS1.txt_xls_inp_E18.ForeColor = Color.Red;
 
-            uC_AbutmentPileLS1.txt_xls_inp_E22.Text = txt_Ana_Wc_LHS.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E22.Text = (Math.Max(MyList.StringToDouble(txt_Ana_Wc_LHS.Text), MyList.StringToDouble(txt_Ana_Wc_RHS.Text))).ToString();
             uC_AbutmentPileLS1.txt_xls_inp_E22.ForeColor = Color.Red;
 
             uC_AbutmentPileLS1.txt_xls_inp_E23.Text = txt_Ana_Wf_LHS.Text;
@@ -7617,9 +7637,12 @@ namespace LimitStateMethod.Extradossed
 
             uC_PierOpenLS1.txt_xls_inp_J8.Text = txt_support_distance.Text;
             uC_PierOpenLS1.txt_xls_inp_J8.ForeColor = Color.Red;
+            ////
+
+            //uC_PierOpenLS1.txt
 
 
-
+            ////
             uC_PierOpenLS1.txt_xls_inp_G9.Text =(MyList.StringToDouble(txt_exp_gap.Text) * 1000).ToString();
             uC_PierOpenLS1.txt_xls_inp_G9.ForeColor = Color.Red;
 
@@ -7656,6 +7679,11 @@ namespace LimitStateMethod.Extradossed
             uC_PierOpenLS1.txt_xls_inp_I17.Text = txt_Ana_Wf_LHS.Text;
             uC_PierOpenLS1.txt_xls_inp_I17.ForeColor = Color.Red;
 
+            uC_PierOpenLS1.txt_xls_inp_G18.Text = txt_Ana_Wr.Text;
+            uC_PierOpenLS1.txt_xls_inp_G18.ForeColor = Color.Red;
+
+            uC_PierOpenLS1.txt_xls_inp_I18.Text = txt_Ana_Wr.Text;
+            uC_PierOpenLS1.txt_xls_inp_I18.ForeColor = Color.Red;
 
             uC_PierOpenLS1.txt_xls_inp_G19.Text = txt_Ana_Hc_LHS.Text;
             uC_PierOpenLS1.txt_xls_inp_G19.ForeColor = Color.Red;
@@ -13406,10 +13434,10 @@ namespace LimitStateMethod.Extradossed
                 }
                 else
                 {
-                    txt_Ana_Wf_LHS.Text = "1.000";
-                    txt_Ana_Hf_LHS.Text = "0.250";
-                    txt_Ana_Wf_RHS.Text = "1.000";
-                    txt_Ana_Hf_RHS.Text = "0.250";
+                    txt_Ana_Wf_LHS.Text = "0.250";
+                    txt_Ana_Hf_LHS.Text = "1.000";
+                    txt_Ana_Wf_RHS.Text = "0.250";
+                    txt_Ana_Hf_RHS.Text = "1.000";
 
 
 
@@ -13446,6 +13474,10 @@ namespace LimitStateMethod.Extradossed
 
                 if (chk_cb_left.Checked && !chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
                     pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_11_;
+
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_12_;
             }
             else if (chk_crash_barrier.Checked)
             {

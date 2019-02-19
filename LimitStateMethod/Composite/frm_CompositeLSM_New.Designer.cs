@@ -2031,6 +2031,7 @@
             this.label50 = new System.Windows.Forms.Label();
             this.btn_dwg_deck_slab = new System.Windows.Forms.Button();
             this.btn_dwg_abutment = new System.Windows.Forms.Button();
+            this.label35 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_Analysis.SuspendLayout();
             this.tbc_girder.SuspendLayout();
@@ -3560,6 +3561,7 @@
             // 
             this.grb_ana_sw_fp.Controls.Add(this.txt_Ana_Wf_RHS);
             this.grb_ana_sw_fp.Controls.Add(this.label531);
+            this.grb_ana_sw_fp.Controls.Add(this.label35);
             this.grb_ana_sw_fp.Controls.Add(this.label524);
             this.grb_ana_sw_fp.Controls.Add(this.label529);
             this.grb_ana_sw_fp.Controls.Add(this.txt_Ana_Hf_RHS);
@@ -3587,7 +3589,7 @@
             // 
             // txt_Ana_Wf_RHS
             // 
-            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(139, 43);
+            this.txt_Ana_Wf_RHS.Location = new System.Drawing.Point(360, 16);
             this.txt_Ana_Wf_RHS.Name = "txt_Ana_Wf_RHS";
             this.txt_Ana_Wf_RHS.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_Wf_RHS.TabIndex = 17;
@@ -3607,7 +3609,7 @@
             // label524
             // 
             this.label524.AutoSize = true;
-            this.label524.Location = new System.Drawing.Point(195, 46);
+            this.label524.Location = new System.Drawing.Point(416, 19);
             this.label524.Name = "label524";
             this.label524.Size = new System.Drawing.Size(18, 13);
             this.label524.TabIndex = 18;
@@ -3684,7 +3686,7 @@
             // 
             this.label1185.AutoSize = true;
             this.label1185.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1185.Location = new System.Drawing.Point(257, 22);
+            this.label1185.Location = new System.Drawing.Point(15, 45);
             this.label1185.Name = "label1185";
             this.label1185.Size = new System.Drawing.Size(98, 13);
             this.label1185.TabIndex = 15;
@@ -3694,7 +3696,7 @@
             // 
             this.label1186.AutoSize = true;
             this.label1186.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1186.Location = new System.Drawing.Point(14, 46);
+            this.label1186.Location = new System.Drawing.Point(255, 19);
             this.label1186.Name = "label1186";
             this.label1186.Size = new System.Drawing.Size(98, 13);
             this.label1186.TabIndex = 12;
@@ -3702,7 +3704,7 @@
             // 
             // txt_Ana_hf
             // 
-            this.txt_Ana_hf.Location = new System.Drawing.Point(360, 16);
+            this.txt_Ana_hf.Location = new System.Drawing.Point(139, 42);
             this.txt_Ana_hf.Name = "txt_Ana_hf";
             this.txt_Ana_hf.Size = new System.Drawing.Size(50, 21);
             this.txt_Ana_hf.TabIndex = 1;
@@ -3732,7 +3734,7 @@
             // label525
             // 
             this.label525.AutoSize = true;
-            this.label525.Location = new System.Drawing.Point(416, 19);
+            this.label525.Location = new System.Drawing.Point(475, 84);
             this.label525.Name = "label525";
             this.label525.Size = new System.Drawing.Size(18, 13);
             this.label525.TabIndex = 2;
@@ -20462,6 +20464,7 @@
             this.uC_AbutmentOpenLS1.TabIndex = 0;
             this.uC_AbutmentOpenLS1.Wearing_coat_load = "0.22";
             this.uC_AbutmentOpenLS1.Wearing_Coat_Thickness = "65";
+            this.uC_AbutmentOpenLS1.Load += new System.EventHandler(this.uC_AbutmentOpenLS1_Load);
             // 
             // tab_AbutmentPileLSM
             // 
@@ -23671,6 +23674,15 @@
             this.btn_dwg_abutment.Visible = false;
             this.btn_dwg_abutment.Click += new System.EventHandler(this.btn_dwg_long_Click);
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(195, 45);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(18, 13);
+            this.label35.TabIndex = 18;
+            this.label35.Text = "m";
+            // 
             // frm_CompositeLSM_New
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -25969,6 +25981,7 @@
         private System.Windows.Forms.TextBox txt_overhang_gap;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label35;
     }
 
 }

@@ -214,15 +214,14 @@ namespace LimitStateMethod.Composite
             Write_All_Data(false);
 
 
-            string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
+            //string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
 
-            if (!Directory.Exists(usp))
-                Directory.CreateDirectory(usp);
+            //if (!Directory.Exists(usp))
+            //    Directory.CreateDirectory(usp);
 
-            string inp_file = Path.Combine(usp, "INPUT_DATA.TXT");
 
             //Calculate_Load_Computation();
-            Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+            Bridge_Analysis.Input_File = Get_Input_File((int)AnalysisType);
             Bridge_Analysis.Start_Support = Start_Support_Text;
             Bridge_Analysis.End_Support = END_Support_Text;
             if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
@@ -272,7 +271,7 @@ namespace LimitStateMethod.Composite
                     Bridge_Analysis.CreateData_Straight();
                 }
 
-                Bridge_Analysis.WriteData(inp_file);
+                //Bridge_Analysis.WriteData(inp_file);
                 Bridge_Analysis.WriteData(Bridge_Analysis.Input_File);
 
 
@@ -284,7 +283,7 @@ namespace LimitStateMethod.Composite
                     Bridge_Analysis.joints_list_for_load);
 
 
-                Bridge_Analysis.WriteData_Total_Analysis(inp_file);
+                //Bridge_Analysis.WriteData_Total_Analysis(inp_file);
                 Bridge_Analysis.WriteData_Total_Analysis(Bridge_Analysis.Input_File);
 
 
@@ -308,7 +307,7 @@ namespace LimitStateMethod.Composite
                 cmb_long_open_file_process.Items.Clear();
                 cmb_long_open_file_process.Items.Add("DEAD LOAD DECK ANALYSIS");
                 cmb_long_open_file_process.Items.Add("DEAD LOAD GIRDER ANALYSIS");
-                cmb_long_open_file_process.Items.Add("LIVE LOAD GIRDER ANALYSIS");
+
 
 
 
@@ -760,6 +759,9 @@ namespace LimitStateMethod.Composite
                 ProcessData pd = new ProcessData();
 
 
+
+
+                Bridge_Analysis.Input_File = Get_Input_File((int)AnalysisType);
                 string flPath = Bridge_Analysis.Input_File;
 
                 iApp.Progress_Works.Clear();
@@ -784,18 +786,17 @@ namespace LimitStateMethod.Composite
                         pd.IS_Stage_File = true;
                         pd.Stage_File_Name = Bridge_Analysis.Straight_Girder_DL_File;
                     }
-                    else if (i == 2)
+                    else if (i == (2 + all_loads.Count))
                     {
                         flPath = Bridge_Analysis.TotalAnalysis_Input_File;
                         pd.IS_Stage_File = true;
                         pd.Stage_File_Name = Bridge_Analysis.Straight_TL_File;
                     }
-
-                    else if (i > 0)
+                    else if (i > 1)
                     {
-                        flPath = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 2);
+                        flPath = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 1);
                         pd.IS_Stage_File = true;
-                        pd.Stage_File_Name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 2, true);
+                        pd.Stage_File_Name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 1, true);
                     }
 
 
@@ -3540,6 +3541,14 @@ namespace LimitStateMethod.Composite
 
             Select_Moving_Load_Combo(dgv_long_loads, cmb_irc_view_moving_load);
 
+
+            uC_Composite_AASHTO_Stage1.txt_emod_prct.Text = "90";
+            uC_Composite_AASHTO_Stage2.txt_emod_prct.Text = "80";
+            uC_Composite_AASHTO_Stage3.txt_emod_prct.Text = "70";
+            uC_Composite_AASHTO_Stage4.txt_emod_prct.Text = "60";
+            uC_Composite_AASHTO_Stage5.txt_emod_prct.Text = "50";
+            Change_Emod();
+
         }
         public void Select_Moving_Load_Combo(DataGridView dgv, ComboBox cmb)
         {
@@ -4330,6 +4339,9 @@ namespace LimitStateMethod.Composite
 
                 if (chk_cb_left.Checked && !chk_cb_right.Checked && !chk_fp_left.Checked && chk_fp_right.Checked)
                     pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_LHS__Case_11_;
+
+                if (!chk_cb_left.Checked && chk_cb_right.Checked && chk_fp_left.Checked && !chk_fp_right.Checked)
+                    pic_diagram.BackgroundImage = LimitStateMethod.Properties.Resources.Crash_Barrier_on_RHS__Case_12_;
             }
             else if (chk_crash_barrier.Checked)
             {
@@ -8590,34 +8602,8 @@ namespace LimitStateMethod.Composite
                 if (!Directory.Exists(user_path))
                     Directory.CreateDirectory(user_path);
 
-                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
 
-                switch (AnalysisType)
-                {
-                    //case eAnalysis.Normal:
-                    //    usp = Path.Combine(usp, "Normal");
-                    //    break;
-                    case eAnalysis.Stage1:
-                        usp = Path.Combine(usp, "STAGE 1");
-                        break;
-                    case eAnalysis.Stage2:
-                        usp = Path.Combine(usp, "STAGE 2");
-                        break;
-                    case eAnalysis.Stage3:
-                        usp = Path.Combine(usp, "STAGE 3");
-                        break;
-                    case eAnalysis.Stage4:
-                        usp = Path.Combine(usp, "STAGE 4");
-                        break;
-                    case eAnalysis.Stage5:
-                        usp = Path.Combine(usp, "STAGE 5");
-                        break;
-                }
-
-                if (!Directory.Exists(usp))
-                    Directory.CreateDirectory(usp);
-
-                string inp_file = Path.Combine(usp, "INPUT_DATA.TXT");
+                string inp_file = Get_Input_File((int)AnalysisType);
 
 
 
@@ -8627,12 +8613,12 @@ namespace LimitStateMethod.Composite
 
 
 
-                if (!Directory.Exists(usp))
-                    Directory.CreateDirectory(usp);
+                //if (!Directory.Exists(usp))
+                //    Directory.CreateDirectory(usp);
 
 
                 //Calculate_Load_Computation();
-                Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+                Bridge_Analysis.Input_File = Get_Input_File((int)AnalysisType);
                 Bridge_Analysis.Start_Support = Start_Support_Text;
                 Bridge_Analysis.End_Support = END_Support_Text;
                 if (iApp.DesignStandard == eDesignStandard.IndianStandard || iApp.DesignStandard == eDesignStandard.LRFDStandard)
@@ -8718,7 +8704,7 @@ namespace LimitStateMethod.Composite
                     ucStage.cmb_long_open_file_process.Items.Clear();
                     ucStage.cmb_long_open_file_process.Items.Add("DEAD LOAD DECK ANALYSIS");
                     ucStage.cmb_long_open_file_process.Items.Add("DEAD LOAD GIRDER ANALYSIS");
-                    ucStage.cmb_long_open_file_process.Items.Add("LIVE LOAD GIRDER ANALYSIS");
+                    //ucStage.cmb_long_open_file_process.Items.Add("LIVE LOAD GIRDER ANALYSIS");
 
 
 
@@ -8737,6 +8723,15 @@ namespace LimitStateMethod.Composite
                     }
 
                     ucStage.cmb_long_open_file_process.Items.Add("DL + LL ANALYSIS");
+                    for (int i = 0; i < ucStage.cmb_long_open_file_process.Items.Count; i++)
+                    {
+                        int Stage = (int)AnalysisType;
+                        //Update_Stage_File(i, (int)AnalysisType);
+
+                        string prv_name = Get_LongGirder_File(i, Stage - 1);
+                        string file_name = Get_LongGirder_File(i, Stage);
+                        iApp.Change_Stage_Coordinates(prv_name, file_name);
+                    }
 
                     Bridge_Analysis.Structure = new BridgeMemberAnalysis(iApp, Bridge_Analysis.TotalAnalysis_Input_File);
 
@@ -8753,9 +8748,9 @@ namespace LimitStateMethod.Composite
 
                
 
-                Bridge_Analysis.CreateData_Orthotropic();
-                Bridge_Analysis.WriteData_Orthotropic_Analysis(Bridge_Analysis.Orthotropic_Input_File);
-                Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Orthotropic_Input_File, true, true, 1);
+                //Bridge_Analysis.CreateData_Orthotropic();
+                //Bridge_Analysis.WriteData_Orthotropic_Analysis(Bridge_Analysis.Orthotropic_Input_File);
+                //Ana_Write_Long_Girder_Load_Data(Bridge_Analysis.Orthotropic_Input_File, true, true, 1);
 
                 MessageBox.Show(this, "Input Data Files for various Analysis Processes are created within the folder  \"" + Project_Name + "\".",
                   "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -8780,29 +8775,37 @@ namespace LimitStateMethod.Composite
 
         public string Get_Input_File(int Stage)
         {
-            string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
-            switch (Stage)
-            {
-                case 1:
-                    usp = Path.Combine(usp, "STAGE 1");
-                    break;
-                case 2:
-                    usp = Path.Combine(usp, "STAGE 2");
-                    break;
-                case 3:
-                    usp = Path.Combine(usp, "STAGE 3");
-                    break;
-                case 4:
-                    usp = Path.Combine(usp, "STAGE 4");
-                    break;
-                case 5:
-                    usp = Path.Combine(usp, "STAGE 5");
-                    break;
-                case 6:
-                    usp = Path.Combine(usp, "ORTHOTROPIC ANALYSIS");
-                    break;
-            }
+            eAnalysis eAna = (eAnalysis)Stage;
+
+            string usp = Path.Combine(user_path, eAna.ToString().ToUpper() +  " ANALYSIS");
+
+            if (!Directory.Exists(usp))
+                Directory.CreateDirectory(usp);
             return Path.Combine(usp, "INPUT_DATA.TXT");
+
+            //string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
+            //switch (Stage)
+            //{
+            //    case 1:
+            //        usp = Path.Combine(usp, "STAGE 1");
+            //        break;
+            //    case 2:
+            //        usp = Path.Combine(usp, "STAGE 2");
+            //        break;
+            //    case 3:
+            //        usp = Path.Combine(usp, "STAGE 3");
+            //        break;
+            //    case 4:
+            //        usp = Path.Combine(usp, "STAGE 4");
+            //        break;
+            //    case 5:
+            //        usp = Path.Combine(usp, "STAGE 5");
+            //        break;
+            //    case 6:
+            //        usp = Path.Combine(usp, "ORTHOTROPIC ANALYSIS");
+            //        break;
+            //}
+            //return Path.Combine(usp, "INPUT_DATA.TXT");
         }
 
         private string Get_LongGirder_File(int index, int Stage)
@@ -8824,13 +8827,13 @@ namespace LimitStateMethod.Composite
                 {
                     file_name = Bridge_Analysis.DeadLoadAnalysis_Girder_Input_File;
                 }
-                else if (index == 2)
+                else if (index == all_loads.Count + 2)
                 {
-                    file_name = Bridge_Analysis.LiveLoadAnalysis_Input_File;
+                    file_name = Bridge_Analysis.TotalAnalysis_Input_File;
                 }
                 else
                 {
-                    file_name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(index - 2);
+                    file_name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(index - 1);
                 }
             }
             return file_name;
@@ -9421,6 +9424,33 @@ namespace LimitStateMethod.Composite
             catch (Exception ex) { }
         }
 
+        private void uC_Composite_AASHTO_Stage1_OnEmodTextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                Change_Emod(ucStage);
+            }
+            catch (Exception exx) { }
+        }
+        void Change_Emod()
+        {
+            Change_Emod(uC_Composite_AASHTO_Stage1);
+            Change_Emod(uC_Composite_AASHTO_Stage2);
+            Change_Emod(uC_Composite_AASHTO_Stage3);
+            Change_Emod(uC_Composite_AASHTO_Stage4);
+            Change_Emod(uC_Composite_AASHTO_Stage5);
+        }
+        void Change_Emod(UC_Composite_AASHTO_Stage stg)
+        {
+            double emod = MyList.StringToDouble(txt_emod);
+            double prct = MyList.StringToDouble(stg.txt_emod_prct) / 100;
+            stg.txt_emod.Text = (emod * prct).ToString();
+        }
+
+        private void txt_emod_TextChanged(object sender, EventArgs e)
+        {
+            Change_Emod();
+        }
     }
 
     public class Composite_AASHTO_Analysis
