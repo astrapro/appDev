@@ -35,7 +35,7 @@ namespace LimitStateMethod.Composite
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     return "COMPOSITE BRIDGE LIMIT STATE [BS]";
                 else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                    return "COMPOSITE BRIDGE LIMIT STATE [LRFD]";
+                    return "COMPOSITE BRIDGE LIMIT STATE [AASHTO - LRFD]";
                 return "COMPOSITE BRIDGE LIMIT STATE [IRC]";
             }
         }
@@ -759,9 +759,8 @@ namespace LimitStateMethod.Composite
                 ProcessData pd = new ProcessData();
 
 
+                int stage = (int)AnalysisType;
 
-
-                Bridge_Analysis.Input_File = Get_Input_File((int)AnalysisType);
                 string flPath = Bridge_Analysis.Input_File;
 
                 iApp.Progress_Works.Clear();
@@ -773,6 +772,7 @@ namespace LimitStateMethod.Composite
                 {
                     pd = new ProcessData();
 
+                    Bridge_Analysis.Input_File = Get_Input_File(stage);
 
                     if (i == 0)
                     {
@@ -799,14 +799,44 @@ namespace LimitStateMethod.Composite
                         pd.Stage_File_Name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 1, true);
                     }
 
-
-                    if (Curve_Radius == 0)
+                    if (AnalysisType == eAnalysis.Normal)
                     {
-                        pd.IS_Stage_File = false;
-                        pd.Stage_File_Name = "";
+                        if (Curve_Radius == 0)
+                        {
+                            pd.IS_Stage_File = false;
+                            pd.Stage_File_Name = "";
+                        }
                     }
                     else
                     {
+                        Bridge_Analysis.Input_File = Get_Input_File(stage-1);
+
+                        if (i == 0)
+                        {
+                            pd.IS_Stage_File = true;
+                            //pd.Stage_File_Name = Bridge_Analysis.Straight_Deck_DL_File;
+                            pd.Stage_File_Name = Bridge_Analysis.DeadLoadAnalysis_Deck_Input_File;
+                        }
+                        else if (i == 1)
+                        {
+                            pd.IS_Stage_File = true;
+                            //pd.Stage_File_Name = Bridge_Analysis.Straight_Girder_DL_File;
+                            pd.Stage_File_Name = Bridge_Analysis.DeadLoadAnalysis_Girder_Input_File;
+                        }
+                        else if (i == (2 + all_loads.Count))
+                        {
+                            pd.IS_Stage_File = true;
+                            //pd.Stage_File_Name = Bridge_Analysis.Straight_TL_File;
+                            pd.Stage_File_Name = Bridge_Analysis.TotalAnalysis_Input_File;
+                        }
+                        else if (i > 1)
+                        {
+                            pd.IS_Stage_File = true;
+                            //pd.Stage_File_Name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 1, true);
+                            pd.Stage_File_Name = Bridge_Analysis.Get_Live_Load_Analysis_Input_File(i - 1);
+                        }
+                        //pd.IS_Stage_File = true;
+                        //pd.Stage_File_Name = Get_LongGirder_File(i, ((int)AnalysisType) - 1);
                     }
                     //pd = new ProcessData();
                     pd.Process_File_Name = flPath;
@@ -825,6 +855,8 @@ namespace LimitStateMethod.Composite
                     i++;
                 }
                 while (i < (3 + all_loads.Count));
+
+                Bridge_Analysis.Input_File = Get_Input_File(stage);
 
 
                 string ana_rep_file = Bridge_Analysis.Total_Analysis_Report;
@@ -8012,14 +8044,44 @@ namespace LimitStateMethod.Composite
 
                 //1	Deck width:	Wdeck	46.875	ft
                 dgv[2, 1].Value = Inputs.wdeck.ToString(); //Deck width:
+                dgv[2, 1].Style.ForeColor = Color.Red;
                 //2	Roadway width:	Wroadway	44	ft
                 dgv[2, 2].Value = Inputs.wroadway.ToString(); //Roadway width:
+                dgv[2, 2].Style.ForeColor = Color.Red;
                 //3	Bridge length:	Ltotal	240	ft
                 dgv[2, 3].Value = Inputs.LTotal.ToString(); // //Bridge length:
+                dgv[2, 3].Style.ForeColor = Color.Red;
                 //4	Skew Angle	Skew	0	degree
                 dgv[2, 4].Value = Inputs.Skew.ToString(); //Skew Angle
+                dgv[2, 4].Style.ForeColor = Color.Red;
 
 
+                dgv[2, 5].Value = Inputs.Fy.ToString(); //Skew Angle
+                dgv[2, 5].Style.ForeColor = Color.Red;
+
+                dgv[2, 6].Value = Inputs.Fu.ToString(); //Skew Angle
+                dgv[2, 6].Style.ForeColor = Color.Red;
+
+                dgv[2, 7].Value = Inputs.fc.ToString(); //Skew Angle
+                dgv[2, 7].Style.ForeColor = Color.Red;
+
+                dgv[2, 8].Value = Inputs.fys.ToString(); //Skew Angle
+                dgv[2, 8].Style.ForeColor = Color.Red;
+
+                dgv[2, 9].Value = Inputs.Ws.ToString(); //Skew Angle
+                dgv[2, 9].Style.ForeColor = Color.Red;
+
+                dgv[2, 10].Value = Inputs.Wc.ToString(); //Skew Angle
+                dgv[2, 10].Style.ForeColor = Color.Red;
+
+                dgv[2, 11].Value = Inputs.Wpar.ToString(); //Skew Angle
+                dgv[2, 11].Style.ForeColor = Color.Red;
+
+                dgv[2, 12].Value = Inputs.wfws.ToString(); //Skew Angle
+                dgv[2, 12].Style.ForeColor = Color.Red;
+
+
+               
                 //9	Steel density	Ws	0.49	kcf
                 //10	Concrete density	Wc	0.15	kcf
                 //11	Parapet weight (each)	Wpar	0.53	K/ft
@@ -8030,41 +8092,63 @@ namespace LimitStateMethod.Composite
                 //15	Girder spacing	S	9.75	ft
                 var S = Inputs.S;
                 dgv[2, 15].Value = S.ToString();
+                dgv[2, 15].Style.ForeColor = Color.Red;
 
                 //16	Number of girders	N	5	nos
                 var N = Inputs.N;
                 dgv[2, 16].Value = N.ToString();
+                dgv[2, 16].Style.ForeColor = Color.Red;
                 //17	Deck top cover	Covert	2.5	in
                 var Covert = Inputs.Covert;
                 dgv[2, 17].Value = Covert.ToString();
+                dgv[2, 17].Style.ForeColor = Color.Red;
                 //18	Deck bottom cover	Coverb	1	in
                 var Coverb = Inputs.Coverb;
                 dgv[2, 18].Value = Coverb.ToString();
+                dgv[2, 18].Style.ForeColor = Color.Red;
                 //19	Concrete density	Wc	0.15	kcf
-                var Wc = Inputs.Wc;
-                dgv[2, 18].Value = Wc.ToString();
+              
+
+
+
+                dgv[2, 19].Value = Wc.ToString();
+                dgv[2, 19].Style.ForeColor = Color.Red;
+              
+
+
 
 
                 //20	Concrete 28day compressive strength	f'c	4	ksi
                 var Fc = Inputs.fc;
                 dgv[2, 20].Value = Fc.ToString();
+                dgv[2, 20].Style.ForeColor = Color.Red;
 
                 //24	Weight per foot:	Wpar	0.53	K/ft
                 var Wpar = Inputs.Wpar;
                 dgv[2, 24].Value = Wpar.ToString();
+                dgv[2, 24].Style.ForeColor = Color.Red;
                 //25	Width at base:	Wbase	1.4375	ft
                 var Wbase = Inputs.wbase;
                 dgv[2, 25].Value = Wbase.ToString();
+                dgv[2, 25].Style.ForeColor = Color.Red;
                 //27	Parapet height:	Hpar	3.5	ft
                 var Hpar = Inputs.Hpar;
                 dgv[2, 27].Value = Hpar.ToString();
+                dgv[2, 27].Style.ForeColor = Color.Red;
 
                 //33	Assume slab thicknesses	ts	8.5	in
                 var ts = Inputs.tdeck;
                 dgv[2, 33].Value = ts.ToString();
+                dgv[2, 33].Style.ForeColor = Color.Red;
                 //34	Assume overhang thicknesses	to	9	in
                 //var _to = 9;
                 //dgv[2, 34].Value = _to.ToString();
+
+                dgv[2, 44].Value = Inputs.Ec.ToString();
+                dgv[2, 44].Style.ForeColor = Color.Red;
+
+                dgv[2, 45].Value = Inputs.Es.ToString();
+                dgv[2, 45].Style.ForeColor = Color.Red;
 
 
                 #endregion For Deck Slab
@@ -8075,20 +8159,60 @@ namespace LimitStateMethod.Composite
                 //1	Number of spans:	Nspans =	2	
                 var Nspans = Inputs.Nspans;
                 dgv[2, 1].Value = Nspans;
+                dgv[2, 2].Style.ForeColor = Color.Red;
 
                 //2	Span length:	Lspan =	120	ft
                 dgv[2, 2].Value = Inputs.Lspan.ToString();
+                dgv[2, 2].Style.ForeColor = Color.Red;
 
                 //3	Skew angle:	Skew =	0	deg
                 dgv[2, 3].Value = Inputs.Skew.ToString();
+                dgv[2, 3].Style.ForeColor = Color.Red;
 
                 //4	Number of girders:	Ngirders =	5	
                 dgv[2, 4].Value = Inputs.N.ToString();
+                dgv[2, 4].Style.ForeColor = Color.Red;
                 //5	Girder spacing:	S =	9.75	ft
                 dgv[2, 5].Value = Inputs.S.ToString();
+                dgv[2, 5].Style.ForeColor = Color.Red;
                 //6	Deck overhang:	Soverhang =	3.9375	ft
                 var Soverhang = Inputs.Soverhang;
                 dgv[2, 6].Value = Soverhang.ToString();
+                dgv[2, 6].Style.ForeColor = Color.Red;
+
+
+
+                dgv[2, 10].Value = Inputs.fc.ToString();
+                dgv[2, 10].Style.ForeColor = Color.Red;
+
+                dgv[2, 11].Value = Inputs.fys.ToString();
+                dgv[2, 11].Style.ForeColor = Color.Red;
+
+                dgv[2, 13].Value = Inputs.tdeck.ToString();
+                dgv[2, 13].Style.ForeColor = Color.Red;
+
+                dgv[2, 17].Value = Inputs.Ws.ToString();
+                dgv[2, 17].Style.ForeColor = Color.Red;
+
+                dgv[2, 18].Value = Inputs.Wc.ToString();
+                dgv[2, 18].Style.ForeColor = Color.Red;
+
+                dgv[2, 19].Value = Inputs.Wmisc.ToString();
+                dgv[2, 19].Style.ForeColor = Color.Red;
+
+                dgv[2, 21].Value = Inputs.Wpar.ToString();
+                dgv[2, 21].Style.ForeColor = Color.Red;
+
+                dgv[2, 22].Value = Inputs.wfws.ToString();
+                dgv[2, 22].Style.ForeColor = Color.Red;
+
+                dgv[2, 23].Value = Inputs.tfws.ToString();
+                dgv[2, 23].Style.ForeColor = Color.Red;
+
+
+
+
+
 
                 #endregion For Steel Girder Design
             }
@@ -8098,50 +8222,80 @@ namespace LimitStateMethod.Composite
                 //1	Yield Strength:	Fy =	50	ksi
                 var Fy = Inputs.Fy;
                 dgv[2, 1].Value = Fy;
+                dgv[2, 2].Style.ForeColor = Color.Red;
+
                 //2	Tensile Strength:	Fu =	65	ksi
                 var Fu = Inputs.Fu;
                 dgv[2, 2].Value = Fu;
+                dgv[2, 2].Style.ForeColor = Color.Red;
+
                 //3	Flange Yield Strength:	Fyf =	50	ksi
                 var Fyf = 50;
                 dgv[2, 3].Value = Fyf;
+                dgv[2, 3].Style.ForeColor = Color.Red;
+
 
                 //5	Web Thickness:	tw =	0.5	in
                 var tw = 0.5;
                 dgv[2, 5].Value = tw;
+                dgv[2, 5].Style.ForeColor = Color.Red;
+
                 //6	Web Depth:	D =	54	in
                 var D = 54;
                 dgv[2, 6].Value = D;
+                dgv[2, 6].Style.ForeColor = Color.Red;
+
                 //7	Top Flange Width:	bfltL =	14	in
                 var bfltL = 14;
                 dgv[2, 7].Value = bfltL;
+                dgv[2, 7].Style.ForeColor = Color.Red;
+
                 //8	Top Flange Thickness:	tfltL =	0.625	in
                 var tfltL = 0.625;
                 dgv[2, 8].Value = tfltL;
+                dgv[2, 8].Style.ForeColor = Color.Red;
+
                 //9	Bottom Flange Width:	bflbL =	14	in
                 var bflbL = 14;
                 dgv[2, 9].Value = bflbL;
+                dgv[2, 9].Style.ForeColor = Color.Red;
+
                 //10	Bottom Flange Thickness:	tflbL =	0.875	in
                 var tflbL = 0.875;
                 dgv[2, 10].Value = tflbL;
+                dgv[2, 10].Style.ForeColor = Color.Red;
+
 
                 //12	Web Thickness:	tw =	0.5	in
                 dgv[2, 12].Value = tw;
+                dgv[2, 12].Style.ForeColor = Color.Red;
+
 
                 //13	Web Depth:	D =	54	in
                 D = 54;
                 dgv[2, 13].Value = D;
+                dgv[2, 13].Style.ForeColor = Color.Red;
+
                 //14	Top Flange Width:	bfltR =	14	in
                 var bfltR = 14;
                 dgv[2, 14].Value = bfltR;
+                dgv[2, 14].Style.ForeColor = Color.Red;
+
                 //15	Top Flange Thickness:	tfltR =	1.125	in
                 var tfltR = 1.125;
                 dgv[2, 15].Value = tfltR;
+                dgv[2, 15].Style.ForeColor = Color.Red;
+
                 //16	Bottom Flange Width:	bflbR =	14	in
                 var bflbR = 14;
                 dgv[2, 16].Value = bflbR;
+                dgv[2, 16].Style.ForeColor = Color.Red;
+
                 //17	Bottom Flange Thickness:	tflbR =	1.375	in
                 var tflbR = 1.375;
                 dgv[2, 17].Value = tflbR;
+                dgv[2, 17].Style.ForeColor = Color.Red;
+
 
                 #endregion For Miscelenious Steel Girder Design
             }
@@ -8153,6 +8307,8 @@ namespace LimitStateMethod.Composite
                 //3	Concrete 28day compressive strength	f'c	4	ksi
                 var Fc = Inputs.fc;
                 dgv[2, 3].Value = Fc;
+                dgv[2, 3].Style.ForeColor = Color.Red;
+
                 //4		b =	103	in
                 //var b = 103;
                 //dgv[2, 4].Value = b;
@@ -8165,19 +8321,29 @@ namespace LimitStateMethod.Composite
                 //7	Web Depth:	D =	54	in
                 var D = 54.0;
                 dgv[2, 7].Value = D;
+                dgv[2, 7].Style.ForeColor = Color.Red;
+
                 //8	Web Thickness:	tw =	0.5	in
                 var tw = 0.5;
                 dgv[2, 8].Value = tw;
+                dgv[2, 8].Style.ForeColor = Color.Red;
+
                 //9	Structural steel yield strength:	Fyt =	50	ksi
                 var Fyt = 50;
                 dgv[2, 9].Value = Fyt;
+                dgv[2, 9].Style.ForeColor = Color.Red;
+
                 //10		bt =	14	in
                 var bt = 14;
                 dgv[2, 10].Value = bt;
+                dgv[2, 10].Style.ForeColor = Color.Red;
+
 
                 //16	Girder spacing:	S =	9.75	ft
                 var S = Inputs.S;
                 dgv[2, 16].Value = S;
+                dgv[2, 16].Style.ForeColor = Color.Red;
+
                 //17	Girder depth:	D =	4.9375	ft
                 //D = 4.9375;
                 //dgv[2, 17].Value = D;
@@ -8191,35 +8357,55 @@ namespace LimitStateMethod.Composite
                 //2	Concrete density:	Wc =	0.15	kcf
                 var Wc = Inputs.Wc;
                 dgv[2, 2].Value = Wc;
+                dgv[2, 2].Style.ForeColor = Color.Red;
+
                 //3	Concrete 28-day compressive strength:	f'c =	4	ksi
                 var Fc = Inputs.fc;
                 dgv[2, 3].Value = Fc;
+                dgv[2, 3].Style.ForeColor = Color.Red;
+
                 //4	Reinforcement strength:	fy =	60	ksi
                 var fy = Inputs.fys;
                 dgv[2, 4].Value = fy;
+                dgv[2, 4].Style.ForeColor = Color.Red;
+
 
                 //11	Girder spacing:	S =	9.75	ft
                 var S = Inputs.S;
                 dgv[2, 11].Value = S;
+                dgv[2, 11].Style.ForeColor = Color.Red;
+
                 //12	Number of girders:	N =	5	nos
                 var N = Inputs.N;
-                dgv[2, 12].Value = S;
+                dgv[2, 12].Value = N;
+                dgv[2, 12].Style.ForeColor = Color.Red;
+
                 //13	Span length:	Lspan =	120	ft
                 var Lspan = Inputs.Lspan;
                 dgv[2, 13].Value = Lspan;
+                dgv[2, 13].Style.ForeColor = Color.Red;
+
                 //14	Parapet height:	Hpar =	3.5	ft
                 var Hpar = Inputs.Hpar;
                 dgv[2, 14].Value = Hpar;
+                dgv[2, 14].Style.ForeColor = Color.Red;
+
                 //15	Parapet weight (each):	Wpar =	0.53	K/ft
                 var Wpar = Inputs.Wpar;
                 dgv[2, 15].Value = Wpar;
+                dgv[2, 15].Style.ForeColor = Color.Red;
+
                 //16	Out-to-out deck width:	Wdeck =	46.875	ft
                 var Wdeck = Inputs.wdeck;
                 dgv[2, 16].Value = Wdeck;
+                dgv[2, 16].Style.ForeColor = Color.Red;
+
 
                 //21	Abutment length:	Labut =	46.875	ft
                 var Labut = Inputs.wdeck;
                 dgv[2, 21].Value = Labut;
+                dgv[2, 21].Style.ForeColor = Color.Red;
+
 
 
                 #endregion For abutment Design
@@ -8231,28 +8417,44 @@ namespace LimitStateMethod.Composite
 
                 var Wc = Inputs.Wc;
                 dgv[2, 2].Value = Wc;
+                dgv[2, 2].Style.ForeColor = Color.Red;
+
                 //3	Concrete 28-day	f'c =	4	ksi
                 var Fc = Inputs.fc;
                 dgv[2, 3].Value = Fc;
+                dgv[2, 3].Style.ForeColor = Color.Red;
+
                 //5	Reinforcement	fy =	60	ksi
                 var fy = Inputs.fys;
                 dgv[2, 5].Value = fy;
+                dgv[2, 5].Style.ForeColor = Color.Red;
+
 
                 //13	Girder spacing:	S =	9.75	ft
                 var S = Inputs.S;
                 dgv[2, 13].Value = S;
+                dgv[2, 13].Style.ForeColor = Color.Red;
+
                 //14	Number of girders:	N =	5	
                 var N = Inputs.N;
                 dgv[2, 14].Value = N;
+                dgv[2, 14].Style.ForeColor = Color.Red;
+
                 //15	Deck overhang:	DOH =	3.9375	ft
                 var DOH = Inputs.Soverhang;
                 dgv[2, 15].Value = DOH;
+                dgv[2, 15].Style.ForeColor = Color.Red;
+
                 //16	Span length:	Lspan =	120	ft
                 var Lspan = Inputs.Lspan;
                 dgv[2, 16].Value = Lspan;
+                dgv[2, 16].Style.ForeColor = Color.Red;
+
                 //17	Parapet height:	Hpar =	3.5	ft
                 var Hpar = Inputs.Hpar;
                 dgv[2, 17].Value = Hpar;
+                dgv[2, 17].Style.ForeColor = Color.Red;
+
                 //18	Deck overhang thickness:	to =	9	ft
                 //var _to = 9;
                 //dgv[2, 18].Value = _to;
@@ -8273,6 +8475,8 @@ namespace LimitStateMethod.Composite
                 #region pier Design
                 //5	Maximum possible length of footing	L =	46.875	ft
                 dgv[2, 5].Value = Inputs.Lspan.ToString();
+                dgv[2, 5].Style.ForeColor = Color.Red;
+
                 #endregion For abutment Design
 
             }
@@ -9163,14 +9367,14 @@ namespace LimitStateMethod.Composite
                 if (!Directory.Exists(user_path))
                     Directory.CreateDirectory(user_path);
 
-                string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
 
-                usp = Path.Combine(usp, "ORTHOTROPIC ANALYSIS");
 
-                if (!Directory.Exists(usp))
-                    Directory.CreateDirectory(usp);
+                //string usp = Path.Combine(user_path, "ORTHOTROPIC ANALYSIS");
 
-                string inp_file = Path.Combine(usp, "INPUT_DATA.TXT");
+                //if (!Directory.Exists(usp))
+                //    Directory.CreateDirectory(usp);
+
+                string inp_file = Get_Input_File((int)AnalysisType);
 
                 Analysis_Initialize_InputData();
 
@@ -9178,12 +9382,11 @@ namespace LimitStateMethod.Composite
 
 
 
-                if (!Directory.Exists(usp))
-                    Directory.CreateDirectory(usp);
 
 
                 //Calculate_Load_Computation();
-                Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+                //Bridge_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+                Bridge_Analysis.Input_File = inp_file;
                 Bridge_Analysis.Start_Support = ortho.Start_Support_Text;
                 Bridge_Analysis.End_Support = ortho.END_Support_Text;
                 if (iApp.DesignStandard == eDesignStandard.LRFDStandard)

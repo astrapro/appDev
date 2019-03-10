@@ -5604,7 +5604,6 @@ namespace AstraInterface.DataStructure
                     #region Chiranjit [2013 05 04]
                     #endregion Chiranjit [2013 05 04]
 
-
                     if (is_long_girder)
                     {
                         Member m = structure.Get_Member(list_beams[j].BeamNo);

@@ -1709,8 +1709,6 @@
             // chk_footpath
             // 
             this.chk_footpath.AutoSize = true;
-            this.chk_footpath.Checked = true;
-            this.chk_footpath.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_footpath.Location = new System.Drawing.Point(6, 179);
             this.chk_footpath.Name = "chk_footpath";
             this.chk_footpath.Size = new System.Drawing.Size(177, 17);
@@ -1809,8 +1807,6 @@
             // chk_crash_barrier
             // 
             this.chk_crash_barrier.AutoSize = true;
-            this.chk_crash_barrier.Checked = true;
-            this.chk_crash_barrier.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_crash_barrier.Location = new System.Drawing.Point(6, 96);
             this.chk_crash_barrier.Name = "chk_crash_barrier";
             this.chk_crash_barrier.Size = new System.Drawing.Size(131, 17);
@@ -2037,8 +2033,6 @@
             // chk_fp_left
             // 
             this.chk_fp_left.AutoSize = true;
-            this.chk_fp_left.Checked = true;
-            this.chk_fp_left.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_fp_left.ForeColor = System.Drawing.Color.Blue;
             this.chk_fp_left.Location = new System.Drawing.Point(217, 179);
             this.chk_fp_left.Name = "chk_fp_left";
@@ -2051,8 +2045,6 @@
             // chk_fp_right
             // 
             this.chk_fp_right.AutoSize = true;
-            this.chk_fp_right.Checked = true;
-            this.chk_fp_right.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chk_fp_right.ForeColor = System.Drawing.Color.Blue;
             this.chk_fp_right.Location = new System.Drawing.Point(315, 179);
             this.chk_fp_right.Name = "chk_fp_right";
@@ -5351,7 +5343,7 @@
             this.groupBox39.ForeColor = System.Drawing.Color.Black;
             this.groupBox39.Location = new System.Drawing.Point(273, 33);
             this.groupBox39.Name = "groupBox39";
-            this.groupBox39.Size = new System.Drawing.Size(656, 464);
+            this.groupBox39.Size = new System.Drawing.Size(778, 464);
             this.groupBox39.TabIndex = 7;
             this.groupBox39.TabStop = false;
             this.groupBox39.Text = "Define Vehicle Axle Loads";
@@ -5416,7 +5408,7 @@
             this.dgv_long_liveloads.Location = new System.Drawing.Point(3, 33);
             this.dgv_long_liveloads.Name = "dgv_long_liveloads";
             this.dgv_long_liveloads.RowHeadersWidth = 21;
-            this.dgv_long_liveloads.Size = new System.Drawing.Size(650, 428);
+            this.dgv_long_liveloads.Size = new System.Drawing.Size(772, 428);
             this.dgv_long_liveloads.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn2

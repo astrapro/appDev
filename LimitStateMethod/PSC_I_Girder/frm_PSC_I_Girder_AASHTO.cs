@@ -37,7 +37,7 @@ namespace LimitStateMethod.PSC_I_Girder
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     return "PSC I-GIRDER BRIDGE LIMIT STATE [BS]";
                 else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                    return "PSC I-GIRDER BRIDGE LIMIT STATE [LRFD]";
+                    return "PSC I-GIRDER BRIDGE LIMIT STATE [AASHTO - LRFD]";
                 return "PSC I-GIRDER BRIDGE LIMIT STATE [IRC]";
             }
         }

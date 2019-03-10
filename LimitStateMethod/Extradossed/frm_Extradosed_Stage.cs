@@ -13513,6 +13513,11 @@ namespace LimitStateMethod.Extradossed
 
         }
 
+        private void uC_RCC_Abut1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 
 }

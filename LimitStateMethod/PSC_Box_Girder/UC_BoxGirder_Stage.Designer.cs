@@ -431,7 +431,6 @@
             // 
             // btn_Process_LL_Analysis
             // 
-            this.btn_Process_LL_Analysis.Enabled = false;
             this.btn_Process_LL_Analysis.Location = new System.Drawing.Point(329, 77);
             this.btn_Process_LL_Analysis.Name = "btn_Process_LL_Analysis";
             this.btn_Process_LL_Analysis.Size = new System.Drawing.Size(150, 40);

@@ -633,7 +633,8 @@ namespace AstraFunctionOne
                 IsAASTHO = true;
                 //IsAASTHO = false;
                 //bool IsDemo = true;
-                DesignStandard = eDesignStandard.BritishStandard;
+                //DesignStandard = eDesignStandard.BritishStandard;
+                DesignStandard = eDesignStandard.Unknown;
                 Version_Type = LockProgram.Get_LockedVersion();
 
                 IsDemo = (Version_Type == eVersionType.Demo);
@@ -4383,8 +4384,12 @@ namespace AstraFunctionOne
             }
             if (DesignStandard == eDesignStandard.IndianStandard)
                 this.Text = "ASTRA Pro [IS] " + ASTRA_Pro;
-            else
+            else if (DesignStandard == eDesignStandard.BritishStandard)
                 this.Text = "ASTRA Pro [BS] " + ASTRA_Pro;
+            else if (DesignStandard == eDesignStandard.LRFDStandard)
+                this.Text = "ASTRA Pro [AASHTO-LRFD] " + ASTRA_Pro;
+            else
+                this.Text = "ASTRA Pro ";
 
         }
         //Moving Load Data
@@ -6626,16 +6631,26 @@ namespace AstraFunctionOne
             for (int i = 0; i < prv.Joints.Count; i++)
             {
                 var jnt = prv.Joints[i];
-                jnt.X += nr[i].X_Translation;
+                if (Math.Abs(nr[i].X_Translation) < 10)
+                    jnt.X += nr[i].X_Translation;
+
                 if (IsYCoordinateCheck)
                 {
                     if (Math.Abs(jnt.Y) < 1)
-                        jnt.Y += nr[i].Y_Translation;
+                    {
+                        if (Math.Abs(nr[i].Y_Translation) < 10)
+                            jnt.Y += nr[i].Y_Translation;
+                    }
                 }
                 else
-                    jnt.Y += nr[i].Y_Translation;
+                {
+
+                    if (Math.Abs(nr[i].Y_Translation) < 10)
+                        jnt.Y += nr[i].Y_Translation;
+                }
                 //jnt.Y += nr[i].Y_Translation + Math.Abs(minY);
-                jnt.Z += nr[i].Z_Translation;
+                if (Math.Abs(nr[i].Y_Translation) < 10)
+                    jnt.Z += nr[i].Z_Translation;
 
                 //lst_delf.Add(jnt.ToString());
 

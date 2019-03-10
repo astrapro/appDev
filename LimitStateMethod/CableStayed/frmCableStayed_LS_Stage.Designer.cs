@@ -2481,7 +2481,7 @@
             this.txt_Ana_Ds.Name = "txt_Ana_Ds";
             this.txt_Ana_Ds.Size = new System.Drawing.Size(58, 21);
             this.txt_Ana_Ds.TabIndex = 5;
-            this.txt_Ana_Ds.Text = "0.210";
+            this.txt_Ana_Ds.Text = "0.220";
             this.txt_Ana_Ds.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_Ds.TextChanged += new System.EventHandler(this.txt_L1_TextChanged);
             // 
@@ -2510,7 +2510,7 @@
             this.txt_Ana_CW.Name = "txt_Ana_CW";
             this.txt_Ana_CW.Size = new System.Drawing.Size(58, 21);
             this.txt_Ana_CW.TabIndex = 9;
-            this.txt_Ana_CW.Text = "10.00";
+            this.txt_Ana_CW.Text = "17.0";
             this.txt_Ana_CW.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_Ana_CW.TextChanged += new System.EventHandler(this.txt_L1_TextChanged);
             // 
@@ -2603,7 +2603,7 @@
             this.txt_B.Name = "txt_B";
             this.txt_B.Size = new System.Drawing.Size(57, 21);
             this.txt_B.TabIndex = 5;
-            this.txt_B.Text = "13.15";
+            this.txt_B.Text = "20.20";
             this.txt_B.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txt_B.TextChanged += new System.EventHandler(this.txt_L1_TextChanged);
             // 
@@ -3137,8 +3137,9 @@
             this.txt_n.Name = "txt_n";
             this.txt_n.Size = new System.Drawing.Size(58, 21);
             this.txt_n.TabIndex = 8;
-            this.txt_n.Text = "4";
+            this.txt_n.Text = "8";
             this.txt_n.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txt_n.TextChanged += new System.EventHandler(this.txt_n_TextChanged);
             // 
             // label9
             // 
@@ -10611,7 +10612,7 @@
             this.btn_drawing.Name = "btn_drawing";
             this.btn_drawing.Size = new System.Drawing.Size(335, 60);
             this.btn_drawing.TabIndex = 76;
-            this.btn_drawing.Text = "Cable Stayed Bridge Drawing";
+            this.btn_drawing.Text = "Sample Editable Construction Drawings";
             this.btn_drawing.UseVisualStyleBackColor = true;
             this.btn_drawing.Click += new System.EventHandler(this.btn_drawing_Click);
             // 

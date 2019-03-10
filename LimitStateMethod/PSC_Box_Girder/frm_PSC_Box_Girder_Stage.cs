@@ -3428,7 +3428,6 @@ namespace LimitStateMethod.PSC_Box_Girder
         private void Open_Project()
         {
 
-
             //Chiranjit [2014 10 08]
             #region Select Design Option
 
@@ -3437,7 +3436,8 @@ namespace LimitStateMethod.PSC_Box_Girder
                 IsCreate_Data = false;
 
 
-                string chk_file = Path.Combine(user_path, "INPUT_DATA.TXT");
+                //string chk_file = Path.Combine(user_path, "INPUT_DATA.TXT");
+                string chk_file = Get_Input_File(eAnalysis.Normal);
 
                 Segment_Girder.FilePath = user_path;
                 uC_RCC_Abut1.iApp = iApp;
@@ -7488,7 +7488,6 @@ namespace LimitStateMethod.PSC_Box_Girder
 
             #endregion
         }
-
 
         string Get_Girder_File(int index, int stage)
         {

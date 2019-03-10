@@ -1659,7 +1659,7 @@
             // 
             // txt_ds_d_total
             // 
-            this.txt_ds_d_total.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.txt_ds_d_total.BackColor = System.Drawing.Color.White;
             this.txt_ds_d_total.ForeColor = System.Drawing.Color.Blue;
             this.txt_ds_d_total.Location = new System.Drawing.Point(645, 41);
             this.txt_ds_d_total.Name = "txt_ds_d_total";
@@ -1667,7 +1667,6 @@
             this.txt_ds_d_total.TabIndex = 10;
             this.txt_ds_d_total.Text = "205";
             this.txt_ds_d_total.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txt_ds_d_total.TextChanged += new System.EventHandler(this.txt_Deckslab_TextChanged);
             // 
             // label78
             // 

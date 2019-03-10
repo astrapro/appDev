@@ -33,7 +33,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     return "RCC T-GIRDER BRIDGE LIMIT STATE [BS]";
                 else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                    return "RCC T-GIRDER BRIDGE LIMIT STATE [LRFD]";
+                    return "RCC T-GIRDER BRIDGE LIMIT STATE [AASHTO - LRFD]";
 
                 return "RCC T-GIRDER BRIDGE LIMIT STATE [IRC]";
             }
@@ -613,11 +613,15 @@ namespace LimitStateMethod.RCC_T_Girder
                 //user_path = Path.Combine(iApp.LastDesignWorkingFolder, Title);
 
                 string usp = Path.Combine(user_path, "ANALYSIS PROCESS");
-                if (Directory.Exists(usp))
-                {
-                    chk_file = Path.Combine(usp, "INPUT_DATA.TXT");
-                    Long_Girder_Analysis.Input_File = chk_file;
-                }
+                //if (Directory.Exists(usp))
+                //{
+                //    chk_file = Path.Combine(usp, "INPUT_DATA.TXT");
+                //    Long_Girder_Analysis.Input_File = chk_file;
+                //}
+
+                chk_file = Get_Input_File(eAnalysis.Normal);
+                Long_Girder_Analysis.Input_File = chk_file;
+
 
                 Ana_OpenAnalysisFile(chk_file);
 
@@ -15302,11 +15306,11 @@ namespace LimitStateMethod.RCC_T_Girder
             {
                 Deck_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
             }
-            usp = Path.Combine(user_path, "ANALYSIS PROCESS");
-            if (Directory.Exists(usp))
-            {
-                Long_Girder_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
-            }
+            //usp = Path.Combine(user_path, "ANALYSIS PROCESS");
+            //if (Directory.Exists(usp))
+            //{
+            //    Long_Girder_Analysis.Input_File = Path.Combine(usp, "INPUT_DATA.TXT");
+            //}
 
 
             if (File.Exists(analysis_file))

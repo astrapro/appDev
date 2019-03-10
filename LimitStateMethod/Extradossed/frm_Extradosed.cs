@@ -36,7 +36,7 @@ namespace LimitStateMethod.Extradossed
                     if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                         return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS  [BS]";
                     if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                        return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [LRFD]";
+                        return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [AASHTO - LRFD]";
                     return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [IRC]";
                 }
                 else if (Project_Type == eASTRADesignType.Extradossed_Central_Towers_Bridge_LS)
@@ -44,7 +44,7 @@ namespace LimitStateMethod.Extradossed
                     if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                         return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER [BS]";
                     if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                        return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [LRFD]";
+                        return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [AASHTO - LRFD]";
                     return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [IRC]";
                 }
                 return "EXTRADOSED CABLE STAYED BRIDGE [IRC]";

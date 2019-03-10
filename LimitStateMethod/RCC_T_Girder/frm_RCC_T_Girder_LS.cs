@@ -34,7 +34,7 @@ namespace LimitStateMethod.RCC_T_Girder
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     return "RCC T-GIRDER BRIDGE LIMIT STATE [BS]";
                 else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                    return "RCC T-GIRDER BRIDGE LIMIT STATE [LRFD]";
+                    return "RCC T-GIRDER BRIDGE LIMIT STATE [AASHTO - LRFD]";
 
                 return "RCC T-GIRDER BRIDGE LIMIT STATE [IRC]";
             }

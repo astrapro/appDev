@@ -15398,7 +15398,8 @@ namespace LimitStateMethod.Composite
 
 
 
-                    string chk_file = Path.Combine(user_path, "INPUT_DATA.TXT");
+                    //string chk_file = Path.Combine(user_path, "INPUT_DATA.TXT");
+                    string chk_file = Get_Input_File(eAnalysis.Normal);
 
                     //if (!File.Exists(chk_file)) chk_file = ofd.FileName;
 

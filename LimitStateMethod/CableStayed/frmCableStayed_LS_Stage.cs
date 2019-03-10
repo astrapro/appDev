@@ -11710,7 +11710,7 @@ namespace LimitStateMethod.CableStayed
                 tabControl2.TabPages.Remove(tabPage4);
 
 
-
+                uC_CompositeBridgeLSM1.txt_GEN_G17.Text = "2.70";
 
                 uC_RCC_Abut1.iApp = iApp;
                 uC_RCC_Abut1.Load_Data();
@@ -15559,7 +15559,7 @@ namespace LimitStateMethod.CableStayed
             catch (Exception ex) { }
             Button_Enable_Disable();
         }
-
+        
         private void btn__Click(object sender, EventArgs e)
         {
             frm_ProblemDescription f = new frm_ProblemDescription();
@@ -15616,7 +15616,7 @@ namespace LimitStateMethod.CableStayed
             uC_CompositeBridgeLSM1.txt_GEN_G3.ForeColor = Color.Red;
 
 
-            uC_CompositeBridgeLSM1.txt_GEN_G10.Text = txt_B.Text;
+            uC_CompositeBridgeLSM1.txt_GEN_G10.Text =  txt_B.Text;
             uC_CompositeBridgeLSM1.txt_GEN_G10.ForeColor = Color.Red;
 
 
@@ -15709,7 +15709,7 @@ namespace LimitStateMethod.CableStayed
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 15].Value = txt_Ana_Dw.Text;
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 15].Style.ForeColor = Color.Red;
 
-                uC_Deckslab_IS1.dgv_deck_user_input[1, 16].Value = txt_n.Text;
+                uC_Deckslab_IS1.dgv_deck_user_input[1, 16].Value = MyList.StringToInt(txt_n.Text, 8)/2;
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 16].Style.ForeColor = Color.Red;
 
                 uC_Deckslab_IS1.dgv_deck_user_input[1, 17].Value = Math.Max(MyList.StringToDouble(txt_Ana_wf.Text), MyList.StringToDouble(txt_Ana_Wf_RHS.Text)).ToString();
@@ -15732,13 +15732,17 @@ namespace LimitStateMethod.CableStayed
             }
             else
             {
-                uC_Deckslab_BS1.txt_ds_b1.Text = txt_B.Text;
+                //uC_Deckslab_BS1.txt_ds_b1.Text = ((MyList.StringToDouble(txt_B.Text) - MyList.StringToDouble(txt_Ana_Wc_LHS.Text) - MyList.StringToDouble(txt_Ana_Wc_RHS.Text)) / 2).ToString();
+                uC_Deckslab_BS1.txt_ds_b1.Text = ((MyList.StringToDouble(txt_B.Text) - MyList.StringToDouble(txt_Ana_Wc_LHS.Text) - MyList.StringToDouble(txt_Ana_Wc_RHS.Text)) / 2).ToString();
                 uC_Deckslab_BS1.txt_ds_b1.ForeColor = Color.Red;
 
 
-                uC_Deckslab_BS1.txt_ds_b.Text = txt_B.Text;
+                //uC_Deckslab_BS1.txt_ds_b.Text = txt_B.Text;
+                uC_Deckslab_BS1.txt_ds_b.Text = ((MyList.StringToDouble(txt_B.Text) - MyList.StringToDouble(txt_Ana_Wc_LHS.Text) - MyList.StringToDouble(txt_Ana_Wc_RHS.Text)) / 2).ToString();
                 uC_Deckslab_BS1.txt_ds_b.ForeColor = Color.Red;
 
+                uC_Deckslab_BS1.txt_ds_cs.Text = txt_Ana_Ds.Text;
+                uC_Deckslab_BS1.txt_ds_cs.ForeColor = Color.Red;
 
                 uC_Deckslab_BS1.txt_ds_cl.Text = txt_d1.Text;
                 uC_Deckslab_BS1.txt_ds_cl.ForeColor = Color.Red;
@@ -15756,10 +15760,19 @@ namespace LimitStateMethod.CableStayed
 
 
 
+
+                uC_Deckslab_BS1.txt_ds_h.Text = (MyList.StringToDouble(txt_Ana_Ds)*1000).ToString();
+                uC_Deckslab_BS1.txt_ds_h.ForeColor = Color.Red;
+
+
+
                 uC_Deckslab_BS1.txt_ds_d.Text = (MyList.StringToDouble(uC_Deckslab_BS1.txt_ds_d_total) - MyList.StringToDouble(uC_Deckslab_BS1.txt_ds_cover) - MyList.StringToDouble(uC_Deckslab_BS1.txt_ds_bar_dia) / 2).ToString("f2");
+                uC_Deckslab_BS1.txt_ds_d.ForeColor = Color.Red;
                 //uC_Deckslab_BS1.txt_ds_d.Text = txt_ds_d_total - txt_ds_cover - txt_ds_bar_dia/2
 
-
+                uC_Deckslab_BS1.txt_ds_girder_no.Text = (MyList.StringToInt(txt_n.Text) / 2).ToString();
+                uC_Deckslab_BS1.txt_ds_girder_no.ForeColor = Color.Red;
+                
             }
 
 
@@ -15811,6 +15824,17 @@ namespace LimitStateMethod.CableStayed
 
             dgv[1, 10].Value = txt_Ana_Dw.Text;
             dgv[1, 10].Style.ForeColor = Color.Red;
+
+
+
+
+            dgv[1, 33].Value = txt_B.Text;
+            dgv[1, 33].Style.ForeColor = Color.Red;
+
+
+            dgv[1, 45].Value = txt_B.Text;
+            dgv[1, 45].Style.ForeColor = Color.Red;
+
 
             dgv[1, 84].Value = Math.Max(MyList.StringToDouble(txt_Ana_wf), MyList.StringToDouble(txt_Ana_Wf_RHS));
             dgv[1, 84].Style.ForeColor = Color.Red;
@@ -15883,6 +15907,10 @@ namespace LimitStateMethod.CableStayed
             uC_AbutmentPileLS1.textBox4.Text = txt_B.Text;
             uC_AbutmentPileLS1.textBox4.ForeColor = Color.Red;
 
+
+
+            uC_AbutmentPileLS1.txt_xls_inp_E17.Text = txt_B.Text;
+            uC_AbutmentPileLS1.txt_xls_inp_E17.ForeColor = Color.Red;
 
             #endregion Abutment with Open Foundation
 
@@ -15975,6 +16003,18 @@ namespace LimitStateMethod.CableStayed
 
             uC_PierOpenLS1.txt_xls_inp_I22.Text = (MyList.StringToDouble(txt_Ana_Dw.Text) * 1000).ToString();
             uC_PierOpenLS1.txt_xls_inp_I22.ForeColor = Color.Red;
+
+
+
+            uC_PierOpenLS1.txt_xls_inp_G31.Text = (MyList.StringToDouble(txt_nos_centre_cable.Text)).ToString();
+            uC_PierOpenLS1.txt_xls_inp_G31.ForeColor = Color.Red;
+
+
+            uC_PierOpenLS1.txt_xls_inp_I31.Text = (MyList.StringToDouble(txt_nos_centre_cable.Text)).ToString();
+            uC_PierOpenLS1.txt_xls_inp_I31.ForeColor = Color.Red;
+
+            
+
 
 
             //uC_PierOpenLS1.txt_xls_inp_G25.Text = txt_Ana_DL_eff_depth.Text;
@@ -19099,10 +19139,17 @@ namespace LimitStateMethod.CableStayed
 
                     if (!chk_fp_right.Checked)
                     {
-                        txt_Ana_Hf_RHS.Enabled = false;
-                        txt_Ana_Wf_RHS.Enabled = false;
-                        txt_Ana_Hf_RHS.Text = "0.000";
-                        txt_Ana_Wf_RHS.Text = "0.000";
+                        txt_Ana_Wc_RHS.Enabled = false;
+                        txt_Ana_Hc_RHS.Enabled = false;
+                        txt_Ana_Wc_RHS.Text = "0.000";
+                        txt_Ana_Hc_RHS.Text = "0.000";
+
+
+
+                        //txt_Ana_Hf_RHS.Enabled = false;
+                        //txt_Ana_Wf_RHS.Enabled = false;
+                        //txt_Ana_Hf_RHS.Text = "0.000";
+                        //txt_Ana_Wf_RHS.Text = "0.000";
                     }
                     else
                     {
@@ -20180,6 +20227,11 @@ namespace LimitStateMethod.CableStayed
         private void rbtn_ssprt_pinned_CheckedChanged(object sender, EventArgs e)
         {
             SupportChanged();
+        }
+
+        private void txt_n_TextChanged(object sender, EventArgs e)
+        {
+            Change_Data();
         }
 
 

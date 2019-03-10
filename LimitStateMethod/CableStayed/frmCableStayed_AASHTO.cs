@@ -77,7 +77,7 @@ namespace LimitStateMethod.CableStayed
                 if (iApp.DesignStandard == eDesignStandard.BritishStandard)
                     return "CABLE STAYED BRIDGE [BS]";
                 else if (iApp.DesignStandard == eDesignStandard.LRFDStandard)
-                    return "CABLE STAYED BRIDGE [LRFD]";
+                    return "CABLE STAYED BRIDGE [AASHTO - LRFD]";
                 return "CABLE STAYED BRIDGE [IRC]";
             }
         }
@@ -11033,7 +11033,7 @@ namespace LimitStateMethod.CableStayed
                 tc_analysis.TabPages.Remove(tab_cable_design);
                 tc_analysis.TabPages.Remove(tab_drawing);
 
-                tc_main.TabPages.Add(tab_cable_design);
+                //tc_main.TabPages.Add(tab_cable_design);
 
                 #region Add Composite Input Data
 
@@ -14790,12 +14790,13 @@ namespace LimitStateMethod.CableStayed
 
             //txt_Ana_LL_load_gen.Text = (len / xinc).ToString("f0");
 
-
-            dgv_SIDL[1, 0].Value = L1;
-            dgv_SIDL[1, 1].Value = L2;
-            dgv_SIDL[1, 2].Value = L1;
-            dgv_SIDL[1, 3].Value = L2;
-
+            if (dgv_SIDL.RowCount > 4)
+            {
+                dgv_SIDL[1, 0].Value = L1;
+                dgv_SIDL[1, 1].Value = L2;
+                dgv_SIDL[1, 2].Value = L1;
+                dgv_SIDL[1, 3].Value = L2;
+            }
 
             Change_Cable_numbers();
             ChangeData();
@@ -16867,7 +16868,7 @@ namespace LimitStateMethod.CableStayed
 
                     Open_AnalysisFile();
                     Show_ReadMemberLoad(Input_Data);
-
+                    ChangeData();
                     MessageBox.Show(this, "File opened succesfully.", "ASTRA", MessageBoxButtons.OK);
 
 

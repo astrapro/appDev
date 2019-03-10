@@ -339,11 +339,23 @@
     <Compile Include="PSC_Box_Girder\UC_BoxGirder_Results.Designer.cs">
       <DependentUpon>UC_BoxGirder_Results.cs</DependentUpon>
     </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Results_AASHTO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Results_AASHTO.Designer.cs">
+      <DependentUpon>UC_BoxGirder_Results_AASHTO.cs</DependentUpon>
+    </Compile>
     <Compile Include="PSC_Box_Girder\UC_BoxGirder_Stage.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PSC_Box_Girder\UC_BoxGirder_Stage.Designer.cs">
       <DependentUpon>UC_BoxGirder_Stage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Stage_AASHTO.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PSC_Box_Girder\UC_BoxGirder_Stage_AASHTO.Designer.cs">
+      <DependentUpon>UC_BoxGirder_Stage_AASHTO.cs</DependentUpon>
     </Compile>
     <Compile Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.cs">
       <SubType>Form</SubType>
@@ -768,8 +780,14 @@
     <EmbeddedResource Include="PSC_Box_Girder\UC_BoxGirder_Results.resx">
       <DependentUpon>UC_BoxGirder_Results.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PSC_Box_Girder\UC_BoxGirder_Results_AASHTO.resx">
+      <DependentUpon>UC_BoxGirder_Results_AASHTO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PSC_Box_Girder\UC_BoxGirder_Stage.resx">
       <DependentUpon>UC_BoxGirder_Stage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PSC_Box_Girder\UC_BoxGirder_Stage_AASHTO.resx">
+      <DependentUpon>UC_BoxGirder_Stage_AASHTO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PSC_I_Girder\frm_PSC_I_Girder_AASHTO.resx">
       <DependentUpon>frm_PSC_I_Girder_AASHTO.cs</DependentUpon>

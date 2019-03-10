@@ -32,11 +32,11 @@ namespace LimitStateMethod.Extradossed
             {
                 if (Project_Type == eASTRADesignType.Extradossed_Side_Towers_Bridge_LS)
                 {
-                    return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [LRFD]";
+                    return "EXTRADOSED CABLE STAYED BRIDGE WITH EITHER SIDE TOWERS [AASHTO-LRFD]";
                 }
                 else if (Project_Type == eASTRADesignType.Extradossed_Central_Towers_Bridge_LS)
                 {
-                    return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [LRFD]";
+                    return "EXTRADOSED CABLE STAYED BRIDGE WITH CENTRAL TOWER  [AASHTO-LRFD]";
                 }
                 return "EXTRADOSED CABLE STAYED BRIDGE [LRFD]";
             }
@@ -579,6 +579,7 @@ namespace LimitStateMethod.Extradossed
         }
         void Show_and_Save_Data_Load_1_2_3()
         {
+            analysis_rep = MyList.Get_Analysis_Report_File(Extradosed.DeadLoadAnalysis_Input_File);
 
             if (!File.Exists(analysis_rep)) return;
 
@@ -718,7 +719,7 @@ namespace LimitStateMethod.Extradossed
                 _mx = mx.Force;
                 _mz = mz.Force;
 
-                sr = support_reactions.Get_Data(mlist.GetInt(i));
+                //sr = support_reactions.Get_Data(mlist.GetInt(i));
                 dgv_right.Rows.Add(_jnt_no, Math.Abs(_vert_load), _mx, _mz);
 
                 tot_right_vert_reac += Math.Abs(_vert_load);
@@ -1278,7 +1279,6 @@ namespace LimitStateMethod.Extradossed
                     Deck_Analysis_DL.Bridge_Analysis = new BridgeMemberAnalysis(iApp, ana_rep_file);
                 }
 
-
                 ana_rep_file = MyList.Get_Analysis_Report_File(Deck_Analysis_LL.Input_File);
 
                 if (File.Exists(ana_rep_file))
@@ -1328,16 +1328,17 @@ namespace LimitStateMethod.Extradossed
             Show_Moment_Shear_DL();
             Show_Moment_Shear_LL();
 
+
             Show_ReactionForces();
 
             Show_Analysis_Result();
 
 
-            grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
 
-            grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
+            //grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
 
             iApp.Save_Form_Record(this, user_path);
 
@@ -1426,7 +1427,8 @@ namespace LimitStateMethod.Extradossed
             catch (Exception ex) { }
             //double BB = MyList.StringToDouble(txt_Abut_B.Text, 8.5);
             double BB = B;
-
+            Left_support = s1.Replace(",", " ");
+            Right_support = s2.Replace(",", " ");
 
             Show_and_Save_Data_Load_1_2_3();
 
@@ -1541,8 +1543,8 @@ namespace LimitStateMethod.Extradossed
         private void rbtn_Ana_select_analysis_file_CheckedChanged(object sender, EventArgs e)
         {
             //grb_create_input_data.Enabled = rbtn_create_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
-            btn_Ana_DL_create_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
+            //btn_Ana_DL_create_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
             Button_Enable_Disable();
         }
 
@@ -1817,7 +1819,7 @@ namespace LimitStateMethod.Extradossed
                     Segment_Girder.FilePath = user_path;
                     rcc_pier.FilePath = user_path;
 
-                    txt_Ana_analysis_file.Text = chk_file;
+                    //txt_Ana_analysis_file.Text = chk_file;
                     MessageBox.Show("Data Loaded successfully.", "ASTRA", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     //Chiranjit [2012 11 01]
@@ -5215,9 +5217,9 @@ namespace LimitStateMethod.Extradossed
 
                        // txt_Ana_skew_angle.Text = Deck_Analysis_LL.Bridge_Analysis.Analysis.Skew_Angle.ToString();
 
-                        txt_gd_np.Text = (Deck_Analysis_LL.Bridge_Analysis.Analysis.NoOfPanels - 1).ToString("0");
-                        txt_Ana_analysis_file.Visible = true;
-                        txt_Ana_analysis_file.Text = analysis_file;
+                        //txt_gd_np.Text = (Deck_Analysis_LL.Bridge_Analysis.Analysis.NoOfPanels - 1).ToString("0");
+                        //txt_Ana_analysis_file.Visible = true;
+                        //txt_Ana_analysis_file.Text = analysis_file;
                         //MessageBox.Show(this, "File opened successfully.");
                     }
                     else
@@ -5380,6 +5382,7 @@ namespace LimitStateMethod.Extradossed
             chk_footpath.Checked = false;
             chk_footpath.Checked = true;
             chk_fp_right.Checked = false;
+            SupportChanged();
 
         }
 
@@ -5434,7 +5437,7 @@ namespace LimitStateMethod.Extradossed
                 Set_Segment_Data();
                 Segment_Girder.FilePath = user_path;
 
-                txt_Ana_analysis_file.Text = chk_file;
+                //txt_Ana_analysis_file.Text = chk_file;
 
 
                 if (iApp.IsDemo)
@@ -5504,7 +5507,7 @@ namespace LimitStateMethod.Extradossed
         {
 
             double len = L1;
-            lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1}m", len, len / 800);
+            lbl_max_delf.Text = string.Format("Span / 800 = {0}/800 = {1} ft", len, len / 800);
             uC_Stage_Extradosed_LRFD1.lbl_max_delf.Text = lbl_max_delf.Text;
             uC_Stage_Extradosed_LRFD2.lbl_max_delf.Text = lbl_max_delf.Text;
             uC_Stage_Extradosed_LRFD3.lbl_max_delf.Text = lbl_max_delf.Text;
@@ -5705,11 +5708,11 @@ namespace LimitStateMethod.Extradossed
                 Show_Moment_Shear_LL();
                 iApp.SetProgressValue(29, 100);
 
-                grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
-                grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
+                //grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
+                //grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
 
-                grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
-                grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
+                //grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
+                //grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
 
                 Button_Enable_Disable();
                 Show_Analysis_Result();
@@ -5732,11 +5735,11 @@ namespace LimitStateMethod.Extradossed
             }
             iApp.SetProgressValue(89, 100);
 
-            grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
 
-            grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
+            //grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
 
             Button_Enable_Disable();
             Show_Analysis_Result();
@@ -6543,35 +6546,38 @@ namespace LimitStateMethod.Extradossed
 
             #region Set File Name
 
-            string file_name = "";
-            if (Extradosed != null)
-            {
+            //string file_name = "";
+            //if (Extradosed != null)
+            //{
 
-                if (cmb_cable_type.SelectedIndex == 2)
-                {
+            //    if (cmb_cable_type.SelectedIndex == 2)
+            //    {
 
-                    if (cmb_long_open_file.SelectedIndex == 0)
-                        file_name = Deck_Analysis_DL.Input_File;
-                    else if (cmb_long_open_file.SelectedIndex == 1)
-                        file_name = Deck_Analysis_LL.Input_File;
-                }
-                else
-                {
-                    if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
-                    {
-                        if (cmb_long_open_file.SelectedIndex == 0)
-                            file_name = Extradosed.DeadLoadAnalysis_Input_File;
-                        else
-                            file_name = Get_Live_Load_Analysis_Input_File(cmb_long_open_file.SelectedIndex);
-                    }
-                    else
-                    {
-                        file_name = Result_Report_LL;
-                    }
-                }
-            }
+            //        if (cmb_long_open_file.SelectedIndex == 0)
+            //            file_name = Deck_Analysis_DL.Input_File;
+            //        else if (cmb_long_open_file.SelectedIndex == 1)
+            //            file_name = Deck_Analysis_LL.Input_File;
+            //    }
+            //    else
+            //    {
+            //        if (cmb_long_open_file.SelectedIndex < cmb_long_open_file.Items.Count)
+            //        {
+            //            if (cmb_long_open_file.SelectedIndex == 0)
+            //                file_name = Extradosed.DeadLoadAnalysis_Input_File;
+            //            else
+            //                file_name = Get_Live_Load_Analysis_Input_File(cmb_long_open_file.SelectedIndex);
+            //        }
+            //        else
+            //        {
+            //            file_name = Result_Report_LL;
+            //        }
+            //    }
+            //}
 
             #endregion Set File Name
+
+
+            string file_name = Get_Long_Girder_File(cmb_long_open_file.SelectedIndex, (int)AnalysisType);
 
             btn_view_data.Enabled = File.Exists(file_name);
             btn_view_postProcess.Enabled = File.Exists(MyList.Get_Analysis_Report_File(file_name));
@@ -6867,11 +6873,15 @@ namespace LimitStateMethod.Extradossed
             else
             {
                 #region Set File Name
-                if (index < ucStage.cmb_long_open_file.Items.Count)
+
+                int count = cmb_long_open_file.Items.Count;
+                if(stage > 0)
+                    count = ucStage.cmb_long_open_file.Items.Count;
+                if (index < count)
                 {
                     if (index == 0)
                         file_name = Extradosed.DeadLoadAnalysis_Input_File;
-                    else if (index == ucStage.cmb_long_open_file.Items.Count - 1)
+                    else if (index == count - 1)
                         file_name = Extradosed.TotalAnalysis_Input_File;
                     else
                     {
@@ -8071,11 +8081,11 @@ namespace LimitStateMethod.Extradossed
 
             Show_ReactionForces();
 
-            grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_create_input_data.Enabled = rbtn_Ana_DL_create_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = !rbtn_Ana_DL_create_analysis_file.Checked;
 
-            grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
-            grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
+            //grb_create_input_data.Enabled = !rbtn_Ana_DL_select_analysis_file.Checked;
+            //grb_Ana_DL_select_analysis.Enabled = rbtn_Ana_DL_select_analysis_file.Checked;
 
             iApp.Save_Form_Record(this, user_path);
 
@@ -8475,6 +8485,9 @@ namespace LimitStateMethod.Extradossed
             txt_box_cs2_AX.Text = aashto_box.AX.ToString("f0");
             txt_box_cs2_IXX.Text = aashto_box.IXX.ToString("f0");
             txt_box_cs2_IYY.Text = aashto_box.IYY.ToString("f0");
+            txt_box_cs2_IZZ.Text = (aashto_box.IXX + aashto_box.IYY).ToString("f0");
+
+
         }
 
         private void txt_box_cs2_cell_nos_TextChanged(object sender, EventArgs e)
@@ -17434,7 +17447,7 @@ namespace LimitStateMethod.Extradossed
                     //joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, (DLCJN)));
                     //joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, ((DLSJN * (Cable_x_dist + Init_dist) * 2))));
                     //joint_loads.Add(string.Format("{0} FX  -{1:f3}", item, ((DLSJN))));
-                    joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, (DLCJN + DLSJN)));
+                    joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, (DLCJN + DLSJN) / 12));
 
                 }
                 foreach (var item in side_load_joints)
@@ -17442,7 +17455,7 @@ namespace LimitStateMethod.Extradossed
                     //joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, (DLSJN)));
                     //joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, ((DLSJN * 2 * (Cable_x_dist + Init_dist)))));
                     //joint_loads.Add(string.Format("{0} FX  -{1:f3}", item, ((DLSJN))));
-                    joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, (DLCJN + DLSJN)));
+                    joint_loads.Add(string.Format("{0} FY  -{1:f3}", item, (DLCJN + DLSJN) / 12));
                 }
 
                 #endregion Joint Loads
@@ -17454,7 +17467,7 @@ namespace LimitStateMethod.Extradossed
             joint_loads.Add(string.Format("MEMBER LOAD"));
             ss = MyList.Get_Array_Text(Cable_members);
 
-            joint_loads.Add(string.Format("{0} UNI GX {1:f3}", ss, DLSJN));
+            joint_loads.Add(string.Format("{0} UNI GX {1:f3}", ss, DLSJN  / 96));
 
             #endregion Applied Load on Cable Member
 
@@ -17501,12 +17514,37 @@ namespace LimitStateMethod.Extradossed
                 }
                 else
                 {
+
+
+                    //joint_loads.Add(string.Format("{0} TO {1} UNI GY  -{2:f3}",
+                    //   Long_Girder_Members_Array[2, 0].MemberNo
+                    //    //, Long_Girder_Members_Array[0, _Columns - 2].MemberNo
+                    //   , Long_Girder_Members_Array[2, _Columns - 2].MemberNo
+                    //    //, ((2*DLSS + DLCS)*10 / (L2))));
+                    //   , applied_load / 12));
+
+
+                    joint_loads.Add(string.Format("{0} TO {1} UNI GY  -{2:f3}",
+                       Long_Girder_Members_Array[1, 0].MemberNo
+                        //, Long_Girder_Members_Array[0, _Columns - 2].MemberNo
+                       , Long_Girder_Members_Array[1, _Columns - 2].MemberNo
+                        //, ((2*DLSS + DLCS)*10 / (L2))));
+                       , applied_load / 144));
+
+
                     joint_loads.Add(string.Format("{0} TO {1} UNI GY  -{2:f3}",
                        Long_Girder_Members_Array[2, 0].MemberNo
                         //, Long_Girder_Members_Array[0, _Columns - 2].MemberNo
                        , Long_Girder_Members_Array[2, _Columns - 2].MemberNo
                         //, ((2*DLSS + DLCS)*10 / (L2))));
-                       , applied_load / 12));
+                       , applied_load / 144));
+
+                    joint_loads.Add(string.Format("{0} TO {1} UNI GY  -{2:f3}",
+                       Long_Girder_Members_Array[3, 0].MemberNo
+                        //, Long_Girder_Members_Array[0, _Columns - 2].MemberNo
+                       , Long_Girder_Members_Array[3, _Columns - 2].MemberNo
+                        //, ((2*DLSS + DLCS)*10 / (L2))));
+                       , applied_load / 144));
                 }
             }
 

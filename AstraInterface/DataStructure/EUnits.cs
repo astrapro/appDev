@@ -25,6 +25,7 @@ namespace AstraInterface.DataStructure
     }
     public enum eDesignStandard
     {
+        Unknown = -1,
         IndianStandard = 0,
         BritishStandard = 1,
         LRFDStandard = 2,

@@ -6390,9 +6390,9 @@
             // 
             this.rtb_analysis_result.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtb_analysis_result.Font = new System.Drawing.Font("Lucida Console", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtb_analysis_result.Location = new System.Drawing.Point(3, 57);
+            this.rtb_analysis_result.Location = new System.Drawing.Point(3, 13);
             this.rtb_analysis_result.Name = "rtb_analysis_result";
-            this.rtb_analysis_result.Size = new System.Drawing.Size(908, 399);
+            this.rtb_analysis_result.Size = new System.Drawing.Size(908, 443);
             this.rtb_analysis_result.TabIndex = 108;
             this.rtb_analysis_result.Text = "";
             this.rtb_analysis_result.WordWrap = false;
@@ -6404,8 +6404,9 @@
             this.panel8.ForeColor = System.Drawing.Color.Black;
             this.panel8.Location = new System.Drawing.Point(3, 3);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(908, 54);
+            this.panel8.Size = new System.Drawing.Size(908, 10);
             this.panel8.TabIndex = 107;
+            this.panel8.Visible = false;
             // 
             // btn_update_forces
             // 

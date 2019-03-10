@@ -1963,6 +1963,8 @@ namespace LimitStateMethod.DeckSlab
         private void txt_Deckslab_TextChanged(object sender, EventArgs e)
         {
             Deckslab_Text_Changed();
+
+
         }
 
         private void Deckslab_Text_Changed()
@@ -1984,7 +1986,7 @@ namespace LimitStateMethod.DeckSlab
             txt_ld2_mem_len.Text = span_deckslab.ToString("f3");
 
 
-
+            txt_ds_d_total.Text = txt_ds_h.Text;
 
             double width_dispersion = span_deckslab - wheel_a1 / 1000.0 - 2 * d / 1000.0;
             //list.Add(string.Format("Dispersion width per wheel = width_dispersion  =  0.5911 m."));
